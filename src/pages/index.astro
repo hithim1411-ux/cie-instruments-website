@@ -1,0 +1,279 @@
+---
+import Base from '../layouts/Base.astro';
+import EyebrowLabel from '../components/EyebrowLabel.astro';
+import CTABand from '../components/CTABand.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import ProductCard from '../components/ProductCard.astro';
+import categories from '../data/categories.json';
+import products from '../data/products.json';
+
+const categoryCount = categories.map(cat => ({
+  ...cat,
+  count: products.filter(p => p.categoryId === cat.id).length,
+}));
+
+const featured = products.filter(p => p.featured);
+
+const trustPoints = [
+  {
+    icon: '🏭',
+    label: 'Built & Calibrated In-House',
+    body: 'Every instrument is manufactured and calibrated at our Howrah works — no outsourcing, no compromise on quality.',
+  },
+  {
+    icon: '📅',
+    label: '60+ Years of Service',
+    body: "Established 1963. Generations of engineers at India's utilities and railways have relied on the CIE® mark.",
+  },
+  {
+    icon: '🇮🇳',
+    label: 'Made in India',
+    body: 'Proudly designed and manufactured in Howrah, West Bengal, under the registered CIE® trade mark.',
+  },
+  {
+    icon: '🛡️',
+    label: '12-Month Warranty',
+    body: 'Every instrument carries a 12-month warranty against manufacturing defects, backed by direct after-sales support.',
+  },
+  {
+    icon: '🔧',
+    label: 'Custom Ranges to Order',
+    body: 'Non-standard voltage, resistance, or measurement ranges? We manufacture to your specific requirement.',
+  },
+  {
+    icon: '⚡',
+    label: 'Trusted by Power Utilities',
+    body: 'Preferred by PGCIL, DVC, WBSETCL, Indian Railways, and EPC contractors across India.',
+  },
+];
+
+const industries = [
+  { name: 'Power Utilities', desc: 'PGCIL, DVC, state electricity boards, generation companies', icon: '⚡' },
+  { name: 'Indian Railways', desc: 'Traction, signalling, and rolling stock testing requirements', icon: '🚂' },
+  { name: 'Substation Commissioning', desc: 'EPC contractors and commissioning engineers', icon: '🏗️' },
+  { name: 'Industry & Manufacturing', desc: 'Motors, cables, panels, transformers in heavy industry', icon: '🏭' },
+  { name: 'Test Laboratories', desc: 'NABL labs, calibration centres, R&D facilities', icon: '🔬' },
+  { name: 'EPC Contractors', desc: 'Project commissioning and acceptance testing', icon: '📋' },
+];
+---
+
+<Base
+  title="Home"
+  description="CIE — Cambridge Instruments & Engg. Co., Howrah. Manufacturer of insulation testers, relay test sets, oil BDV testers, earth testers and more since 1963. Made in India."
+>
+
+  <!-- HERO -->
+  <section class="blueprint-bg text-white relative overflow-hidden">
+    <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#E0252E]"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div class="max-w-3xl">
+        <EyebrowLabel text="Est. 1963 · Howrah, India · CIE® Registered" class="mb-5" />
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-5 text-white">
+          Instruments for<br />
+          <span class="text-[#E0252E]">Accuracy</span> and<br />
+          Reliability.
+        </h1>
+
+        <p class="text-lg sm:text-xl text-[#b0bec5] mb-3 max-w-2xl leading-relaxed">
+          Cambridge Instruments &amp; Engg. Co. manufactures electrical &amp; electronic
+          test and measurement instruments at our Howrah works — every unit built
+          and calibrated in-house, carrying the registered <span class="font-mono font-semibold text-white">CIE®</span> mark.
+        </p>
+        <p class="text-base text-[#64748B] mb-10 font-mono">
+          Insulation Testers · Earth Testers · Relay Test Sets · Oil BDV Testers · Digital Instruments
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center px-8 py-4 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded text-sm transition-colors"
+          >
+            Request a Quote
+          </a>
+          <a
+            href="/products"
+            class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white hover:border-white/60 font-semibold rounded text-sm transition-colors"
+          >
+            View Product Catalogue
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative grid lines -->
+    <div class="hidden lg:block absolute right-0 top-0 bottom-0 w-2/5 opacity-5 pointer-events-none select-none" aria-hidden="true">
+      <svg width="100%" height="100%" viewBox="0 0 400 600" fill="none">
+        <line x1="80" y1="0" x2="80" y2="600" stroke="white" stroke-width="1"/>
+        <line x1="160" y1="0" x2="160" y2="600" stroke="white" stroke-width="1"/>
+        <line x1="240" y1="0" x2="240" y2="600" stroke="white" stroke-width="1"/>
+        <line x1="320" y1="0" x2="320" y2="600" stroke="white" stroke-width="1"/>
+        <line x1="0" y1="100" x2="400" y2="100" stroke="white" stroke-width="1"/>
+        <line x1="0" y1="200" x2="400" y2="200" stroke="white" stroke-width="1"/>
+        <line x1="0" y1="300" x2="400" y2="300" stroke="white" stroke-width="1"/>
+        <line x1="0" y1="400" x2="400" y2="400" stroke="white" stroke-width="1"/>
+        <line x1="0" y1="500" x2="400" y2="500" stroke="white" stroke-width="1"/>
+        <circle cx="80" cy="100" r="4" fill="white" opacity="0.5"/>
+        <circle cx="160" cy="200" r="4" fill="white" opacity="0.5"/>
+        <circle cx="240" cy="300" r="4" fill="white" opacity="0.5"/>
+        <circle cx="320" cy="400" r="4" fill="white" opacity="0.5"/>
+        <circle cx="80" cy="500" r="4" fill="white" opacity="0.5"/>
+        <circle cx="320" cy="200" r="4" fill="white" opacity="0.5"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- PRODUCT CATEGORIES -->
+  <section class="bg-[#F5F7FA] py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <EyebrowLabel text="Product Catalogue" class="mb-3" />
+        <h2 class="text-3xl font-black text-[#0D2547]">Test &amp; Measurement Instruments</h2>
+        <p class="mt-2 text-[#64748B] max-w-2xl">
+          Twelve product categories. Every instrument built in Howrah, calibrated in-house, and backed by a 12-month warranty.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {categoryCount.map(cat => (
+          <CategoryCard
+            id={cat.id}
+            name={cat.name}
+            description={cat.description}
+            icon={cat.icon}
+            count={cat.count}
+          />
+        ))}
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="/products" class="inline-flex items-center gap-2 text-sm font-semibold text-[#1B3A5B] hover:text-[#E0252E] transition-colors">
+          Browse full catalogue →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CIE -->
+  <section class="bg-white py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <EyebrowLabel text="Why CIE" class="mb-3" />
+        <h2 class="text-3xl font-black text-[#0D2547]">Built for reliability.<br />Backed by six decades.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {trustPoints.map(tp => (
+          <div class="red-stripe">
+            <div class="text-2xl mb-3" aria-hidden="true">{tp.icon}</div>
+            <h3 class="font-bold text-[#0D2547] mb-2">{tp.label}</h3>
+            <p class="text-sm text-[#64748B] leading-relaxed">{tp.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="bg-[#F5F7FA] py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <EyebrowLabel text="Flagship Instruments" class="mb-3" />
+        <h2 class="text-3xl font-black text-[#0D2547]">Selected from the CIE Range</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {featured.map(p => (
+          <ProductCard
+            model={p.model}
+            name={p.name}
+            tagline={p.tagline}
+            categoryId={p.categoryId}
+            id={p.id}
+            featured={p.featured}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="blueprint-bg text-white py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <EyebrowLabel text="Industries Served" class="mb-3" />
+        <h2 class="text-3xl font-black">Trusted across India's<br />critical infrastructure.</h2>
+        <p class="mt-3 text-[#b0bec5] max-w-xl">
+          From grid substations to rolling stock depots — CIE instruments are specified by engineers who need measurements they can stake their signature on.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {industries.map(ind => (
+          <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg p-5 transition-colors">
+            <div class="text-2xl mb-3" aria-hidden="true">{ind.icon}</div>
+            <h3 class="font-bold text-white mb-1">{ind.name}</h3>
+            <p class="text-sm text-[#b0bec5]">{ind.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-8">
+        <a href="/industries" class="text-sm font-semibold text-[#E0252E] hover:text-white transition-colors">
+          See all applications →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RTS-33 SPOTLIGHT -->
+  <section class="bg-white py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto bg-[#F5F7FA] rounded-xl overflow-hidden border border-[#E8ECF2]">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+          <div class="p-8 lg:p-10">
+            <EyebrowLabel text="Flagship · Protection Testing" class="mb-4" />
+            <h2 class="text-2xl font-black text-[#0D2547] mb-3">
+              <span class="model-code text-lg block mb-1">RTS-33</span>
+              Three-Phase Relay Test Set
+            </h2>
+            <p class="text-[#64748B] text-sm leading-relaxed mb-6">
+              Variable three-phase AC current, AC and DC voltage, and 0–360° continuously variable phase angle.
+              250 VA burden. The preferred instrument for commissioning distance, differential, and directional
+              protection relays at India's major power utilities and railways.
+            </p>
+            <ul class="space-y-2 mb-8">
+              {['Three-phase output', '250 VA burden', '0–360° phase angle', 'AC & DC voltage', '12-month warranty'].map(f => (
+                <li class="flex items-center gap-2 text-sm text-[#1B3A5B]">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] shrink-0"></span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <div class="flex gap-3 flex-wrap">
+              <a href="/products/relay-test-sets/rts-33" class="px-5 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors">
+                View Specifications
+              </a>
+              <a href="/contact?product=RTS-33" class="px-5 py-2.5 border border-[#E0252E] text-[#E0252E] hover:bg-[#E0252E] hover:text-white text-sm font-semibold rounded transition-colors">
+                Request a Quote
+              </a>
+            </div>
+          </div>
+          <div class="bg-[#E8ECF2] lg:min-h-full min-h-48 flex items-center justify-center">
+            <div class="text-center text-[#b0bec5]">
+              <svg class="w-16 h-16 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/>
+                <path d="M3 9l4-4 4 4 4-4 4 4" stroke-width="1.5"/>
+              </svg>
+              <p class="text-xs font-mono uppercase tracking-widest opacity-40">RTS-33 image</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+
+</Base>

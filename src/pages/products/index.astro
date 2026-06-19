@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import CategoryCard from '../../components/CategoryCard.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import CTABand from '../../components/CTABand.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import categories from '../../data/categories.json';
+import products from '../../data/products.json';
+
+const categoryCount = categories.map(cat => ({
+  ...cat,
+  count: products.filter(p => p.categoryId === cat.id).length,
+}));
+---
+
+<Base
+  title="Product Catalogue"
+  description="Browse the complete CIE instruments product catalogue — insulation testers, earth testers, relay test sets, oil BDV testers, digital instruments and more. Manufactured in Howrah since 1963."
+>
+  <!-- Page header -->
+  <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Products' }]} />
+      <EyebrowLabel text="CIE® Product Catalogue" class="mt-4 mb-3" />
+      <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">Test &amp; Measurement Instruments</h1>
+      <p class="mt-2 text-[#64748B] max-w-2xl">
+        Every instrument manufactured and calibrated at our Howrah works.
+        No prices listed — contact us for a quote or enquire on WhatsApp.
+      </p>
+    </div>
+  </div>
+
+  <!-- Category grid -->
+  <section class="bg-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-[#0D2547] mb-6">Browse by Category</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {categoryCount.map(cat => (
+          <CategoryCard
+            id={cat.id}
+            name={cat.name}
+            description={cat.description}
+            icon={cat.icon}
+            count={cat.count}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- All products -->
+  <section class="bg-[#F5F7FA] py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-bold text-[#0D2547]">All Products</h2>
+        <span class="text-sm text-[#64748B] font-mono">{products.length} instruments</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        {products.map(p => (
+          <ProductCard
+            model={p.model}
+            name={p.name}
+            tagline={p.tagline}
+            categoryId={p.categoryId}
+            id={p.id}
+            featured={p.featured}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>

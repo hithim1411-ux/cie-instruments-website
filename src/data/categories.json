@@ -1,0 +1,98 @@
+[
+  {
+    "id": "insulation-testers-hand",
+    "name": "Insulation Testers — Hand-Driven",
+    "shortName": "Insulation Testers (Hand)",
+    "eyebrow": "Insulation Testers · Hand-Driven Generator",
+    "description": "Rugged hand-driven generator type insulation testers in metal and wooden body variants, from 100 V to 10 kV test voltages. The original CIE design — built and calibrated in Howrah since 1963.",
+    "icon": "⚡"
+  },
+  {
+    "id": "multirange-insulation-hand",
+    "name": "Multirange Insulation Testers (Hand-Driven)",
+    "shortName": "Multirange Insulation (Hand)",
+    "eyebrow": "Insulation Testers · Multirange Hand-Driven",
+    "description": "Multi-voltage, selectable-range hand-driven insulation testers with built-in continuity range. Available in MR-1 through MR-8 series covering a wide range of voltage and insulation range combinations.",
+    "icon": "🔧"
+  },
+  {
+    "id": "motor-operated-insulation",
+    "name": "Motor-Operated Insulation Testers",
+    "shortName": "Motor-Operated Insulation",
+    "eyebrow": "Insulation Testers · Motor-Operated",
+    "description": "Motorised generator type insulation testers for sustained high-voltage testing up to 10 kV. Motor-cum-hand driven variants offer dual operation modes.",
+    "icon": "⚙️"
+  },
+  {
+    "id": "multirange-motorised-insulation",
+    "name": "Multirange Motorised Insulation Testers",
+    "shortName": "Multirange Motorised",
+    "eyebrow": "Insulation Testers · Multirange Motorised",
+    "description": "Dual-scale multi-voltage motorised insulation testers. MR-A through MR-E series with inner/outer scale display for multiple test voltage and range combinations.",
+    "icon": "⚙️"
+  },
+  {
+    "id": "compact-insulation-testers",
+    "name": "Compact / Economical Insulation Testers",
+    "shortName": "Compact Insulation Testers",
+    "eyebrow": "Insulation Testers · Compact Range",
+    "description": "Economical bakelite and compact metal body hand-driven insulation testers for everyday site and workshop use at 100 V to 1000 V.",
+    "icon": "🔋"
+  },
+  {
+    "id": "earth-tester",
+    "name": "Analog Earth Tester",
+    "shortName": "Earth Tester",
+    "eyebrow": "Earth Resistance · Analog",
+    "description": "Hand-driven metal body earth testers for 3-terminal earth resistance and 4-terminal soil resistivity measurement. Supplied as a complete kit with spikes, wire spools and carrying bag.",
+    "icon": "🌍"
+  },
+  {
+    "id": "digital-insulation-testers",
+    "name": "Digital Insulation Testers",
+    "shortName": "Digital Insulation Testers",
+    "eyebrow": "Insulation Testers · Digital",
+    "description": "Microcontroller-based digital insulation testers with LCD display, DAR and PI functions, rechargeable battery option, and test voltages from 100 V up to 5000 V.",
+    "icon": "📟"
+  },
+  {
+    "id": "digital-earth-micro-ohm",
+    "name": "Digital Earth & Micro-Ohm Meters",
+    "shortName": "Earth & Micro-Ohm Meters",
+    "eyebrow": "Earth & Resistance · Digital",
+    "description": "4-terminal digital earth resistance testers and bench-type digital micro-ohm / contact-resistance meters for precise low-resistance measurement.",
+    "icon": "🔌"
+  },
+  {
+    "id": "clamp-multimeters",
+    "name": "Clamp Meters & Multimeters",
+    "shortName": "Clamp Meters & Multimeters",
+    "eyebrow": "Clamp Meters · Multimeters",
+    "description": "True-RMS clamp meters up to 1000 A AC/DC and 3½-digit digital multimeters for voltage, current, resistance, capacitance, and temperature measurement.",
+    "icon": "📏"
+  },
+  {
+    "id": "hv-phase-sequence",
+    "name": "HV Test Set & Phase Sequence Indicators",
+    "shortName": "HV Test Sets",
+    "eyebrow": "High Voltage · Phase Sequence",
+    "description": "AC high-voltage test sets (0–5 kV) for cable and equipment HV testing, and phase sequence indicators for 3-phase supply verification.",
+    "icon": "⚡"
+  },
+  {
+    "id": "oil-test-sets",
+    "name": "Oil Test Sets — CIE/7000 Series",
+    "shortName": "Oil BDV Test Sets",
+    "eyebrow": "Transformer Oil · BDV Testers",
+    "description": "Transformer oil dielectric strength (BDV) testers from 50 kV to 120 kV. Manual and motorised variants with options for digital display and magnetic stirrer.",
+    "icon": "🛢️"
+  },
+  {
+    "id": "relay-test-sets",
+    "name": "Relay Test Sets",
+    "shortName": "Relay Test Sets",
+    "eyebrow": "Protection Testing · Relay Test Sets",
+    "description": "Single-phase and three-phase relay test sets for commissioning and testing of protection relays. Variable AC/DC current and voltage sources with phase angle control.",
+    "icon": "🔬"
+  }
+]

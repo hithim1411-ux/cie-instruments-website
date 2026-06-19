@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import EyebrowLabel from '../components/EyebrowLabel.astro';
+import CTABand from '../components/CTABand.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const sectors = [
+  {
+    icon: '⚡',
+    name: 'Power Utilities',
+    customers: 'PGCIL, DVC, WBSETCL, NTPC, State Electricity Boards',
+    description: 'Power utilities require insulation testing on HV cables, transformers, and switchgear at commissioning and during periodic maintenance. Earth resistance testing is mandatory at every substation. Transformer oil quality (BDV) testing is performed before energisation and at routine maintenance intervals. Protection relay testing is essential for grid security.',
+    products: ['CIE/444, CIE/666 — insulation testers for HV cables and equipment', 'CIE/777 series — motorised HV insulation testing', 'CIE/222M — earth resistance and soil resistivity', 'CIE/7000 series — transformer oil BDV testing', 'RTS-33 — three-phase relay commissioning', 'DIT-2500, DIT-5000 — digital insulation testers'],
+  },
+  {
+    icon: '🚂',
+    name: 'Indian Railways',
+    customers: 'Traction, Signalling & Telecom, Rolling Stock workshops, OHE teams',
+    description: 'Indian Railways is one of the largest users of electrical test and measurement instruments in India. Traction sub-stations, overhead equipment (OHE), rolling stock, and signalling systems all require regular insulation testing, earth resistance verification, and relay testing. CIE instruments have been specified by Railway workshops for decades.',
+    products: ['CIE/666 HV insulation testers for traction equipment', 'CIE/444 for rolling stock and OHE insulation checks', 'CIE/222M for earthing at traction sub-stations', 'RTS-33 and RTS-5A for protection relay testing', 'PSI-1, PSI-2 for 3-phase supply phase sequence verification'],
+  },
+  {
+    icon: '🏗️',
+    name: 'Substation Commissioning',
+    customers: 'EPC contractors, commissioning engineers, turnkey project teams',
+    description: 'Substation commissioning requires a full suite of T&M instruments — from pre-energisation insulation and earth resistance tests through to protection relay commissioning. EPC contractors rely on instruments that are robust, accurate, and carry traceable calibration. CIE instruments are selected by commissioning teams for their proven field reliability.',
+    products: ['Full insulation tester range for pre-energisation checks', 'CIE/222M earth tester with full kit', 'CIE/7000 series for transformer oil quality', 'RTS-33 / RTS-5A / RTS-5 for relay testing', 'MR-253A for contact resistance of breaker contacts'],
+  },
+  {
+    icon: '🏭',
+    name: 'Industry & Manufacturing',
+    customers: 'Steel plants, cement, mining, heavy industry, process industry',
+    description: 'Industrial plants depend on reliable motors, cables, and transformers. Regular insulation testing is the primary tool for preventive maintenance — catching deteriorating insulation before it leads to costly failures. Earth resistance testing ensures equipment safety. CIE instruments are used by maintenance engineers in some of India\'s largest industrial installations.',
+    products: ['CIE/444 insulation testers for motors and cables', 'CIE/555 compact insulation tester for routine checks', 'DIT-5005, DIT-2500 digital insulation testers', 'DCM 2250 TR, DCM 5410 TR clamp meters', 'DM 235, DM 321T multimeters', 'MR-253A micro-ohm meter for motor winding resistance'],
+  },
+  {
+    icon: '🔬',
+    name: 'Test Laboratories',
+    customers: 'NABL accredited labs, calibration centres, R&D facilities, academic institutions',
+    description: 'Test laboratories require instruments that are stable, accurate, and calibrated to traceable standards. CIE provides in-house calibration with calibration records for all instruments in the range — making them suitable for use in NABL-accredited labs and other regulated testing environments.',
+    products: ['DIT-2500, DIT-5000 for precision insulation measurement (DAR, PI)', 'MR-253A bench-type micro-ohm meter', 'DET-2000 digital earth resistance tester', 'CIE/5050A HV test set for dielectric withstand', 'CIE/7000 series for oil BDV testing to IS standards'],
+  },
+  {
+    icon: '📋',
+    name: 'EPC Contractors',
+    customers: 'Turnkey substation contractors, cable laying, power plant construction',
+    description: 'EPC contractors are responsible for instrument-based acceptance testing at project handover. Their T&M instruments must be certified, calibrated, and fit for purpose. CIE\'s in-house calibration and 12-month warranty make the complete range a preferred choice for project commissioning stores.',
+    products: ['CIE/444, CIE/666, CIE/777 — commissioning insulation testing', 'CIE/222M — substation earthing acceptance tests', 'CIE/7000 — transformer oil quality before energisation', 'RTS-33 — protection relay commissioning sign-off', 'CIE/5050A — HV withstand tests on cables and switchgear'],
+  },
+];
+---
+
+<Base
+  title="Industries & Applications"
+  description="CIE instruments are used by power utilities, Indian Railways, substation commissioning teams, EPC contractors, industry, and testing laboratories across India."
+>
+  <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Industries' }]} />
+      <EyebrowLabel text="Applications · Industries Served" class="mt-4 mb-3" />
+      <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">Industries &amp; Applications</h1>
+      <p class="mt-2 text-[#64748B] max-w-2xl">
+        CIE instruments are in daily use across India's critical infrastructure — from generating stations to rolling stock workshops.
+      </p>
+    </div>
+  </div>
+
+  <section class="bg-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      {sectors.map(sector => (
+        <div class="bg-[#F5F7FA] rounded-xl border border-[#E8ECF2] overflow-hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-3">
+            <!-- Info -->
+            <div class="lg:col-span-2 p-8">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl" aria-hidden="true">{sector.icon}</span>
+                <h2 class="text-xl font-black text-[#0D2547]">{sector.name}</h2>
+              </div>
+              <p class="text-xs font-mono text-[#64748B] uppercase tracking-widest mb-4">{sector.customers}</p>
+              <p class="text-sm text-[#64748B] leading-relaxed">{sector.description}</p>
+            </div>
+            <!-- Products used -->
+            <div class="bg-white border-t lg:border-t-0 lg:border-l border-[#E8ECF2] p-8">
+              <h3 class="text-xs font-mono font-semibold text-[#E0252E] uppercase tracking-widest mb-4">CIE Instruments Used</h3>
+              <ul class="space-y-2">
+                {sector.products.map(p => (
+                  <li class="flex items-start gap-2 text-xs text-[#64748B]">
+                    <span class="mt-1 w-1 h-1 rounded-full bg-[#E0252E] shrink-0"></span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CTABand
+    heading="Tell us your application — we'll recommend the right instrument."
+    body="Our team has been serving these sectors for over 60 years. We know which instrument fits your requirement."
+  />
+</Base>

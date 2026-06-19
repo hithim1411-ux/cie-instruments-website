@@ -1,0 +1,29 @@
+---
+interface Spec {
+  label: string;
+  value: string;
+}
+interface Props {
+  specs: Spec[];
+}
+const { specs } = Astro.props;
+---
+
+<div class="overflow-x-auto rounded border border-[#E8ECF2]">
+  <table class="spec-table w-full text-left border-collapse">
+    <thead>
+      <tr>
+        <th class="w-2/5">Specification</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      {specs.map(s => (
+        <tr>
+          <td class="font-mono text-xs font-medium text-[#1B3A5B] uppercase tracking-wide">{s.label}</td>
+          <td>{s.value}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

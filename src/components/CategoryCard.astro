@@ -1,0 +1,35 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  count: number;
+}
+const { id, name, description, icon, count } = Astro.props;
+---
+
+<a
+  href={`/products/${id}`}
+  class="group block bg-white rounded-lg border border-[#E8ECF2] p-6 hover:shadow-md hover:border-[#1B3A5B]/30 transition-all duration-200"
+>
+  <div class="flex items-start gap-4">
+    <div class="shrink-0 w-12 h-12 bg-[#F5F7FA] rounded-lg flex items-center justify-center text-2xl group-hover:bg-[#1B3A5B]/5 transition-colors">
+      {icon}
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <h3 class="font-bold text-[#0D2547] text-sm leading-snug group-hover:text-[#1B3A5B] transition-colors">
+          {name}
+        </h3>
+        <span class="shrink-0 text-xs font-mono text-[#64748B] bg-[#F5F7FA] px-2 py-0.5 rounded">
+          {count} {count === 1 ? 'product' : 'products'}
+        </span>
+      </div>
+      <p class="text-sm text-[#64748B] line-clamp-2">{description}</p>
+    </div>
+  </div>
+  <div class="mt-4 text-xs font-semibold text-[#E0252E] group-hover:translate-x-1 transition-transform duration-200">
+    View products →
+  </div>
+</a>

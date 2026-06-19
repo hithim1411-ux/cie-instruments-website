@@ -1,0 +1,32 @@
+{
+  "name": "Cambridge Instruments & Engg. Co.",
+  "shortName": "CIE",
+  "tagline": "Instruments for accuracy and reliability.",
+  "established": 1963,
+  "email": "cieinstruments@gmail.com",
+  "whatsapp": "919830091260",
+  "phones": [
+    { "label": "Howrah Works", "number": "+91 98300 92117" },
+    { "label": "Kolkata Office", "number": "+91 98300 91260" }
+  ],
+  "addresses": [
+    {
+      "type": "Works / Principal Place",
+      "lines": [
+        "23/2, Maulana Abul Kalam Azad Road",
+        "Howrah 711101",
+        "West Bengal, India"
+      ]
+    },
+    {
+      "type": "Office",
+      "lines": [
+        "55, Ezra Street, 4th Floor",
+        "Yamuna Bhawan",
+        "Kolkata 700001",
+        "West Bengal, India"
+      ]
+    }
+  ],
+  "formEndpoint": "https://formspree.io/f/YOUR_FORM_ID"
+}

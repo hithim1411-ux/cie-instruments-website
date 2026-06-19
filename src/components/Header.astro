@@ -1,0 +1,101 @@
+---
+const nav = [
+  { label: 'Products', href: '/products' },
+  { label: 'Industries', href: '/industries' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Quality & Support', href: '/quality' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-[#0D1B2A] shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-18">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 shrink-0" aria-label="CIE Instruments — Home">
+        <img
+          src="/logo/cie-logo-light.png"
+          alt="CIE — Cambridge Instruments & Engg. Co."
+          class="h-10 w-auto"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        />
+        <!-- Fallback text logo if image not supplied yet -->
+        <span class="hidden items-center gap-2" id="text-logo-fallback">
+          <span class="font-mono font-bold text-2xl text-white tracking-tight">CIE</span>
+          <span class="hidden sm:block text-[#EEF2F7] text-xs leading-tight font-sans">
+            Cambridge Instruments<br />&amp; Engg. Co.
+          </span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+        {nav.map(({ label, href }) => (
+          <a
+            href={href}
+            class={`text-sm font-medium transition-colors duration-150 ${
+              currentPath.startsWith(href)
+                ? 'text-white border-b-2 border-[#E0252E] pb-0.5'
+                : 'text-[#b0bec5] hover:text-white'
+            }`}
+          >
+            {label}
+          </a>
+        ))}
+        <a
+          href="/contact"
+          class="ml-2 px-4 py-2 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded transition-colors duration-150"
+        >
+          Request a Quote
+        </a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="lg:hidden p-2 rounded text-[#b0bec5] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#E0252E]"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-[#13243A] border-t border-white/10">
+    <nav class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1" aria-label="Mobile navigation">
+      {nav.map(({ label, href }) => (
+        <a
+          href={href}
+          class="text-sm font-medium text-[#b0bec5] hover:text-white hover:bg-white/5 px-3 py-2 rounded transition-colors"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href="/contact"
+        class="mt-2 px-4 py-2.5 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded text-center transition-colors"
+      >
+        Request a Quote
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Fallback: show text logo if image fails to load
+  document.querySelectorAll('header img[onerror]').forEach((img) => {
+    (img as HTMLImageElement).onerror = function() {
+      (this as HTMLElement).style.display = 'none';
+      const fallback = document.getElementById('text-logo-fallback');
+      if (fallback) fallback.style.display = 'flex';
+    };
+  });
+</script>

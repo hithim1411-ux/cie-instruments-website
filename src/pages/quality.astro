@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import EyebrowLabel from '../components/EyebrowLabel.astro';
+import CTABand from '../components/CTABand.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<Base
+  title="Quality & Support"
+  description="CIE instruments are built and calibrated in-house at our Howrah works. 12-month warranty on all instruments. Custom ranges manufactured to specification. After-sales support direct from the manufacturer."
+>
+  <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Quality & Support' }]} />
+      <EyebrowLabel text="Quality · Calibration · Support" class="mt-4 mb-3" />
+      <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">Quality &amp; Support</h1>
+      <p class="mt-2 text-[#64748B] max-w-2xl">
+        Built in-house. Calibrated in-house. Backed by a manufacturer who answers the phone.
+      </p>
+    </div>
+  </div>
+
+  <!-- Key commitments -->
+  <section class="bg-white py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            icon: '🏭',
+            heading: 'In-House Manufacturing',
+            body: `Every CIE® instrument is manufactured at our Howrah works — from mechanical fabrication and winding through assembly, testing, and finishing. We do not sub-contract manufacturing. This gives us control over quality at every stage and means our customers deal with the people who built the instrument, not an intermediary.`,
+          },
+          {
+            icon: '📐',
+            heading: 'In-House Calibration',
+            body: `Calibration is performed at our own calibration facility before each instrument is despatched. Calibration is carried out against reference standards maintained at our works. A calibration record is maintained for each instrument. We do not send instruments to a third-party calibration house.`,
+          },
+          {
+            icon: '🛡️',
+            heading: '12-Month Warranty',
+            body: `All CIE® instruments carry a standard warranty of 12 months against manufacturing defects from the date of supply. Any instrument that develops a manufacturing defect within the warranty period will be repaired or replaced by CIE — contact us directly. The warranty does not cover damage from misuse, accident, or modification.`,
+          },
+          {
+            icon: '🔧',
+            heading: 'Custom Manufacturing',
+            body: `Any non-standard test voltage, insulation range, resistance range, current range, or measurement range can be manufactured to the customer's specific requirement. Custom ranges are a standard service at CIE — we have been making custom instruments for utilities and laboratories since the 1960s. Contact us with your specification.`,
+          },
+          {
+            icon: '📞',
+            heading: 'After-Sales Support',
+            body: `After-sales support is handled directly by CIE — not by a distributor network. Contact our Howrah works or Kolkata office. We can advise on instrument selection, application, and calibration intervals. Instruments out of warranty can be repaired and recalibrated at our works.`,
+          },
+          {
+            icon: '📦',
+            heading: 'Accessories Supplied',
+            body: `Key accessories — HV testing leads, earth spikes, wire spools, hammers, and carrying cases — are supplied with the relevant instruments as listed in each product specification. Replacement accessories are available from CIE directly.`,
+          },
+        ].map(item => (
+          <div class="red-stripe">
+            <div class="text-3xl mb-3" aria-hidden="true">{item.icon}</div>
+            <h2 class="font-black text-[#0D2547] text-lg mb-3">{item.heading}</h2>
+            <p class="text-sm text-[#64748B] leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Warranty note -->
+  <section class="bg-[#F5F7FA] py-10">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-mono text-xs text-[#64748B] uppercase tracking-widest mb-3">Warranty Statement</p>
+      <p class="text-sm text-[#64748B] leading-relaxed">
+        Cambridge Instruments &amp; Engg. Co. warrants all instruments manufactured under the <span class="font-mono font-semibold text-[#1B3A5B]">CIE®</span> mark
+        against defects in materials and workmanship for a period of <strong class="text-[#1B3A5B]">12 months</strong> from the date of original purchase.
+        This warranty is provided by the manufacturer and is not limited to the channel of purchase.
+        For warranty claims, contact us directly at <a href="mailto:cieinstruments@gmail.com" class="text-[#1B3A5B] hover:text-[#E0252E] transition-colors">cieinstruments@gmail.com</a>.
+      </p>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Have a support or warranty query?"
+    body="Contact our Howrah works directly — we respond to all enquiries within one business day."
+    primaryLabel="Contact Us"
+    primaryHref="/contact"
+    secondaryLabel="View Products"
+    secondaryHref="/products"
+  />
+</Base>
