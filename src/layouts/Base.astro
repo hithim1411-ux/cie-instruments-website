@@ -21,8 +21,8 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = title === 'Home'
-  ? 'CIE Instruments — Instruments for Accuracy and Reliability | Made in India since 1963'
-  : `${title} | CIE Instruments — Made in India since 1963`;
+  ? 'Cambridge Instruments & Engg. Co. (CIE) — Instruments for Accuracy and Reliability | Howrah, India'
+  : `${title} | Cambridge Instruments & Engg. Co. (CIE) — Howrah`;
 
 const ogImageURL = new URL(ogImage, Astro.site).toString();
 const canonicalStr = canonicalURL.toString();
@@ -35,7 +35,15 @@ const orgSchema = {
       '@type': 'Organization',
       '@id': 'https://cieinstruments.in/#organization',
       name: 'Cambridge Instruments & Engg. Co.',
-      alternateName: ['CIE Instruments', 'CIE'],
+      alternateName: [
+        'CIE Instruments',
+        'CIE',
+        'Cambridge Instruments',
+        'Cambridge Instruments and Engg Co',
+        'Cambridge Instruments and Engineering Co',
+        'Cambridge Instruments Howrah',
+        'Cambridge Instruments Kolkata',
+      ],
       url: 'https://cieinstruments.in/',
       logo: {
         '@type': 'ImageObject',
