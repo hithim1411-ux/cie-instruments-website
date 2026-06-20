@@ -22,16 +22,22 @@ export async function getStaticPaths() {
 const { product, category } = Astro.props;
 
 const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${product.model} — ${product.name}. Please send me a quote.`);
+
 const productImageSrc = product.image
   ? u(`/images/products/${product.image}`)
   : u(`/images/products/${product.id}.jpg`);
+
+// Build product-specific mailto
+const quoteSubject = `Quote Request — ${product.model}`;
+const quoteBody    = `Hello CIE team,\n\nI would like to request a quote for: ${product.model} — ${product.name}.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.`;
+const quoteMailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent(quoteSubject)}&body=${encodeURIComponent(quoteBody)}`;
 ---
 
 <Base
   title={`${product.model} — ${product.name}`}
   description={`${product.model} ${product.name} — ${product.tagline} CIE instruments, Howrah.`}
 >
-  <!-- Header -->
+  <!-- Page header -->
   <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[
@@ -52,11 +58,12 @@ const productImageSrc = product.image
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-      <!-- Left: image + CTAs -->
+      <!-- ── Left sidebar: image + CTAs + trust ── -->
       <div class="lg:col-span-1">
-        <!-- Product image (hidden for products with hideImage flag) -->
+
+        <!-- Product image -->
         {!product.hideImage && (
-          <div class="bg-[#F5F7FA] border border-[#E8ECF2] rounded-xl h-64 lg:h-80 flex items-center justify-center mb-6 overflow-hidden">
+          <div class="bg-[#F5F7FA] border border-[#E8ECF2] rounded-xl h-64 lg:h-72 flex items-center justify-center mb-6 overflow-hidden">
             <img
               src={productImageSrc}
               alt={`${product.model} — ${product.name}`}
@@ -77,9 +84,12 @@ const productImageSrc = product.image
         <!-- CTAs -->
         <div class="space-y-3">
           <a
-            href={u(`/contact?product=${encodeURIComponent(product.model)}`)}
-            class="w-full flex items-center justify-center px-6 py-3.5 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded transition-colors text-sm"
+            href={quoteMailto}
+            class="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded transition-colors text-sm"
           >
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
             Request a Quote
           </a>
           <a
@@ -105,14 +115,24 @@ const productImageSrc = product.image
               Download Datasheet (PDF)
             </a>
           ) : (
-            <p class="text-xs text-center text-[#b0bec5] font-mono">Datasheet available on request</p>
+            <a
+              href={u('/downloads/cie-product-catalogue.pdf')}
+              download="CIE Short Form Product Catalogue.pdf"
+              class="w-full flex items-center justify-center gap-2 px-6 py-3 border border-[#E8ECF2] text-[#64748B] hover:text-[#1B3A5B] hover:border-[#1B3A5B] rounded transition-colors text-sm"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              </svg>
+              Product Catalogue (PDF)
+            </a>
           )}
         </div>
 
         <!-- Trust signals -->
         <div class="mt-6 bg-[#F5F7FA] rounded-lg p-4 border border-[#E8ECF2]">
+          <p class="text-xs font-mono font-bold text-[#0D2547] uppercase tracking-widest mb-3">CIE® Guarantee</p>
           <ul class="space-y-2">
-            {['CIE® Registered Mark', 'Calibrated Before Despatch', '12-Month Warranty', 'Made in India', 'Custom Ranges Available'].map(f => (
+            {['CIE® Registered Trade Mark', 'Calibrated Before Despatch', '12-Month Warranty', 'Made in India', 'Custom Ranges Available'].map(f => (
               <li class="flex items-center gap-2 text-xs text-[#64748B]">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] shrink-0"></span>
                 {f}
@@ -122,21 +142,21 @@ const productImageSrc = product.image
         </div>
       </div>
 
-      <!-- Right: description, specs, applications -->
+      <!-- ── Right: full product info ── -->
       <div class="lg:col-span-2 space-y-10">
 
-        <!-- Description -->
+        <!-- 1. Description -->
         <div>
-          <h2 class="text-xl font-bold text-[#0D2547] mb-4">About This Instrument</h2>
+          <h2 class="text-xl font-bold text-[#0D2547] mb-3">About This Instrument</h2>
           <p class="text-[#64748B] leading-relaxed">{product.description}</p>
         </div>
 
-        <!-- Specifications -->
+        <!-- 2. Technical Specifications -->
         <div>
           <h2 class="text-xl font-bold text-[#0D2547] mb-4">Technical Specifications</h2>
           <SpecTable specs={product.specs} />
 
-          <!-- Build-to-order note (shown before ordering tables) -->
+          <!-- Build-to-order notice -->
           {product.buildToOrder && product.orderNote && (
             <div class="mt-5 flex gap-3 bg-[#FFF8E7] border border-[#E0252E]/30 rounded-lg p-4">
               <span class="shrink-0 text-[#E0252E] mt-0.5">
@@ -151,7 +171,7 @@ const productImageSrc = product.image
             </div>
           )}
 
-          <!-- Spec tables (ordering combinations / capability tables) -->
+          <!-- Ordering combination / capability tables -->
           {product.specTables && (product.specTables as any[]).map((table: any) => (
             <div class="mt-6">
               {table.heading && (
@@ -172,7 +192,7 @@ const productImageSrc = product.image
                         {(table.columns as string[]).map((_: string, i: number) => (
                           <td class:list={[
                             row[`col${i}`] === 'N.A.' && 'text-[#94a3b8] italic',
-                            row[`col${i}`] === '✓' && 'text-[#16a34a] font-bold text-center',
+                            row[`col${i}`] === '✓'    && 'text-[#16a34a] font-bold text-center',
                           ]}>
                             {row[`col${i}`]}
                           </td>
@@ -188,7 +208,7 @@ const productImageSrc = product.image
             </div>
           ))}
 
-          <!-- Additional ordering options (e.g. CIE/444, CIE/666) -->
+          <!-- Additional ordering options -->
           {product.options && (product.options as string[]).length > 0 && (
             <div class="mt-5 bg-[#F5F7FA] rounded-lg border border-[#E8ECF2] p-4">
               <p class="text-xs font-bold text-[#0D2547] uppercase tracking-wide mb-2">Additional Options</p>
@@ -204,7 +224,22 @@ const productImageSrc = product.image
           )}
         </div>
 
-        <!-- Applications -->
+        <!-- 3. What's Included (kit / accessories) -->
+        {product.includedWith && (product.includedWith as string[]).length > 0 && (
+          <div>
+            <h2 class="text-xl font-bold text-[#0D2547] mb-4">What's Included</h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {(product.includedWith as string[]).map((item: string) => (
+                <li class="flex items-start gap-2.5 text-sm text-[#64748B] bg-[#F5F7FA] border border-[#E8ECF2] rounded-lg px-4 py-2.5">
+                  <span class="mt-1 w-1.5 h-1.5 rounded-full bg-[#1B3A5B] shrink-0"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- 4. Applications -->
         {product.applications && product.applications.length > 0 && (
           <div>
             <h2 class="text-xl font-bold text-[#0D2547] mb-4">Key Applications</h2>
@@ -219,23 +254,26 @@ const productImageSrc = product.image
           </div>
         )}
 
-        <!-- Warranty / note -->
+        <!-- 5. Warranty & after-sales -->
         <div class="bg-[#F5F7FA] border-l-4 border-[#1B3A5B] rounded-r-lg p-5">
-          <p class="text-sm text-[#1B3A5B] font-semibold mb-1">12-Month Warranty</p>
+          <p class="text-sm text-[#1B3A5B] font-semibold mb-1">12-Month Warranty · Direct After-Sales Support</p>
           <p class="text-sm text-[#64748B]">
-            This instrument is covered by CIE's standard 12-month warranty against manufacturing defects.
-            Non-standard ranges or custom specifications can be manufactured to your requirement — please contact us.
+            Every CIE® instrument carries a 12-month warranty against manufacturing defects.
+            After-sales support is handled directly by CIE — not a distributor network.
+            Non-standard ranges or custom specifications can be manufactured to your requirement.
           </p>
         </div>
+
       </div>
     </div>
   </div>
 
   <CTABand
-    heading={`Interested in the ${product.model}? Request a quote today.`}
+    heading={`Interested in the ${product.model}? Get a quote by email.`}
+    body="Email us with your model, quantity, and specification — we respond within one business day."
     primaryLabel="Request a Quote"
-    primaryHref={u(`/contact?product=${encodeURIComponent(product.model)}`)}
+    primaryHref={quoteMailto}
     secondaryLabel="Back to Products"
-    secondaryHref={u(`/products/${category.id}`)}
+    secondaryHref={u(`/products/${category.id}/`)}
   />
 </Base>

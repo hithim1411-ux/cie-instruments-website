@@ -60,14 +60,6 @@ const fullTitle = title === 'Home'
   <Footer />
   <WhatsAppButton />
 
-  <script>
-    // Mobile nav toggle
-    const btn = document.getElementById('nav-toggle');
-    const menu = document.getElementById('mobile-menu');
-    btn?.addEventListener('click', () => {
-      const open = menu?.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', String(!open));
-    });
-  </script>
+  <!-- Nav toggle is handled in Header.astro -->
 </body>
 </html>

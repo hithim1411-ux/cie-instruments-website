@@ -15,6 +15,10 @@ const categoryCount = categories.map(cat => ({
 
 const featured = products.filter(p => p.featured);
 
+const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
+const rts33Mailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — RTS-33')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: RTS-33 — Three-Phase Relay Test Set.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
+
+
 const trustPoints = [
   {
     icon: '📅',
@@ -101,7 +105,7 @@ const industries = [
 
           <div class="flex flex-col sm:flex-row gap-3 mb-10">
             <a
-              href={u('/contact/')}
+              href={genericMailto}
               class="inline-flex items-center justify-center px-7 py-3.5 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded-lg text-sm transition-all hover:shadow-lg hover:shadow-red-900/30"
             >
               Request a Quote
@@ -312,7 +316,7 @@ const industries = [
               <a href={u('/products/relay-test-sets/rts-33')} class="px-5 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors">
                 View Specifications
               </a>
-              <a href={u('/contact?product=RTS-33')} class="px-5 py-2.5 border border-[#E0252E] text-[#E0252E] hover:bg-[#E0252E] hover:text-white text-sm font-semibold rounded transition-colors">
+              <a href={rts33Mailto} class="px-5 py-2.5 border border-[#E0252E] text-[#E0252E] hover:bg-[#E0252E] hover:text-white text-sm font-semibold rounded transition-colors">
                 Request a Quote
               </a>
             </div>

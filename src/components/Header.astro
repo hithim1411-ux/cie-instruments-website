@@ -1,15 +1,20 @@
 ---
 import { u } from '../utils/url';
+import categories from '../data/categories.json';
 
-const nav = [
-  { label: 'Products', href: u('/products') },
-  { label: 'Industries', href: u('/industries') },
-  { label: 'About Us', href: u('/about') },
-  { label: 'Quality & Support', href: u('/quality') },
-  { label: 'Contact', href: u('/contact') },
+const otherNav = [
+  { label: 'Industries',       href: u('/industries') },
+  { label: 'About Us',         href: u('/about') },
+  { label: 'Quality & Support',href: u('/quality') },
+  { label: 'Contact',          href: u('/contact') },
 ];
 
 const currentPath = Astro.url.pathname;
+const isHome     = currentPath === '/' || currentPath === u('/');
+const onProducts = currentPath.startsWith(u('/products'));
+
+// Generic mailto for header button
+const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 ---
 
 <header class="sticky top-0 z-50 bg-[#0D1B2A] shadow-lg">
@@ -25,35 +30,104 @@ const currentPath = Astro.url.pathname;
         />
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-6" aria-label="Main navigation">
-        {nav.map(({ label, href }) => (
-          <a
-            href={href}
-            class={`text-sm font-medium transition-colors duration-150 ${
-              currentPath.startsWith(href)
-                ? 'text-white border-b-2 border-[#E0252E] pb-0.5'
-                : 'text-[#b0bec5] hover:text-white'
-            }`}
+      <!-- ── Desktop Nav ── -->
+      <nav class="hidden lg:flex items-center gap-5" aria-label="Main navigation">
+
+        <!-- Home -->
+        <a href={u('/')}
+           class={`text-sm font-medium transition-colors ${isHome ? 'text-white border-b-2 border-[#E0252E] pb-0.5' : 'text-[#b0bec5] hover:text-white'}`}>
+          Home
+        </a>
+
+        <!-- Products + dropdown -->
+        <div id="products-nav" class="relative">
+          <div class="flex items-center">
+            <!-- Clicking the text navigates to /products/ -->
+            <a href={u('/products/')}
+               class={`text-sm font-medium transition-colors ${onProducts ? 'text-white border-b-2 border-[#E0252E] pb-0.5' : 'text-[#b0bec5] hover:text-white'}`}>
+              Products
+            </a>
+            <!-- Chevron toggle (keyboard / click entry-point for dropdown) -->
+            <button
+              id="products-toggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-label="Browse product categories"
+              class="ml-1 p-0.5 text-[#64748B] hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-[#E0252E] rounded"
+            >
+              <svg id="products-chevron" class="w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Dropdown panel -->
+          <div
+            id="products-dropdown"
+            role="region"
+            aria-label="Product categories"
+            class="absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] w-[560px]
+                   opacity-0 invisible translate-y-1
+                   transition-all duration-150 ease-out"
           >
+            <!-- Arrow pointer -->
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-2 overflow-hidden">
+              <div class="w-3 h-3 bg-[#1B3A5B] border border-white/10 rotate-45 translate-y-1.5 mx-auto"></div>
+            </div>
+
+            <div class="bg-[#0D1B2A] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
+              <!-- Header row -->
+              <div class="px-5 py-3 bg-[#1B3A5B]/40 border-b border-white/10 flex items-center justify-between">
+                <span class="text-xs font-mono text-[#64748B] uppercase tracking-widest">Browse by Category</span>
+                <a href={u('/products/')}
+                   class="text-xs font-semibold text-[#E0252E] hover:text-white transition-colors">
+                  All Products →
+                </a>
+              </div>
+              <!-- Category grid -->
+              <ul class="grid grid-cols-2 gap-px bg-white/5 p-px" role="menu">
+                {categories.map((cat, i) => (
+                  <li role="none">
+                    <a
+                      href={u(`/products/${cat.id}/`)}
+                      role="menuitem"
+                      data-dropdown-item
+                      tabindex="-1"
+                      class="flex items-start gap-3 px-4 py-3 bg-[#0D1B2A] hover:bg-[#1B3A5B] transition-colors group/item"
+                    >
+                      <span class="text-base shrink-0 mt-0.5" aria-hidden="true">{cat.icon}</span>
+                      <span class="text-sm font-medium text-[#b0bec5] group-hover/item:text-white transition-colors leading-snug">
+                        {cat.shortName}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other nav links -->
+        {otherNav.map(({ label, href }) => (
+          <a href={href}
+             class={`text-sm font-medium transition-colors ${currentPath.startsWith(href) ? 'text-white border-b-2 border-[#E0252E] pb-0.5' : 'text-[#b0bec5] hover:text-white'}`}>
             {label}
           </a>
         ))}
-        <a
-          href={u('/downloads/cie-product-catalogue.pdf')}
-          download="CIE Short Form Product Catalogue.pdf"
-          class="ml-2 inline-flex items-center gap-1.5 px-3 py-2 border border-[#b0bec5]/40 hover:border-white text-[#b0bec5] hover:text-white text-xs font-medium rounded transition-colors duration-150"
-          title="Short Form Product Catalogue"
-        >
+
+        <!-- Catalogue download -->
+        <a href={u('/downloads/cie-product-catalogue.pdf')}
+           download="CIE Short Form Product Catalogue.pdf"
+           class="ml-1 inline-flex items-center gap-1.5 px-3 py-2 border border-[#b0bec5]/40 hover:border-white text-[#b0bec5] hover:text-white text-xs font-medium rounded transition-colors"
+           title="Short Form Product Catalogue">
           <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
           </svg>
           Catalogue
         </a>
-        <a
-          href={u('/contact')}
-          class="px-4 py-2 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded transition-colors duration-150"
-        >
+
+        <a href={genericMailto}
+           class="px-4 py-2 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded transition-colors">
           Request a Quote
         </a>
       </nav>
@@ -73,34 +147,154 @@ const currentPath = Astro.url.pathname;
     </div>
   </div>
 
-  <!-- Mobile Menu -->
+  <!-- ── Mobile Menu ── -->
   <div id="mobile-menu" class="hidden lg:hidden bg-[#13243A] border-t border-white/10">
     <nav class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1" aria-label="Mobile navigation">
-      {nav.map(({ label, href }) => (
-        <a
-          href={href}
-          class="text-sm font-medium text-[#b0bec5] hover:text-white hover:bg-white/5 px-3 py-2 rounded transition-colors"
-        >
+
+      <!-- Home -->
+      <a href={u('/')} class="text-sm font-medium text-[#b0bec5] hover:text-white hover:bg-white/5 px-3 py-2 rounded transition-colors">
+        Home
+      </a>
+
+      <!-- Products accordion -->
+      <div>
+        <div class="flex items-center">
+          <a href={u('/products/')} class="flex-1 text-sm font-medium text-[#b0bec5] hover:text-white hover:bg-white/5 px-3 py-2 rounded-l transition-colors">
+            All Products
+          </a>
+          <button
+            id="mobile-products-toggle"
+            aria-expanded="false"
+            aria-controls="mobile-products-dropdown"
+            aria-label="Show product categories"
+            class="px-3 py-2 text-[#64748B] hover:text-white hover:bg-white/5 rounded-r transition-colors"
+          >
+            <svg id="mobile-products-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Category accordion panel -->
+        <div id="mobile-products-dropdown" class="hidden ml-3 border-l border-white/10 pl-3 py-1 mt-0.5">
+          {categories.map(cat => (
+            <a href={u(`/products/${cat.id}/`)}
+               class="flex items-center gap-2 px-2 py-2 text-xs text-[#64748B] hover:text-[#b0bec5] hover:bg-white/5 rounded transition-colors">
+              <span aria-hidden="true">{cat.icon}</span>
+              {cat.shortName}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {otherNav.map(({ label, href }) => (
+        <a href={href} class="text-sm font-medium text-[#b0bec5] hover:text-white hover:bg-white/5 px-3 py-2 rounded transition-colors">
           {label}
         </a>
       ))}
-      <a
-        href={u('/downloads/cie-product-catalogue.pdf')}
-        download="CIE Short Form Product Catalogue.pdf"
-        class="mt-1 inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#b0bec5] hover:text-white hover:bg-white/5 rounded transition-colors"
-      >
+
+      <a href={u('/downloads/cie-product-catalogue.pdf')}
+         download="CIE Short Form Product Catalogue.pdf"
+         class="mt-1 inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#b0bec5] hover:text-white hover:bg-white/5 rounded transition-colors">
         <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
         </svg>
         Short Form Product Catalogue
       </a>
-      <a
-        href={u('/contact')}
-        class="mt-2 px-4 py-2.5 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded text-center transition-colors"
-      >
+
+      <a href={genericMailto}
+         class="mt-2 px-4 py-2.5 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded text-center transition-colors">
         Request a Quote
       </a>
     </nav>
   </div>
 </header>
 
+<script>
+// ── Desktop dropdown: hover-intent + keyboard ──────────────────────────────
+const container  = document.getElementById('products-nav') as HTMLElement;
+const toggle     = document.getElementById('products-toggle') as HTMLButtonElement;
+const dropdown   = document.getElementById('products-dropdown') as HTMLElement;
+const chevron    = document.getElementById('products-chevron') as SVGElement;
+const menuItems  = Array.from(dropdown?.querySelectorAll<HTMLElement>('[data-dropdown-item]') ?? []);
+
+let openTimer: ReturnType<typeof setTimeout>;
+let closeTimer: ReturnType<typeof setTimeout>;
+
+function openDropdown() {
+  clearTimeout(closeTimer);
+  dropdown.classList.remove('opacity-0', 'invisible', 'translate-y-1');
+  dropdown.classList.add('opacity-100', 'visible', 'translate-y-0');
+  toggle.setAttribute('aria-expanded', 'true');
+  chevron.classList.add('rotate-180');
+  menuItems.forEach(el => el.setAttribute('tabindex', '0'));
+}
+
+function closeDropdown() {
+  clearTimeout(openTimer);
+  dropdown.classList.add('opacity-0', 'invisible', 'translate-y-1');
+  dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
+  toggle.setAttribute('aria-expanded', 'false');
+  chevron.classList.remove('rotate-180');
+  menuItems.forEach(el => el.setAttribute('tabindex', '-1'));
+}
+
+// Hover-intent: 100 ms open delay, 150 ms close delay (keeps panel open while cursor moves into it)
+container?.addEventListener('mouseenter', () => {
+  clearTimeout(closeTimer);
+  openTimer = setTimeout(openDropdown, 100);
+});
+container?.addEventListener('mouseleave', () => {
+  clearTimeout(openTimer);
+  closeTimer = setTimeout(closeDropdown, 150);
+});
+
+// Click / Enter / Space on chevron button
+toggle?.addEventListener('click', (e) => {
+  e.stopPropagation();
+  toggle.getAttribute('aria-expanded') === 'true' ? closeDropdown() : openDropdown();
+});
+toggle?.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    toggle.getAttribute('aria-expanded') === 'true' ? closeDropdown() : (() => { openDropdown(); menuItems[0]?.focus(); })();
+  }
+  if (e.key === 'Escape') { closeDropdown(); }
+  if (e.key === 'ArrowDown') { e.preventDefault(); openDropdown(); menuItems[0]?.focus(); }
+});
+
+// Arrow-key nav inside dropdown
+menuItems.forEach((item, i) => {
+  item.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); (menuItems[i + 1] ?? menuItems[0]).focus(); }
+    if (e.key === 'ArrowUp')   { e.preventDefault(); i === 0 ? toggle?.focus() : menuItems[i - 1].focus(); }
+    if (e.key === 'Escape')    { closeDropdown(); toggle?.focus(); }
+    if (e.key === 'Tab' && !e.shiftKey && i === menuItems.length - 1) { closeDropdown(); }
+  });
+});
+
+// Click outside → close
+document.addEventListener('click', (e) => {
+  if (container && !container.contains(e.target as Node)) closeDropdown();
+});
+
+// ── Mobile accordion ───────────────────────────────────────────────────────
+const mobileToggle   = document.getElementById('mobile-products-toggle') as HTMLButtonElement;
+const mobileDropdown = document.getElementById('mobile-products-dropdown') as HTMLElement;
+const mobileChevron  = document.getElementById('mobile-products-chevron') as SVGElement;
+
+mobileToggle?.addEventListener('click', () => {
+  const isHidden = mobileDropdown.classList.contains('hidden');
+  mobileDropdown.classList.toggle('hidden', !isHidden);
+  mobileToggle.setAttribute('aria-expanded', String(isHidden));
+  mobileChevron.classList.toggle('rotate-180', isHidden);
+});
+
+// ── Mobile hamburger (already wired in Base.astro, keep in sync) ──────────
+const navToggle  = document.getElementById('nav-toggle') as HTMLButtonElement;
+const mobileMenu = document.getElementById('mobile-menu') as HTMLElement;
+navToggle?.addEventListener('click', () => {
+  const open = mobileMenu?.classList.toggle('hidden');
+  navToggle.setAttribute('aria-expanded', String(!open));
+});
+</script>
