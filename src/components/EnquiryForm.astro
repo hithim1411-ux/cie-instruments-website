@@ -22,12 +22,7 @@ const waMsg = productName
   : encodeURIComponent("Hi, I'd like to enquire about CIE instruments.");
 ---
 
-<!-- Products data injected for the cascading dropdown JS -->
-<script
-  id="cie-product-data"
-  type="application/json"
-  set:text={JSON.stringify(productsByCategory)}
-></script>
+<!-- Products data is passed via define:vars in the script below -->
 
 <div class="bg-white rounded-xl border border-[#E8ECF2] p-6 sm:p-8">
   <h2 class="text-xl font-bold text-[#0D2547] mb-1">Request a Quote</h2>
@@ -187,11 +182,9 @@ const waMsg = productName
   </form>
 </div>
 
-<script>
-// ── Data ─────────────────────────────────────────────────────────────────────
-const dataEl = document.getElementById('cie-product-data');
-const catData: Array<{ id: string; name: string; products: Array<{ id: string; model: string; name: string }> }> =
-  dataEl ? JSON.parse(dataEl.textContent ?? '[]') : [];
+<script define:vars={{ productsByCategory }}>
+// ── Data (injected at build time via define:vars) ─────────────────────────────
+const catData = productsByCategory;
 
 // ── Elements ─────────────────────────────────────────────────────────────────
 const form        = document.getElementById('quote-form') as HTMLFormElement;

@@ -19,73 +19,30 @@ const featured = products.filter(p => p.featured);
 const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 const rts33Mailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — RTS-33')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: RTS-33 — Three-Phase Relay Test Set.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 
-const banners = [
-  {
-    src:   u('/banners/banner-insulation-testers.jpg'),
-    alt:   'CIE Insulation Testers — portable hand-driven and motor-operated insulation resistance testers for cables, motors, and panels',
-    href:  u('/products/insulation-testers-hand/'),
-    label: 'Explore Insulation Testers',
-  },
-  {
-    src:   u('/banners/banner-earth-testers.jpg'),
-    alt:   'CIE Earth Resistance Testers — digital and analogue earth testers for grounding system verification',
-    href:  u('/products/earth-tester/'),
-    label: 'Explore Earth Testers',
-  },
-  {
-    src:   u('/banners/banner-hv-test-sets.jpg'),
-    alt:   'CIE High-Voltage Test Sets and Phase Sequence Indicators for electrical commissioning',
-    href:  u('/products/hv-phase-sequence/'),
-    label: 'Explore HV Test Sets',
-  },
-  {
-    src:   u('/banners/banner-oil-test-sets.jpg'),
-    alt:   'CIE Oil BDV Test Sets — dielectric breakdown voltage testers for transformer insulating oil',
-    href:  u('/products/oil-test-sets/'),
-    label: 'Explore Oil Test Sets',
-  },
+// Category banners (banner images repurposed as category-explore cards)
+const categoryBanners = [
+  { src: u('/banners/banner-insulation-testers.jpg'), href: u('/products/insulation-testers-hand/'), label: 'Insulation Testers', sub: 'Hand & motor-operated, 100V–10kV' },
+  { src: u('/banners/banner-earth-testers.jpg'),      href: u('/products/earth-tester/'),            label: 'Earth Testers',       sub: 'Analogue & digital, 3- and 4-terminal' },
+  { src: u('/banners/banner-hv-test-sets.jpg'),       href: u('/products/hv-phase-sequence/'),       label: 'HV Test Sets',        sub: 'High-voltage insulation & phase sequence' },
+  { src: u('/banners/banner-oil-test-sets.jpg'),      href: u('/products/oil-test-sets/'),           label: 'Oil BDV Testers',     sub: 'Automatic & manual dielectric oil test' },
 ];
 
 const trustPoints = [
-  {
-    icon: '📅',
-    label: '60+ Years of Service',
-    body: "Established 1963. Generations of engineers at India's utilities and railways have relied on the CIE® mark.",
-  },
-  {
-    icon: '🇮🇳',
-    label: 'Made in India',
-    body: 'Designed and manufactured in Howrah, West Bengal, under the registered CIE® trade mark.',
-  },
-  {
-    icon: '🛡️',
-    label: '12-Month Warranty',
-    body: 'Every instrument carries a 12-month warranty against manufacturing defects, backed by direct after-sales support.',
-  },
-  {
-    icon: '🔧',
-    label: 'Custom Ranges to Order',
-    body: 'Non-standard voltage, resistance, or measurement ranges? We manufacture to your specific requirement.',
-  },
-  {
-    icon: '⚡',
-    label: 'Trusted by Power Utilities',
-    body: 'Preferred by PGCIL, DVC, WBSETCL, Indian Railways, and EPC contractors across India.',
-  },
-  {
-    icon: '🔬',
-    label: 'Calibrated Before Despatch',
-    body: 'Every instrument is calibrated against reference standards at our facility and a calibration record is maintained.',
-  },
+  { icon: '📅', label: '60+ Years of Service',     body: "Established 1963. Generations of engineers at India's utilities and railways have relied on the CIE® mark." },
+  { icon: '🇮🇳', label: 'Made in India',            body: 'Designed and assembled in Howrah, West Bengal, under the registered CIE® trade mark.' },
+  { icon: '🛡️', label: '12-Month Warranty',        body: 'Every instrument carries a 12-month warranty against manufacturing defects, with direct after-sales support.' },
+  { icon: '🔧', label: 'Custom Ranges to Order',   body: 'Non-standard voltage, resistance, or measurement ranges? We manufacture to your specific requirement.' },
+  { icon: '⚡', label: 'Trusted by Power Utilities',body: 'Preferred by PGCIL, DVC, WBSETCL, Indian Railways, and EPC contractors across India.' },
+  { icon: '🔬', label: 'Calibrated Before Despatch',body: 'Every instrument is calibrated against reference standards before leaving our works.' },
 ];
 
 const industries = [
-  { name: 'Power Utilities', desc: 'PGCIL, DVC, state electricity boards, generation companies', icon: '⚡' },
-  { name: 'Indian Railways', desc: 'Traction, signalling, and rolling stock testing requirements', icon: '🚂' },
-  { name: 'Substation Commissioning', desc: 'EPC contractors and commissioning engineers', icon: '🏗️' },
-  { name: 'Industry & Manufacturing', desc: 'Motors, cables, panels, transformers in heavy industry', icon: '🏭' },
-  { name: 'Test Laboratories', desc: 'NABL labs, calibration centres, R&D facilities', icon: '🔬' },
-  { name: 'EPC Contractors', desc: 'Project commissioning and acceptance testing', icon: '📋' },
+  { name: 'Power Utilities',           desc: 'PGCIL, DVC, state electricity boards, generation companies', icon: '⚡' },
+  { name: 'Indian Railways',           desc: 'Traction, signalling, and rolling stock testing requirements', icon: '🚂' },
+  { name: 'Substation Commissioning',  desc: 'EPC contractors and commissioning engineers', icon: '🏗️' },
+  { name: 'Industry & Manufacturing',  desc: 'Motors, cables, panels, transformers in heavy industry', icon: '🏭' },
+  { name: 'Test Laboratories',         desc: 'NABL labs, calibration centres, R&D facilities', icon: '🔬' },
+  { name: 'EPC Contractors',           desc: 'Project commissioning and acceptance testing', icon: '📋' },
 ];
 ---
 
@@ -94,126 +51,142 @@ const industries = [
   description="CIE — Cambridge Instruments & Engg. Co., Howrah. Manufacturer of insulation testers, relay test sets, oil BDV testers, earth testers and more since 1963. Made in India."
 >
 
-  <!-- ── HERO CAROUSEL ─────────────────────────────────────────────────────── -->
-  <section
-    id="hero-carousel"
-    aria-label="CIE product showcase"
-    aria-roledescription="carousel"
-    class="relative w-full overflow-hidden bg-[#0D1B2A] select-none"
-  >
-    <!-- Slides track -->
-    <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out will-change-transform">
-      {banners.map((b, i) => (
-        <div
-          class="carousel-slide shrink-0 w-full relative"
-          role="group"
-          aria-roledescription="slide"
-          aria-label={`Slide ${i + 1} of ${banners.length}: ${b.alt}`}
-        >
-          <!-- Full banner is a link to the category -->
-          <a
-            href={b.href}
-            class="block w-full relative focus:outline-none focus-visible:ring-4 focus-visible:ring-[#E0252E] focus-visible:ring-offset-2"
-            tabindex={i === 0 ? '0' : '-1'}
-            data-slide-link
-          >
-            <!-- Desktop: natural 3:2 aspect, up to ~600px tall -->
-            <div class="hidden sm:block w-full" style="aspect-ratio:1536/640; max-height:620px; overflow:hidden;">
-              <img
-                src={b.src}
-                alt={b.alt}
-                class="w-full h-full object-cover object-left"
-                loading={i === 0 ? 'eager' : 'lazy'}
-                fetchpriority={i === 0 ? 'high' : 'auto'}
-                width="1536"
-                height="640"
-              />
-            </div>
-            <!-- Mobile: taller crop, focal point left -->
-            <div class="sm:hidden w-full overflow-hidden" style="aspect-ratio:4/3;">
-              <img
-                src={b.src}
-                alt={b.alt}
-                class="w-full h-full object-cover object-left-top"
-                loading={i === 0 ? 'eager' : 'lazy'}
-                width="800"
-                height="600"
-              />
-            </div>
-          </a>
+  <!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+  <section class="blueprint-bg text-white relative overflow-hidden">
+    <!-- Left red accent bar -->
+    <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#E0252E]" aria-hidden="true"></div>
+    <!-- Top-right glow -->
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-10 pointer-events-none"
+      style="background: radial-gradient(circle at top right, #E0252E 0%, transparent 65%);" aria-hidden="true">
+    </div>
 
-          <!-- Accessible "Explore" overlay button on desktop (sits over the baked-in button area) -->
-          <a
-            href={b.href}
-            class="hidden sm:flex items-center gap-2 absolute bottom-[18%] left-[6%] z-10
-                   bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-bold px-5 py-2.5 rounded
-                   transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            tabindex={i === 0 ? '0' : '-1'}
-            aria-label={b.label}
-            data-slide-link
-          >
-            {b.label}
-            <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          <!-- Mobile: real text button below image -->
-          <div class="sm:hidden bg-[#0D1B2A] px-4 py-4">
+        <!-- ── Left: copy ── -->
+        <div class="max-w-xl">
+          <!-- Eyebrow -->
+          <div class="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] animate-pulse" aria-hidden="true"></span>
+            <span class="text-[11px] font-mono text-[#b0bec5] tracking-widest uppercase">CIE® · Howrah, India · Est. 1963</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl font-black leading-[1.1] mb-5 text-white">
+            Precision test &amp; measurement instruments,<br class="hidden sm:block" />
+            <span class="text-[#E0252E]">built in India</span> since&nbsp;1963.
+          </h1>
+
+          <!-- Subhead -->
+          <p class="text-base sm:text-lg text-[#b0bec5] mb-8 leading-relaxed">
+            Cambridge Instruments &amp; Engg. Co. — manufacturer of insulation testers,
+            earth testers, relay test sets, and oil test equipment for India's utilities,
+            railways, and industry.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-3 mb-10">
             <a
-              href={b.href}
-              class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-bold rounded transition-colors"
-              tabindex={i === 0 ? '0' : '-1'}
-              data-slide-link
+              href={u('/products/')}
+              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded-lg text-sm transition-all hover:shadow-lg hover:shadow-red-900/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              {b.label}
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+              Explore Products
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
               </svg>
             </a>
+            <a
+              href={genericMailto}
+              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/25 hover:border-white/60 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-lg text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              Request a Quote
+            </a>
+          </div>
+
+          <!-- Trust row -->
+          <div class="flex flex-wrap gap-x-6 gap-y-2 pt-7 border-t border-white/10 text-xs text-[#64748B] font-mono uppercase tracking-wide">
+            {['60+ Years', 'Made in India', '12-Month Warranty', 'In-House Calibration'].map(t => (
+              <span class="flex items-center gap-1.5">
+                <span class="w-1 h-1 rounded-full bg-[#E0252E]" aria-hidden="true"></span>
+                {t}
+              </span>
+            ))}
           </div>
         </div>
-      ))}
+
+        <!-- ── Right: hero product image ── -->
+        <div class="hidden lg:flex items-center justify-center">
+          <div class="relative">
+            <!-- Outer glow ring -->
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#1B3A5B]/60 to-[#E0252E]/10 blur-xl scale-110" aria-hidden="true"></div>
+            <!-- Image frame -->
+            <div class="relative bg-[#0D2547]/80 border border-white/10 rounded-2xl p-8 backdrop-blur-sm shadow-2xl">
+              <!-- Corner accents -->
+              <div class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#E0252E] rounded-tl" aria-hidden="true"></div>
+              <div class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#E0252E] rounded-tr" aria-hidden="true"></div>
+              <div class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#E0252E] rounded-bl" aria-hidden="true"></div>
+              <div class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#E0252E] rounded-br" aria-hidden="true"></div>
+              <!-- Product image -->
+              <img
+                src={u('/images/products/cie-777.jpg')}
+                alt="CIE/777 Motorised High-Voltage Insulation Tester — manufactured in Howrah since 1963"
+                class="w-64 xl:w-72 h-auto object-contain mx-auto"
+                loading="eager"
+                fetchpriority="high"
+                width="288"
+                height="288"
+              />
+              <!-- Caption chip -->
+              <div class="mt-5 text-center">
+                <p class="text-xs font-mono text-[#E0252E] uppercase tracking-widest">CIE/777</p>
+                <p class="text-white text-sm font-semibold mt-0.5">Motorised Insulation Tester</p>
+                <p class="text-[#64748B] text-xs mt-0.5">500 V – 10 kV · Made in India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <!-- Prev arrow -->
-    <button
-      id="carousel-prev"
-      aria-label="Previous slide"
-      class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center
-             bg-black/40 hover:bg-black/70 text-white rounded-full transition-colors
-             focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-12 sm:h-12"
-    >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-      </svg>
-    </button>
-
-    <!-- Next arrow -->
-    <button
-      id="carousel-next"
-      aria-label="Next slide"
-      class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center
-             bg-black/40 hover:bg-black/70 text-white rounded-full transition-colors
-             focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-12 sm:h-12"
-    >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-      </svg>
-    </button>
-
-    <!-- Dot indicators -->
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2" role="tablist" aria-label="Select slide">
-      {banners.map((b, i) => (
-        <button
-          type="button"
-          role="tab"
-          aria-selected={i === 0 ? 'true' : 'false'}
-          aria-label={`Go to slide ${i + 1}`}
-          data-dot={i}
-          class={`carousel-dot w-2.5 h-2.5 rounded-full border border-white/60 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${i === 0 ? 'bg-white scale-110' : 'bg-white/30 hover:bg-white/60'}`}
-        />
-      ))}
+  <!-- ── CATEGORY EXPLORE BANNERS ──────────────────────────────────────────── -->
+  <section class="bg-[#0D1B2A] py-10 lg:py-12" aria-label="Product categories">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        {categoryBanners.map(b => (
+          <a
+            href={b.href}
+            class="group relative overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E0252E]"
+            style="aspect-ratio: 4/3;"
+          >
+            <img
+              src={b.src}
+              alt={b.label}
+              class="w-full h-full object-cover object-left transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              width="400"
+              height="300"
+            />
+            <!-- Dark overlay gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <!-- Text -->
+            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+              <p class="text-white font-bold text-sm sm:text-base leading-tight">{b.label}</p>
+              <p class="text-white/70 text-xs mt-0.5 hidden sm:block">{b.sub}</p>
+              <p class="mt-2 text-[#E0252E] text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                Explore
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                </svg>
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -227,19 +200,11 @@ const industries = [
           Manufactured in Howrah and calibrated against reference standards — every instrument backed by a 12-month warranty.
         </p>
       </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {categoryCount.map(cat => (
-          <CategoryCard
-            id={cat.id}
-            name={cat.name}
-            description={cat.description}
-            icon={cat.icon}
-            count={cat.count}
-          />
+          <CategoryCard id={cat.id} name={cat.name} description={cat.description} icon={cat.icon} count={cat.count} />
         ))}
       </div>
-
       <div class="mt-8 text-center">
         <a href={u('/products/')} class="inline-flex items-center gap-2 text-sm font-semibold text-[#1B3A5B] hover:text-[#E0252E] transition-colors">
           Browse full catalogue →
@@ -255,7 +220,6 @@ const industries = [
         <EyebrowLabel text="Why CIE" class="mb-3" />
         <h2 class="text-3xl font-black text-[#0D2547]">Built for reliability.<br />Backed by six decades.</h2>
       </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {trustPoints.map(tp => (
           <div class="red-stripe">
@@ -275,19 +239,10 @@ const industries = [
         <EyebrowLabel text="Flagship Instruments" class="mb-3" />
         <h2 class="text-3xl font-black text-[#0D2547]">Selected from the CIE Range</h2>
       </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {featured.map(p => (
-          <ProductCard
-            model={p.model}
-            name={p.name}
-            tagline={p.tagline}
-            categoryId={p.categoryId}
-            id={p.id}
-            featured={p.featured}
-            image={p.image}
-            hideImage={p.hideImage}
-          />
+          <ProductCard model={p.model} name={p.name} tagline={p.tagline} categoryId={p.categoryId}
+            id={p.id} featured={p.featured} image={p.image} hideImage={p.hideImage} />
         ))}
       </div>
     </div>
@@ -303,7 +258,6 @@ const industries = [
           From grid substations to rolling stock depots — CIE instruments are specified by engineers who need measurements they can stake their signature on.
         </p>
       </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {industries.map(ind => (
           <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg p-5 transition-colors">
@@ -313,7 +267,6 @@ const industries = [
           </div>
         ))}
       </div>
-
       <div class="mt-8">
         <a href={u('/industries/')} class="text-sm font-semibold text-[#E0252E] hover:text-white transition-colors">
           See all applications →
@@ -332,35 +285,21 @@ const industries = [
           Supplying utilities, railways, PSUs, and institutions for over six decades.
         </p>
       </div>
-
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-px bg-[#E8ECF2] border border-[#E8ECF2] rounded-xl overflow-hidden">
         {clients.map(client => (
           <div class="bg-white group flex items-center justify-center p-5 sm:p-6 min-h-[100px]">
             {client.url ? (
-              <a
-                href={client.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={client.name}
-                class="flex items-center justify-center w-full h-full"
-              >
-                <img
-                  src={u(client.logo)}
-                  alt={client.name}
-                  title={client.name}
+              <a href={client.url} target="_blank" rel="noopener noreferrer" aria-label={client.name}
+                 class="flex items-center justify-center w-full h-full">
+                <img src={u(client.logo)} alt={client.name} title={client.name}
                   class="max-h-12 sm:max-h-14 max-w-[120px] w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                  loading="lazy"
-                />
+                  loading="lazy" />
               </a>
             ) : (
               <div class="flex items-center justify-center w-full h-full" title={client.name}>
-                <img
-                  src={u(client.logo)}
-                  alt={client.name}
-                  title={client.name}
+                <img src={u(client.logo)} alt={client.name} title={client.name}
                   class="max-h-12 sm:max-h-14 max-w-[120px] w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                  loading="lazy"
-                />
+                  loading="lazy" />
               </div>
             )}
           </div>
@@ -388,7 +327,7 @@ const industries = [
             <ul class="space-y-2 mb-8">
               {['Three-phase output', '250 VA burden', '0–360° phase angle', 'AC & DC voltage', '12-month warranty'].map(f => (
                 <li class="flex items-center gap-2 text-sm text-[#1B3A5B]">
-                  <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] shrink-0"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] shrink-0" aria-hidden="true"></span>
                   {f}
                 </li>
               ))}
@@ -418,73 +357,3 @@ const industries = [
   <CTABand />
 
 </Base>
-
-<script>
-// ── Hero Carousel ────────────────────────────────────────────────────────────
-const track   = document.getElementById('carousel-track') as HTMLElement;
-const dots    = Array.from(document.querySelectorAll<HTMLButtonElement>('.carousel-dot'));
-const prev    = document.getElementById('carousel-prev') as HTMLButtonElement;
-const next    = document.getElementById('carousel-next') as HTMLButtonElement;
-const allLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-slide-link]'));
-const total   = dots.length;
-let current   = 0;
-let timer: ReturnType<typeof setInterval> | null = null;
-const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-function goTo(idx: number) {
-  current = ((idx % total) + total) % total;
-  track.style.transform = `translateX(-${current * 100}%)`;
-
-  dots.forEach((d, i) => {
-    const active = i === current;
-    d.setAttribute('aria-selected', String(active));
-    d.classList.toggle('bg-white', active);
-    d.classList.toggle('scale-110', active);
-    d.classList.toggle('bg-white/30', !active);
-  });
-
-  // Update slide link tabindex so only active slide links are reachable
-  const slides = track.querySelectorAll<HTMLElement>('.carousel-slide');
-  slides.forEach((slide, i) => {
-    const links = slide.querySelectorAll<HTMLAnchorElement>('[data-slide-link]');
-    links.forEach(l => l.setAttribute('tabindex', i === current ? '0' : '-1'));
-  });
-}
-
-function startAuto() {
-  if (reduced) return;
-  timer = setInterval(() => goTo(current + 1), 6000);
-}
-function stopAuto() {
-  if (timer) { clearInterval(timer); timer = null; }
-}
-
-prev?.addEventListener('click', () => { stopAuto(); goTo(current - 1); startAuto(); });
-next?.addEventListener('click', () => { stopAuto(); goTo(current + 1); startAuto(); });
-dots.forEach((d, i) => d.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); }));
-
-// Pause on hover / focus
-const section = document.getElementById('hero-carousel')!;
-section.addEventListener('mouseenter', stopAuto);
-section.addEventListener('mouseleave', startAuto);
-section.addEventListener('focusin',    stopAuto);
-section.addEventListener('focusout',   startAuto);
-
-// Touch / swipe
-let touchX = 0;
-track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
-track.addEventListener('touchend',   e => {
-  const dx = e.changedTouches[0].clientX - touchX;
-  if (Math.abs(dx) > 40) { stopAuto(); goTo(current + (dx < 0 ? 1 : -1)); startAuto(); }
-}, { passive: true });
-
-// Keyboard on arrows
-prev?.addEventListener('keydown', e => {
-  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); stopAuto(); goTo(current - 1); startAuto(); }
-});
-next?.addEventListener('keydown', e => {
-  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); stopAuto(); goTo(current + 1); startAuto(); }
-});
-
-startAuto();
-</script>
