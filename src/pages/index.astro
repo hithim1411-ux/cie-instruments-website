@@ -40,8 +40,50 @@ const industries = [
 
 <Base
   title="Home"
-  description="CIE — Cambridge Instruments & Engg. Co., Howrah. Manufacturer of insulation testers, relay test sets, oil BDV testers, earth testers and more since 1963. Made in India."
+  description="CIE Instruments — Cambridge Instruments & Engg. Co., Howrah. Manufacturer of insulation testers, earth testers, relay test sets, oil BDV testers, and digital measuring instruments since 1963. Trusted by PGCIL, Indian Railways, DVC. Made in India."
 >
+  <script slot="head" type="application/ld+json">{JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': 'https://cieinstruments.in/#organization',
+    name: 'Cambridge Instruments & Engg. Co.',
+    alternateName: 'CIE Instruments',
+    url: 'https://cieinstruments.in/',
+    telephone: '+913326388346',
+    email: 'cieinstruments@gmail.com',
+    foundingDate: '1963',
+    priceRange: 'Contact for quote',
+    image: 'https://cieinstruments.in/logo/cie-logo.png',
+    logo: 'https://cieinstruments.in/logo/cie-logo.png',
+    description: 'Manufacturer of precision electrical test and measurement instruments — insulation testers, earth testers, relay test sets, oil BDV testers — since 1963.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Howrah',
+      addressLocality: 'Howrah',
+      addressRegion: 'West Bengal',
+      postalCode: '711101',
+      addressCountry: 'IN',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 22.5958,
+      longitude: 88.2636,
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'India',
+    },
+    knowsAbout: [
+      'Insulation Testers',
+      'Earth Resistance Testers',
+      'Relay Test Sets',
+      'Oil BDV Test Sets',
+      'Digital Multimeters',
+      'Clamp Meters',
+      'Micro-Ohm Meters',
+      'Electrical Test Equipment',
+    ],
+  })}</script>
 
   <!-- ── HERO ──────────────────────────────────────────────────────────────── -->
   <section class="blueprint-bg text-white relative overflow-hidden">
@@ -124,7 +166,7 @@ const industries = [
               <!-- Product image -->
               <img
                 src={u('/images/products/cie-444.jpg')}
-                alt="CIE/444 Motorised High-Voltage Insulation Tester — manufactured in Howrah since 1963"
+                alt="CIE/444 Analog Insulation Tester, Hand-Driven Generator Type — manufactured in Howrah since 1963"
                 class="w-64 xl:w-72 h-auto object-contain mx-auto"
                 loading="eager"
                 fetchpriority="high"
@@ -134,8 +176,8 @@ const industries = [
               <!-- Caption chip -->
               <div class="mt-5 text-center">
                 <p class="text-xs font-mono text-[#E0252E] uppercase tracking-widest">CIE/444</p>
-                <p class="text-white text-sm font-semibold mt-0.5">Motorised Insulation Tester</p>
-                <p class="text-[#64748B] text-xs mt-0.5">500 V – 5 kV · Made in India</p>
+                <p class="text-white text-sm font-semibold mt-0.5">Analog Insulation Tester</p>
+                <p class="text-[#64748B] text-xs mt-0.5">Hand-Driven Generator Type · Made in India</p>
               </div>
             </div>
           </div>
@@ -145,28 +187,101 @@ const industries = [
     </div>
   </section>
 
-  <!-- ── PRODUCT CATEGORIES ─────────────────────────────────────────────────── -->
+  <!-- ── PRODUCT CATEGORIES (horizontal slider) ───────────────────────────── -->
   <section class="bg-[#F5F7FA] py-16 lg:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
-        <EyebrowLabel text="Product Catalogue" class="mb-3" />
-        <h2 class="text-3xl font-black text-[#0D2547]">Test &amp; Measurement Instruments</h2>
-        <p class="mt-2 text-[#64748B] max-w-2xl">
-          Manufactured in Howrah and calibrated against reference standards — every instrument backed by a 12-month warranty.
-        </p>
+      <div class="flex items-end justify-between mb-8 gap-4">
+        <div>
+          <EyebrowLabel text="Product Catalogue" class="mb-3" />
+          <h2 class="text-3xl font-black text-[#0D2547]">Test &amp; Measurement Instruments</h2>
+          <p class="mt-2 text-[#64748B] max-w-2xl">
+            Manufactured in Howrah and calibrated against reference standards — every instrument backed by a 12-month warranty.
+          </p>
+        </div>
+        <!-- Slider arrows -->
+        <div class="hidden sm:flex items-center gap-2 shrink-0">
+          <button id="cat-prev" aria-label="Previous categories"
+            class="w-9 h-9 rounded-full border border-[#E8ECF2] bg-white hover:border-[#1B3A5B] hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] transition-all flex items-center justify-center disabled:opacity-30 disabled:pointer-events-none">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button id="cat-next" aria-label="Next categories"
+            class="w-9 h-9 rounded-full border border-[#E8ECF2] bg-white hover:border-[#1B3A5B] hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] transition-all flex items-center justify-center disabled:opacity-30 disabled:pointer-events-none">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <!-- Scrollable track -->
+      <div id="cat-track"
+        class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+        style="scrollbar-width:none; -ms-overflow-style:none;">
         {categoryCount.map(cat => (
-          <CategoryCard id={cat.id} name={cat.name} description={cat.description} icon={cat.icon} count={cat.count} />
+          <a href={u(`/products/${cat.id}/`)}
+            class="group snap-start shrink-0 w-[260px] sm:w-[280px] bg-white rounded-lg border border-[#E8ECF2] p-5 hover:shadow-md hover:border-[#1B3A5B]/30 transition-all duration-200 flex flex-col">
+            <div class="flex items-start gap-3 mb-3">
+              <div class="shrink-0 w-10 h-10 bg-[#F5F7FA] rounded-lg flex items-center justify-center text-xl group-hover:bg-[#1B3A5B]/5 transition-colors">
+                {cat.icon}
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-bold text-[#0D2547] text-sm leading-snug group-hover:text-[#1B3A5B] transition-colors line-clamp-2">{cat.name}</h3>
+                <span class="text-xs font-mono text-[#64748B]">{cat.count} {cat.count === 1 ? 'product' : 'products'}</span>
+              </div>
+            </div>
+            <p class="text-xs text-[#64748B] leading-relaxed line-clamp-3 flex-1">{cat.description}</p>
+            <div class="mt-3 pt-3 border-t border-[#F0F2F5] text-xs font-semibold text-[#E0252E] group-hover:translate-x-1 transition-transform duration-200">View products →</div>
+          </a>
         ))}
       </div>
-      <div class="mt-8 text-center">
+
+      <!-- Dot indicators -->
+      <div id="cat-dots" class="flex justify-center gap-1.5 mt-5" aria-hidden="true">
+        {categoryCount.map((_, i) => (
+          <button data-dot={i}
+            class={`cat-dot w-1.5 h-1.5 rounded-full transition-all ${i === 0 ? 'bg-[#1B3A5B] w-4' : 'bg-[#CBD5E1]'}`}
+            aria-label={`Go to slide ${i + 1}`}></button>
+        ))}
+      </div>
+
+      <div class="mt-6 text-center">
         <a href={u('/products/')} class="inline-flex items-center gap-2 text-sm font-semibold text-[#1B3A5B] hover:text-[#E0252E] transition-colors">
           Browse full catalogue →
         </a>
       </div>
     </div>
   </section>
+
+  <script>
+  {
+    const track = document.getElementById('cat-track');
+    const dots  = document.querySelectorAll<HTMLButtonElement>('.cat-dot');
+    const prev  = document.getElementById('cat-prev') as HTMLButtonElement | null;
+    const next  = document.getElementById('cat-next') as HTMLButtonElement | null;
+    if (track) {
+      const slideW = () => {
+        const first = track.querySelector('a');
+        return first ? first.offsetWidth + 16 : 296; // card + gap-4
+      };
+      const scroll = (dir: number) => {
+        track.scrollBy({ left: dir * slideW() * 3, behavior: 'smooth' });
+      };
+      prev?.addEventListener('click', () => scroll(-1));
+      next?.addEventListener('click', () => scroll(1));
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          track.scrollTo({ left: i * slideW(), behavior: 'smooth' });
+        });
+      });
+      track.addEventListener('scroll', () => {
+        const idx = Math.round(track.scrollLeft / slideW());
+        dots.forEach((d, i) => {
+          d.classList.toggle('bg-[#1B3A5B]', i === idx);
+          d.classList.toggle('!w-4', i === idx);
+          d.classList.toggle('bg-[#CBD5E1]', i !== idx);
+        });
+      }, { passive: true });
+    }
+  }
+  </script>
 
   <!-- ── WHY CIE ────────────────────────────────────────────────────────────── -->
   <section class="bg-white py-16 lg:py-20">

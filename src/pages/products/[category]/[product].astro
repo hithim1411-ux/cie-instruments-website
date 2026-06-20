@@ -31,12 +31,55 @@ const productImageSrc = product.image
 const quoteSubject = `Quote Request — ${product.model}`;
 const quoteBody    = `Hello CIE team,\n\nI would like to request a quote for: ${product.model} — ${product.name}.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.`;
 const quoteMailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent(quoteSubject)}&body=${encodeURIComponent(quoteBody)}`;
+
+// Product structured data for Google
+const productImageAbsolute = `https://cieinstruments.in/images/products/${product.image ?? product.id + '.jpg'}`;
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: `${product.model} — ${product.name}`,
+  description: product.tagline,
+  image: productImageAbsolute,
+  brand: {
+    '@type': 'Brand',
+    name: 'CIE',
+  },
+  manufacturer: {
+    '@type': 'Organization',
+    '@id': 'https://cieinstruments.in/#organization',
+    name: 'Cambridge Instruments & Engg. Co.',
+  },
+  model: product.model,
+  countryOfOrigin: 'IN',
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    url: `https://cieinstruments.in/products/${product.categoryId}/${product.id}/`,
+    seller: { '@id': 'https://cieinstruments.in/#organization' },
+    priceCurrency: 'INR',
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      priceCurrency: 'INR',
+      description: 'Contact manufacturer for pricing',
+    },
+  },
+  ...(product.specs && product.specs.length > 0 && {
+    additionalProperty: product.specs.map((s: { label: string; value: string }) => ({
+      '@type': 'PropertyValue',
+      name: s.label,
+      value: s.value,
+    })),
+  }),
+};
+
+const pageDescription = `${product.model} ${product.name} — ${product.tagline} Manufactured by Cambridge Instruments & Engg. Co., Howrah, India. 12-month warranty.`;
 ---
 
 <Base
   title={`${product.model} — ${product.name}`}
-  description={`${product.model} ${product.name} — ${product.tagline} CIE instruments, Howrah.`}
+  description={pageDescription}
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   <!-- Page header -->
   <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

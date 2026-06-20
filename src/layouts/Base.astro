@@ -14,15 +14,71 @@ interface Props {
 
 const {
   title,
-  description = 'Cambridge Instruments & Engg. Co. (CIE) — manufacturer of electrical & electronic test and measurement instruments since 1963. Insulation testers, earth testers, relay test sets, oil BDV testers and more. Made in India.',
+  description = 'Cambridge Instruments & Engg. Co. (CIE) — manufacturer of electrical test and measurement instruments since 1963. Insulation testers, earth testers, relay test sets, oil BDV testers and more. Made in India.',
   ogImage = u('/logo/cie-logo.png'),
   noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = title === 'Home'
-  ? 'CIE Instruments — Instruments for Accuracy and Reliability'
-  : `${title} | CIE Instruments`;
+  ? 'CIE Instruments — Precision Test & Measurement Instruments | Made in India since 1963'
+  : `${title} | CIE Instruments — Made in India since 1963`;
+
+const ogImageURL = new URL(ogImage, Astro.site).toString();
+const canonicalStr = canonicalURL.toString();
+
+// Organisation + WebSite structured data (site-wide)
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://cieinstruments.in/#organization',
+      name: 'Cambridge Instruments & Engg. Co.',
+      alternateName: ['CIE Instruments', 'CIE'],
+      url: 'https://cieinstruments.in/',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://cieinstruments.in/logo/cie-logo.png',
+        width: 200,
+        height: 200,
+      },
+      foundingDate: '1963',
+      description: 'Manufacturer of precision electrical test and measurement instruments — insulation testers, earth testers, relay test sets, oil BDV testers — since 1963. Made in Howrah, India.',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Howrah',
+        addressLocality: 'Howrah',
+        addressRegion: 'West Bengal',
+        postalCode: '711101',
+        addressCountry: 'IN',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'cieinstruments@gmail.com',
+        contactType: 'customer service',
+        areaServed: 'IN',
+        availableLanguage: 'en',
+      },
+      sameAs: [],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://cieinstruments.in/#website',
+      url: 'https://cieinstruments.in/',
+      name: 'CIE Instruments',
+      publisher: { '@id': 'https://cieinstruments.in/#organization' },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://cieinstruments.in/products/?category={search_term_string}',
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -32,25 +88,40 @@ const fullTitle = title === 'Home'
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
-  <link rel="canonical" href={canonicalURL} />
+  <link rel="canonical" href={canonicalStr} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Geo / local SEO -->
+  <meta name="geo.region" content="IN-WB" />
+  <meta name="geo.placename" content="Howrah, West Bengal, India" />
+  <meta name="geo.position" content="22.5958;88.2636" />
+  <meta name="ICBM" content="22.5958, 88.2636" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:url" content={canonicalStr} />
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="CIE Instruments" />
+  <meta property="og:locale" content="en_IN" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <!-- Structured data: Organisation + WebSite -->
+  <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
 
   <link rel="icon" type="image/png" href={u('/logo/cie-logo.png')} />
   <link rel="apple-touch-icon" href={u('/logo/cie-logo.png')} />
+
+  <!-- Slot for per-page structured data / additional head tags -->
+  <slot name="head" />
 </head>
 <body>
   <Header />
@@ -59,7 +130,5 @@ const fullTitle = title === 'Home'
   </main>
   <Footer />
   <WhatsAppButton />
-
-  <!-- Nav toggle is handled in Header.astro -->
 </body>
 </html>
