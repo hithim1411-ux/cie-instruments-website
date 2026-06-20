@@ -128,6 +128,21 @@ const quoteMailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURICompone
           <p class="text-[#64748B] leading-relaxed">{product.description}</p>
         </div>
 
+        <!-- 1b. Key Features (optional) -->
+        {product.features && (product.features as string[]).length > 0 && (
+          <div>
+            <h2 class="text-xl font-bold text-[#0D2547] mb-4">Key Features</h2>
+            <ul class="space-y-2">
+              {(product.features as string[]).map((f: string) => (
+                <li class="flex items-start gap-3 text-sm text-[#64748B]">
+                  <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1B3A5B] shrink-0"></span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         <!-- 2. Technical Specifications -->
         <div>
           <h2 class="text-xl font-bold text-[#0D2547] mb-4">Technical Specifications</h2>

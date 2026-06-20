@@ -1144,25 +1144,57 @@
     "id": "cie-555",
     "categoryId": "compact-insulation-testers",
     "model": "CIE/555",
-    "name": "Insulation Tester — Bakelite Body",
-    "tagline": "Hand-driven insulation tester in moulded bakelite body — economical instrument for 100 V to 1000 V testing.",
-    "description": "The CIE/555 is a hand-driven generator-type insulation tester in a moulded bakelite body, available in four rated voltages from 100 V to 1000 V. It is positioned in the CIE range as an economical instrument alongside the compact metal-body CIE/888. Note: A catalogue document for CIE/555 has not been verified at time of writing. Specifications shown are limited to what is confirmed by the current price list (voltage, resistance range, and accessory options). Features, operating principle, accuracy standard, dimensions, and weight are not confirmed and are not published here.",
+    "name": "Insulation Tester (Hand Driven Generator Type, Bakelite Body)",
+    "tagline": "A compact, silent hand-driven insulation tester in a high-grade moulded bakelite body — built for direct insulation resistance testing up to 1000 V.",
+    "description": "The CIE/555 is a hand-driven generator-type insulation tester housed in a high-grade moulded bakelite body, offering a compact and economical option for direct-reading insulation resistance testing on electrical operating machines, rotating plant equipment, stationary apparatus, control and switching equipment, distribution networks, communication cables, insulators, transformers, and industrial installations.\n\nLike CIE's other hand-driven insulation testers, the CIE/555 uses a hand-driven clutch-type A.C. generator paired with a high-sensitivity cross-coil indicator, with generated A.C. voltage converted to D.C. via silicon diodes. The instrument is dust-free, with rubber shoes holding the surface and giving the unit stability during use, and a collapsible driven handle that folds flush into the casing when not in operation.\n\nThe CIE/555 is a versatile instrument for locating intermittent shorts, defective electrical connections, insulation failure, and conductor failure — helping prevent costly repairs and breakdowns. It is suited to testing up to 1000 V, making it well matched to lower-voltage panels, household and light industrial equipment, and general electrical maintenance work.",
     "specs": [
       {
         "label": "Body",
-        "value": "Moulded bakelite"
+        "value": "Moulded high-grade bakelite"
       },
       {
         "label": "Generator Type",
-        "value": "Hand-driven (confirmed by price list; full spec not confirmed by catalogue)"
+        "value": "Hand-driven, clutch-type A.C. generator"
+      },
+      {
+        "label": "Indicator",
+        "value": "High-sensitivity cross-coil"
+      },
+      {
+        "label": "Scale Length",
+        "value": "75 mm (approx.)"
+      },
+      {
+        "label": "Accuracy",
+        "value": "Conforms to ISS: 2992-1987"
+      },
+      {
+        "label": "Rotation Speed",
+        "value": "160 r.p.m."
+      },
+      {
+        "label": "Response Time",
+        "value": "3 seconds"
+      },
+      {
+        "label": "Weight",
+        "value": "1.4 kg (approx.)"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "155 × 104 × 70 mm (approx.)"
       },
       {
         "label": "Rated Voltages Available",
         "value": "100 V / 250 V / 500 V / 1000 V"
       },
       {
-        "label": "Note",
-        "value": "Accuracy standard, response time, weight, and dimensions not confirmed — contact manufacturer"
+        "label": "H.V. Test",
+        "value": "Withstands minimum 2000 V or (Rated Voltage + 1000) V A.C. (rms) between electrical circuit and handle, for 1 minute"
+      },
+      {
+        "label": "Insulation Resistance Test",
+        "value": "Better than 50 MΩ at 500 V between electrical circuit and containing case"
       },
       {
         "label": "Warranty",
@@ -1170,12 +1202,19 @@
       }
     ],
     "applications": [
-      "General insulation resistance testing — specific applications not confirmed pending catalogue documentation"
+      "Insulation testing of electrical operating machines",
+      "Rotating plant equipment and stationary apparatus checks",
+      "Insulation control and switching equipment testing",
+      "Distribution network testing",
+      "Communication cable insulation testing",
+      "Insulator and transformer insulation checks",
+      "Industrial installation and wiring checks",
+      "Locating intermittent shorts and defective electrical connections"
     ],
     "featured": false,
     "datasheet": null,
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Special resistance ranges manufactured to specification.",
     "specTables": [
       {
         "heading": "Voltage & Range — Ordering Combinations",
@@ -1234,8 +1273,19 @@
     "includedWith": [],
     "options": [
       "Carrying case (bakelite body) — at extra cost",
-      "Testing leads, 1m — at extra cost",
-      "Any other range — on request"
+      "Testing leads, 1 m — at extra cost"
+    ],
+    "features": [
+      "Silent generator",
+      "Graceful appearance",
+      "Accurate and quick response",
+      "High-sensitivity cross-coil indicator",
+      "Collapsible driven handle — folds flush into casing when not in use",
+      "Chuck nut locking arrangement to prevent anti-clockwise rotation",
+      "Moulded with high-grade bakelite powder",
+      "Rubber shoes provided — hold the surface and give the instrument stability",
+      "Two push buttons for connection, designed to accommodate standard cable or 4 mm plug",
+      "Conforms to ISS: 2992/1987"
     ]
   },
   {
@@ -1402,29 +1452,57 @@
     "id": "dit-5005",
     "categoryId": "digital-insulation-testers",
     "model": "DIT-5005",
-    "name": "Digital Insulation Tester — 500 V / 1000 V",
-    "tagline": "Rechargeable digital insulation tester — 500 V and 1000 V. Confirmed specifications limited to price list data.",
-    "description": "The DIT-5005 is a rechargeable, microcontroller-based digital insulation tester in CIE's digital insulation tester range. Available in four rated-voltage / resistance-range combinations per the current price list (see table below). Note: No catalogue document or product image is currently available for DIT-5005. As a result, features such as DAR/PI measurement, auto-ranging, specific display type, dimensions, and weight are not confirmed and are not published here. If any such details appear elsewhere on this site, they should be treated as unverified. Contact the manufacturer for full specifications.",
+    "name": "Digital Insulation Tester",
+    "tagline": "A compact, rechargeable digital insulation tester with direct LCD readout — for fast, accurate insulation resistance measurement on equipment, appliances, and cabling.",
+    "description": "The DIT-5005 is a compact, hand-held digital insulation tester with a 3½-digit LCD display, providing direct measurement of insulation resistance for electrical equipment, household appliances, and industrial, commercial, and residential installations. It is housed in a rugged ABS body and includes a facility to be used as a bench-top instrument as well as a hand-held meter.\n\nThe instrument is powered by Ni-Cd rechargeable cells, charged via the supplied charging cord, with low-battery indication on the display when recharging is needed. A single push-test button initiates the measurement, with the result read directly off the LCD in megohms.\n\nThe DIT-5005 is well suited to insulation testing of motors, transformers, and machines; household appliances such as mixers, toasters, and washing machines; industrial, commercial, and residential electrical installations; and electrical cables used in distribution and communication networks.",
     "specs": [
       {
-        "label": "Type",
-        "value": "Rechargeable microcontroller-based digital insulation tester"
+        "label": "Display",
+        "value": "3½ digits, L.C.D."
+      },
+      {
+        "label": "Accuracy — Insulation",
+        "value": "±3% of F.S. ±5 digits"
+      },
+      {
+        "label": "Accuracy — Output Voltage (DC)",
+        "value": "±10% at rated resistance"
+      },
+      {
+        "label": "Confirms To",
+        "value": "ISS 10656-1983"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "172 × 98 × 38 mm (approx.)"
+      },
+      {
+        "label": "Weight",
+        "value": "550 g (approx.)"
+      },
+      {
+        "label": "H.V. Test",
+        "value": "2 kV A.C. (r.m.s.) for 1 min between electrical circuit and containing case"
+      },
+      {
+        "label": "Insulation Resistance Test",
+        "value": "More than 50 MΩ at 500 V D.C. between electrical circuit and containing case"
       },
       {
         "label": "Power",
-        "value": "Rechargeable battery"
-      },
-      {
-        "label": "Note",
-        "value": "Display type, accuracy, dimensions, weight, and DAR/PI capability not confirmed — contact manufacturer"
+        "value": "Ni-Cd rechargeable cells (charged via supplied cord)"
       },
       {
         "label": "Warranty",
-        "value": "12 months against manufacturing defects"
+        "value": "12 months against any manufacturing defect"
       }
     ],
     "applications": [
-      "Insulation resistance testing — specific applications not confirmed pending catalogue documentation"
+      "Insulation measurement of electrical equipment (motors, transformers, machines)",
+      "Household appliances (mixers, toasters, washing machines)",
+      "Industrial, commercial, and residential installations",
+      "Electrical cables for distribution networks",
+      "Cables for communication networks"
     ],
     "featured": false,
     "datasheet": null,
@@ -1434,17 +1512,13 @@
       {
         "heading": "Voltage & Range — Ordering Combinations",
         "columns": [
-          "Rated Voltage",
+          "Rated Voltage (DC)",
           "Resistance Range"
         ],
         "rows": [
           {
             "col0": "500 V",
             "col1": "0–200 MΩ"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0–1000 MΩ"
           },
           {
             "col0": "1000 V",
@@ -1457,7 +1531,23 @@
         ]
       }
     ],
-    "includedWith": []
+    "includedWith": [
+      "Carrying Case",
+      "Charging Cord",
+      "Testing Lead (1 m length)",
+      "Instruction Manual"
+    ],
+    "features": [
+      "Rugged ABS body",
+      "Easy-to-use hand-held meter",
+      "Ni-Cd rechargeable cells",
+      "Facility to convert to bench-top type instrument",
+      "Direct measurement of insulation resistance",
+      "Lo-Bat indication on display",
+      "Accurate and quick response",
+      "Confirms to IS: 10656-1983"
+    ],
+    "options": []
   },
   {
     "id": "dit-2500",
@@ -2795,77 +2885,6 @@
       "Works Test Report",
       "Guarantee Certificate"
     ]
-  },
-  {
-    "id": "rts-5b",
-    "categoryId": "relay-test-sets",
-    "model": "RTS-5B",
-    "name": "Relay Test Set — Single Phase, 100 V Tap (Portable Trolley)",
-    "tagline": "Portable trolley-style single-phase relay test set — same as RTS-5A but with higher 100 V secondary tap (vs 50 V). For relay coils requiring higher test voltage.",
-    "description": "The CIE/RTS-5B is a secondary current injection relay test set, built to the same portable trolley-style single-unit construction as the CIE/RTS-5A. The sole documented difference is the secondary voltage tap: the RTS-5B provides 6 V or 100 V on the lower current ranges (0–1 A to 0–20 A), compared to 6 V or 50 V on the RTS-5A. This higher 100 V tap is better suited to relay coils with higher burden/impedance at lower current ranges. All other specifications (current ranges, AC/DC voltage output, timer, CT ratio, construction) are identical to the RTS-5A. Note: RTS-5B does not appear as a distinct entry in Price List 2026. Pricing and VA rating should be confirmed with the manufacturer before ordering.",
-    "specs": [
-      {
-        "label": "Input",
-        "value": "230 V, single phase, 50 Hz A.C."
-      },
-      {
-        "label": "Current Output",
-        "value": "0–1/5/10/20 A at 6 V or 100 V; 0–50/100/200 A at 6 V — continuously variable"
-      },
-      {
-        "label": "Key Difference from RTS-5A",
-        "value": "100 V secondary tap (RTS-5A has 50 V) — for higher-impedance relay coils"
-      },
-      {
-        "label": "Measuring CT",
-        "value": "Multi-ratio wound primary CT, ratio 1-5-10-20-50-100-200 A/5 A"
-      },
-      {
-        "label": "AC Voltage Output",
-        "value": "Continuously variable 0–230 V A.C., 240 VA max"
-      },
-      {
-        "label": "DC Voltage Output",
-        "value": "Continuously variable 0–240 V D.C., 240 VA (alternative to AC — not simultaneous)"
-      },
-      {
-        "label": "Timer",
-        "value": "0–9.999 sec or 0–99.99 sec, accuracy ±1%"
-      },
-      {
-        "label": "Construction",
-        "value": "Portable trolley-type, single unit, top-hinged lid"
-      },
-      {
-        "label": "Mains Cable",
-        "value": "2 metres, 3-pin plug"
-      },
-      {
-        "label": "Note on Pricing",
-        "value": "Not separately listed in Price List 2026 — confirm VA rating and price with manufacturer"
-      },
-      {
-        "label": "Warranty",
-        "value": "12 months against manufacturing defects"
-      }
-    ],
-    "applications": [
-      "Protective relay testing where relay current coils have higher impedance requiring 100 V secondary tap",
-      "Over-current, earth fault, and circuit breaker testing",
-      "Field and laboratory relay commissioning"
-    ],
-    "featured": false,
-    "datasheet": null,
-    "includedWith": [
-      "Operation Manual",
-      "Schematic Circuit Diagram",
-      "Works Test Report",
-      "Guarantee Certificate"
-    ],
-    "options": [],
-    "buildToOrder": false,
-    "orderNote": "Confirm pricing and VA rating with manufacturer — not separately listed in current price list.",
-    "specTables": []
   },
   {
     "id": "rts-33",
