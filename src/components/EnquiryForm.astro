@@ -1,113 +1,385 @@
 ---
 import site from '../data/site.json';
+import categories from '../data/categories.json';
+import products from '../data/products.json';
+
 interface Props {
-  productName?: string;
+  productName?: string;   // pre-selected model string (e.g. from ?product= param)
 }
 const { productName = '' } = Astro.props;
+
+// Build category → [{id, model, name}] map for the JS dropdown
+const productsByCategory = categories.map(cat => ({
+  id:   cat.id,
+  name: cat.name,
+  products: products
+    .filter(p => p.categoryId === cat.id)
+    .map(p => ({ id: p.id, model: p.model, name: p.name })),
+}));
+
 const waMsg = productName
   ? encodeURIComponent(`Hi, I'd like a quote for: ${productName}`)
   : encodeURIComponent("Hi, I'd like to enquire about CIE instruments.");
 ---
 
-<div class="bg-white rounded-lg border border-[#E8ECF2] p-6 sm:p-8">
+<!-- Products data injected for the cascading dropdown JS -->
+<script
+  id="cie-product-data"
+  type="application/json"
+  set:text={JSON.stringify(productsByCategory)}
+></script>
+
+<div class="bg-white rounded-xl border border-[#E8ECF2] p-6 sm:p-8">
   <h2 class="text-xl font-bold text-[#0D2547] mb-1">Request a Quote</h2>
   <p class="text-sm text-[#64748B] mb-6">
-    Fill in the form and we'll respond within one business day — or reach us directly on WhatsApp for faster turnaround.
+    Fill in the form — clicking <strong class="text-[#1B3A5B]">Open in Email</strong> opens your email client
+    with the quote request fully drafted and addressed to us. No account, no backend.
   </p>
 
-  <!--
-    FORM ENDPOINT: Replace the action URL below with your Formspree endpoint.
-    Sign up at https://formspree.io, create a form, and paste the endpoint here.
-    e.g. action="https://formspree.io/f/abcdefgh"
-    Alternatively, to use mailto fallback, set action="mailto:cieinstruments@gmail.com"
-    and add enctype="text/plain" (no file uploads then).
-  -->
-  <form
-    action={site.formEndpoint}
-    method="POST"
-    class="space-y-4"
-    id="enquiry-form"
-  >
-    <!-- Honeypot anti-spam -->
-    <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
-    <input type="hidden" name="_subject" value={`CIE Enquiry${productName ? `: ${productName}` : ''}`} />
-    <input type="hidden" name="_next" value="https://cieinstruments.in/contact?sent=1" />
+  <form id="quote-form" novalidate class="space-y-5">
 
+    <!-- ── Row 1: Category + Product ── -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
-        <label for="name" class="block text-sm font-medium text-[#1B3A5B] mb-1">Full Name <span class="text-[#E0252E]">*</span></label>
-        <input
-          type="text" id="name" name="name" required autocomplete="name"
-          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B]"
-          placeholder="Your name"
-        />
+        <label for="qf-category" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+          Product Category <span class="text-[#E0252E]">*</span>
+        </label>
+        <select
+          id="qf-category"
+          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors text-[#1B3A5B]"
+        >
+          <option value="">— Select a category —</option>
+          {categories.map(cat => (
+            <option value={cat.id}>{cat.name}</option>
+          ))}
+        </select>
       </div>
+
       <div>
-        <label for="company" class="block text-sm font-medium text-[#1B3A5B] mb-1">Company / Organisation</label>
-        <input
-          type="text" id="company" name="company" autocomplete="organization"
-          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B]"
-          placeholder="Your company"
-        />
+        <label for="qf-product" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+          Model / Instrument <span class="text-[#E0252E]">*</span>
+        </label>
+        <select
+          id="qf-product"
+          disabled
+          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors text-[#1B3A5B] disabled:bg-[#F5F7FA] disabled:text-[#94a3b8] disabled:cursor-not-allowed"
+        >
+          <option value="">— Select category first —</option>
+        </select>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div>
-        <label for="email" class="block text-sm font-medium text-[#1B3A5B] mb-1">Email Address <span class="text-[#E0252E]">*</span></label>
-        <input
-          type="email" id="email" name="email" required autocomplete="email"
-          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B]"
-          placeholder="you@company.com"
-        />
-      </div>
-      <div>
-        <label for="phone" class="block text-sm font-medium text-[#1B3A5B] mb-1">Phone Number</label>
-        <input
-          type="tel" id="phone" name="phone" autocomplete="tel"
-          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B]"
-          placeholder="+91 ..."
-        />
-      </div>
-    </div>
-
-    <div>
-      <label for="product" class="block text-sm font-medium text-[#1B3A5B] mb-1">Product Interest</label>
+    <!-- ── Rated voltage / range (context-sensitive hint) ── -->
+    <div id="qf-spec-row">
+      <label for="qf-spec" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+        Rated Voltage &amp; Resistance Range
+      </label>
       <input
-        type="text" id="product" name="product"
-        value={productName}
-        class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B]"
-        placeholder="e.g. CIE/444, RTS-33, or describe your requirement"
+        type="text"
+        id="qf-spec"
+        name="spec"
+        placeholder="e.g. 500 V / 0–1000 MΩ — leave blank if unsure, we'll advise"
+        class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors"
       />
+      <p id="qf-spec-hint" class="mt-1 text-xs text-[#64748B] hidden"></p>
     </div>
 
+    <!-- ── Row 2: Name + Company ── -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="qf-name" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+          Full Name <span class="text-[#E0252E]">*</span>
+        </label>
+        <input
+          type="text" id="qf-name" autocomplete="name" required
+          placeholder="Your name"
+          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors"
+        />
+      </div>
+      <div>
+        <label for="qf-company" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+          Company / Organisation
+        </label>
+        <input
+          type="text" id="qf-company" autocomplete="organization"
+          placeholder="Your company"
+          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors"
+        />
+      </div>
+    </div>
+
+    <!-- ── Row 3: Phone + Quantity ── -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="qf-phone" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+          Phone Number
+        </label>
+        <input
+          type="tel" id="qf-phone" autocomplete="tel"
+          placeholder="+91 ..."
+          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors"
+        />
+      </div>
+      <div>
+        <label for="qf-qty" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+          Quantity Required
+        </label>
+        <input
+          type="text" id="qf-qty"
+          placeholder="e.g. 2 nos."
+          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors"
+        />
+      </div>
+    </div>
+
+    <!-- ── Message / Requirement ── -->
     <div>
-      <label for="message" class="block text-sm font-medium text-[#1B3A5B] mb-1">Message / Requirement <span class="text-[#E0252E]">*</span></label>
+      <label for="qf-message" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+        Additional Requirement / Notes
+      </label>
       <textarea
-        id="message" name="message" required rows="4"
-        class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] resize-y"
-        placeholder="Please describe your requirement, quantity, and any special specifications..."
+        id="qf-message" rows="3"
+        placeholder="Any special specifications, delivery requirements, or questions…"
+        class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] resize-y transition-colors"
       ></textarea>
     </div>
 
-    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+    <!-- Validation message -->
+    <p id="qf-error" class="hidden text-sm text-[#E0252E] font-medium"></p>
+
+    <!-- ── Preview of email body ── -->
+    <div id="qf-preview-wrap" class="hidden">
+      <p class="text-xs font-mono font-bold text-[#64748B] uppercase tracking-widest mb-2">Preview — email that will open</p>
+      <pre
+        id="qf-preview"
+        class="bg-[#F5F7FA] border border-[#E8ECF2] rounded-lg px-4 py-3 text-xs text-[#1B3A5B] leading-relaxed whitespace-pre-wrap break-words font-mono max-h-52 overflow-y-auto"
+      ></pre>
+    </div>
+
+    <!-- ── Actions ── -->
+    <div class="flex flex-col sm:flex-row gap-3 pt-1">
       <button
         type="submit"
-        class="flex-1 px-6 py-3 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded transition-colors text-sm"
+        class="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded-lg transition-colors text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E0252E]"
       >
-        Send Enquiry
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        Open in Email
       </button>
       <a
         href={`https://wa.me/${site.whatsapp}?text=${waMsg}`}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex-1 flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#25D366] text-[#1a6e38] font-semibold rounded hover:bg-[#25D366]/10 transition-colors text-sm"
+        class="flex-1 flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#25D366] text-[#1a6e38] font-semibold rounded-lg hover:bg-[#25D366]/10 transition-colors text-sm"
       >
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
         Enquire on WhatsApp
       </a>
     </div>
+
+    <p class="text-xs text-[#94a3b8] text-center">
+      Clicking "Open in Email" opens your email client with the quote request pre-filled —
+      just review and hit send.
+    </p>
   </form>
 </div>
+
+<script>
+// ── Data ─────────────────────────────────────────────────────────────────────
+const dataEl = document.getElementById('cie-product-data');
+const catData: Array<{ id: string; name: string; products: Array<{ id: string; model: string; name: string }> }> =
+  dataEl ? JSON.parse(dataEl.textContent ?? '[]') : [];
+
+// ── Elements ─────────────────────────────────────────────────────────────────
+const form        = document.getElementById('quote-form') as HTMLFormElement;
+const catSel      = document.getElementById('qf-category') as HTMLSelectElement;
+const prodSel     = document.getElementById('qf-product')  as HTMLSelectElement;
+const specInput   = document.getElementById('qf-spec')     as HTMLInputElement;
+const specHint    = document.getElementById('qf-spec-hint') as HTMLElement;
+const nameInput   = document.getElementById('qf-name')     as HTMLInputElement;
+const compInput   = document.getElementById('qf-company')  as HTMLInputElement;
+const phoneInput  = document.getElementById('qf-phone')    as HTMLInputElement;
+const qtyInput    = document.getElementById('qf-qty')      as HTMLInputElement;
+const msgInput    = document.getElementById('qf-message')  as HTMLTextAreaElement;
+const errorEl     = document.getElementById('qf-error')    as HTMLElement;
+const previewWrap = document.getElementById('qf-preview-wrap') as HTMLElement;
+const previewEl   = document.getElementById('qf-preview')  as HTMLElement;
+
+// Spec hints per category
+const specHints: Record<string, string> = {
+  'insulation-testers-hand':         'Specify rated voltage (e.g. 500 V) and resistance range (e.g. 0–1000 MΩ)',
+  'multirange-insulation-hand':      'Specify series — MR-1, MR-2, MR-3, or MR-4 (CIE/444/MR) or up to MR-8 (CIE/666/MR)',
+  'motor-operated-insulation':       'Specify rated voltage (e.g. 2500 V) and resistance range (e.g. 0–10000 MΩ)',
+  'multirange-motorised-insulation': 'Specify series — MR-A, MR-B, MR-C, MR-D, or MR-E',
+  'compact-insulation-testers':      'Specify rated voltage (e.g. 500 V) and resistance range',
+  'earth-tester':                    'Specify number of terminals (3-terminal or 4-terminal) if known',
+  'digital-insulation-testers':      'Specify rated voltage range if known (e.g. up to 5000 V)',
+  'digital-earth-micro-ohm':         'Specify measurement type: earth resistance, micro-ohm, or both',
+  'clamp-multimeters':               'Specify current range and any features required (True RMS, temperature, etc.)',
+  'hv-phase-sequence':               'Specify test voltage (for HV sets) or "phase sequence" for PSI models',
+  'oil-test-sets':                   'Specify number of tests per cycle and required breakdown voltage range',
+  'relay-test-sets':                 'Specify single-phase (RTS-5/5A) or three-phase (RTS-33)',
+};
+
+// ── Cascade: category → product dropdown ─────────────────────────────────────
+catSel.addEventListener('change', () => {
+  const catId = catSel.value;
+  const cat   = catData.find(c => c.id === catId);
+
+  // Reset product dropdown
+  prodSel.innerHTML = '';
+  if (!cat) {
+    prodSel.innerHTML = '<option value="">— Select category first —</option>';
+    prodSel.disabled = true;
+    specHint.classList.add('hidden');
+    specHint.textContent = '';
+    updatePreview();
+    return;
+  }
+
+  const placeholder = document.createElement('option');
+  placeholder.value = '';
+  placeholder.textContent = '— Select a model —';
+  prodSel.appendChild(placeholder);
+
+  cat.products.forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p.model;
+    opt.textContent = `${p.model} — ${p.name}`;
+    prodSel.appendChild(opt);
+  });
+
+  prodSel.disabled = false;
+
+  // Show spec hint for this category
+  const hint = specHints[catId];
+  if (hint) {
+    specHint.textContent = hint;
+    specHint.classList.remove('hidden');
+  } else {
+    specHint.classList.add('hidden');
+  }
+
+  updatePreview();
+});
+
+// ── Live preview builder ──────────────────────────────────────────────────────
+function buildBody(): { subject: string; body: string } {
+  const catId    = catSel.value;
+  const cat      = catData.find(c => c.id === catId);
+  const catName  = cat?.name ?? '';
+  const model    = prodSel.value;
+  const spec     = specInput.value.trim();
+  const name     = nameInput.value.trim();
+  const company  = compInput.value.trim();
+  const phone    = phoneInput.value.trim();
+  const qty      = qtyInput.value.trim();
+  const msg      = msgInput.value.trim();
+
+  const subject = model
+    ? `Quote Request — ${model}`
+    : catName
+      ? `Quote Request — ${catName}`
+      : 'Quote Request — CIE Instruments';
+
+  const lines: string[] = [
+    'Hello CIE team,',
+    '',
+    'I would like to request a quote for the following:',
+    '',
+  ];
+
+  if (catName)  lines.push(`Category : ${catName}`);
+  if (model)    lines.push(`Model    : ${model}`);
+  if (spec)     lines.push(`Spec     : ${spec}`);
+  if (qty)      lines.push(`Quantity : ${qty}`);
+
+  lines.push('');
+
+  if (name)    lines.push(`Name     : ${name}`);
+  if (company) lines.push(`Company  : ${company}`);
+  if (phone)   lines.push(`Phone    : ${phone}`);
+
+  if (msg) {
+    lines.push('');
+    lines.push('Notes:');
+    lines.push(msg);
+  }
+
+  lines.push('');
+  lines.push('Thank you.');
+
+  return { subject, body: lines.join('\n') };
+}
+
+function updatePreview() {
+  const { subject, body } = buildBody();
+  const hasSomething = catSel.value || nameInput.value.trim();
+  if (hasSomething) {
+    previewWrap.classList.remove('hidden');
+    previewEl.textContent = `To: cieinstruments@gmail.com\nSubject: ${subject}\n\n${body}`;
+  } else {
+    previewWrap.classList.add('hidden');
+  }
+}
+
+// Update preview on any input change
+[prodSel, specInput, nameInput, compInput, phoneInput, qtyInput, msgInput].forEach(el =>
+  el?.addEventListener('input', updatePreview)
+);
+
+// ── Submit → open mailto ──────────────────────────────────────────────────────
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const name  = nameInput.value.trim();
+  const model = prodSel.value;
+  const cat   = catSel.value;
+
+  if (!name) {
+    errorEl.textContent = 'Please enter your name.';
+    errorEl.classList.remove('hidden');
+    nameInput.focus();
+    return;
+  }
+  if (!cat) {
+    errorEl.textContent = 'Please select a product category.';
+    errorEl.classList.remove('hidden');
+    catSel.focus();
+    return;
+  }
+  if (!model) {
+    errorEl.textContent = 'Please select a model from the dropdown.';
+    errorEl.classList.remove('hidden');
+    prodSel.focus();
+    return;
+  }
+  errorEl.classList.add('hidden');
+
+  const { subject, body } = buildBody();
+  const mailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailto;
+});
+
+// ── Pre-fill from URL param (?product=RTS-33) ─────────────────────────────────
+const urlProduct = new URLSearchParams(window.location.search).get('product') ?? '';
+if (urlProduct) {
+  // Find which category this product belongs to
+  for (const cat of catData) {
+    const match = cat.products.find(p => p.model === urlProduct || p.id === urlProduct);
+    if (match) {
+      catSel.value = cat.id;
+      catSel.dispatchEvent(new Event('change'));
+      // Wait for options to populate then select
+      setTimeout(() => {
+        prodSel.value = match.model;
+        updatePreview();
+      }, 0);
+      break;
+    }
+  }
+}
+</script>
