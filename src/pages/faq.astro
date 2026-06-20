@@ -1,38 +1,42 @@
 ---
 import Base from '../layouts/Base.astro';
-import { u } from '../utils/url';
 import EyebrowLabel from '../components/EyebrowLabel.astro';
 import CTABand from '../components/CTABand.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { u } from '../utils/url';
 
 const faqs = [
   {
     q: 'Are you a manufacturer or a reseller?',
-    a: 'We are both. Cambridge Instruments & Engineering Co. (CIE) manufactures a range of electrical test and measuring instruments from our manufacturing facility in Howrah, West Bengal. We are also authorised dealers for selected leading brands, enabling us to offer a wider range of testing solutions to our customers.',
+    a: 'We are both. Cambridge Instruments & Engineering Co. (CIE) manufactures a range of electrical test and measuring instruments from our facility in Howrah, West Bengal. We are also authorised dealers for selected leading brands, enabling us to offer a wider range of testing solutions.',
   },
   {
     q: 'What products are manufactured by CIE?',
-    a: 'CIE manufactures a range of electrical test and measuring instruments including Insulation Testers, Earth Resistance Testers, Digital Earth Testers, Hand-Driven Testers, High Voltage Insulation Testers, and other specialised testing instruments designed for industrial and electrical applications.',
+    a: 'CIE manufactures insulation testers, earth resistance testers, digital earth testers, hand-driven testers, high voltage insulation testers, and other specialised testing instruments designed for industrial and electrical applications.',
   },
   {
     q: 'Which brands do you supply?',
-    a: 'In addition to CIE products, we are authorised dealers for Var-Tech and UNI-T, allowing us to provide customers with a comprehensive range of testing and measurement solutions.',
+    a: 'In addition to CIE products, we are authorised dealers for Var-Tech and UNI-T.',
   },
   {
     q: 'Are your instruments tested before dispatch?',
-    a: 'Yes. Every CIE instrument undergoes quality inspection and testing before dispatch to ensure dependable performance and accuracy.',
+    a: 'Yes. Every CIE instrument undergoes quality inspection and calibration before dispatch to ensure dependable performance and accuracy.',
   },
   {
     q: 'Do your products come with a warranty?',
-    a: 'Yes. All products are supplied with applicable manufacturer warranty coverage. Warranty terms may vary depending on the product and brand.',
+    a: 'Yes. CIE instruments carry a 12-month warranty against manufacturing defects from the date of supply. For warranty claims, contact us directly at cieinstruments@gmail.com.',
   },
   {
     q: 'Do you provide calibration and service support?',
-    a: 'Yes. We provide calibration, servicing, and technical support to help maintain the accuracy and reliability of your instruments.',
+    a: 'Yes. We provide calibration, servicing, and technical support directly from our Howrah works — not through a distributor network.',
+  },
+  {
+    q: 'Can you manufacture custom ranges?',
+    a: 'Yes. Any non-standard test voltage, insulation range, resistance range, or measurement range can be manufactured to your specific requirement. Contact us with your specification.',
   },
   {
     q: 'How do I select the right instrument?',
-    a: 'Choosing the correct instrument depends on your application, operating voltage, testing requirements, and industry standards. Our technical team can help you identify the most suitable solution.',
+    a: 'Choosing the correct instrument depends on your application, operating voltage, testing requirements, and applicable standards. Our technical team can help you identify the most suitable solution.',
   },
   {
     q: 'Do you provide technical assistance before purchase?',
@@ -40,15 +44,15 @@ const faqs = [
   },
   {
     q: 'Do you accept bulk and institutional orders?',
-    a: 'Yes. We regularly supply instruments to industries, contractors, government organisations, utilities, educational institutions, OEMs, and distributors across India.',
+    a: 'Yes. We regularly supply instruments to utilities, contractors, government organisations, railways, educational institutions, OEMs, and distributors across India.',
   },
   {
     q: 'Do you ship across India?',
-    a: 'Yes. We deliver products across India through trusted logistics partners to ensure safe and timely delivery.',
+    a: 'Yes. We deliver products across India through trusted logistics partners.',
   },
   {
     q: 'Why choose CIE?',
-    a: 'With over six decades of industry experience, CIE is trusted for reliable products, dependable service, technical expertise, and long-term customer support. Our commitment to quality and accuracy has made us a preferred choice for electrical testing professionals across India.',
+    a: 'Over six decades of manufacturing experience, direct after-sales support, in-house calibration, and instruments trusted by PGCIL, Indian Railways, DVC, and WBSETCL across India.',
   },
 ];
 
@@ -61,95 +65,29 @@ const faqJsonLd = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
-
-const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 ---
 
 <Base
   title="FAQs"
-  description="CIE instruments are manufactured in Howrah and calibrated against reference standards before despatch. 12-month warranty on all instruments. Custom ranges to specification. After-sales support direct from the manufacturer."
+  description="Frequently asked questions about CIE instruments — warranty, calibration, custom ranges, ordering, and after-sales support. Manufactured in Howrah since 1963."
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
+  <!-- Page header -->
   <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[{ label: 'FAQs' }]} />
       <EyebrowLabel text="Frequently Asked Questions" class="mt-4 mb-3" />
       <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">FAQs</h1>
       <p class="mt-2 text-[#64748B] max-w-2xl">
-        Manufactured in Howrah. Calibrated against reference standards. Backed by a manufacturer who answers the phone.
+        Everything you need to know about CIE products, ordering, and support.
       </p>
     </div>
   </div>
 
-  <!-- Key commitments -->
+  <!-- FAQ accordion -->
   <section class="bg-white py-14 lg:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {[
-          {
-            icon: '🏭',
-            heading: 'Manufactured in Howrah',
-            body: `CIE® instruments are manufactured at our Howrah works — assembly, testing, and finishing are carried out under our direct supervision. This gives us control over quality at every stage and means our customers deal with the people responsible for the instrument, not an intermediary.`,
-          },
-          {
-            icon: '📐',
-            heading: 'Calibration Before Despatch',
-            body: `Each instrument is calibrated against reference standards at our calibration facility before despatch. A calibration record is maintained for each instrument. Instruments out of warranty can be returned for recalibration at our works.`,
-          },
-          {
-            icon: '🛡️',
-            heading: '12-Month Warranty',
-            body: `All CIE® instruments carry a standard warranty of 12 months against manufacturing defects from the date of supply. Any instrument that develops a manufacturing defect within the warranty period will be repaired or replaced by CIE — contact us directly. The warranty does not cover damage from misuse, accident, or modification.`,
-          },
-          {
-            icon: '🔧',
-            heading: 'Custom Manufacturing',
-            body: `Any non-standard test voltage, insulation range, resistance range, current range, or measurement range can be manufactured to the customer's specific requirement. Custom ranges are a standard service at CIE — we have been making custom instruments for utilities and laboratories since the 1960s. Contact us with your specification.`,
-          },
-          {
-            icon: '📞',
-            heading: 'After-Sales Support',
-            body: `After-sales support is handled directly by CIE — not by a distributor network. Contact our Howrah works or Kolkata office. We can advise on instrument selection, application, and calibration intervals. Instruments out of warranty can be repaired and recalibrated at our works.`,
-          },
-          {
-            icon: '📦',
-            heading: 'Accessories Supplied',
-            body: `Key accessories — HV testing leads, earth spikes, wire spools, hammers, and carrying cases — are supplied with the relevant instruments as listed in each product specification. Replacement accessories are available from CIE directly.`,
-          },
-        ].map(item => (
-          <div class="red-stripe">
-            <div class="text-3xl mb-3" aria-hidden="true">{item.icon}</div>
-            <h2 class="font-black text-[#0D2547] text-lg mb-3">{item.heading}</h2>
-            <p class="text-sm text-[#64748B] leading-relaxed">{item.body}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Warranty note -->
-  <section class="bg-[#F5F7FA] py-10">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="font-mono text-xs text-[#64748B] uppercase tracking-widest mb-3">Warranty Statement</p>
-      <p class="text-sm text-[#64748B] leading-relaxed">
-        Cambridge Instruments &amp; Engg. Co. warrants all instruments manufactured under the <span class="font-mono font-semibold text-[#1B3A5B]">CIE®</span> mark
-        against defects in materials and workmanship for a period of <strong class="text-[#1B3A5B]">12 months</strong> from the date of original purchase.
-        This warranty is provided by the manufacturer and is not limited to the channel of purchase.
-        For warranty claims, contact us directly at <a href="mailto:cieinstruments@gmail.com" class="text-[#1B3A5B] hover:text-[#E0252E] transition-colors">cieinstruments@gmail.com</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- FAQ section -->
-  <section id="faq" class="bg-white py-14 lg:py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <EyebrowLabel text="FAQ" class="mb-3 justify-center" />
-        <h2 class="text-2xl sm:text-3xl font-black text-[#0D2547]">Frequently Asked Questions</h2>
-        <p class="mt-2 text-[#64748B]">Everything you need to know about CIE products, ordering, and support.</p>
-      </div>
-
       <dl class="space-y-3">
         {faqs.map((faq, i) => (
           <div class="border border-[#E8ECF2] rounded-xl overflow-hidden bg-[#FAFBFC]">
@@ -182,7 +120,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         ))}
       </dl>
 
-      <p class="mt-8 text-center text-sm text-[#64748B]">
+      <p class="mt-10 text-center text-sm text-[#64748B]">
         Have another question?{' '}
         <a href="mailto:cieinstruments@gmail.com" class="text-[#E0252E] hover:underline font-medium">
           Email us
@@ -192,8 +130,8 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
   </section>
 
   <CTABand
-    heading="Have a support or warranty query?"
-    body="Contact our Howrah works directly — we respond to all enquiries within one business day."
+    heading="Need help choosing the right instrument?"
+    body="Talk to our technical team — we'll help you find the right solution for your application."
     primaryLabel="Contact Us"
     primaryHref={u('/contact/')}
     secondaryLabel="View Products"
