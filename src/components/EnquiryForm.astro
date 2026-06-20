@@ -187,22 +187,22 @@ const waMsg = productName
 const catData = productsByCategory;
 
 // ── Elements ─────────────────────────────────────────────────────────────────
-const form        = document.getElementById('quote-form') as HTMLFormElement;
-const catSel      = document.getElementById('qf-category') as HTMLSelectElement;
-const prodSel     = document.getElementById('qf-product')  as HTMLSelectElement;
-const specInput   = document.getElementById('qf-spec')     as HTMLInputElement;
-const specHint    = document.getElementById('qf-spec-hint') as HTMLElement;
-const nameInput   = document.getElementById('qf-name')     as HTMLInputElement;
-const compInput   = document.getElementById('qf-company')  as HTMLInputElement;
-const phoneInput  = document.getElementById('qf-phone')    as HTMLInputElement;
-const qtyInput    = document.getElementById('qf-qty')      as HTMLInputElement;
-const msgInput    = document.getElementById('qf-message')  as HTMLTextAreaElement;
-const errorEl     = document.getElementById('qf-error')    as HTMLElement;
-const previewWrap = document.getElementById('qf-preview-wrap') as HTMLElement;
-const previewEl   = document.getElementById('qf-preview')  as HTMLElement;
+const form        = document.getElementById('quote-form');
+const catSel      = document.getElementById('qf-category');
+const prodSel     = document.getElementById('qf-product');
+const specInput   = document.getElementById('qf-spec');
+const specHint    = document.getElementById('qf-spec-hint');
+const nameInput   = document.getElementById('qf-name');
+const compInput   = document.getElementById('qf-company');
+const phoneInput  = document.getElementById('qf-phone');
+const qtyInput    = document.getElementById('qf-qty');
+const msgInput    = document.getElementById('qf-message');
+const errorEl     = document.getElementById('qf-error');
+const previewWrap = document.getElementById('qf-preview-wrap');
+const previewEl   = document.getElementById('qf-preview');
 
 // Spec hints per category
-const specHints: Record<string, string> = {
+const specHints = {
   'insulation-testers-hand':         'Specify rated voltage (e.g. 500 V) and resistance range (e.g. 0–1000 MΩ)',
   'multirange-insulation-hand':      'Specify series — MR-1, MR-2, MR-3, or MR-4 (CIE/444/MR) or up to MR-8 (CIE/666/MR)',
   'motor-operated-insulation':       'Specify rated voltage (e.g. 2500 V) and resistance range (e.g. 0–10000 MΩ)',
@@ -260,7 +260,7 @@ catSel.addEventListener('change', () => {
 });
 
 // ── Live preview builder ──────────────────────────────────────────────────────
-function buildBody(): { subject: string; body: string } {
+function buildBody() {
   const catId    = catSel.value;
   const cat      = catData.find(c => c.id === catId);
   const catName  = cat?.name ?? '';
@@ -278,7 +278,7 @@ function buildBody(): { subject: string; body: string } {
       ? `Quote Request — ${catName}`
       : 'Quote Request — CIE Instruments';
 
-  const lines: string[] = [
+  const lines = [
     'Hello CIE team,',
     '',
     'I would like to request a quote for the following:',

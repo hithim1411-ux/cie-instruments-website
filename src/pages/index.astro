@@ -19,14 +19,6 @@ const featured = products.filter(p => p.featured);
 const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 const rts33Mailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — RTS-33')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: RTS-33 — Three-Phase Relay Test Set.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 
-// Category banners (banner images repurposed as category-explore cards)
-const categoryBanners = [
-  { src: u('/banners/banner-insulation-testers.jpg'), href: u('/products/insulation-testers-hand/'), label: 'Insulation Testers', sub: 'Hand & motor-operated, 100V–10kV' },
-  { src: u('/banners/banner-earth-testers.jpg'),      href: u('/products/earth-tester/'),            label: 'Earth Testers',       sub: 'Analogue & digital, 3- and 4-terminal' },
-  { src: u('/banners/banner-hv-test-sets.jpg'),       href: u('/products/hv-phase-sequence/'),       label: 'HV Test Sets',        sub: 'High-voltage insulation & phase sequence' },
-  { src: u('/banners/banner-oil-test-sets.jpg'),      href: u('/products/oil-test-sets/'),           label: 'Oil BDV Testers',     sub: 'Automatic & manual dielectric oil test' },
-];
-
 const trustPoints = [
   { icon: '📅', label: '60+ Years of Service',     body: "Established 1963. Generations of engineers at India's utilities and railways have relied on the CIE® mark." },
   { icon: '🇮🇳', label: 'Made in India',            body: 'Designed and assembled in Howrah, West Bengal, under the registered CIE® trade mark.' },
@@ -131,8 +123,8 @@ const industries = [
               <div class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#E0252E] rounded-br" aria-hidden="true"></div>
               <!-- Product image -->
               <img
-                src={u('/images/products/cie-777.jpg')}
-                alt="CIE/777 Motorised High-Voltage Insulation Tester — manufactured in Howrah since 1963"
+                src={u('/images/products/cie-444.jpg')}
+                alt="CIE/444 Motorised High-Voltage Insulation Tester — manufactured in Howrah since 1963"
                 class="w-64 xl:w-72 h-auto object-contain mx-auto"
                 loading="eager"
                 fetchpriority="high"
@@ -141,51 +133,14 @@ const industries = [
               />
               <!-- Caption chip -->
               <div class="mt-5 text-center">
-                <p class="text-xs font-mono text-[#E0252E] uppercase tracking-widest">CIE/777</p>
+                <p class="text-xs font-mono text-[#E0252E] uppercase tracking-widest">CIE/444</p>
                 <p class="text-white text-sm font-semibold mt-0.5">Motorised Insulation Tester</p>
-                <p class="text-[#64748B] text-xs mt-0.5">500 V – 10 kV · Made in India</p>
+                <p class="text-[#64748B] text-xs mt-0.5">500 V – 5 kV · Made in India</p>
               </div>
             </div>
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CATEGORY EXPLORE BANNERS ──────────────────────────────────────────── -->
-  <section class="bg-[#0D1B2A] py-10 lg:py-12" aria-label="Product categories">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        {categoryBanners.map(b => (
-          <a
-            href={b.href}
-            class="group relative overflow-hidden rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E0252E]"
-            style="aspect-ratio: 4/3;"
-          >
-            <img
-              src={b.src}
-              alt={b.label}
-              class="w-full h-full object-cover object-left transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              width="400"
-              height="300"
-            />
-            <!-- Dark overlay gradient -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-            <!-- Text -->
-            <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-              <p class="text-white font-bold text-sm sm:text-base leading-tight">{b.label}</p>
-              <p class="text-white/70 text-xs mt-0.5 hidden sm:block">{b.sub}</p>
-              <p class="mt-2 text-[#E0252E] text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                Explore
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                </svg>
-              </p>
-            </div>
-          </a>
-        ))}
       </div>
     </div>
   </section>
