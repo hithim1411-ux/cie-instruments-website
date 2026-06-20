@@ -373,40 +373,6 @@
     "datasheet": null
   },
   {
-    "id": "cie-888",
-    "categoryId": "compact-insulation-testers",
-    "model": "CIE/888",
-    "name": "Insulation Tester — Compact Metal Body",
-    "tagline": "Compact metal body hand-driven insulation tester at 500 V / 1000 V.",
-    "description": "The CIE/888 is a compact metal body hand-driven insulation tester available at 500 V and 1000 V. Robust metal construction for site use; compact form factor for easy carry.",
-    "specs": [
-      {
-        "label": "Body",
-        "value": "Compact metal"
-      },
-      {
-        "label": "Generator Type",
-        "value": "Hand-driven"
-      },
-      {
-        "label": "Rated Test Voltages",
-        "value": "500 V / 1000 V"
-      },
-      {
-        "label": "Warranty",
-        "value": "12 months against manufacturing defects"
-      }
-    ],
-    "applications": [
-      "Site insulation checks",
-      "Cable testing at 500 V / 1000 V",
-      "General maintenance"
-    ],
-    "featured": false,
-    "datasheet": null,
-    "hideImage": true
-  },
-  {
     "id": "cie-222m",
     "categoryId": "earth-tester",
     "model": "CIE/222M",

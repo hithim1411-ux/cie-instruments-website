@@ -47,8 +47,19 @@ const currentPath = Astro.url.pathname;
           </a>
         ))}
         <a
+          href={u('/downloads/cie-product-catalogue.pdf')}
+          download="CIE Short Form Product Catalogue.pdf"
+          class="ml-2 inline-flex items-center gap-1.5 px-3 py-2 border border-[#b0bec5]/40 hover:border-white text-[#b0bec5] hover:text-white text-xs font-medium rounded transition-colors duration-150"
+          title="Short Form Product Catalogue"
+        >
+          <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          </svg>
+          Catalogue
+        </a>
+        <a
           href={u('/contact')}
-          class="ml-2 px-4 py-2 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded transition-colors duration-150"
+          class="px-4 py-2 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded transition-colors duration-150"
         >
           Request a Quote
         </a>
@@ -80,6 +91,16 @@ const currentPath = Astro.url.pathname;
           {label}
         </a>
       ))}
+      <a
+        href={u('/downloads/cie-product-catalogue.pdf')}
+        download="CIE Short Form Product Catalogue.pdf"
+        class="mt-1 inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#b0bec5] hover:text-white hover:bg-white/5 rounded transition-colors"
+      >
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        </svg>
+        Short Form Product Catalogue
+      </a>
       <a
         href={u('/contact')}
         class="mt-2 px-4 py-2.5 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded text-center transition-colors"
