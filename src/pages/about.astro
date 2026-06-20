@@ -8,40 +8,41 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 <Base
   title="About Us"
-  description="Cambridge Instruments & Engg. Co. — established 1963 in Howrah. Manufacturer of electrical & electronic test and measurement instruments under the registered CIE® mark. Made in India."
+  description="Cambridge Instruments & Engineering Co. — established 1963 in Howrah. Manufacturer of electrical & electronic test and measurement instruments under the registered CIE® mark. Made in India."
 >
   <!-- Header -->
   <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[{ label: 'About Us' }]} />
       <EyebrowLabel text="Est. 1963 · Howrah, India" class="mt-4 mb-3" />
-      <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">About Cambridge Instruments &amp; Engg. Co.</h1>
+      <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">About Cambridge Instruments &amp; Engineering Co.</h1>
+      <p class="mt-3 text-lg text-[#64748B] max-w-2xl font-medium">Precision Built Through Generations.</p>
     </div>
   </div>
 
-  <!-- Story -->
+  <!-- Opening statement -->
   <section class="bg-white py-14 lg:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div>
-          <EyebrowLabel text="Our Story" class="mb-4" />
-          <h2 class="text-2xl font-black text-[#0D2547] mb-5">Six decades of precision, from Howrah to the nation.</h2>
+          <EyebrowLabel text="Who We Are" class="mb-4" />
+          <h2 class="text-2xl font-black text-[#0D2547] mb-5">An Indian manufacturer built on engineering, craftsmanship, and trust.</h2>
           <div class="space-y-4 text-[#64748B] leading-relaxed">
             <p>
-              Cambridge Instruments &amp; Engg. Co. was established in <strong class="text-[#1B3A5B]">1963</strong> at Howrah, West Bengal.
-              For over sixty years, our instruments have been in daily use at power utilities, railway depots, substation commissioning sites,
-              EPC contractor stores, and testing laboratories across India.
+              Cambridge Instruments &amp; Engineering Co. (CIE) is an Indian manufacturer of
+              Electrical &amp; Electronic Test &amp; Measuring Instruments, built upon a legacy of
+              engineering, craftsmanship, and trust.
             </p>
             <p>
-              We began with hand-driven insulation testers — the foundation of electrical test &amp; measurement
-              — and have expanded over the decades to cover earth testers, motor-operated insulation testers, high-voltage
-              oil test sets, digital insulation and earth meters, relay test sets, clamp meters, and more.
+              Established in <strong class="text-[#1B3A5B]">1963</strong>, the company has spent
+              decades serving professionals who depend on accurate measurements and reliable instruments
+              to perform their work with confidence.
             </p>
             <p>
-              Through every decade, one thing has not changed: every CIE® instrument is
-              <strong class="text-[#1B3A5B]">designed, built, and calibrated at our Howrah works</strong>.
-              We do not outsource manufacturing or sub-contract calibration. This is how the
-              <span class="font-mono font-semibold text-[#1B3A5B]">CIE®</span> mark has earned its reputation.
+              From its beginnings in Howrah — one of India's historic industrial centres — to its
+              presence today across industries and institutions, CIE has remained committed to the
+              principles that shaped its foundation: <strong class="text-[#1B3A5B]">accuracy,
+              reliability, and integrity.</strong>
             </p>
           </div>
         </div>
@@ -49,12 +50,12 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
         <!-- Timeline -->
         <div class="space-y-6">
           {[
-            { year: '1963', text: 'Founded in Howrah, West Bengal. First instruments: hand-driven insulation testers.' },
+            { year: '1963', text: 'Founded in Howrah by Late Shri Prakash Chandra Sharma. First instruments: hand-driven insulation testers.' },
             { year: '1970s', text: 'Product range expanded to include earth testers and motorised insulation testers.' },
             { year: '1980s', text: 'CIE® trade mark registered. Oil BDV test sets and relay test sets introduced.' },
             { year: '1990s', text: 'Digital instrument range launched — digital insulation and earth testers.' },
             { year: '2000s', text: 'Three-phase relay test set RTS-33 becomes a preferred instrument at major utilities.' },
-            { year: 'Today', text: '60+ years. 12 product categories. Trusted by PGCIL, DVC, WBSETCL, Indian Railways and hundreds of EPC contractors.' },
+            { year: 'Today', text: '60+ years. Trusted by PGCIL, DVC, WBSETCL, Indian Railways and hundreds of EPC contractors. Led by Mr. Manoj Sharma and Mr. Rajesh Sharma.' },
           ].map(item => (
             <div class="flex gap-5">
               <div class="shrink-0 w-16 text-right">
@@ -70,50 +71,138 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
     </div>
   </section>
 
-  <!-- Manufacturing -->
+  <!-- Founder story -->
   <section class="bg-[#F5F7FA] py-14 lg:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <EyebrowLabel text="Manufacturing & Calibration" class="mb-4" />
-      <h2 class="text-2xl font-black text-[#0D2547] mb-10">Built in Howrah. Calibrated in-house.</h2>
+      <div class="max-w-3xl">
+        <EyebrowLabel text="Where It All Began" class="mb-4" />
+        <h2 class="text-2xl font-black text-[#0D2547] mb-6">A physicist with a practical vision.</h2>
+        <div class="space-y-4 text-[#64748B] leading-relaxed">
+          <p>
+            The story of CIE began in Howrah in 1963 when <strong class="text-[#1B3A5B]">Late Shri Prakash Chandra Sharma</strong>,
+            a Physics Honours graduate from the University of Calcutta, founded the company with a clear vision —
+            to manufacture dependable electrical testing instruments in India.
+          </p>
+          <p>
+            Working from a modest manufacturing setup, he combined scientific knowledge with practical engineering
+            to create products designed for real-world use. At a time when India's industrial landscape was still
+            developing, CIE focused on building instruments that customers could trust for accurate and consistent
+            performance.
+          </p>
+          <p>
+            Those values — precision, reliability, and a refusal to cut corners — continue to define the company
+            more than six decades later.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manufacturing -->
+  <section class="bg-white py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <EyebrowLabel text="A Manufacturing Heritage" class="mb-4" />
+      <h2 class="text-2xl font-black text-[#0D2547] mb-4">Built in Howrah. Calibrated in-house. Every instrument.</h2>
+      <p class="text-[#64748B] leading-relaxed max-w-2xl mb-10">
+        Manufacturing has always been at the heart of CIE. The company's factory continues to operate from
+        Howrah, where generations of experience, technical expertise, and attention to detail come together
+        in the production of every instrument.
+      </p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           {
             icon: '🏭',
             heading: 'In-House Manufacturing',
-            body: 'Our Howrah works at 23/2, Maulana Abul Kalam Azad Road manufactures every instrument in the CIE range. Mechanical fabrication, winding, assembly, and finishing are all performed under one roof.',
+            body: 'Our Howrah works at 23/2, Maulana Abul Kalam Azad Road manufactures every instrument in the CIE range. Mechanical fabrication, winding, assembly, and finishing — all under one roof. We do not sub-contract manufacturing.',
           },
           {
             icon: '📐',
             heading: 'In-House Calibration',
-            body: 'Calibration is performed at our own calibration facility — not sent to a third party. Each instrument is calibrated against reference standards before despatch, and a calibration record is maintained.',
+            body: 'Calibration is performed at our own calibration facility before each instrument is despatched. Each instrument is calibrated against reference standards and a calibration record is maintained. We do not send instruments to a third-party calibration house.',
           },
           {
             icon: '🔧',
             heading: 'Custom Manufacturing',
-            body: 'Any non-standard voltage range, resistance range, or measurement range can be manufactured to the customer\'s specific requirement. Contact us with your specification.',
+            body: "Any non-standard voltage range, resistance range, or measurement range can be manufactured to the customer's specific requirement. Custom ranges are a standard service at CIE — we have been making custom instruments for utilities and laboratories since the 1960s.",
           },
         ].map(item => (
-          <div class="bg-white rounded-lg border border-[#E8ECF2] p-6">
+          <div class="bg-[#F5F7FA] rounded-lg border border-[#E8ECF2] p-6">
             <div class="text-3xl mb-4" aria-hidden="true">{item.icon}</div>
             <h3 class="font-bold text-[#0D2547] mb-3">{item.heading}</h3>
             <p class="text-sm text-[#64748B] leading-relaxed">{item.body}</p>
           </div>
         ))}
       </div>
+
+      <blockquote class="mt-10 border-l-4 border-[#E0252E] pl-6 py-2">
+        <p class="text-[#1B3A5B] font-semibold text-lg italic">
+          "Build instruments that deliver dependable performance when accuracy matters most."
+        </p>
+        <cite class="text-sm text-[#64748B] mt-2 block not-italic">— Manufacturing philosophy, CIE since 1963</cite>
+      </blockquote>
     </div>
   </section>
 
-  <!-- CIE mark -->
+  <!-- Growth & leadership -->
+  <section class="bg-[#F5F7FA] py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <EyebrowLabel text="Growing With Changing Times" class="mb-4" />
+          <h2 class="text-2xl font-black text-[#0D2547] mb-5">Manufacturing experience meets customer focus.</h2>
+          <div class="space-y-4 text-[#64748B] leading-relaxed">
+            <p>
+              As customer requirements evolved, the company expanded its presence with a dedicated office in
+              <strong class="text-[#1B3A5B]">Kolkata</strong> to strengthen customer engagement, marketing
+              activities, and product distribution.
+            </p>
+            <p>
+              While the business has grown and adapted over the years, its foundation remains firmly rooted
+              in the manufacturing excellence established in Howrah. This combination of manufacturing
+              experience and customer focus continues to guide the company today.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <EyebrowLabel text="Continuing the Legacy" class="mb-4" />
+          <h2 class="text-2xl font-black text-[#0D2547] mb-5">The next generation, the same commitment.</h2>
+          <div class="space-y-4 text-[#64748B] leading-relaxed">
+            <p>
+              Today, Cambridge Instruments &amp; Engineering Co. is led by
+              <strong class="text-[#1B3A5B]">Mr. Manoj Sharma</strong> and
+              <strong class="text-[#1B3A5B]">Mr. Rajesh Sharma</strong>,
+              who continue the vision established by the founder.
+            </p>
+            <p>
+              By combining decades of manufacturing experience with a forward-looking approach, they remain
+              committed to delivering quality products, dependable service, and long-term value to customers.
+              The continuity of leadership across generations has helped preserve the principles upon which
+              the company was built.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIE mark + closing -->
   <section class="bg-white py-14 lg:py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="font-mono font-bold text-5xl text-[#0D2547] mb-4">CIE<sup class="text-[#E0252E] text-2xl">®</sup></p>
       <h2 class="text-2xl font-black text-[#0D2547] mb-4">The Registered CIE® Mark</h2>
-      <p class="text-[#64748B] leading-relaxed max-w-2xl mx-auto">
-        The <span class="font-mono font-semibold text-[#1B3A5B]">CIE®</span> mark is a registered trade mark of Cambridge Instruments &amp; Engg. Co.
-        It appears on every instrument we manufacture and is a guarantee of origin, quality, and after-sales accountability.
-        When you buy CIE®, you buy direct from the manufacturer — not from a reseller stickering someone else's instrument.
+      <p class="text-[#64748B] leading-relaxed max-w-2xl mx-auto mb-8">
+        The <span class="font-mono font-semibold text-[#1B3A5B]">CIE®</span> mark is a registered trade mark
+        of Cambridge Instruments &amp; Engineering Co. It appears on every instrument we manufacture and is a
+        guarantee of origin, quality, and after-sales accountability. When you buy CIE®, you buy direct from
+        the manufacturer — not from a reseller stickering someone else's instrument.
       </p>
+      <div class="border-t border-[#E8ECF2] pt-8 space-y-1 text-sm text-[#64748B]">
+        <p class="font-semibold text-[#0D2547]">Cambridge Instruments &amp; Engineering Co.</p>
+        <p>Established 1963 &middot; Howrah, India</p>
+        <p class="font-mono text-xs tracking-widest uppercase text-[#E0252E] mt-2">Manufacturing Excellence Across Generations · Made in India</p>
+      </div>
     </div>
   </section>
 

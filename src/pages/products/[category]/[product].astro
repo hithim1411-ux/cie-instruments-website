@@ -167,8 +167,8 @@ const productImageSrc = product.image
   <CTABand
     heading={`Interested in the ${product.model}? Request a quote today.`}
     primaryLabel="Request a Quote"
-    primaryHref={`/contact?product=${encodeURIComponent(product.model)}`}
+    primaryHref={u(`/contact?product=${encodeURIComponent(product.model)}`)}
     secondaryLabel="Back to Products"
-    secondaryHref={`/products/${category.id}`}
+    secondaryHref={u(`/products/${category.id}`)}
   />
 </Base>
