@@ -2287,7 +2287,7 @@
   },
   {
     "id": "psi-1",
-    "categoryId": "hv-phase-sequence",
+    "categoryId": "phase-sequence-indicators",
     "model": "PSI-1",
     "name": "Phase Sequence Indicator — Disc Rotating Type",
     "tagline": "Disc-rotating phase sequence indicator, bakelite body, 100–500 V AC.",
@@ -2329,7 +2329,7 @@
   },
   {
     "id": "psi-2",
-    "categoryId": "hv-phase-sequence",
+    "categoryId": "phase-sequence-indicators",
     "model": "PSI-2",
     "name": "Phase Sequence Indicator — ABS Moulded",
     "tagline": "ABS moulded 96×96 mm phase sequence indicator, 100–500 V. Supplied with case and leads.",

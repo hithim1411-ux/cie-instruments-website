@@ -73,11 +73,19 @@
   },
   {
     "id": "hv-phase-sequence",
-    "name": "HV Test Set & Phase Sequence Indicators",
+    "name": "HV Test Sets",
     "shortName": "HV Test Sets",
-    "eyebrow": "High Voltage · Phase Sequence",
-    "description": "AC high-voltage test sets (0–5 kV) for cable and equipment HV testing, and phase sequence indicators for 3-phase supply verification.",
+    "eyebrow": "High Voltage · Breakdown Test Sets",
+    "description": "AC high-voltage test sets for cable and equipment insulation testing up to 5 kV. Continuously variable output voltage with analog metering and toggle trip.",
     "icon": "⚡"
+  },
+  {
+    "id": "phase-sequence-indicators",
+    "name": "Phase Sequence Indicators",
+    "shortName": "Phase Sequence",
+    "eyebrow": "Phase Sequence · Indicators",
+    "description": "Phase sequence indicators for verifying the phase rotation of 3-phase AC supplies. Disc-rotating type and compact ABS moulded variants.",
+    "icon": "🔄"
   },
   {
     "id": "oil-test-sets",
