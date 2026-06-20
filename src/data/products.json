@@ -4,39 +4,56 @@
     "categoryId": "insulation-testers-hand",
     "model": "CIE/444",
     "name": "Insulation Tester — Metal Body, Hand-Driven",
-    "tagline": "Pressure die-cast metal body, hand-driven generator insulation tester. Robust and field-proven.",
-    "description": "The CIE/444 is a pressure die-cast metal body, hand-driven generator type insulation tester — field-proven across India's utilities, railways, and industry. Each instrument is manufactured to the customer's specified rated voltage and resistance range. Available in six rated voltages from 100 V to 5000 V, with a wide choice of resistance scales. Optional dual voltage, dual insulation range, and built-in continuity range. Any non-standard range manufactured to order.",
+    "tagline": "Hand-cranked analog insulation tester in anti-magnetic aluminium body — no batteries required. 100 V to 5000 V.",
+    "description": "The CIE/444 is a hand-driven generator-type insulation tester for direct-reading insulation resistance measurement on electrical machines, rotating plant, switchgear, cables, transformers, and industrial installations. Power is generated entirely by the operator via a collapsible hand crank — no batteries or external power source are required. A centrifugal governor (clutch) holds output voltage constant regardless of crank speed. The instrument features a high-sensitivity cross-coil indicator, anti-parallax mirror scale, and anti-magnetic aluminium body. A guard terminal and externally accessible infinity adjuster are provided on instruments with insulation range 1000 megohms and above. Conforms to ISS: 2992/1987. Quick response: 3 seconds.",
     "specs": [
       {
         "label": "Body",
-        "value": "Pressure die-cast metal"
+        "value": "Anti-magnetic aluminium (pressure die-cast)"
       },
       {
         "label": "Generator Type",
-        "value": "Hand-driven"
+        "value": "Hand-driven, silent A.C. generator with centrifugal governor (clutch)"
+      },
+      {
+        "label": "Scale Length",
+        "value": "90 mm (approx.)"
+      },
+      {
+        "label": "Accuracy",
+        "value": "Conforms to ISS: 2992-1987"
+      },
+      {
+        "label": "Rotation Speed",
+        "value": "160 r.p.m. or more"
+      },
+      {
+        "label": "Response Time",
+        "value": "3 seconds"
+      },
+      {
+        "label": "Weight",
+        "value": "2.5 kg (approx.)"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "110 × 128 × 195 mm (approx.)"
       },
       {
         "label": "Rated Voltages Available",
         "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V"
       },
       {
-        "label": "Continuity Range",
-        "value": "Optional (built-in, 500 V or 1000 V)"
-      },
-      {
-        "label": "Dual Voltage Option",
-        "value": "Available"
-      },
-      {
         "label": "Warranty",
         "value": "12 months against manufacturing defects"
       }
     ],
     "applications": [
-      "Power cable insulation testing",
-      "Motor and transformer winding insulation",
-      "Switchgear and substation commissioning",
-      "Preventive maintenance in utilities and industry"
+      "Electrical maintenance of rotating plant equipment and stationary apparatus",
+      "Insulation control and switching equipment checks",
+      "Distribution network and communication cable insulation testing",
+      "Transformer and insulator testing; industrial installation checks",
+      "Locating intermittent shorts, defective connections, and developing insulation failures"
     ],
     "featured": true,
     "datasheet": null,
@@ -163,39 +180,62 @@
       }
     ],
     "options": [
-      "Dual voltage & dual insulation range (two voltage outputs, two resistance scales)",
-      "Single voltage with dual insulation range",
-      "Optional continuity range (built-in low-resistance test range in kΩ for checking conductor/winding continuity) — available on 500 V and 1000 V models",
-      "Any other range manufactured to specific requirement"
-    ]
+      "Carrying case (metal body, CIE/444) — at extra cost",
+      "Testing leads, 1m (up to 1000 V) — at extra cost",
+      "Testing leads, 2m (up to 1000 V) — at extra cost",
+      "H.V. testing leads, 2m — general — at extra cost",
+      "H.V. testing leads, 2m — special — at extra cost",
+      "Dual voltage & dual insulation range option — at extra cost",
+      "Single voltage, dual insulation range option — at extra cost",
+      "Continuity range (500 V/1000 V only) on single-voltage, single-range instruments — at extra cost",
+      "Continuity range (500 V/1000 V only) on dual-voltage, dual-range instruments — at extra cost",
+      "Any other range — on request"
+    ],
+    "includedWith": []
   },
   {
     "id": "cie-666",
     "categoryId": "insulation-testers-hand",
     "model": "CIE/666",
     "name": "Insulation Tester — Wooden Body, Hand-Driven",
-    "tagline": "Seasoned wooden body, hand-driven generator insulation tester up to 10 kV.",
-    "description": "The CIE/666 is a wooden body, hand-driven generator type insulation tester. Available in the widest range of rated voltages in the CIE range — 100 V to 10 kV — with a comprehensive choice of insulation scales. Each instrument is manufactured to the customer's specified rated voltage and resistance range. Optional dual voltage, dual insulation range, built-in continuity range, and any non-standard range to order.",
+    "tagline": "Hand-cranked analog insulation tester in seasoned wooden body — up to 10,000 V. Wider range than metal-body CIE/444.",
+    "description": "The CIE/666 is a hand-driven generator-type insulation tester built into a seasoned wooden body with sunmica finish, offering a more traditional, robust enclosure. Available in a wider voltage range than the metal-body CIE/444 — from 100 V up to 10,000 V — making it suitable for higher-voltage insulation testing including HV switchgear and higher-class transformer windings. Like the CIE/444, it generates its own test voltage via a hand-cranked A.C. generator with centrifugal governor, eliminating any need for external power. The wooden cabinet has a detachable lid, carrying handle, and lock. Scale length is 100 mm. Quick response: 3 seconds. Conforms to ISS: 2992/1987.",
     "specs": [
       {
         "label": "Body",
-        "value": "Wooden"
+        "value": "Seasoned wooden with sunmica finish; detachable lid, carrying handle, and lock"
       },
       {
         "label": "Generator Type",
-        "value": "Hand-driven"
+        "value": "Hand-driven, silent A.C. generator with centrifugal governor (clutch)"
+      },
+      {
+        "label": "Scale Length",
+        "value": "100 mm (approx.)"
+      },
+      {
+        "label": "Accuracy",
+        "value": "Conforms to ISS: 2992-1987"
+      },
+      {
+        "label": "Rotation Speed",
+        "value": "160 r.p.m. or more"
+      },
+      {
+        "label": "Response Time",
+        "value": "3 seconds"
+      },
+      {
+        "label": "Weight",
+        "value": "4.1 kg (approx.)"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "265 × 165 × 185 mm (approx.)"
       },
       {
         "label": "Rated Voltages Available",
         "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V / 10000 V"
-      },
-      {
-        "label": "Continuity Range",
-        "value": "Optional (built-in, 500 V or 1000 V)"
-      },
-      {
-        "label": "Dual Voltage Option",
-        "value": "Available"
       },
       {
         "label": "Warranty",
@@ -203,10 +243,11 @@
       }
     ],
     "applications": [
-      "High-voltage cable and equipment testing",
-      "Power transformer insulation assessment",
-      "EHV substation commissioning",
-      "Indian Railways HV testing requirements"
+      "Electrical maintenance of rotating plant equipment and stationary apparatus",
+      "Insulation control and switching equipment checks",
+      "Distribution network and communication cable insulation testing",
+      "HV switchgear and transformer insulation testing up to 10,000 V",
+      "Locating intermittent shorts, defective connections, and developing insulation failures"
     ],
     "featured": true,
     "datasheet": null,
@@ -353,35 +394,42 @@
       }
     ],
     "options": [
-      "Dual voltage & dual insulation range (two voltage outputs, two resistance scales)",
-      "Single voltage with dual insulation range",
-      "Optional continuity range (built-in low-resistance test range in kΩ for checking conductor/winding continuity) — available on 500 V and 1000 V models",
-      "Any other range manufactured to specific requirement"
-    ]
+      "Carrying case (wooden body, CIE/666) — at extra cost",
+      "Testing leads, 1m (up to 1000 V) — at extra cost",
+      "Testing leads, 2m (up to 1000 V) — at extra cost",
+      "H.V. testing leads, 2m — general — at extra cost",
+      "H.V. testing leads, 2m — special — at extra cost",
+      "Dual voltage & dual insulation range option — at extra cost",
+      "Single voltage, dual insulation range option — at extra cost",
+      "Continuity range (500 V/1000 V only) on single-voltage, single-range instruments — at extra cost",
+      "Continuity range (500 V/1000 V only) on dual-voltage, dual-range instruments — at extra cost",
+      "Any other range — on request"
+    ],
+    "includedWith": []
   },
   {
     "id": "cie-444-mr",
     "categoryId": "multirange-insulation-hand",
     "model": "CIE/444/MR",
     "name": "Multirange Insulation Tester — Metal Body (Hand-Driven)",
-    "tagline": "Selectable multi-voltage, metal body, hand-driven insulation tester with built-in continuity range.",
-    "description": "The CIE/444/MR is a multi-voltage, multi-range insulation tester in a metal body. A single instrument covers three selectable test voltages and corresponding insulation ranges, plus a built-in continuity range. Series MR-1 to MR-4 are available in metal body. Specify the MR series required when ordering.",
+    "tagline": "Selectable multi-voltage insulation tester (metal body) with built-in continuity range as standard. Series MR-1 to MR-4.",
+    "description": "The CIE/444/MR is a multirange version of the hand-driven metal-body CIE/444 insulation tester, with a range selector switch providing multiple rated test voltages on one instrument. Unlike the standard CIE/444, the multirange series includes a continuity range as a standard built-in feature — not a chargeable add-on. Series MR-1 to MR-4 are available in the metal body (CIE/444/MR). Series MR-5 to MR-8 are wooden body (CIE/666/MR) only and are not available in this metal body configuration.",
     "specs": [
       {
         "label": "Body",
-        "value": "Pressure die-cast metal"
+        "value": "Anti-magnetic aluminium (pressure die-cast)"
       },
       {
         "label": "Generator Type",
         "value": "Hand-driven"
       },
       {
-        "label": "Series Available",
-        "value": "MR-1 to MR-4"
+        "label": "Series Available (metal body)",
+        "value": "MR-1 to MR-4 only"
       },
       {
-        "label": "Display",
-        "value": "Multi-scale with continuity range"
+        "label": "Continuity Range",
+        "value": "Built-in as standard on all MR series (not a chargeable add-on)"
       },
       {
         "label": "Warranty",
@@ -390,8 +438,8 @@
     ],
     "applications": [
       "Multi-voltage insulation testing on a single instrument",
-      "Utilities requiring flexible voltage selection",
-      "Cable testing at varying voltage levels",
+      "Utilities and maintenance teams needing flexible voltage selection without multiple testers",
+      "Cable and transformer insulation testing at varying voltage levels",
       "Substation and EPC commissioning"
     ],
     "featured": false,
@@ -430,6 +478,13 @@
           }
         ]
       }
+    ],
+    "options": [
+      "Carrying case (metal body) — at extra cost",
+      "Testing leads, 1m — at extra cost",
+      "H.V. testing leads, 2m — general — at extra cost",
+      "H.V. testing leads, 2m — special — at extra cost",
+      "Any other range — on request"
     ]
   },
   {
@@ -437,12 +492,12 @@
     "categoryId": "multirange-insulation-hand",
     "model": "CIE/666/MR",
     "name": "Multirange Insulation Tester — Wooden Body (Hand-Driven)",
-    "tagline": "Selectable multi-voltage, wooden body, hand-driven insulation tester with built-in continuity range.",
-    "description": "The CIE/666/MR is a multi-voltage, multi-range insulation tester in a wooden body. A single instrument covers up to three selectable test voltages and corresponding insulation ranges, plus a built-in continuity range. The full range of series MR-1 to MR-8 is available, including high-voltage series MR-5 to MR-8 (wooden body only). Specify the MR series required when ordering.",
+    "tagline": "Selectable multi-voltage insulation tester (wooden body) with built-in continuity range. Full series MR-1 to MR-8, including HV series MR-5 to MR-8.",
+    "description": "The CIE/666/MR is a multirange version of the hand-driven wooden-body CIE/666 insulation tester, with a range selector switch providing multiple rated test voltages on one instrument. Continuity range is built in as standard on all MR series. The wooden-body CIE/666/MR covers all eight MR series — MR-1 to MR-8 — including high-voltage series MR-5 to MR-8 (which are not available in the metal-body CIE/444/MR). MR-7 and MR-8 cover 5000 V across dual scales, providing the widest single-instrument voltage coverage in the hand-driven MR range.",
     "specs": [
       {
         "label": "Body",
-        "value": "Wooden"
+        "value": "Seasoned wooden with sunmica finish"
       },
       {
         "label": "Generator Type",
@@ -450,11 +505,15 @@
       },
       {
         "label": "Series Available",
-        "value": "MR-1 to MR-8"
+        "value": "MR-1 to MR-8 (full range, including HV series MR-5 to MR-8)"
       },
       {
-        "label": "Display",
-        "value": "Multi-scale with continuity range"
+        "label": "Continuity Range",
+        "value": "Built-in as standard on all MR series"
+      },
+      {
+        "label": "Note",
+        "value": "MR-5 to MR-8 are wooden body only — not available in metal body CIE/444/MR"
       },
       {
         "label": "Warranty",
@@ -462,9 +521,9 @@
       }
     ],
     "applications": [
-      "High-voltage field insulation testing",
-      "Multi-voltage transformer and cable testing",
-      "Indian Railways HV equipment commissioning"
+      "High-voltage multi-voltage field insulation testing",
+      "Multi-voltage transformer and cable testing up to 5000 V",
+      "Maintenance teams needing both low- and high-voltage testing in one instrument"
     ],
     "featured": false,
     "datasheet": null,
@@ -522,6 +581,13 @@
           }
         ]
       }
+    ],
+    "options": [
+      "Carrying case (wooden body) — at extra cost",
+      "Testing leads, 1m — at extra cost",
+      "H.V. testing leads, 2m — general — at extra cost",
+      "H.V. testing leads, 2m — special — at extra cost",
+      "Any other range — on request"
     ]
   },
   {
@@ -529,24 +595,40 @@
     "categoryId": "motor-operated-insulation",
     "model": "CIE/777",
     "name": "Motorised Insulation Tester",
-    "tagline": "Motor-driven generator insulation tester for sustained high-voltage testing up to 10 kV.",
-    "description": "The CIE/777 is a motorised generator type insulation tester providing stable, sustained test voltages from 500 V to 10 kV. Motor drive ensures consistent test voltage independent of operator technique. Supplied with one pair of HV testing leads. Optional timer available. Each instrument is manufactured to the customer's specified rated voltage and resistance range.",
+    "tagline": "Mains-motor-driven insulation tester for sustained PI and dielectric absorption testing. 500 V to 10,000 V.",
+    "description": "The CIE/777 is a universal, multi-purpose insulation tester for checking insulation and conductance under simulated operating conditions in high-tension electrical and electronic applications. Driven by a mains motor (230 V AC, 50 Hz), the CIE/777 applies test voltage continuously for as long as needed — enabling genuine polarization index (PI) and dielectric absorption testing that hand-cranked instruments cannot sustain. PI is calculated as resistance after 10 minutes ÷ resistance after 1 minute; better results are obtained with longer periods. Housed in a seasoned wooden cabinet with sunmica finish (detachable lid, handle, lock). Guard ring around the line terminal and guard terminal eliminate surface-leakage errors. Externally accessible infinity adjuster provided. Conforms to IS: 2992-1987. Note on HV testing leads: catalogue lists HV leads as an optional, extra-cost accessory; price list states one pair is supplied with every instrument. Confirm with factory before ordering.",
     "specs": [
       {
-        "label": "Generator Type",
-        "value": "Motor-driven"
+        "label": "Drive",
+        "value": "Mains motor, 230 V, 50 Hz A.C."
+      },
+      {
+        "label": "Body",
+        "value": "Seasoned wooden cabinet with sunmica finish, detachable lid, handle, lock"
+      },
+      {
+        "label": "Scale Length",
+        "value": "100 mm (approx.)"
+      },
+      {
+        "label": "Accuracy",
+        "value": "As per IS: 2992-1987"
+      },
+      {
+        "label": "Dimensions (incl. top cover, approx.)",
+        "value": "14 × 10 × 10 inch"
+      },
+      {
+        "label": "Weight (incl. top cover)",
+        "value": "9 kg (approx.)"
+      },
+      {
+        "label": "Response Time",
+        "value": "3 seconds"
       },
       {
         "label": "Rated Voltages Available",
         "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V"
-      },
-      {
-        "label": "Accessories",
-        "value": "One pair HV testing leads (supplied)"
-      },
-      {
-        "label": "Optional Timer",
-        "value": "Available"
       },
       {
         "label": "Warranty",
@@ -554,10 +636,10 @@
       }
     ],
     "applications": [
-      "Sustained insulation testing on large equipment",
-      "Power transformers and HV cables",
-      "Substation commissioning by EPC contractors",
-      "Testing labs requiring stable HV output"
+      "Sustained insulation and polarization index (PI) testing on large rotating plant",
+      "Power transformer insulation assessment including dielectric absorption ratio",
+      "HV cable and switchgear insulation testing",
+      "Substation commissioning by EPC contractors"
     ],
     "featured": false,
     "datasheet": null,
@@ -632,7 +714,17 @@
       }
     ],
     "includedWith": [
-      "One pair of HV testing leads"
+      "Mains cord, 2 metres",
+      "One pair of H.V. testing leads (per price list — note conflict with catalogue; confirm with factory)"
+    ],
+    "options": [
+      "Rexine carrying case — at extra cost",
+      "15-minute timer facility — at extra cost",
+      "H.V. testing leads, 2m (general or special) — at extra cost per catalogue; see note above",
+      "Dual voltage & dual insulation range option — at extra cost",
+      "Single voltage, dual insulation range option — at extra cost",
+      "Timer (+₹3,800) — at extra cost per price list",
+      "Any other range — on request"
     ]
   },
   {
@@ -640,24 +732,40 @@
     "categoryId": "motor-operated-insulation",
     "model": "CIE/777 HM",
     "name": "Motor-cum-Hand Driven Insulation Tester",
-    "tagline": "Dual-mode motor and hand-driven insulation tester — operates where mains power is unavailable.",
-    "description": "The CIE/777 HM combines motor-driven and hand-driven operation in a single instrument. Test voltages 500 V to 10 kV. Motor drive for sustained site testing; hand drive as backup where mains supply is unavailable. Supplied with one pair of HV testing leads. Optional timer available. Each instrument is manufactured to the customer's specified rated voltage and resistance range.",
+    "tagline": "Motor-cum-hand driven insulation tester — mains motor for PI testing, hand-crank backup for field use. 500 V to 10,000 V.",
+    "description": "The CIE/777 HM combines mains-motor drive with a collapsible hand-crank backup in one instrument. It shares the same motor-driven sustained-voltage capability as the CIE/777 for polarization index (PI) and dielectric absorption testing, while the centrifugal governor (clutch) on the hand-driven circuit ensures constant output voltage when operating by hand crank where mains power is unavailable. The collapsible generator handle is specific to the 777 HM — it is not present on the plain CIE/777. Weight is 12 kg (including top cover), notably heavier than the 777's 9 kg due to the additional hand-drive mechanism. Housed in the same seasoned wooden cabinet with sunmica finish. Conforms to IS: 2992-1987. Note on HV testing leads: catalogue lists HV leads as optional/extra cost; price list states one pair supplied standard. Confirm with factory.",
     "specs": [
       {
-        "label": "Generator Type",
-        "value": "Motor-cum-hand driven"
+        "label": "Drive",
+        "value": "Mains motor (230 V, 50 Hz A.C.) plus collapsible hand-crank backup"
+      },
+      {
+        "label": "Body",
+        "value": "Seasoned wooden cabinet with sunmica finish, detachable lid, handle, lock"
+      },
+      {
+        "label": "Scale Length",
+        "value": "100 mm (approx.)"
+      },
+      {
+        "label": "Accuracy",
+        "value": "As per IS: 2992-1987"
+      },
+      {
+        "label": "Dimensions (incl. top cover, approx.)",
+        "value": "14 × 10 × 10 inch"
+      },
+      {
+        "label": "Weight (incl. top cover)",
+        "value": "12 kg (approx.) — heavier than plain CIE/777 (9 kg)"
+      },
+      {
+        "label": "Response Time",
+        "value": "3 seconds"
       },
       {
         "label": "Rated Voltages Available",
         "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V"
-      },
-      {
-        "label": "Accessories",
-        "value": "One pair HV testing leads (supplied)"
-      },
-      {
-        "label": "Optional Timer",
-        "value": "Available"
       },
       {
         "label": "Warranty",
@@ -665,9 +773,10 @@
       }
     ],
     "applications": [
-      "Field testing where mains supply is uncertain",
-      "Remote substation commissioning",
-      "Indian Railways track and traction equipment testing"
+      "Field insulation testing where mains supply is uncertain or unavailable",
+      "Sustained PI and dielectric absorption testing (motor-driven mode)",
+      "Remote substation and railway traction equipment commissioning",
+      "HV transformer and cable insulation assessment"
     ],
     "featured": false,
     "datasheet": null,
@@ -742,7 +851,17 @@
       }
     ],
     "includedWith": [
-      "One pair of HV testing leads"
+      "Mains cord, 2 metres",
+      "One pair of H.V. testing leads (per price list — note conflict with catalogue; confirm with factory)"
+    ],
+    "options": [
+      "Rexine carrying case — at extra cost",
+      "15-minute timer facility — at extra cost",
+      "H.V. testing leads, 2m (general or special) — per catalogue; see note",
+      "Dual voltage & dual insulation range option — at extra cost",
+      "Single voltage, dual insulation range option — at extra cost",
+      "Timer (+₹3,800) — at extra cost per price list",
+      "Any other range — on request"
     ]
   },
   {
@@ -750,12 +869,12 @@
     "categoryId": "multirange-motorised-insulation",
     "model": "CIE/777/MR",
     "name": "Multirange Motorised Insulation Tester",
-    "tagline": "Dual-scale, multi-voltage motorised insulation tester. Series MR-A to MR-E.",
-    "description": "The CIE/777/MR is a motorised multi-voltage insulation tester with dual-scale display. Five series (MR-A to MR-E) each cover a different combination of test voltages and insulation scale ranges. MR-A, MR-B, and MR-D feature dual-scale (inner/outer) display; MR-C and MR-E are single-scale. Specify the MR series required when ordering.",
+    "tagline": "Dual-scale motorised insulation tester — inner and outer scale readings cover two ranges per voltage. Series MR-A to MR-E.",
+    "description": "The CIE/777/MR is a motorised multi-voltage insulation tester with a dual-scale (inner/outer) reading arrangement. Unlike the range-selector-switch approach used in the hand-driven CIE/444/MR and CIE/666/MR, the 777/MR uses two concentric scales on a single movement: the inner scale covers a standard resistance range and the outer scale covers an extended range, at each rated voltage. This lets the operator read either range without switching instruments. Five series (MR-A to MR-E) cover different combinations of rated voltage and inner/outer scale ranges. Retains full sustained-voltage capability (motor-driven) for PI and dielectric absorption testing. Physical specifications (weight, dimensions) for MR-specific variants are not separately confirmed by catalogue — confirm with manufacturer before specifying.",
     "specs": [
       {
-        "label": "Generator Type",
-        "value": "Motorised"
+        "label": "Drive",
+        "value": "Motorised (mains, 230 V, 50 Hz)"
       },
       {
         "label": "Series Available",
@@ -763,7 +882,11 @@
       },
       {
         "label": "Display",
-        "value": "Dual scale (inner/outer) for MR-A, MR-B, MR-D; single scale for MR-C, MR-E"
+        "value": "Dual-scale inner/outer (MR-A, MR-B, MR-D) or single-scale (MR-C, MR-E)"
+      },
+      {
+        "label": "Note on Specs",
+        "value": "Weight and dimensions for MR variants not separately confirmed — contact manufacturer"
       },
       {
         "label": "Warranty",
@@ -771,9 +894,9 @@
       }
     ],
     "applications": [
-      "Flexible multi-voltage motorised testing",
-      "Commissioning of transformer and cable networks",
-      "Testing labs and utilities"
+      "Transformer and HV switchgear insulation testing requiring both standard and extended resistance range",
+      "PI and dielectric absorption testing across multiple voltage classes",
+      "Industrial and utility insulation maintenance programs"
     ],
     "featured": false,
     "datasheet": null,
@@ -870,6 +993,13 @@
           }
         ]
       }
+    ],
+    "options": [
+      "Carrying case — at extra cost",
+      "Testing leads, 1m — at extra cost",
+      "H.V. testing leads, 2m — general / special — at extra cost",
+      "Timer — at extra cost",
+      "Any other range — on request"
     ]
   },
   {
@@ -877,12 +1007,12 @@
     "categoryId": "multirange-motorised-insulation",
     "model": "CIE/777 HM/MR",
     "name": "Multirange Motor-cum-Hand Driven Insulation Tester",
-    "tagline": "Multi-voltage motor-cum-hand driven insulation tester with dual scale. Series MR-A to MR-E.",
-    "description": "The CIE/777 HM/MR combines multi-voltage MR-series flexibility with motor-cum-hand driven operation. All five series (MR-A to MR-E) are available. MR-A, MR-B, and MR-D feature dual-scale (inner/outer) display. Ideal for field teams where mains power may be unavailable. Specify the MR series required when ordering.",
+    "tagline": "Dual-scale motor-cum-hand driven insulation tester — inner/outer scale, mains motor plus hand-crank backup. Series MR-A to MR-E.",
+    "description": "The CIE/777 HM/MR combines the dual-scale (inner/outer) multirange capability of the CIE/777/MR with the motor-and-hand dual-drive of the CIE/777 HM. All five MR series (MR-A to MR-E) are available in this configuration. The motor-driven mode enables sustained PI and dielectric absorption testing; the hand-crank backup allows operation where mains power is unavailable. Physical specifications (weight, dimensions) for MR/HM variants are not separately confirmed — confirm with manufacturer before specifying.",
     "specs": [
       {
-        "label": "Generator Type",
-        "value": "Motor-cum-hand driven"
+        "label": "Drive",
+        "value": "Mains motor (230 V, 50 Hz) plus collapsible hand-crank backup"
       },
       {
         "label": "Series Available",
@@ -890,7 +1020,11 @@
       },
       {
         "label": "Display",
-        "value": "Dual scale (inner/outer) for MR-A, MR-B, MR-D; single scale for MR-C, MR-E"
+        "value": "Dual-scale inner/outer (MR-A, MR-B, MR-D) or single-scale (MR-C, MR-E)"
+      },
+      {
+        "label": "Note on Specs",
+        "value": "Weight and dimensions not separately confirmed for HM/MR variant — contact manufacturer"
       },
       {
         "label": "Warranty",
@@ -898,9 +1032,9 @@
       }
     ],
     "applications": [
-      "Remote field testing with backup hand drive",
-      "Multi-voltage HV commissioning",
-      "EPC contractors and utilities"
+      "Remote field testing with backup hand drive — dual-scale multirange coverage",
+      "Multi-voltage HV commissioning and PI testing",
+      "EPC contractors and utilities needing both motor and hand-drive flexibility"
     ],
     "featured": false,
     "datasheet": null,
@@ -997,6 +1131,13 @@
           }
         ]
       }
+    ],
+    "options": [
+      "Carrying case — at extra cost",
+      "Testing leads, 1m — at extra cost",
+      "H.V. testing leads, 2m — general / special — at extra cost",
+      "Timer — at extra cost",
+      "Any other range — on request"
     ]
   },
   {
@@ -1004,8 +1145,8 @@
     "categoryId": "compact-insulation-testers",
     "model": "CIE/555",
     "name": "Insulation Tester — Bakelite Body",
-    "tagline": "Compact moulded bakelite body, hand-driven insulation tester. Economical everyday instrument.",
-    "description": "The CIE/555 is a compact, economical hand-driven insulation tester in a moulded bakelite body. Test voltages 100 V to 1000 V. Suitable for routine insulation checking in workshops, panels, and general industry. Each instrument is manufactured to the customer's specified rated voltage and resistance range.",
+    "tagline": "Hand-driven insulation tester in moulded bakelite body — economical instrument for 100 V to 1000 V testing.",
+    "description": "The CIE/555 is a hand-driven generator-type insulation tester in a moulded bakelite body, available in four rated voltages from 100 V to 1000 V. It is positioned in the CIE range as an economical instrument alongside the compact metal-body CIE/888. Note: A catalogue document for CIE/555 has not been verified at time of writing. Specifications shown are limited to what is confirmed by the current price list (voltage, resistance range, and accessory options). Features, operating principle, accuracy standard, dimensions, and weight are not confirmed and are not published here.",
     "specs": [
       {
         "label": "Body",
@@ -1013,11 +1154,15 @@
       },
       {
         "label": "Generator Type",
-        "value": "Hand-driven"
+        "value": "Hand-driven (confirmed by price list; full spec not confirmed by catalogue)"
       },
       {
         "label": "Rated Voltages Available",
         "value": "100 V / 250 V / 500 V / 1000 V"
+      },
+      {
+        "label": "Note",
+        "value": "Accuracy standard, response time, weight, and dimensions not confirmed — contact manufacturer"
       },
       {
         "label": "Warranty",
@@ -1025,9 +1170,7 @@
       }
     ],
     "applications": [
-      "General workshop insulation checks",
-      "Motor winding routine testing",
-      "Panel wiring insulation verification"
+      "General insulation resistance testing — specific applications not confirmed pending catalogue documentation"
     ],
     "featured": false,
     "datasheet": null,
@@ -1087,6 +1230,12 @@
           }
         ]
       }
+    ],
+    "includedWith": [],
+    "options": [
+      "Carrying case (bakelite body) — at extra cost",
+      "Testing leads, 1m — at extra cost",
+      "Any other range — on request"
     ]
   },
   {
@@ -1094,28 +1243,44 @@
     "categoryId": "earth-tester",
     "model": "CIE/222M",
     "name": "Analog Earth Tester — Metal Body",
-    "tagline": "3-terminal and 4-terminal analog earth resistance and soil resistivity tester. Supplied as a complete kit.",
-    "description": "The CIE/222M is a hand-driven metal body analog earth tester for 3-terminal earth resistance measurement and 4-terminal soil resistivity measurement. Available in single, dual, triple, four, and five-range options. Supplied complete with earth spikes, wire spools, hammer, and carrying bag.",
+    "tagline": "Hand-driven analog earth tester — 3-terminal (earth resistance) and 4-terminal (earth resistance + soil resistivity). ±5% accuracy per IS: 9223/1979.",
+    "description": "The CIE/222M is a hand-driven generator-type earth tester for direct measurement of earth resistance in power circuits, telecommunications, railway electrification, domestic and industrial installations, and lightning protection systems. Available in 3-terminal type (earth resistance) and 4-terminal type (earth resistance plus soil resistivity). The 4-terminal type is designed for soil investigation work including geological, agricultural, and civil engineering surveys (tunnels, drainage, sewerage, tube railways). Accuracy ±5% per IS: 9223/1979. A centrifugal governor holds output voltage constant regardless of crank speed. Measurement is unaffected by stray AC currents or back e.m.f. of earth electrolysis.",
     "specs": [
       {
         "label": "Body",
-        "value": "Metal"
+        "value": "Anti-magnetic aluminium"
       },
       {
         "label": "Generator Type",
-        "value": "Hand-driven"
+        "value": "Hand-driven A.C. generator with centrifugal governor"
       },
       {
         "label": "Terminal Types",
-        "value": "3-terminal (earth resistance) and 4-terminal (earth resistance + soil resistivity)"
+        "value": "3-terminal (earth resistance) or 4-terminal (earth resistance + soil resistivity)"
+      },
+      {
+        "label": "Scale Length",
+        "value": "80 mm (approx.)"
+      },
+      {
+        "label": "Accuracy",
+        "value": "±5% (as per IS: 9223/1979)"
+      },
+      {
+        "label": "Generator Rotation Speed",
+        "value": "160 r.p.m."
+      },
+      {
+        "label": "Weight",
+        "value": "2.5 kg (approx.)"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "110 × 128 × 190 mm (approx.)"
       },
       {
         "label": "Range Configurations",
         "value": "Single / Dual / Triple / Four / Five range"
-      },
-      {
-        "label": "Accessories",
-        "value": "M.S. spikes, flexible-wire spools, hammer, carrying bag (supplied)"
       },
       {
         "label": "Warranty",
@@ -1123,10 +1288,10 @@
       }
     ],
     "applications": [
-      "Substation earthing system commissioning",
-      "Earth electrode resistance measurement",
-      "Soil resistivity survey for earthing design",
-      "Utility and EPC commissioning teams"
+      "Earth resistance measurement for power circuits and lightning protection systems",
+      "Telecommunications and railway electrification earthing checks",
+      "Domestic and industrial electrical installation earthing",
+      "4-terminal type: soil resistivity surveys for civil engineering projects (tunnels, drainage, sewerage)"
     ],
     "featured": true,
     "datasheet": null,
@@ -1225,11 +1390,12 @@
         ]
       }
     ],
-    "includedWith": [
-      "M.S. earth spikes (2 nos.)",
-      "Flexible wire spools (2 nos.)",
-      "Hammer",
-      "Carrying bag"
+    "includedWith": [],
+    "options": [
+      "Testing kit — 3-terminal: 2 M.S. spikes (45 cm), 3 flexible-wire spools (10/20/30 m), 1 hammer, carrying bag — at extra cost",
+      "Testing kit — 4-terminal: 4 M.S. spikes (45 cm), 4 flexible-wire spools (10/20/30 m), 1 hammer, carrying bag — at extra cost",
+      "Carrying case for earth tester — at extra cost",
+      "Any other range — on request"
     ]
   },
   {
@@ -1237,20 +1403,20 @@
     "categoryId": "digital-insulation-testers",
     "model": "DIT-5005",
     "name": "Digital Insulation Tester — 500 V / 1000 V",
-    "tagline": "Rechargeable microcontroller-based digital insulation tester at 500 V and 1000 V.",
-    "description": "The DIT-5005 is a microcontroller-based digital insulation tester with rechargeable battery. Provides accurate digital readout of insulation resistance at 500 V and 1000 V test voltages. Compact and portable for field use.",
+    "tagline": "Rechargeable digital insulation tester — 500 V and 1000 V. Confirmed specifications limited to price list data.",
+    "description": "The DIT-5005 is a rechargeable, microcontroller-based digital insulation tester in CIE's digital insulation tester range. Available in four rated-voltage / resistance-range combinations per the current price list (see table below). Note: No catalogue document or product image is currently available for DIT-5005. As a result, features such as DAR/PI measurement, auto-ranging, specific display type, dimensions, and weight are not confirmed and are not published here. If any such details appear elsewhere on this site, they should be treated as unverified. Contact the manufacturer for full specifications.",
     "specs": [
       {
         "label": "Type",
-        "value": "Microcontroller-based digital"
+        "value": "Rechargeable microcontroller-based digital insulation tester"
       },
       {
         "label": "Power",
         "value": "Rechargeable battery"
       },
       {
-        "label": "Display",
-        "value": "LCD"
+        "label": "Note",
+        "value": "Display type, accuracy, dimensions, weight, and DAR/PI capability not confirmed — contact manufacturer"
       },
       {
         "label": "Warranty",
@@ -1258,9 +1424,7 @@
       }
     ],
     "applications": [
-      "Field insulation testing",
-      "Motor and cable commissioning",
-      "General maintenance and testing"
+      "Insulation resistance testing — specific applications not confirmed pending catalogue documentation"
     ],
     "featured": false,
     "datasheet": null,
@@ -1292,27 +1456,68 @@
           }
         ]
       }
-    ]
+    ],
+    "includedWith": []
   },
   {
     "id": "dit-2500",
     "categoryId": "digital-insulation-testers",
     "model": "DIT-2500",
-    "name": "Digital Insulation Tester — up to 2500 V / 50 GΩ",
-    "tagline": "Five selectable test voltages to 2500 V. Measures insulation up to 50 GΩ. DAR & PI functions.",
-    "description": "The DIT-2500 provides five selectable test voltages (100 V, 250 V, 500 V, 1000 V, 2500 V) with insulation measurement up to 50 GΩ. Dielectric Absorption Ratio (DAR) and Polarisation Index (PI) functions for comprehensive insulation assessment. LCD display with auto-ranging.",
+    "name": "Digital Insulation Tester + Multimeter — up to 2500 V",
+    "tagline": "Combined digital insulation tester (100 V–2500 V, 50 GΩ) and True-RMS multimeter with DAR, PI, capacitance, and diode test. CAT III 1000 V / CAT IV 600 V.",
+    "description": "The DIT-2500 combines a digital insulation resistance tester with a full-function True-RMS digital multimeter in one handheld instrument. Insulation testing at five selectable voltages (100 V to 2500 V) with resistance measurement to 50 GΩ, including Dielectric Absorption Ratio (DAR) and Polarization Index (PI) calculations. Also functions as a general-purpose multimeter: AC/DC voltage up to 1500 V, resistance to 60 MΩ, capacitance to 100 mF, continuity, diode test, and ACV-Hz frequency measurement. Powered by rechargeable Li-ion battery (3.7 V × 2). Safety rated CAT III 1000 V / CAT IV 600 V. Features data hold, backlight, and auto power-off. Dimensions: 189 × 89 × 55 mm. Weight: approx. 380 g. Standard accessories (test leads, charging cable) should be confirmed with manufacturer — not separately documented in the current source.",
     "specs": [
       {
-        "label": "Type",
-        "value": "Digital, selectable test voltage"
+        "label": "Insulation Test Voltage",
+        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V"
       },
       {
-        "label": "Functions",
-        "value": "Insulation resistance, DAR, PI"
+        "label": "Insulation Resistance Range",
+        "value": "0.1 MΩ – 50 GΩ"
       },
       {
-        "label": "Display",
-        "value": "LCD, auto-ranging"
+        "label": "Short Circuit Current",
+        "value": "≥ 1 mA"
+      },
+      {
+        "label": "DAR",
+        "value": "1 min : 15 s and 1 min : 30 s"
+      },
+      {
+        "label": "PI",
+        "value": "10 min : 60 s"
+      },
+      {
+        "label": "DC/AC Voltage",
+        "value": "1 mV – 1500 V"
+      },
+      {
+        "label": "Resistance",
+        "value": "0.1 Ω – 60 MΩ"
+      },
+      {
+        "label": "Capacitance",
+        "value": "0.001 nF – 100 mF"
+      },
+      {
+        "label": "Measurement Type",
+        "value": "True-RMS"
+      },
+      {
+        "label": "Battery",
+        "value": "Li-ion 3.7 V × 2 (rechargeable)"
+      },
+      {
+        "label": "Safety Category",
+        "value": "CAT III 1000 V / CAT IV 600 V"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "189 × 89 × 55 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 380 g"
       },
       {
         "label": "Warranty",
@@ -1320,61 +1525,75 @@
       }
     ],
     "applications": [
-      "Transformer and motor insulation assessment",
-      "HV cable testing",
-      "Insulation trending and predictive maintenance",
-      "Substation commissioning"
+      "Insulation resistance testing on motors, transformers, and cables",
+      "DAR and PI testing for insulation quality assessment",
+      "General electrical maintenance requiring both insulation and multimeter functions",
+      "Switchgear, panel, and cable commissioning"
     ],
     "featured": true,
     "datasheet": null,
-    "specTables": [
-      {
-        "heading": "Test Voltage & Measurement Capability",
-        "note": "All five test voltages are selectable on a single instrument.",
-        "columns": [
-          "Test Voltage",
-          "Insulation Measurement"
-        ],
-        "rows": [
-          {
-            "col0": "100 V",
-            "col1": "Up to 50 GΩ"
-          },
-          {
-            "col0": "250 V",
-            "col1": "Up to 50 GΩ"
-          },
-          {
-            "col0": "500 V",
-            "col1": "Up to 50 GΩ"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "Up to 50 GΩ"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "Up to 50 GΩ"
-          }
-        ]
-      }
-    ]
+    "specTables": [],
+    "includedWith": []
   },
   {
     "id": "dit-5000",
     "categoryId": "digital-insulation-testers",
     "model": "DIT-5000",
     "name": "Digital Insulation Tester — up to 5000 V / 200 GΩ",
-    "tagline": "High-voltage digital insulation tester to 5000 V with measurement to 200 GΩ.",
-    "description": "The DIT-5000 provides selectable test voltages of 500 V, 1000 V, 2500 V, and 5000 V with insulation measurement up to 200 GΩ. Suitable for testing large HV transformers, cables, and rotating machines.",
+    "tagline": "Auto-ranging digital insulation tester to 5000 V with HV LED indicator, auto zero calibration, and large-character LCD. 6 × AA batteries.",
+    "description": "The DIT-5000 is a dedicated digital insulation tester testing insulation resistance at voltages up to 5000 V, with resistance measurement up to 200 GΩ. Auto-range operation, automatic zero calibration, and automatic polarity display simplify field use. A high-voltage LED indicator warns the operator when the output is live. Results are shown on a 3½-digit LCD (68 × 55 mm, 35 mm character height) with backlight. Also includes AC voltage measurement up to 750 V (secondary function — not a full multimeter). Powered by 6 × 1.5 V AA batteries (replaceable, not rechargeable). Accuracy is tiered by resistance range (see specifications). Dimensions: 218 × 122 × 75 mm. Weight: approx. 900 g. Supplied with test leads, batteries, user manual, and carrying box.",
     "specs": [
       {
-        "label": "Type",
-        "value": "Digital, selectable test voltage"
+        "label": "Output Voltage",
+        "value": "500 V / 1000 V / 2500 V / 5000 V"
+      },
+      {
+        "label": "Insulation Resistance",
+        "value": "1 MΩ – 200 GΩ"
+      },
+      {
+        "label": "Short Circuit Current",
+        "value": "1 mA"
+      },
+      {
+        "label": "AC Voltage Measurement",
+        "value": "Up to 750 V (secondary function)"
       },
       {
         "label": "Display",
-        "value": "LCD"
+        "value": "3½-digit LCD, 68 × 55 mm (35 mm character height), with backlight"
+      },
+      {
+        "label": "Ranging",
+        "value": "Auto-range with auto zero calibration and auto polarity display"
+      },
+      {
+        "label": "HV Indicator",
+        "value": "High-voltage LED — illuminates when output is active"
+      },
+      {
+        "label": "Accuracy (1 MΩ–200 MΩ)",
+        "value": "±(3% × reading + 5 digits)"
+      },
+      {
+        "label": "Accuracy (200 MΩ–10 GΩ)",
+        "value": "±(5% × reading + 5 digits)"
+      },
+      {
+        "label": "Accuracy (10 GΩ–200 GΩ)",
+        "value": "±(10% × reading + 5 digits)"
+      },
+      {
+        "label": "Power Supply",
+        "value": "6 × 1.5 V AA batteries (replaceable — not rechargeable)"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "218 × 122 × 75 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 900 g"
       },
       {
         "label": "Warranty",
@@ -1382,40 +1601,18 @@
       }
     ],
     "applications": [
-      "Large HV transformer insulation testing",
-      "HV cable testing up to 5000 V",
-      "Rotating machine insulation assessment",
-      "Utilities and large industrial plants"
+      "Insulation testing of motors and rotating machines at higher test voltages",
+      "HV transformer and cable insulation testing up to 5000 V",
+      "Utilities and large industrial plants requiring 5000 V class insulation testing"
     ],
     "featured": false,
     "datasheet": null,
-    "specTables": [
-      {
-        "heading": "Test Voltage & Measurement Capability",
-        "note": "All four test voltages are selectable on a single instrument.",
-        "columns": [
-          "Test Voltage",
-          "Insulation Measurement"
-        ],
-        "rows": [
-          {
-            "col0": "500 V",
-            "col1": "Up to 200 GΩ"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "Up to 200 GΩ"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "Up to 200 GΩ"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "Up to 200 GΩ"
-          }
-        ]
-      }
+    "specTables": [],
+    "includedWith": [
+      "Test Leads",
+      "6 × AA Batteries",
+      "User Manual",
+      "Carrying Box"
     ]
   },
   {
@@ -1423,24 +1620,32 @@
     "categoryId": "digital-earth-micro-ohm",
     "model": "DET-2000",
     "name": "Digital Earth Resistance Tester",
-    "tagline": "4-terminal digital earth resistance tester. Rechargeable. Complete kit supplied.",
-    "description": "The DET-2000 is a 4-terminal digital earth resistance tester with rechargeable battery. Available in dual and triple range. Supplied as a complete testing kit including earth spikes, wire spools, and hammer.",
+    "tagline": "Rugged ABS-bodied digital earth resistance tester — 4-terminal, rechargeable Ni-Cd battery. Dual and triple range.",
+    "description": "The DET-2000 is a digital earth resistance tester measuring earth resistance and soil resistivity, with results shown on a 3½-digit LCD display. Four terminals (E1, P1, P2, E2) allow 3-terminal earth-resistance testing or 4-terminal soil-resistivity measurement. Housed in a rugged ABS body, hand-held with facility to convert to bench-top use. Rechargeable Ni-Cd cells are charged via the supplied charging cord (230 V, 50 Hz). Lo-Bat indicator on display. Accuracy: ±3% for 0–10% and 90–100% of range; ±1.5% for 10–90% of range (per IS: 9223/1979). Weight: 575 g. Dimensions: 172 × 98 × 38 mm. Note: the testing kit (spikes, wire, hammer) is an optional, separately priced accessory — it is not supplied standard.",
     "specs": [
       {
-        "label": "Terminals",
-        "value": "4-terminal"
+        "label": "Display",
+        "value": "3½-digit LCD"
       },
       {
-        "label": "Type",
-        "value": "Digital"
+        "label": "Terminals",
+        "value": "4-terminal (E1, P1, P2, E2)"
       },
       {
         "label": "Power",
-        "value": "Rechargeable battery"
+        "value": "Rechargeable Ni-Cd cells, charged via 230 V/50 Hz charging cord"
       },
       {
-        "label": "Accessories",
-        "value": "Earth spikes, wire spools, hammer (supplied)"
+        "label": "Accuracy",
+        "value": "0–10% of range: ±3%; 10–90%: ±1.5%; 90–100%: ±3%"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "172 × 98 × 38 mm (approx.)"
+      },
+      {
+        "label": "Weight",
+        "value": "575 g (approx.)"
       },
       {
         "label": "Warranty",
@@ -1448,9 +1653,10 @@
       }
     ],
     "applications": [
-      "Substation earth grid testing",
-      "Earth electrode resistance measurement",
-      "Commission and maintenance of earthing systems"
+      "Earth resistance measurement for power circuits, telecommunications, and railway electrification",
+      "Domestic and industrial installation earthing checks",
+      "Soil resistivity surveys for proposed electrode system positioning",
+      "General non-inductive/non-capacitive resistance measurement"
     ],
     "featured": false,
     "datasheet": null,
@@ -1502,34 +1708,53 @@
     "buildToOrder": true,
     "orderNote": "Specify the required range configuration when ordering.",
     "includedWith": [
-      "Earth spikes (2 nos.)",
-      "Wire spools (2 nos.)",
-      "Hammer"
+      "Carrying Case",
+      "Charging Cord",
+      "Instruction Manual"
+    ],
+    "options": [
+      "Testing kit: 4 M.S. spikes (45 cm), 1 hammer, 4 cables (50 ft each), 1 plier, 1 screwdriver — in canvas bag. At extra cost."
     ]
   },
   {
     "id": "mr-253a",
     "categoryId": "digital-earth-micro-ohm",
     "model": "MR-253A",
-    "name": "Digital Micro-Ohm / Contact Resistance Meter",
-    "tagline": "Bench-type digital micro-ohm meter for contact resistance measurement from 0–1999 µΩ to 19.99 kΩ.",
-    "description": "The MR-253A is a bench-type digital micro-ohm / contact resistance meter providing measurement from 0–1999 µΩ to 19.99 kΩ across multiple ranges. Mains powered (230 V, 50 Hz, single phase). Supplied with two pairs of test leads.",
+    "name": "Digital Micro-Ohm Meter (4-Terminal Kelvin)",
+    "tagline": "Bench-top digital micro-ohm meter with 4-terminal (Kelvin) measurement — 1999 µΩ to 19.99 kΩ across 8 ranges. 7-segment LED display.",
+    "description": "The MR-253A (formerly catalogued as MR-253) is a compact, precision bench-top micro-ohm meter for measuring low values of resistance — in cables, transformer and motor windings, switch and relay contact resistance, PCB track resistance, and ammeter shunt wire calibration. It uses a four-terminal (Kelvin) measurement technique that eliminates errors from lead and contact resistance, which is critical for accurate measurement in the microohm-to-kiloohm range. Displayed on a 3½-digit, 1999-count seven-segment LED display. Test current varies automatically by range, from 1 A (lowest resistance ranges) down to 0.01 mA (highest range). Accuracy: ±0.5% ±2 digits. Built using MOS LSI technology. Mains powered, 230 V, 50 Hz. Dimensions: 192 × 96 × 230 mm. Weight: 2.25 kg. Supplied with 2 pairs of test leads.",
     "specs": [
       {
-        "label": "Type",
-        "value": "Bench-type digital"
+        "label": "Display",
+        "value": "3½-digit, 1999 counts, seven-segment LED"
       },
       {
-        "label": "Power Supply",
+        "label": "Measurement Technique",
+        "value": "4-terminal (Kelvin) — eliminates lead and contact resistance error"
+      },
+      {
+        "label": "Accuracy",
+        "value": "±0.5% ±2 digits"
+      },
+      {
+        "label": "Range",
+        "value": "1999 µΩ / 19.99 mΩ / 199.9 mΩ / 1999 mΩ / 19.99 Ω / 199.9 Ω / 1999 Ω / 19.99 kΩ"
+      },
+      {
+        "label": "Test Current",
+        "value": "Automatically varies by range: 1 A (µΩ ranges) down to 0.01 mA (kΩ range)"
+      },
+      {
+        "label": "Power",
         "value": "230 V, 50 Hz, single phase"
       },
       {
-        "label": "Dimensions (approx.)",
-        "value": "192 × 96 × 230 mm"
+        "label": "Dimensions (W×H×D)",
+        "value": "192 × 96 × 230 mm (approx.)"
       },
       {
-        "label": "Weight (approx.)",
-        "value": "2.25 kg"
+        "label": "Weight",
+        "value": "2.25 kg (approx.)"
       },
       {
         "label": "Accessories",
@@ -1541,10 +1766,10 @@
       }
     ],
     "applications": [
-      "Circuit breaker contact resistance testing",
-      "Busbar and cable joint resistance measurement",
-      "Transformer winding resistance",
-      "Laboratory low-resistance measurement"
+      "Cable and wire resistance measurement",
+      "Transformer and motor winding resistance checks",
+      "Switch and relay contact resistance testing",
+      "PCB track resistance testing and ammeter shunt calibration"
     ],
     "featured": false,
     "datasheet": null,
@@ -1591,21 +1816,61 @@
     "id": "dcm-2250-tr",
     "categoryId": "clamp-multimeters",
     "model": "DCM 2250 TR",
-    "name": "True-RMS Clamp Meter — 1000 A AC",
-    "tagline": "Auto-ranging True-RMS clamp meter, 0–1000 A AC.",
-    "description": "The DCM 2250 TR is an auto-ranging True-RMS clamp meter measuring AC current from 0 to 1000 A. Suitable for measuring load currents on electrical panels, motors, and distribution feeders.",
+    "name": "Digital Clamp Multimeter — True-RMS AC, 1000 A",
+    "tagline": "True-RMS AC clamp multimeter — 6 A/60 A/600 A/1000 A, NCV, Low-Z ACV, 6000-count. AC current only (no DC current).",
+    "description": "The DCM 2250 TR is a True-RMS digital clamp multimeter measuring AC current up to 1000 A across four ranges (6 A, 60 A, 600 A, 1000 A), along with AC/DC voltage, low-impedance ACV (Low Z), and resistance. This model measures AC current only — DC current measurement is not available on the DCM 2250 TR (see DCM 5410 TR for AC/DC current capability). Features include non-contact voltage (NCV) and live-wire test, 6000-count auto-ranging display, True-RMS measurement, data hold, MIN/MAX, backlight, torch, and auto power-off. Low-impedance ACV mode avoids false 'ghost voltage' readings on unloaded circuits. 40 mm jaw opening. Safety rated CAT III 600 V. Powered by 2 × AAA batteries. Weight: approx. 315 g.",
     "specs": [
       {
-        "label": "AC Current Range",
-        "value": "0–1000 A"
+        "label": "AC Current Ranges",
+        "value": "6 A / 60 A / 600 A / 1000 A (True-RMS)"
       },
       {
-        "label": "Measurement Type",
-        "value": "True-RMS"
+        "label": "DC Current",
+        "value": "Not available — AC current only on this model"
       },
       {
-        "label": "Auto-Range",
-        "value": "Yes"
+        "label": "DC Voltage",
+        "value": "600 mV / 6 V / 60 V / 600 V / 1000 V"
+      },
+      {
+        "label": "AC Voltage (True-RMS)",
+        "value": "6 V / 60 V / 600 V / 750 V"
+      },
+      {
+        "label": "Low Impedance ACV",
+        "value": "6 V / 60 V / 300 V — input impedance ≤3 KΩ"
+      },
+      {
+        "label": "Resistance",
+        "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 20 MΩ / 60 MΩ"
+      },
+      {
+        "label": "Display",
+        "value": "6000 Counts LCD, auto-ranging"
+      },
+      {
+        "label": "NCV / Live Wire Test",
+        "value": "Provided"
+      },
+      {
+        "label": "Jaw Opening (Max.)",
+        "value": "40 mm"
+      },
+      {
+        "label": "Safety Category",
+        "value": "CAT III 600 V"
+      },
+      {
+        "label": "Power Supply",
+        "value": "2 × AAA Batteries"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "230 × 75 × 40 mm"
+      },
+      {
+        "label": "Weight (incl. battery)",
+        "value": "Approx. 315 g"
       },
       {
         "label": "Warranty",
@@ -1613,33 +1878,91 @@
       }
     ],
     "applications": [
-      "Panel and feeder current measurement",
-      "Motor load testing",
-      "Electrical maintenance"
+      "AC current measurement on panels and distribution boards",
+      "Electrical maintenance and switchgear testing",
+      "Cable and circuit continuity and live-wire checks"
     ],
     "featured": false,
     "datasheet": null,
-    "image": "dcm-2250-tr.png"
+    "image": "dcm-2250-tr.png",
+    "includedWith": [
+      "Test Leads",
+      "Carrying Pouch",
+      "User Manual",
+      "2 × AAA Batteries"
+    ]
   },
   {
     "id": "dcm-5410-tr",
     "categoryId": "clamp-multimeters",
     "model": "DCM 5410 TR",
-    "name": "True-RMS Clamp Meter — 1000 A AC/DC with Frequency, Temperature & Capacitance",
-    "tagline": "Advanced True-RMS clamp meter, 1000 A AC/DC, frequency, temperature, and capacitance.",
-    "description": "The DCM 5410 TR is a comprehensive True-RMS clamp meter measuring 1000 A AC and DC, plus frequency, temperature, and capacitance. A versatile all-in-one field instrument for electrical commissioning and maintenance.",
+    "name": "Digital Clamp Multimeter — True-RMS AC/DC, 1000 A",
+    "tagline": "True-RMS AC/DC clamp multimeter — 1000 A AC and DC, plus capacitance, frequency, and temperature. CAT III 600 V.",
+    "description": "The DCM 5410 TR is a True-RMS digital clamp multimeter measuring both AC and DC current up to 1000 A, along with AC/DC voltage, resistance, capacitance, frequency (10 Hz–10 MHz), and temperature (−20°C to 1000°C). The DC current clamp capability is the key differentiator from the AC-only DCM 2250 TR, making the DCM 5410 TR suitable for solar, battery, and DC distribution work. Features: 6000-count auto-ranging display, NCV and live-wire test, Low-Z ACV mode, data hold, MIN/MAX, backlight, torch, and auto power-off. 40 mm jaw opening. Safety rated CAT III 600 V. Powered by 2 × AAA batteries. Weight: approx. 315 g.",
     "specs": [
       {
-        "label": "AC/DC Current Range",
-        "value": "1000 A AC/DC"
+        "label": "AC Current Ranges (True-RMS)",
+        "value": "60 A / 600 A / 1000 A"
       },
       {
-        "label": "Measurement Type",
-        "value": "True-RMS"
+        "label": "DC Current Ranges",
+        "value": "60 A / 600 A / 1000 A"
       },
       {
-        "label": "Additional Functions",
-        "value": "Frequency, temperature, capacitance"
+        "label": "DC Voltage",
+        "value": "600 mV / 6 V / 60 V / 600 V / 1000 V"
+      },
+      {
+        "label": "AC Voltage (True-RMS)",
+        "value": "6 V / 60 V / 600 V / 750 V"
+      },
+      {
+        "label": "Capacitance",
+        "value": "1 nF to 10 mF (8 ranges)"
+      },
+      {
+        "label": "Frequency",
+        "value": "10 Hz – 10 MHz"
+      },
+      {
+        "label": "Temperature",
+        "value": "−20°C to 1000°C / −4°F to 1832°F"
+      },
+      {
+        "label": "Low Impedance ACV",
+        "value": "6 V / 60 V / 300 V — input impedance ≤3 KΩ"
+      },
+      {
+        "label": "Resistance",
+        "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 20 MΩ / 60 MΩ"
+      },
+      {
+        "label": "Display",
+        "value": "6000 Counts LCD, auto-ranging"
+      },
+      {
+        "label": "NCV / Live Wire Test",
+        "value": "Provided"
+      },
+      {
+        "label": "Jaw Opening (Max.)",
+        "value": "40 mm"
+      },
+      {
+        "label": "Safety Category",
+        "value": "CAT III 600 V"
+      },
+      {
+        "label": "Power Supply",
+        "value": "2 × AAA 1.5 V Batteries"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "230 × 75 × 40 mm"
+      },
+      {
+        "label": "Weight (incl. battery)",
+        "value": "Approx. 315 g"
       },
       {
         "label": "Warranty",
@@ -1647,13 +1970,20 @@
       }
     ],
     "applications": [
-      "AC and DC current measurement",
-      "Electrical commissioning",
-      "Frequency and power quality checks"
+      "AC and DC current measurement on panels and distribution boards",
+      "Solar and battery system diagnostics (DC current clamp)",
+      "Electrical maintenance, switchgear, and panel testing",
+      "Combined electrical and temperature diagnostics"
     ],
     "featured": false,
     "datasheet": null,
-    "image": "dcm-5410-tr.png"
+    "image": "dcm-5410-tr.png",
+    "includedWith": [
+      "Test Leads",
+      "Carrying Pouch",
+      "User Manual",
+      "2 × AAA Batteries"
+    ]
   },
   {
     "id": "dm-235",
@@ -1707,25 +2037,61 @@
     "id": "dm-321t",
     "categoryId": "clamp-multimeters",
     "model": "DM 321T",
-    "name": "True-RMS Digital Multimeter — 3½-digit",
-    "tagline": "True-RMS 3½-digit DMM with backlight, auto power-off, and transistor/diode test.",
-    "description": "The DM 321T is a True-RMS 3½-digit digital multimeter with full DCV, ACV, DCA, ACA, resistance, capacitance, transistor, and diode test functions. Backlit display and auto power-off. Ideal for accurate measurement of non-sinusoidal AC waveforms.",
+    "name": "True-RMS Digital Multimeter — Manual Ranging, 3½-digit",
+    "tagline": "True-RMS, manual-ranging 3½-digit DMM with transistor hFE test, capacitance, backlight, and protective holster.",
+    "description": "The DM 321T is a 3½-digit True-RMS digital multimeter for general electrical and electronic test work. It is a manual-ranging instrument (not auto-ranging), measuring AC/DC voltage, AC/DC current, resistance, and capacitance, alongside continuity test, diode test, and transistor (hFE) test. Supplied with a protective holster. True-RMS measurement gives accurate readings on non-sinusoidal AC waveforms — useful when working on circuits with switching loads or harmonics. DC voltage up to 1000 V; DC current up to 20 A. Auto power-off and data hold standard. Dimensions: 175 × 93 × 55 mm. Weight: approx. 400 g (incl. battery).",
     "specs": [
       {
         "label": "Measurement Type",
         "value": "True-RMS"
       },
       {
+        "label": "Ranging",
+        "value": "Manual (not auto-ranging) — supplied with protective holster"
+      },
+      {
         "label": "Display",
         "value": "3½-digit with backlight"
       },
       {
-        "label": "Functions",
-        "value": "DCV, ACV, DCA, ACA, resistance, capacitance, transistor, diode"
+        "label": "DC Voltage",
+        "value": "200 mV / 2 V / 20 V / 200 V / 1000 V"
       },
       {
-        "label": "Auto Power-Off",
-        "value": "Yes"
+        "label": "AC Voltage (True-RMS)",
+        "value": "2 V / 20 V / 200 V / 750 V (40–400 Hz)"
+      },
+      {
+        "label": "DC Current",
+        "value": "20 µA / 2 mA / 20 mA / 200 mA / 20 A"
+      },
+      {
+        "label": "AC Current (True-RMS)",
+        "value": "20 mA / 200 mA / 20 A (40–200 Hz)"
+      },
+      {
+        "label": "Resistance",
+        "value": "200 Ω / 2 KΩ / 20 KΩ / 200 KΩ / 2 MΩ / 20 MΩ"
+      },
+      {
+        "label": "Capacitance",
+        "value": "2 nF – 20 mF"
+      },
+      {
+        "label": "Transistor Test",
+        "value": "hFE (PNP or NPN)"
+      },
+      {
+        "label": "Additional Functions",
+        "value": "Continuity test, diode test, data hold, auto power-off"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "175 × 93 × 55 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 400 g (incl. battery)"
       },
       {
         "label": "Warranty",
@@ -1733,24 +2099,57 @@
       }
     ],
     "applications": [
-      "Accurate AC measurement on non-sinusoidal loads",
-      "General electrical testing",
-      "Maintenance and commissioning"
+      "General electrical maintenance and panel testing",
+      "Accurate AC measurement on non-sinusoidal loads (True-RMS)",
+      "Basic electronic troubleshooting including transistor and component testing"
     ],
     "featured": false,
-    "datasheet": null
+    "datasheet": null,
+    "includedWith": [
+      "Test Leads",
+      "User Manual",
+      "Battery"
+    ]
   },
   {
     "id": "cie-5050a",
     "categoryId": "hv-phase-sequence",
     "model": "CIE/5050A",
-    "name": "A.C. High-Voltage Test Set",
-    "tagline": "0–3 kV or 0–5 kV AC high-voltage test set at 25 mA and 50 mA.",
-    "description": "The CIE/5050A is an AC high-voltage test set providing continuously variable output from 0 to 3 kV or 0 to 5 kV at 25 mA and 50 mA respectively. Used for HV withstand and proof testing of cables, switchgear, and equipment in the field or laboratory.",
+    "name": "A.C. High Voltage Breakdown Test Set",
+    "tagline": "Robust powder-coated AC HV breakdown/withstand test set — 0–3 kV or 0–5 kV, 25/50 mA selectable. Analog moving-iron metering, memory device.",
+    "description": "The CIE/5050A is an A.C. high-voltage breakdown test set for fast, accurate withstand/breakdown testing of electrical and electronic materials, components, equipment, and panel boards. Housed in a robust powder-coated M.S. cabinet with carrying handles. The cast-resin H.V. transformer is specially designed to withstand frequent sparkover and momentary short-circuit conditions inherent in breakdown testing. A continuously variable autotransformer provides smooth output voltage adjustment from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero. Tripping current is toggle-switch selectable (25 mA or 50 mA) as standard. A memory device with push-button switch retains the breakdown voltage reading on the meter even after the H.V. circuit trips off. Metering is analog moving-iron (kV meter + milliammeter) per IS 1248:1983 — not digital. Available in two output variants: 0–3 kV and 0–5 kV. One pair of H.V. probe with cable supplied standard.",
     "specs": [
       {
-        "label": "Output Type",
-        "value": "A.C., continuously variable"
+        "label": "Input",
+        "value": "230 V ±10%, 50 Hz, 1 phase A.C."
+      },
+      {
+        "label": "Output (3 kV variant)",
+        "value": "Continuously variable, 0 to 3 kV A.C."
+      },
+      {
+        "label": "Output (5 kV variant)",
+        "value": "Continuously variable, 0 to 5 kV A.C."
+      },
+      {
+        "label": "Capacity",
+        "value": "50 mA maximum on H.V. side"
+      },
+      {
+        "label": "Tripping Current",
+        "value": "25 mA & 50 mA — toggle switch selectable (standard feature)"
+      },
+      {
+        "label": "Duty Cycle",
+        "value": "Intermittent — 5 min ON, 10 min OFF"
+      },
+      {
+        "label": "Metering",
+        "value": "Analog moving-iron — KV meter and milliammeter, L.T. side, per IS 1248:1983 (not digital)"
+      },
+      {
+        "label": "Memory Device",
+        "value": "Push-button switch retains breakdown voltage reading after H.V. trip"
       },
       {
         "label": "Warranty",
@@ -1758,33 +2157,43 @@
       }
     ],
     "applications": [
-      "HV withstand testing of cables and switchgear",
-      "Equipment proof testing",
-      "Site and laboratory HV testing"
+      "Breakdown/withstand testing of electrical and electronic components and materials",
+      "Equipment and panel board dielectric strength testing",
+      "HV withstand testing in production and site environments"
     ],
     "featured": false,
     "datasheet": null,
     "specTables": [
       {
-        "heading": "Output Voltage & Current Options",
+        "heading": "Available Variants",
         "columns": [
-          "Output Voltage Range",
-          "Output Current"
+          "Variant",
+          "Output Range",
+          "Tripping Current"
         ],
         "rows": [
           {
-            "col0": "0–3 kV",
-            "col1": "25 mA and 50 mA"
+            "col0": "CIE/5050A (3 kV)",
+            "col1": "0–3 kV A.C.",
+            "col2": "25 mA & 50 mA, toggle selectable"
           },
           {
-            "col0": "0–5 kV",
-            "col1": "25 mA and 50 mA"
+            "col0": "CIE/5050A (5 kV)",
+            "col1": "0–5 kV A.C.",
+            "col2": "25 mA & 50 mA, toggle selectable"
           }
         ]
       }
     ],
     "buildToOrder": true,
-    "orderNote": "Specify the required output voltage range when ordering."
+    "orderNote": "Specify the required output voltage range when ordering.",
+    "includedWith": [
+      "One pair of H.V. probe with cable"
+    ],
+    "options": [
+      "Tripping current set point other than standard 25 mA/50 mA — at extra cost",
+      "Digital metering in place of standard analog — at extra cost"
+    ]
   },
   {
     "id": "psi-1",
@@ -1876,11 +2285,11 @@
     "model": "CIE/7050",
     "name": "Transformer Oil BDV Tester — 50 kV",
     "tagline": "Transformer oil dielectric strength (BDV) tester up to 50 kV. Manual and motorised variants.",
-    "description": "The CIE/7050 tests the dielectric breakdown voltage (BDV) of transformer oil at up to 50 kV. Mains powered (230 V, 50 Hz, single phase). Available in manual and motorised variants. Options include 2-unit housing, double capacity, digital meter, and magnetic stirrer.",
+    "description": "The CIE/7050 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm² moving-iron voltmeter, L.T. side, scaled in kV) — digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5–13 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second. Note: 75 kV and 80 kV tiers are confirmed by price list but not by the catalogue PDF — confirm construction details with manufacturer before specifying those tiers.",
     "specs": [
       {
         "label": "Output Voltage",
-        "value": "0–50 kV"
+        "value": "0–50 kV (continuously variable)"
       },
       {
         "label": "Capacity",
@@ -1888,19 +2297,27 @@
       },
       {
         "label": "Input",
-        "value": "230 V, 50 Hz, single phase"
+        "value": "230 V ±10%, 50 Hz, 1 phase A.C."
       },
       {
         "label": "Duty",
         "value": "Intermittent"
       },
       {
-        "label": "Variants",
-        "value": "Manual / Motorised"
+        "label": "H.V. Winding",
+        "value": "Cast-resin, graded insulation, centre point grounded"
       },
       {
-        "label": "Options",
-        "value": "2-unit housing, double capacity, digital meter, magnetic stirrer"
+        "label": "Metering",
+        "value": "96 mm² A.C. moving-iron voltmeter, L.T. side, scaled in kV (analog — not digital standard)"
+      },
+      {
+        "label": "Motorised Rate",
+        "value": "Approx. 2 kV/second (motorised variant)"
+      },
+      {
+        "label": "Test Vessel",
+        "value": "Non-absorbent insulating material; two brass spheres 12.5–13 mm dia.; gap 4 mm or 2.5 mm adjustable; per IS 6792:1992"
       },
       {
         "label": "Warranty",
@@ -1908,16 +2325,17 @@
       }
     ],
     "applications": [
-      "Transformer oil quality testing before energisation",
-      "Routine oil sampling analysis",
-      "Power utility and substation maintenance labs"
+      "Transformer oil dielectric strength testing before energisation",
+      "Routine oil quality monitoring for distribution and power transformers",
+      "Circuit breaker oil testing",
+      "Power utility and substation maintenance laboratories"
     ],
     "featured": false,
     "datasheet": null,
     "specTables": [
       {
-        "heading": "CIE/7000 Series — Complete Model Range",
-        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. Options: 2-unit housing, double capacity, digital meter, magnetic stirrer.",
+        "heading": "CIE/7000 Series — Output Voltage & Capacity",
+        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. 75 kV and 80 kV tiers confirmed by price list only — construction details pending catalogue verification.",
         "columns": [
           "Output Voltage",
           "Capacity",
@@ -1929,52 +2347,64 @@
             "col0": "0–50 kV",
             "col1": "500 VA",
             "col2": "CIE/7050",
-            "col3": "7050 MOT"
+            "col3": "CIE/7050 MOT"
           },
           {
             "col0": "0–60 kV",
             "col1": "600 VA",
             "col2": "CIE/7060",
-            "col3": "7060 MOT"
+            "col3": "CIE/7060 MOT"
           },
           {
             "col0": "0–70 kV",
             "col1": "700 VA",
             "col2": "CIE/7070",
-            "col3": "7070 MOT"
+            "col3": "CIE/7070 MOT"
           },
           {
             "col0": "0–75 kV",
             "col1": "750 VA",
             "col2": "CIE/7075",
-            "col3": "7075 MOT"
+            "col3": "CIE/7075 MOT"
           },
           {
             "col0": "0–80 kV",
             "col1": "800 VA",
             "col2": "CIE/7080",
-            "col3": "7080 MOT"
+            "col3": "CIE/7080 MOT"
           },
           {
             "col0": "0–90 kV",
             "col1": "900 VA",
             "col2": "CIE/7090",
-            "col3": "7090 MOT"
+            "col3": "CIE/7090 MOT"
           },
           {
             "col0": "0–100 kV",
             "col1": "1000 VA",
             "col2": "CIE/7100",
-            "col3": "7100 MOT"
+            "col3": "CIE/7100 MOT"
           },
           {
             "col0": "0–120 kV",
             "col1": "1200 VA",
             "col2": "CIE/7120",
-            "col3": "7120 MOT"
+            "col3": "CIE/7120 MOT"
           }
         ]
       }
+    ],
+    "includedWith": [
+      "Instruction manual with circuit diagram",
+      "Input supply cable, minimum 2 metres, 3-pin plug",
+      "Test vessel (oil cell) with electrode and gap-setting gauge"
+    ],
+    "options": [
+      "Tripping current set point other than standard — at extra cost",
+      "Digital metering (in place of standard analog) — at extra cost",
+      "2-unit housing — at extra cost",
+      "Double capacity (20 mA) — at extra cost",
+      "Magnetic stirrer — at extra cost"
     ]
   },
   {
@@ -1983,11 +2413,11 @@
     "model": "CIE/7100",
     "name": "Transformer Oil BDV Tester — 100 kV",
     "tagline": "Transformer oil dielectric strength (BDV) tester up to 100 kV.",
-    "description": "The CIE/7100 tests transformer oil BDV at up to 100 kV — suitable for high-voltage transformer maintenance programmes. Mains powered (230 V, 50 Hz). Manual and motorised variants with optional digital meter and magnetic stirrer.",
+    "description": "The CIE/7100 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm² moving-iron voltmeter, L.T. side, scaled in kV) — digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5–13 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second. Note: 75 kV and 80 kV tiers are confirmed by price list but not by the catalogue PDF — confirm construction details with manufacturer before specifying those tiers.",
     "specs": [
       {
         "label": "Output Voltage",
-        "value": "0–100 kV"
+        "value": "0–100 kV (continuously variable)"
       },
       {
         "label": "Capacity",
@@ -1995,19 +2425,27 @@
       },
       {
         "label": "Input",
-        "value": "230 V, 50 Hz, single phase"
+        "value": "230 V ±10%, 50 Hz, 1 phase A.C."
       },
       {
         "label": "Duty",
         "value": "Intermittent"
       },
       {
-        "label": "Variants",
-        "value": "Manual / Motorised"
+        "label": "H.V. Winding",
+        "value": "Cast-resin, graded insulation, centre point grounded"
       },
       {
-        "label": "Options",
-        "value": "2-unit housing, double capacity, digital meter, magnetic stirrer"
+        "label": "Metering",
+        "value": "96 mm² A.C. moving-iron voltmeter, L.T. side, scaled in kV (analog — not digital standard)"
+      },
+      {
+        "label": "Motorised Rate",
+        "value": "Approx. 2 kV/second (motorised variant)"
+      },
+      {
+        "label": "Test Vessel",
+        "value": "Non-absorbent insulating material; two brass spheres 12.5–13 mm dia.; gap 4 mm or 2.5 mm adjustable; per IS 6792:1992"
       },
       {
         "label": "Warranty",
@@ -2015,16 +2453,17 @@
       }
     ],
     "applications": [
-      "100 kV class transformer oil testing",
-      "EHV substation maintenance",
-      "Power utility oil-testing laboratories"
+      "Transformer oil dielectric strength testing before energisation",
+      "Routine oil quality monitoring for distribution and power transformers",
+      "Circuit breaker oil testing",
+      "Power utility and substation maintenance laboratories"
     ],
     "featured": false,
     "datasheet": null,
     "specTables": [
       {
-        "heading": "CIE/7000 Series — Complete Model Range",
-        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. Options: 2-unit housing, double capacity, digital meter, magnetic stirrer.",
+        "heading": "CIE/7000 Series — Output Voltage & Capacity",
+        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. 75 kV and 80 kV tiers confirmed by price list only — construction details pending catalogue verification.",
         "columns": [
           "Output Voltage",
           "Capacity",
@@ -2036,52 +2475,64 @@
             "col0": "0–50 kV",
             "col1": "500 VA",
             "col2": "CIE/7050",
-            "col3": "7050 MOT"
+            "col3": "CIE/7050 MOT"
           },
           {
             "col0": "0–60 kV",
             "col1": "600 VA",
             "col2": "CIE/7060",
-            "col3": "7060 MOT"
+            "col3": "CIE/7060 MOT"
           },
           {
             "col0": "0–70 kV",
             "col1": "700 VA",
             "col2": "CIE/7070",
-            "col3": "7070 MOT"
+            "col3": "CIE/7070 MOT"
           },
           {
             "col0": "0–75 kV",
             "col1": "750 VA",
             "col2": "CIE/7075",
-            "col3": "7075 MOT"
+            "col3": "CIE/7075 MOT"
           },
           {
             "col0": "0–80 kV",
             "col1": "800 VA",
             "col2": "CIE/7080",
-            "col3": "7080 MOT"
+            "col3": "CIE/7080 MOT"
           },
           {
             "col0": "0–90 kV",
             "col1": "900 VA",
             "col2": "CIE/7090",
-            "col3": "7090 MOT"
+            "col3": "CIE/7090 MOT"
           },
           {
             "col0": "0–100 kV",
             "col1": "1000 VA",
             "col2": "CIE/7100",
-            "col3": "7100 MOT"
+            "col3": "CIE/7100 MOT"
           },
           {
             "col0": "0–120 kV",
             "col1": "1200 VA",
             "col2": "CIE/7120",
-            "col3": "7120 MOT"
+            "col3": "CIE/7120 MOT"
           }
         ]
       }
+    ],
+    "includedWith": [
+      "Instruction manual with circuit diagram",
+      "Input supply cable, minimum 2 metres, 3-pin plug",
+      "Test vessel (oil cell) with electrode and gap-setting gauge"
+    ],
+    "options": [
+      "Tripping current set point other than standard — at extra cost",
+      "Digital metering (in place of standard analog) — at extra cost",
+      "2-unit housing — at extra cost",
+      "Double capacity (20 mA) — at extra cost",
+      "Magnetic stirrer — at extra cost"
     ]
   },
   {
@@ -2090,11 +2541,11 @@
     "model": "CIE/7120",
     "name": "Transformer Oil BDV Tester — 120 kV",
     "tagline": "High-capacity transformer oil BDV tester up to 120 kV.",
-    "description": "The CIE/7120 is the highest-rated instrument in the CIE/7000 series, testing transformer oil BDV up to 120 kV. Manual and motorised variants. Options include digital meter, magnetic stirrer, and double capacity oil vessel.",
+    "description": "The CIE/7120 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm² moving-iron voltmeter, L.T. side, scaled in kV) — digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5–13 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second. Note: 75 kV and 80 kV tiers are confirmed by price list but not by the catalogue PDF — confirm construction details with manufacturer before specifying those tiers.",
     "specs": [
       {
         "label": "Output Voltage",
-        "value": "0–120 kV"
+        "value": "0–120 kV (continuously variable)"
       },
       {
         "label": "Capacity",
@@ -2102,19 +2553,27 @@
       },
       {
         "label": "Input",
-        "value": "230 V, 50 Hz, single phase"
+        "value": "230 V ±10%, 50 Hz, 1 phase A.C."
       },
       {
         "label": "Duty",
         "value": "Intermittent"
       },
       {
-        "label": "Variants",
-        "value": "Manual / Motorised"
+        "label": "H.V. Winding",
+        "value": "Cast-resin, graded insulation, centre point grounded"
       },
       {
-        "label": "Options",
-        "value": "2-unit housing, double capacity, digital meter, magnetic stirrer"
+        "label": "Metering",
+        "value": "96 mm² A.C. moving-iron voltmeter, L.T. side, scaled in kV (analog — not digital standard)"
+      },
+      {
+        "label": "Motorised Rate",
+        "value": "Approx. 2 kV/second (motorised variant)"
+      },
+      {
+        "label": "Test Vessel",
+        "value": "Non-absorbent insulating material; two brass spheres 12.5–13 mm dia.; gap 4 mm or 2.5 mm adjustable; per IS 6792:1992"
       },
       {
         "label": "Warranty",
@@ -2122,16 +2581,17 @@
       }
     ],
     "applications": [
-      "EHV/UHV transformer oil quality assurance",
-      "Central testing laboratories",
-      "Grid and generation utilities"
+      "Transformer oil dielectric strength testing before energisation",
+      "Routine oil quality monitoring for distribution and power transformers",
+      "Circuit breaker oil testing",
+      "Power utility and substation maintenance laboratories"
     ],
     "featured": false,
     "datasheet": null,
     "specTables": [
       {
-        "heading": "CIE/7000 Series — Complete Model Range",
-        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. Options: 2-unit housing, double capacity, digital meter, magnetic stirrer.",
+        "heading": "CIE/7000 Series — Output Voltage & Capacity",
+        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. 75 kV and 80 kV tiers confirmed by price list only — construction details pending catalogue verification.",
         "columns": [
           "Output Voltage",
           "Capacity",
@@ -2143,77 +2603,113 @@
             "col0": "0–50 kV",
             "col1": "500 VA",
             "col2": "CIE/7050",
-            "col3": "7050 MOT"
+            "col3": "CIE/7050 MOT"
           },
           {
             "col0": "0–60 kV",
             "col1": "600 VA",
             "col2": "CIE/7060",
-            "col3": "7060 MOT"
+            "col3": "CIE/7060 MOT"
           },
           {
             "col0": "0–70 kV",
             "col1": "700 VA",
             "col2": "CIE/7070",
-            "col3": "7070 MOT"
+            "col3": "CIE/7070 MOT"
           },
           {
             "col0": "0–75 kV",
             "col1": "750 VA",
             "col2": "CIE/7075",
-            "col3": "7075 MOT"
+            "col3": "CIE/7075 MOT"
           },
           {
             "col0": "0–80 kV",
             "col1": "800 VA",
             "col2": "CIE/7080",
-            "col3": "7080 MOT"
+            "col3": "CIE/7080 MOT"
           },
           {
             "col0": "0–90 kV",
             "col1": "900 VA",
             "col2": "CIE/7090",
-            "col3": "7090 MOT"
+            "col3": "CIE/7090 MOT"
           },
           {
             "col0": "0–100 kV",
             "col1": "1000 VA",
             "col2": "CIE/7100",
-            "col3": "7100 MOT"
+            "col3": "CIE/7100 MOT"
           },
           {
             "col0": "0–120 kV",
             "col1": "1200 VA",
             "col2": "CIE/7120",
-            "col3": "7120 MOT"
+            "col3": "CIE/7120 MOT"
           }
         ]
       }
+    ],
+    "includedWith": [
+      "Instruction manual with circuit diagram",
+      "Input supply cable, minimum 2 metres, 3-pin plug",
+      "Test vessel (oil cell) with electrode and gap-setting gauge"
+    ],
+    "options": [
+      "Tripping current set point other than standard — at extra cost",
+      "Digital metering (in place of standard analog) — at extra cost",
+      "2-unit housing — at extra cost",
+      "Double capacity (20 mA) — at extra cost",
+      "Magnetic stirrer — at extra cost"
     ]
   },
   {
     "id": "rts-5",
     "categoryId": "relay-test-sets",
     "model": "RTS-5",
-    "name": "Relay Test Set — Single Phase, 400 VA",
-    "tagline": "Single-phase relay test set, max 400 VA. Continuously variable AC current and voltage.",
-    "description": "The RTS-5 is a single-phase relay test set providing continuously variable AC current and voltage sources up to 400 VA. Used for testing and commissioning single-phase protection relays in substations and panels.",
+    "name": "Relay Test Set — Single Phase (Secondary Current Injection)",
+    "tagline": "Single-phase relay test set — 0–200 A AC current (14 V/4 V), 0–250 V AC, built-in digital timer. Max 400 VA.",
+    "description": "The CIE/RTS-5 is a secondary current injection relay test set for testing protective, over-current, and earth fault relays. Provides continuously variable AC current from 0–1 A to 0–200 A across eight ranges, at output voltages of 14 V (for lower current ranges) or 4 V (higher ranges). Alternatively, a 0–250 V AC output at 2 A is available via a Volt/Current selection switch — current injection and 0–250 V AC modes cannot be used simultaneously. Two fixed voltage outputs (50 V and 110 V AC at 2 A) are also provided. A built-in dual-range digital timer (0–9.999 sec at 1 ms resolution or 0–99.99 sec at 10 ms resolution) starts when the output circuit is energised and stops automatically when the relay under test actuates. Multi-range digital ammeter (0–100% scaled) and AC voltmeter (0–300 V) built in. NO/NC selector for relay auxiliary contacts. Input: 230 V, 1 phase, 50 Hz. Max burden: 400 VA. Intermittent duty: 5 min ON, 10 min OFF.",
     "specs": [
       {
-        "label": "Phases",
-        "value": "Single phase"
+        "label": "Input",
+        "value": "230 V, single phase, 50 Hz A.C."
       },
       {
         "label": "Max Burden",
         "value": "400 VA"
       },
       {
-        "label": "AC Current Output",
-        "value": "Continuously variable"
+        "label": "Current Output",
+        "value": "0–1 A / 0–2 A / 0–5 A / 0–10 A / 0–20 A at 14 V or 4 V; 0–50 A / 0–100 A / 0–200 A at 4 V"
       },
       {
-        "label": "AC Voltage Output",
-        "value": "Continuously variable"
+        "label": "Output Voltage (alternative)",
+        "value": "0–250 V A.C. at 2 A (mutually exclusive with current output)"
+      },
+      {
+        "label": "Fixed Voltages",
+        "value": "50 V & 110 V A.C. at 2 A"
+      },
+      {
+        "label": "Timer",
+        "value": "9.999 sec (1 ms resolution) or 99.99 sec (10 ms resolution)"
+      },
+      {
+        "label": "Ammeter",
+        "value": "Rectangular multi-range digital, 0–1/2/5/10/25/50/100/200 A (0–100% scaled)"
+      },
+      {
+        "label": "Voltmeter",
+        "value": "Rectangular A.C., 0–300 V"
+      },
+      {
+        "label": "Duty",
+        "value": "Intermittent — 5 min ON / 10 min OFF"
+      },
+      {
+        "label": "Cooling",
+        "value": "Air natural"
       },
       {
         "label": "Warranty",
@@ -2221,9 +2717,9 @@
       }
     ],
     "applications": [
-      "Single-phase protection relay testing",
-      "Overcurrent and earth fault relay commissioning",
-      "Substation panel testing"
+      "Protective and over-current relay testing",
+      "Earth fault relay testing",
+      "Relay commissioning and maintenance in substations and panels"
     ],
     "featured": false,
     "datasheet": null
@@ -2232,29 +2728,53 @@
     "id": "rts-5a",
     "categoryId": "relay-test-sets",
     "model": "RTS-5A",
-    "name": "Relay Test Set — Single Phase, 1000 VA",
-    "tagline": "Single-phase relay test set, max 1000 VA. Variable AC current, AC and DC voltage.",
-    "description": "The RTS-5A is an enhanced single-phase relay test set at 1000 VA providing variable AC current and both AC and DC voltage outputs. Suitable for testing a wider range of relay types including DC-operated relays.",
+    "name": "Relay Test Set — Single Phase, 1000 VA (Portable Trolley)",
+    "tagline": "Portable trolley-style single-phase relay test set — 0–200 A AC (6 V/50 V), AC or DC voltage output, dual-range timer. Max 1000 VA.",
+    "description": "The CIE/RTS-5A is a portable secondary current injection relay test set in a single trolley-style unit (top-hinged lid), for testing protective relays, earth fault relays, circuit breakers, and tripping coils in both laboratory and field. Current output is continuously variable across seven ranges (0–1 A to 0–200 A) at 6 V or 50 V for lower ranges (0–1 A to 0–20 A), or 6 V for higher ranges (0–50 A to 0–200 A), via a multi-ratio wound primary current transformer. An AC/DC changeover switch selects either a continuously variable AC voltage output (0–230 V, 240 VA) or a DC voltage output (0–240 V, 240 VA) — these are alternatives, not simultaneous. Digital timer (0–9.999 sec or 0–99.99 sec, accuracy ±1%) with NO/NC auxiliary contact selection and automatic tripping of current output on relay actuation or overload. Max burden: 1000 VA. Supplied with operation manual, schematic, test report, and guarantee certificate.",
     "specs": [
       {
-        "label": "Phases",
-        "value": "Single phase"
+        "label": "Input",
+        "value": "230 V, single phase, 50 Hz A.C."
       },
       {
         "label": "Max Burden",
         "value": "1000 VA"
       },
       {
-        "label": "AC Current Output",
-        "value": "Continuously variable"
+        "label": "Current Output",
+        "value": "0–1/5/10/20 A at 6 V or 50 V; 0–50/100/200 A at 6 V — continuously variable"
+      },
+      {
+        "label": "Measuring CT",
+        "value": "Multi-ratio wound primary CT, ratio 1-5-10-20-50-100-200 A/5 A"
       },
       {
         "label": "AC Voltage Output",
-        "value": "Continuously variable"
+        "value": "Continuously variable 0–230 V A.C., 240 VA max"
       },
       {
         "label": "DC Voltage Output",
-        "value": "30 V / 110 V / 220 V"
+        "value": "Continuously variable 0–240 V D.C., 240 VA (alternative to AC — not simultaneous)"
+      },
+      {
+        "label": "Timer",
+        "value": "0–9.999 sec or 0–99.99 sec, accuracy ±1%"
+      },
+      {
+        "label": "Current Meter",
+        "value": "Digital, 0–5 A A.C. basic range, 0–100% scaled, ±2% of full range"
+      },
+      {
+        "label": "Voltage Meter",
+        "value": "Digital, 0–500 V A.C./D.C., ±2% of full range"
+      },
+      {
+        "label": "Construction",
+        "value": "Portable trolley-type, single unit, top-hinged lid"
+      },
+      {
+        "label": "Mains Cable",
+        "value": "2 metres, 3-pin plug"
       },
       {
         "label": "Warranty",
@@ -2262,44 +2782,146 @@
       }
     ],
     "applications": [
-      "Single-phase overcurrent relay testing",
-      "DC-operated relay testing",
-      "Voltage relay commissioning"
+      "Protective relay testing and commissioning",
+      "Over-current and earth fault relay testing",
+      "Circuit breaker and tripping coil testing",
+      "Field and laboratory relay calibration"
     ],
     "featured": false,
-    "datasheet": null
+    "datasheet": null,
+    "includedWith": [
+      "Operation Manual",
+      "Schematic Circuit Diagram",
+      "Works Test Report",
+      "Guarantee Certificate"
+    ]
+  },
+  {
+    "id": "rts-5b",
+    "categoryId": "relay-test-sets",
+    "model": "RTS-5B",
+    "name": "Relay Test Set — Single Phase, 100 V Tap (Portable Trolley)",
+    "tagline": "Portable trolley-style single-phase relay test set — same as RTS-5A but with higher 100 V secondary tap (vs 50 V). For relay coils requiring higher test voltage.",
+    "description": "The CIE/RTS-5B is a secondary current injection relay test set, built to the same portable trolley-style single-unit construction as the CIE/RTS-5A. The sole documented difference is the secondary voltage tap: the RTS-5B provides 6 V or 100 V on the lower current ranges (0–1 A to 0–20 A), compared to 6 V or 50 V on the RTS-5A. This higher 100 V tap is better suited to relay coils with higher burden/impedance at lower current ranges. All other specifications (current ranges, AC/DC voltage output, timer, CT ratio, construction) are identical to the RTS-5A. Note: RTS-5B does not appear as a distinct entry in Price List 2026. Pricing and VA rating should be confirmed with the manufacturer before ordering.",
+    "specs": [
+      {
+        "label": "Input",
+        "value": "230 V, single phase, 50 Hz A.C."
+      },
+      {
+        "label": "Current Output",
+        "value": "0–1/5/10/20 A at 6 V or 100 V; 0–50/100/200 A at 6 V — continuously variable"
+      },
+      {
+        "label": "Key Difference from RTS-5A",
+        "value": "100 V secondary tap (RTS-5A has 50 V) — for higher-impedance relay coils"
+      },
+      {
+        "label": "Measuring CT",
+        "value": "Multi-ratio wound primary CT, ratio 1-5-10-20-50-100-200 A/5 A"
+      },
+      {
+        "label": "AC Voltage Output",
+        "value": "Continuously variable 0–230 V A.C., 240 VA max"
+      },
+      {
+        "label": "DC Voltage Output",
+        "value": "Continuously variable 0–240 V D.C., 240 VA (alternative to AC — not simultaneous)"
+      },
+      {
+        "label": "Timer",
+        "value": "0–9.999 sec or 0–99.99 sec, accuracy ±1%"
+      },
+      {
+        "label": "Construction",
+        "value": "Portable trolley-type, single unit, top-hinged lid"
+      },
+      {
+        "label": "Mains Cable",
+        "value": "2 metres, 3-pin plug"
+      },
+      {
+        "label": "Note on Pricing",
+        "value": "Not separately listed in Price List 2026 — confirm VA rating and price with manufacturer"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Protective relay testing where relay current coils have higher impedance requiring 100 V secondary tap",
+      "Over-current, earth fault, and circuit breaker testing",
+      "Field and laboratory relay commissioning"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "includedWith": [
+      "Operation Manual",
+      "Schematic Circuit Diagram",
+      "Works Test Report",
+      "Guarantee Certificate"
+    ],
+    "options": [],
+    "buildToOrder": false,
+    "orderNote": "Confirm pricing and VA rating with manufacturer — not separately listed in current price list.",
+    "specTables": []
   },
   {
     "id": "rts-33",
     "categoryId": "relay-test-sets",
     "model": "RTS-33",
     "name": "Three-Phase Relay Test Set",
-    "tagline": "Three-phase relay test set, 250 VA burden. Variable 3-phase AC current, AC/DC voltage, 0–360° phase angle.",
-    "description": "The RTS-33 is CIE's flagship protection testing instrument — a three-phase relay test set providing variable three-phase AC current, AC and DC voltage sources, and 0–360° continuously variable phase angle. 250 VA burden. Used for commissioning and testing distance, differential, and directional protection relays. A preferred instrument at India's major power utilities and EPC contractors.",
+    "tagline": "Three-phase, two-unit relay test set — 0–360° phase angle, 0–50 A current, 415 V 3-phase input. For distance, directional, and differential relay testing.",
+    "description": "The CIE/RTS-33 is a three-phase relay test set for testing distance relays, over-current relays, over/under-voltage relays, earth fault relays, and directional-element relays. It is a two-unit system: Unit 1 houses the current/voltage source and measuring facilities; Unit 2 is the dedicated phase-shifter unit. Together they allow full 0–360° phase angle control between voltage and current (coarse 60° steps + fine ±30°), enabling genuine directional and distance relay testing not possible with single-phase sets. Three-phase input: 415 V ±10%, 4-wire, 50 Hz. Test current: 0–1/5/10/25/50 A (five taps, 0–100% regulation each). Continuous duty up to 10 A; 25 A and 50 A intermittent. Test voltage: 0–110% of 110 V phase-to-phase, three-phase, 50 Hz. Fixed DC voltage: isolated 30/110/220 V at 100 VA for 30 minutes. Phase-to-phase fault mode: selected phase currents automatically placed in opposition. Facility to check phase sequence before testing. Built-in digital timer (0–9.999 sec and 0–99.99 sec). Rated burden: 250 VA (current and voltage circuits). Units connected by 1-metre interconnection cable.",
     "specs": [
       {
-        "label": "Phases",
-        "value": "Three phase"
+        "label": "Input",
+        "value": "415 V ±10%, 3 phase, 4 wire, 50 Hz A.C."
       },
       {
         "label": "Burden",
-        "value": "250 VA"
+        "value": "250 VA (current and voltage circuits)"
       },
       {
-        "label": "3-Phase AC Current Steps",
-        "value": "0–1 A / 0–5 A / 0–10 A / 0–25 A / 0–50 A"
+        "label": "Test Current Taps",
+        "value": "0–1 A / 0–5 A / 0–10 A / 0–25 A / 0–50 A (0–100% regulation per tap)"
       },
       {
-        "label": "AC Voltage Output",
-        "value": "Continuously variable"
+        "label": "Duty",
+        "value": "Continuous up to 10 A; 25 A & 50 A: intermittent (5 min ON, 10 min OFF)"
       },
       {
-        "label": "DC Voltage Output",
-        "value": "30 V / 110 V / 220 V"
+        "label": "Test Voltage",
+        "value": "0–110% of 110 V ph-ph (63.5 V ph-N), 3-phase, 50 Hz, continuously variable"
+      },
+      {
+        "label": "Fixed DC Voltage",
+        "value": "Isolated 30 V / 110 V / 220 V at 100 VA, available for 30 min"
       },
       {
         "label": "Phase Angle",
-        "value": "0–360° continuously variable"
+        "value": "0–360° — coarse 60° steps + fine ±30° (Unit 2, static phase-shifter)"
+      },
+      {
+        "label": "Phase Angle Meter",
+        "value": "360° range, 1° resolution"
+      },
+      {
+        "label": "Time Measurement",
+        "value": "0–9.999 sec (0.001 sec resolution) and 0–99.99 sec (0.01 sec resolution)"
+      },
+      {
+        "label": "Current Metering",
+        "value": "CT-operated ammeter per phase, 0–1 A, 0–100% scaled, ±1% accuracy"
+      },
+      {
+        "label": "Voltage Metering",
+        "value": "0–200 V, ±1% accuracy, 0.1 V resolution, phase selector switch"
+      },
+      {
+        "label": "Construction",
+        "value": "Two-unit system; 1-metre interconnection cable; 4-core, 5-metre mains input cable"
       },
       {
         "label": "Warranty",
@@ -2308,16 +2930,20 @@
     ],
     "applications": [
       "Distance relay commissioning",
-      "Differential protection testing",
-      "Directional overcurrent relay testing",
-      "Generator and transformer protection commissioning",
-      "Indian Railways traction protection testing"
+      "Directional and differential protection relay testing",
+      "Over-current, earth fault, over/under-voltage relay testing",
+      "Phase-to-phase fault simulation",
+      "Indian Railways traction protection relay testing"
     ],
     "featured": false,
     "datasheet": null,
     "includedWith": [
-      "Test leads and patch cords",
-      "Instruction manual"
+      "Operation Manual",
+      "Schematic Circuit Diagram",
+      "Works Test Report",
+      "Guarantee Certificate",
+      "1-metre interconnection cable (between Unit 1 and Unit 2)",
+      "4-core, 5-metre mains input cable"
     ]
   }
 ]
