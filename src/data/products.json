@@ -1707,7 +1707,7 @@
   },
   {
     "id": "det-2000",
-    "categoryId": "digital-earth-micro-ohm",
+    "categoryId": "earth-tester",
     "model": "DET-2000",
     "name": "Digital Earth Resistance Tester",
     "tagline": "Rugged ABS-bodied digital earth resistance tester — 4-terminal, rechargeable Ni-Cd battery. Dual and triple range.",

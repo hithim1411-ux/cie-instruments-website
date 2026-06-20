@@ -41,10 +41,10 @@
   },
   {
     "id": "earth-tester",
-    "name": "Analog Earth Tester",
-    "shortName": "Earth Tester",
-    "eyebrow": "Earth Resistance · Analog",
-    "description": "Hand-driven metal body earth testers for 3-terminal earth resistance and 4-terminal soil resistivity measurement. Supplied as a complete kit with spikes, wire spools and carrying bag.",
+    "name": "Earth Resistance Testers",
+    "shortName": "Earth Testers",
+    "eyebrow": "Earth Resistance · Analog & Digital",
+    "description": "Analog and digital earth resistance testers for 3-terminal earth resistance and soil resistivity measurement. Includes hand-driven analog instruments supplied as a complete kit, and digital models with direct numerical readout.",
     "icon": "🌍"
   },
   {
@@ -57,10 +57,10 @@
   },
   {
     "id": "digital-earth-micro-ohm",
-    "name": "Digital Earth & Micro-Ohm Meters",
-    "shortName": "Earth & Micro-Ohm Meters",
-    "eyebrow": "Earth & Resistance · Digital",
-    "description": "4-terminal digital earth resistance testers and bench-type digital micro-ohm / contact-resistance meters for precise low-resistance measurement.",
+    "name": "Micro-Ohm Meters",
+    "shortName": "Micro-Ohm Meters",
+    "eyebrow": "Low Resistance · Micro-Ohm Meters",
+    "description": "4-terminal (Kelvin) digital micro-ohm meter for precise low-resistance and contact-resistance measurement. Seven-segment LED display, multiple test-current ranges, and direct readout in micro-ohms.",
     "icon": "🔌"
   },
   {
