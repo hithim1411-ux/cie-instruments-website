@@ -4,6 +4,8 @@ import categories from '../data/categories.json';
 import { u } from '../utils/url';
 
 const topCategories = categories.slice(0, 6);
+
+const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 ---
 
 <footer class="bg-[#0D1B2A] text-[#b0bec5]">
@@ -16,7 +18,7 @@ const topCategories = categories.slice(0, 6);
       </a>
       <p class="text-sm leading-relaxed mb-4">
         Cambridge Instruments &amp; Engg. Co. — precision test &amp; measurement instruments,
-        precision test &amp; measurement instruments from Howrah since 1963.
+        manufactured in Howrah since 1963.
       </p>
       <p class="text-xs font-mono text-[#64748B] uppercase tracking-widest">CIE® — Registered Trade Mark</p>
       <p class="text-xs text-[#64748B] mt-1">Est. 1963 · Made in India</p>
@@ -28,11 +30,11 @@ const topCategories = categories.slice(0, 6);
       <ul class="space-y-2 text-sm">
         {topCategories.map(cat => (
           <li>
-            <a href={u(`/products/${cat.id}`)} class="hover:text-white transition-colors">{cat.shortName}</a>
+            <a href={u(`/products/${cat.id}/`)} class="hover:text-white transition-colors">{cat.shortName}</a>
           </li>
         ))}
         <li>
-          <a href={u('/products')} class="text-[#E0252E] hover:text-[#D72631] transition-colors font-medium">
+          <a href={u('/products/')} class="text-[#E0252E] hover:text-[#D72631] transition-colors font-medium">
             View all products →
           </a>
         </li>
@@ -43,11 +45,12 @@ const topCategories = categories.slice(0, 6);
     <div>
       <h3 class="text-white text-sm font-semibold uppercase tracking-widest mb-4 font-mono">Company</h3>
       <ul class="space-y-2 text-sm">
-        <li><a href={u('/about')} class="hover:text-white transition-colors">About Us</a></li>
-        <li><a href={u('/industries')} class="hover:text-white transition-colors">Industries Served</a></li>
-        <li><a href={u('/quality')} class="hover:text-white transition-colors">Quality &amp; Support</a></li>
-        <li><a href={u('/contact')} class="hover:text-white transition-colors">Contact Us</a></li>
-        <li><a href={u('/contact')} class="hover:text-white transition-colors">Request a Quote</a></li>
+        <li><a href={u('/about/')} class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href={u('/industries/')} class="hover:text-white transition-colors">Industries Served</a></li>
+        <li><a href={u('/quality/')} class="hover:text-white transition-colors">Quality &amp; Support</a></li>
+        <li><a href={u('/faq/')} class="hover:text-white transition-colors">FAQ</a></li>
+        <li><a href={u('/contact/')} class="hover:text-white transition-colors">Contact Us</a></li>
+        <li><a href={genericMailto} class="hover:text-white transition-colors">Request a Quote</a></li>
       </ul>
     </div>
 

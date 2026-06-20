@@ -1,0 +1,151 @@
+---
+import Base from '../layouts/Base.astro';
+import CTABand from '../components/CTABand.astro';
+import { u } from '../utils/url';
+
+const faqs = [
+  {
+    q: 'Are you a manufacturer or a reseller?',
+    a: 'We are both. Cambridge Instruments & Engineering Co. (CIE) manufactures a range of electrical test and measuring instruments from our manufacturing facility in Howrah, West Bengal. We are also authorised dealers for selected leading brands, enabling us to offer a wider range of testing solutions to our customers.',
+  },
+  {
+    q: 'What products are manufactured by CIE?',
+    a: 'CIE manufactures a range of electrical test and measuring instruments including Insulation Testers, Earth Resistance Testers, Digital Earth Testers, Hand-Driven Testers, High Voltage Insulation Testers, and other specialised testing instruments designed for industrial and electrical applications.',
+  },
+  {
+    q: 'Which brands do you supply?',
+    a: 'In addition to CIE products, we are authorised dealers for Var-Tech and UNI-T, allowing us to provide customers with a comprehensive range of testing and measurement solutions.',
+  },
+  {
+    q: 'Are your instruments tested before dispatch?',
+    a: 'Yes. Every CIE instrument undergoes quality inspection and testing before dispatch to ensure dependable performance and accuracy.',
+  },
+  {
+    q: 'Do your products come with a warranty?',
+    a: 'Yes. All products are supplied with applicable manufacturer warranty coverage. Warranty terms may vary depending on the product and brand.',
+  },
+  {
+    q: 'Do you provide calibration and service support?',
+    a: 'Yes. We provide calibration, servicing, and technical support to help maintain the accuracy and reliability of your instruments.',
+  },
+  {
+    q: 'How do I select the right instrument?',
+    a: 'Choosing the correct instrument depends on your application, operating voltage, testing requirements, and industry standards. Our technical team can help you identify the most suitable solution.',
+  },
+  {
+    q: 'Do you provide technical assistance before purchase?',
+    a: 'Absolutely. We are happy to assist with product selection, technical specifications, and application requirements before you place an order.',
+  },
+  {
+    q: 'Do you accept bulk and institutional orders?',
+    a: 'Yes. We regularly supply instruments to industries, contractors, government organisations, utilities, educational institutions, OEMs, and distributors across India.',
+  },
+  {
+    q: 'Do you ship across India?',
+    a: 'Yes. We deliver products across India through trusted logistics partners to ensure safe and timely delivery.',
+  },
+  {
+    q: 'Why choose CIE?',
+    a: 'With over six decades of industry experience, CIE is trusted for reliable products, dependable service, technical expertise, and long-term customer support. Our commitment to quality and accuracy has made us a preferred choice for electrical testing professionals across India.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Base
+  title="FAQ — Frequently Asked Questions"
+  description="Frequently asked questions about CIE Instruments — manufacturer and authorised dealer of electrical test and measurement instruments since 1963."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <!-- Page header -->
+  <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-12">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs font-mono font-bold text-[#E0252E] uppercase tracking-widest mb-3">Support</p>
+      <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547] mb-3">Frequently Asked Questions</h1>
+      <p class="text-[#64748B] text-lg">Everything you need to know about CIE products, ordering, and support.</p>
+    </div>
+  </div>
+
+  <!-- FAQ accordion -->
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <dl class="space-y-3" id="faq-list">
+      {faqs.map((faq, i) => (
+        <div class="border border-[#E8ECF2] rounded-xl overflow-hidden bg-white">
+          <dt>
+            <button
+              type="button"
+              aria-expanded="false"
+              aria-controls={`faq-answer-${i}`}
+              id={`faq-btn-${i}`}
+              class="faq-btn w-full flex items-center justify-between gap-4 px-6 py-5 text-left text-[#0D2547] font-semibold text-sm sm:text-base hover:bg-[#F5F7FA] transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#E0252E]"
+            >
+              <span>{faq.q}</span>
+              <svg
+                class="faq-chevron w-5 h-5 shrink-0 text-[#E0252E] transition-transform duration-200"
+                fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </dt>
+          <dd
+            id={`faq-answer-${i}`}
+            role="region"
+            aria-labelledby={`faq-btn-${i}`}
+            class="faq-answer hidden px-6 pb-5 text-sm sm:text-base text-[#64748B] leading-relaxed border-t border-[#E8ECF2]"
+          >
+            <p class="pt-4">{faq.a}</p>
+          </dd>
+        </div>
+      ))}
+    </dl>
+
+    <p class="mt-10 text-center text-sm text-[#64748B]">
+      Have a question not listed here?{' '}
+      <a href={`mailto:cieinstruments@gmail.com`} class="text-[#E0252E] hover:underline font-medium">
+        Email us directly
+      </a>{' '}
+      and we'll respond within one business day.
+    </p>
+  </section>
+
+  <CTABand
+    heading="Ready to order or need a quote?"
+    body="Email or WhatsApp us your requirement — we respond within one business day."
+    secondaryLabel="Browse Products"
+    secondaryHref={u('/products/')}
+  />
+</Base>
+
+<script>
+document.querySelectorAll<HTMLButtonElement>('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    const answer = document.getElementById(btn.getAttribute('aria-controls')!);
+    const chevron = btn.querySelector<SVGElement>('.faq-chevron');
+
+    btn.setAttribute('aria-expanded', String(!expanded));
+    answer?.classList.toggle('hidden', expanded);
+    chevron?.classList.toggle('rotate-180', !expanded);
+  });
+
+  btn.addEventListener('keydown', (e) => {
+    const list = Array.from(document.querySelectorAll<HTMLButtonElement>('.faq-btn'));
+    const idx = list.indexOf(btn);
+    if (e.key === 'ArrowDown') { e.preventDefault(); list[idx + 1]?.focus(); }
+    if (e.key === 'ArrowUp')   { e.preventDefault(); list[idx - 1]?.focus(); }
+    if (e.key === 'Home')      { e.preventDefault(); list[0]?.focus(); }
+    if (e.key === 'End')       { e.preventDefault(); list[list.length - 1]?.focus(); }
+  });
+});
+</script>

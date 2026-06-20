@@ -19,15 +19,20 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
 <header class="sticky top-0 z-50 bg-[#0D1B2A] shadow-lg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-28">
+    <div class="flex items-center justify-between h-20 sm:h-24 lg:h-28">
 
-      <!-- Logo -->
-      <a href={u('/')} class="flex items-center shrink-0" aria-label="CIE Instruments — Home">
+      <!-- Logo + wordmark -->
+      <a href={u('/')} class="flex items-center gap-3 shrink-0 min-w-0" aria-label="CIE Instruments — Home">
         <img
           src={u('/logo/cie-logo-light.png')}
-          alt="CIE — Cambridge Instruments & Engg. Co."
-          class="h-24 w-auto"
+          alt="CIE® logo"
+          class="h-16 sm:h-20 w-auto shrink-0"
         />
+        <span class="hidden sm:flex flex-col leading-tight min-w-0">
+          <span class="text-white font-bold text-base lg:text-lg tracking-tight leading-tight">Cambridge Instruments</span>
+          <span class="text-white font-bold text-base lg:text-lg tracking-tight leading-tight">&amp; Engg. Co.<sup class="text-[#E0252E] text-[10px] font-normal align-super ml-0.5">®</sup></span>
+          <span class="text-[#64748B] text-[10px] font-mono uppercase tracking-widest mt-0.5 hidden lg:block">Est. 1963 · Howrah, India</span>
+        </span>
       </a>
 
       <!-- ── Desktop Nav ── -->
