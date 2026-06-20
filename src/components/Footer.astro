@@ -1,32 +1,24 @@
 ---
 import site from '../data/site.json';
 import categories from '../data/categories.json';
+import { u } from '../utils/url';
 
 const topCategories = categories.slice(0, 6);
 ---
 
 <footer class="bg-[#0D1B2A] text-[#b0bec5]">
-  <!-- Main footer content -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
     <!-- Brand column -->
     <div class="lg:col-span-1">
-      <a href="/" class="inline-block mb-4" aria-label="CIE Home">
-        <img
-          src="/logo/cie-logo-light.png"
-          alt="CIE Instruments"
-          class="h-10 w-auto"
-          onerror="this.style.display='none'"
-        />
-        <span class="font-mono font-bold text-2xl text-white tracking-tight hidden">CIE</span>
+      <a href={u('/')} class="inline-block mb-4" aria-label="CIE Home">
+        <img src={u('/logo/cie-logo-light.png')} alt="CIE Instruments" class="h-10 w-auto" onerror="this.style.display='none'" />
       </a>
       <p class="text-sm leading-relaxed mb-4">
         Cambridge Instruments &amp; Engg. Co. — precision test &amp; measurement instruments,
         built and calibrated in Howrah since 1963.
       </p>
-      <p class="text-xs font-mono text-[#64748B] uppercase tracking-widest">
-        CIE® — Registered Trade Mark
-      </p>
+      <p class="text-xs font-mono text-[#64748B] uppercase tracking-widest">CIE® — Registered Trade Mark</p>
       <p class="text-xs text-[#64748B] mt-1">Est. 1963 · Made in India</p>
     </div>
 
@@ -36,13 +28,11 @@ const topCategories = categories.slice(0, 6);
       <ul class="space-y-2 text-sm">
         {topCategories.map(cat => (
           <li>
-            <a href={`/products/${cat.id}`} class="hover:text-white transition-colors">
-              {cat.shortName}
-            </a>
+            <a href={u(`/products/${cat.id}`)} class="hover:text-white transition-colors">{cat.shortName}</a>
           </li>
         ))}
         <li>
-          <a href="/products" class="text-[#E0252E] hover:text-[#D72631] transition-colors font-medium">
+          <a href={u('/products')} class="text-[#E0252E] hover:text-[#D72631] transition-colors font-medium">
             View all products →
           </a>
         </li>
@@ -53,11 +43,11 @@ const topCategories = categories.slice(0, 6);
     <div>
       <h3 class="text-white text-sm font-semibold uppercase tracking-widest mb-4 font-mono">Company</h3>
       <ul class="space-y-2 text-sm">
-        <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
-        <li><a href="/industries" class="hover:text-white transition-colors">Industries Served</a></li>
-        <li><a href="/quality" class="hover:text-white transition-colors">Quality &amp; Support</a></li>
-        <li><a href="/contact" class="hover:text-white transition-colors">Contact Us</a></li>
-        <li><a href="/contact" class="hover:text-white transition-colors">Request a Quote</a></li>
+        <li><a href={u('/about')} class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href={u('/industries')} class="hover:text-white transition-colors">Industries Served</a></li>
+        <li><a href={u('/quality')} class="hover:text-white transition-colors">Quality &amp; Support</a></li>
+        <li><a href={u('/contact')} class="hover:text-white transition-colors">Contact Us</a></li>
+        <li><a href={u('/contact')} class="hover:text-white transition-colors">Request a Quote</a></li>
       </ul>
     </div>
 
@@ -75,22 +65,17 @@ const topCategories = categories.slice(0, 6);
           {site.phones.map(p => (
             <p>
               <span class="text-xs text-[#64748B]">{p.label}: </span>
-              <a href={`tel:${p.number.replace(/\s/g,'')}`} class="hover:text-white transition-colors">
-                {p.number}
-              </a>
+              <a href={`tel:${p.number.replace(/\s/g,'')}`} class="hover:text-white transition-colors">{p.number}</a>
             </p>
           ))}
           <p>
-            <a href={`mailto:${site.email}`} class="hover:text-white transition-colors">
-              {site.email}
-            </a>
+            <a href={`mailto:${site.email}`} class="hover:text-white transition-colors">{site.email}</a>
           </p>
         </div>
       </address>
     </div>
   </div>
 
-  <!-- Bottom bar -->
   <div class="border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#64748B]">
       <p>© {new Date().getFullYear()} Cambridge Instruments &amp; Engg. Co. All rights reserved.</p>

@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import { u } from '../../../utils/url';
 import EyebrowLabel from '../../../components/EyebrowLabel.astro';
 import ProductCard from '../../../components/ProductCard.astro';
 import CTABand from '../../../components/CTABand.astro';
@@ -35,7 +36,7 @@ const catProducts = products.filter(p => p.categoryId === category.id);
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between mb-8">
         <h2 class="text-lg font-bold text-[#0D2547]">{catProducts.length} {catProducts.length === 1 ? 'instrument' : 'instruments'} in this category</h2>
-        <a href="/products" class="text-sm text-[#64748B] hover:text-[#1B3A5B] transition-colors">← All categories</a>
+        <a href={u('/products')} class="text-sm text-[#64748B] hover:text-[#1B3A5B] transition-colors">← All categories</a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">

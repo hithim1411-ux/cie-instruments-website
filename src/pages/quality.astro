@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { u } from '../utils/url';
 import EyebrowLabel from '../components/EyebrowLabel.astro';
 import CTABand from '../components/CTABand.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
@@ -83,8 +84,8 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
     heading="Have a support or warranty query?"
     body="Contact our Howrah works directly — we respond to all enquiries within one business day."
     primaryLabel="Contact Us"
-    primaryHref="/contact"
+    primaryHref={u('/contact')}
     secondaryLabel="View Products"
-    secondaryHref="/products"
+    secondaryHref={u('/products')}
   />
 </Base>

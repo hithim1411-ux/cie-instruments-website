@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { u } from '../utils/url';
 import EyebrowLabel from '../components/EyebrowLabel.astro';
 import CTABand from '../components/CTABand.astro';
 import CategoryCard from '../components/CategoryCard.astro';
@@ -87,13 +88,13 @@ const industries = [
 
         <div class="flex flex-col sm:flex-row gap-4">
           <a
-            href="/contact"
+            href={u('/contact')}
             class="inline-flex items-center justify-center px-8 py-4 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded text-sm transition-colors"
           >
             Request a Quote
           </a>
           <a
-            href="/products"
+            href={u('/products')}
             class="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white hover:border-white/60 font-semibold rounded text-sm transition-colors"
           >
             View Product Catalogue
@@ -148,7 +149,7 @@ const industries = [
       </div>
 
       <div class="mt-8 text-center">
-        <a href="/products" class="inline-flex items-center gap-2 text-sm font-semibold text-[#1B3A5B] hover:text-[#E0252E] transition-colors">
+        <a href={u('/products')} class="inline-flex items-center gap-2 text-sm font-semibold text-[#1B3A5B] hover:text-[#E0252E] transition-colors">
           Browse full catalogue →
         </a>
       </div>
@@ -220,7 +221,7 @@ const industries = [
       </div>
 
       <div class="mt-8">
-        <a href="/industries" class="text-sm font-semibold text-[#E0252E] hover:text-white transition-colors">
+        <a href={u('/industries')} class="text-sm font-semibold text-[#E0252E] hover:text-white transition-colors">
           See all applications →
         </a>
       </div>
@@ -252,10 +253,10 @@ const industries = [
               ))}
             </ul>
             <div class="flex gap-3 flex-wrap">
-              <a href="/products/relay-test-sets/rts-33" class="px-5 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors">
+              <a href={u('/products/relay-test-sets/rts-33')} class="px-5 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors">
                 View Specifications
               </a>
-              <a href="/contact?product=RTS-33" class="px-5 py-2.5 border border-[#E0252E] text-[#E0252E] hover:bg-[#E0252E] hover:text-white text-sm font-semibold rounded transition-colors">
+              <a href={u('/contact?product=RTS-33')} class="px-5 py-2.5 border border-[#E0252E] text-[#E0252E] hover:bg-[#E0252E] hover:text-white text-sm font-semibold rounded transition-colors">
                 Request a Quote
               </a>
             </div>

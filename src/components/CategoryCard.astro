@@ -7,10 +7,11 @@ interface Props {
   count: number;
 }
 const { id, name, description, icon, count } = Astro.props;
+import { u } from '../utils/url';
 ---
 
 <a
-  href={`/products/${id}`}
+  href={u(`/products/${id}`)}
   class="group block bg-white rounded-lg border border-[#E8ECF2] p-6 hover:shadow-md hover:border-[#1B3A5B]/30 transition-all duration-200"
 >
   <div class="flex items-start gap-4">

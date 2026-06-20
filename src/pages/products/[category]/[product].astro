@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import { u } from '../../../utils/url';
 import EyebrowLabel from '../../../components/EyebrowLabel.astro';
 import SpecTable from '../../../components/SpecTable.astro';
 import CTABand from '../../../components/CTABand.astro';
@@ -70,7 +71,7 @@ const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${product.mo
         <!-- CTAs -->
         <div class="space-y-3">
           <a
-            href={`/contact?product=${encodeURIComponent(product.model)}`}
+            href={u(`/contact?product=${encodeURIComponent(product.model)}`)}
             class="w-full flex items-center justify-center px-6 py-3.5 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded transition-colors text-sm"
           >
             Request a Quote

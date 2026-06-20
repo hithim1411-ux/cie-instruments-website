@@ -1,10 +1,12 @@
 ---
+import { u } from '../utils/url';
+
 const nav = [
-  { label: 'Products', href: '/products' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Quality & Support', href: '/quality' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Products', href: u('/products') },
+  { label: 'Industries', href: u('/industries') },
+  { label: 'About Us', href: u('/about') },
+  { label: 'Quality & Support', href: u('/quality') },
+  { label: 'Contact', href: u('/contact') },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -15,14 +17,13 @@ const currentPath = Astro.url.pathname;
     <div class="flex items-center justify-between h-16 lg:h-18">
 
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-3 shrink-0" aria-label="CIE Instruments — Home">
+      <a href={u('/')} class="flex items-center gap-3 shrink-0" aria-label="CIE Instruments — Home">
         <img
-          src="/logo/cie-logo-light.png"
+          src={u('/logo/cie-logo-light.png')}
           alt="CIE — Cambridge Instruments & Engg. Co."
           class="h-10 w-auto"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
         />
-        <!-- Fallback text logo if image not supplied yet -->
         <span class="hidden items-center gap-2" id="text-logo-fallback">
           <span class="font-mono font-bold text-2xl text-white tracking-tight">CIE</span>
           <span class="hidden sm:block text-[#EEF2F7] text-xs leading-tight font-sans">
@@ -46,7 +47,7 @@ const currentPath = Astro.url.pathname;
           </a>
         ))}
         <a
-          href="/contact"
+          href={u('/contact')}
           class="ml-2 px-4 py-2 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded transition-colors duration-150"
         >
           Request a Quote
@@ -80,7 +81,7 @@ const currentPath = Astro.url.pathname;
         </a>
       ))}
       <a
-        href="/contact"
+        href={u('/contact')}
         class="mt-2 px-4 py-2.5 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded text-center transition-colors"
       >
         Request a Quote
@@ -90,7 +91,6 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
-  // Fallback: show text logo if image fails to load
   document.querySelectorAll('header img[onerror]').forEach((img) => {
     (img as HTMLImageElement).onerror = function() {
       (this as HTMLElement).style.display = 'none';

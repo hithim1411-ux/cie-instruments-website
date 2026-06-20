@@ -9,6 +9,7 @@ interface Props {
 }
 const { model, name, tagline, categoryId, id, featured = false } = Astro.props;
 import site from '../data/site.json';
+import { u } from '../utils/url';
 const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${model} — ${name}`);
 ---
 
@@ -44,7 +45,7 @@ const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${model} —
 
     <div class="flex flex-col gap-2 mt-auto">
       <a
-        href={`/products/${categoryId}/${id}`}
+        href={u(`/products/${categoryId}/${id}`)}
         class="text-center px-4 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors"
       >
         View Specifications
