@@ -54,9 +54,10 @@ const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${product.mo
         <!-- Product image -->
         <div class="bg-[#F5F7FA] border border-[#E8ECF2] rounded-xl h-64 lg:h-80 flex items-center justify-center mb-6 overflow-hidden">
           <img
-            src={`/images/products/${product.id}.jpg`}
+            src={u(`/images/products/${product.id}.jpg`)}
             alt={`${product.model} — ${product.name}`}
             class="object-contain max-h-full max-w-full p-4"
+            loading="lazy"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
           />
           <div class="hidden flex-col items-center justify-center text-[#b0bec5] gap-2">

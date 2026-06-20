@@ -17,7 +17,7 @@ const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${model} —
   <!-- Product image placeholder -->
   <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] h-44 flex items-center justify-center relative">
     <img
-      src={`/images/products/${id}.jpg`}
+      src={u(`/images/products/${id}.jpg`)}
       alt={`${model} — ${name}`}
       class="object-contain h-36 w-auto"
       loading="lazy"
