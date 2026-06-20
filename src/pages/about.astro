@@ -74,25 +74,44 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   <!-- Founder story -->
   <section class="bg-[#F5F7FA] py-14 lg:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <EyebrowLabel text="Where It All Began" class="mb-4" />
-        <h2 class="text-2xl font-black text-[#0D2547] mb-6">A physicist with a practical vision.</h2>
-        <div class="space-y-4 text-[#64748B] leading-relaxed">
-          <p>
-            The story of CIE began in Howrah in 1963 when <strong class="text-[#1B3A5B]">Late Shri Prakash Chandra Sharma</strong>,
-            a Physics Honours graduate from the University of Calcutta, founded the company with a clear vision —
-            to manufacture dependable electrical testing instruments in India.
-          </p>
-          <p>
-            Working from a modest manufacturing setup, he combined scientific knowledge with practical engineering
-            to create products designed for real-world use. At a time when India's industrial landscape was still
-            developing, CIE focused on building instruments that customers could trust for accurate and consistent
-            performance.
-          </p>
-          <p>
-            Those values — precision, reliability, and a refusal to cut corners — continue to define the company
-            more than six decades later.
-          </p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <EyebrowLabel text="Where It All Began" class="mb-4" />
+          <h2 class="text-2xl font-black text-[#0D2547] mb-6">A physicist with a practical vision.</h2>
+          <div class="space-y-4 text-[#64748B] leading-relaxed">
+            <p>
+              The story of CIE began in Howrah in 1963 when <strong class="text-[#1B3A5B]">Late Shri Prakash Chandra Sharma</strong>,
+              a Physics Honours graduate from the University of Calcutta, founded the company with a clear vision —
+              to manufacture dependable electrical testing instruments in India.
+            </p>
+            <p>
+              Working from a modest manufacturing setup, he combined scientific knowledge with practical engineering
+              to create products designed for real-world use. At a time when India's industrial landscape was still
+              developing, CIE focused on building instruments that customers could trust for accurate and consistent
+              performance.
+            </p>
+            <p>
+              Those values — precision, reliability, and a refusal to cut corners — continue to define the company
+              more than six decades later.
+            </p>
+          </div>
+        </div>
+        <!-- Founder photo -->
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#E0252E]/20 to-[#1B3A5B]/20 -rotate-2"></div>
+            <img
+              src={u('/images/founder.jpg')}
+              alt="Late Shri Prakash Chandra Sharma — Founder, Cambridge Instruments & Engineering Co."
+              class="relative rounded-2xl w-72 h-80 object-cover object-top shadow-xl"
+              style="object-position: center 20%;"
+              loading="lazy"
+            />
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0D2547]/80 to-transparent rounded-b-2xl px-4 py-4">
+              <p class="text-white font-bold text-sm leading-tight">Late Shri Prakash Chandra Sharma</p>
+              <p class="text-[#b0bec5] text-xs mt-0.5">Founder, CIE · 1963</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
