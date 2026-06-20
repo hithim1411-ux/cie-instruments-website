@@ -1,4 +1,6 @@
 ---
+import { u } from '../utils/url';
+
 interface Props {
   heading?: string;
   body?: string;
@@ -12,9 +14,9 @@ const {
   heading = "Ready to specify? We'll respond the same day.",
   body = 'Contact our Howrah works or Kolkata office — or send your requirement on WhatsApp for the fastest response.',
   primaryLabel = 'Request a Quote',
-  primaryHref = '/contact',
+  primaryHref = u('/contact'),
   secondaryLabel = 'View Products',
-  secondaryHref = '/products',
+  secondaryHref = u('/products'),
 } = Astro.props;
 ---
 
