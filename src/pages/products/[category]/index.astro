@@ -17,12 +17,13 @@ export async function getStaticPaths() {
 
 const { category } = Astro.props;
 const catProducts = products.filter(p => p.categoryId === category.id);
+
+const pageTitle       = (category as any).metaTitle  ?? `${category.name} | CIE Instruments`;
+const pageDescription = (category as any).metaDesc   ?? `${category.name} — ${category.description} CIE instruments, manufactured in Howrah since 1963.`;
+const seoContent      = (category as any).seoContent as string[] | undefined;
 ---
 
-<Base
-  title={category.name}
-  description={`${category.name} — ${category.description} CIE instruments, manufactured in Howrah since 1963.`}
->
+<Base title={pageTitle} description={pageDescription}>
   <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[{ label: 'Products', href: '/products' }, { label: category.name }]} />
@@ -32,11 +33,12 @@ const catProducts = products.filter(p => p.categoryId === category.id);
     </div>
   </div>
 
+  <!-- Products grid -->
   <section class="bg-white py-12 lg:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between mb-8">
         <h2 class="text-lg font-bold text-[#0D2547]">{catProducts.length} {catProducts.length === 1 ? 'instrument' : 'instruments'} in this category</h2>
-        <a href={u('/products')} class="text-sm text-[#64748B] hover:text-[#1B3A5B] transition-colors">← All categories</a>
+        <a href={u('/products/')} class="text-sm text-[#64748B] hover:text-[#1B3A5B] transition-colors">← All products</a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
@@ -55,6 +57,26 @@ const catProducts = products.filter(p => p.categoryId === category.id);
       </div>
     </div>
   </section>
+
+  <!-- SEO content block -->
+  {seoContent && seoContent.length > 0 && (
+    <section class="bg-[#F5F7FA] py-12 lg:py-16 border-t border-[#E8ECF2]">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-xl font-bold text-[#0D2547] mb-6">About {category.name}</h2>
+        <div class="space-y-4">
+          {seoContent.map((para: string) => (
+            <p class="text-sm text-[#64748B] leading-relaxed">{para}</p>
+          ))}
+        </div>
+        <div class="mt-8 pt-6 border-t border-[#E8ECF2]">
+          <p class="text-xs text-[#94a3b8]">
+            Cambridge Instruments &amp; Engg. Co. (CIE) — manufacturer of electrical test and measurement instruments in Howrah, West Bengal, India since 1963.
+            Supply across India: Kolkata · Howrah · Bhubaneswar · Bangalore · Chennai · Hyderabad · Mumbai · Delhi · Pune · Ahmedabad · Lucknow · Chandigarh.
+          </p>
+        </div>
+      </div>
+    </section>
+  )}
 
   <CTABand />
 </Base>

@@ -5,7 +5,15 @@
     "shortName": "Insulation Testers (Hand)",
     "eyebrow": "Insulation Testers · Hand-Driven Generator",
     "description": "Rugged hand-driven generator type insulation testers in metal and wooden body variants, from 100 V to 10 kV test voltages. The original CIE design — built and calibrated in Howrah since 1963.",
-    "icon": "⚡"
+    "icon": "⚡",
+    "metaTitle": "Hand-Driven Insulation Testers | CIE Instruments — Manufacturer, Howrah",
+    "metaDesc": "Buy hand-driven insulation testers from CIE — India's leading manufacturer since 1963. 100 V to 10 kV test voltages. Metal & wooden body. Supplied to PGCIL, Indian Railways, WBSETCL. Kolkata, Howrah.",
+    "seoContent": [
+      "CIE hand-driven insulation testers are generator-type instruments that require no batteries or mains supply — a built-in hand-cranked AC generator produces the test voltage, which is rectified to DC by silicon diodes and applied across the insulation under test. The result is read directly off a cross-coil analog indicator. This operating principle makes them inherently robust and suitable for use in remote field locations, substations, and industrial sites across India where power supply is unavailable or unreliable.",
+      "CIE manufactures hand-driven insulation testers in two body variants: the CIE/444 in an anti-magnetic aluminium die-cast body, and the CIE/666 in a teak wood body. Both are available in test voltages from 100 V to 10 kV, making them suitable for testing low-voltage domestic wiring, medium-voltage distribution cables, HV transmission equipment, and large rotating machines. All instruments conform to ISS: 2992-1987.",
+      "These instruments are widely used by power utilities, electrical contractors, substation commissioning engineers, and industrial maintenance teams across India — including in Kolkata, Howrah, West Bengal, Odisha, Jharkhand, Bihar, and across Eastern India. They are equally specified by engineers in Bangalore, Chennai, Mumbai, Delhi, Hyderabad, Pune, Ahmedabad, and all major industrial centres.",
+      "Common applications include insulation resistance testing of motors, generators, transformers, HV cables, switchgear, distribution boards, and industrial wiring. CIE insulation testers are used for routine maintenance testing, pre-commissioning acceptance testing, condition monitoring, and fault location. Custom test voltages and resistance ranges can be manufactured to specification."
+    ]
   },
   {
     "id": "multirange-insulation-hand",
@@ -13,7 +21,14 @@
     "shortName": "Multirange Insulation (Hand)",
     "eyebrow": "Insulation Testers · Multirange Hand-Driven",
     "description": "Multi-voltage, selectable-range hand-driven insulation testers with built-in continuity range. Available in MR-1 through MR-8 series covering a wide range of voltage and insulation range combinations.",
-    "icon": "🔧"
+    "icon": "🔧",
+    "metaTitle": "Multirange Insulation Testers (Hand-Driven) | CIE Instruments — Howrah",
+    "metaDesc": "CIE multirange hand-driven insulation testers — selectable voltage and resistance range, built-in continuity. MR-1 to MR-8 series. Manufacturer in Howrah, West Bengal. Pan-India supply.",
+    "seoContent": [
+      "CIE multirange insulation testers are hand-driven generator-type instruments with a selectable test voltage and multiple insulation resistance ranges on a single instrument. A selector switch allows the operator to choose the required test voltage and range combination without needing separate instruments for different applications. This makes them particularly cost-effective for electrical contractors, testing laboratories, and utilities that test equipment at multiple voltage levels.",
+      "The MR series instruments are available in configurations from MR-1 (two voltage ranges) through MR-8 (up to eight combinations), covering test voltages from 100 V to 5000 V. Many variants also include a continuity testing range, allowing the same instrument to verify both insulation integrity and circuit continuity. All instruments use the same silent, hand-driven clutch-type AC generator mechanism and cross-coil indicator as the standard CIE range.",
+      "Multirange insulation testers are specified by electrical contractors, PWD departments, defence establishments, and heavy industry across India. CIE supplies these instruments to customers in Kolkata, Howrah, Bhubaneswar, Odisha, Chhattisgarh, Jharkhand, and across Eastern, Western, Northern, and Southern India."
+    ]
   },
   {
     "id": "motor-operated-insulation",
@@ -21,7 +36,14 @@
     "shortName": "Motor-Operated Insulation",
     "eyebrow": "Insulation Testers · Motor-Operated",
     "description": "Motorised generator type insulation testers for sustained high-voltage testing up to 10 kV. Motor-cum-hand driven variants offer dual operation modes.",
-    "icon": "⚙️"
+    "icon": "⚙️",
+    "metaTitle": "Motorised Insulation Testers | CIE/777 Series — CIE Instruments, Howrah",
+    "metaDesc": "CIE/777 motorised insulation testers — mains-driven, up to 10 kV. Motor-cum-hand driven variants. Used by PGCIL, Indian Railways, power utilities. Manufacturer in Howrah, India.",
+    "seoContent": [
+      "CIE motorised insulation testers use a mains-powered electric motor to drive the AC generator, eliminating the need for manual cranking. This allows sustained, hands-free testing at consistent voltage — critical for long-duration insulation tests such as polarisation index (PI) and dielectric absorption ratio (DAR) measurements on large motors, generators, and power transformers. The CIE/777 series covers test voltages from 500 V to 10 kV.",
+      "The CIE/777 HM (Motor-cum-Hand Driven) variant provides dual operation: the instrument can be used as a standard motorised tester when mains supply is available, and switched to hand-driven mode in the field. This versatility makes it preferred by commissioning engineers and power utility maintenance teams who work both in substations and in remote field locations.",
+      "Motorised insulation testers are used extensively by power transmission utilities (PGCIL, WBSETCL, state electricity boards), traction maintenance depots (Indian Railways), and commissioning engineers on EPC projects across India. CIE supplies the CIE/777 series to customers in Kolkata, Howrah, Bhubaneswar, Raipur, Ranchi, Patna, Lucknow, Delhi, and across all major power and industrial centres in India."
+    ]
   },
   {
     "id": "multirange-motorised-insulation",
@@ -29,7 +51,14 @@
     "shortName": "Multirange Motorised",
     "eyebrow": "Insulation Testers · Multirange Motorised",
     "description": "Dual-scale multi-voltage motorised insulation testers. MR-A through MR-E series with inner/outer scale display for multiple test voltage and range combinations.",
-    "icon": "⚙️"
+    "icon": "⚙️",
+    "metaTitle": "Multirange Motorised Insulation Testers | CIE/777/MR Series — CIE Instruments",
+    "metaDesc": "CIE/777/MR multirange motorised insulation testers — dual scale, selectable voltage and range, mains-driven up to 10 kV. Manufacturer in Howrah, India. Pan-India supply.",
+    "seoContent": [
+      "CIE multirange motorised insulation testers combine the sustained output capability of a mains-driven motor with the flexibility of selectable test voltage and resistance range. The dual-scale indicator displays two resistance ranges simultaneously via inner and outer scales, allowing the operator to read the correct value for the selected range combination without changing the indicator. This is particularly useful in commissioning environments where multiple items of equipment must be tested at different voltages.",
+      "The CIE/777/MR and CIE/777 HM/MR series cover the full range of industrial insulation testing requirements from 500 V to 10 kV, and are available in MR-A through MR-E configurations. They are used by protection engineers, commissioning teams, and maintenance departments at power utilities, railways, and heavy industry across India.",
+      "CIE supplies multirange motorised insulation testers to customers throughout India — Eastern India (Kolkata, Howrah, Bhubaneswar, Odisha, West Bengal, Bihar, Jharkhand), Northern India (Delhi, Lucknow, Chandigarh), Western India (Mumbai, Pune, Ahmedabad, Surat), and Southern India (Bangalore, Chennai, Hyderabad, Kochi)."
+    ]
   },
   {
     "id": "compact-insulation-testers",
@@ -37,7 +66,14 @@
     "shortName": "Compact Insulation Testers",
     "eyebrow": "Insulation Testers · Compact Range",
     "description": "Economical bakelite and compact metal body hand-driven insulation testers for everyday site and workshop use at 100 V to 1000 V.",
-    "icon": "🔋"
+    "icon": "🔋",
+    "metaTitle": "Compact Insulation Testers | CIE/555 Bakelite Body — CIE Instruments, Howrah",
+    "metaDesc": "CIE/555 compact hand-driven insulation tester in high-grade bakelite body. 100 V to 1000 V. Lightweight, battery-free, conforms to ISS: 2992-1987. Manufacturer in Howrah, India.",
+    "seoContent": [
+      "The CIE/555 is a compact, economical insulation tester in a high-grade moulded bakelite body, designed for everyday site and workshop use at test voltages from 100 V to 1000 V. Like all CIE hand-driven insulation testers, it requires no batteries or mains supply — the hand-cranked generator provides the test voltage, making it completely self-contained for field use.",
+      "The CIE/555 is suited to testing household wiring, light industrial equipment, motors and pumps at low voltage, electrical panels, and distribution boards. It is widely used by electricians, electrical contractors, maintenance engineers, and testing laboratories across India for routine insulation resistance checks on low-voltage equipment.",
+      "At 1.4 kg and 155 × 104 × 70 mm, the CIE/555 is the most portable insulation tester in the CIE range — easy to carry on site and store in a tool kit. It conforms to ISS: 2992-1987 and carries a 12-month warranty against manufacturing defects. Custom resistance ranges from 0–10 MΩ to 0–500 MΩ are available to specification."
+    ]
   },
   {
     "id": "earth-tester",
@@ -45,7 +81,14 @@
     "shortName": "Earth Testers",
     "eyebrow": "Earth Resistance · Analog & Digital",
     "description": "Analog and digital earth resistance testers for 3-terminal earth resistance and soil resistivity measurement. Includes hand-driven analog instruments supplied as a complete kit, and digital models with direct numerical readout.",
-    "icon": "🌍"
+    "icon": "🌍",
+    "metaTitle": "Earth Resistance Testers | Analog & Digital — CIE Instruments, Howrah",
+    "metaDesc": "CIE earth resistance testers — analog hand-driven (CIE/222M) and digital (DET-2000). 3-terminal earth resistance and 4-terminal soil resistivity measurement. Manufacturer in Howrah, India.",
+    "seoContent": [
+      "Earth resistance testing is mandatory at every electrical installation — from domestic earthing systems to substation earth grids — to ensure personnel safety and equipment protection. CIE manufactures both analog and digital earth resistance testers for a wide range of applications.",
+      "The CIE/222M is an analog, hand-driven earth tester supplied as a complete kit with earth spikes, wire spools, a carrying bag, and a hammer — everything needed for a 3-terminal earth resistance measurement in the field. It also supports 4-terminal Wenner method soil resistivity measurement, making it suitable for substation earth grid design. The DET-2000 is the digital companion: a 4-terminal digital earth resistance tester with direct numerical readout, eliminating the parallax-reading uncertainty of the analog instrument.",
+      "Earth testers are used by electrical contractors, PWD departments, power utilities, railways, telecom companies, data centre operators, and industrial facilities across India. CIE earth testers are supplied to customers in Kolkata, Howrah, Bhubaneswar, Rourkela, Cuttack, Sambalpur (Odisha), Raipur (Chhattisgarh), Ranchi (Jharkhand), and across Eastern, Northern, Western, and Southern India. Proper earth resistance testing is required by the Indian Electricity Rules and IS 3043."
+    ]
   },
   {
     "id": "digital-insulation-testers",
@@ -53,7 +96,14 @@
     "shortName": "Digital Insulation Testers",
     "eyebrow": "Insulation Testers · Digital",
     "description": "Microcontroller-based digital insulation testers with LCD display, DAR and PI functions, rechargeable battery option, and test voltages from 100 V up to 5000 V.",
-    "icon": "📟"
+    "icon": "📟",
+    "metaTitle": "Digital Insulation Testers | DIT-2500, DIT-5000, DIT-5005 — CIE Instruments",
+    "metaDesc": "CIE digital insulation testers — LCD display, DAR/PI functions, up to 5000 V / 200 GΩ. DIT-2500, DIT-5000, DIT-5005. Manufacturer in Howrah, India. Pan-India supply.",
+    "seoContent": [
+      "CIE digital insulation testers provide direct numerical readout of insulation resistance on a backlit LCD display, eliminating the parallax-reading uncertainty of analog instruments. They incorporate advanced test functions including dielectric absorption ratio (DAR) and polarisation index (PI) measurement — important for assessing the condition of motor windings and large power equipment insulation. Test voltages range from 500 V (DIT-5005) up to 5000 V (DIT-5000), covering the full range from low-voltage equipment testing to HV cable and transformer insulation assessment.",
+      "The DIT-2500 also functions as a digital multimeter, making it a versatile instrument for electrical engineers who need both insulation testing and general electrical measurement in a single handheld unit. The DIT-5000 covers insulation resistance up to 200 GΩ with auto-ranging, making it suitable for testing very high-quality insulation systems in cables, power transformers, and rotating machines.",
+      "Digital insulation testers are widely used by electrical testing laboratories (NABL accredited), power utility maintenance teams, commissioning engineers, and industrial electrical departments. CIE supplies digital insulation testers throughout India — Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, and all major industrial and power sector locations."
+    ]
   },
   {
     "id": "digital-earth-micro-ohm",
@@ -61,7 +111,14 @@
     "shortName": "Micro-Ohm Meters",
     "eyebrow": "Low Resistance · Micro-Ohm Meters",
     "description": "4-terminal (Kelvin) digital micro-ohm meter for precise low-resistance and contact-resistance measurement. Seven-segment LED display, multiple test-current ranges, and direct readout in micro-ohms.",
-    "icon": "🔌"
+    "icon": "🔌",
+    "metaTitle": "Micro-Ohm Meter | MR-253A 4-Terminal Kelvin — CIE Instruments, Howrah",
+    "metaDesc": "CIE MR-253A digital micro-ohm meter — 4-terminal Kelvin method, multiple test current ranges, direct readout in micro-ohms. For contact resistance and low-resistance measurement. Howrah, India.",
+    "seoContent": [
+      "The MR-253A is a bench-type digital micro-ohm meter using the 4-terminal (Kelvin) measurement method to eliminate lead and contact resistance from the measurement. This makes it suitable for measuring very low resistances accurately — from contact resistance of switchgear and busbar joints, to winding resistance of transformers and motors, bonding resistance in earthing systems, and resistance of relay coils.",
+      "A 4-terminal micro-ohm meter is essential wherever resistance values are in the micro-ohm or milli-ohm range and must be measured precisely. The MR-253A provides multiple test current ranges, allowing the appropriate current to be selected for the resistance being measured, with direct readout in micro-ohms on a seven-segment LED display.",
+      "Micro-ohm meters are used in substation commissioning (busbar and switch contact resistance), transformer testing (winding resistance measurement), relay testing laboratories, quality control in manufacturing, and research and calibration facilities. CIE supplies the MR-253A to customers across India including Kolkata, Howrah, Bangalore, Chennai, Mumbai, Delhi, Hyderabad, and Pune."
+    ]
   },
   {
     "id": "clamp-multimeters",
@@ -69,7 +126,14 @@
     "shortName": "Clamp Meters & Multimeters",
     "eyebrow": "Clamp Meters · Multimeters",
     "description": "True-RMS clamp meters up to 1000 A AC/DC and 3½-digit digital multimeters for voltage, current, resistance, capacitance, and temperature measurement.",
-    "icon": "📏"
+    "icon": "📏",
+    "metaTitle": "Clamp Meters & Digital Multimeters | DCM, DM Series — CIE Instruments, Howrah",
+    "metaDesc": "CIE clamp meters (True-RMS, 1000 A AC/DC) and digital multimeters. DCM 2250 TR, DCM 5410 TR, DM 235, DM 321T. T&M instruments from Howrah. Pan-India supply.",
+    "seoContent": [
+      "CIE supplies True-RMS clamp meters and digital multimeters for electrical measurement in industrial, commercial, and field applications. The DCM 2250 TR and DCM 5410 TR are True-RMS clamp meters capable of measuring AC current up to 1000 A without breaking the circuit — essential for measuring current in live conductors in panels, motor control centres, and distribution systems. True-RMS measurement ensures accuracy with non-sinusoidal waveforms from variable frequency drives (VFDs) and other power electronics.",
+      "The DM 321T True-RMS digital multimeter provides accurate voltage, current, resistance, capacitance, frequency, and temperature measurement in a compact handheld format. The DM 235 is a cost-effective 3½-digit multimeter for general electrical measurement. All CIE clamp meters and multimeters conform to relevant IEC safety standards.",
+      "CIE clamp meters and multimeters are used by electrical engineers, electricians, HVAC technicians, panel builders, and industrial maintenance teams across India. They are available through CIE directly and through authorised dealers, with supply to customers in Kolkata, Howrah, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, and all major cities across India."
+    ]
   },
   {
     "id": "hv-phase-sequence",
@@ -77,7 +141,14 @@
     "shortName": "HV Test Sets",
     "eyebrow": "High Voltage · Breakdown Test Sets",
     "description": "AC high-voltage test sets for cable and equipment insulation testing up to 5 kV. Continuously variable output voltage with analog metering and toggle trip.",
-    "icon": "⚡"
+    "icon": "⚡",
+    "metaTitle": "HV Test Sets | AC High Voltage Test Equipment — CIE/5050A, CIE Instruments",
+    "metaDesc": "CIE/5050A AC high voltage test set — continuously variable 0–5 kV output, analog metering, toggle trip. For HV cable and equipment testing. Manufacturer in Howrah, India.",
+    "seoContent": [
+      "The CIE/5050A is an AC high voltage test set providing a continuously variable output from 0 to 5 kV for HV withstand testing (hipot testing) of cables, switchgear, transformers, bushings, and other electrical equipment. The output voltage is monitored by a built-in analog voltmeter, and the instrument includes a trip mechanism that automatically disconnects the HV output when the relay under test operates — providing an important safety feature during dielectric withstand testing.",
+      "AC high voltage testing is used for acceptance testing of new equipment, periodic maintenance testing per IS/IEC standards, and fault investigation on installed cables and apparatus. The CIE/5050A is suitable for testing cable insulation at rated voltage, verifying the dielectric strength of transformer oil and solid insulation, and commissioning HV switchgear.",
+      "CIE supplies HV test sets to electrical contractors, power utilities, cable manufacturers, switchgear manufacturers, and commissioning companies across India — in Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, and across all regions where HV electrical infrastructure is installed and maintained."
+    ]
   },
   {
     "id": "phase-sequence-indicators",
@@ -85,7 +156,14 @@
     "shortName": "Phase Sequence",
     "eyebrow": "Phase Sequence · Indicators",
     "description": "Phase sequence indicators for verifying the phase rotation of 3-phase AC supplies. Disc-rotating type and compact ABS moulded variants.",
-    "icon": "🔄"
+    "icon": "🔄",
+    "metaTitle": "Phase Sequence Indicators | PSI-1, PSI-2 — CIE Instruments, Howrah",
+    "metaDesc": "CIE phase sequence indicators — disc-rotating type (PSI-1) and compact ABS moulded (PSI-2). Verify 3-phase supply rotation before energisation. Manufacturer in Howrah, India.",
+    "seoContent": [
+      "Phase sequence indicators are used to verify the phase rotation (RYB or RBY) of a 3-phase AC supply before connecting motors, generators, or other rotating equipment. Incorrect phase sequence causes motors to rotate in the wrong direction, which can damage machinery and create safety hazards. CIE manufactures two variants: the PSI-1 with a rotating disc indicator that physically shows the direction of phase rotation, and the PSI-2 in a compact ABS moulded body.",
+      "Phase sequence verification is a routine check performed before energising any 3-phase motor or generator, before parallel operation of generators, when taking a supply from a new source, and during commissioning of electrical panels and motor control centres. Phase sequence indicators are compact, portable instruments used by electricians, commissioning engineers, and maintenance teams.",
+      "CIE phase sequence indicators are supplied to customers across India — electrical contractors, industrial maintenance teams, panel builders, and commissioning engineers in Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Mumbai, Delhi, Hyderabad, and all regions where 3-phase electrical systems are installed."
+    ]
   },
   {
     "id": "oil-test-sets",
@@ -93,7 +171,14 @@
     "shortName": "Oil BDV Test Sets",
     "eyebrow": "Transformer Oil · BDV Testers",
     "description": "Transformer oil dielectric strength (BDV) testers from 50 kV to 120 kV. Manual and motorised variants with options for digital display and magnetic stirrer.",
-    "icon": "🛢️"
+    "icon": "🛢️",
+    "metaTitle": "Transformer Oil BDV Test Sets | CIE/7000 Series 50–120 kV — CIE Instruments",
+    "metaDesc": "CIE transformer oil BDV test sets — 50 kV, 100 kV, 120 kV. Manual and motorised. Centre-point grounded test vessel. For power transformers, distribution transformers. Manufacturer, Howrah.",
+    "seoContent": [
+      "Transformer oil dielectric strength testing (breakdown voltage or BDV testing) is a mandatory quality check performed on transformer oil before filling a new transformer, after filtering or processing used oil, and as part of routine transformer maintenance. The dielectric strength of the oil (measured in kV) indicates its ability to withstand electrical stress without breaking down — a critical parameter for transformer reliability and life.",
+      "CIE manufactures the 7000 series of transformer oil BDV testers in three voltage ratings: CIE/7050 (50 kV), CIE/7100 (100 kV), and CIE/7120 (120 kV). Each instrument is supplied with a standard test vessel conforming to IS 6792 / IEC 60156, with centre-point grounded electrodes. Manual and motorised (automatic) variants are available — the motorised variants perform the full test cycle automatically and are preferred in laboratories processing large volumes of oil samples.",
+      "Transformer oil test sets are used by power utilities (PGCIL, WBSETCL, state transcos and discoms), transformer manufacturers, oil processing companies, testing laboratories, and large industrial consumers with HV transformers. CIE supplies oil BDV testers across India — Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, Raipur, Ranchi, and all locations where power and distribution transformers are installed and maintained."
+    ]
   },
   {
     "id": "relay-test-sets",
@@ -101,6 +186,13 @@
     "shortName": "Relay Test Sets",
     "eyebrow": "Protection Testing · Relay Test Sets",
     "description": "Single-phase and three-phase relay test sets for commissioning and testing of protection relays. Variable AC/DC current and voltage sources with phase angle control.",
-    "icon": "🔬"
+    "icon": "🔬",
+    "metaTitle": "Relay Test Sets | Single Phase & Three Phase — CIE Instruments, Howrah",
+    "metaDesc": "CIE relay test sets — single phase (RTS-5, RTS-5A, 400 VA) and three phase (RTS-33, 250 VA, 0–360° phase angle). For protection relay commissioning. Manufacturer in Howrah, India.",
+    "seoContent": [
+      "Protection relay testing is a critical activity in power system commissioning and maintenance — every relay protecting a transmission line, transformer, bus, or feeder must be tested to verify that it will operate correctly under fault conditions. CIE manufactures single-phase and three-phase relay test sets for secondary current injection testing of protection relays.",
+      "The CIE RTS-5 and RTS-5A are single-phase relay test sets providing continuously variable AC current from 0 to 200 A across multiple ranges, with built-in digital timer (0–99.99 sec), digital ammeter, and AC voltmeter. They are used for testing over-current relays, earth fault relays, and other single-phase protection devices. The RTS-33 is a three-phase relay test set providing variable three-phase AC current, AC and DC voltage, and continuously variable phase angle (0–360°) — essential for testing distance relays, differential relays, and directional protection relays.",
+      "CIE relay test sets are used by protection engineers at power utilities, EPC commissioning companies, and testing laboratories. They are supplied to PGCIL, WBSETCL, state electricity boards, Indian Railways, and commissioning contractors across India — Kolkata, Howrah, Delhi, Bangalore, Mumbai, Chennai, Hyderabad, Bhubaneswar, Lucknow, Chandigarh, and all major power sector locations."
+    ]
   }
 ]

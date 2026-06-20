@@ -424,6 +424,34 @@ const industries = [
     </div>
   </section>
 
+  <!-- ── WHERE WE SUPPLY ───────────────────────────────────────────────────── -->
+  <section class="bg-[#F5F7FA] py-14 lg:py-18 border-t border-[#E8ECF2]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <EyebrowLabel text="Pan-India Supply" class="mb-3" />
+        <h2 class="text-2xl font-black text-[#0D2547] mb-4">Electrical test instruments delivered across India</h2>
+        <p class="text-sm text-[#64748B] leading-relaxed mb-6">
+          CIE instruments are supplied to customers across all regions of India — from power utilities, EPC contractors,
+          and commissioning engineers to electrical contractors, testing laboratories, and educational institutions.
+          We ship through trusted logistics partners with appropriate packing for safe transit.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono text-[#64748B]">
+          {[
+            { region: 'Eastern India',  cities: 'Kolkata · Howrah · Bhubaneswar · Cuttack · Rourkela · Ranchi · Patna · Siliguri' },
+            { region: 'Southern India', cities: 'Bangalore · Chennai · Hyderabad · Kochi · Coimbatore · Visakhapatnam · Vijayawada' },
+            { region: 'Western India',  cities: 'Mumbai · Pune · Ahmedabad · Surat · Nagpur · Nasik · Vadodara · Rajkot' },
+            { region: 'Northern India', cities: 'Delhi · Lucknow · Kanpur · Agra · Jaipur · Chandigarh · Ludhiana · Dehradun' },
+          ].map(r => (
+            <div class="bg-white rounded-lg border border-[#E8ECF2] p-4">
+              <p class="font-bold text-[#1B3A5B] text-[11px] uppercase tracking-wide mb-2">{r.region}</p>
+              <p class="text-[11px] leading-relaxed text-[#64748B]">{r.cities}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <CTABand />
 
 </Base>
