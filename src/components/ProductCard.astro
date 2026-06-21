@@ -13,7 +13,7 @@ const { model, name, tagline, categoryId, id, featured = false, image, hideImage
 import site from '../data/site.json';
 import { u } from '../utils/url';
 const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${model} — ${name}`);
-const imgSrc = image ? u(`/images/products/${image}`) : u(`/images/products/${id}.jpg`);
+const imgSrc = image ? u(`/images/products/${image}`) : u(`/images/products/${id}.webp`);
 ---
 
 <article class={`bg-white rounded-lg border border-[#E8ECF2] overflow-hidden flex flex-col transition-shadow duration-200 hover:shadow-md ${featured ? 'ring-2 ring-[#E0252E]/20' : ''}`}>

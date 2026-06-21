@@ -42,6 +42,7 @@ const industries = [
 <Base
   title="Home"
   description="CIE — Cambridge Instruments & Engg. Co., Howrah. Manufacturer and supplier of insulation testers, earth testers, relay test sets, oil BDV testers, clamp meters, HV test sets. Kolkata, West Bengal. Trusted by PGCIL, WBSETCL, Indian Railways since 1963."
+  preloadImage={u('/images/products/cie-444.webp')}
 >
   <!-- ── HERO ──────────────────────────────────────────────────────────────── -->
   <section class="blueprint-bg text-white relative overflow-hidden">
@@ -100,7 +101,7 @@ const industries = [
           </div>
 
           <!-- Trust row -->
-          <div class="flex flex-wrap gap-x-6 gap-y-2 pt-7 border-t border-white/10 text-xs text-[#64748B] font-mono uppercase tracking-wide">
+          <div class="flex flex-wrap gap-x-6 gap-y-2 pt-7 border-t border-white/10 text-xs text-[#94a3b8] font-mono uppercase tracking-wide">
             {['60+ Years', 'Made in India', '12-Month Warranty', 'In-House Calibration'].map(t => (
               <span class="flex items-center gap-1.5">
                 <span class="w-1 h-1 rounded-full bg-[#E0252E]" aria-hidden="true"></span>
@@ -126,14 +127,14 @@ const industries = [
               <!-- Slides -->
               <div id="hero-slides" class="relative h-64 xl:h-72">
                 {[
-                  { img: 'cie-444.jpg',   model: 'CIE/444',         name: 'Analog Insulation Tester',       href: '/products/insulation-testers-hand/cie-444/' },
-                  { img: 'cie-222m.jpg',  model: 'CIE/222M',        name: 'Analog Earth Tester',             href: '/products/earth-tester/cie-222m/' },
-                  { img: 'det-2000.jpg',  model: 'DET-2000',        name: 'Digital Earth Resistance Tester', href: '/products/earth-tester/det-2000/' },
-                  { img: 'dit-2500.jpg',  model: 'DIT-2500',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-2500/' },
-                  { img: 'dit-5005.jpg',  model: 'DIT-5005',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-5005/' },
-                  { img: 'cie-555.jpg',   model: 'CIE/555',         name: 'Insulation Tester',               href: '/products/compact-insulation-testers/cie-555/' },
-                  { img: 'cie-5050a.jpg', model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           href: '/products/hv-phase-sequence/cie-5050a/' },
-                  { img: 'cie-7050.jpg',  model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      href: '/products/oil-test-sets/cie-7050/' },
+                  { img: 'cie-444.webp',   model: 'CIE/444',         name: 'Analog Insulation Tester',       href: '/products/insulation-testers-hand/cie-444/' },
+                  { img: 'cie-222m.webp',  model: 'CIE/222M',        name: 'Analog Earth Tester',             href: '/products/earth-tester/cie-222m/' },
+                  { img: 'det-2000.webp',  model: 'DET-2000',        name: 'Digital Earth Resistance Tester', href: '/products/earth-tester/det-2000/' },
+                  { img: 'dit-2500.webp',  model: 'DIT-2500',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-2500/' },
+                  { img: 'dit-5005.webp',  model: 'DIT-5005',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-5005/' },
+                  { img: 'cie-555.webp',   model: 'CIE/555',         name: 'Insulation Tester',               href: '/products/compact-insulation-testers/cie-555/' },
+                  { img: 'cie-5050a.webp', model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           href: '/products/hv-phase-sequence/cie-5050a/' },
+                  { img: 'cie-7050.webp',  model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      href: '/products/oil-test-sets/cie-7050/' },
                 ].map((slide, i) => (
                   <a href={u(slide.href)}
                     class={`hero-slide absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
@@ -246,13 +247,13 @@ const industries = [
     const prev  = document.getElementById('cat-prev') as HTMLButtonElement | null;
     const next  = document.getElementById('cat-next') as HTMLButtonElement | null;
     if (track) {
-      // Cache offsetWidth to avoid forced reflow on every scroll/click
       let cachedSlideW = 296;
       const updateSlideW = () => {
         const first = track.querySelector('a');
         if (first) cachedSlideW = first.offsetWidth + 16;
       };
-      updateSlideW();
+      // Defer initial measurement out of the critical layout path
+      requestAnimationFrame(updateSlideW);
       new ResizeObserver(updateSlideW).observe(track);
       const slideW = () => cachedSlideW;
       const scroll = (dir: number) => {
@@ -356,12 +357,14 @@ const industries = [
               <a href={client.url} target="_blank" rel="noopener noreferrer" aria-label={client.name}
                  class="flex items-center justify-center w-full h-full">
                 <img src={u(client.logo)} alt={client.name} title={client.name}
+                  width="120" height="48"
                   class="max-h-12 sm:max-h-14 max-w-[120px] w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                   loading="lazy" />
               </a>
             ) : (
               <div class="flex items-center justify-center w-full h-full" title={client.name}>
                 <img src={u(client.logo)} alt={client.name} title={client.name}
+                  width="120" height="48"
                   class="max-h-12 sm:max-h-14 max-w-[120px] w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                   loading="lazy" />
               </div>
@@ -407,7 +410,7 @@ const industries = [
           </div>
           <div class="bg-[#E8ECF2] lg:min-h-full min-h-48 flex items-center justify-center overflow-hidden">
             <img
-              src={u('/images/products/rts-33.jpg')}
+              src={u('/images/products/rts-33.webp')}
               alt="RTS-33 — Three-Phase Relay Test Set"
               width="1179"
               height="1384"

@@ -33,7 +33,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         />
         <span class="hidden sm:flex flex-col leading-tight min-w-0">
           <span class="text-white font-bold text-sm lg:text-[15px] tracking-tight leading-snug">Cambridge Instruments &amp; Engg. Co.</span>
-          <span class="text-[#64748B] text-[10px] font-mono uppercase tracking-widest leading-tight hidden lg:block">Instruments for Accuracy and Reliability</span>
+          <span class="text-[#94a3b8] text-[10px] font-mono uppercase tracking-widest leading-tight hidden lg:block">Instruments for Accuracy and Reliability</span>
         </span>
       </a>
 
@@ -60,7 +60,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
               aria-haspopup="true"
               aria-expanded="false"
               aria-label="Browse product categories"
-              class="ml-1 p-0.5 text-[#64748B] hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-[#E0252E] rounded"
+              class="ml-1 p-0.5 text-[#94a3b8] hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-[#E0252E] rounded"
             >
               <svg id="products-chevron" class="w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
@@ -85,7 +85,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
             <div class="bg-[#0D1B2A] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
               <!-- Header row -->
               <div class="px-5 py-3 bg-[#1B3A5B]/40 border-b border-white/10 flex items-center justify-between">
-                <span class="text-xs font-mono text-[#64748B] uppercase tracking-widest">Browse by Category</span>
+                <span class="text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Browse by Category</span>
                 <a href={u('/products/')}
                    class="text-xs font-semibold text-[#E0252E] hover:text-white transition-colors">
                   All Products →
@@ -163,7 +163,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
             aria-expanded="false"
             aria-controls="mobile-products-dropdown"
             aria-label="Show product categories"
-            class="px-3 py-2 text-[#64748B] hover:text-white hover:bg-white/5 rounded-r transition-colors"
+            class="px-3 py-2 text-[#94a3b8] hover:text-white hover:bg-white/5 rounded-r transition-colors"
           >
             <svg id="mobile-products-chevron" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
@@ -175,7 +175,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         <div id="mobile-products-dropdown" class="hidden ml-3 border-l border-white/10 pl-3 py-1 mt-0.5">
           {categories.map(cat => (
             <a href={u(`/products/${cat.id}/`)}
-               class="flex items-center gap-2 px-2 py-2 text-xs text-[#64748B] hover:text-[#b0bec5] hover:bg-white/5 rounded transition-colors">
+               class="flex items-center gap-2 px-2 py-2 text-xs text-[#94a3b8] hover:text-[#b0bec5] hover:bg-white/5 rounded transition-colors">
               <span aria-hidden="true">{cat.icon}</span>
               {cat.shortName}
             </a>

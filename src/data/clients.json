@@ -4,7 +4,7 @@
   { "name": "Bharat Heavy Electricals (BHEL)",   "logo": "/clients/bhel.svg",            "url": "https://www.bhel.com/" },
   { "name": "Bharat Electronics Limited (BEL)",  "logo": "/clients/bel.svg",             "url": "https://www.bel-india.in/" },
   { "name": "Hindustan Aeronautics (HAL)",        "logo": "/clients/hal.svg",             "url": "https://hal-india.co.in/" },
-  { "name": "BSNL",                              "logo": "/clients/bsnl.png",            "url": "https://www.bsnl.co.in/" },
+  { "name": "BSNL",                              "logo": "/clients/bsnl.webp",            "url": "https://www.bsnl.co.in/" },
   { "name": "Tata Power",                        "logo": "/clients/tata-power.svg",      "url": "https://www.tatapower.com/" },
   { "name": "Havells India",                     "logo": "/clients/havells.svg",         "url": "https://www.havells.com/" },
   { "name": "WBSEDCL",                          "logo": "/clients/wbsedcl.svg",         "url": "https://www.wbsedcl.in/" },

@@ -25,7 +25,7 @@ const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${product.mo
 
 const productImageSrc = product.image
   ? u(`/images/products/${product.image}`)
-  : u(`/images/products/${product.id}.jpg`);
+  : u(`/images/products/${product.id}.webp`);
 
 // Build product-specific mailto
 const quoteSubject = `Quote Request — ${product.model}`;
@@ -33,7 +33,7 @@ const quoteBody    = `Hello CIE team,\n\nI would like to request a quote for: ${
 const quoteMailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent(quoteSubject)}&body=${encodeURIComponent(quoteBody)}`;
 
 // Product structured data for Google
-const productImageAbsolute = `https://cieinstruments.in/images/products/${product.image ?? product.id + '.jpg'}`;
+const productImageAbsolute = `https://cieinstruments.in/images/products/${product.image ?? product.id + '.webp'}`;
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
