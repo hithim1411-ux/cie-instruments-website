@@ -15,7 +15,7 @@ interface Props {
 
 const {
   title,
-  description = 'Cambridge Instruments & Engg. Co. (CIE) — manufacturer of electrical test and measurement instruments since 1963. Insulation testers, earth testers, relay test sets, oil BDV testers and more. Made in India.',
+  description = 'Cambridge Instruments & Engg. Co. (CIE) — manufacturer and supplier of electrical test and measurement instruments since 1963. Insulation testers, earth testers, relay test sets, oil BDV testers. Kolkata, Howrah, West Bengal. Pan-India supply.',
   ogImage = u('/logo/cie-logo.png'),
   noindex = false,
   rawTitle = false,
@@ -25,8 +25,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = rawTitle
   ? title
   : title === 'Home'
-    ? 'Cambridge Instruments & Engg. Co. (CIE) — Instruments for Accuracy and Reliability | Howrah, India'
-    : `${title} | Cambridge Instruments & Engg. Co. (CIE) — Howrah`;
+    ? 'Cambridge Instruments & Engg. Co. (CIE) — Test & Measurement Instruments Supplier | Kolkata, Howrah, India'
+    : `${title} | Cambridge Instruments & Engg. Co. (CIE) — Kolkata, Howrah`;
 
 const ogImageURL = new URL(ogImage, Astro.site).toString();
 const canonicalStr = canonicalURL.toString();
@@ -74,27 +74,78 @@ const orgSchema = {
         latitude: 22.5958,
         longitude: 88.2636,
       },
-      areaServed: {
+      areaServed: [
+        { '@type': 'Country', name: 'India' },
+        { '@type': 'City', name: 'Kolkata' },
+        { '@type': 'City', name: 'Howrah' },
+        { '@type': 'City', name: 'Bengaluru' },
+        { '@type': 'City', name: 'Chennai' },
+        { '@type': 'City', name: 'Hyderabad' },
+        { '@type': 'City', name: 'Mumbai' },
+        { '@type': 'City', name: 'Delhi' },
+        { '@type': 'City', name: 'Pune' },
+        { '@type': 'City', name: 'Ahmedabad' },
+        { '@type': 'City', name: 'Bhubaneswar' },
+        { '@type': 'City', name: 'Raipur' },
+        { '@type': 'City', name: 'Ranchi' },
+        { '@type': 'City', name: 'Patna' },
+        { '@type': 'City', name: 'Lucknow' },
+      ],
+      serviceArea: {
         '@type': 'Country',
         name: 'India',
       },
-      contactPoint: {
-        '@type': 'ContactPoint',
-        email: 'cieinstruments@gmail.com',
-        contactType: 'customer service',
-        areaServed: 'IN',
-        availableLanguage: 'en',
-      },
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '+919830091260',
+          email: 'cieinstruments@gmail.com',
+          contactType: 'sales',
+          areaServed: 'IN',
+          availableLanguage: 'en',
+        },
+        {
+          '@type': 'ContactPoint',
+          telephone: '+919830092117',
+          contactType: 'customer service',
+          areaServed: 'IN',
+          availableLanguage: 'en',
+        },
+      ],
       knowsAbout: [
         'Insulation Testers',
+        'Megger',
+        'Megohmmeter',
         'Earth Resistance Testers',
+        'Earth Testers',
         'Relay Test Sets',
         'Oil BDV Test Sets',
+        'Transformer Oil Test Sets',
         'Digital Multimeters',
         'Clamp Meters',
         'Micro-Ohm Meters',
+        'HV Test Sets',
+        'High Voltage Test Equipment',
+        'Phase Sequence Indicators',
         'Electrical Test Equipment',
+        'Test and Measurement Instruments',
+        'Industrial Test Equipment',
+        'Electrical Instruments',
       ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'CIE Test & Measurement Instruments',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Insulation Testers', description: 'Hand-driven, motorised, and digital insulation testers from 100 V to 10 kV' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Earth Resistance Testers', description: 'Analog and digital earth testers for 3-terminal and 4-terminal measurement' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Relay Test Sets', description: 'Single-phase and three-phase relay test sets for protection relay commissioning' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Transformer Oil BDV Test Sets', description: '50 kV to 120 kV oil dielectric strength testers' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'HV Test Sets', description: 'AC high voltage test sets up to 5 kV for cable and equipment testing' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Clamp Meters & Multimeters', description: 'True-RMS clamp meters and digital multimeters for electrical measurement' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Micro-Ohm Meters', description: '4-terminal Kelvin method micro-ohm meters for contact resistance measurement' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Phase Sequence Indicators', description: 'Phase sequence indicators for 3-phase supply rotation verification' } },
+        ],
+      },
     },
     {
       '@type': 'WebSite',
@@ -122,6 +173,7 @@ const orgSchema = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
+  <meta name="keywords" content="insulation tester supplier Kolkata, insulation tester supplier India, test and measurement instruments supplier India, electrical test equipment supplier Kolkata, earth tester supplier, megger supplier India, relay test set supplier, oil BDV tester supplier, HV test set supplier, electrical instruments supplier West Bengal, industrial test equipment supplier, Cambridge Instruments, CIE Instruments, insulation tester Howrah, insulation tester West Bengal, electrical measuring instruments supplier" />
   <link rel="canonical" href={canonicalStr} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
 
