@@ -22,7 +22,9 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = title === 'Home'
   ? 'Cambridge Instruments & Engg. Co. (CIE) — Instruments for Accuracy and Reliability | Howrah, India'
-  : `${title} | Cambridge Instruments & Engg. Co. (CIE) — Howrah`;
+  : title.includes('Cambridge Instruments')
+    ? `${title} | CIE — Howrah, India`
+    : `${title} | Cambridge Instruments & Engg. Co. (CIE) — Howrah`;
 
 const ogImageURL = new URL(ogImage, Astro.site).toString();
 const canonicalStr = canonicalURL.toString();
