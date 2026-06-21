@@ -167,14 +167,14 @@ const industries = [
               <!-- Slides -->
               <div id="hero-slides" class="relative h-64 xl:h-72">
                 {[
-                  { img: 'cie-444.jpg',   model: 'CIE/444',         name: 'Analog Insulation Tester',       sub: 'Hand-Driven Generator Type',   href: '/products/insulation-testers-hand/cie-444/' },
-                  { img: 'cie-222m.jpg',  model: 'CIE/222M',        name: 'Analog Earth Tester',             sub: 'With Spikes & Wire Spools Kit', href: '/products/earth-tester/cie-222m/' },
-                  { img: 'det-2000.jpg',  model: 'DET-2000',        name: 'Digital Earth Resistance Tester', sub: '4-Terminal Digital',            href: '/products/earth-tester/det-2000/' },
-                  { img: 'dit-2500.jpg',  model: 'DIT-2500',        name: 'Digital Insulation Tester',       sub: 'Up to 2500 V + Multimeter',     href: '/products/digital-insulation-testers/dit-2500/' },
-                  { img: 'dit-5005.jpg',  model: 'DIT-5005',        name: 'Digital Insulation Tester',       sub: '500 V / 1000 V · Rechargeable', href: '/products/digital-insulation-testers/dit-5005/' },
-                  { img: 'cie-555.jpg',   model: 'CIE/555',         name: 'Compact Insulation Tester',       sub: 'Bakelite Body · Hand-Driven',   href: '/products/compact-insulation-testers/cie-555/' },
-                  { img: 'cie-5050a.jpg', model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           sub: 'AC 0–5 kV · Continuously Variable', href: '/products/hv-phase-sequence/cie-5050a/' },
-                  { img: 'cie-7050.jpg',  model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      sub: '50 kV / 100 kV / 120 kV',      href: '/products/oil-test-sets/cie-7050/' },
+                  { img: 'cie-444.jpg',   model: 'CIE/444',         name: 'Analog Insulation Tester',       sub: 'Hand-Driven Generator Type', href: '/products/insulation-testers-hand/cie-444/' },
+                  { img: 'cie-222m.jpg',  model: 'CIE/222M',        name: 'Analog Earth Tester',             sub: 'Earth Resistance Tester',    href: '/products/earth-tester/cie-222m/' },
+                  { img: 'det-2000.jpg',  model: 'DET-2000',        name: 'Digital Earth Resistance Tester', sub: 'Digital Earth Tester',       href: '/products/earth-tester/det-2000/' },
+                  { img: 'dit-2500.jpg',  model: 'DIT-2500',        name: 'Digital Insulation Tester',       sub: 'Digital Insulation Tester',  href: '/products/digital-insulation-testers/dit-2500/' },
+                  { img: 'dit-5005.jpg',  model: 'DIT-5005',        name: 'Digital Insulation Tester',       sub: 'Digital Insulation Tester',  href: '/products/digital-insulation-testers/dit-5005/' },
+                  { img: 'cie-555.jpg',   model: 'CIE/555',         name: 'Insulation Tester',               sub: 'Hand-Driven Generator Type', href: '/products/compact-insulation-testers/cie-555/' },
+                  { img: 'cie-5050a.jpg', model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           sub: 'High Voltage Test Set',      href: '/products/hv-phase-sequence/cie-5050a/' },
+                  { img: 'cie-7050.jpg',  model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      sub: 'Oil Test Set',               href: '/products/oil-test-sets/cie-7050/' },
                 ].map((slide, i) => (
                   <a href={u(slide.href)}
                     class={`hero-slide absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
@@ -494,13 +494,13 @@ const industries = [
 
   const data = [
     { model: 'CIE/444',         name: 'Analog Insulation Tester',       sub: 'Hand-Driven Generator Type' },
-    { model: 'CIE/222M',        name: 'Analog Earth Tester',             sub: 'With Spikes & Wire Spools Kit' },
-    { model: 'DET-2000',        name: 'Digital Earth Resistance Tester', sub: '4-Terminal Digital' },
-    { model: 'DIT-2500',        name: 'Digital Insulation Tester',       sub: 'Up to 2500 V + Multimeter' },
-    { model: 'DIT-5005',        name: 'Digital Insulation Tester',       sub: '500 V / 1000 V · Rechargeable' },
-    { model: 'CIE/555',         name: 'Compact Insulation Tester',       sub: 'Bakelite Body · Hand-Driven' },
-    { model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           sub: 'AC 0–5 kV · Continuously Variable' },
-    { model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      sub: '50 kV / 100 kV / 120 kV' },
+    { model: 'CIE/222M',        name: 'Analog Earth Tester',             sub: 'Earth Resistance Tester' },
+    { model: 'DET-2000',        name: 'Digital Earth Resistance Tester', sub: 'Digital Earth Tester' },
+    { model: 'DIT-2500',        name: 'Digital Insulation Tester',       sub: 'Digital Insulation Tester' },
+    { model: 'DIT-5005',        name: 'Digital Insulation Tester',       sub: 'Digital Insulation Tester' },
+    { model: 'CIE/555',         name: 'Insulation Tester',               sub: 'Hand-Driven Generator Type' },
+    { model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           sub: 'High Voltage Test Set' },
+    { model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      sub: 'Oil Test Set' },
   ];
 
   let current = 0;
