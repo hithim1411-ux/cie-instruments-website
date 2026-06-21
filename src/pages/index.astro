@@ -142,6 +142,8 @@ const industries = [
                     <img
                       src={u(`/images/products/${slide.img}`)}
                       alt={`${slide.model} — ${slide.name}`}
+                      width="600"
+                      height="600"
                       class="max-h-52 xl:max-h-60 w-auto object-contain mx-auto"
                       loading={i === 0 ? 'eager' : 'lazy'}
                       fetchpriority={i === 0 ? 'high' : 'auto'}
@@ -156,10 +158,11 @@ const industries = [
                 <p id="hero-name"  class="text-white text-sm font-semibold mt-0.5">Analog Insulation Tester</p>
               </div>
 
-              <!-- Dot indicators -->
+              <!-- Dot indicators (aria-hidden: purely decorative, tabindex=-1 keeps them unfocusable) -->
               <div class="flex justify-center gap-1.5 mt-4" aria-hidden="true">
                 {[0,1,2,3,4,5,6,7].map(i => (
                   <button data-hero-dot={i}
+                    tabindex="-1"
                     class={`hero-dot transition-all rounded-full ${i === 0 ? 'w-4 h-1.5 bg-[#E0252E]' : 'w-1.5 h-1.5 bg-white/20'}`}
                   />
                 ))}
@@ -218,12 +221,12 @@ const industries = [
         ))}
       </div>
 
-      <!-- Dot indicators -->
+      <!-- Dot indicators (aria-hidden: decorative, tabindex=-1 keeps them non-focusable) -->
       <div id="cat-dots" class="flex justify-center gap-1.5 mt-5" aria-hidden="true">
         {categoryCount.map((_, i) => (
           <button data-dot={i}
-            class={`cat-dot w-1.5 h-1.5 rounded-full transition-all ${i === 0 ? 'bg-[#1B3A5B] w-4' : 'bg-[#CBD5E1]'}`}
-            aria-label={`Go to slide ${i + 1}`}></button>
+            tabindex="-1"
+            class={`cat-dot w-1.5 h-1.5 rounded-full transition-all ${i === 0 ? 'bg-[#1B3A5B] w-4' : 'bg-[#CBD5E1]'}`}></button>
         ))}
       </div>
 
@@ -242,10 +245,15 @@ const industries = [
     const prev  = document.getElementById('cat-prev') as HTMLButtonElement | null;
     const next  = document.getElementById('cat-next') as HTMLButtonElement | null;
     if (track) {
-      const slideW = () => {
+      // Cache offsetWidth to avoid forced reflow on every scroll/click
+      let cachedSlideW = 296;
+      const updateSlideW = () => {
         const first = track.querySelector('a');
-        return first ? first.offsetWidth + 16 : 296; // card + gap-4
+        if (first) cachedSlideW = first.offsetWidth + 16;
       };
+      updateSlideW();
+      new ResizeObserver(updateSlideW).observe(track);
+      const slideW = () => cachedSlideW;
       const scroll = (dir: number) => {
         track.scrollBy({ left: dir * slideW() * 3, behavior: 'smooth' });
       };
@@ -400,6 +408,8 @@ const industries = [
             <img
               src={u('/images/products/rts-33.jpg')}
               alt="RTS-33 — Three-Phase Relay Test Set"
+              width="1179"
+              height="1384"
               class="object-contain max-h-64 max-w-full p-4"
               loading="lazy"
             />

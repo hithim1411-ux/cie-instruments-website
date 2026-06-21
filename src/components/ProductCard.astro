@@ -23,6 +23,8 @@ const imgSrc = image ? u(`/images/products/${image}`) : u(`/images/products/${id
       <img
         src={imgSrc}
         alt={`${model} — ${name}`}
+        width="600"
+        height="600"
         class="object-contain h-36 w-auto"
         loading="lazy"
         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
