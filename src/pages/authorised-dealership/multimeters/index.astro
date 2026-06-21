@@ -113,12 +113,18 @@ const productSchema = {
 
               <div class="flex flex-col gap-2 mt-auto">
                 <a
+                  href={u(`/authorised-dealership/multimeters/${p.id}/`)}
+                  class="text-center px-4 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors"
+                >
+                  View Details & Specs
+                </a>
+                <a
                   href={u(`/downloads/vartech/multimeters/${p.catalogue}`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex items-center justify-center gap-2 text-center px-4 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors"
+                  class="flex items-center justify-center gap-2 text-center px-4 py-2 border border-[#1B3A5B] text-[#1B3A5B] hover:bg-[#1B3A5B]/5 text-sm font-medium rounded transition-colors"
                 >
-                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a1 1 0 001 1h16a1 1 0 001-1v-3"/>
                   </svg>
                   Download Catalogue
