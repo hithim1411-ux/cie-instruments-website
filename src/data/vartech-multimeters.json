@@ -1,0 +1,98 @@
+[
+  {
+    "id": "v-mas-830-lb",
+    "model": "V MAS 830 LB",
+    "name": "Digital Multimeter 600V DC/AC 10A DC",
+    "description": "Most popular and highest selling budget digital multimeter. Proven for its quality, reliability and economy. Superior quality pocket-friendly size with Blue backlight. 3½ Digits (2000 Counts), Manual Ranging, 600 V AC/DC, 200 µA–10 A DC, 200 Ω–2 MΩ Resistance. Diode & Continuity Test with Data Hold and Transistor (hFE) test. Holster with stand included.",
+    "image": "v-mas-830-lb.webp",
+    "catalogue": "v-mas-830-lb.pdf"
+  },
+  {
+    "id": "v-830-l-plus",
+    "model": "V 830 L+",
+    "name": "True RMS Digital Multimeter",
+    "description": "Pocket-friendly, high-quality True RMS Digital Multimeter. 600 V AC/DC, 20 µA–10 A DC, 200 Ω–200 MΩ Resistance. Diode, Transistor (hFE) & Continuity Test, Data Hold, HD Display with backlight (2000 Counts). NCV, Flashlight, Auto Power Off, Double Fuse protection and Shockproof design with holster. Built using high-quality components for unparalleled reliability.",
+    "image": "v-830-l-plus.webp",
+    "catalogue": "v-830-l-plus.pdf"
+  },
+  {
+    "id": "m-890",
+    "model": "M 890",
+    "name": "Full Function Digital Multimeter True RMS",
+    "description": "True RMS Digital Multimeter — 3½ Digits, Manual Ranging, 1000/750 V DC/AC, 10 A AC/DC, 20 MΩ Resistance. Continuity test, Diode, Transistor (hFE), Capacitance, Auto Power Off and Live wire test.",
+    "image": "m-890.webp",
+    "catalogue": "m-890.pdf"
+  },
+  {
+    "id": "v-92",
+    "model": "V 92",
+    "name": "Digital Multimeter True RMS Auto Ranging",
+    "description": "New-generation handy-size feature-packed True RMS Digital Multimeter. 6000 Counts HD Display, 600 V DC/AC, 600 µA–10 A AC/DC, 60 MΩ Resistance. NCV, Flashlight, Relative measurement, Frequency measurement in ACV range, Capacitance 10 nF–2 mF, Temperature −20 ºC–1000 ºC, Frequency up to 2 MHz, Duty Cycle. Data Hold, Auto Power Off, Shockproof design.",
+    "image": "v-92.webp",
+    "catalogue": "v-92.pdf"
+  },
+  {
+    "id": "v-92-s",
+    "model": "V 92 S",
+    "name": "Smart Digital Multimeter True RMS Auto Ranging",
+    "description": "Fully automatic Smart Digital Multimeter with Intelligent mode. 6000 Counts HD Display with Primary & Secondary Display and Analog bar graph. 600 V AC/DC, 10 A AC/DC, True RMS. Capacitance, Frequency and Temperature Test. Diode & Continuity Test, NCV, Torch, Auto Power Off, Data Hold, Low Battery indicator, Jack Prompt, Burnt Fuse Prompt. With Holster.",
+    "image": "v-92-s.webp",
+    "catalogue": "v-92-s.pdf"
+  },
+  {
+    "id": "v-890-d",
+    "model": "V 890 D",
+    "name": "Digital Multimeter True RMS 1000V DC / 750V AC 20A",
+    "description": "New-generation rugged True RMS digital multimeter. 200 mV–1000 V DC, 2 V–750 V AC, 200 µA–20 A DC/AC. 2000 Counts HD Display with backlight, NCV, Torch, Heavy-duty shockproof construction. Double Fuse overload protection, high stability and precision. Capacitance 6 nF–20 mF, Resistance 200 Ω–20 MΩ. Data Hold, Auto Power Off, Relative measurement, Low Battery indicator.",
+    "image": "v-890-d.webp",
+    "catalogue": "v-890-d.pdf"
+  },
+  {
+    "id": "v-68",
+    "model": "V 68",
+    "name": "Digital Multimeter True RMS Auto Ranging 1000V DC / 750V AC 10A",
+    "description": "Highly reliable, feature-packed True RMS Digital Multimeter. 3¾ Digits, 4000 Counts HD Display, 1000/750 V DC/AC, 10 A DC/AC. NCV, Flashlight, Double Fuse Overload Protection, CAT III 1000 V / CAT IV 600 V. Duty Cycle, Frequency in ACV range, Relative measurement, Transistor (hFE) test, Capacitance 6 nF–100 mF, Temperature −20 ºC–1000 ºC, Frequency up to 20 MHz, Resistance 400 Ω–40 MΩ. Shockproof construction.",
+    "image": "v-68.webp",
+    "catalogue": "v-68.pdf"
+  },
+  {
+    "id": "v-8222-h",
+    "model": "V 8222 H",
+    "name": "LCR Digital Multimeter True RMS 1000V DC / 750V AC 20A",
+    "description": "New-generation Heavy Duty Handheld Digital LCR Meter and Multimeter. 3½ Digits, True RMS, Manual Ranging, 1000/750 V DC/AC, 20 A AC/DC, 200 MΩ Resistance. Inductance 2 mH–20 H, Capacitance 20 nF–2 mF (Auto Ranging). Transistor test (hFE), Frequency/D-Cycle up to 20 MHz, Temperature test, Shockproof construction. Flashlight, Data Hold, Low Battery indicator, Auto Power Off.",
+    "image": "v-8222-h.webp",
+    "catalogue": "v-8222-h.pdf"
+  },
+  {
+    "id": "v-8222-g",
+    "model": "V 8222 G",
+    "name": "Full Function Digital Multimeter True RMS 1000V AC/DC 20A",
+    "description": "Heavy Duty full-function True RMS Digital Multimeter. 3½ Digits, Manual Ranging, Auto Power Off, 1000 V & 20 A AC/DC. Mains Frequency Measurement in 1000 V AC range. Capacitance & Frequency Auto Range Measurement, Temperature Measurement, LCD Backlight & Torch. Transistor (hFE), Diode & Continuity Test. Live Wire Testing & NCV with Audio/Visual indication.",
+    "image": "v-8222-g.webp",
+    "catalogue": "v-8222-g.pdf"
+  },
+  {
+    "id": "v-980",
+    "model": "V 980",
+    "name": "True RMS Digital Multimeter 20000 Counts",
+    "description": "4½ Digit flagship True RMS multimeter with 20000 Counts display and Backlight. 1000/750 V DC/AC, 200 µA–20 A DC/AC, 200 Ω–20 MΩ Resistance, 20 nF–2 mF Capacitance, 200 Hz–2 MHz Frequency. Conductance Test, Transistor and Diode Tests, Continuity, Torch. Superior quality, Heavy Duty ergonomic design.",
+    "image": "v-980.webp",
+    "catalogue": "v-980.pdf"
+  },
+  {
+    "id": "v-981-plus",
+    "model": "V 981+",
+    "name": "Bench Top Digital Multimeter with PC Interface TRMS 30000 Counts",
+    "description": "Portable Bench Top True RMS Digital Multimeter with PC Interface and Rechargeable Battery (Type-C USB Charging). 4⅗ Digits (30000 Counts), 3.5\" TFT Dual Display, Auto Ranging. 1000 V DC, 750 V AC, 300 µA–10 A AC/DC, 300 MΩ Resistance. Frequency up to 30 MHz, Duty Cycle, Capacitance, Temperature, dBm, Data Record, Math, Max/Min, Relative measurement. Continuity & Diode Test, Data Hold.",
+    "image": "v-981-plus.webp",
+    "catalogue": "v-981-plus.pdf"
+  },
+  {
+    "id": "ms-7221",
+    "model": "MS 7221",
+    "name": "V/mA Calibrator",
+    "description": "Superior quality Voltage and Milliamp V/mA Calibrator with Source and Measure functions. 4½ Digits, DC mA / DCV: 0–24 mA / 0–10 V. 0.015% DC mA / 0.02% DCV Accuracy. High precision and reliability.",
+    "image": "ms-7221.webp",
+    "catalogue": "ms-7221.pdf"
+  }
+]
