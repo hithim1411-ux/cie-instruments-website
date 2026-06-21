@@ -167,14 +167,14 @@ const industries = [
               <!-- Slides -->
               <div id="hero-slides" class="relative h-64 xl:h-72">
                 {[
-                  { img: 'cie-444.jpg',   model: 'CIE/444',         name: 'Analog Insulation Tester',       sub: 'Hand-Driven Generator Type', href: '/products/insulation-testers-hand/cie-444/' },
-                  { img: 'cie-222m.jpg',  model: 'CIE/222M',        name: 'Analog Earth Tester',             sub: 'Earth Resistance Tester',    href: '/products/earth-tester/cie-222m/' },
-                  { img: 'det-2000.jpg',  model: 'DET-2000',        name: 'Digital Earth Resistance Tester', sub: 'Digital Earth Tester',       href: '/products/earth-tester/det-2000/' },
-                  { img: 'dit-2500.jpg',  model: 'DIT-2500',        name: 'Digital Insulation Tester',       sub: 'Digital Insulation Tester',  href: '/products/digital-insulation-testers/dit-2500/' },
-                  { img: 'dit-5005.jpg',  model: 'DIT-5005',        name: 'Digital Insulation Tester',       sub: 'Digital Insulation Tester',  href: '/products/digital-insulation-testers/dit-5005/' },
-                  { img: 'cie-555.jpg',   model: 'CIE/555',         name: 'Insulation Tester',               sub: 'Hand-Driven Generator Type', href: '/products/compact-insulation-testers/cie-555/' },
-                  { img: 'cie-5050a.jpg', model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           sub: 'High Voltage Test Set',      href: '/products/hv-phase-sequence/cie-5050a/' },
-                  { img: 'cie-7050.jpg',  model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      sub: 'Oil Test Set',               href: '/products/oil-test-sets/cie-7050/' },
+                  { img: 'cie-444.jpg',   model: 'CIE/444',         name: 'Analog Insulation Tester',       href: '/products/insulation-testers-hand/cie-444/' },
+                  { img: 'cie-222m.jpg',  model: 'CIE/222M',        name: 'Analog Earth Tester',             href: '/products/earth-tester/cie-222m/' },
+                  { img: 'det-2000.jpg',  model: 'DET-2000',        name: 'Digital Earth Resistance Tester', href: '/products/earth-tester/det-2000/' },
+                  { img: 'dit-2500.jpg',  model: 'DIT-2500',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-2500/' },
+                  { img: 'dit-5005.jpg',  model: 'DIT-5005',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-5005/' },
+                  { img: 'cie-555.jpg',   model: 'CIE/555',         name: 'Insulation Tester',               href: '/products/compact-insulation-testers/cie-555/' },
+                  { img: 'cie-5050a.jpg', model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           href: '/products/hv-phase-sequence/cie-5050a/' },
+                  { img: 'cie-7050.jpg',  model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      href: '/products/oil-test-sets/cie-7050/' },
                 ].map((slide, i) => (
                   <a href={u(slide.href)}
                     class={`hero-slide absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
@@ -193,10 +193,9 @@ const industries = [
               </div>
 
               <!-- Caption -->
-              <div class="mt-4 text-center min-h-[52px]">
+              <div class="mt-4 text-center min-h-[36px]">
                 <p id="hero-model" class="text-xs font-mono text-[#E0252E] uppercase tracking-widest">CIE/444</p>
                 <p id="hero-name"  class="text-white text-sm font-semibold mt-0.5">Analog Insulation Tester</p>
-                <p id="hero-sub"   class="text-[#64748B] text-xs mt-0.5">Hand-Driven Generator Type</p>
               </div>
 
               <!-- Dot indicators -->
@@ -462,17 +461,16 @@ const industries = [
   const dots    = document.querySelectorAll<HTMLButtonElement>('.hero-dot');
   const modelEl = document.getElementById('hero-model');
   const nameEl  = document.getElementById('hero-name');
-  const subEl   = document.getElementById('hero-sub');
 
   const data = [
-    { model: 'CIE/444',         name: 'Analog Insulation Tester',       sub: 'Hand-Driven Generator Type' },
-    { model: 'CIE/222M',        name: 'Analog Earth Tester',             sub: 'Earth Resistance Tester' },
-    { model: 'DET-2000',        name: 'Digital Earth Resistance Tester', sub: 'Digital Earth Tester' },
-    { model: 'DIT-2500',        name: 'Digital Insulation Tester',       sub: 'Digital Insulation Tester' },
-    { model: 'DIT-5005',        name: 'Digital Insulation Tester',       sub: 'Digital Insulation Tester' },
-    { model: 'CIE/555',         name: 'Insulation Tester',               sub: 'Hand-Driven Generator Type' },
-    { model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           sub: 'High Voltage Test Set' },
-    { model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      sub: 'Oil Test Set' },
+    { model: 'CIE/444',         name: 'Analog Insulation Tester'       },
+    { model: 'CIE/222M',        name: 'Analog Earth Tester'             },
+    { model: 'DET-2000',        name: 'Digital Earth Resistance Tester' },
+    { model: 'DIT-2500',        name: 'Digital Insulation Tester'       },
+    { model: 'DIT-5005',        name: 'Digital Insulation Tester'       },
+    { model: 'CIE/555',         name: 'Insulation Tester'               },
+    { model: 'CIE/5050A',       name: 'HV Breakdown Test Set'           },
+    { model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester'      },
   ];
 
   let current = 0;
@@ -493,7 +491,6 @@ const industries = [
 
     if (modelEl) modelEl.textContent = data[current].model;
     if (nameEl)  nameEl.textContent  = data[current].name;
-    if (subEl)   subEl.textContent   = data[current].sub;
   }
 
   function startTimer() { timer = setInterval(() => goTo((current + 1) % slides.length), 3000); }
