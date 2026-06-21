@@ -7,6 +7,9 @@ export default defineConfig({
   site: 'https://cieinstruments.in',
   base: '/',
   trailingSlash: 'always',
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
