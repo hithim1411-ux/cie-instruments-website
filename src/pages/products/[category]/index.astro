@@ -23,7 +23,7 @@ const pageDescription = (category as any).metaDesc   ?? `${category.name} — ${
 const seoContent      = (category as any).seoContent as string[] | undefined;
 ---
 
-<Base title={pageTitle} description={pageDescription}>
+<Base title={pageTitle} description={pageDescription} rawTitle={(category as any).metaTitle != null}>
   <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[{ label: 'Products', href: '/products' }, { label: category.name }]} />

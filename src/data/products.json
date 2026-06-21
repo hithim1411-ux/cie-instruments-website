@@ -191,7 +191,9 @@
       "Continuity range (500 V/1000 V only) on dual-voltage, dual-range instruments — at extra cost",
       "Any other range — on request"
     ],
-    "includedWith": []
+    "includedWith": [],
+    "metaTitle": "CIE/444 Insulation Tester — Hand-Driven, Metal Body | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE/444 hand-driven megger-type insulation tester in aluminium die-cast body. 100 V to 5000 V, battery-free, ISS 2992-1987. 28 voltage/range combinations. Made by Cambridge Instruments & Engg. Co., Howrah."
   },
   {
     "id": "cie-666",
@@ -405,7 +407,9 @@
       "Continuity range (500 V/1000 V only) on dual-voltage, dual-range instruments — at extra cost",
       "Any other range — on request"
     ],
-    "includedWith": []
+    "includedWith": [],
+    "metaTitle": "CIE/666 Insulation Tester — Hand-Driven, Wooden Body, up to 10 kV | Cambridge Instruments (CIE)",
+    "metaDesc": "CIE/666 hand-driven megger-type insulation tester in seasoned wooden body. 100 V to 10,000 V — widest hand-driven HV range. Battery-free. ISS 2992-1987. Cambridge Instruments & Engg. Co., Howrah."
   },
   {
     "id": "cie-444-mr",
@@ -1446,7 +1450,9 @@
       "Testing kit — 4-terminal: 4 M.S. spikes (45 cm), 4 flexible-wire spools (10/20/30 m), 1 hammer, carrying bag — at extra cost",
       "Carrying case for earth tester — at extra cost",
       "Any other range — on request"
-    ]
+    ],
+    "metaTitle": "CIE/222M Earth Tester — Analog, Hand-Driven, Metal Body | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE/222M analog earth resistance tester: 3-terminal (earth resistance) and 4-terminal (soil resistivity), ±5% per IS 9223. Complete kit with spikes and wire spools. Cambridge Instruments, Howrah."
   },
   {
     "id": "dit-5005",
@@ -1547,7 +1553,9 @@
       "Accurate and quick response",
       "Confirms to IS: 10656-1983"
     ],
-    "options": []
+    "options": [],
+    "metaTitle": "DIT-5005 Digital Insulation Tester — 500 V / 1000 V, Rechargeable | Cambridge Instruments (CIE)",
+    "metaDesc": "DIT-5005 digital insulation tester: 3½-digit LCD, 500 V / 1000 V / 2000 MΩ, rechargeable Ni-Cd, ABS body. Conforms to IS 10656-1983. Cambridge Instruments & Engg. Co., Howrah, India."
   },
   {
     "id": "dit-2500",
@@ -1623,7 +1631,9 @@
     "featured": true,
     "datasheet": null,
     "specTables": [],
-    "includedWith": []
+    "includedWith": [],
+    "metaTitle": "DIT-2500 Digital Insulation Tester + Multimeter, 2500 V / 50 GΩ | Cambridge Instruments (CIE)",
+    "metaDesc": "DIT-2500: digital insulation tester (100–2500 V, 50 GΩ, DAR, PI) combined with True-RMS multimeter. CAT III 1000 V / CAT IV 600 V. Li-ion rechargeable. Cambridge Instruments & Engg. Co., Howrah."
   },
   {
     "id": "dit-5000",
@@ -1703,7 +1713,9 @@
       "6 × AA Batteries",
       "User Manual",
       "Carrying Box"
-    ]
+    ],
+    "metaTitle": "DIT-5000 Digital Insulation Tester — up to 5000 V / 200 GΩ | Cambridge Instruments (CIE)",
+    "metaDesc": "DIT-5000 auto-ranging digital insulation tester: 500–5000 V, up to 200 GΩ, large LCD, HV LED indicator. For HV transformers, cables, motors. Cambridge Instruments & Engg. Co., Howrah, India."
   },
   {
     "id": "det-2000",
@@ -1804,7 +1816,9 @@
     ],
     "options": [
       "Testing kit: 4 M.S. spikes (45 cm), 1 hammer, 4 cables (50 ft each), 1 plier, 1 screwdriver — in canvas bag. At extra cost."
-    ]
+    ],
+    "metaTitle": "DET-2000 Digital Earth Resistance Tester — 4-Terminal | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "DET-2000 digital earth tester: 3½-digit LCD, 4-terminal, earth resistance and soil resistivity, rechargeable Ni-Cd. ±1.5% accuracy per IS 9223. Cambridge Instruments & Engg. Co., Howrah."
   },
   {
     "id": "mr-253a",
@@ -2081,7 +2095,7 @@
     "model": "DM 235",
     "name": "Digital Multimeter — 3½-digit",
     "tagline": "3½-digit DMM — 1000 V DC, 750 V AC, 20 A, resistance, capacitance, continuity, diode, hFE.",
-    "description": "The DM 235 is a 3½-digit digital multimeter measuring DC voltage to 1000 V, AC voltage to 750 V, current to 20 A (AC/DC), resistance, capacitance, continuity, diode test, and transistor hFE. Supplied with protective holster.",
+    "description": "The DM 235 is a 3½-digit digital multimeter measuring DC voltage up to 1000 V, AC voltage, and resistance — a compact, general-purpose instrument for everyday electrical measurement in industrial and commercial environments. It provides straightforward operation for voltage checks, resistance measurements, and continuity testing. The DM 235 is suited to electricians, electrical contractors, panel builders, and maintenance engineers who need a reliable, cost-effective multimeter for routine field measurements. Supplied by Cambridge Instruments & Engg. Co., Howrah.",
     "specs": [
       {
         "label": "DC Voltage",
@@ -2121,7 +2135,9 @@
     "datasheet": null,
     "includedWith": [
       "Protective holster"
-    ]
+    ],
+    "metaTitle": "DM 235 Digital Multimeter — 3½-digit | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE DM 235 3½-digit digital multimeter: DC voltage to 1000 V, AC voltage, resistance, continuity. Compact, general-purpose T&M instrument. Cambridge Instruments & Engg. Co., Howrah, India."
   },
   {
     "id": "dm-321t",
@@ -2283,7 +2299,9 @@
     "options": [
       "Tripping current set point other than standard 25 mA/50 mA — at extra cost",
       "Digital metering in place of standard analog — at extra cost"
-    ]
+    ],
+    "metaTitle": "CIE/5050A AC High Voltage Test Set — 0–5 kV | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE/5050A AC HV test set: 0–5 kV continuously variable output, analog voltmeter, toggle trip. For HV cable and equipment insulation withstand (hipot) testing. Cambridge Instruments & Engg. Co., Howrah."
   },
   {
     "id": "psi-1",
@@ -2291,7 +2309,7 @@
     "model": "PSI-1",
     "name": "Phase Sequence Indicator — Disc Rotating Type",
     "tagline": "Disc-rotating phase sequence indicator, bakelite body, 100–500 V AC.",
-    "description": "The PSI-1 is a disc-rotating phase sequence indicator in a bakelite body. Visually indicates phase sequence of a 3-phase AC supply from 100 V to 500 V. Supplied with R/Y/B leads and carrying case.",
+    "description": "The PSI-1 is a disc-rotating phase sequence indicator in a bakelite body. The rotating disc physically shows the direction of phase rotation (RYB or RBY), giving an immediate visual indication that is easy to interpret even in bright field lighting. It is used before connecting or energising any 3-phase motor, generator, or transformer — verifying correct phase sequence prevents reverse rotation, mechanical damage, and safety hazards. The PSI-1 connects to the 3-phase supply via three colour-coded test leads. Compact and lightweight, it is a standard tool for electrical commissioning engineers, electricians, and industrial maintenance teams.",
     "specs": [
       {
         "label": "Indication Method",
@@ -2325,7 +2343,9 @@
     "includedWith": [
       "R/Y/B test leads",
       "Carrying case"
-    ]
+    ],
+    "metaTitle": "PSI-1 Phase Sequence Indicator — Disc Rotating Type | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE PSI-1 disc-rotating phase sequence indicator: visually shows RYB or RBY rotation before energising motors or generators. Bakelite body. Cambridge Instruments & Engg. Co., Howrah."
   },
   {
     "id": "psi-2",
@@ -2333,7 +2353,7 @@
     "model": "PSI-2",
     "name": "Phase Sequence Indicator — ABS Moulded",
     "tagline": "ABS moulded 96×96 mm phase sequence indicator, 100–500 V. Supplied with case and leads.",
-    "description": "The PSI-2 is a phase sequence indicator in a compact ABS moulded enclosure (96×96 mm). Operating voltage 100–500 V AC. Supplied with carrying case and test leads.",
+    "description": "The PSI-2 is a phase sequence indicator in a compact ABS moulded enclosure (96×96×45 mm), suitable for panel mounting or handheld use. It verifies the phase rotation (RYB or RBY) of a 3-phase AC supply before motors, generators, or other rotating equipment are energised — incorrect phase sequence causes reverse motor rotation, which can damage connected machinery or create safety hazards. The PSI-2 is more compact than the disc-rotating PSI-1 and is preferred where a smaller form factor is needed. Used by commissioning engineers, electrical contractors, panel builders, and industrial maintenance teams across India.",
     "specs": [
       {
         "label": "Body",
@@ -2367,7 +2387,9 @@
     "includedWith": [
       "Carrying case",
       "Test leads"
-    ]
+    ],
+    "metaTitle": "PSI-2 Phase Sequence Indicator — Compact ABS Body | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE PSI-2 compact ABS moulded phase sequence indicator (96×96×45 mm). Verifies 3-phase supply rotation before energising motors or generators. Cambridge Instruments & Engg. Co., Howrah."
   },
   {
     "id": "cie-7050",
@@ -2495,7 +2517,9 @@
       "2-unit housing — at extra cost",
       "Double capacity (20 mA) — at extra cost",
       "Magnetic stirrer — at extra cost"
-    ]
+    ],
+    "metaTitle": "CIE/7050 Transformer Oil BDV Tester — 50 kV | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE/7050 transformer oil breakdown voltage (BDV) tester — 50 kV, IS 6792 / IEC 60156 test vessel. Manual and motorised variants. For power and distribution transformers. Cambridge Instruments, Howrah."
   },
   {
     "id": "cie-7100",
@@ -2623,7 +2647,9 @@
       "2-unit housing — at extra cost",
       "Double capacity (20 mA) — at extra cost",
       "Magnetic stirrer — at extra cost"
-    ]
+    ],
+    "metaTitle": "CIE/7100 Transformer Oil BDV Tester — 100 kV | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE/7100 transformer oil BDV tester — 100 kV, centre-point grounded electrodes, IS 6792 / IEC 60156 vessel. Manual and motorised variants. Cambridge Instruments & Engg. Co., Howrah, India."
   },
   {
     "id": "cie-7120",
@@ -2751,7 +2777,9 @@
       "2-unit housing — at extra cost",
       "Double capacity (20 mA) — at extra cost",
       "Magnetic stirrer — at extra cost"
-    ]
+    ],
+    "metaTitle": "CIE/7120 Transformer Oil BDV Tester — 120 kV | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE/7120 transformer oil breakdown voltage tester — 120 kV, highest voltage in the CIE/7000 series. IS 6792 / IEC 60156 vessel. Manual and motorised. Cambridge Instruments & Engg. Co., Howrah."
   },
   {
     "id": "rts-5",
@@ -2812,7 +2840,9 @@
       "Relay commissioning and maintenance in substations and panels"
     ],
     "featured": false,
-    "datasheet": null
+    "datasheet": null,
+    "metaTitle": "RTS-5 Single-Phase Relay Test Set, 0–200 A, 400 VA | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "RTS-5 single-phase relay test set: 0–200 A AC across ranges, digital timer (0–99.99 s), digital ammeter and voltmeter, 400 VA. For overcurrent and earth fault relays. Cambridge Instruments, Howrah."
   },
   {
     "id": "rts-5a",
@@ -2884,7 +2914,9 @@
       "Schematic Circuit Diagram",
       "Works Test Report",
       "Guarantee Certificate"
-    ]
+    ],
+    "metaTitle": "RTS-5A Single-Phase Relay Test Set, 1000 VA, Portable Trolley | Cambridge Instruments (CIE)",
+    "metaDesc": "RTS-5A single-phase relay test set on portable trolley: 1000 VA, 0–200 A, digital timer, ammeter and voltmeter. Heavy-duty portable unit for site commissioning. Cambridge Instruments & Engg. Co., Howrah."
   },
   {
     "id": "rts-33",
@@ -2963,6 +2995,8 @@
       "Guarantee Certificate",
       "1-metre interconnection cable (between Unit 1 and Unit 2)",
       "4-core, 5-metre mains input cable"
-    ]
+    ],
+    "metaTitle": "RTS-33 Three-Phase Relay Test Set, 250 VA, 0–360° Phase Angle | Cambridge Instruments (CIE)",
+    "metaDesc": "RTS-33 three-phase relay test set: variable 3-phase AC current, AC/DC voltage, 0–360° continuously variable phase angle, 250 VA burden. For distance, differential, directional relays. Cambridge Instruments, Howrah."
   }
 ]

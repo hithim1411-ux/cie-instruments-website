@@ -66,12 +66,17 @@ const productSchema = {
   }),
 };
 
-const pageDescription = `${product.model} ${product.name} — ${product.tagline} Manufactured by Cambridge Instruments & Engg. Co., Howrah, India. 12-month warranty.`;
+const autoTitle = `${product.model} — ${product.name}`;
+const autoDesc  = `${product.model} ${product.name} — ${product.tagline} Manufactured by Cambridge Instruments & Engg. Co., Howrah, India. 12-month warranty.`;
+const pageTitle       = (product as any).metaTitle ?? autoTitle;
+const pageDescription = (product as any).metaDesc  ?? autoDesc;
+const useRawTitle     = !!(product as any).metaTitle;
 ---
 
 <Base
-  title={`${product.model} — ${product.name}`}
+  title={pageTitle}
   description={pageDescription}
+  rawTitle={useRawTitle}
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   <!-- Page header -->

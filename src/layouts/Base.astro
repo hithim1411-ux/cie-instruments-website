@@ -10,6 +10,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  rawTitle?: boolean; // when true, use title as-is without appending brand suffix
 }
 
 const {
@@ -17,13 +18,14 @@ const {
   description = 'Cambridge Instruments & Engg. Co. (CIE) — manufacturer of electrical test and measurement instruments since 1963. Insulation testers, earth testers, relay test sets, oil BDV testers and more. Made in India.',
   ogImage = u('/logo/cie-logo.png'),
   noindex = false,
+  rawTitle = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const fullTitle = title === 'Home'
-  ? 'Cambridge Instruments & Engg. Co. (CIE) — Instruments for Accuracy and Reliability | Howrah, India'
-  : title.includes('Cambridge Instruments')
-    ? `${title} | CIE — Howrah, India`
+const fullTitle = rawTitle
+  ? title
+  : title === 'Home'
+    ? 'Cambridge Instruments & Engg. Co. (CIE) — Instruments for Accuracy and Reliability | Howrah, India'
     : `${title} | Cambridge Instruments & Engg. Co. (CIE) — Howrah`;
 
 const ogImageURL = new URL(ogImage, Astro.site).toString();
