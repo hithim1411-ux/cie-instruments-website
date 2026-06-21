@@ -56,12 +56,6 @@ const productSchema = {
     availability: 'https://schema.org/InStock',
     url: `https://cieinstruments.in/products/${product.categoryId}/${product.id}/`,
     seller: { '@id': 'https://cieinstruments.in/#organization' },
-    priceCurrency: 'INR',
-    priceSpecification: {
-      '@type': 'UnitPriceSpecification',
-      priceCurrency: 'INR',
-      description: 'Contact manufacturer for pricing',
-    },
   },
   ...(product.specs && product.specs.length > 0 && {
     additionalProperty: product.specs.map((s: { label: string; value: string }) => ({

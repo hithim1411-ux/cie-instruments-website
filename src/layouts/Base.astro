@@ -32,7 +32,7 @@ const orgSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'Organization',
+      '@type': ['Organization', 'LocalBusiness'],
       '@id': 'https://cieinstruments.in/#organization',
       name: 'Cambridge Instruments & Engg. Co.',
       alternateName: [
@@ -51,7 +51,11 @@ const orgSchema = {
         width: 200,
         height: 200,
       },
+      image: 'https://cieinstruments.in/logo/cie-logo.png',
       foundingDate: '1963',
+      telephone: '+913326388346',
+      email: 'cieinstruments@gmail.com',
+      priceRange: 'Contact for quote',
       description: 'Manufacturer of precision electrical test and measurement instruments — insulation testers, earth testers, relay test sets, oil BDV testers — since 1963. Made in Howrah, India.',
       address: {
         '@type': 'PostalAddress',
@@ -61,6 +65,15 @@ const orgSchema = {
         postalCode: '711101',
         addressCountry: 'IN',
       },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 22.5958,
+        longitude: 88.2636,
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'India',
+      },
       contactPoint: {
         '@type': 'ContactPoint',
         email: 'cieinstruments@gmail.com',
@@ -68,7 +81,16 @@ const orgSchema = {
         areaServed: 'IN',
         availableLanguage: 'en',
       },
-      sameAs: [],
+      knowsAbout: [
+        'Insulation Testers',
+        'Earth Resistance Testers',
+        'Relay Test Sets',
+        'Oil BDV Test Sets',
+        'Digital Multimeters',
+        'Clamp Meters',
+        'Micro-Ohm Meters',
+        'Electrical Test Equipment',
+      ],
     },
     {
       '@type': 'WebSite',

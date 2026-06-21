@@ -37,56 +37,12 @@ const industries = [
   { name: 'EPC Contractors',           desc: 'Project commissioning and acceptance testing', icon: '📋' },
 ];
 
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://cieinstruments.in/#organization',
-  name: 'Cambridge Instruments & Engg. Co.',
-  alternateName: 'CIE Instruments',
-  url: 'https://cieinstruments.in/',
-  telephone: '+913326388346',
-  email: 'cieinstruments@gmail.com',
-  foundingDate: '1963',
-  priceRange: 'Contact for quote',
-  image: 'https://cieinstruments.in/logo/cie-logo.png',
-  logo: 'https://cieinstruments.in/logo/cie-logo.png',
-  description: 'Manufacturer of precision electrical test and measurement instruments — insulation testers, earth testers, relay test sets, oil BDV testers — since 1963.',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Howrah',
-    addressLocality: 'Howrah',
-    addressRegion: 'West Bengal',
-    postalCode: '711101',
-    addressCountry: 'IN',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 22.5958,
-    longitude: 88.2636,
-  },
-  areaServed: {
-    '@type': 'Country',
-    name: 'India',
-  },
-  knowsAbout: [
-    'Insulation Testers',
-    'Earth Resistance Testers',
-    'Relay Test Sets',
-    'Oil BDV Test Sets',
-    'Digital Multimeters',
-    'Clamp Meters',
-    'Micro-Ohm Meters',
-    'Electrical Test Equipment',
-  ],
-};
 ---
 
 <Base
   title="Home"
   description="CIE Instruments — Cambridge Instruments & Engg. Co., Howrah. Manufacturer of insulation testers, earth testers, relay test sets, oil BDV testers, and digital measuring instruments since 1963. Trusted by PGCIL, WBSETCL, Indian Railways. Made in India."
 >
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-
   <!-- ── HERO ──────────────────────────────────────────────────────────────── -->
   <section class="blueprint-bg text-white relative overflow-hidden">
     <!-- Left red accent bar -->
