@@ -2094,32 +2094,56 @@
     "categoryId": "clamp-multimeters",
     "model": "DM 235",
     "name": "Digital Multimeter — 3½-digit",
-    "tagline": "3½-digit DMM — 1000 V DC, 750 V AC, 20 A, resistance, capacitance, continuity, diode, hFE.",
-    "description": "The DM 235 is a 3½-digit digital multimeter measuring DC voltage up to 1000 V, AC voltage, and resistance — a compact, general-purpose instrument for everyday electrical measurement in industrial and commercial environments. It provides straightforward operation for voltage checks, resistance measurements, and continuity testing. The DM 235 is suited to electricians, electrical contractors, panel builders, and maintenance engineers who need a reliable, cost-effective multimeter for routine field measurements. Supplied by Cambridge Instruments & Engg. Co., Howrah.",
+    "tagline": "3½-digit manual-ranging DMM — DC/AC voltage, DC/AC current, resistance, capacitance, continuity, diode, hFE. 9 V battery.",
+    "description": "The DM 235 is a 3½-digit manual-ranging digital multimeter for general electrical and electronic measurement. It measures DC voltage up to 1000 V, AC voltage up to 750 V, DC and AC current up to 20 A, resistance up to 200 MΩ, and capacitance. Additional functions include continuity test, diode test, transistor (hFE) test, auto power-off, and low battery indication. Powered by a 9 V battery. Supplied with test leads, user manual, battery, and holster. Cambridge Instruments & Engg. Co., Howrah.",
     "specs": [
-      {
-        "label": "DC Voltage",
-        "value": "Up to 1000 V"
-      },
-      {
-        "label": "AC Voltage",
-        "value": "Up to 750 V"
-      },
-      {
-        "label": "AC/DC Current",
-        "value": "Up to 20 A"
-      },
-      {
-        "label": "Additional Functions",
-        "value": "Resistance, capacitance, continuity, diode, hFE"
-      },
       {
         "label": "Display",
         "value": "3½-digit"
       },
       {
-        "label": "Accessories",
-        "value": "Protective holster (supplied)"
+        "label": "Ranging",
+        "value": "Manual"
+      },
+      {
+        "label": "DC Voltage",
+        "value": "200 mV / 2 V / 20 V / 200 V / 1000 V"
+      },
+      {
+        "label": "AC Voltage",
+        "value": "2 V / 20 V / 200 V / 750 V"
+      },
+      {
+        "label": "DC Current",
+        "value": "2 mA / 20 mA / 200 mA / 20 A"
+      },
+      {
+        "label": "AC Current",
+        "value": "20 mA / 200 mA / 20 A"
+      },
+      {
+        "label": "Resistance",
+        "value": "200 Ω / 2 KΩ / 20 KΩ / 200 KΩ / 2 MΩ / 20 MΩ / 200 MΩ"
+      },
+      {
+        "label": "Capacitance",
+        "value": "2000 pF / 20 nF / 200 nF / 2 µF / 20 µF"
+      },
+      {
+        "label": "Additional Functions",
+        "value": "Continuity test, diode test, transistor (hFE) test, auto power-off, low battery indication"
+      },
+      {
+        "label": "Power Supply",
+        "value": "9 V battery"
+      },
+      {
+        "label": "Dimensions (L×W×H)",
+        "value": "170 × 87 × 35 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 210 g (incl. battery)"
       },
       {
         "label": "Warranty",
@@ -2134,10 +2158,13 @@
     "featured": false,
     "datasheet": null,
     "includedWith": [
-      "Protective holster"
+      "Test Leads",
+      "User Manual",
+      "Battery (installed / kept aside)",
+      "Holster"
     ],
     "metaTitle": "DM 235 Digital Multimeter — 3½-digit | Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE DM 235 3½-digit digital multimeter: DC voltage to 1000 V, AC voltage, resistance, continuity. Compact, general-purpose T&M instrument. Cambridge Instruments & Engg. Co., Howrah, India."
+    "metaDesc": "CIE DM 235 3½-digit manual-ranging digital multimeter: DC 1000 V, AC 750 V, 20 A, resistance to 200 MΩ, capacitance, continuity, diode, hFE. Cambridge Instruments & Engg. Co., Howrah, India."
   },
   {
     "id": "dm-321t",
@@ -2165,7 +2192,7 @@
       },
       {
         "label": "AC Voltage (True-RMS)",
-        "value": "2 V / 20 V / 200 V / 750 V (40–400 Hz)"
+        "value": "2 V / 20 V / 200 V / 750 V"
       },
       {
         "label": "DC Current",
@@ -2173,23 +2200,27 @@
       },
       {
         "label": "AC Current (True-RMS)",
-        "value": "20 mA / 200 mA / 20 A (40–200 Hz)"
+        "value": "20 mA / 200 mA / 20 A"
       },
       {
         "label": "Resistance",
         "value": "200 Ω / 2 KΩ / 20 KΩ / 200 KΩ / 2 MΩ / 20 MΩ"
       },
       {
-        "label": "Capacitance",
+        "label": "Capacitance (Auto Ranging)",
         "value": "2 nF – 20 mF"
       },
       {
         "label": "Transistor Test",
-        "value": "hFE (PNP or NPN)"
+        "value": "hFE"
       },
       {
         "label": "Additional Functions",
-        "value": "Continuity test, diode test, data hold, auto power-off"
+        "value": "Continuity test, diode test, data hold, backlight, auto power-off, low battery indication"
+      },
+      {
+        "label": "Power Supply",
+        "value": "9 V battery"
       },
       {
         "label": "Dimensions (L×W×H)",
@@ -2214,7 +2245,8 @@
     "includedWith": [
       "Test Leads",
       "User Manual",
-      "Battery"
+      "Battery (installed / kept aside)",
+      "Holster"
     ]
   },
   {
