@@ -109,6 +109,8 @@ const useRawTitle     = !!(product as any).metaTitle;
             <img
               src={productImageSrc}
               alt={`${product.model} — ${product.name}`}
+              width="600"
+              height="600"
               class="object-contain max-h-full max-w-full p-4"
               loading="lazy"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
@@ -152,7 +154,7 @@ const useRawTitle     = !!(product as any).metaTitle;
           <p class="text-xs font-mono font-bold text-[#0D2547] uppercase tracking-widest mb-3">CIE® Guarantee</p>
           <ul class="space-y-2">
             {['CIE® Registered Trade Mark', 'Calibrated Before Despatch', '12-Month Warranty', 'Made in India', 'Custom Ranges Available'].map(f => (
-              <li class="flex items-center gap-2 text-xs text-[#64748B]">
+              <li class="flex items-center gap-2 text-xs text-[#475569]">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] shrink-0"></span>
                 {f}
               </li>

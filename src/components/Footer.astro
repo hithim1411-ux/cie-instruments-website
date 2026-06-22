@@ -14,13 +14,13 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
     <!-- Brand column -->
     <div class="lg:col-span-1">
       <a href={u('/')} class="inline-block mb-4" aria-label="CIE Home">
-        <img src={u('/logo/cie-logo-light.png')} alt="CIE Instruments" class="h-14 w-auto" />
+        <img src={u('/logo/cie-logo-light.png')} alt="CIE Instruments" width="1577" height="997" class="h-14 w-auto" />
       </a>
       <p class="text-sm leading-relaxed mb-4">
         Cambridge Instruments &amp; Engg. Co. — instruments for accuracy and reliability,
         manufactured in Howrah since 1963.
       </p>
-      <p class="text-xs text-[#64748B] mt-1">Est. 1963 · Made in India</p>
+      <p class="text-xs text-[#94a3b8] mt-1">Est. 1963 · Made in India</p>
     </div>
 
     <!-- Products column -->
@@ -65,7 +65,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         <div class="space-y-1 pt-1">
           {site.phones.map(p => (
             <p>
-              <span class="text-xs text-[#64748B]">{p.label}: </span>
+              <span class="text-xs text-[#94a3b8]">{p.label}: </span>
               <a href={`tel:${p.number.replace(/\s/g,'')}`} class="hover:text-white transition-colors">{p.number}</a>
             </p>
           ))}
