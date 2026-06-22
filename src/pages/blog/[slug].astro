@@ -264,11 +264,27 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
   margin-bottom: 0.6rem;
   scroll-margin-top: 6rem;
 }
+.blog-content > p,
+.blog-content > h2 + p,
+.blog-content > h3 + p {
+  color: #374151;
+  line-height: 1.85;
+  margin-bottom: 1.1rem;
+  font-size: 1.025rem;
+}
+/* Standalone p that isn't a direct child of a section heading chain */
 .blog-content p {
   color: #374151;
   line-height: 1.85;
   margin-bottom: 1.1rem;
   font-size: 1.025rem;
+}
+/* .ci: only p tags inside inherit color — divs keep their explicit Tailwind classes */
+.blog-content .ci p {
+  color: inherit !important;
+  line-height: inherit;
+  font-size: inherit;
+  margin-bottom: 0;
 }
 .blog-content ul, .blog-content ol {
   margin: 0.75rem 0 1.25rem 0;
