@@ -74,83 +74,87 @@ const toc = tocMap[slug] ?? [];
 const otherPosts = posts.filter(p => p.slug !== slug).slice(0, 3);
 
 const categoryColors: Record<string, string> = {
-  'Guides':       'bg-violet-100 text-violet-700 border-violet-200',
-  'How-To':       'bg-blue-100 text-blue-700 border-blue-200',
-  'Physics':      'bg-amber-100 text-amber-700 border-amber-200',
-  'Buying Guide': 'bg-emerald-100 text-emerald-700 border-emerald-200',
+  'Guides':       'text-violet-600 bg-violet-50 border-violet-200',
+  'How-To':       'text-blue-600 bg-blue-50 border-blue-200',
+  'Physics':      'text-amber-700 bg-amber-50 border-amber-200',
+  'Buying Guide': 'text-emerald-700 bg-emerald-50 border-emerald-200',
 };
-const catStyle = categoryColors[post.category] ?? 'bg-gray-100 text-gray-700 border-gray-200';
+const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 border-gray-200';
 ---
 
 <Base
   title={`${post.title} | CIE Instruments`}
   description={post.description}
 >
-  <!-- Hero -->
-  <div class="bg-gradient-to-br from-[#0D1B2A] via-[#1B3A5B] to-[#0D1B2A] border-b border-white/10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+
+  <!-- ── Article Hero ── -->
+  <div class="border-b border-gray-100 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10">
+
       <!-- Breadcrumb -->
       <nav class="mb-7" aria-label="Breadcrumb">
-        <ol class="flex items-center gap-2 text-xs text-[#94a3b8] font-mono">
-          <li><a href={u('/')} class="hover:text-white transition-colors">Home</a></li>
-          <li aria-hidden="true" class="text-white/30">›</li>
-          <li><a href={u('/blog/')} class="hover:text-white transition-colors">Blog</a></li>
-          <li aria-hidden="true" class="text-white/30">›</li>
-          <li class="text-white/60 truncate max-w-[200px]">{post.category}</li>
+        <ol class="flex items-center gap-2 text-xs text-gray-400 font-mono">
+          <li><a href={u('/')} class="hover:text-[#0D1B2A] transition-colors">Home</a></li>
+          <li aria-hidden="true">›</li>
+          <li><a href={u('/blog/')} class="hover:text-[#0D1B2A] transition-colors">Knowledge Base</a></li>
+          <li aria-hidden="true">›</li>
+          <li class="text-gray-500 truncate max-w-[180px]">{post.category}</li>
         </ol>
       </nav>
 
-      <span class={`inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border mb-5 ${catStyle}`}>
+      <span class={`inline-block text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border mb-5 ${catStyle}`}>
         {post.category}
       </span>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight max-w-3xl mb-6">
+      <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-[#0D1B2A] leading-tight tracking-tight max-w-3xl mb-5">
         {post.title}
       </h1>
 
-      <p class="text-[#94a3b8] text-lg max-w-2xl mb-8 leading-relaxed">{post.description}</p>
+      <p class="text-[#64748b] text-lg max-w-2xl mb-8 leading-relaxed">{post.description}</p>
 
-      <div class="flex flex-wrap items-center gap-4 text-sm text-[#64748b]">
-        <!-- Author chip -->
-        <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-1.5">
-          <div class="w-6 h-6 rounded-full bg-[#E0252E] flex items-center justify-center text-white text-[10px] font-bold">CIE</div>
-          <span class="text-[#94a3b8] text-xs font-medium">CIE Instruments</span>
+      <!-- Meta row -->
+      <div class="flex flex-wrap items-center gap-5 text-sm text-gray-400 border-t border-gray-100 pt-6">
+        <div class="flex items-center gap-2.5">
+          <img
+            src={u('/logo/cie-logo.png')}
+            alt="CIE Instruments"
+            width="22"
+            height="22"
+            class="object-contain shrink-0"
+          />
+          <span class="text-gray-600 font-medium text-sm">CIE Instruments</span>
         </div>
-        <!-- Date -->
-        <div class="flex items-center gap-1.5 text-[#94a3b8] text-xs">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5"/></svg>
-          <time datetime={post.publishDate}>
-            {new Date(post.publishDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
-          </time>
-        </div>
-        <!-- Read time -->
-        <div class="flex items-center gap-1.5 text-[#94a3b8] text-xs">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          {post.readTime}
-        </div>
+        <span class="text-gray-200">|</span>
+        <time datetime={post.publishDate} class="font-mono text-xs">
+          {new Date(post.publishDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
+        </time>
+        <span class="text-gray-200">|</span>
+        <span class="font-mono text-xs">{post.readTime}</span>
       </div>
     </div>
   </div>
 
-  <!-- Body: prose + sidebar -->
+  <!-- ── Body: article + sidebar ── -->
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-    <div class="flex gap-12 items-start">
+    <div class="flex gap-14 items-start">
 
-      <!-- ── Article content ── -->
+      <!-- Article content -->
       <article class="min-w-0 flex-1 blog-content">
         <Content />
 
         <!-- Bottom CTA -->
-        <div class="mt-16 rounded-2xl overflow-hidden">
-          <div class="bg-gradient-to-br from-[#0D1B2A] to-[#1B3A5B] p-8 text-center">
-            <p class="text-xs font-mono uppercase tracking-widest text-[#E0252E] mb-2">Need an instrument?</p>
-            <h2 class="text-2xl font-bold text-white mb-3">Shop CIE's Range of Testers</h2>
-            <p class="text-[#94a3b8] text-sm mb-7 max-w-md mx-auto">Multimeters, clamp meters, insulation testers and more — manufactured in Howrah, India since 1963.</p>
-            <div class="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={u('/products/')} class="px-6 py-3 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded-lg transition-colors">
+        <div class="mt-16 border border-gray-200 rounded-xl overflow-hidden">
+          <div class="flex flex-col md:flex-row items-center gap-8 p-8">
+            <div class="flex-1">
+              <p class="text-xs font-mono uppercase tracking-widest text-[#E0252E] mb-2">CIE Instruments</p>
+              <h2 class="text-xl font-bold text-[#0D1B2A] mb-2">Need instruments, not just answers?</h2>
+              <p class="text-sm text-[#64748b] leading-relaxed">Multimeters, clamp meters, insulation testers and more — manufactured in Howrah, India since 1963.</p>
+            </div>
+            <div class="flex flex-col gap-3 shrink-0">
+              <a href={u('/products/')} class="px-6 py-2.5 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded transition-colors text-center">
                 Browse Products
               </a>
-              <a href={u('/contact/')} class="px-6 py-3 border border-white/20 hover:border-white/50 text-white text-sm font-semibold rounded-lg transition-colors">
+              <a href={u('/contact/')} class="px-6 py-2.5 border border-gray-300 hover:border-[#0D1B2A] text-[#0D1B2A] text-sm font-semibold rounded transition-colors text-center">
                 Contact Us
               </a>
             </div>
@@ -158,22 +162,22 @@ const catStyle = categoryColors[post.category] ?? 'bg-gray-100 text-gray-700 bor
         </div>
       </article>
 
-      <!-- ── Sidebar ── -->
-      <aside class="hidden lg:block w-72 shrink-0">
+      <!-- Sidebar -->
+      <aside class="hidden lg:block w-64 shrink-0">
         <div class="sticky top-24 space-y-6">
 
           <!-- TOC -->
           {toc.length > 0 && (
-            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-5">
-              <p class="text-xs font-mono uppercase tracking-widest text-[#64748b] mb-4">In this article</p>
+            <div class="border border-gray-200 rounded-xl p-5">
+              <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-[#94a3b8] mb-4">In this article</p>
               <nav>
-                <ul class="space-y-1" id="toc-list">
+                <ul class="space-y-0.5" id="toc-list">
                   {toc.map(item => (
                     <li>
                       <a
                         href={`#${item.id}`}
                         data-toc
-                        class="flex items-center gap-2 text-sm text-gray-600 hover:text-[#E0252E] py-1 px-2 rounded-lg hover:bg-red-50 transition-colors group"
+                        class="flex items-center gap-2.5 text-sm text-[#64748b] hover:text-[#0D1B2A] py-1.5 px-2 rounded-lg hover:bg-gray-50 transition-colors group"
                       >
                         <span class="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-[#E0252E] transition-colors shrink-0"></span>
                         {item.label}
@@ -185,28 +189,30 @@ const catStyle = categoryColors[post.category] ?? 'bg-gray-100 text-gray-700 bor
             </div>
           )}
 
-          <!-- Products CTA card -->
-          <div class="bg-[#0D1B2A] rounded-2xl p-5 text-center">
-            <div class="w-10 h-10 rounded-full bg-[#E0252E]/20 border border-[#E0252E]/30 flex items-center justify-center mx-auto mb-3">
-              <svg class="w-5 h-5 text-[#E0252E]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
-              </svg>
-            </div>
-            <p class="text-white font-bold text-sm mb-1">CIE Instruments</p>
-            <p class="text-[#94a3b8] text-xs mb-4">Making precision test instruments since 1963</p>
-            <a href={u('/products/')} class="block w-full py-2 bg-[#E0252E] hover:bg-[#D72631] text-white text-xs font-semibold rounded-lg transition-colors">
-              View Products →
+          <!-- CIE brand card -->
+          <div class="border border-gray-200 rounded-xl p-5">
+            <img
+              src={u('/logo/cie-logo.png')}
+              alt="CIE Instruments"
+              width="48"
+              height="48"
+              class="mb-4 object-contain"
+            />
+            <p class="font-bold text-[#0D1B2A] text-sm mb-1">Cambridge Instruments &amp; Engg. Co.</p>
+            <p class="text-xs text-[#64748b] mb-4 leading-relaxed">Precision test and measurement instruments since 1963.</p>
+            <a href={u('/products/')} class="block w-full py-2.5 bg-[#0D1B2A] hover:bg-[#1B3A5B] text-white text-xs font-semibold rounded text-center transition-colors">
+              Browse Products
             </a>
           </div>
 
-          <!-- Related posts -->
+          <!-- More articles -->
           {otherPosts.length > 0 && (
-            <div class="border border-gray-200 rounded-2xl p-5">
-              <p class="text-xs font-mono uppercase tracking-widest text-[#64748b] mb-4">More Articles</p>
-              <div class="space-y-3">
+            <div class="border border-gray-200 rounded-xl p-5">
+              <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-[#94a3b8] mb-4">More Articles</p>
+              <div class="space-y-4">
                 {otherPosts.map(p => (
                   <a href={u(`/blog/${p.slug}/`)} class="block group">
-                    <p class="text-xs text-[#E0252E] font-mono uppercase tracking-widest mb-0.5">{p.category}</p>
+                    <p class="text-[10px] font-mono uppercase tracking-widest text-[#E0252E] mb-0.5">{p.category}</p>
                     <p class="text-sm font-semibold text-[#0D1B2A] group-hover:text-[#E0252E] transition-colors leading-snug">{p.title}</p>
                     <p class="text-xs text-gray-400 mt-0.5">{p.readTime}</p>
                   </a>
@@ -219,15 +225,15 @@ const catStyle = categoryColors[post.category] ?? 'bg-gray-100 text-gray-700 bor
     </div>
   </div>
 
-  <!-- Mobile: related posts -->
+  <!-- Mobile: more articles -->
   {otherPosts.length > 0 && (
-    <section class="lg:hidden bg-gray-50 border-t border-gray-200 py-10">
+    <section class="lg:hidden border-t border-gray-100 bg-gray-50 py-10">
       <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-lg font-bold text-[#0D1B2A] mb-5">More from the blog</h2>
+        <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-[#94a3b8] mb-5">More Articles</p>
         <div class="grid sm:grid-cols-2 gap-4">
           {otherPosts.slice(0, 2).map(p => (
-            <a href={u(`/blog/${p.slug}/`)} class="bg-white border border-gray-200 rounded-xl p-4 group">
-              <p class="text-xs text-[#E0252E] font-mono uppercase tracking-widest mb-1">{p.category}</p>
+            <a href={u(`/blog/${p.slug}/`)} class="bg-white border border-gray-200 rounded-xl p-5 group hover:border-[#0D1B2A] transition-colors">
+              <p class="text-[10px] font-mono uppercase tracking-widest text-[#E0252E] mb-1.5">{p.category}</p>
               <p class="text-sm font-bold text-[#0D1B2A] group-hover:text-[#E0252E] transition-colors leading-snug">{p.title}</p>
             </a>
           ))}
@@ -246,11 +252,12 @@ const catStyle = categoryColors[post.category] ?? 'bg-gray-100 text-gray-700 bor
   margin-top: 2.75rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #E8ECF2;
+  border-bottom: 1px solid #E8ECF2;
   scroll-margin-top: 6rem;
+  letter-spacing: -0.01em;
 }
 .blog-content h3 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #1B3A5B;
   margin-top: 2rem;
@@ -259,51 +266,52 @@ const catStyle = categoryColors[post.category] ?? 'bg-gray-100 text-gray-700 bor
 }
 .blog-content p {
   color: #374151;
-  line-height: 1.8;
+  line-height: 1.85;
   margin-bottom: 1.1rem;
   font-size: 1.025rem;
 }
 .blog-content ul, .blog-content ol {
-  margin: 1rem 0 1.4rem 1.2rem;
+  margin: 0.75rem 0 1.25rem 0;
   color: #374151;
-  font-size: 1.025rem;
+  font-size: 1rem;
+  padding: 0;
 }
-.blog-content ul { list-style: none; padding: 0; }
+.blog-content ul { list-style: none; }
 .blog-content ul li {
-  padding-left: 1.5rem;
+  padding-left: 1.4rem;
   position: relative;
   margin-bottom: 0.5rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .blog-content ul li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.6rem;
-  width: 6px;
-  height: 6px;
+  top: 0.65rem;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: #E0252E;
 }
-.blog-content ol { list-style: none; counter-reset: ol-counter; padding: 0; }
+.blog-content ol { list-style: none; counter-reset: ol-counter; }
 .blog-content ol li {
   counter-increment: ol-counter;
   padding-left: 2rem;
   position: relative;
   margin-bottom: 0.6rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .blog-content ol li::before {
   content: counter(ol-counter);
   position: absolute;
   left: 0;
-  top: 0.05rem;
-  width: 1.4rem;
-  height: 1.4rem;
+  top: 0.1rem;
+  width: 1.3rem;
+  height: 1.3rem;
   border-radius: 50%;
   background: #0D1B2A;
   color: white;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -315,41 +323,37 @@ const catStyle = categoryColors[post.category] ?? 'bg-gray-100 text-gray-700 bor
 .blog-content a:hover { text-decoration: underline; }
 .blog-content code {
   background: #FEF2F2;
-  color: #E0252E;
+  color: #C0192B;
   padding: 0.15em 0.4em;
-  border-radius: 4px;
-  font-size: 0.88em;
+  border-radius: 3px;
+  font-size: 0.87em;
   font-family: 'IBM Plex Mono', monospace;
 }
 
-/* TOC active state */
+/* TOC active */
 .toc-active {
-  color: #E0252E !important;
-  background: #FEF2F2 !important;
+  color: #0D1B2A !important;
+  background: #F8F9FA !important;
   font-weight: 600;
 }
 .toc-active span { background: #E0252E !important; }
 </style>
 
 <script>
-// Highlight active TOC item on scroll
 const tocLinks = document.querySelectorAll<HTMLAnchorElement>('[data-toc]');
 const headings = Array.from(document.querySelectorAll<HTMLElement>('.blog-content h2, .blog-content h3'));
 
 function setActive() {
-  const scrollY = window.scrollY + 120;
+  const scrollY = window.scrollY + 130;
   let active = headings[0];
   for (const h of headings) {
     if (h.offsetTop <= scrollY) active = h;
   }
   tocLinks.forEach(link => {
     link.classList.remove('toc-active');
-    if (active && link.getAttribute('href') === `#${active.id}`) {
-      link.classList.add('toc-active');
-    }
+    if (active && link.getAttribute('href') === `#${active.id}`) link.classList.add('toc-active');
   });
 }
-
 window.addEventListener('scroll', setActive, { passive: true });
 setActive();
 </script>
