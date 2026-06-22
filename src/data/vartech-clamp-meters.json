@@ -1,0 +1,198 @@
+[
+  {
+    "id": "v-266",
+    "model": "V 266",
+    "name": "Digital Clamp Multimeter 1000A AC",
+    "tagline": "India's best-selling digital clamp multimeter — 1000A AC, 1000V DC, 50 mm jaw and optional insulation tester.",
+    "description": "The Vartech V 266 is India's most popular digital clamp multimeter — a proven workhorse trusted by electricians, electrical contractors and maintenance engineers across the country for its simplicity, reliability and outstanding value. With a 1000 A AC current range, 1000 V DC voltage measurement and a 50 mm jaw that fits standard cable sizes, it covers the core measurements that come up every day on site — without breaking the circuit or shutting down the load. The optional external insulation tester module extends it to 2000 MΩ insulation resistance measurement, making it a two-in-one field instrument.",
+    "features": [
+      "1000 A AC clamp current measurement with 50 mm jaw opening — safely measure cable currents up to 1000 A without breaking the circuit or interrupting the load",
+      "Dual current ranges (200 A and 1000 A) — use the 200 A range for motors, lighting and branch circuits for better resolution; switch to 1000 A for panel feeders and mains",
+      "Optional external insulation tester module (20 MΩ to 2000 MΩ) — convert this clamp meter into an insulation tester at will, eliminating the need to carry a separate instrument",
+      "1000 V DC and 750 V AC voltage measurement — covers the full low-voltage distribution range in a single instrument",
+      "Resistance measurement (200 Ω and 20 KΩ) with audible continuity buzzer — complete tool for electrical fault finding and circuit verification",
+      "Data Hold — freeze the reading on screen so you can record it safely without staying in an awkward position near live conductors",
+      "ISO 9001 certified manufacturing — consistent quality across every unit; simple, robust and built for daily field use"
+    ],
+    "specs": [
+      { "label": "Display", "value": "3½ Digits, 2000 Counts" },
+      { "label": "Ranging", "value": "Manual" },
+      { "label": "Jaw Opening", "value": "50 mm" },
+      { "label": "AC Current", "value": "200 A / 1000 A  |  Accuracy: ±(3% rdg + 5 digits)  |  ≥800 A: unspecified (reference only)  |  Freq. response: 50–60 Hz" },
+      { "label": "DC Voltage", "value": "1000 V  |  Accuracy: ±(0.8% rdg + 1 digit)  |  Input impedance: 9 MΩ" },
+      { "label": "AC Voltage", "value": "750 V  |  Accuracy: ±(1.2% rdg + 4 digits)  |  Freq. response: 50–400 Hz  |  Input impedance: 9 MΩ" },
+      { "label": "Resistance", "value": "200 Ω  |  Accuracy: ±(1% rdg + 3 digits)  /  20 KΩ  |  Accuracy: ±(1% rdg + 1 digit)" },
+      { "label": "Insulation Resistance (optional ext. unit)", "value": "20 MΩ  |  ±(2% rdg + 2 digits)  /  2000 MΩ  |  ≤500 MΩ: ±(4% rdg + 2 digits)  /  ≥500 MΩ: ±(5% rdg + 2 digits)" },
+      { "label": "Other Functions", "value": "Continuity Test (buzzer <75 Ω), Data Hold" },
+      { "label": "Power", "value": "9 V (6F22)" },
+      { "label": "Accessories", "value": "Test leads, operating manual, carrying case, battery" },
+      { "label": "Dimensions & Weight", "value": "230 × 70 × 37 mm  |  ~310 g (including battery)" }
+    ],
+    "images": ["v-266.webp", "v-266-2.webp"],
+    "catalogue": "v-266.pdf"
+  },
+  {
+    "id": "v-266-plus",
+    "model": "V 266+",
+    "name": "Digital Clamp Multimeter 1000A AC 600V",
+    "tagline": "4000-count clamp multimeter with NCV, torch and three current ranges — the safer, smarter everyday clamp meter.",
+    "description": "The Vartech V 266+ is the step-up from the V 266, offering 4000-count resolution, three AC current ranges from 40 A to 1000 A, NCV detection and a built-in torch in a slimmer, lighter 220 g body. The lower 40 A current range gives far better resolution for small motors, branch circuits and lighting loads where the 1000 A range is too coarse — while NCV detection lets you safely confirm live conductors before probing. For working electricians who want a more capable daily clamp meter, the V 266+ delivers without complicating the workflow.",
+    "features": [
+      "4000-count resolution — twice the measurement resolution of standard 2000-count clamp meters for more precise current and voltage readings",
+      "Three AC current ranges: 40 A / 400 A / 1000 A — the 40 A range resolves small motor currents and lighting loads with high accuracy; switch up to 1000 A for mains feeders",
+      "Non-Contact Voltage (NCV) detection — identify energised conductors before probing; a critical safety feature absent from the basic V 266",
+      "Built-in torch — illuminate dark distribution boards, panels and cable trays while both hands stay on the meter",
+      "Resistance measurement up to 40 MΩ across 6 ranges — broader insulation spot-check and component testing capability than the V 266",
+      "Lightweight at 220 g — noticeably easier to handle in overhead work and tight spaces; ideal for all-day field use",
+      "NCV, diode test, continuity and data hold — the complete set of daily-use field functions"
+    ],
+    "specs": [
+      { "label": "Display", "value": "3¾ Digits, 4000 Counts" },
+      { "label": "Ranging", "value": "Manual" },
+      { "label": "DC Voltage", "value": "4 V / 40 V / 600 V  |  Accuracy: ±(0.8% rdg + 2 digits)" },
+      { "label": "AC Voltage", "value": "4 V / 40 V / 600 V  |  Accuracy: ±(1% rdg + 10 digits)" },
+      { "label": "AC Current", "value": "40 A / 400 A / 1000 A  |  Accuracy: ±(2.5% rdg + 10 digits)" },
+      { "label": "Resistance", "value": "400 Ω / 4 KΩ / 40 KΩ / 400 KΩ / 4 MΩ / 40 MΩ  |  Accuracy: ±(1.2% rdg + 2 digits)" },
+      { "label": "Other Functions", "value": "NCV Test, Diode Test, Continuity Test, Torch, Data Hold, Low Battery Indication" },
+      { "label": "Power", "value": "2 × 1.5 V AAA batteries (optional)" },
+      { "label": "Accessories", "value": "Test leads, carrying pouch, user manual, battery" },
+      { "label": "Dimensions & Weight", "value": "222 × 90 × 35 mm  |  ~220 g (including battery)" }
+    ],
+    "images": ["v-266-plus.webp", "v-266-plus-2.webp", "v-266-plus-3.webp"],
+    "catalogue": "v-266-plus-and-v-266-c.pdf"
+  },
+  {
+    "id": "v-266-c",
+    "model": "V 266 C",
+    "name": "Digital Clamp Multimeter with Capacitance Frequency Temperature",
+    "tagline": "6000-count clamp multimeter with capacitance, frequency, temperature measurement and backlit display — the most capable V 266 variant.",
+    "description": "The Vartech V 266 C is the most feature-complete instrument in the V 266 family — a 6000-count clamp meter that adds capacitance, frequency and temperature measurement to the core current clamp capability, along with a backlit display for working in switchrooms and dark panels. It is the ideal choice for electrical engineers and HVAC technicians who need a single, portable clamp meter capable of electrical, component and environmental measurements without carrying a separate multimeter.",
+    "features": [
+      "6000-count backlit display — 50% more resolution than the V 266+ with a readable display in switchrooms, dark panels and poorly-lit site conditions",
+      "Capacitance measurement from 60 nF to 60 mF — test motor start and run capacitors, power factor correction capacitors and electrolytic capacitors without a separate instrument",
+      "Frequency measurement in the ACV range (10 Hz – 1 KHz) — verify supply frequency and detect anomalies directly at panel terminals",
+      "Temperature measurement with probe included — combines electrical and thermal diagnostics in one meter; no need to carry a separate temperature probe",
+      "AC current from 60 A to 1000 A — the lower 60 A range resolves branch circuit and small motor currents with much better accuracy than a 400 A range",
+      "NCV detection, torch and backlight — safe working on live systems, illuminated display and conductor identification all in one instrument",
+      "Superior quality — ISO 9001 certified manufacturing"
+    ],
+    "specs": [
+      { "label": "Display", "value": "3⅚ Digits, 6000 Counts, Backlight" },
+      { "label": "Ranging", "value": "Manual" },
+      { "label": "DC Voltage", "value": "60 mV / 600 mV / 6 V / 60 V / 600 V  |  Accuracy: ±(0.8% rdg + 2 digits)" },
+      { "label": "AC Voltage", "value": "600 mV / 6 V / 60 V / 600 V  |  Accuracy: ±(1% rdg + 10 digits)" },
+      { "label": "AC Current", "value": "60 A / 400 A / 1000 A  |  Accuracy: ±(2.5% rdg + 10 digits)" },
+      { "label": "Resistance", "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(1.2% rdg + 2 digits)" },
+      { "label": "Capacitance", "value": "60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6 mF / 60 mF" },
+      { "label": "Frequency", "value": "10 Hz – 1 KHz (measured in ACV range)" },
+      { "label": "Temperature", "value": "Provided (probe included)" },
+      { "label": "Other Functions", "value": "NCV Test, Diode Test, Continuity Test, Torch, Backlight, Data Hold, Low Battery Indication" },
+      { "label": "Power", "value": "2 × 1.5 V AAA batteries (optional)" },
+      { "label": "Accessories", "value": "Test leads, carrying pouch, user manual, battery, temperature probe" },
+      { "label": "Dimensions & Weight", "value": "222 × 90 × 35 mm  |  ~220 g (including battery)" }
+    ],
+    "images": ["v-266-c.webp", "v-266-c-2.webp", "v-266-c-3.webp"],
+    "catalogue": "v-266-plus-and-v-266-c.pdf"
+  },
+  {
+    "id": "m-2101",
+    "model": "M 2101",
+    "name": "True RMS Digital Clamp Multimeter 1000A AC DC",
+    "tagline": "Professional True RMS clamp meter — 6000 counts, DC and AC current from 600 µA to 1000 A, frequency to 20 MHz.",
+    "description": "The Vartech M 2101 is the benchmark professional True RMS digital clamp meter in the Vartech range — a 6000-count auto/manual ranging instrument with a current measurement span of 600 µA through the test leads to 1000 A through the clamp jaw. True RMS measurement, DC current capability, frequency up to 20 MHz with a dedicated Hz/Duty button, capacitance, temperature and auto power off make it the only clamp meter most electrical engineers, automation professionals and industrial maintenance teams will ever need to carry.",
+    "features": [
+      "True RMS measurement from 600 µA to 1000 A — the widest current span in the Vartech clamp range; True RMS gives correct readings on VFDs, motor drives and any non-sinusoidal AC load",
+      "µA ranges (600 µA and 6000 µA) through the meter test leads — measure milliamp control currents and in-circuit electronics without a separate handheld multimeter",
+      "DC current measurement — unlike AC-only clamp meters, measures solar panel strings, battery circuits, DC busbars and variable-speed drive DC links correctly",
+      "Auto/manual ranging — auto mode for fast switching between tasks; manual mode for precision when needed, including selecting the correct µA range",
+      "Frequency measurement up to 20 MHz with dedicated Hz/Duty button — diagnose VFDs, PWM controllers and switching circuits in both ACV and ACA modes without changing function",
+      "Capacitance up to 6000 µF and temperature to 1000 °C — complete component and environmental measurement capability alongside the clamp function",
+      "Auto Power Off and Relative measurement — intelligent field-ready features that save battery and simplify comparative measurements on large cable runs"
+    ],
+    "specs": [
+      { "label": "Display", "value": "3⅚ Digits, 6000 Counts, Backlight" },
+      { "label": "True RMS", "value": "Yes" },
+      { "label": "Ranging", "value": "Auto / Manual" },
+      { "label": "DC Voltage", "value": "600 mV / 6 V / 60 V / 600 V / 1000 V  |  Accuracy: ±(0.5% rdg + 3 digits)" },
+      { "label": "AC Voltage (True RMS)", "value": "600 mV / 6 V / 60 V / 600 V / 750 V  |  Accuracy: ±(0.8% rdg + 5 digits)" },
+      { "label": "AC & DC Current (True RMS AC)", "value": "600 µA / 6000 µA / 60 A / 600 A / 1000 A  |  Accuracy: ±(0.8% rdg + 10 digits)  |  Note: µA ranges measured via test leads" },
+      { "label": "Resistance", "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(0.8% rdg + 5 digits)" },
+      { "label": "Capacitance", "value": "60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6000 µF" },
+      { "label": "Frequency", "value": "10 Hz / 100 Hz / 1 KHz / 10 KHz / 100 KHz / 1 MHz / 20 MHz  |  Hz/Duty button for switching during ACV & ACA measurement" },
+      { "label": "Temperature", "value": "−20 °C to 1000 °C  (0 °F to 1832 °F)" },
+      { "label": "Other Functions", "value": "Diode Test, Continuity Test, Data Hold, Relative Measurement, Auto Power Off, Torch" },
+      { "label": "Accessories", "value": "Test leads, carrying pouch, temperature probe, user manual, battery" },
+      { "label": "Dimensions & Weight", "value": "280 × 70 × 45 mm  |  ~300 g (including battery)" }
+    ],
+    "images": ["m-2101.webp", "m-2101-2.webp", "m-2101-3.webp"],
+    "catalogue": "m-2101.pdf"
+  },
+  {
+    "id": "v-2001-plus",
+    "model": "V 2001+",
+    "name": "Smart Clamp Meter True RMS 200A AC",
+    "tagline": "Ultra-compact True RMS Smart Clamp Meter — 6000 counts, rechargeable Type-C, 200A AC, NCV and Live Wire in a 150 g body.",
+    "description": "The Vartech V 2001+ is a next-generation Smart Clamp Meter built for engineers and technicians who work in tight spaces and need a meter that is both compact and seriously capable. At just 150 g with a built-in rechargeable Type-C battery — no disposable batteries, ever — it is the smallest and lightest clamp meter in the Vartech range. Yet it delivers 6000-count True RMS measurement, fully automatic ranging, NCV detection, Live Wire testing, capacitance and temperature in one slim 26 mm-thick body that goes where standard clamp meters cannot.",
+    "features": [
+      "Ultra-compact design — 170 × 64 × 26 mm and only 150 g; fits in a shirt pocket and reaches into tight cable ducts, busbar chambers and crowded distribution boards where larger clamp meters cannot go",
+      "Rechargeable Type-C battery — eliminates disposable batteries permanently; charge from any laptop, power bank or USB charger at any time",
+      "True RMS 6000-count fully automatic ranging — no manual range selection; clamp, read, move on; accurate even on non-sinusoidal loads from inverters and VFDs",
+      "AC current from 6 A to 200 A with a 6 A low range — the 6 A range resolves branch circuit, lighting and small motor currents with accuracy that a 400 A or 1000 A clamp meter simply cannot match",
+      "NCV and Live Wire detection — dual safety check; NCV for rapid proximity detection, Live Wire for definitive confirmation before any contact with conductors",
+      "Capacitance and temperature measurement — extends testing into component and environmental diagnostics beyond current and voltage",
+      "Display brightness adjustment — adapt the display to direct sunlight or dark panel environments without a separate backlight toggle"
+    ],
+    "specs": [
+      { "label": "Display", "value": "3⅚ Digits, 6000 Counts" },
+      { "label": "True RMS", "value": "Yes" },
+      { "label": "Ranging", "value": "Fully Automatic" },
+      { "label": "DC Voltage", "value": "600 mV / 6 V / 60 V / 600 V / 1000 V  |  Accuracy: ±(0.5% rdg + 3 digits)" },
+      { "label": "AC Voltage (True RMS)", "value": "6 V / 60 V / 600 V / 750 V  |  Accuracy: ±(0.8% rdg + 3 digits)" },
+      { "label": "AC Current (True RMS)", "value": "6 A / 60 A / 200 A  |  Accuracy: ±(2% rdg + 30 digits)" },
+      { "label": "Resistance", "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(0.8% rdg + 5 digits)" },
+      { "label": "Capacitance", "value": "6 nF / 60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6 mF / 60 mF" },
+      { "label": "Temperature", "value": "−20 °C to 1000 °C  (−4 °F to 1832 °F)" },
+      { "label": "Other Functions", "value": "NCV Test, Live Wire Test, Diode Test, Continuity Test, Display Brightness Adjustment, Auto Power Off, Data Hold, Low Battery Indication" },
+      { "label": "Battery", "value": "Built-in rechargeable, Type-C USB charging" },
+      { "label": "Accessories", "value": "Test leads, temperature probe, carrying pouch, user manual, battery charging cable" },
+      { "label": "Dimensions & Weight", "value": "170 × 64 × 26 mm  |  ~150 g (including battery)" }
+    ],
+    "images": ["v-2001-plus.webp", "v-2001-plus-2.webp", "v-2001-plus-3.webp"],
+    "catalogue": "v-2001-plus-and-v-2002-plus.pdf"
+  },
+  {
+    "id": "v-2002-plus",
+    "model": "V 2002+",
+    "name": "Smart Clamp Meter mA Leakage Tester True RMS",
+    "tagline": "Dedicated mA Leakage Tester and Smart Clamp Meter — measures earth leakage from 600 mA, DC current, frequency to 10 MHz, Type-C rechargeable.",
+    "description": "The Vartech V 2002+ is a dedicated mA Leakage Tester and Smart Clamp Meter combined — the only Vartech clamp meter engineered to measure earth leakage currents as low as 200 mA through its clamp jaw. Where standard clamp meters need 40 A or more before their readings are meaningful, the V 2002+ resolves from 600 mA, making it indispensable for earth fault investigation, RCD and ELCB verification, neutral current measurement and installation quality checks. DC current measurement, frequency and duty cycle up to 10 MHz, REL mode and a Type-C rechargeable battery complete its professional specification.",
+    "features": [
+      "mA-level clamp current measurement from 600 mA AC — the defining feature; resolves earth leakage, neutral imbalance and RCD test currents that are completely invisible on standard 400 A or 1000 A clamp meters",
+      "REL (Relative) measurement — zero out background leakage current and display only the incremental change; essential for precise earth fault location in installations with background load current",
+      "DC current measurement (6 A / 60 A) — measure solar panel strings, battery systems and DC distribution currents through the clamp jaw, not through the test leads",
+      "Frequency and duty cycle up to 10 MHz — diagnose VFD outputs, switching power supplies and PWM controllers directly in clamp mode; unique in this class of instrument",
+      "True RMS 6000-count fully automatic ranging — accurate on any waveform; essential for correct leakage readings in installations with VFDs and electronic ballasts that distort the current waveform",
+      "NCV and Live Wire detection — positive conductor identification before working in complex multi-circuit panels",
+      "Type-C rechargeable battery — no disposable cells; same platform and charging cable as the V 2001+"
+    ],
+    "specs": [
+      { "label": "Display", "value": "3⅚ Digits, 6000 Counts" },
+      { "label": "True RMS", "value": "Yes" },
+      { "label": "Ranging", "value": "Fully Automatic" },
+      { "label": "DC Voltage", "value": "600 mV / 6 V / 60 V / 600 V / 1000 V  |  Accuracy: ±(0.5% rdg + 3 digits)" },
+      { "label": "AC Voltage (True RMS)", "value": "6 V / 60 V / 600 V / 750 V  |  Accuracy: ±(0.8% rdg + 3 digits)" },
+      { "label": "AC Current (True RMS) — Leakage", "value": "600 mA / 6 A / 60 A  |  Accuracy: ±(4% rdg + 20 digits) for 200–600 mA range" },
+      { "label": "DC Current", "value": "6 A / 60 A  |  Accuracy: ±(2% rdg + 30 digits)" },
+      { "label": "Resistance", "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(0.8% rdg + 5 digits)" },
+      { "label": "Capacitance", "value": "6 nF / 60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6 mF / 60 mF" },
+      { "label": "Frequency / Duty Cycle", "value": "6 Hz – 10 MHz  |  Max. input: 250 V" },
+      { "label": "Temperature", "value": "−20 °C to 1000 °C  (−4 °F to 1832 °F)" },
+      { "label": "Other Functions", "value": "NCV Test, Live Wire Test, Diode Test, Continuity Test, REL Measurement, Display Brightness Adjustment, Auto Power Off, Data Hold, Low Battery Indication" },
+      { "label": "Battery", "value": "Built-in rechargeable, Type-C USB charging" },
+      { "label": "Accessories", "value": "Test leads, temperature probe, carrying pouch, user manual, battery charging cable" },
+      { "label": "Dimensions & Weight", "value": "170 × 64 × 26 mm  |  ~150 g (including battery)" }
+    ],
+    "images": ["v-2002-plus.webp", "v-2002-plus-2.webp", "v-2002-plus-3.webp"],
+    "catalogue": "v-2001-plus-and-v-2002-plus.pdf"
+  }
+]
