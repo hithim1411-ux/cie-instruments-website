@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "what-is-a-multimeter",
+    "title": "What Is a Multimeter? A Complete Guide to How It Works",
+    "description": "Learn what a multimeter is, how it works, and what it measures — voltage, current, and resistance — in this beginner-to-advanced guide for engineers and electricians.",
+    "publishDate": "2026-06-01",
+    "readTime": "8 min read",
+    "category": "Guides",
+    "heroAlt": "A digital multimeter measuring voltage on a circuit board",
+    "excerpt": "A multimeter is the most essential instrument in any electrician's or engineer's toolkit. This guide breaks down exactly how it works — from basic physics to practical usage."
+  },
+  {
+    "slug": "how-to-use-a-clamp-meter",
+    "title": "How to Use a Clamp Meter: Step-by-Step Guide for Electricians",
+    "description": "A step-by-step guide on how to use a clamp meter safely to measure AC and DC current without breaking a circuit — ideal for electricians and electrical engineers.",
+    "publishDate": "2026-06-08",
+    "readTime": "7 min read",
+    "category": "How-To",
+    "heroAlt": "Clamp meter clamped around a live conductor measuring current",
+    "excerpt": "Clamp meters let you measure current safely without cutting a wire. Here's everything you need to know — from jaw placement to reading AC vs DC current."
+  },
+  {
+    "slug": "ohms-law-explained",
+    "title": "Ohm's Law Explained: The Physics Behind Every Electrical Tester",
+    "description": "Understand Ohm's Law — V = IR — and how it underpins every measurement made by multimeters, clamp meters, and insulation testers used by engineers worldwide.",
+    "publishDate": "2026-06-12",
+    "readTime": "6 min read",
+    "category": "Physics",
+    "heroAlt": "Diagram showing Ohm's Law triangle V = IR with circuit elements",
+    "excerpt": "Every reading on a multimeter or clamp meter traces back to one equation: V = IR. Master Ohm's Law and you'll understand exactly what every tester is measuring — and why."
+  },
+  {
+    "slug": "continuity-testing-guide",
+    "title": "Continuity Testing: What It Is and Why Every Electrician Needs It",
+    "description": "Learn what continuity testing is, how it works using resistance measurement, and how to use a multimeter to find open circuits, blown fuses, and broken wiring.",
+    "publishDate": "2026-06-16",
+    "readTime": "6 min read",
+    "category": "How-To",
+    "heroAlt": "Multimeter probes testing continuity on a fuse",
+    "excerpt": "Continuity testing is the quickest way to confirm a complete electrical path. Learn the physics behind it and how to run the test correctly with any multimeter."
+  },
+  {
+    "slug": "clamp-meter-vs-multimeter",
+    "title": "Clamp Meter vs Multimeter: Which Tester Do You Actually Need?",
+    "description": "Compare clamp meters and multimeters side by side — find out which instrument to use for current measurement, voltage testing, resistance checks, and field electrical work.",
+    "publishDate": "2026-06-20",
+    "readTime": "7 min read",
+    "category": "Buying Guide",
+    "heroAlt": "Clamp meter and multimeter placed side by side for comparison",
+    "excerpt": "Both measure electrical quantities — but they work very differently. Here's a practical breakdown of when to reach for a clamp meter versus a multimeter."
+  }
+]

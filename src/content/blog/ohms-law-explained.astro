@@ -1,0 +1,149 @@
+---
+import { u } from '../../utils/url';
+---
+
+<p>
+  Every reading on a multimeter, clamp meter, insulation tester, or LCR meter traces back to one fundamental equation. If you truly understand Ohm's Law, you understand <em>what every electrical tester is actually measuring</em> — and why.
+</p>
+
+<h2>What Is Ohm's Law?</h2>
+
+<p>
+  Stated simply: <strong>the current through a conductor is directly proportional to the voltage across it, and inversely proportional to its resistance</strong>.
+</p>
+
+<p>
+  The equation is:
+</p>
+
+<blockquote>
+  <strong>V = I × R</strong><br />
+  Where: V = Voltage (Volts), I = Current (Amperes), R = Resistance (Ohms)
+</blockquote>
+
+<p>
+  This relationship was established by German physicist <strong>Georg Simon Ohm</strong> in 1827, published in his work <em>Die galvanische Kette, mathematisch bearbeitet</em> ("The Galvanic Circuit Investigated Mathematically"). His finding was initially dismissed, then became one of the bedrock laws of electrical engineering.
+</p>
+
+<h2>The Ohm's Law Triangle — A Practical Memory Tool</h2>
+
+<p>
+  Engineers use a simple triangle to rearrange the formula on the fly:
+</p>
+
+<ul>
+  <li>Cover <strong>V</strong> → <code>V = I × R</code></li>
+  <li>Cover <strong>I</strong> → <code>I = V / R</code></li>
+  <li>Cover <strong>R</strong> → <code>R = V / I</code></li>
+</ul>
+
+<p>
+  All three forms are equivalent. Your choice of which variable to solve for depends entirely on what you know and what you're trying to find.
+</p>
+
+<h2>The Physics Behind Ohm's Law</h2>
+
+<p>
+  At the atomic level, voltage is the work done per unit charge to move electrons through a material. Resistance is the opposition to that movement — caused by collisions between electrons and the atoms of the conductor. The relationship between these quantities is linear for <strong>ohmic materials</strong> (most metals at constant temperature), meaning if you double the voltage, the current doubles proportionally.
+</p>
+
+<p>
+  <strong>Non-ohmic devices</strong> — like diodes, transistors, and lightbulb filaments — do not obey a straight-line V-I relationship. Their resistance changes with temperature, current, or direction. This is why multimeters have dedicated diode test modes that apply a controlled test current rather than assuming a fixed resistance.
+</p>
+
+<h2>How Ohm's Law Underpins Every Electrical Tester</h2>
+
+<h3>Multimeters</h3>
+<p>
+  A multimeter measuring <strong>resistance</strong> does exactly this: it applies a small, known test current (<code>I</code>) through the probes, measures the voltage drop (<code>V</code>) across the unknown component, and calculates <code>R = V / I</code>. The answer is displayed in ohms.
+</p>
+<p>
+  When measuring <strong>current</strong>, the meter places a known, very small shunt resistance (<code>R_shunt</code>) in the circuit. The voltage across the shunt is measured, and current is calculated as <code>I = V / R_shunt</code>.
+</p>
+
+<h3>Clamp Meters</h3>
+<p>
+  A clamp meter's jaw is essentially a current transformer. The secondary winding produces a voltage proportional to the primary current. The meter measures that secondary voltage and, knowing the turns ratio (which defines the effective resistance relationship), calculates the original current. Ohm's Law at work, indirectly.
+</p>
+
+<h3>Insulation Testers (Megohmmeters)</h3>
+<p>
+  An insulation tester applies a high DC voltage (500 V, 1000 V, or 2500 V) across insulation and measures the tiny leakage current. Using <code>R = V / I</code> — where <code>V</code> is the applied test voltage and <code>I</code> is the measured leakage current — it calculates insulation resistance in megohms (MΩ) or gigohms (GΩ).
+</p>
+
+<h2>Power and Ohm's Law — Watt's Law</h2>
+
+<p>
+  Ohm's Law combines naturally with the power equation to give what engineers call <strong>Watt's Law</strong>:
+</p>
+
+<table>
+  <thead>
+    <tr><th>Power Formula</th><th>Derived From</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>P = V × I</code></td><td>Basic definition of power</td></tr>
+    <tr><td><code>P = I² × R</code></td><td>Substituting V = IR into P = VI</td></tr>
+    <tr><td><code>P = V² / R</code></td><td>Substituting I = V/R into P = VI</td></tr>
+  </tbody>
+</table>
+
+<p>
+  These are the formulas behind every power calculation in electrical engineering — from sizing a fuse to calculating heat dissipation in a resistor bank.
+</p>
+
+<h2>Practical Examples</h2>
+
+<h3>Example 1 — Checking a heater element</h3>
+<p>
+  A 230 V heater is rated at 2 kW. What current does it draw and what is its resistance?
+</p>
+<ul>
+  <li><code>I = P / V = 2000 / 230 = 8.7 A</code></li>
+  <li><code>R = V / I = 230 / 8.7 = 26.4 Ω</code></li>
+</ul>
+<p>
+  With a multimeter on resistance mode (heater disconnected from supply), you'd expect to read ~26 Ω. A reading far from this suggests a damaged element.
+</p>
+
+<h3>Example 2 — Diagnosing a voltage drop</h3>
+<p>
+  A cable feeding a motor shows 230 V at the panel and only 218 V at the motor terminals — a 12 V drop. The cable carries 20 A. What is the cable resistance?
+</p>
+<ul>
+  <li><code>R = V / I = 12 / 20 = 0.6 Ω</code></li>
+</ul>
+<p>
+  This resistance represents both the go and return paths of the cable. If the cable specification gives a lower resistance, it suggests a loose connection or corroded joint creating extra resistance — exactly the kind of fault a multimeter or milli-ohmmeter can pinpoint.
+</p>
+
+<h2>The Limits of Ohm's Law</h2>
+
+<p>
+  Ohm's Law assumes:
+</p>
+<ul>
+  <li>The conductor's temperature is constant (resistance of metals increases with temperature).</li>
+  <li>The material is a linear (ohmic) conductor.</li>
+  <li>The relationship is being applied to DC or quasi-static AC (at high frequencies, inductance and capacitance introduce reactance that Ohm's Law alone does not account for — you need complex impedance, Z = R + jX).</li>
+</ul>
+
+<p>
+  For AC circuits at higher frequencies, the general form is <strong>V = I × Z</strong>, where Z is the complex impedance — measured by an LCR meter rather than a simple multimeter.
+</p>
+
+<h2>Why This Matters for Choosing a Tester</h2>
+
+<p>
+  Understanding that every tester ultimately uses Ohm's Law in some form helps you choose the right instrument:
+</p>
+<ul>
+  <li>For resistance and voltage: a standard multimeter.</li>
+  <li>For current without breaking the circuit: a clamp meter.</li>
+  <li>For high-resistance insulation: a megohmmeter.</li>
+  <li>For impedance at frequency: an LCR meter.</li>
+</ul>
+
+<p>
+  CIE manufactures all of these categories — browse our <a href={u('/products/')}>full product range</a> or <a href={u('/contact/')}>contact our team</a> to find the right instrument for your application.
+</p>

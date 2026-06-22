@@ -1,0 +1,123 @@
+---
+import { u } from '../../utils/url';
+---
+
+<p>
+  A <strong>clamp meter</strong> is a specialised electrical tester that measures current flowing through a conductor <em>without breaking the circuit</em> — simply by clamping its jaws around the wire. This makes it the go-to instrument for electricians and engineers who need to check current in live panels, motor control centres, and distribution boards safely and quickly.
+</p>
+
+<p>
+  In this guide you'll learn exactly how clamp meters work, how to use one step by step, and common mistakes to avoid.
+</p>
+
+<h2>How Does a Clamp Meter Work? The Physics</h2>
+
+<p>
+  The magic of a clamp meter lies in a phenomenon called <strong>electromagnetic induction</strong>, described by Faraday's Law. When alternating current (AC) flows through a conductor, it creates a changing magnetic field around the wire. The clamp jaw is a split iron-core transformer — closing it around the conductor creates a complete magnetic circuit, and the current induced in the secondary winding is proportional to the current in the conductor.
+</p>
+
+<p>
+  The meter measures this induced current and converts it to the ampere reading on the display.
+</p>
+
+<blockquote>
+  <strong>Key point:</strong> Traditional clamp meters only work on AC because they rely on a changing magnetic field. <strong>True DC clamp meters</strong> use a Hall Effect sensor in the jaw gap, which can detect a static magnetic field produced by DC current.
+</blockquote>
+
+<h2>Parts of a Clamp Meter</h2>
+
+<table>
+  <thead>
+    <tr><th>Part</th><th>Function</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Jaws / clamp</td><td>The split ferrite core that encircles the conductor</td></tr>
+    <tr><td>Jaw trigger / lever</td><td>Opens the jaws to clamp around a wire</td></tr>
+    <tr><td>Display</td><td>LCD showing the measured value</td></tr>
+    <tr><td>Function selector</td><td>Switches between AC current, DC current, voltage, resistance, continuity, etc.</td></tr>
+    <tr><td>COM terminal</td><td>Black probe connection (common/negative)</td></tr>
+    <tr><td>VΩ terminal</td><td>Red probe connection for voltage/resistance measurements</td></tr>
+    <tr><td>HOLD button</td><td>Freezes the display for reading in confined spaces</td></tr>
+    <tr><td>Peak / inrush button</td><td>Captures motor start-up inrush current spikes</td></tr>
+  </tbody>
+</table>
+
+<h2>Step-by-Step: How to Measure AC Current</h2>
+
+<ol>
+  <li>
+    <strong>Select the correct function.</strong> Turn the dial to AC Current (A~). If your meter is manual-ranging, select a range higher than the expected current — e.g., start at 400 A if you're unsure.
+  </li>
+  <li>
+    <strong>Open the jaws.</strong> Press the trigger to open the clamp jaws fully.
+  </li>
+  <li>
+    <strong>Clamp around a single conductor only.</strong> Position the jaws around <em>one wire at a time</em>. If you clamp around both live and neutral together, their magnetic fields cancel out and the meter reads zero. This is a common beginner mistake.
+  </li>
+  <li>
+    <strong>Centre the conductor in the jaw opening.</strong> For best accuracy, position the wire in the centre of the jaw opening, not at the edge. The reading is most accurate when the conductor is centred in the magnetic circuit.
+  </li>
+  <li>
+    <strong>Close the jaws fully.</strong> An incompletely closed jaw introduces air gap into the magnetic circuit and causes significant measurement error.
+  </li>
+  <li>
+    <strong>Read the display.</strong> Use the HOLD button to freeze the reading if the cable is in a tight or awkward location.
+  </li>
+</ol>
+
+<h2>How to Measure DC Current (on DC-capable meters)</h2>
+
+<ol>
+  <li>Select <strong>DC Current (A⎓)</strong> on the function dial.</li>
+  <li>With the jaws open, press the <strong>ZERO / REL button</strong> to null out any residual magnetic field offset. This is important for DC accuracy.</li>
+  <li>Clamp around a single conductor and read the display. If the reading is negative, the current direction is opposite — simply reverse the jaw orientation relative to the conductor.</li>
+</ol>
+
+<h2>Using Clamp Meter Probes for Voltage and Resistance</h2>
+
+<p>
+  Most clamp meters also include probe terminals (COM and VΩ) for conventional multimeter-style measurements. With probes inserted:
+</p>
+<ul>
+  <li><strong>Voltage</strong> — select ACV or DCV and touch probes across the supply terminals, just like a multimeter.</li>
+  <li><strong>Resistance</strong> — de-energise the circuit, select Ω, and touch probes across the component.</li>
+  <li><strong>Continuity</strong> — select the continuity/beep mode; the meter beeps if resistance is below ~30–50 Ω.</li>
+</ul>
+
+<h2>The Flex-Clamp / Rogowski Coil Technique for Large Cables</h2>
+
+<p>
+  For large busbars or cables too thick to fit in standard jaws, some clamp meters accept a <strong>Rogowski coil</strong> — a flexible current sensor that you wrap around the conductor. The coil integrates the magnetic field and provides an output proportional to the current. This technique can measure thousands of amperes and works on any shape of conductor.
+</p>
+
+<h2>Inrush Current Measurement</h2>
+
+<p>
+  When a motor or transformer starts, it draws a brief but very large <strong>inrush current</strong> — sometimes 6–10× the normal running current — that lasts only milliseconds. Standard clamp meters can miss this peak entirely. Use the <strong>INRUSH or PEAK HOLD</strong> function to capture it:
+</p>
+<ol>
+  <li>Clamp around the motor supply conductor.</li>
+  <li>Press and hold the INRUSH button.</li>
+  <li>Start the motor.</li>
+  <li>Release the button — the peak reading is held on the display.</li>
+</ol>
+
+<h2>Common Mistakes When Using a Clamp Meter</h2>
+
+<ul>
+  <li><strong>Clamping around multiple conductors</strong> — fields cancel, reading is wrong or zero.</li>
+  <li><strong>Not zeroing before DC measurement</strong> — residual magnetism gives a false offset.</li>
+  <li><strong>Partially open jaws</strong> — the air gap increases reluctance and reduces accuracy.</li>
+  <li><strong>Conductor at the edge of the jaw</strong> — the magnetic circuit is non-uniform here; centre the wire.</li>
+  <li><strong>Using an AC-only clamp for DC</strong> — you'll read zero regardless of the actual current.</li>
+</ul>
+
+<h2>CIE Clamp Meters — Built for Indian Industry</h2>
+
+<p>
+  CIE has manufactured clamp meters for industrial and utility applications since 1963. Our instruments are built for the demands of Indian field conditions — humidity, dust, and the wide current ranges found in industrial plants and power distribution systems.
+</p>
+
+<p>
+  Browse our <a href={u('/products/')}>clamp meter range</a> or <a href={u('/contact/')}>contact us</a> for a product recommendation matched to your application.
+</p>

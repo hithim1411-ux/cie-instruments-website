@@ -1,0 +1,135 @@
+---
+import { u } from '../../utils/url';
+---
+
+<p>
+  A <strong>multimeter</strong> — also called a volt-ohm meter (VOM) or digital multimeter (DMM) — is a hand-held instrument that measures three fundamental electrical quantities: <strong>voltage (V), current (A), and resistance (Ω)</strong>. For any electrician, technician, or electronics engineer, it is the single most indispensable tool in the field.
+</p>
+
+<p>
+  In this guide we'll cover exactly how a multimeter works, what it measures, and how to use one correctly — starting with the physics that makes every reading possible.
+</p>
+
+<h2>The Three Quantities a Multimeter Measures</h2>
+
+<h3>1. Voltage (Volts — V)</h3>
+<p>
+  Voltage is the electrical potential difference between two points — the "pressure" that drives current through a circuit. Multimeters can measure both:
+</p>
+<ul>
+  <li><strong>DC voltage (DCV / V⎓)</strong> — found in batteries, solar panels, control circuits, and electronic boards.</li>
+  <li><strong>AC voltage (ACV / V~)</strong> — found in mains supply, generators, and transformers.</li>
+</ul>
+<p>
+  Internally, a digital multimeter measures voltage using a high-impedance voltage divider network and converts the analogue signal to a digital reading via an ADC (analogue-to-digital converter).
+</p>
+
+<h3>2. Current (Amperes — A)</h3>
+<p>
+  Current is the flow of electric charge — measured in amperes (A). To measure current, a multimeter must be placed <strong>in series</strong> with the circuit, so the current flows through the meter's internal shunt resistor. The voltage drop across the shunt (which is known and fixed) is used to calculate current via Ohm's Law: <code>I = V / R</code>.
+</p>
+<blockquote>
+  <strong>Important safety note:</strong> Never connect a multimeter's current inputs across a voltage source. The low internal resistance of the current mode will create a short circuit and blow the fuse — or destroy the meter.
+</blockquote>
+
+<h3>3. Resistance (Ohms — Ω)</h3>
+<p>
+  Resistance is a material's opposition to current flow. In resistance mode, the multimeter applies a small, known current through the test probes and measures the resulting voltage. Using Ohm's Law (<code>R = V / I</code>), it calculates and displays the resistance.
+</p>
+
+<h2>How a Digital Multimeter Works — Inside the Box</h2>
+
+<p>
+  Modern digital multimeters are based on a remarkably elegant circuit architecture:
+</p>
+
+<ol>
+  <li><strong>Input protection network</strong> — fuses and MOVs (metal-oxide varistors) protect the meter from voltage spikes and overload.</li>
+  <li><strong>Input attenuator / range selector</strong> — scales the incoming signal to a safe level for the ADC.</li>
+  <li><strong>Analogue-to-digital converter (ADC)</strong> — converts the scaled analogue voltage to a digital number, typically using a dual-slope integration technique for high noise rejection.</li>
+  <li><strong>Microcontroller / display driver</strong> — processes the digital value, applies calibration constants, and drives the LCD display.</li>
+</ol>
+
+<p>
+  The <strong>dual-slope ADC</strong> is the key to a DMM's accuracy and noise immunity. It integrates the input signal for a fixed time, then integrates a reference voltage back to zero — cancelling out noise that affects both phases equally. This is why a good multimeter is far more accurate than an oscilloscope for steady-state voltage readings.
+</p>
+
+<h2>The Parts of a Multimeter</h2>
+
+<table>
+  <thead>
+    <tr><th>Part</th><th>Function</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Display</td><td>Shows the measured value (3½ to 6½ digit LCD)</td></tr>
+    <tr><td>Function dial / selector</td><td>Switches between DCV, ACV, DCA, resistance, continuity, diode, etc.</td></tr>
+    <tr><td>COM terminal</td><td>Common (negative/ground) probe connection — always used</td></tr>
+    <tr><td>VΩ terminal</td><td>Voltage and resistance measurements (positive probe)</td></tr>
+    <tr><td>mA / A terminal</td><td>Current measurement input (separate terminal to protect the circuit)</td></tr>
+    <tr><td>Probes</td><td>Red (positive) and black (negative) test leads</td></tr>
+  </tbody>
+</table>
+
+<h2>What Else Can a Multimeter Measure?</h2>
+
+<p>Beyond V, A, and Ω, most modern multimeters also include:</p>
+<ul>
+  <li><strong>Continuity test</strong> — beeps when resistance is below ~50 Ω, confirming an unbroken path.</li>
+  <li><strong>Diode test</strong> — measures the forward voltage drop of a diode (typically 0.6–0.7 V for silicon).</li>
+  <li><strong>Capacitance (F)</strong> — measures the capacitance of capacitors in farads.</li>
+  <li><strong>Frequency (Hz)</strong> — measures the frequency of AC signals.</li>
+  <li><strong>Temperature (°C / °F)</strong> — via a K-type thermocouple probe.</li>
+  <li><strong>True RMS</strong> — measures the true RMS value of non-sinusoidal AC waveforms (essential for VFD and inverter circuits).</li>
+</ul>
+
+<h2>Auto-Ranging vs Manual-Ranging Multimeters</h2>
+
+<p>
+  An <strong>auto-ranging multimeter</strong> automatically selects the correct measurement range, so you don't need to know the approximate value in advance — ideal for general field use. A <strong>manual-ranging multimeter</strong> gives you direct control over the range, which is faster when you already know what you're measuring and can be more accurate at the extremes of a range.
+</p>
+
+<h2>How to Use a Multimeter — Step by Step</h2>
+
+<h3>Measuring DC Voltage</h3>
+<ol>
+  <li>Insert the black probe into the COM terminal and the red probe into the VΩ terminal.</li>
+  <li>Set the selector to <strong>DCV (V⎓)</strong>. Choose a range higher than the expected voltage, or use auto-range.</li>
+  <li>Touch the black probe to the negative terminal and the red probe to the positive terminal.</li>
+  <li>Read the display. A negative reading means the probes are reversed.</li>
+</ol>
+
+<h3>Measuring AC Voltage</h3>
+<ol>
+  <li>Same probe placement as DC.</li>
+  <li>Set the selector to <strong>ACV (V~)</strong>.</li>
+  <li>Touch the probes to the two terminals of the supply (polarity doesn't matter for AC).</li>
+  <li>Read the RMS voltage on the display.</li>
+</ol>
+
+<h3>Measuring Resistance</h3>
+<ol>
+  <li>Ensure the component or circuit is <strong>de-energised</strong> before measuring resistance.</li>
+  <li>Set the selector to <strong>Ω</strong>.</li>
+  <li>Touch the probes across the component (or disconnect one end to avoid parallel paths).</li>
+  <li>Read the resistance in ohms, kilohms (kΩ), or megohms (MΩ).</li>
+</ol>
+
+<h2>Multimeter Safety — Key Rules</h2>
+
+<ul>
+  <li>Always check probe condition before use — damaged insulation is a shock hazard.</li>
+  <li>Use the correct input terminal for current measurements and never exceed the rated current.</li>
+  <li>Check the CAT rating on your meter (CAT I through CAT IV) — use a CAT III or CAT IV rated meter for mains and panel work.</li>
+  <li>Never measure resistance on a live circuit.</li>
+  <li>When in doubt, start on the highest range and work down.</li>
+</ul>
+
+<h2>CIE Multimeters — Accuracy You Can Rely On</h2>
+
+<p>
+  Cambridge Instruments &amp; Engineering Co. has manufactured precision electrical measurement instruments in Howrah, West Bengal since 1963. Our <a href={u('/products/')}>range of multimeters</a> is designed for Indian field conditions — reliable from the shop floor to the substation. Whether you need a basic DVM for workshop use or a True RMS unit for industrial panel work, CIE has a model for your application.
+</p>
+
+<p>
+  Browse our <a href={u('/products/')}>complete product range</a> or <a href={u('/contact/')}>get in touch</a> for a recommendation.
+</p>

@@ -1,0 +1,124 @@
+---
+import { u } from '../../utils/url';
+---
+
+<p>
+  <strong>Continuity testing</strong> is the quickest and most reliable way to answer a single critical question in electrical work: <em>is there an unbroken electrical path between these two points?</em> It takes seconds, works on de-energised circuits, and can save hours of diagnostic time when tracing faults in wiring, fuses, switches, and connectors.
+</p>
+
+<h2>What Is Continuity and Why Does It Matter?</h2>
+
+<p>
+  In electrical terms, <strong>continuity</strong> means a complete, low-resistance path exists between two points — current can flow freely between them. <strong>No continuity</strong> (an open circuit) means the path is broken somewhere — by a blown fuse, broken wire, failed contact, or corroded connection.
+</p>
+
+<p>
+  The physics behind it is Ohm's Law: a good conductor has very low resistance (close to 0 Ω). A break in the circuit presents infinite resistance. Continuity mode on a multimeter checks which of these conditions exists.
+</p>
+
+<h2>How Continuity Mode Works in a Multimeter</h2>
+
+<p>
+  When you select continuity mode (usually marked with the diode symbol plus a speaker icon), the multimeter:
+</p>
+<ol>
+  <li>Applies a small, safe test current through the probes (typically 0.5–1 mA at 2–3 V open-circuit).</li>
+  <li>Measures the resistance of the path between the probe tips.</li>
+  <li>If the resistance is below the threshold (commonly 30–50 Ω on most meters), it activates an audible beeper and often shows a low reading on the display.</li>
+  <li>If the resistance is above the threshold (open circuit), the display shows OL (overload/open line) and no beep sounds.</li>
+</ol>
+
+<blockquote>
+  The beeper is the key feature — it lets you keep your eyes on the wiring while your ears tell you whether you have continuity. No need to look at the display.
+</blockquote>
+
+<h2>What Continuity Testing Can Detect</h2>
+
+<ul>
+  <li><strong>Blown fuses</strong> — a good fuse reads near 0 Ω; a blown fuse reads OL.</li>
+  <li><strong>Broken wires</strong> — a wire that looks intact but has an internal break will show OL.</li>
+  <li><strong>Failed switch contacts</strong> — test with switch open (should be OL) and closed (should beep).</li>
+  <li><strong>Loose or corroded connections</strong> — may show intermittent continuity or higher-than-expected resistance.</li>
+  <li><strong>Correct wiring connections</strong> — trace which wire goes where in a conduit or harness.</li>
+  <li><strong>Motor and transformer windings</strong> — a winding should show low resistance between its terminals; OL suggests an open winding.</li>
+  <li><strong>PCB tracks</strong> — detect broken traces on a circuit board.</li>
+</ul>
+
+<h2>Step-by-Step: How to Do a Continuity Test</h2>
+
+<h3>Before You Start — Safety First</h3>
+<blockquote>
+  <strong>Always de-energise the circuit before continuity testing.</strong> The meter applies its own small test voltage — adding mains voltage to this will damage the meter and risk electric shock. Switch off the breaker and verify with a voltage tester before connecting probes.
+</blockquote>
+
+<h3>Testing a Fuse</h3>
+<ol>
+  <li>Remove the fuse from its holder.</li>
+  <li>Insert the black probe into COM and the red probe into the VΩ terminal.</li>
+  <li>Set the selector to continuity mode (⏦ symbol, or the diode symbol with a beeper icon).</li>
+  <li>Touch one probe to each end of the fuse.</li>
+  <li>A beep = fuse is good. Silence = fuse is blown.</li>
+</ol>
+
+<h3>Tracing a Wire Through a Conduit or Harness</h3>
+<ol>
+  <li>Disconnect both ends of the cable from their circuits.</li>
+  <li>At one end, hold the red probe on the wire you want to trace.</li>
+  <li>At the other end, touch the black probe (attached to the COM terminal) to each wire in turn.</li>
+  <li>The wire that gives a beep is your wire.</li>
+</ol>
+
+<h3>Testing a Switch</h3>
+<ol>
+  <li>Disconnect or isolate the switch from the circuit.</li>
+  <li>With the switch <strong>open (off)</strong>, touch probes to the two switch terminals — should read OL (no beep).</li>
+  <li>With the switch <strong>closed (on)</strong>, repeat — should beep.</li>
+  <li>A switch that beeps in both positions has welded contacts. A switch that doesn't beep in either position has open/burnt contacts.</li>
+</ol>
+
+<h2>Continuity vs Resistance — What's the Difference?</h2>
+
+<table>
+  <thead>
+    <tr><th>Mode</th><th>What it tells you</th><th>Best for</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Continuity</td>
+      <td>Yes/No — is there a path below ~50 Ω?</td>
+      <td>Quick fault finding, fuses, wiring traces</td>
+    </tr>
+    <tr>
+      <td>Resistance (Ω)</td>
+      <td>Exact resistance value</td>
+      <td>Component verification, measuring exact coil resistance, detecting high-resistance joints</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  For loose connections or corroded joints, resistance mode is more revealing than continuity mode — a joint that passes continuity (below 50 Ω) might still have a resistance of 5–10 Ω, which is high enough to cause significant voltage drop and heating under load.
+</p>
+
+<h2>Limitations of Continuity Testing</h2>
+
+<ul>
+  <li><strong>Cannot test insulation</strong> — continuity confirms a low-resistance path exists; it cannot tell you if the conductor's insulation is degraded or leaking to earth. Use an insulation tester (megohmmeter) for that.</li>
+  <li><strong>Cannot detect high-resistance faults in parallel paths</strong> — if a broken wire is in parallel with another path, the other path will give a continuity reading and the broken wire will be missed. Disconnect all parallel paths before testing.</li>
+  <li><strong>Threshold varies between meters</strong> — one meter's 50 Ω threshold may pass a joint that another meter's 30 Ω threshold would flag. For precision, switch to resistance mode and read the actual value.</li>
+</ul>
+
+<h2>Which Multimeter to Use for Continuity Testing?</h2>
+
+<p>
+  Any modern digital multimeter with a continuity buzzer function is suitable for standard wiring checks. For demanding applications like motor windings, precision contacts, or PCB debugging, look for a meter with:
+</p>
+<ul>
+  <li>A fast-responding beeper (response time under 50 ms — slow beepers miss intermittent faults)</li>
+  <li>A low-resistance continuity threshold clearly stated in the spec sheet</li>
+  <li>The ability to read resistance in the 0.1 Ω range for detecting high-resistance joints</li>
+</ul>
+
+<p>
+  CIE's range of digital multimeters includes models suitable for both general-purpose field use and precision laboratory work. Browse our <a href={u('/products/')}>product catalogue</a> or <a href={u('/contact/')}>get in touch</a> for a product recommendation.
+</p>
