@@ -3,7 +3,7 @@ import { u } from '../utils/url';
 import categories from '../data/categories.json';
 
 const otherNav = [
-  { label: 'Blog',                  href: u('/blog') },
+  { label: 'Insights',               href: u('/blog') },
   { label: 'Authorised Dealership', href: u('/authorised-dealership') },
   { label: 'About Us',              href: u('/about') },
   { label: 'FAQs',                  href: u('/faq') },
@@ -11,8 +11,9 @@ const otherNav = [
 ];
 
 const currentPath = Astro.url.pathname;
-const isHome     = currentPath === '/' || currentPath === u('/');
-const onProducts = currentPath.startsWith(u('/products'));
+const isHome      = currentPath === '/' || currentPath === u('/');
+const onProducts  = currentPath.startsWith(u('/products'));
+const onInsights  = currentPath.startsWith(u('/blog'));
 
 // Generic mailto for header button
 const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
@@ -117,7 +118,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         <!-- Other nav links -->
         {otherNav.map(({ label, href }) => (
           <a href={href}
-             class={`text-sm font-medium transition-colors ${currentPath.startsWith(href) ? 'text-white border-b-2 border-[#E0252E] pb-0.5' : 'text-[#b0bec5] hover:text-white'}`}>
+             class={`text-sm font-medium transition-colors ${(label === 'Insights' ? onInsights : currentPath.startsWith(href)) ? 'text-white border-b-2 border-[#E0252E] pb-0.5' : 'text-[#b0bec5] hover:text-white'}`}>
             {label}
           </a>
         ))}
