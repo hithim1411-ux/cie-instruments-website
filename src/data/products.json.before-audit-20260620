@@ -1,0 +1,2323 @@
+[
+  {
+    "id": "cie-444",
+    "categoryId": "insulation-testers-hand",
+    "model": "CIE/444",
+    "name": "Insulation Tester — Metal Body, Hand-Driven",
+    "tagline": "Pressure die-cast metal body, hand-driven generator insulation tester. Robust and field-proven.",
+    "description": "The CIE/444 is a pressure die-cast metal body, hand-driven generator type insulation tester — field-proven across India's utilities, railways, and industry. Each instrument is manufactured to the customer's specified rated voltage and resistance range. Available in six rated voltages from 100 V to 5000 V, with a wide choice of resistance scales. Optional dual voltage, dual insulation range, and built-in continuity range. Any non-standard range manufactured to order.",
+    "specs": [
+      {
+        "label": "Body",
+        "value": "Pressure die-cast metal"
+      },
+      {
+        "label": "Generator Type",
+        "value": "Hand-driven"
+      },
+      {
+        "label": "Rated Voltages Available",
+        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V"
+      },
+      {
+        "label": "Continuity Range",
+        "value": "Optional (built-in, 500 V or 1000 V)"
+      },
+      {
+        "label": "Dual Voltage Option",
+        "value": "Available"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Power cable insulation testing",
+      "Motor and transformer winding insulation",
+      "Switchgear and substation commissioning",
+      "Preventive maintenance in utilities and industry"
+    ],
+    "featured": true,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+    "specTables": [
+      {
+        "heading": "Voltage & Resistance Range — Ordering Combinations",
+        "note": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "100 V",
+            "col1": "0–20 MΩ"
+          },
+          {
+            "col0": "100 V",
+            "col1": "0–50 MΩ"
+          },
+          {
+            "col0": "100 V",
+            "col1": "0–100 MΩ"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0–50 MΩ"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0–100 MΩ"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0–250 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–100 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–200 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–500 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–1000 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–2000 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–100 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–200 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–500 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–1000 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–2000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–1000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–2000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–2500 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–5000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "50–50000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–5000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "50–50000 MΩ"
+          }
+        ]
+      }
+    ],
+    "options": [
+      "Dual voltage & dual insulation range (two voltage outputs, two resistance scales)",
+      "Single voltage with dual insulation range",
+      "Optional continuity range (built-in low-resistance test range in kΩ for checking conductor/winding continuity) — available on 500 V and 1000 V models",
+      "Any other range manufactured to specific requirement"
+    ]
+  },
+  {
+    "id": "cie-666",
+    "categoryId": "insulation-testers-hand",
+    "model": "CIE/666",
+    "name": "Insulation Tester — Wooden Body, Hand-Driven",
+    "tagline": "Seasoned wooden body, hand-driven generator insulation tester up to 10 kV.",
+    "description": "The CIE/666 is a wooden body, hand-driven generator type insulation tester. Available in the widest range of rated voltages in the CIE range — 100 V to 10 kV — with a comprehensive choice of insulation scales. Each instrument is manufactured to the customer's specified rated voltage and resistance range. Optional dual voltage, dual insulation range, built-in continuity range, and any non-standard range to order.",
+    "specs": [
+      {
+        "label": "Body",
+        "value": "Wooden"
+      },
+      {
+        "label": "Generator Type",
+        "value": "Hand-driven"
+      },
+      {
+        "label": "Rated Voltages Available",
+        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V / 10000 V"
+      },
+      {
+        "label": "Continuity Range",
+        "value": "Optional (built-in, 500 V or 1000 V)"
+      },
+      {
+        "label": "Dual Voltage Option",
+        "value": "Available"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "High-voltage cable and equipment testing",
+      "Power transformer insulation assessment",
+      "EHV substation commissioning",
+      "Indian Railways HV testing requirements"
+    ],
+    "featured": true,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+    "specTables": [
+      {
+        "heading": "Voltage & Resistance Range — Ordering Combinations",
+        "note": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "100 V",
+            "col1": "0–20 MΩ"
+          },
+          {
+            "col0": "100 V",
+            "col1": "0–50 MΩ"
+          },
+          {
+            "col0": "100 V",
+            "col1": "0–100 MΩ"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0–50 MΩ"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0–100 MΩ"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0–250 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–100 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–200 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–500 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–1000 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–2000 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–100 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–200 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–500 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–1000 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–2000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–1000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–2000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–2500 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–5000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "50–50000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–5000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "50–50000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "100–100000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "50–50000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "100–100000 MΩ"
+          }
+        ]
+      }
+    ],
+    "options": [
+      "Dual voltage & dual insulation range (two voltage outputs, two resistance scales)",
+      "Single voltage with dual insulation range",
+      "Optional continuity range (built-in low-resistance test range in kΩ for checking conductor/winding continuity) — available on 500 V and 1000 V models",
+      "Any other range manufactured to specific requirement"
+    ]
+  },
+  {
+    "id": "cie-444-mr",
+    "categoryId": "multirange-insulation-hand",
+    "model": "CIE/444/MR",
+    "name": "Multirange Insulation Tester — Metal Body (Hand-Driven)",
+    "tagline": "Selectable multi-voltage, metal body, hand-driven insulation tester with built-in continuity range.",
+    "description": "The CIE/444/MR is a multi-voltage, multi-range insulation tester in a metal body. A single instrument covers three selectable test voltages and corresponding insulation ranges, plus a built-in continuity range. Series MR-1 to MR-4 are available in metal body. Specify the MR series required when ordering.",
+    "specs": [
+      {
+        "label": "Body",
+        "value": "Pressure die-cast metal"
+      },
+      {
+        "label": "Generator Type",
+        "value": "Hand-driven"
+      },
+      {
+        "label": "Series Available",
+        "value": "MR-1 to MR-4"
+      },
+      {
+        "label": "Display",
+        "value": "Multi-scale with continuity range"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Multi-voltage insulation testing on a single instrument",
+      "Utilities requiring flexible voltage selection",
+      "Cable testing at varying voltage levels",
+      "Substation and EPC commissioning"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required MR series when ordering. MR-1 to MR-4 available in metal body. Any other configuration manufactured to order.",
+    "specTables": [
+      {
+        "heading": "Available Series — Voltage, Range & Continuity",
+        "note": "Specify the required series when ordering. Other combinations manufactured to specific requirement.",
+        "columns": [
+          "Series",
+          "Voltage & Resistance Ranges",
+          "Continuity Range"
+        ],
+        "rows": [
+          {
+            "col0": "MR-1",
+            "col1": "1000 V / 0–2000 MΩ · 500 V / 0–1000 MΩ · 250 V / 0–500 MΩ",
+            "col2": "0–20 KΩ"
+          },
+          {
+            "col0": "MR-2",
+            "col1": "1000 V / 0–200 MΩ · 500 V / 0–100 MΩ · 250 V / 0–50 MΩ",
+            "col2": "0–1 KΩ"
+          },
+          {
+            "col0": "MR-3",
+            "col1": "500 V / 0–1000 MΩ · 250 V / 0–500 MΩ · 100 V / 0–200 MΩ",
+            "col2": "0–5 KΩ"
+          },
+          {
+            "col0": "MR-4",
+            "col1": "500 V / 0–100 MΩ · 250 V / 0–50 MΩ · 100 V / 0–20 MΩ",
+            "col2": "0–1 KΩ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cie-666-mr",
+    "categoryId": "multirange-insulation-hand",
+    "model": "CIE/666/MR",
+    "name": "Multirange Insulation Tester — Wooden Body (Hand-Driven)",
+    "tagline": "Selectable multi-voltage, wooden body, hand-driven insulation tester with built-in continuity range.",
+    "description": "The CIE/666/MR is a multi-voltage, multi-range insulation tester in a wooden body. A single instrument covers up to three selectable test voltages and corresponding insulation ranges, plus a built-in continuity range. The full range of series MR-1 to MR-8 is available, including high-voltage series MR-5 to MR-8 (wooden body only). Specify the MR series required when ordering.",
+    "specs": [
+      {
+        "label": "Body",
+        "value": "Wooden"
+      },
+      {
+        "label": "Generator Type",
+        "value": "Hand-driven"
+      },
+      {
+        "label": "Series Available",
+        "value": "MR-1 to MR-8"
+      },
+      {
+        "label": "Display",
+        "value": "Multi-scale with continuity range"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "High-voltage field insulation testing",
+      "Multi-voltage transformer and cable testing",
+      "Indian Railways HV equipment commissioning"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required MR series when ordering. MR-1 to MR-8 available in wooden body. Any other configuration manufactured to order.",
+    "specTables": [
+      {
+        "heading": "Available Series — Voltage, Range & Continuity",
+        "note": "Specify the required series when ordering. Other combinations manufactured to specific requirement.",
+        "columns": [
+          "Series",
+          "Voltage & Resistance Ranges",
+          "Continuity Range"
+        ],
+        "rows": [
+          {
+            "col0": "MR-1",
+            "col1": "1000 V / 0–2000 MΩ · 500 V / 0–1000 MΩ · 250 V / 0–500 MΩ",
+            "col2": "0–20 KΩ"
+          },
+          {
+            "col0": "MR-2",
+            "col1": "1000 V / 0–200 MΩ · 500 V / 0–100 MΩ · 250 V / 0–50 MΩ",
+            "col2": "0–1 KΩ"
+          },
+          {
+            "col0": "MR-3",
+            "col1": "500 V / 0–1000 MΩ · 250 V / 0–500 MΩ · 100 V / 0–200 MΩ",
+            "col2": "0–5 KΩ"
+          },
+          {
+            "col0": "MR-4",
+            "col1": "500 V / 0–100 MΩ · 250 V / 0–50 MΩ · 100 V / 0–20 MΩ",
+            "col2": "0–1 KΩ"
+          },
+          {
+            "col0": "MR-5",
+            "col1": "2500 V / 0–5000 MΩ · 1000 V / 0–2000 MΩ · 500 V / 0–1000 MΩ",
+            "col2": "0–20 KΩ"
+          },
+          {
+            "col0": "MR-6",
+            "col1": "2500 V / 0–1000 MΩ · 1000 V / 0–200 MΩ · 500 V / 0–100 MΩ",
+            "col2": "0–1 KΩ"
+          },
+          {
+            "col0": "MR-7",
+            "col1": "5000 V / 0–20000 MΩ · 2500 V / 0–10000 MΩ",
+            "col2": "0–20 KΩ"
+          },
+          {
+            "col0": "MR-8",
+            "col1": "5000 V / 0–5000 MΩ · 2500 V / 0–2500 MΩ",
+            "col2": "0–5 KΩ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cie-777",
+    "categoryId": "motor-operated-insulation",
+    "model": "CIE/777",
+    "name": "Motorised Insulation Tester",
+    "tagline": "Motor-driven generator insulation tester for sustained high-voltage testing up to 10 kV.",
+    "description": "The CIE/777 is a motorised generator type insulation tester providing stable, sustained test voltages from 500 V to 10 kV. Motor drive ensures consistent test voltage independent of operator technique. Supplied with one pair of HV testing leads. Optional timer available. Each instrument is manufactured to the customer's specified rated voltage and resistance range.",
+    "specs": [
+      {
+        "label": "Generator Type",
+        "value": "Motor-driven"
+      },
+      {
+        "label": "Rated Voltages Available",
+        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V"
+      },
+      {
+        "label": "Accessories",
+        "value": "One pair HV testing leads (supplied)"
+      },
+      {
+        "label": "Optional Timer",
+        "value": "Available"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Sustained insulation testing on large equipment",
+      "Power transformers and HV cables",
+      "Substation commissioning by EPC contractors",
+      "Testing labs requiring stable HV output"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+    "specTables": [
+      {
+        "heading": "Voltage & Resistance Range — Ordering Combinations",
+        "note": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "500 V",
+            "col1": "0–1000 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–2000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–5000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–5000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "50–50000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "100–100000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "50–50000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "100–100000 MΩ"
+          }
+        ]
+      }
+    ],
+    "includedWith": [
+      "One pair of HV testing leads"
+    ]
+  },
+  {
+    "id": "cie-777-hm",
+    "categoryId": "motor-operated-insulation",
+    "model": "CIE/777 HM",
+    "name": "Motor-cum-Hand Driven Insulation Tester",
+    "tagline": "Dual-mode motor and hand-driven insulation tester — operates where mains power is unavailable.",
+    "description": "The CIE/777 HM combines motor-driven and hand-driven operation in a single instrument. Test voltages 500 V to 10 kV. Motor drive for sustained site testing; hand drive as backup where mains supply is unavailable. Supplied with one pair of HV testing leads. Optional timer available. Each instrument is manufactured to the customer's specified rated voltage and resistance range.",
+    "specs": [
+      {
+        "label": "Generator Type",
+        "value": "Motor-cum-hand driven"
+      },
+      {
+        "label": "Rated Voltages Available",
+        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V"
+      },
+      {
+        "label": "Accessories",
+        "value": "One pair HV testing leads (supplied)"
+      },
+      {
+        "label": "Optional Timer",
+        "value": "Available"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Field testing where mains supply is uncertain",
+      "Remote substation commissioning",
+      "Indian Railways track and traction equipment testing"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+    "specTables": [
+      {
+        "heading": "Voltage & Resistance Range — Ordering Combinations",
+        "note": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "500 V",
+            "col1": "0–1000 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–2000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–5000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–5000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "50–50000 MΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "100–100000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "0–10000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "0–20000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "50–50000 MΩ"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "100–100000 MΩ"
+          }
+        ]
+      }
+    ],
+    "includedWith": [
+      "One pair of HV testing leads"
+    ]
+  },
+  {
+    "id": "cie-777-mr",
+    "categoryId": "multirange-motorised-insulation",
+    "model": "CIE/777/MR",
+    "name": "Multirange Motorised Insulation Tester",
+    "tagline": "Dual-scale, multi-voltage motorised insulation tester. Series MR-A to MR-E.",
+    "description": "The CIE/777/MR is a motorised multi-voltage insulation tester with dual-scale display. Five series (MR-A to MR-E) each cover a different combination of test voltages and insulation scale ranges. MR-A, MR-B, and MR-D feature dual-scale (inner/outer) display; MR-C and MR-E are single-scale. Specify the MR series required when ordering.",
+    "specs": [
+      {
+        "label": "Generator Type",
+        "value": "Motorised"
+      },
+      {
+        "label": "Series Available",
+        "value": "MR-A to MR-E"
+      },
+      {
+        "label": "Display",
+        "value": "Dual scale (inner/outer) for MR-A, MR-B, MR-D; single scale for MR-C, MR-E"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Flexible multi-voltage motorised testing",
+      "Commissioning of transformer and cable networks",
+      "Testing labs and utilities"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required MR series when ordering. Any other configuration manufactured to order.",
+    "specTables": [
+      {
+        "heading": "Available Series — Voltage, Inner Scale & Outer Scale",
+        "note": "Specify the required series when ordering. Dual-scale analogue display — inner and outer resistance scales on same movement.",
+        "columns": [
+          "Series",
+          "Voltage",
+          "Inner Scale",
+          "Outer Scale"
+        ],
+        "rows": [
+          {
+            "col0": "MR-A",
+            "col1": "5000 V",
+            "col2": "0–5000 MΩ",
+            "col3": "50–100000 MΩ"
+          },
+          {
+            "col0": "MR-A",
+            "col1": "2500 V",
+            "col2": "0–2500 MΩ",
+            "col3": "25–50000 MΩ"
+          },
+          {
+            "col0": "MR-A",
+            "col1": "1000 V",
+            "col2": "0–1000 MΩ",
+            "col3": "10–20000 MΩ"
+          },
+          {
+            "col0": "MR-B",
+            "col1": "5000 V",
+            "col2": "0–2000 MΩ",
+            "col3": "10–10000 MΩ"
+          },
+          {
+            "col0": "MR-B",
+            "col1": "2500 V",
+            "col2": "0–1000 MΩ",
+            "col3": "5–5000 MΩ"
+          },
+          {
+            "col0": "MR-B",
+            "col1": "1000 V",
+            "col2": "0–500 MΩ",
+            "col3": "2–2000 MΩ"
+          },
+          {
+            "col0": "MR-C",
+            "col1": "5000 V",
+            "col2": "100–100000 MΩ",
+            "col3": "—"
+          },
+          {
+            "col0": "MR-C",
+            "col1": "2500 V",
+            "col2": "50–50000 MΩ",
+            "col3": "—"
+          },
+          {
+            "col0": "MR-D",
+            "col1": "5000 V",
+            "col2": "0–5000 MΩ",
+            "col3": "50–100000 MΩ"
+          },
+          {
+            "col0": "MR-D",
+            "col1": "2500 V",
+            "col2": "0–2500 MΩ",
+            "col3": "25–50000 MΩ"
+          },
+          {
+            "col0": "MR-E",
+            "col1": "5000 V",
+            "col2": "50–50000 MΩ",
+            "col3": "—"
+          },
+          {
+            "col0": "MR-E",
+            "col1": "2500 V",
+            "col2": "25–25000 MΩ",
+            "col3": "—"
+          },
+          {
+            "col0": "MR-E",
+            "col1": "1000 V",
+            "col2": "10–10000 MΩ",
+            "col3": "—"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cie-777-hm-mr",
+    "categoryId": "multirange-motorised-insulation",
+    "model": "CIE/777 HM/MR",
+    "name": "Multirange Motor-cum-Hand Driven Insulation Tester",
+    "tagline": "Multi-voltage motor-cum-hand driven insulation tester with dual scale. Series MR-A to MR-E.",
+    "description": "The CIE/777 HM/MR combines multi-voltage MR-series flexibility with motor-cum-hand driven operation. All five series (MR-A to MR-E) are available. MR-A, MR-B, and MR-D feature dual-scale (inner/outer) display. Ideal for field teams where mains power may be unavailable. Specify the MR series required when ordering.",
+    "specs": [
+      {
+        "label": "Generator Type",
+        "value": "Motor-cum-hand driven"
+      },
+      {
+        "label": "Series Available",
+        "value": "MR-A to MR-E"
+      },
+      {
+        "label": "Display",
+        "value": "Dual scale (inner/outer) for MR-A, MR-B, MR-D; single scale for MR-C, MR-E"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Remote field testing with backup hand drive",
+      "Multi-voltage HV commissioning",
+      "EPC contractors and utilities"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required MR series when ordering. Any other configuration manufactured to order.",
+    "specTables": [
+      {
+        "heading": "Available Series — Voltage, Inner Scale & Outer Scale",
+        "note": "Specify the required series when ordering. Dual-scale analogue display — inner and outer resistance scales on same movement.",
+        "columns": [
+          "Series",
+          "Voltage",
+          "Inner Scale",
+          "Outer Scale"
+        ],
+        "rows": [
+          {
+            "col0": "MR-A",
+            "col1": "5000 V",
+            "col2": "0–5000 MΩ",
+            "col3": "50–100000 MΩ"
+          },
+          {
+            "col0": "MR-A",
+            "col1": "2500 V",
+            "col2": "0–2500 MΩ",
+            "col3": "25–50000 MΩ"
+          },
+          {
+            "col0": "MR-A",
+            "col1": "1000 V",
+            "col2": "0–1000 MΩ",
+            "col3": "10–20000 MΩ"
+          },
+          {
+            "col0": "MR-B",
+            "col1": "5000 V",
+            "col2": "0–2000 MΩ",
+            "col3": "10–10000 MΩ"
+          },
+          {
+            "col0": "MR-B",
+            "col1": "2500 V",
+            "col2": "0–1000 MΩ",
+            "col3": "5–5000 MΩ"
+          },
+          {
+            "col0": "MR-B",
+            "col1": "1000 V",
+            "col2": "0–500 MΩ",
+            "col3": "2–2000 MΩ"
+          },
+          {
+            "col0": "MR-C",
+            "col1": "5000 V",
+            "col2": "100–100000 MΩ",
+            "col3": "—"
+          },
+          {
+            "col0": "MR-C",
+            "col1": "2500 V",
+            "col2": "50–50000 MΩ",
+            "col3": "—"
+          },
+          {
+            "col0": "MR-D",
+            "col1": "5000 V",
+            "col2": "0–5000 MΩ",
+            "col3": "50–100000 MΩ"
+          },
+          {
+            "col0": "MR-D",
+            "col1": "2500 V",
+            "col2": "0–2500 MΩ",
+            "col3": "25–50000 MΩ"
+          },
+          {
+            "col0": "MR-E",
+            "col1": "5000 V",
+            "col2": "50–50000 MΩ",
+            "col3": "—"
+          },
+          {
+            "col0": "MR-E",
+            "col1": "2500 V",
+            "col2": "25–25000 MΩ",
+            "col3": "—"
+          },
+          {
+            "col0": "MR-E",
+            "col1": "1000 V",
+            "col2": "10–10000 MΩ",
+            "col3": "—"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cie-555",
+    "categoryId": "compact-insulation-testers",
+    "model": "CIE/555",
+    "name": "Insulation Tester — Bakelite Body",
+    "tagline": "Compact moulded bakelite body, hand-driven insulation tester. Economical everyday instrument.",
+    "description": "The CIE/555 is a compact, economical hand-driven insulation tester in a moulded bakelite body. Test voltages 100 V to 1000 V. Suitable for routine insulation checking in workshops, panels, and general industry. Each instrument is manufactured to the customer's specified rated voltage and resistance range.",
+    "specs": [
+      {
+        "label": "Body",
+        "value": "Moulded bakelite"
+      },
+      {
+        "label": "Generator Type",
+        "value": "Hand-driven"
+      },
+      {
+        "label": "Rated Voltages Available",
+        "value": "100 V / 250 V / 500 V / 1000 V"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "General workshop insulation checks",
+      "Motor winding routine testing",
+      "Panel wiring insulation verification"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+    "specTables": [
+      {
+        "heading": "Voltage & Range — Ordering Combinations",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "100 V",
+            "col1": "0–10 MΩ"
+          },
+          {
+            "col0": "100 V",
+            "col1": "0–20 MΩ"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0–20 MΩ"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0–50 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–50 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–100 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–200 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–500 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–100 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–200 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–500 MΩ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cie-222m",
+    "categoryId": "earth-tester",
+    "model": "CIE/222M",
+    "name": "Analog Earth Tester — Metal Body",
+    "tagline": "3-terminal and 4-terminal analog earth resistance and soil resistivity tester. Supplied as a complete kit.",
+    "description": "The CIE/222M is a hand-driven metal body analog earth tester for 3-terminal earth resistance measurement and 4-terminal soil resistivity measurement. Available in single, dual, triple, four, and five-range options. Supplied complete with earth spikes, wire spools, hammer, and carrying bag.",
+    "specs": [
+      {
+        "label": "Body",
+        "value": "Metal"
+      },
+      {
+        "label": "Generator Type",
+        "value": "Hand-driven"
+      },
+      {
+        "label": "Terminal Types",
+        "value": "3-terminal (earth resistance) and 4-terminal (earth resistance + soil resistivity)"
+      },
+      {
+        "label": "Range Configurations",
+        "value": "Single / Dual / Triple / Four / Five range"
+      },
+      {
+        "label": "Accessories",
+        "value": "M.S. spikes, flexible-wire spools, hammer, carrying bag (supplied)"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Substation earthing system commissioning",
+      "Earth electrode resistance measurement",
+      "Soil resistivity survey for earthing design",
+      "Utility and EPC commissioning teams"
+    ],
+    "featured": true,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the range configuration and terminal type (3-terminal or 4-terminal) when ordering. Other ranges manufactured to specific requirement.",
+    "specTables": [
+      {
+        "heading": "Single Range Options",
+        "columns": [
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "Any range from 0–1 Ω up to 0–5 Ω"
+          },
+          {
+            "col0": "0–10 Ω up to 0–100 Ω"
+          },
+          {
+            "col0": "0–200 Ω up to 0–10000 Ω"
+          }
+        ]
+      },
+      {
+        "heading": "Dual Range Options",
+        "columns": [
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "0–1 / 10 Ω"
+          },
+          {
+            "col0": "0–2 / 10 Ω"
+          },
+          {
+            "col0": "0–3 / 30 Ω"
+          },
+          {
+            "col0": "0–10 / 100 Ω"
+          }
+        ]
+      },
+      {
+        "heading": "Triple Range Options",
+        "columns": [
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "0–1 / 10 / 100 Ω"
+          },
+          {
+            "col0": "0–2 / 10 / 100 Ω"
+          },
+          {
+            "col0": "0–2 / 20 / 200 Ω"
+          },
+          {
+            "col0": "0–3 / 30 / 300 Ω"
+          },
+          {
+            "col0": "0–10 / 100 / 1000 Ω"
+          }
+        ]
+      },
+      {
+        "heading": "Four Range Options",
+        "columns": [
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "0–1 / 10 / 100 / 1000 Ω"
+          },
+          {
+            "col0": "0–2 / 10 / 100 / 1000 Ω"
+          },
+          {
+            "col0": "0–10 / 100 / 1000 / 10000 Ω"
+          }
+        ]
+      },
+      {
+        "heading": "Five Range Options",
+        "columns": [
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "0–1 / 10 / 100 / 1000 / 10000 Ω"
+          },
+          {
+            "col0": "0–2 / 10 / 100 / 1000 / 10000 Ω"
+          }
+        ]
+      }
+    ],
+    "includedWith": [
+      "M.S. earth spikes (2 nos.)",
+      "Flexible wire spools (2 nos.)",
+      "Hammer",
+      "Carrying bag"
+    ]
+  },
+  {
+    "id": "dit-5005",
+    "categoryId": "digital-insulation-testers",
+    "model": "DIT-5005",
+    "name": "Digital Insulation Tester — 500 V / 1000 V",
+    "tagline": "Rechargeable microcontroller-based digital insulation tester at 500 V and 1000 V.",
+    "description": "The DIT-5005 is a microcontroller-based digital insulation tester with rechargeable battery. Provides accurate digital readout of insulation resistance at 500 V and 1000 V test voltages. Compact and portable for field use.",
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Microcontroller-based digital"
+      },
+      {
+        "label": "Power",
+        "value": "Rechargeable battery"
+      },
+      {
+        "label": "Display",
+        "value": "LCD"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Field insulation testing",
+      "Motor and cable commissioning",
+      "General maintenance and testing"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required test voltage and resistance range combination when ordering.",
+    "specTables": [
+      {
+        "heading": "Voltage & Range — Ordering Combinations",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "500 V",
+            "col1": "0–200 MΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0–1000 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–200 MΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0–2000 MΩ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dit-2500",
+    "categoryId": "digital-insulation-testers",
+    "model": "DIT-2500",
+    "name": "Digital Insulation Tester — up to 2500 V / 50 GΩ",
+    "tagline": "Five selectable test voltages to 2500 V. Measures insulation up to 50 GΩ. DAR & PI functions.",
+    "description": "The DIT-2500 provides five selectable test voltages (100 V, 250 V, 500 V, 1000 V, 2500 V) with insulation measurement up to 50 GΩ. Dielectric Absorption Ratio (DAR) and Polarisation Index (PI) functions for comprehensive insulation assessment. LCD display with auto-ranging.",
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Digital, selectable test voltage"
+      },
+      {
+        "label": "Functions",
+        "value": "Insulation resistance, DAR, PI"
+      },
+      {
+        "label": "Display",
+        "value": "LCD, auto-ranging"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Transformer and motor insulation assessment",
+      "HV cable testing",
+      "Insulation trending and predictive maintenance",
+      "Substation commissioning"
+    ],
+    "featured": true,
+    "datasheet": null,
+    "specTables": [
+      {
+        "heading": "Test Voltage & Measurement Capability",
+        "note": "All five test voltages are selectable on a single instrument.",
+        "columns": [
+          "Test Voltage",
+          "Insulation Measurement"
+        ],
+        "rows": [
+          {
+            "col0": "100 V",
+            "col1": "Up to 50 GΩ"
+          },
+          {
+            "col0": "250 V",
+            "col1": "Up to 50 GΩ"
+          },
+          {
+            "col0": "500 V",
+            "col1": "Up to 50 GΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "Up to 50 GΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "Up to 50 GΩ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dit-5000",
+    "categoryId": "digital-insulation-testers",
+    "model": "DIT-5000",
+    "name": "Digital Insulation Tester — up to 5000 V / 200 GΩ",
+    "tagline": "High-voltage digital insulation tester to 5000 V with measurement to 200 GΩ.",
+    "description": "The DIT-5000 provides selectable test voltages of 500 V, 1000 V, 2500 V, and 5000 V with insulation measurement up to 200 GΩ. Suitable for testing large HV transformers, cables, and rotating machines.",
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Digital, selectable test voltage"
+      },
+      {
+        "label": "Display",
+        "value": "LCD"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Large HV transformer insulation testing",
+      "HV cable testing up to 5000 V",
+      "Rotating machine insulation assessment",
+      "Utilities and large industrial plants"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "specTables": [
+      {
+        "heading": "Test Voltage & Measurement Capability",
+        "note": "All four test voltages are selectable on a single instrument.",
+        "columns": [
+          "Test Voltage",
+          "Insulation Measurement"
+        ],
+        "rows": [
+          {
+            "col0": "500 V",
+            "col1": "Up to 200 GΩ"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "Up to 200 GΩ"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "Up to 200 GΩ"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "Up to 200 GΩ"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "det-2000",
+    "categoryId": "digital-earth-micro-ohm",
+    "model": "DET-2000",
+    "name": "Digital Earth Resistance Tester",
+    "tagline": "4-terminal digital earth resistance tester. Rechargeable. Complete kit supplied.",
+    "description": "The DET-2000 is a 4-terminal digital earth resistance tester with rechargeable battery. Available in dual and triple range. Supplied as a complete testing kit including earth spikes, wire spools, and hammer.",
+    "specs": [
+      {
+        "label": "Terminals",
+        "value": "4-terminal"
+      },
+      {
+        "label": "Type",
+        "value": "Digital"
+      },
+      {
+        "label": "Power",
+        "value": "Rechargeable battery"
+      },
+      {
+        "label": "Accessories",
+        "value": "Earth spikes, wire spools, hammer (supplied)"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Substation earth grid testing",
+      "Earth electrode resistance measurement",
+      "Commission and maintenance of earthing systems"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "specTables": [
+      {
+        "heading": "Dual Range Options",
+        "columns": [
+          "Range Configuration"
+        ],
+        "rows": [
+          {
+            "col0": "0–5–500 Ω"
+          },
+          {
+            "col0": "0–10–100 Ω"
+          },
+          {
+            "col0": "0–20–200 Ω"
+          },
+          {
+            "col0": "0–10–1000 Ω"
+          },
+          {
+            "col0": "0–20–2000 Ω"
+          },
+          {
+            "col0": "0–200–2000 Ω"
+          }
+        ]
+      },
+      {
+        "heading": "Triple Range Options",
+        "columns": [
+          "Range Configuration"
+        ],
+        "rows": [
+          {
+            "col0": "0–5–50–500 Ω"
+          },
+          {
+            "col0": "0–10–100–1000 Ω"
+          },
+          {
+            "col0": "0–20–200–2000 Ω"
+          }
+        ]
+      }
+    ],
+    "buildToOrder": true,
+    "orderNote": "Specify the required range configuration when ordering.",
+    "includedWith": [
+      "Earth spikes (2 nos.)",
+      "Wire spools (2 nos.)",
+      "Hammer"
+    ]
+  },
+  {
+    "id": "mr-253a",
+    "categoryId": "digital-earth-micro-ohm",
+    "model": "MR-253A",
+    "name": "Digital Micro-Ohm / Contact Resistance Meter",
+    "tagline": "Bench-type digital micro-ohm meter for contact resistance measurement from 0–1999 µΩ to 19.99 kΩ.",
+    "description": "The MR-253A is a bench-type digital micro-ohm / contact resistance meter providing measurement from 0–1999 µΩ to 19.99 kΩ across multiple ranges. Mains powered (230 V, 50 Hz, single phase). Supplied with two pairs of test leads.",
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Bench-type digital"
+      },
+      {
+        "label": "Power Supply",
+        "value": "230 V, 50 Hz, single phase"
+      },
+      {
+        "label": "Dimensions (approx.)",
+        "value": "192 × 96 × 230 mm"
+      },
+      {
+        "label": "Weight (approx.)",
+        "value": "2.25 kg"
+      },
+      {
+        "label": "Accessories",
+        "value": "2 pairs of test leads (supplied)"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Circuit breaker contact resistance testing",
+      "Busbar and cable joint resistance measurement",
+      "Transformer winding resistance",
+      "Laboratory low-resistance measurement"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "specTables": [
+      {
+        "heading": "Measurement Ranges",
+        "note": "All ranges available on a single instrument.",
+        "columns": [
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "0–1999 µΩ"
+          },
+          {
+            "col0": "0–19.99 mΩ"
+          },
+          {
+            "col0": "0–199.9 mΩ"
+          },
+          {
+            "col0": "0–1999 mΩ"
+          },
+          {
+            "col0": "0–19.99 Ω"
+          },
+          {
+            "col0": "0–199.9 Ω"
+          },
+          {
+            "col0": "0–1999 Ω"
+          },
+          {
+            "col0": "0–19.99 kΩ"
+          }
+        ]
+      }
+    ],
+    "includedWith": [
+      "2 pairs of test leads"
+    ]
+  },
+  {
+    "id": "dcm-2250-tr",
+    "categoryId": "clamp-multimeters",
+    "model": "DCM 2250 TR",
+    "name": "True-RMS Clamp Meter — 1000 A AC",
+    "tagline": "Auto-ranging True-RMS clamp meter, 0–1000 A AC.",
+    "description": "The DCM 2250 TR is an auto-ranging True-RMS clamp meter measuring AC current from 0 to 1000 A. Suitable for measuring load currents on electrical panels, motors, and distribution feeders.",
+    "specs": [
+      {
+        "label": "AC Current Range",
+        "value": "0–1000 A"
+      },
+      {
+        "label": "Measurement Type",
+        "value": "True-RMS"
+      },
+      {
+        "label": "Auto-Range",
+        "value": "Yes"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Panel and feeder current measurement",
+      "Motor load testing",
+      "Electrical maintenance"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "image": "dcm-2250-tr.png"
+  },
+  {
+    "id": "dcm-5410-tr",
+    "categoryId": "clamp-multimeters",
+    "model": "DCM 5410 TR",
+    "name": "True-RMS Clamp Meter — 1000 A AC/DC with Frequency, Temperature & Capacitance",
+    "tagline": "Advanced True-RMS clamp meter, 1000 A AC/DC, frequency, temperature, and capacitance.",
+    "description": "The DCM 5410 TR is a comprehensive True-RMS clamp meter measuring 1000 A AC and DC, plus frequency, temperature, and capacitance. A versatile all-in-one field instrument for electrical commissioning and maintenance.",
+    "specs": [
+      {
+        "label": "AC/DC Current Range",
+        "value": "1000 A AC/DC"
+      },
+      {
+        "label": "Measurement Type",
+        "value": "True-RMS"
+      },
+      {
+        "label": "Additional Functions",
+        "value": "Frequency, temperature, capacitance"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "AC and DC current measurement",
+      "Electrical commissioning",
+      "Frequency and power quality checks"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "image": "dcm-5410-tr.png"
+  },
+  {
+    "id": "dm-235",
+    "categoryId": "clamp-multimeters",
+    "model": "DM 235",
+    "name": "Digital Multimeter — 3½-digit",
+    "tagline": "3½-digit DMM — 1000 V DC, 750 V AC, 20 A, resistance, capacitance, continuity, diode, hFE.",
+    "description": "The DM 235 is a 3½-digit digital multimeter measuring DC voltage to 1000 V, AC voltage to 750 V, current to 20 A (AC/DC), resistance, capacitance, continuity, diode test, and transistor hFE. Supplied with protective holster.",
+    "specs": [
+      {
+        "label": "DC Voltage",
+        "value": "Up to 1000 V"
+      },
+      {
+        "label": "AC Voltage",
+        "value": "Up to 750 V"
+      },
+      {
+        "label": "AC/DC Current",
+        "value": "Up to 20 A"
+      },
+      {
+        "label": "Additional Functions",
+        "value": "Resistance, capacitance, continuity, diode, hFE"
+      },
+      {
+        "label": "Display",
+        "value": "3½-digit"
+      },
+      {
+        "label": "Accessories",
+        "value": "Protective holster (supplied)"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "General electrical measurement",
+      "Panel testing",
+      "Workshop and field use"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "includedWith": [
+      "Protective holster"
+    ]
+  },
+  {
+    "id": "dm-321t",
+    "categoryId": "clamp-multimeters",
+    "model": "DM 321T",
+    "name": "True-RMS Digital Multimeter — 3½-digit",
+    "tagline": "True-RMS 3½-digit DMM with backlight, auto power-off, and transistor/diode test.",
+    "description": "The DM 321T is a True-RMS 3½-digit digital multimeter with full DCV, ACV, DCA, ACA, resistance, capacitance, transistor, and diode test functions. Backlit display and auto power-off. Ideal for accurate measurement of non-sinusoidal AC waveforms.",
+    "specs": [
+      {
+        "label": "Measurement Type",
+        "value": "True-RMS"
+      },
+      {
+        "label": "Display",
+        "value": "3½-digit with backlight"
+      },
+      {
+        "label": "Functions",
+        "value": "DCV, ACV, DCA, ACA, resistance, capacitance, transistor, diode"
+      },
+      {
+        "label": "Auto Power-Off",
+        "value": "Yes"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Accurate AC measurement on non-sinusoidal loads",
+      "General electrical testing",
+      "Maintenance and commissioning"
+    ],
+    "featured": false,
+    "datasheet": null
+  },
+  {
+    "id": "cie-5050a",
+    "categoryId": "hv-phase-sequence",
+    "model": "CIE/5050A",
+    "name": "A.C. High-Voltage Test Set",
+    "tagline": "0–3 kV or 0–5 kV AC high-voltage test set at 25 mA and 50 mA.",
+    "description": "The CIE/5050A is an AC high-voltage test set providing continuously variable output from 0 to 3 kV or 0 to 5 kV at 25 mA and 50 mA respectively. Used for HV withstand and proof testing of cables, switchgear, and equipment in the field or laboratory.",
+    "specs": [
+      {
+        "label": "Output Type",
+        "value": "A.C., continuously variable"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "HV withstand testing of cables and switchgear",
+      "Equipment proof testing",
+      "Site and laboratory HV testing"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "specTables": [
+      {
+        "heading": "Output Voltage & Current Options",
+        "columns": [
+          "Output Voltage Range",
+          "Output Current"
+        ],
+        "rows": [
+          {
+            "col0": "0–3 kV",
+            "col1": "25 mA and 50 mA"
+          },
+          {
+            "col0": "0–5 kV",
+            "col1": "25 mA and 50 mA"
+          }
+        ]
+      }
+    ],
+    "buildToOrder": true,
+    "orderNote": "Specify the required output voltage range when ordering."
+  },
+  {
+    "id": "psi-1",
+    "categoryId": "hv-phase-sequence",
+    "model": "PSI-1",
+    "name": "Phase Sequence Indicator — Disc Rotating Type",
+    "tagline": "Disc-rotating phase sequence indicator, bakelite body, 100–500 V AC.",
+    "description": "The PSI-1 is a disc-rotating phase sequence indicator in a bakelite body. Visually indicates phase sequence of a 3-phase AC supply from 100 V to 500 V. Supplied with R/Y/B leads and carrying case.",
+    "specs": [
+      {
+        "label": "Indication Method",
+        "value": "Disc rotation"
+      },
+      {
+        "label": "Body",
+        "value": "Bakelite"
+      },
+      {
+        "label": "Operating Voltage",
+        "value": "100–500 V AC"
+      },
+      {
+        "label": "Accessories",
+        "value": "R/Y/B test leads and carrying case (supplied)"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "3-phase supply phase sequence verification",
+      "Motor connection commissioning",
+      "Panel and switchboard testing"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "image": "psi-1.png",
+    "includedWith": [
+      "R/Y/B test leads",
+      "Carrying case"
+    ]
+  },
+  {
+    "id": "psi-2",
+    "categoryId": "hv-phase-sequence",
+    "model": "PSI-2",
+    "name": "Phase Sequence Indicator — ABS Moulded",
+    "tagline": "ABS moulded 96×96 mm phase sequence indicator, 100–500 V. Supplied with case and leads.",
+    "description": "The PSI-2 is a phase sequence indicator in a compact ABS moulded enclosure (96×96 mm). Operating voltage 100–500 V AC. Supplied with carrying case and test leads.",
+    "specs": [
+      {
+        "label": "Body",
+        "value": "ABS moulded"
+      },
+      {
+        "label": "Dimensions",
+        "value": "96 × 96 mm"
+      },
+      {
+        "label": "Operating Voltage",
+        "value": "100–500 V AC"
+      },
+      {
+        "label": "Accessories",
+        "value": "Carrying case and test leads (supplied)"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "3-phase phase sequence check",
+      "Switchboard commissioning",
+      "Motor connection verification"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "image": "psi-2.png",
+    "includedWith": [
+      "Carrying case",
+      "Test leads"
+    ]
+  },
+  {
+    "id": "cie-7050",
+    "categoryId": "oil-test-sets",
+    "model": "CIE/7050",
+    "name": "Transformer Oil BDV Tester — 50 kV",
+    "tagline": "Transformer oil dielectric strength (BDV) tester up to 50 kV. Manual and motorised variants.",
+    "description": "The CIE/7050 tests the dielectric breakdown voltage (BDV) of transformer oil at up to 50 kV. Mains powered (230 V, 50 Hz, single phase). Available in manual and motorised variants. Options include 2-unit housing, double capacity, digital meter, and magnetic stirrer.",
+    "specs": [
+      {
+        "label": "Output Voltage",
+        "value": "0–50 kV"
+      },
+      {
+        "label": "Capacity",
+        "value": "500 VA"
+      },
+      {
+        "label": "Input",
+        "value": "230 V, 50 Hz, single phase"
+      },
+      {
+        "label": "Duty",
+        "value": "Intermittent"
+      },
+      {
+        "label": "Variants",
+        "value": "Manual / Motorised"
+      },
+      {
+        "label": "Options",
+        "value": "2-unit housing, double capacity, digital meter, magnetic stirrer"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Transformer oil quality testing before energisation",
+      "Routine oil sampling analysis",
+      "Power utility and substation maintenance labs"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "specTables": [
+      {
+        "heading": "CIE/7000 Series — Complete Model Range",
+        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. Options: 2-unit housing, double capacity, digital meter, magnetic stirrer.",
+        "columns": [
+          "Output Voltage",
+          "Capacity",
+          "Manual Model",
+          "Motorised Model"
+        ],
+        "rows": [
+          {
+            "col0": "0–50 kV",
+            "col1": "500 VA",
+            "col2": "CIE/7050",
+            "col3": "7050 MOT"
+          },
+          {
+            "col0": "0–60 kV",
+            "col1": "600 VA",
+            "col2": "CIE/7060",
+            "col3": "7060 MOT"
+          },
+          {
+            "col0": "0–70 kV",
+            "col1": "700 VA",
+            "col2": "CIE/7070",
+            "col3": "7070 MOT"
+          },
+          {
+            "col0": "0–75 kV",
+            "col1": "750 VA",
+            "col2": "CIE/7075",
+            "col3": "7075 MOT"
+          },
+          {
+            "col0": "0–80 kV",
+            "col1": "800 VA",
+            "col2": "CIE/7080",
+            "col3": "7080 MOT"
+          },
+          {
+            "col0": "0–90 kV",
+            "col1": "900 VA",
+            "col2": "CIE/7090",
+            "col3": "7090 MOT"
+          },
+          {
+            "col0": "0–100 kV",
+            "col1": "1000 VA",
+            "col2": "CIE/7100",
+            "col3": "7100 MOT"
+          },
+          {
+            "col0": "0–120 kV",
+            "col1": "1200 VA",
+            "col2": "CIE/7120",
+            "col3": "7120 MOT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cie-7100",
+    "categoryId": "oil-test-sets",
+    "model": "CIE/7100",
+    "name": "Transformer Oil BDV Tester — 100 kV",
+    "tagline": "Transformer oil dielectric strength (BDV) tester up to 100 kV.",
+    "description": "The CIE/7100 tests transformer oil BDV at up to 100 kV — suitable for high-voltage transformer maintenance programmes. Mains powered (230 V, 50 Hz). Manual and motorised variants with optional digital meter and magnetic stirrer.",
+    "specs": [
+      {
+        "label": "Output Voltage",
+        "value": "0–100 kV"
+      },
+      {
+        "label": "Capacity",
+        "value": "1000 VA"
+      },
+      {
+        "label": "Input",
+        "value": "230 V, 50 Hz, single phase"
+      },
+      {
+        "label": "Duty",
+        "value": "Intermittent"
+      },
+      {
+        "label": "Variants",
+        "value": "Manual / Motorised"
+      },
+      {
+        "label": "Options",
+        "value": "2-unit housing, double capacity, digital meter, magnetic stirrer"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "100 kV class transformer oil testing",
+      "EHV substation maintenance",
+      "Power utility oil-testing laboratories"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "specTables": [
+      {
+        "heading": "CIE/7000 Series — Complete Model Range",
+        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. Options: 2-unit housing, double capacity, digital meter, magnetic stirrer.",
+        "columns": [
+          "Output Voltage",
+          "Capacity",
+          "Manual Model",
+          "Motorised Model"
+        ],
+        "rows": [
+          {
+            "col0": "0–50 kV",
+            "col1": "500 VA",
+            "col2": "CIE/7050",
+            "col3": "7050 MOT"
+          },
+          {
+            "col0": "0–60 kV",
+            "col1": "600 VA",
+            "col2": "CIE/7060",
+            "col3": "7060 MOT"
+          },
+          {
+            "col0": "0–70 kV",
+            "col1": "700 VA",
+            "col2": "CIE/7070",
+            "col3": "7070 MOT"
+          },
+          {
+            "col0": "0–75 kV",
+            "col1": "750 VA",
+            "col2": "CIE/7075",
+            "col3": "7075 MOT"
+          },
+          {
+            "col0": "0–80 kV",
+            "col1": "800 VA",
+            "col2": "CIE/7080",
+            "col3": "7080 MOT"
+          },
+          {
+            "col0": "0–90 kV",
+            "col1": "900 VA",
+            "col2": "CIE/7090",
+            "col3": "7090 MOT"
+          },
+          {
+            "col0": "0–100 kV",
+            "col1": "1000 VA",
+            "col2": "CIE/7100",
+            "col3": "7100 MOT"
+          },
+          {
+            "col0": "0–120 kV",
+            "col1": "1200 VA",
+            "col2": "CIE/7120",
+            "col3": "7120 MOT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cie-7120",
+    "categoryId": "oil-test-sets",
+    "model": "CIE/7120",
+    "name": "Transformer Oil BDV Tester — 120 kV",
+    "tagline": "High-capacity transformer oil BDV tester up to 120 kV.",
+    "description": "The CIE/7120 is the highest-rated instrument in the CIE/7000 series, testing transformer oil BDV up to 120 kV. Manual and motorised variants. Options include digital meter, magnetic stirrer, and double capacity oil vessel.",
+    "specs": [
+      {
+        "label": "Output Voltage",
+        "value": "0–120 kV"
+      },
+      {
+        "label": "Capacity",
+        "value": "1200 VA"
+      },
+      {
+        "label": "Input",
+        "value": "230 V, 50 Hz, single phase"
+      },
+      {
+        "label": "Duty",
+        "value": "Intermittent"
+      },
+      {
+        "label": "Variants",
+        "value": "Manual / Motorised"
+      },
+      {
+        "label": "Options",
+        "value": "2-unit housing, double capacity, digital meter, magnetic stirrer"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "EHV/UHV transformer oil quality assurance",
+      "Central testing laboratories",
+      "Grid and generation utilities"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "specTables": [
+      {
+        "heading": "CIE/7000 Series — Complete Model Range",
+        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. Options: 2-unit housing, double capacity, digital meter, magnetic stirrer.",
+        "columns": [
+          "Output Voltage",
+          "Capacity",
+          "Manual Model",
+          "Motorised Model"
+        ],
+        "rows": [
+          {
+            "col0": "0–50 kV",
+            "col1": "500 VA",
+            "col2": "CIE/7050",
+            "col3": "7050 MOT"
+          },
+          {
+            "col0": "0–60 kV",
+            "col1": "600 VA",
+            "col2": "CIE/7060",
+            "col3": "7060 MOT"
+          },
+          {
+            "col0": "0–70 kV",
+            "col1": "700 VA",
+            "col2": "CIE/7070",
+            "col3": "7070 MOT"
+          },
+          {
+            "col0": "0–75 kV",
+            "col1": "750 VA",
+            "col2": "CIE/7075",
+            "col3": "7075 MOT"
+          },
+          {
+            "col0": "0–80 kV",
+            "col1": "800 VA",
+            "col2": "CIE/7080",
+            "col3": "7080 MOT"
+          },
+          {
+            "col0": "0–90 kV",
+            "col1": "900 VA",
+            "col2": "CIE/7090",
+            "col3": "7090 MOT"
+          },
+          {
+            "col0": "0–100 kV",
+            "col1": "1000 VA",
+            "col2": "CIE/7100",
+            "col3": "7100 MOT"
+          },
+          {
+            "col0": "0–120 kV",
+            "col1": "1200 VA",
+            "col2": "CIE/7120",
+            "col3": "7120 MOT"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rts-5",
+    "categoryId": "relay-test-sets",
+    "model": "RTS-5",
+    "name": "Relay Test Set — Single Phase, 400 VA",
+    "tagline": "Single-phase relay test set, max 400 VA. Continuously variable AC current and voltage.",
+    "description": "The RTS-5 is a single-phase relay test set providing continuously variable AC current and voltage sources up to 400 VA. Used for testing and commissioning single-phase protection relays in substations and panels.",
+    "specs": [
+      {
+        "label": "Phases",
+        "value": "Single phase"
+      },
+      {
+        "label": "Max Burden",
+        "value": "400 VA"
+      },
+      {
+        "label": "AC Current Output",
+        "value": "Continuously variable"
+      },
+      {
+        "label": "AC Voltage Output",
+        "value": "Continuously variable"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Single-phase protection relay testing",
+      "Overcurrent and earth fault relay commissioning",
+      "Substation panel testing"
+    ],
+    "featured": false,
+    "datasheet": null
+  },
+  {
+    "id": "rts-5a",
+    "categoryId": "relay-test-sets",
+    "model": "RTS-5A",
+    "name": "Relay Test Set — Single Phase, 1000 VA",
+    "tagline": "Single-phase relay test set, max 1000 VA. Variable AC current, AC and DC voltage.",
+    "description": "The RTS-5A is an enhanced single-phase relay test set at 1000 VA providing variable AC current and both AC and DC voltage outputs. Suitable for testing a wider range of relay types including DC-operated relays.",
+    "specs": [
+      {
+        "label": "Phases",
+        "value": "Single phase"
+      },
+      {
+        "label": "Max Burden",
+        "value": "1000 VA"
+      },
+      {
+        "label": "AC Current Output",
+        "value": "Continuously variable"
+      },
+      {
+        "label": "AC Voltage Output",
+        "value": "Continuously variable"
+      },
+      {
+        "label": "DC Voltage Output",
+        "value": "30 V / 110 V / 220 V"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Single-phase overcurrent relay testing",
+      "DC-operated relay testing",
+      "Voltage relay commissioning"
+    ],
+    "featured": false,
+    "datasheet": null
+  },
+  {
+    "id": "rts-33",
+    "categoryId": "relay-test-sets",
+    "model": "RTS-33",
+    "name": "Three-Phase Relay Test Set",
+    "tagline": "Three-phase relay test set, 250 VA burden. Variable 3-phase AC current, AC/DC voltage, 0–360° phase angle.",
+    "description": "The RTS-33 is CIE's flagship protection testing instrument — a three-phase relay test set providing variable three-phase AC current, AC and DC voltage sources, and 0–360° continuously variable phase angle. 250 VA burden. Used for commissioning and testing distance, differential, and directional protection relays. A preferred instrument at India's major power utilities and EPC contractors.",
+    "specs": [
+      {
+        "label": "Phases",
+        "value": "Three phase"
+      },
+      {
+        "label": "Burden",
+        "value": "250 VA"
+      },
+      {
+        "label": "3-Phase AC Current Steps",
+        "value": "0–1 A / 0–5 A / 0–10 A / 0–25 A / 0–50 A"
+      },
+      {
+        "label": "AC Voltage Output",
+        "value": "Continuously variable"
+      },
+      {
+        "label": "DC Voltage Output",
+        "value": "30 V / 110 V / 220 V"
+      },
+      {
+        "label": "Phase Angle",
+        "value": "0–360° continuously variable"
+      },
+      {
+        "label": "Warranty",
+        "value": "12 months against manufacturing defects"
+      }
+    ],
+    "applications": [
+      "Distance relay commissioning",
+      "Differential protection testing",
+      "Directional overcurrent relay testing",
+      "Generator and transformer protection commissioning",
+      "Indian Railways traction protection testing"
+    ],
+    "featured": false,
+    "datasheet": null,
+    "includedWith": [
+      "Test leads and patch cords",
+      "Instruction manual"
+    ]
+  }
+]
