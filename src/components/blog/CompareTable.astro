@@ -1,0 +1,39 @@
+---
+interface Row {
+  feature: string;
+  a: string;
+  b: string;
+  winner?: 'a' | 'b' | 'both';
+}
+interface Props {
+  labelA: string;
+  labelB: string;
+  rows: Row[];
+}
+const { labelA, labelB, rows } = Astro.props;
+---
+
+<div class="my-10 overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-4 text-[#94a3b8] font-mono text-xs uppercase tracking-widest w-1/3">Feature</th>
+        <th class="text-center px-5 py-4 text-white font-bold">{labelA}</th>
+        <th class="text-center px-5 py-4 text-white font-bold">{labelB}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3.5 text-[#0D1B2A] font-medium border-b border-gray-100">{row.feature}</td>
+          <td class={`px-5 py-3.5 text-center border-b border-gray-100 ${row.winner === 'a' ? 'text-emerald-700 font-semibold bg-emerald-50' : 'text-gray-600'}`}>
+            {row.winner === 'a' && <span class="mr-1">✓</span>}{row.a}
+          </td>
+          <td class={`px-5 py-3.5 text-center border-b border-gray-100 ${row.winner === 'b' ? 'text-emerald-700 font-semibold bg-emerald-50' : 'text-gray-600'}`}>
+            {row.winner === 'b' && <span class="mr-1">✓</span>}{row.b}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

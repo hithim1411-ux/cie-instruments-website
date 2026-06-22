@@ -1,123 +1,211 @@
 ---
 import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  A <strong>clamp meter</strong> is a specialised electrical tester that measures current flowing through a conductor <em>without breaking the circuit</em> — simply by clamping its jaws around the wire. This makes it the go-to instrument for electricians and engineers who need to check current in live panels, motor control centres, and distribution boards safely and quickly.
+  A <strong>clamp meter</strong> lets you measure current flowing through a conductor <em>without touching it or breaking the circuit</em> — simply by clamping its jaw around the wire. This makes it the fastest and safest tool for checking load current in live panels, motor control centres, and distribution boards.
 </p>
 
+<!-- ── HOW IT WORKS ── -->
+<h2 id="how-it-works">How Does a Clamp Meter Work? The Physics</h2>
+
+<!-- Electromagnetic induction infographic -->
+<div class="my-8 rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-6 py-3">
+    <p class="text-xs font-mono uppercase tracking-widest text-[#94a3b8]">Infographic — Electromagnetic Induction</p>
+  </div>
+  <div class="p-6 flex flex-col md:flex-row gap-6 items-center">
+    <svg viewBox="0 0 240 220" class="w-52 shrink-0 mx-auto md:mx-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Clamp body -->
+      <rect x="80" y="100" width="80" height="110" rx="8" fill="#1B3A5B" stroke="#0D1B2A" stroke-width="1.5"/>
+      <!-- Display -->
+      <rect x="90" y="110" width="60" height="30" rx="5" fill="#0D1B2A"/>
+      <text x="120" y="131" text-anchor="middle" font-size="13" font-weight="700" fill="#00FF88" font-family="monospace">12.4 A</text>
+      <!-- Jaw left -->
+      <path d="M80,100 Q40,100 40,60 Q40,20 80,20 L80,50 Q60,50 60,60 Q60,75 80,75 Z" fill="#E0252E" stroke="#0D1B2A" stroke-width="1"/>
+      <!-- Jaw right -->
+      <path d="M160,100 Q200,100 200,60 Q200,20 160,20 L160,50 Q180,50 180,60 Q180,75 160,75 Z" fill="#E0252E" stroke="#0D1B2A" stroke-width="1"/>
+      <!-- Wire (conductor) through jaw -->
+      <circle cx="120" cy="60" r="10" fill="#F59E0B" stroke="#0D1B2A" stroke-width="1.5"/>
+      <line x1="120" y1="10" x2="120" y2="50" stroke="#F59E0B" stroke-width="6"/>
+      <line x1="120" y1="70" x2="120" y2="100" stroke="#F59E0B" stroke-width="6"/>
+      <!-- Current direction arrows on wire -->
+      <polygon points="120,18 115,30 125,30" fill="#0D1B2A"/>
+      <!-- Magnetic field arcs -->
+      <path d="M90,50 Q55,60 90,75" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <path d="M150,50 Q185,60 150,75" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <!-- Labels -->
+      <text x="120" y="14" text-anchor="middle" font-size="8" fill="#F59E0B" font-family="sans-serif">Current (I)</text>
+      <text x="35" y="62" text-anchor="middle" font-size="7" fill="#60A5FA" font-family="sans-serif" transform="rotate(-90,35,62)">B-field</text>
+      <text x="205" y="62" text-anchor="middle" font-size="7" fill="#60A5FA" font-family="sans-serif" transform="rotate(90,205,62)">B-field</text>
+    </svg>
+
+    <div class="flex-1 space-y-4">
+      <div class="flex gap-3">
+        <div class="w-7 h-7 rounded-full bg-[#E0252E] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</div>
+        <div>
+          <p class="font-bold text-[#0D1B2A] text-sm">AC current creates a magnetic field</p>
+          <p class="text-xs text-gray-600 mt-0.5">Alternating current in the conductor generates a changing magnetic field (B-field) around the wire — described by Faraday's Law.</p>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <div class="w-7 h-7 rounded-full bg-[#E0252E] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</div>
+        <div>
+          <p class="font-bold text-[#0D1B2A] text-sm">The jaw closes the magnetic circuit</p>
+          <p class="text-xs text-gray-600 mt-0.5">The ferrite iron-core jaw forms a complete toroidal transformer around the conductor, concentrating the B-field.</p>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <div class="w-7 h-7 rounded-full bg-[#E0252E] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</div>
+        <div>
+          <p class="font-bold text-[#0D1B2A] text-sm">Secondary current is induced and measured</p>
+          <p class="text-xs text-gray-600 mt-0.5">A secondary winding in the jaw produces a current proportional to the primary (conductor) current. The meter reads this and displays the result.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<Callout type="info" title="AC only vs True DC clamp meters">
+  <p>Traditional clamp meters only work on <strong>AC</strong> because they rely on a <em>changing</em> magnetic field. <strong>True DC clamp meters</strong> use a Hall Effect sensor in the jaw gap, which can detect the static magnetic field produced by DC current. If you need to measure DC current, check that your meter has this feature explicitly stated.</p>
+</Callout>
+
+<!-- ── PARTS ── -->
+<h2 id="parts">Parts of a Clamp Meter — Explained</h2>
+
+<div class="my-8 grid sm:grid-cols-2 gap-3">
+  {[
+    { part: 'Jaws / Clamp', icon: '🗜️', desc: 'The split ferrite core that encircles the conductor. Must close completely for accurate readings.' },
+    { part: 'Jaw Trigger', icon: '🤙', desc: 'Press to open the jaws — release to clamp around the conductor. Handle carefully on live conductors.' },
+    { part: 'LCD Display', icon: '📟', desc: 'Shows the measured value with unit prefix (A, mA, V, Ω). Backlit on most modern meters.' },
+    { part: 'Function Selector', icon: '🔄', desc: 'Switches between AC current, DC current, AC/DC voltage, resistance, continuity, Hz, and more.' },
+    { part: 'HOLD Button', icon: '⏸️', desc: 'Freezes the display reading — invaluable in tight or overhead panel work where you can\'t see the meter.' },
+    { part: 'INRUSH / PEAK', icon: '⚡', desc: 'Captures motor start-up inrush current spikes that last only milliseconds — invisible to normal mode.' },
+    { part: 'COM Terminal', icon: '⚫', desc: 'Black probe connection — the common/negative reference for all probe-based measurements.' },
+    { part: 'VΩ Terminal', icon: '🔴', desc: 'Red probe for voltage and resistance — plug in only when using the meter in multimeter mode.' },
+  ].map(p => (
+    <div class="flex gap-3 p-4 bg-gray-50 border border-gray-200 rounded-xl items-start">
+      <span class="text-xl shrink-0">{p.icon}</span>
+      <div>
+        <p class="font-bold text-[#0D1B2A] text-sm">{p.part}</p>
+        <p class="text-xs text-gray-600 leading-relaxed mt-0.5">{p.desc}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<!-- ── MEASURE AC ── -->
+<h2 id="measure-ac">Step-by-Step: Measuring AC Current</h2>
+
+<div class="my-6 space-y-0">
+  {[
+    { n:1, title:'Select AC Current (A~)', body:'Turn the dial to AC current mode. Choose a range higher than expected, or use auto-range.' },
+    { n:2, title:'Open the jaws fully', body:'Press the trigger and open the clamp to its maximum — wide enough to fit around the conductor.' },
+    { n:3, title:'Clamp around ONE conductor only', body:'This is the most common mistake — clamping both live and neutral cancels the magnetic fields and gives a zero reading. One wire at a time.' },
+    { n:4, title:'Centre the conductor in the jaw', body:'Position the wire in the middle of the jaw opening, not at the edge. The magnetic circuit is most linear at the centre.' },
+    { n:5, title:'Close the jaws completely', body:'Any gap in the jaw introduces air into the magnetic circuit, significantly reducing accuracy. Listen for the click.' },
+    { n:6, title:'Read and hold', body:'Press HOLD to freeze the reading if the cable is in a confined or overhead location.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#E0252E] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.title}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.body}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<!-- ── MEASURE DC ── -->
+<h2 id="measure-dc">Measuring DC Current (Hall Effect Meters)</h2>
+
+<div class="my-6 space-y-0">
+  {[
+    { n:1, title:'Select DC Current (A⎓)', body:'Ensure your meter has Hall Effect DC measurement — not all clamp meters do.' },
+    { n:2, title:'Zero the reading', body:'With jaws open and away from conductors, press ZERO / REL to null out residual magnetic field offset. This step is critical for DC accuracy.' },
+    { n:3, title:'Clamp around one conductor', body:'Clamp around the positive or negative conductor only.' },
+    { n:4, title:'Check the sign', body:'A negative reading means current direction is opposite. Flip the jaw orientation to get a positive reading.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-blue-200"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#1B3A5B] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.title}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.body}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<!-- ── PROBES ── -->
+<h2 id="probes">Using Probes for Voltage &amp; Resistance</h2>
+
+<p>Most clamp meters also include probe terminals (COM and VΩ) for conventional multimeter-style measurements:</p>
+
+<div class="my-6 grid sm:grid-cols-3 gap-4">
+  {[
+    { mode:'Voltage', icon:'⚡', select:'ACV or DCV', tip:'Touch probes across supply terminals, just like a multimeter. No need to open the jaw.' },
+    { mode:'Resistance', icon:'Ω', select:'Ω mode', tip:'Circuit must be de-energised. Touch probes across the component. OL = open circuit.' },
+    { mode:'Continuity', icon:'🔊', select:'Beep mode', tip:'Beeps when resistance is below ~30–50 Ω. Eyes-free confirmation of a complete path.' },
+  ].map(m => (
+    <div class="p-4 bg-gray-50 border border-gray-200 rounded-xl text-center">
+      <div class="text-2xl mb-2">{m.icon}</div>
+      <p class="font-bold text-[#0D1B2A] text-sm mb-1">{m.mode}</p>
+      <p class="text-xs text-[#E0252E] font-mono mb-2">{m.select}</p>
+      <p class="text-xs text-gray-600 leading-relaxed">{m.tip}</p>
+    </div>
+  ))}
+</div>
+
+<!-- ── INRUSH ── -->
+<h2 id="inrush">Measuring Motor Inrush Current</h2>
+
 <p>
-  In this guide you'll learn exactly how clamp meters work, how to use one step by step, and common mistakes to avoid.
+  When a motor starts, it draws a brief but large <strong>inrush current</strong> — typically 6–10× the normal running current — lasting only milliseconds. Standard mode misses this entirely. Use INRUSH or PEAK HOLD:
 </p>
 
-<h2>How Does a Clamp Meter Work? The Physics</h2>
+<div class="my-6 p-5 bg-amber-50 border border-amber-200 rounded-xl">
+  <div class="flex items-center gap-2 mb-4">
+    <span class="text-xl">⚡</span>
+    <p class="font-bold text-amber-900">Inrush Measurement Procedure</p>
+  </div>
+  <div class="space-y-2">
+    {['Clamp the meter around the motor supply conductor.','Press and hold the INRUSH or PEAK HOLD button.','Start the motor.','Release the button — the peak reading is captured and held on the display.','Compare to nameplate inrush rating. Unusually high inrush may indicate a fault.'].map((step, i) => (
+      <div class="flex gap-2 items-start">
+        <span class="w-5 h-5 rounded-full bg-amber-500 text-white text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">{i+1}</span>
+        <p class="text-sm text-amber-900">{step}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
+<!-- ── MISTAKES ── -->
+<h2 id="mistakes">Common Mistakes — and How to Avoid Them</h2>
+
+<div class="my-8 space-y-3">
+  {[
+    { mistake:'Clamping around two conductors', fix:'The magnetic fields of live and neutral cancel out — the meter reads zero or near-zero regardless of load. Always clamp ONE conductor.', severity:'high' },
+    { mistake:'Not zeroing before DC measurement', fix:'Residual magnetism in the jaw core gives a false offset on DC readings. Always press ZERO with jaws open before clamping for DC.', severity:'high' },
+    { mistake:'Partially open jaws', fix:'The air gap dramatically increases the magnetic circuit reluctance. Close until you hear/feel the click.', severity:'medium' },
+    { mistake:'Conductor at the jaw edge', fix:'The magnetic circuit is non-uniform at the edges. Centre the wire in the jaw opening for the most linear response.', severity:'medium' },
+    { mistake:'Using an AC-only clamp for DC', fix:'An AC clamp transformer gives zero output on DC. Check the spec sheet — you need Hall Effect for DC current.', severity:'high' },
+  ].map(m => (
+    <div class={`rounded-xl overflow-hidden border ${m.severity === 'high' ? 'border-red-200' : 'border-amber-200'}`}>
+      <div class={`flex items-center gap-2 px-4 py-2 ${m.severity === 'high' ? 'bg-red-100' : 'bg-amber-100'}`}>
+        <span class={`text-xs font-bold uppercase tracking-widest ${m.severity === 'high' ? 'text-red-700' : 'text-amber-700'}`}>
+          {m.severity === 'high' ? '⛔ Common Error' : '⚠️ Watch Out'}
+        </span>
+      </div>
+      <div class="px-4 py-3 bg-white">
+        <p class="font-bold text-[#0D1B2A] text-sm mb-1">{m.mistake}</p>
+        <p class="text-sm text-gray-600">{m.fix}</p>
+      </div>
+    </div>
+  ))}
+</div>
 
 <p>
-  The magic of a clamp meter lies in a phenomenon called <strong>electromagnetic induction</strong>, described by Faraday's Law. When alternating current (AC) flows through a conductor, it creates a changing magnetic field around the wire. The clamp jaw is a split iron-core transformer — closing it around the conductor creates a complete magnetic circuit, and the current induced in the secondary winding is proportional to the current in the conductor.
-</p>
-
-<p>
-  The meter measures this induced current and converts it to the ampere reading on the display.
-</p>
-
-<blockquote>
-  <strong>Key point:</strong> Traditional clamp meters only work on AC because they rely on a changing magnetic field. <strong>True DC clamp meters</strong> use a Hall Effect sensor in the jaw gap, which can detect a static magnetic field produced by DC current.
-</blockquote>
-
-<h2>Parts of a Clamp Meter</h2>
-
-<table>
-  <thead>
-    <tr><th>Part</th><th>Function</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Jaws / clamp</td><td>The split ferrite core that encircles the conductor</td></tr>
-    <tr><td>Jaw trigger / lever</td><td>Opens the jaws to clamp around a wire</td></tr>
-    <tr><td>Display</td><td>LCD showing the measured value</td></tr>
-    <tr><td>Function selector</td><td>Switches between AC current, DC current, voltage, resistance, continuity, etc.</td></tr>
-    <tr><td>COM terminal</td><td>Black probe connection (common/negative)</td></tr>
-    <tr><td>VΩ terminal</td><td>Red probe connection for voltage/resistance measurements</td></tr>
-    <tr><td>HOLD button</td><td>Freezes the display for reading in confined spaces</td></tr>
-    <tr><td>Peak / inrush button</td><td>Captures motor start-up inrush current spikes</td></tr>
-  </tbody>
-</table>
-
-<h2>Step-by-Step: How to Measure AC Current</h2>
-
-<ol>
-  <li>
-    <strong>Select the correct function.</strong> Turn the dial to AC Current (A~). If your meter is manual-ranging, select a range higher than the expected current — e.g., start at 400 A if you're unsure.
-  </li>
-  <li>
-    <strong>Open the jaws.</strong> Press the trigger to open the clamp jaws fully.
-  </li>
-  <li>
-    <strong>Clamp around a single conductor only.</strong> Position the jaws around <em>one wire at a time</em>. If you clamp around both live and neutral together, their magnetic fields cancel out and the meter reads zero. This is a common beginner mistake.
-  </li>
-  <li>
-    <strong>Centre the conductor in the jaw opening.</strong> For best accuracy, position the wire in the centre of the jaw opening, not at the edge. The reading is most accurate when the conductor is centred in the magnetic circuit.
-  </li>
-  <li>
-    <strong>Close the jaws fully.</strong> An incompletely closed jaw introduces air gap into the magnetic circuit and causes significant measurement error.
-  </li>
-  <li>
-    <strong>Read the display.</strong> Use the HOLD button to freeze the reading if the cable is in a tight or awkward location.
-  </li>
-</ol>
-
-<h2>How to Measure DC Current (on DC-capable meters)</h2>
-
-<ol>
-  <li>Select <strong>DC Current (A⎓)</strong> on the function dial.</li>
-  <li>With the jaws open, press the <strong>ZERO / REL button</strong> to null out any residual magnetic field offset. This is important for DC accuracy.</li>
-  <li>Clamp around a single conductor and read the display. If the reading is negative, the current direction is opposite — simply reverse the jaw orientation relative to the conductor.</li>
-</ol>
-
-<h2>Using Clamp Meter Probes for Voltage and Resistance</h2>
-
-<p>
-  Most clamp meters also include probe terminals (COM and VΩ) for conventional multimeter-style measurements. With probes inserted:
-</p>
-<ul>
-  <li><strong>Voltage</strong> — select ACV or DCV and touch probes across the supply terminals, just like a multimeter.</li>
-  <li><strong>Resistance</strong> — de-energise the circuit, select Ω, and touch probes across the component.</li>
-  <li><strong>Continuity</strong> — select the continuity/beep mode; the meter beeps if resistance is below ~30–50 Ω.</li>
-</ul>
-
-<h2>The Flex-Clamp / Rogowski Coil Technique for Large Cables</h2>
-
-<p>
-  For large busbars or cables too thick to fit in standard jaws, some clamp meters accept a <strong>Rogowski coil</strong> — a flexible current sensor that you wrap around the conductor. The coil integrates the magnetic field and provides an output proportional to the current. This technique can measure thousands of amperes and works on any shape of conductor.
-</p>
-
-<h2>Inrush Current Measurement</h2>
-
-<p>
-  When a motor or transformer starts, it draws a brief but very large <strong>inrush current</strong> — sometimes 6–10× the normal running current — that lasts only milliseconds. Standard clamp meters can miss this peak entirely. Use the <strong>INRUSH or PEAK HOLD</strong> function to capture it:
-</p>
-<ol>
-  <li>Clamp around the motor supply conductor.</li>
-  <li>Press and hold the INRUSH button.</li>
-  <li>Start the motor.</li>
-  <li>Release the button — the peak reading is held on the display.</li>
-</ol>
-
-<h2>Common Mistakes When Using a Clamp Meter</h2>
-
-<ul>
-  <li><strong>Clamping around multiple conductors</strong> — fields cancel, reading is wrong or zero.</li>
-  <li><strong>Not zeroing before DC measurement</strong> — residual magnetism gives a false offset.</li>
-  <li><strong>Partially open jaws</strong> — the air gap increases reluctance and reduces accuracy.</li>
-  <li><strong>Conductor at the edge of the jaw</strong> — the magnetic circuit is non-uniform here; centre the wire.</li>
-  <li><strong>Using an AC-only clamp for DC</strong> — you'll read zero regardless of the actual current.</li>
-</ul>
-
-<h2>CIE Clamp Meters — Built for Indian Industry</h2>
-
-<p>
-  CIE has manufactured clamp meters for industrial and utility applications since 1963. Our instruments are built for the demands of Indian field conditions — humidity, dust, and the wide current ranges found in industrial plants and power distribution systems.
-</p>
-
-<p>
-  Browse our <a href={u('/products/')}>clamp meter range</a> or <a href={u('/contact/')}>contact us</a> for a product recommendation matched to your application.
+  CIE has manufactured clamp meters for industrial and utility applications since 1963. Browse our <a href={u('/products/')}>clamp meter range</a> or <a href={u('/contact/')}>contact us</a> for a product recommendation matched to your application.
 </p>

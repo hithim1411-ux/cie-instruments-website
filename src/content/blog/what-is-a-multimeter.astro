@@ -1,135 +1,311 @@
 ---
 import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
 ---
 
+<!-- ── LEAD ── -->
 <p>
-  A <strong>multimeter</strong> — also called a volt-ohm meter (VOM) or digital multimeter (DMM) — is a hand-held instrument that measures three fundamental electrical quantities: <strong>voltage (V), current (A), and resistance (Ω)</strong>. For any electrician, technician, or electronics engineer, it is the single most indispensable tool in the field.
+  A <strong>multimeter</strong> — also called a digital multimeter (DMM) or volt-ohm meter (VOM) — is a hand-held instrument that measures three fundamental electrical quantities: <strong>voltage, current, and resistance</strong>. For any electrician, technician, or electronics engineer, it is the single most indispensable tool in the field.
 </p>
 
-<p>
-  In this guide we'll cover exactly how a multimeter works, what it measures, and how to use one correctly — starting with the physics that makes every reading possible.
-</p>
+<!-- ── INFOGRAPHIC: What a Multimeter Measures ── -->
+<div id="three-quantities" class="my-10 rounded-2xl border border-gray-200 overflow-hidden shadow-sm bg-white scroll-mt-24">
+  <div class="bg-[#0D1B2A] px-6 py-4">
+    <p class="text-xs font-mono uppercase tracking-widest text-[#94a3b8]">Infographic — The Three Measurements</p>
+  </div>
+  <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
+    <!-- Voltage -->
+    <div class="p-6 text-center">
+      <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-3" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="38" fill="#FEF2F2" stroke="#E0252E" stroke-width="1.5"/>
+        <text x="40" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#E0252E" font-family="monospace">V</text>
+        <text x="40" y="54" text-anchor="middle" font-size="9" fill="#64748B" font-family="sans-serif">VOLTAGE</text>
+      </svg>
+      <p class="font-bold text-[#0D1B2A] mb-1">Volts (V)</p>
+      <p class="text-xs text-gray-500 leading-relaxed">The electrical "pressure" between two points. Measured in DC or AC mode.</p>
+      <div class="mt-3 flex flex-wrap gap-1 justify-center">
+        <span class="text-[10px] bg-gray-100 text-gray-600 rounded-full px-2 py-0.5">Batteries</span>
+        <span class="text-[10px] bg-gray-100 text-gray-600 rounded-full px-2 py-0.5">Mains supply</span>
+        <span class="text-[10px] bg-gray-100 text-gray-600 rounded-full px-2 py-0.5">Circuits</span>
+      </div>
+    </div>
+    <!-- Current -->
+    <div class="p-6 text-center">
+      <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-3" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="38" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+        <text x="40" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#3B82F6" font-family="monospace">A</text>
+        <text x="40" y="54" text-anchor="middle" font-size="9" fill="#64748B" font-family="sans-serif">CURRENT</text>
+      </svg>
+      <p class="font-bold text-[#0D1B2A] mb-1">Amperes (A)</p>
+      <p class="text-xs text-gray-500 leading-relaxed">The flow of charge through a conductor. Placed in-series with the circuit.</p>
+      <div class="mt-3 flex flex-wrap gap-1 justify-center">
+        <span class="text-[10px] bg-gray-100 text-gray-600 rounded-full px-2 py-0.5">Load current</span>
+        <span class="text-[10px] bg-gray-100 text-gray-600 rounded-full px-2 py-0.5">mA circuits</span>
+      </div>
+    </div>
+    <!-- Resistance -->
+    <div class="p-6 text-center">
+      <svg viewBox="0 0 80 80" class="w-16 h-16 mx-auto mb-3" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="38" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+        <text x="40" y="37" text-anchor="middle" font-size="18" font-weight="700" fill="#22C55E" font-family="monospace">Ω</text>
+        <text x="40" y="54" text-anchor="middle" font-size="9" fill="#64748B" font-family="sans-serif">RESISTANCE</text>
+      </svg>
+      <p class="font-bold text-[#0D1B2A] mb-1">Ohms (Ω)</p>
+      <p class="text-xs text-gray-500 leading-relaxed">Opposition to current flow. Always tested on de-energised circuits.</p>
+      <div class="mt-3 flex flex-wrap gap-1 justify-center">
+        <span class="text-[10px] bg-gray-100 text-gray-600 rounded-full px-2 py-0.5">Resistors</span>
+        <span class="text-[10px] bg-gray-100 text-gray-600 rounded-full px-2 py-0.5">Windings</span>
+        <span class="text-[10px] bg-gray-100 text-gray-600 rounded-full px-2 py-0.5">Cables</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h2>The Three Quantities a Multimeter Measures</h2>
-
-<h3>1. Voltage (Volts — V)</h3>
-<p>
-  Voltage is the electrical potential difference between two points — the "pressure" that drives current through a circuit. Multimeters can measure both:
-</p>
-<ul>
-  <li><strong>DC voltage (DCV / V⎓)</strong> — found in batteries, solar panels, control circuits, and electronic boards.</li>
-  <li><strong>AC voltage (ACV / V~)</strong> — found in mains supply, generators, and transformers.</li>
-</ul>
-<p>
-  Internally, a digital multimeter measures voltage using a high-impedance voltage divider network and converts the analogue signal to a digital reading via an ADC (analogue-to-digital converter).
-</p>
-
-<h3>2. Current (Amperes — A)</h3>
-<p>
-  Current is the flow of electric charge — measured in amperes (A). To measure current, a multimeter must be placed <strong>in series</strong> with the circuit, so the current flows through the meter's internal shunt resistor. The voltage drop across the shunt (which is known and fixed) is used to calculate current via Ohm's Law: <code>I = V / R</code>.
-</p>
-<blockquote>
-  <strong>Important safety note:</strong> Never connect a multimeter's current inputs across a voltage source. The low internal resistance of the current mode will create a short circuit and blow the fuse — or destroy the meter.
-</blockquote>
-
-<h3>3. Resistance (Ohms — Ω)</h3>
-<p>
-  Resistance is a material's opposition to current flow. In resistance mode, the multimeter applies a small, known current through the test probes and measures the resulting voltage. Using Ohm's Law (<code>R = V / I</code>), it calculates and displays the resistance.
-</p>
-
-<h2>How a Digital Multimeter Works — Inside the Box</h2>
-
-<p>
-  Modern digital multimeters are based on a remarkably elegant circuit architecture:
-</p>
-
-<ol>
-  <li><strong>Input protection network</strong> — fuses and MOVs (metal-oxide varistors) protect the meter from voltage spikes and overload.</li>
-  <li><strong>Input attenuator / range selector</strong> — scales the incoming signal to a safe level for the ADC.</li>
-  <li><strong>Analogue-to-digital converter (ADC)</strong> — converts the scaled analogue voltage to a digital number, typically using a dual-slope integration technique for high noise rejection.</li>
-  <li><strong>Microcontroller / display driver</strong> — processes the digital value, applies calibration constants, and drives the LCD display.</li>
-</ol>
-
-<p>
-  The <strong>dual-slope ADC</strong> is the key to a DMM's accuracy and noise immunity. It integrates the input signal for a fixed time, then integrates a reference voltage back to zero — cancelling out noise that affects both phases equally. This is why a good multimeter is far more accurate than an oscilloscope for steady-state voltage readings.
-</p>
-
-<h2>The Parts of a Multimeter</h2>
-
-<table>
-  <thead>
-    <tr><th>Part</th><th>Function</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Display</td><td>Shows the measured value (3½ to 6½ digit LCD)</td></tr>
-    <tr><td>Function dial / selector</td><td>Switches between DCV, ACV, DCA, resistance, continuity, diode, etc.</td></tr>
-    <tr><td>COM terminal</td><td>Common (negative/ground) probe connection — always used</td></tr>
-    <tr><td>VΩ terminal</td><td>Voltage and resistance measurements (positive probe)</td></tr>
-    <tr><td>mA / A terminal</td><td>Current measurement input (separate terminal to protect the circuit)</td></tr>
-    <tr><td>Probes</td><td>Red (positive) and black (negative) test leads</td></tr>
-  </tbody>
-</table>
-
-<h2>What Else Can a Multimeter Measure?</h2>
-
-<p>Beyond V, A, and Ω, most modern multimeters also include:</p>
-<ul>
-  <li><strong>Continuity test</strong> — beeps when resistance is below ~50 Ω, confirming an unbroken path.</li>
-  <li><strong>Diode test</strong> — measures the forward voltage drop of a diode (typically 0.6–0.7 V for silicon).</li>
-  <li><strong>Capacitance (F)</strong> — measures the capacitance of capacitors in farads.</li>
-  <li><strong>Frequency (Hz)</strong> — measures the frequency of AC signals.</li>
-  <li><strong>Temperature (°C / °F)</strong> — via a K-type thermocouple probe.</li>
-  <li><strong>True RMS</strong> — measures the true RMS value of non-sinusoidal AC waveforms (essential for VFD and inverter circuits).</li>
-</ul>
-
-<h2>Auto-Ranging vs Manual-Ranging Multimeters</h2>
+<!-- ── HOW IT WORKS ── -->
+<h2 id="how-it-works">How a Digital Multimeter Works — Inside the Box</h2>
 
 <p>
-  An <strong>auto-ranging multimeter</strong> automatically selects the correct measurement range, so you don't need to know the approximate value in advance — ideal for general field use. A <strong>manual-ranging multimeter</strong> gives you direct control over the range, which is faster when you already know what you're measuring and can be more accurate at the extremes of a range.
+  Modern digital multimeters are built around four key blocks. Understanding them explains <em>why</em> a good meter reads more accurately than a cheap one — and what you're paying for when you buy quality.
 </p>
 
-<h2>How to Use a Multimeter — Step by Step</h2>
+<!-- Architecture diagram -->
+<div class="my-8 rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-6 py-3">
+    <p class="text-xs font-mono uppercase tracking-widest text-[#94a3b8]">Infographic — DMM Internal Architecture</p>
+  </div>
+  <div class="p-6">
+    <svg viewBox="0 0 680 160" class="w-full max-w-2xl mx-auto" font-family="sans-serif" xmlns="http://www.w3.org/2000/svg">
+      <!-- Arrow line -->
+      <line x1="20" y1="80" x2="660" y2="80" stroke="#E8ECF2" stroke-width="2"/>
+
+      <!-- Block 1 -->
+      <rect x="20" y="48" width="130" height="64" rx="10" fill="#FEF2F2" stroke="#E0252E" stroke-width="1.5"/>
+      <text x="85" y="76" text-anchor="middle" font-size="11" font-weight="700" fill="#0D1B2A">Input</text>
+      <text x="85" y="91" text-anchor="middle" font-size="11" font-weight="700" fill="#0D1B2A">Protection</text>
+      <text x="85" y="107" text-anchor="middle" font-size="9" fill="#64748B">Fuses · MOVs</text>
+
+      <!-- Arrow 1→2 -->
+      <polygon points="168,76 156,70 156,82" fill="#E0252E"/>
+      <line x1="150" y1="80" x2="167" y2="80" stroke="#E0252E" stroke-width="1.5"/>
+
+      <!-- Block 2 -->
+      <rect x="170" y="48" width="130" height="64" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <text x="235" y="76" text-anchor="middle" font-size="11" font-weight="700" fill="#0D1B2A">Attenuator /</text>
+      <text x="235" y="91" text-anchor="middle" font-size="11" font-weight="700" fill="#0D1B2A">Range Select</text>
+      <text x="235" y="107" text-anchor="middle" font-size="9" fill="#64748B">Scales signal safely</text>
+
+      <!-- Arrow 2→3 -->
+      <polygon points="318,76 306,70 306,82" fill="#3B82F6"/>
+      <line x1="300" y1="80" x2="317" y2="80" stroke="#3B82F6" stroke-width="1.5"/>
+
+      <!-- Block 3 -->
+      <rect x="320" y="48" width="130" height="64" rx="10" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+      <text x="385" y="76" text-anchor="middle" font-size="11" font-weight="700" fill="#0D1B2A">Dual-Slope</text>
+      <text x="385" y="91" text-anchor="middle" font-size="11" font-weight="700" fill="#0D1B2A">ADC</text>
+      <text x="385" y="107" text-anchor="middle" font-size="9" fill="#64748B">Analogue → Digital</text>
+
+      <!-- Arrow 3→4 -->
+      <polygon points="468,76 456,70 456,82" fill="#22C55E"/>
+      <line x1="450" y1="80" x2="467" y2="80" stroke="#22C55E" stroke-width="1.5"/>
+
+      <!-- Block 4 -->
+      <rect x="470" y="48" width="190" height="64" rx="10" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="565" y="76" text-anchor="middle" font-size="11" font-weight="700" fill="#0D1B2A">Microcontroller</text>
+      <text x="565" y="91" text-anchor="middle" font-size="11" font-weight="700" fill="#0D1B2A">+ LCD Display</text>
+      <text x="565" y="107" text-anchor="middle" font-size="9" fill="#64748B">Calibrate · Calculate · Show</text>
+    </svg>
+  </div>
+</div>
+
+<Callout type="info" title="Why dual-slope ADC matters">
+  <p>The dual-slope technique integrates the input signal for a fixed period, then integrates a reference back to zero — so any noise that affects both phases cancels out. This gives a DMM far better noise rejection than an oscilloscope for steady-state readings.</p>
+</Callout>
+
+<!-- ── PARTS ── -->
+<h2 id="parts">The Parts of a Multimeter</h2>
+
+<!-- Parts diagram -->
+<div class="my-8 rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-6 py-3">
+    <p class="text-xs font-mono uppercase tracking-widest text-[#94a3b8]">Diagram — Multimeter Anatomy</p>
+  </div>
+  <div class="p-6 flex flex-col md:flex-row gap-6 items-center">
+    <!-- SVG multimeter sketch -->
+    <svg viewBox="0 0 220 320" class="w-44 shrink-0 mx-auto md:mx-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <rect x="20" y="10" width="180" height="300" rx="20" fill="#1B3A5B" stroke="#0D1B2A" stroke-width="2"/>
+      <!-- Screen -->
+      <rect x="35" y="25" width="150" height="75" rx="10" fill="#0D1B2A" stroke="#E0252E" stroke-width="1"/>
+      <text x="110" y="60" text-anchor="middle" font-size="28" font-weight="700" fill="#00FF88" font-family="monospace">23.5</text>
+      <text x="110" y="82" text-anchor="middle" font-size="9" fill="#64748B" font-family="sans-serif">VOLTS DC</text>
+      <!-- Dial -->
+      <circle cx="110" cy="155" r="38" fill="#0D2547" stroke="#E0252E" stroke-width="1.5"/>
+      <circle cx="110" cy="155" r="10" fill="#E0252E"/>
+      <!-- Dial notches -->
+      <text x="110" y="127" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">V~</text>
+      <text x="110" y="187" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">Ω</text>
+      <text x="75" y="158" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">A</text>
+      <text x="145" y="158" text-anchor="middle" font-size="7" fill="#94a3b8" font-family="sans-serif">V⎓</text>
+      <!-- Hold button -->
+      <rect x="45" y="210" width="50" height="18" rx="5" fill="#13243A" stroke="#E0252E" stroke-width="0.8"/>
+      <text x="70" y="223" text-anchor="middle" font-size="7" fill="#E0252E" font-family="sans-serif">HOLD</text>
+      <!-- Terminals -->
+      <circle cx="75" cy="260" r="8" fill="#E0252E" stroke="#fff" stroke-width="1"/>
+      <text x="75" y="264" text-anchor="middle" font-size="7" fill="white" font-family="monospace">A</text>
+      <circle cx="110" cy="260" r="8" fill="#64748B" stroke="#fff" stroke-width="1"/>
+      <text x="110" y="264" text-anchor="middle" font-size="7" fill="white" font-family="monospace">COM</text>
+      <circle cx="145" cy="260" r="8" fill="#F59E0B" stroke="#fff" stroke-width="1"/>
+      <text x="145" y="264" text-anchor="middle" font-size="7" fill="white" font-family="monospace">VΩ</text>
+      <!-- Probe wires -->
+      <line x1="110" y1="268" x2="110" y2="300" stroke="#64748B" stroke-width="3"/>
+      <line x1="145" y1="268" x2="145" y2="300" stroke="#F59E0B" stroke-width="3"/>
+      <!-- Label lines -->
+      <line x1="40" y1="62" x2="20" y2="62" stroke="#E8ECF2" stroke-width="0.5"/>
+      <line x1="40" y1="155" x2="20" y2="155" stroke="#E8ECF2" stroke-width="0.5"/>
+      <line x1="40" y1="219" x2="20" y2="219" stroke="#E8ECF2" stroke-width="0.5"/>
+      <line x1="67" y1="260" x2="20" y2="260" stroke="#E8ECF2" stroke-width="0.5"/>
+    </svg>
+
+    <!-- Labels -->
+    <div class="flex-1 space-y-3">
+      {[
+        { label: 'Display', desc: '3½–6½ digit LCD showing reading + unit', color: 'bg-emerald-100 text-emerald-700' },
+        { label: 'Function Dial', desc: 'Switches between DCV, ACV, Ω, A, continuity, diode…', color: 'bg-blue-100 text-blue-700' },
+        { label: 'HOLD Button', desc: 'Freezes the reading — useful in tight spaces', color: 'bg-amber-100 text-amber-700' },
+        { label: 'COM Terminal', desc: 'Black probe — always connected, common reference', color: 'bg-gray-200 text-gray-700' },
+        { label: 'VΩ Terminal', desc: 'Red probe for voltage and resistance measurements', color: 'bg-orange-100 text-orange-700' },
+        { label: 'A Terminal', desc: 'Current input — has a fuse inside', color: 'bg-red-100 text-red-700' },
+      ].map(item => (
+        <div class="flex items-start gap-3">
+          <span class={`text-xs font-bold px-2 py-0.5 rounded shrink-0 mt-0.5 ${item.color}`}>{item.label}</span>
+          <p class="text-sm text-gray-600">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<!-- ── EXTRA FUNCTIONS ── -->
+<h2 id="extra-functions">What Else Can a Multimeter Measure?</h2>
+
+<p>Beyond voltage, current, and resistance, modern DMMs include several additional test modes that are invaluable in the field:</p>
+
+<div class="my-8 grid sm:grid-cols-2 gap-4">
+  {[
+    { icon: '🔊', name: 'Continuity', desc: 'Beeps when resistance is below ~50 Ω — instantly confirms an unbroken wire without looking at the display.' },
+    { icon: '⚡', name: 'Diode Test', desc: 'Applies a controlled current and shows forward voltage drop (silicon diode ≈ 0.6–0.7 V). Open = faulty.' },
+    { icon: '🔵', name: 'Capacitance', desc: 'Charges and times the capacitor to calculate capacitance in pF, nF, or µF.' },
+    { icon: '〜', name: 'Frequency (Hz)', desc: 'Counts zero-crossings per second to show signal frequency. Essential for VFD and inverter checks.' },
+    { icon: '🌡️', name: 'Temperature', desc: 'Accepts a K-type thermocouple probe. Measures surface or ambient temperature in °C / °F.' },
+    { icon: '✅', name: 'True RMS', desc: 'Accurately measures non-sinusoidal waveforms from variable speed drives, inverters, and switching supplies.' },
+  ].map(f => (
+    <div class="flex gap-3 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+      <span class="text-2xl shrink-0">{f.icon}</span>
+      <div>
+        <p class="font-bold text-[#0D1B2A] text-sm mb-0.5">{f.name}</p>
+        <p class="text-xs text-gray-600 leading-relaxed">{f.desc}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<!-- ── AUTO vs MANUAL ── -->
+<h2 id="autoranging">Auto-Ranging vs Manual-Ranging</h2>
+
+<div class="my-8 grid sm:grid-cols-2 gap-5">
+  <div class="rounded-xl border-2 border-[#E0252E] bg-red-50 p-5">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="w-7 h-7 rounded-full bg-[#E0252E] text-white text-xs font-bold flex items-center justify-center">A</span>
+      <p class="font-bold text-[#0D1B2A]">Auto-Ranging</p>
+    </div>
+    <ul class="space-y-1.5">
+      <li class="flex gap-2 text-sm text-gray-700"><span class="text-emerald-500 font-bold shrink-0">✓</span> Picks the correct range automatically</li>
+      <li class="flex gap-2 text-sm text-gray-700"><span class="text-emerald-500 font-bold shrink-0">✓</span> Ideal when you don't know the expected value</li>
+      <li class="flex gap-2 text-sm text-gray-700"><span class="text-emerald-500 font-bold shrink-0">✓</span> Best for general field use</li>
+      <li class="flex gap-2 text-sm text-gray-700"><span class="text-red-400 font-bold shrink-0">–</span> Slightly slower to settle</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border-2 border-gray-300 bg-gray-50 p-5">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="w-7 h-7 rounded-full bg-[#1B3A5B] text-white text-xs font-bold flex items-center justify-center">M</span>
+      <p class="font-bold text-[#0D1B2A]">Manual-Ranging</p>
+    </div>
+    <ul class="space-y-1.5">
+      <li class="flex gap-2 text-sm text-gray-700"><span class="text-emerald-500 font-bold shrink-0">✓</span> Direct control over the range</li>
+      <li class="flex gap-2 text-sm text-gray-700"><span class="text-emerald-500 font-bold shrink-0">✓</span> Faster when you know the approximate value</li>
+      <li class="flex gap-2 text-sm text-gray-700"><span class="text-emerald-500 font-bold shrink-0">✓</span> More digits of resolution at range extremes</li>
+      <li class="flex gap-2 text-sm text-gray-700"><span class="text-red-400 font-bold shrink-0">–</span> Can overload if range is set too low</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── HOW TO USE ── -->
+<h2 id="how-to-use">How to Use a Multimeter — Step by Step</h2>
 
 <h3>Measuring DC Voltage</h3>
-<ol>
-  <li>Insert the black probe into the COM terminal and the red probe into the VΩ terminal.</li>
-  <li>Set the selector to <strong>DCV (V⎓)</strong>. Choose a range higher than the expected voltage, or use auto-range.</li>
-  <li>Touch the black probe to the negative terminal and the red probe to the positive terminal.</li>
-  <li>Read the display. A negative reading means the probes are reversed.</li>
-</ol>
-
-<h3>Measuring AC Voltage</h3>
-<ol>
-  <li>Same probe placement as DC.</li>
-  <li>Set the selector to <strong>ACV (V~)</strong>.</li>
-  <li>Touch the probes to the two terminals of the supply (polarity doesn't matter for AC).</li>
-  <li>Read the RMS voltage on the display.</li>
-</ol>
+<div class="my-6 space-y-0">
+  {[
+    { n:1, t:'Connect probes', b:'Black → COM terminal. Red → VΩ terminal.' },
+    { n:2, t:'Select DCV (V⎓)', b:'Choose a range higher than the expected voltage, or use auto-range.' },
+    { n:3, t:'Touch probes to circuit', b:'Black to negative terminal, red to positive. A negative reading means probes are reversed.' },
+    { n:4, t:'Read the display', b:'The display shows voltage in volts. Auto-range adds the correct prefix (mV, V).' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#E0252E] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.t}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.b}</p>
+      </div>
+    </div>
+  ))}
+</div>
 
 <h3>Measuring Resistance</h3>
-<ol>
-  <li>Ensure the component or circuit is <strong>de-energised</strong> before measuring resistance.</li>
-  <li>Set the selector to <strong>Ω</strong>.</li>
-  <li>Touch the probes across the component (or disconnect one end to avoid parallel paths).</li>
-  <li>Read the resistance in ohms, kilohms (kΩ), or megohms (MΩ).</li>
-</ol>
 
-<h2>Multimeter Safety — Key Rules</h2>
+<Callout type="warning" title="De-energise before measuring resistance">
+  <p>Always switch off and isolate the circuit before measuring resistance. The meter applies its own small test voltage — mixing it with mains supply will damage the meter and is a shock hazard.</p>
+</Callout>
 
-<ul>
-  <li>Always check probe condition before use — damaged insulation is a shock hazard.</li>
-  <li>Use the correct input terminal for current measurements and never exceed the rated current.</li>
-  <li>Check the CAT rating on your meter (CAT I through CAT IV) — use a CAT III or CAT IV rated meter for mains and panel work.</li>
-  <li>Never measure resistance on a live circuit.</li>
-  <li>When in doubt, start on the highest range and work down.</li>
-</ul>
+<div class="my-6 space-y-0">
+  {[
+    { n:1, t:'Isolate the component', b:'Switch off and disconnect at least one end of the component to avoid parallel paths giving false readings.' },
+    { n:2, t:'Select Ω mode', b:'Choose auto-range or start at a high range if manual.' },
+    { n:3, t:'Touch probes across the component', b:'Polarity does not matter for resistance measurement.' },
+    { n:4, t:'Read the value', b:'The display shows ohms (Ω), kilohms (kΩ), or megohms (MΩ). OL = overload = open circuit.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#1B3A5B] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.t}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.b}</p>
+      </div>
+    </div>
+  ))}
+</div>
 
-<h2>CIE Multimeters — Accuracy You Can Rely On</h2>
+<!-- ── SAFETY ── -->
+<h2 id="safety">Multimeter Safety — Key Rules</h2>
+
+<div class="my-8 space-y-3">
+  {[
+    { ok: false, text: 'Never connect current inputs across a voltage source — the low internal resistance creates a short circuit.' },
+    { ok: false, text: 'Never measure resistance on a live circuit.' },
+    { ok: true,  text: 'Always check probe condition before use — cracked or damaged insulation is a shock hazard.' },
+    { ok: true,  text: 'Use the correct CAT rating for your work environment. CAT III or CAT IV for mains and panel work.' },
+    { ok: true,  text: 'When in doubt, start on the highest range and work down to avoid overloading.' },
+    { ok: true,  text: 'Check the fuse rating in the current input — a blown fuse gives a zero reading, not an error.' },
+  ].map(rule => (
+    <div class={`flex gap-3 items-start p-4 rounded-xl ${rule.ok ? 'bg-emerald-50 border border-emerald-200' : 'bg-red-50 border border-red-200'}`}>
+      <span class={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mt-0.5 ${rule.ok ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white'}`}>
+        {rule.ok ? '✓' : '✕'}
+      </span>
+      <p class={`text-sm leading-relaxed ${rule.ok ? 'text-emerald-900' : 'text-red-900'}`}>{rule.text}</p>
+    </div>
+  ))}
+</div>
 
 <p>
-  Cambridge Instruments &amp; Engineering Co. has manufactured precision electrical measurement instruments in Howrah, West Bengal since 1963. Our <a href={u('/products/')}>range of multimeters</a> is designed for Indian field conditions — reliable from the shop floor to the substation. Whether you need a basic DVM for workshop use or a True RMS unit for industrial panel work, CIE has a model for your application.
-</p>
-
-<p>
-  Browse our <a href={u('/products/')}>complete product range</a> or <a href={u('/contact/')}>get in touch</a> for a recommendation.
+  CIE has manufactured precision electrical measurement instruments in Howrah, West Bengal since 1963. Browse our <a href={u('/products/')}>complete range of multimeters and testers</a>, or <a href={u('/contact/')}>get in touch</a> for a product recommendation matched to your application.
 </p>

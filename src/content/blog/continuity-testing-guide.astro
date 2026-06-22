@@ -1,124 +1,230 @@
 ---
 import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  <strong>Continuity testing</strong> is the quickest and most reliable way to answer a single critical question in electrical work: <em>is there an unbroken electrical path between these two points?</em> It takes seconds, works on de-energised circuits, and can save hours of diagnostic time when tracing faults in wiring, fuses, switches, and connectors.
+  <strong>Continuity testing</strong> answers one question instantly: <em>is there an unbroken electrical path between these two points?</em> It takes seconds, works on de-energised circuits, and can save hours of fault-finding in wiring, fuses, switches, and connectors.
 </p>
 
-<h2>What Is Continuity and Why Does It Matter?</h2>
+<!-- ── WHAT IS IT ── -->
+<h2 id="what-is">What Is Continuity and Why Does It Matter?</h2>
 
-<p>
-  In electrical terms, <strong>continuity</strong> means a complete, low-resistance path exists between two points — current can flow freely between them. <strong>No continuity</strong> (an open circuit) means the path is broken somewhere — by a blown fuse, broken wire, failed contact, or corroded connection.
-</p>
+<!-- Visual: open vs closed circuit -->
+<div class="my-8 rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-6 py-3">
+    <p class="text-xs font-mono uppercase tracking-widest text-[#94a3b8]">Infographic — Open Circuit vs Closed Circuit</p>
+  </div>
+  <div class="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
+    <!-- Closed (good) -->
+    <div class="p-6 text-center">
+      <svg viewBox="0 0 180 120" class="w-full max-w-xs mx-auto mb-4" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Source -->
+        <rect x="10" y="45" width="30" height="30" rx="5" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+        <text x="25" y="64" text-anchor="middle" font-size="9" fill="#22C55E" font-family="monospace">DMM</text>
+        <!-- Top wire -->
+        <line x1="40" y1="52" x2="80" y2="52" stroke="#22C55E" stroke-width="2.5"/>
+        <!-- Component (resistor) -->
+        <rect x="80" y="44" width="30" height="16" rx="3" fill="#FEF9C3" stroke="#F59E0B" stroke-width="1.5"/>
+        <text x="95" y="55" text-anchor="middle" font-size="8" fill="#92400E" font-family="monospace">R</text>
+        <!-- Continue top wire -->
+        <line x1="110" y1="52" x2="155" y2="52" stroke="#22C55E" stroke-width="2.5"/>
+        <!-- Right vertical -->
+        <line x1="155" y1="52" x2="155" y2="72" stroke="#22C55E" stroke-width="2.5"/>
+        <!-- Bottom wire -->
+        <line x1="40" y1="72" x2="155" y2="72" stroke="#22C55E" stroke-width="2.5"/>
+        <!-- Current flow arrow -->
+        <polygon points="130,46 120,40 120,52" fill="#22C55E"/>
+        <!-- Beeper -->
+        <circle cx="95" cy="100" r="12" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+        <text x="95" y="104" text-anchor="middle" font-size="11">🔊</text>
+      </svg>
+      <p class="font-bold text-emerald-700 mb-1">Continuity — BEEP ✓</p>
+      <p class="text-xs text-gray-500">Complete path exists. Resistance is low (~0 Ω). Current can flow freely.</p>
+    </div>
+    <!-- Open (bad) -->
+    <div class="p-6 text-center">
+      <svg viewBox="0 0 180 120" class="w-full max-w-xs mx-auto mb-4" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Source -->
+        <rect x="10" y="45" width="30" height="30" rx="5" fill="#FEF2F2" stroke="#E0252E" stroke-width="1.5"/>
+        <text x="25" y="64" text-anchor="middle" font-size="9" fill="#E0252E" font-family="monospace">DMM</text>
+        <!-- Top wire left -->
+        <line x1="40" y1="52" x2="90" y2="52" stroke="#E0252E" stroke-width="2.5"/>
+        <!-- Break in wire -->
+        <line x1="100" y1="44" x2="90" y2="60" stroke="#E0252E" stroke-width="1.5"/>
+        <!-- X mark -->
+        <circle cx="95" cy="52" r="6" fill="#FEF2F2" stroke="#E0252E" stroke-width="1.5"/>
+        <text x="95" y="56" text-anchor="middle" font-size="8" fill="#E0252E" font-family="sans-serif">✕</text>
+        <!-- Top wire right (disconnected) -->
+        <line x1="100" y1="52" x2="155" y2="52" stroke="#E8ECF2" stroke-width="2.5" stroke-dasharray="4,3"/>
+        <!-- Right vertical -->
+        <line x1="155" y1="52" x2="155" y2="72" stroke="#E8ECF2" stroke-width="2.5" stroke-dasharray="4,3"/>
+        <!-- Bottom wire -->
+        <line x1="40" y1="72" x2="155" y2="72" stroke="#E0252E" stroke-width="2.5"/>
+        <!-- OL display -->
+        <circle cx="95" cy="100" r="12" fill="#FEF2F2" stroke="#E0252E" stroke-width="1.5"/>
+        <text x="95" y="104" text-anchor="middle" font-size="8" fill="#E0252E" font-family="monospace">OL</text>
+      </svg>
+      <p class="font-bold text-red-700 mb-1">No Continuity — SILENT ✕</p>
+      <p class="text-xs text-gray-500">Path is broken. Meter shows OL (open line). No current can flow.</p>
+    </div>
+  </div>
+</div>
 
-<p>
-  The physics behind it is Ohm's Law: a good conductor has very low resistance (close to 0 Ω). A break in the circuit presents infinite resistance. Continuity mode on a multimeter checks which of these conditions exists.
-</p>
+<!-- ── HOW THE MODE WORKS ── -->
+<h2 id="how-it-works">How Continuity Mode Works in a Multimeter</h2>
 
-<h2>How Continuity Mode Works in a Multimeter</h2>
+<p>When you select continuity mode (the ⏦ symbol with a speaker icon), the meter does four things in sequence:</p>
 
-<p>
-  When you select continuity mode (usually marked with the diode symbol plus a speaker icon), the multimeter:
-</p>
-<ol>
-  <li>Applies a small, safe test current through the probes (typically 0.5–1 mA at 2–3 V open-circuit).</li>
-  <li>Measures the resistance of the path between the probe tips.</li>
-  <li>If the resistance is below the threshold (commonly 30–50 Ω on most meters), it activates an audible beeper and often shows a low reading on the display.</li>
-  <li>If the resistance is above the threshold (open circuit), the display shows OL (overload/open line) and no beep sounds.</li>
-</ol>
+<div class="my-6 space-y-0">
+  {[
+    { n:1, t:'Applies a safe test current', b:'Typically 0.5–1 mA at 2–3 V open-circuit — too low to affect components or shock a person.' },
+    { n:2, t:'Measures the resulting resistance', b:'Uses Ohm\'s Law internally: R = V ÷ I, where V is the voltage across the path and I is the known test current.' },
+    { n:3, t:'Compares to threshold', b:'If R < ~50 Ω (threshold varies by meter — check the spec), it fires the buzzer.' },
+    { n:4, t:'Activates audible beeper', b:'The beep is the key feature — you can keep your eyes on the wiring while your ears confirm the path. No need to look at the display.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#E0252E] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.t}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.b}</p>
+      </div>
+    </div>
+  ))}
+</div>
 
-<blockquote>
-  The beeper is the key feature — it lets you keep your eyes on the wiring while your ears tell you whether you have continuity. No need to look at the display.
-</blockquote>
+<!-- ── WHAT IT FINDS ── -->
+<h2 id="what-it-finds">What Continuity Testing Can Detect</h2>
 
-<h2>What Continuity Testing Can Detect</h2>
+<div class="my-8 grid sm:grid-cols-2 gap-4">
+  {[
+    { icon:'🔒', fault:'Blown Fuse', good:'Near 0 Ω', bad:'OL (open)', tip:'Remove the fuse first — test across both end caps.' },
+    { icon:'🔌', fault:'Broken Wire', good:'< 5 Ω along full run', bad:'OL', tip:'Disconnect from circuit to isolate parallel paths.' },
+    { icon:'🔁', fault:'Failed Switch', good:'Beep when ON, OL when OFF', bad:'Same reading in both states', tip:'Open-circuit in ON position = burnt contacts. Short in OFF position = welded.' },
+    { icon:'🔗', fault:'Loose Connection', good:'Steady low reading', bad:'Intermittent or higher than expected', tip:'Switch to resistance mode for exact value — a 5 Ω joint still passes continuity but causes voltage drop.' },
+    { icon:'🌀', fault:'Motor / Transformer Winding', good:'Low, consistent R (per spec)', bad:'OL = open winding', tip:'Compare all three phases on a 3-phase motor — should match within 5%.' },
+    { icon:'🖥️', fault:'PCB Track', good:'Near 0 Ω between two pads', bad:'OL = cracked track', tip:'Press the probe gently — track delamination may give intermittent continuity.' },
+  ].map(f => (
+    <div class="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden">
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-gray-200 bg-white">
+        <span class="text-lg">{f.icon}</span>
+        <p class="font-bold text-[#0D1B2A] text-sm">{f.fault}</p>
+      </div>
+      <div class="p-4 space-y-1.5">
+        <div class="flex gap-2 text-xs"><span class="text-emerald-600 font-bold shrink-0">Good:</span><span class="text-gray-700">{f.good}</span></div>
+        <div class="flex gap-2 text-xs"><span class="text-red-600 font-bold shrink-0">Fault:</span><span class="text-gray-700">{f.bad}</span></div>
+        <div class="flex gap-2 text-xs"><span class="text-blue-600 font-bold shrink-0">Tip:</span><span class="text-gray-700">{f.tip}</span></div>
+      </div>
+    </div>
+  ))}
+</div>
 
-<ul>
-  <li><strong>Blown fuses</strong> — a good fuse reads near 0 Ω; a blown fuse reads OL.</li>
-  <li><strong>Broken wires</strong> — a wire that looks intact but has an internal break will show OL.</li>
-  <li><strong>Failed switch contacts</strong> — test with switch open (should be OL) and closed (should beep).</li>
-  <li><strong>Loose or corroded connections</strong> — may show intermittent continuity or higher-than-expected resistance.</li>
-  <li><strong>Correct wiring connections</strong> — trace which wire goes where in a conduit or harness.</li>
-  <li><strong>Motor and transformer windings</strong> — a winding should show low resistance between its terminals; OL suggests an open winding.</li>
-  <li><strong>PCB tracks</strong> — detect broken traces on a circuit board.</li>
-</ul>
+<!-- ── HOW TO TEST ── -->
+<h2 id="how-to-test">Step-by-Step Tests</h2>
 
-<h2>Step-by-Step: How to Do a Continuity Test</h2>
-
-<h3>Before You Start — Safety First</h3>
-<blockquote>
-  <strong>Always de-energise the circuit before continuity testing.</strong> The meter applies its own small test voltage — adding mains voltage to this will damage the meter and risk electric shock. Switch off the breaker and verify with a voltage tester before connecting probes.
-</blockquote>
+<Callout type="warning" title="Always de-energise before continuity testing">
+  <p>The meter applies its own small test voltage. Adding mains voltage to this damages the meter and risks shock. Switch off the breaker and verify with a voltage tester before connecting probes.</p>
+</Callout>
 
 <h3>Testing a Fuse</h3>
-<ol>
-  <li>Remove the fuse from its holder.</li>
-  <li>Insert the black probe into COM and the red probe into the VΩ terminal.</li>
-  <li>Set the selector to continuity mode (⏦ symbol, or the diode symbol with a beeper icon).</li>
-  <li>Touch one probe to each end of the fuse.</li>
-  <li>A beep = fuse is good. Silence = fuse is blown.</li>
-</ol>
+<div class="my-4 space-y-0">
+  {[
+    { n:'1', t:'Remove fuse from holder', b:'Test it out of the circuit — a parallel path can mask a blown fuse.' },
+    { n:'2', t:'Set to continuity mode', b:'Black probe to COM, red to VΩ terminal.' },
+    { n:'3', t:'Touch probes to each end', b:'One probe on each end cap of the fuse.' },
+    { n:'A', t:'Beep = fuse is good', b:'Complete path inside — element is intact.' },
+    { n:'✕', t:'Silence = blown fuse', b:'OL shown on display. Replace with same rating.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-3 relative">
+      {i < arr.length - 1 && <div class="absolute left-[18px] top-9 bottom-0 w-0.5 bg-gray-200"></div>}
+      <div class={`shrink-0 w-9 h-9 rounded-full font-bold text-xs flex items-center justify-center z-10 mt-0.5 ${s.n === 'A' ? 'bg-emerald-500 text-white' : s.n === '✕' ? 'bg-red-500 text-white' : 'bg-[#0D1B2A] text-white'}`}>{s.n}</div>
+      <div class="pb-5">
+        <p class="font-bold text-[#0D1B2A] text-sm">{s.t}</p>
+        <p class="text-xs text-gray-600 mt-0.5">{s.b}</p>
+      </div>
+    </div>
+  ))}
+</div>
 
-<h3>Tracing a Wire Through a Conduit or Harness</h3>
-<ol>
-  <li>Disconnect both ends of the cable from their circuits.</li>
-  <li>At one end, hold the red probe on the wire you want to trace.</li>
-  <li>At the other end, touch the black probe (attached to the COM terminal) to each wire in turn.</li>
-  <li>The wire that gives a beep is your wire.</li>
-</ol>
+<h3>Tracing a Wire Through a Conduit</h3>
+<div class="my-4 p-5 bg-blue-50 border border-blue-200 rounded-xl text-sm text-blue-900">
+  <p class="font-bold mb-3">Procedure (both ends accessible):</p>
+  <ol class="space-y-1.5">
+    <li><strong>1.</strong> Disconnect all wires from their circuits at both ends.</li>
+    <li><strong>2.</strong> At one end, hold the red probe on the wire you want to trace.</li>
+    <li><strong>3.</strong> At the other end, touch the black probe to each wire in turn.</li>
+    <li><strong>4.</strong> The wire that gives a beep is your wire — mark it with tape.</li>
+  </ol>
+</div>
 
 <h3>Testing a Switch</h3>
-<ol>
-  <li>Disconnect or isolate the switch from the circuit.</li>
-  <li>With the switch <strong>open (off)</strong>, touch probes to the two switch terminals — should read OL (no beep).</li>
-  <li>With the switch <strong>closed (on)</strong>, repeat — should beep.</li>
-  <li>A switch that beeps in both positions has welded contacts. A switch that doesn't beep in either position has open/burnt contacts.</li>
-</ol>
+<div class="my-4 grid sm:grid-cols-2 gap-3">
+  <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
+    <p class="font-bold text-emerald-800 text-sm mb-2">Switch ON (closed position)</p>
+    <p class="text-xs text-emerald-800"><strong>Expected:</strong> Beep (low resistance)</p>
+    <p class="text-xs text-emerald-700 mt-1">If silence → burnt/open contacts. Replace switch.</p>
+  </div>
+  <div class="p-4 bg-gray-100 border border-gray-200 rounded-xl">
+    <p class="font-bold text-gray-800 text-sm mb-2">Switch OFF (open position)</p>
+    <p class="text-xs text-gray-800"><strong>Expected:</strong> OL, no beep</p>
+    <p class="text-xs text-gray-600 mt-1">If beep → welded/shorted contacts. Replace switch.</p>
+  </div>
+</div>
 
-<h2>Continuity vs Resistance — What's the Difference?</h2>
+<!-- ── VS RESISTANCE ── -->
+<h2 id="vs-resistance">Continuity Mode vs Resistance Mode</h2>
 
-<table>
-  <thead>
-    <tr><th>Mode</th><th>What it tells you</th><th>Best for</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Continuity</td>
-      <td>Yes/No — is there a path below ~50 Ω?</td>
-      <td>Quick fault finding, fuses, wiring traces</td>
-    </tr>
-    <tr>
-      <td>Resistance (Ω)</td>
-      <td>Exact resistance value</td>
-      <td>Component verification, measuring exact coil resistance, detecting high-resistance joints</td>
-    </tr>
-  </tbody>
-</table>
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-4 text-[#94a3b8] font-mono text-xs uppercase tracking-widest"></th>
+        <th class="text-center px-5 py-4 text-white font-bold">Continuity Mode</th>
+        <th class="text-center px-5 py-4 text-white font-bold">Resistance (Ω) Mode</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['What it tells you', 'Yes/No — path below ~50 Ω?', 'Exact resistance value in Ω'],
+        ['Speed', 'Instant — audible feedback', 'Must look at display'],
+        ['Best for', 'Fuses, wiring traces, quick checks', 'Coil R, high-R joint detection'],
+        ['Can detect 5 Ω bad joint?', '✓ Beeps (below 50 Ω threshold)', '✓ Shows "5.1 Ω" — more informative'],
+        ['Can detect 0.3 Ω bad contact?', '✓ Beeps (well below threshold)', '✓ Shows exact mΩ value (with good meter)'],
+      ].map(([feat, cont, res], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 text-gray-700 font-medium border-b border-gray-100 text-xs">{feat}</td>
+          <td class="px-5 py-3 text-center text-gray-600 border-b border-gray-100 text-xs">{cont}</td>
+          <td class="px-5 py-3 text-center text-gray-600 border-b border-gray-100 text-xs">{res}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<!-- ── LIMITS ── -->
+<h2 id="limits">Limitations of Continuity Testing</h2>
+
+<Callout type="info" title="Continuity does not test insulation">
+  <p>A wire can pass continuity (conductor is intact) but still have severely degraded insulation that leaks current to earth. For insulation quality, use a <strong>megohmmeter (insulation tester)</strong> — a completely different test at high DC voltage.</p>
+</Callout>
+
+<div class="my-6 space-y-3">
+  {[
+    { title:'Parallel paths fool the test', body:'If a broken wire is in parallel with another path, the meter will beep via the other path and you\'ll miss the break. Always disconnect parallel paths before testing.' },
+    { title:'Threshold varies between meters', body:'One meter\'s 50 Ω threshold may pass a joint that another meter\'s 30 Ω threshold flags. For precision, switch to resistance mode and read the actual value.' },
+    { title:'Slow beeper misses intermittent faults', body:'Intermittent connections (vibration-induced) may only break for milliseconds. A fast-response beeper (<50 ms) is far more likely to catch these than a slow one.' },
+  ].map(l => (
+    <div class="flex gap-3 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+      <span class="text-amber-500 text-lg shrink-0 mt-0.5">⚠</span>
+      <div>
+        <p class="font-bold text-amber-900 text-sm">{l.title}</p>
+        <p class="text-sm text-amber-800 mt-0.5">{l.body}</p>
+      </div>
+    </div>
+  ))}
+</div>
 
 <p>
-  For loose connections or corroded joints, resistance mode is more revealing than continuity mode — a joint that passes continuity (below 50 Ω) might still have a resistance of 5–10 Ω, which is high enough to cause significant voltage drop and heating under load.
-</p>
-
-<h2>Limitations of Continuity Testing</h2>
-
-<ul>
-  <li><strong>Cannot test insulation</strong> — continuity confirms a low-resistance path exists; it cannot tell you if the conductor's insulation is degraded or leaking to earth. Use an insulation tester (megohmmeter) for that.</li>
-  <li><strong>Cannot detect high-resistance faults in parallel paths</strong> — if a broken wire is in parallel with another path, the other path will give a continuity reading and the broken wire will be missed. Disconnect all parallel paths before testing.</li>
-  <li><strong>Threshold varies between meters</strong> — one meter's 50 Ω threshold may pass a joint that another meter's 30 Ω threshold would flag. For precision, switch to resistance mode and read the actual value.</li>
-</ul>
-
-<h2>Which Multimeter to Use for Continuity Testing?</h2>
-
-<p>
-  Any modern digital multimeter with a continuity buzzer function is suitable for standard wiring checks. For demanding applications like motor windings, precision contacts, or PCB debugging, look for a meter with:
-</p>
-<ul>
-  <li>A fast-responding beeper (response time under 50 ms — slow beepers miss intermittent faults)</li>
-  <li>A low-resistance continuity threshold clearly stated in the spec sheet</li>
-  <li>The ability to read resistance in the 0.1 Ω range for detecting high-resistance joints</li>
-</ul>
-
-<p>
-  CIE's range of digital multimeters includes models suitable for both general-purpose field use and precision laboratory work. Browse our <a href={u('/products/')}>product catalogue</a> or <a href={u('/contact/')}>get in touch</a> for a product recommendation.
+  CIE's range of digital multimeters includes models with fast-response buzzers suited for both general field use and precision diagnostics. Browse our <a href={u('/products/')}>product catalogue</a> or <a href={u('/contact/')}>get in touch</a> for a recommendation.
 </p>

@@ -1,0 +1,30 @@
+---
+interface Step {
+  title: string;
+  body: string;
+}
+interface Props {
+  steps: Step[];
+}
+const { steps } = Astro.props;
+---
+
+<div class="my-10 space-y-0">
+  {steps.map((step, i) => (
+    <div class="flex gap-4 relative">
+      <!-- Line connector -->
+      {i < steps.length - 1 && (
+        <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-gradient-to-b from-[#E0252E] to-[#E0252E]/10"></div>
+      )}
+      <!-- Number bubble -->
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#E0252E] text-white font-bold text-sm flex items-center justify-center z-10 shadow-md">
+        {i + 1}
+      </div>
+      <!-- Content -->
+      <div class={`pb-7 ${i < steps.length - 1 ? '' : ''}`}>
+        <p class="font-bold text-[#0D1B2A] mb-1">{step.title}</p>
+        <p class="text-gray-600 text-sm leading-relaxed">{step.body}</p>
+      </div>
+    </div>
+  ))}
+</div>

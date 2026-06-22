@@ -4,6 +4,21 @@ import { u } from '../../utils/url';
 import posts from '../../data/blog.json';
 
 const sorted = [...posts].sort((a, b) => b.publishDate.localeCompare(a.publishDate));
+
+const categoryColors: Record<string, string> = {
+  'Guides':       'bg-violet-100 text-violet-700 border-violet-200',
+  'How-To':       'bg-blue-100 text-blue-700 border-blue-200',
+  'Physics':      'bg-amber-100 text-amber-700 border-amber-200',
+  'Buying Guide': 'bg-emerald-100 text-emerald-700 border-emerald-200',
+};
+
+const icons: Record<string, string> = {
+  'what-is-a-multimeter':    '🔢',
+  'how-to-use-a-clamp-meter':'🗜️',
+  'ohms-law-explained':      '⚡',
+  'continuity-testing-guide':'🔊',
+  'clamp-meter-vs-multimeter':'⚖️',
+};
 ---
 
 <Base
@@ -12,48 +27,86 @@ const sorted = [...posts].sort((a, b) => b.publishDate.localeCompare(a.publishDa
 >
 
   <!-- Hero -->
-  <section class="bg-[#0D1B2A] border-b border-white/10 py-14 md:py-20">
+  <section class="bg-gradient-to-br from-[#0D1B2A] via-[#1B3A5B] to-[#0D1B2A] border-b border-white/10 py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-xs font-mono uppercase tracking-widest text-[#E0252E] mb-3">Knowledge Hub</p>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-        Electrical Testing Guides
+      <p class="text-xs font-mono uppercase tracking-widest text-[#E0252E] mb-4">Knowledge Hub</p>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
+        Electrical Testing<br/>Guides &amp; Resources
       </h1>
-      <p class="text-[#94a3b8] text-lg max-w-2xl mx-auto">
-        Plain-language articles on how testers work, the physics behind the readings, and which instrument to use — from India's trusted instrument maker since 1963.
+      <p class="text-[#94a3b8] text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+        Plain-language articles on how testers work, the physics behind every reading, and which instrument to reach for — from India's trusted instrument maker since 1963.
       </p>
+      <!-- Stat chips -->
+      <div class="flex flex-wrap justify-center gap-4">
+        {[
+          { n:'5', label:'In-depth articles' },
+          { n:'1963', label:'Years of expertise since' },
+          { n:'100%', label:'Free to read' },
+        ].map(s => (
+          <div class="bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-center">
+            <p class="text-2xl font-bold text-white">{s.n}</p>
+            <p class="text-[10px] font-mono text-[#94a3b8] uppercase tracking-widest mt-0.5">{s.label}</p>
+          </div>
+        ))}
+      </div>
     </div>
+  </section>
+
+  <!-- Featured article (first/newest) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14">
+    <p class="text-xs font-mono uppercase tracking-widest text-[#64748b] mb-5">Latest Article</p>
+    <a href={u(`/blog/${sorted[0].slug}/`)} class="group block rounded-2xl border-2 border-gray-200 hover:border-[#E0252E] transition-colors overflow-hidden bg-white shadow-sm hover:shadow-lg">
+      <div class="flex flex-col md:flex-row">
+        <!-- Icon panel -->
+        <div class="md:w-64 shrink-0 bg-gradient-to-br from-[#0D1B2A] to-[#1B3A5B] flex items-center justify-center py-12 md:py-0">
+          <span class="text-7xl" role="img">{icons[sorted[0].slug]}</span>
+        </div>
+        <div class="p-7 flex flex-col justify-center flex-1">
+          <span class={`inline-block self-start text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border mb-4 ${categoryColors[sorted[0].category] ?? 'bg-gray-100 text-gray-700 border-gray-200'}`}>
+            {sorted[0].category}
+          </span>
+          <h2 class="text-2xl font-bold text-[#0D1B2A] group-hover:text-[#E0252E] transition-colors leading-snug mb-3">
+            {sorted[0].title}
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-5">{sorted[0].excerpt}</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3 text-xs text-gray-400">
+              <time datetime={sorted[0].publishDate}>
+                {new Date(sorted[0].publishDate).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })}
+              </time>
+              <span>·</span>
+              <span>{sorted[0].readTime}</span>
+            </div>
+            <span class="text-sm font-semibold text-[#E0252E] group-hover:underline">Read article →</span>
+          </div>
+        </div>
+      </div>
+    </a>
   </section>
 
   <!-- Post grid -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {sorted.map(post => (
-        <article class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group">
-          <!-- Category chip -->
-          <div class="px-6 pt-6">
-            <span class="inline-block text-xs font-semibold font-mono uppercase tracking-widest text-[#E0252E] bg-red-50 border border-red-100 rounded-full px-3 py-1">
-              {post.category}
-            </span>
+    <p class="text-xs font-mono uppercase tracking-widest text-[#64748b] mb-7">All Articles</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {sorted.slice(1).map(post => (
+        <article class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col group hover:border-[#E0252E]">
+          <!-- Icon area -->
+          <div class="bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center py-8 border-b border-gray-100">
+            <span class="text-5xl" role="img">{icons[post.slug]}</span>
           </div>
 
-          <div class="px-6 pt-4 pb-6 flex flex-col flex-1">
-            <h2 class="text-lg font-bold text-[#0D1B2A] leading-snug mb-3 group-hover:text-[#E0252E] transition-colors">
+          <div class="px-5 pt-4 pb-5 flex flex-col flex-1">
+            <span class={`inline-block self-start text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full border mb-3 ${categoryColors[post.category] ?? 'bg-gray-100 text-gray-700 border-gray-200'}`}>
+              {post.category}
+            </span>
+
+            <h2 class="text-base font-bold text-[#0D1B2A] leading-snug mb-2 group-hover:text-[#E0252E] transition-colors flex-1">
               <a href={u(`/blog/${post.slug}/`)}>{post.title}</a>
             </h2>
-            <p class="text-sm text-gray-600 leading-relaxed flex-1 mb-5">{post.excerpt}</p>
 
-            <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-              <div class="flex items-center gap-2 text-xs text-gray-400">
-                <time datetime={post.publishDate}>
-                  {new Date(post.publishDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
-                </time>
-                <span>·</span>
-                <span>{post.readTime}</span>
-              </div>
-              <a
-                href={u(`/blog/${post.slug}/`)}
-                class="text-xs font-semibold text-[#E0252E] hover:underline"
-              >
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+              <span class="text-xs text-gray-400">{post.readTime}</span>
+              <a href={u(`/blog/${post.slug}/`)} class="text-xs font-semibold text-[#E0252E] hover:underline">
                 Read →
               </a>
             </div>
@@ -63,14 +116,32 @@ const sorted = [...posts].sort((a, b) => b.publishDate.localeCompare(a.publishDa
     </div>
   </section>
 
+  <!-- Topics strip -->
+  <section class="bg-gray-50 border-y border-gray-200 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-mono uppercase tracking-widest text-[#64748b] mb-5">Topics Covered</p>
+      <div class="flex flex-wrap gap-3">
+        {['Multimeters','Clamp Meters','Ohm\'s Law','Continuity Testing','Resistance Measurement','AC & DC Current','Electromagnetic Induction','Electrical Safety','Instrument Selection','Physics of Measurement'].map(t => (
+          <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700 font-medium shadow-sm">{t}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
-  <section class="bg-[#0D1B2A] border-t border-white/10 py-14">
+  <section class="bg-[#0D1B2A] py-16">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-2xl font-bold text-white mb-3">Need a specific instrument?</h2>
-      <p class="text-[#94a3b8] mb-7">Browse our range of multimeters, clamp meters, and testing equipment — manufactured in Howrah since 1963.</p>
-      <a href={u('/products/')} class="inline-block px-7 py-3 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded-lg transition-colors">
-        Browse Products
-      </a>
+      <p class="text-xs font-mono uppercase tracking-widest text-[#E0252E] mb-3">Ready to buy?</p>
+      <h2 class="text-3xl font-bold text-white mb-4">Find the right instrument for your work</h2>
+      <p class="text-[#94a3b8] mb-8 leading-relaxed">Browse CIE's complete range of multimeters, clamp meters, insulation testers, and more — manufactured in Howrah, India since 1963.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href={u('/products/')} class="px-8 py-3 bg-[#E0252E] hover:bg-[#D72631] text-white font-semibold rounded-xl transition-colors">
+          Browse Products
+        </a>
+        <a href={u('/contact/')} class="px-8 py-3 border border-white/20 hover:border-white/50 text-white font-semibold rounded-xl transition-colors">
+          Ask Our Team
+        </a>
+      </div>
     </div>
   </section>
 </Base>
