@@ -3,7 +3,6 @@ import Base from '../../../layouts/Base.astro';
 import { u } from '../../../utils/url';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CTABand from '../../../components/CTABand.astro';
-import SpecTable from '../../../components/SpecTable.astro';
 import site from '../../../data/site.json';
 import products from '../../../data/vartech-multimeters.json';
 
@@ -46,11 +45,13 @@ const productSchema = {
     url: canonicalPath,
     seller: { '@type': 'Organization', name: 'Cambridge Instruments & Engg. Co.' },
   },
-  additionalProperty: product.specs.map((s: { label: string; value: string }) => ({
-    '@type': 'PropertyValue',
-    name: s.label,
-    value: s.value,
-  })),
+  ...(product.specs && product.specs.length > 0 && {
+    additionalProperty: product.specs.map((s: { label: string; value: string }) => ({
+      '@type': 'PropertyValue',
+      name: s.label,
+      value: s.value,
+    })),
+  }),
 };
 ---
 
@@ -199,23 +200,19 @@ const productSchema = {
         </div>
 
         <!-- Key Features -->
-        <div>
-          <h2 class="text-xl font-bold text-[#0D2547] mb-4">Key Features</h2>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
-            {(product.features as string[]).map((f: string) => (
-              <li class="flex items-start gap-3 text-sm text-[#64748B]">
-                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1B3A5B] shrink-0"></span>
-                {f}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Technical Specifications -->
-        <div>
-          <h2 class="text-xl font-bold text-[#0D2547] mb-4">Technical Specifications</h2>
-          <SpecTable specs={product.specs} />
-        </div>
+        {product.features && (product.features as string[]).length > 0 && (
+          <div>
+            <h2 class="text-xl font-bold text-[#0D2547] mb-4">Key Features</h2>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+              {(product.features as string[]).map((f: string) => (
+                <li class="flex items-start gap-3 text-sm text-[#64748B]">
+                  <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1B3A5B] shrink-0"></span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
       </div>
     </div>
