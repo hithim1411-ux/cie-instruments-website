@@ -203,7 +203,7 @@ const productSchema = {
         {product.features && (product.features as string[]).length > 0 && (
           <div>
             <h2 class="text-xl font-bold text-[#0D2547] mb-4">Key Features</h2>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
               {(product.features as string[]).map((f: string) => (
                 <li class="flex items-start gap-3 text-sm text-[#64748B]">
                   <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1B3A5B] shrink-0"></span>
@@ -211,6 +211,26 @@ const productSchema = {
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        <!-- Technical Specifications -->
+        {product.specs && (product.specs as {label:string;value:string}[]).length > 0 && (
+          <div>
+            <h2 class="text-xl font-bold text-[#0D2547] mb-4">Technical Specifications</h2>
+            <div class="border border-[#E8ECF2] rounded-lg overflow-hidden">
+              <table class="w-full text-sm">
+                <tbody>
+                  {(product.specs as {label:string;value:string}[]).map((row, i) => (
+                    <tr class={i % 2 === 0 ? 'bg-white' : 'bg-[#F5F7FA]'}>
+                      <td class="py-2.5 px-4 font-semibold text-[#0D2547] w-2/5 align-top border-b border-[#E8ECF2]">{row.label}</td>
+                      <td class="py-2.5 px-4 text-[#64748B] align-top border-b border-[#E8ECF2]">{row.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-3 text-xs text-[#94A3B8]">Specifications are sourced from the official Vartech product catalogue. Download the catalogue above for the full datasheet.</p>
           </div>
         )}
 
