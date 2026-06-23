@@ -194,5 +194,69 @@
       "The CIE RTS-5 and RTS-5A are single-phase relay test sets providing continuously variable AC current from 0 to 200 A across multiple ranges, with built-in digital timer (0–99.99 sec), digital ammeter, and AC voltmeter. They are used for testing over-current relays, earth fault relays, and other single-phase protection devices. The RTS-33 is a three-phase relay test set providing variable three-phase AC current, AC and DC voltage, and continuously variable phase angle (0–360°) — essential for testing distance relays, differential relays, and directional protection relays.",
       "CIE relay test sets are used by protection engineers at power utilities, EPC commissioning companies, and testing laboratories. They are supplied to PGCIL, WBSETCL, state electricity boards, Indian Railways, and commissioning contractors across India — Kolkata, Howrah, Delhi, Bangalore, Mumbai, Chennai, Hyderabad, Bhubaneswar, Lucknow, Chandigarh, and all major power sector locations."
     ]
+  },
+  {
+    "id": "vartech-oscilloscopes",
+    "brand": "vartech",
+    "name": "Oscilloscopes",
+    "shortName": "Oscilloscopes",
+    "eyebrow": "Vartech® · Oscilloscopes",
+    "description": "Analog and digital storage oscilloscopes from 20 MHz to 150 MHz — dual and 4-channel, with options for component tester and built-in function generator. Supplied by CIE as authorised Vartech dealer.",
+    "icon": "📡",
+    "metaTitle": "Oscilloscopes — Vartech SS Series | CIE Instruments, Howrah",
+    "metaDesc": "Vartech oscilloscopes — analog CROs 20–30 MHz and digital storage oscilloscopes 80–150 MHz. SS-5020B, SS-5030B, SS-5080DS4, SS-5100DS1B, SS-5150DS1BFG. Available through CIE Instruments.",
+    "seoContent": [
+      "CIE Instruments supplies Vartech oscilloscopes — a complete range of analog CROs and digital storage oscilloscopes (DSOs) for electronics labs, service workshops, R&D departments, and educational institutions. The Vartech SS series covers 20 MHz to 150 MHz bandwidth in dual-channel and 4-channel configurations, with sampling rates up to 1 GS/s on the DSO models.",
+      "The SS-5020B and SS-5030B are classic dual-channel analog oscilloscopes with compact bench-top design. The SS-5030BC adds a built-in component tester for checking resistors, capacitors, inductors, transistors, and diodes without an external instrument. The SS-5080DS4 is a 4-channel 80 MHz DSO — ideal for embedded systems and power electronics work where multiple signals must be observed simultaneously. The SS-5100DS1B and SS-5150DS1BFG are high-performance dual-channel DSOs at 100 MHz and 150 MHz, with the FG model including an integrated 25 MHz function generator.",
+      "Vartech oscilloscopes are stocked and supplied by CIE Instruments from Howrah, West Bengal, with same-day despatch to customers in Kolkata and pan-India shipping. Applications include electronics manufacturing, circuit design, PCB debugging, power supply testing, motor drive analysis, and educational lab work."
+    ]
+  },
+  {
+    "id": "vartech-function-generators",
+    "brand": "vartech",
+    "name": "Function & Signal Generators",
+    "shortName": "Function Generators",
+    "eyebrow": "Vartech® · Function Generators",
+    "description": "DDS function generators from 15 MHz to 80 MHz with sine, square, triangle, and arbitrary waveforms. Programmable models with USB interface and PC connectivity.",
+    "icon": "〜",
+    "metaTitle": "Function Generators — Vartech SGDA Series | CIE Instruments, Howrah",
+    "metaDesc": "Vartech SGDA function generators — 15 MHz, 30 MHz, 60 MHz DDS, 80 MHz programmable. Sine, square, triangle, arbitrary waveforms. Available through CIE Instruments, Howrah.",
+    "seoContent": [
+      "CIE Instruments supplies the Vartech SGDA series of DDS function generators — reliable, full-featured signal sources for electronics labs, educational institutions, service workshops, and R&D departments. The SGDA range covers 15 MHz to 80 MHz with sine, square, triangle, and ramp waveforms as standard, with the SGDA-60M and SGDA-80M adding arbitrary waveform generation capability.",
+      "The SGDA-15M and SGDA-30M are compact, cost-effective DDS function generators for everyday bench use. The SGDA-60M adds arbitrary waveform generation via PC software, while the SGDA-80M is a fully programmable instrument with USB/RS-232 interface for automated test system integration. All models feature clear digital frequency display and stable output across the full frequency range.",
+      "Vartech function generators are available through CIE Instruments as authorised dealers, with delivery to electronics labs, engineering colleges, calibration labs, and manufacturing facilities across India."
+    ]
+  },
+  {
+    "id": "vartech-lcr-meters",
+    "brand": "vartech",
+    "name": "LCR & Capacitance Meters",
+    "shortName": "LCR Meters",
+    "eyebrow": "Vartech® · LCR & Cap Meters",
+    "description": "Handheld and bench-top LCR meters and capacitance meters for measuring inductance, capacitance, and resistance of passive components with precision.",
+    "icon": "🔵",
+    "metaTitle": "LCR Meters & Capacitance Meters — Vartech | CIE Instruments, Howrah",
+    "metaDesc": "Vartech LCR meters and capacitance meters — LCM-1, LCR-1B, LCR-2A, V-8222H. Handheld and bench-top. For L, C, R measurement of passive components. Supplied by CIE Instruments.",
+    "seoContent": [
+      "CIE Instruments supplies Vartech LCR meters and capacitance meters for precise measurement of inductance (L), capacitance (C), and resistance (R) in passive components. The range includes handheld models for field use and bench-top instruments for laboratory component characterisation.",
+      "The LCM-1 is a compact handheld LC meter for quick inductance and capacitance measurement on individual components. The LCR-1B and LCR-2A are bench-top LCR meters offering higher accuracy and a wider measurement range for laboratory use — including ESR measurement and quality factor (Q) display. The V-8222H combines a True RMS digital multimeter with LCR measurement capability in a single handheld instrument, making it a versatile all-in-one tool for electronics engineers.",
+      "Vartech LCR meters are used in electronics manufacturing for incoming component inspection, in R&D labs for component characterisation, and in educational institutions for electronics practical work. Available through CIE Instruments with pan-India supply."
+    ]
+  },
+  {
+    "id": "vartech-dc-loads",
+    "brand": "vartech",
+    "name": "DC Electronic Loads",
+    "shortName": "DC Electronic Loads",
+    "eyebrow": "Vartech® · DC Electronic Loads",
+    "description": "Programmable DC electronic loads for testing batteries, power supplies, DC-DC converters, and chargers. 600 W capacity with constant current, voltage, resistance, and power modes.",
+    "icon": "⚡",
+    "metaTitle": "DC Electronic Loads — Vartech EL Series | CIE Instruments, Howrah",
+    "metaDesc": "Vartech EL-600 DC electronic loads — 600 W, programmable CC/CV/CR/CP modes. For testing batteries, DC power supplies, chargers, DC-DC converters. Supplied by CIE Instruments.",
+    "seoContent": [
+      "CIE Instruments supplies the Vartech EL-600 series of programmable DC electronic loads — instruments designed to simulate real electrical loads for testing batteries, DC power supplies, chargers, DC-DC converters, solar panels, and fuel cells. Unlike a simple resistive load, an electronic load can be programmed to maintain constant current, constant voltage, constant resistance, or constant power — and can perform dynamic load testing with rapid step changes.",
+      "The EL-600 (600 W) and EL-600+ (600 W enhanced) are bench-top instruments with front-panel programming and a large digital display showing voltage, current, and power simultaneously. The EL-600+ adds enhanced dynamic testing capability for battery impedance measurement and power supply transient response characterisation.",
+      "DC electronic loads are essential tools for power electronics engineers, battery testing labs, EV component test facilities, and electronics manufacturing QC departments. Available through CIE Instruments with delivery to engineering labs and test facilities across India."
+    ]
   }
 ]

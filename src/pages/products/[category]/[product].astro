@@ -23,8 +23,9 @@ const { product, category } = Astro.props;
 
 const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${product.model} — ${product.name}. Please send me a quote.`);
 
+const isVartech = (product as any).brand === 'vartech';
 const productImageSrc = product.image
-  ? u(`/images/products/${product.image}`)
+  ? (isVartech ? u(`/images/${product.image}`) : u(`/images/products/${product.image}`))
   : u(`/images/products/${product.id}.webp`);
 
 // Build product-specific mailto
@@ -80,14 +81,21 @@ const useRawTitle     = !!(product as any).metaTitle;
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   <!-- Page header -->
-  <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
+  <div class={isVartech ? 'bg-emerald-50 border-b border-emerald-200 py-10' : 'bg-[#F5F7FA] border-b border-[#E8ECF2] py-10'}>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[
         { label: 'Products', href: '/products' },
         { label: category.name, href: `/products/${category.id}` },
         { label: product.model },
       ]} />
-      <EyebrowLabel text={category.eyebrow} class="mt-4 mb-3" />
+      {isVartech ? (
+        <div class="mt-4 mb-3 flex items-center gap-3">
+          <img src={u('/images/vartech/vartech-logo.avif')} alt="Vartech" width="90" class="object-contain" />
+          <span class="px-2.5 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full">CIE Authorised Dealer</span>
+        </div>
+      ) : (
+        <EyebrowLabel text={category.eyebrow} class="mt-4 mb-3" />
+      )}
       <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">
         <span class="model-code text-xl block mb-1">{product.model}</span>
         {product.name}
