@@ -91,3 +91,53 @@ body {
   color: var(--color-primary);
 }
 
+/* ── Mobile product slider / desktop grid ────────────────────────────────────
+   On mobile: horizontal scroll with snap. On sm (640px+): standard CSS grid.
+   Apply class="product-slider gap-5" (or gap-6) to the container.
+   Direct children (article or a) become scrollable cards on mobile.
+─────────────────────────────────────────────────────────────────────────────── */
+.product-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  /* slight bottom padding so box-shadows on cards aren't clipped */
+  padding-bottom: 6px;
+  margin-bottom: -6px;
+}
+.product-slider::-webkit-scrollbar { display: none; }
+
+.product-slider > article,
+.product-slider > a {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  /* show ~1.2 cards so users see there is more to scroll */
+  width: 78vw;
+  max-width: 300px;
+}
+
+@media (min-width: 640px) {
+  .product-slider {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .product-slider > article,
+  .product-slider > a {
+    flex-shrink: 1;
+    scroll-snap-align: none;
+    width: auto;
+    max-width: none;
+  }
+}
+@media (min-width: 1024px) {
+  .product-slider { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1280px) {
+  .product-slider { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+

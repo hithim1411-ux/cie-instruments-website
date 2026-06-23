@@ -120,7 +120,7 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
       </div>
 
       <!-- CIE product grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" id="cie-product-grid">
+      <div class="product-slider gap-5" id="cie-product-grid">
         {cieProducts.map((p: any) => {
           const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${p.model} — ${p.name}`);
           return (
