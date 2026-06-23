@@ -175,26 +175,32 @@ import Callout from '../../components/blog/Callout.astro';
 <h2 id="which-first">Which Should You Buy First?</h2>
 
 <div class="my-8 grid sm:grid-cols-2 gap-5">
-  <div class="rounded-2xl border-2 border-blue-300 overflow-hidden">
-    <div class="bg-blue-600 px-5 py-4 text-center">
-      <p class="text-white font-bold text-lg">Buy Multimeter First</p>
-      <p class="text-blue-200 text-xs mt-1">If you're an electronics or instrumentation engineer</p>
+  <div class="rounded-2xl overflow-hidden border-2 border-blue-200">
+    <div class="bg-[#1B3A5B] px-5 py-5 text-center">
+      <div class="text-white font-bold text-lg leading-tight">Buy Multimeter First</div>
+      <div class="text-blue-200 text-xs mt-1.5 leading-snug">If you're an electronics or<br/>instrumentation engineer</div>
     </div>
-    <div class="p-5 bg-blue-50 space-y-2">
-      {['Work primarily on control circuits and low-power equipment','Need precise voltage and resistance measurements','Test electronic components (diodes, capacitors)','Low current (mA range) measurements are common'].map(r => (
-        <div class="flex gap-2 text-sm text-blue-900"><span class="text-blue-500 font-bold shrink-0">→</span>{r}</div>
+    <div class="p-5 bg-[#EFF6FF] space-y-2.5">
+      {['Work primarily on control circuits and low-power equipment','Need precise voltage and resistance measurements','Test electronic components — diodes, capacitors, temperature','Low current (mA range) measurements are common'].map(r => (
+        <div class="flex gap-2 items-start text-sm text-[#1e3a5f]">
+          <span class="text-blue-500 font-bold shrink-0 mt-0.5">✓</span>
+          <span>{r}</span>
+        </div>
       ))}
     </div>
   </div>
 
-  <div class="rounded-2xl border-2 border-red-300 overflow-hidden">
-    <div class="bg-[#E0252E] px-5 py-4 text-center">
-      <p class="text-white font-bold text-lg">Buy Clamp Meter First</p>
-      <p class="text-red-200 text-xs mt-1">If you're a field electrician or building services engineer</p>
+  <div class="rounded-2xl overflow-hidden border-2 border-red-200">
+    <div class="bg-[#E0252E] px-5 py-5 text-center">
+      <div class="text-white font-bold text-lg leading-tight">Buy Clamp Meter First</div>
+      <div class="text-red-100 text-xs mt-1.5 leading-snug">If you're a field electrician or<br/>building services engineer</div>
     </div>
-    <div class="p-5 bg-red-50 space-y-2">
-      {['Work on live distribution panels and motor control','Most measurements are load current checks','High current (> 20 A) applications are routine','Need inrush measurement for motor commissioning'].map(r => (
-        <div class="flex gap-2 text-sm text-red-900"><span class="text-red-500 font-bold shrink-0">→</span>{r}</div>
+    <div class="p-5 bg-[#FEF2F2] space-y-2.5">
+      {['Work on live distribution panels and motor control','Most measurements are load current checks on live circuits','High current (> 20 A) applications are routine','Need inrush / peak capture for motor commissioning'].map(r => (
+        <div class="flex gap-2 items-start text-sm text-[#7f1d1d]">
+          <span class="text-[#E0252E] font-bold shrink-0 mt-0.5">✓</span>
+          <span>{r}</span>
+        </div>
       ))}
     </div>
   </div>

@@ -200,21 +200,25 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
     </div>
   </div>
 
-  <!-- ── Bottom CTA — outside article so blog-content CSS doesn't bleed ── -->
-  <section class="border-t border-gray-100 bg-[#0D1B2A]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 flex flex-col md:flex-row md:items-center gap-10">
-      <div class="flex-1">
-        <img src={u('/logo/cie-logo-light.png')} alt="CIE Instruments" width="120" height="auto" class="mb-6 opacity-90" />
-        <p class="text-white font-bold text-xl mb-2 leading-snug">Need instruments, not just answers?</p>
-        <p class="text-[#94a3b8] text-sm leading-relaxed max-w-md">Browse CIE's complete range — multimeters, clamp meters, insulation testers, and more. Manufactured in Howrah, India since 1963.</p>
-      </div>
-      <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-        <a href={u('/products/')} style="color: white;" class="px-7 py-3 bg-[#E0252E] hover:bg-[#D72631] text-sm font-semibold rounded transition-colors text-center no-underline">
-          Browse Products
-        </a>
-        <a href={u('/contact/')} style="color: white;" class="px-7 py-3 border border-white/20 hover:border-white/50 text-sm font-semibold rounded transition-colors text-center no-underline">
-          Contact Us
-        </a>
+  <!-- ── Bottom CTA — red card, same as blog index, separates from footer ── -->
+  <section class="bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="rounded-2xl bg-[#E0252E] overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-center gap-8 px-10 py-10">
+          <div class="flex-1">
+            <div class="text-red-200 text-[11px] font-mono uppercase tracking-[0.18em] mb-3">Cambridge Instruments &amp; Engg. Co. · Est. 1963</div>
+            <div class="text-white font-bold text-2xl md:text-3xl leading-snug mb-3">Looking for an instrument,<br/>not just an answer?</div>
+            <div class="text-red-100 text-sm leading-relaxed max-w-md">Multimeters, clamp meters, insulation testers, earth testers — manufactured in Howrah, India. Pan-India supply.</div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+            <a href={u('/products/')} style="color: #E0252E;" class="px-7 py-3 bg-white hover:bg-gray-50 text-sm font-bold rounded-lg transition-colors text-center no-underline">
+              Browse Products
+            </a>
+            <a href={u('/contact/')} style="color: white;" class="px-7 py-3 border-2 border-white/40 hover:border-white text-sm font-semibold rounded-lg transition-colors text-center no-underline">
+              Contact Us
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -96,22 +96,33 @@ import Callout from '../../components/blog/Callout.astro';
 
 <div class="my-8 grid sm:grid-cols-2 gap-4">
   {[
-    { icon:'🔒', fault:'Blown Fuse', good:'Near 0 Ω', bad:'OL (open)', tip:'Remove the fuse first — test across both end caps.' },
-    { icon:'🔌', fault:'Broken Wire', good:'< 5 Ω along full run', bad:'OL', tip:'Disconnect from circuit to isolate parallel paths.' },
-    { icon:'🔁', fault:'Failed Switch', good:'Beep when ON, OL when OFF', bad:'Same reading in both states', tip:'Open-circuit in ON position = burnt contacts. Short in OFF position = welded.' },
-    { icon:'🔗', fault:'Loose Connection', good:'Steady low reading', bad:'Intermittent or higher than expected', tip:'Switch to resistance mode for exact value — a 5 Ω joint still passes continuity but causes voltage drop.' },
-    { icon:'🌀', fault:'Motor / Transformer Winding', good:'Low, consistent R (per spec)', bad:'OL = open winding', tip:'Compare all three phases on a 3-phase motor — should match within 5%.' },
-    { icon:'🖥️', fault:'PCB Track', good:'Near 0 Ω between two pads', bad:'OL = cracked track', tip:'Press the probe gently — track delamination may give intermittent continuity.' },
+    { icon:'🔒', fault:'Blown Fuse',                  good:'Near 0 Ω',                   bad:'OL (open line)',          tip:'Remove from holder first — a parallel circuit can mask a blown fuse.' },
+    { icon:'🔌', fault:'Broken Wire',                 good:'< 1 Ω along the full run',   bad:'OL',                     tip:'Disconnect one end to isolate from parallel return paths.' },
+    { icon:'🔁', fault:'Failed Switch',               good:'Beep when ON · OL when OFF',  bad:'Same in both positions', tip:'Beep when OFF = welded contacts. OL when ON = burnt contacts.' },
+    { icon:'🔗', fault:'Loose Connection',            good:'Steady < 1 Ω',               bad:'Intermittent / rising',  tip:'Use resistance mode for the exact value — a 5 Ω joint still beeps but drops voltage.' },
+    { icon:'🌀', fault:'Motor / Transformer Winding', good:'Low R matching spec',         bad:'OL = open winding',      tip:'On 3-phase motors, all three windings should read within 5% of each other.' },
+    { icon:'🖥️', fault:'PCB Track',                   good:'Near 0 Ω across the trace',  bad:'OL = cracked track',     tip:'Touch lightly — track delamination can cause intermittent contact under probe pressure.' },
   ].map(f => (
-    <div class="bg-gray-50 border border-gray-200 rounded-xl overflow-hidden">
-      <div class="flex items-center gap-2 px-4 py-3 border-b border-gray-200 bg-white">
-        <span class="text-lg">{f.icon}</span>
-        <p class="font-bold text-[#0D1B2A] text-sm">{f.fault}</p>
+    <div class="border border-gray-200 rounded-xl overflow-hidden flex flex-col">
+      <!-- Header — div not p, avoids prose margin override -->
+      <div class="flex items-center gap-2.5 px-4 py-3 bg-[#F5F7FA] border-b border-gray-200">
+        <span class="text-base shrink-0">{f.icon}</span>
+        <div class="font-bold text-[#0D1B2A] text-sm leading-none">{f.fault}</div>
       </div>
-      <div class="p-4 space-y-1.5">
-        <div class="flex gap-2 text-xs"><span class="text-emerald-600 font-bold shrink-0">Good:</span><span class="text-gray-700">{f.good}</span></div>
-        <div class="flex gap-2 text-xs"><span class="text-red-600 font-bold shrink-0">Fault:</span><span class="text-gray-700">{f.bad}</span></div>
-        <div class="flex gap-2 text-xs"><span class="text-blue-600 font-bold shrink-0">Tip:</span><span class="text-gray-700">{f.tip}</span></div>
+      <!-- Rows — uniform height via flex-1 on container -->
+      <div class="p-4 bg-white flex-1 flex flex-col justify-between gap-2">
+        <div class="flex gap-2 text-xs items-start">
+          <span class="text-emerald-600 font-bold shrink-0 w-9 mt-px">Good</span>
+          <span class="text-gray-700 leading-snug">{f.good}</span>
+        </div>
+        <div class="flex gap-2 text-xs items-start">
+          <span class="text-red-600 font-bold shrink-0 w-9 mt-px">Fault</span>
+          <span class="text-gray-700 leading-snug">{f.bad}</span>
+        </div>
+        <div class="flex gap-2 text-xs items-start pt-1 border-t border-gray-100">
+          <span class="text-blue-600 font-bold shrink-0 w-9 mt-px">Tip</span>
+          <span class="text-gray-600 leading-snug">{f.tip}</span>
+        </div>
       </div>
     </div>
   ))}
