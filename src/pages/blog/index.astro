@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Base from '../../layouts/BlogBase.astro';
 import { u } from '../../utils/url';
 import posts from '../../data/blog.json';
 
@@ -132,22 +132,26 @@ const catChip: Record<string, string> = {
   </section>
 
   <!-- ════════════════════════════════════════════════════════
-       CTA — dark navy, full-width, strong
+       CTA — white bg, red accent, clearly distinct from footer
   ═══════════════════════════════════════════════════════════ -->
-  <section class="bg-[#0D1B2A]">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col md:flex-row md:items-center gap-10">
-      <div class="flex-1 border-l-2 border-[#E0252E] pl-7">
-        <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-[#E0252E] mb-3">Cambridge Instruments &amp; Engg. Co.</p>
-        <p class="text-white font-bold text-2xl mb-3 leading-snug">Looking for an instrument,<br class="hidden sm:block"/> not just an answer?</p>
-        <p class="text-[#94a3b8] text-sm leading-relaxed max-w-md">Multimeters, clamp meters, insulation testers, earth testers — manufactured in Howrah, India. Pan-India supply since 1963.</p>
-      </div>
-      <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-        <a href={u('/products/')} class="px-7 py-3 bg-[#E0252E] hover:bg-[#D72631] text-white text-sm font-semibold rounded transition-colors text-center">
-          Browse Products
-        </a>
-        <a href={u('/contact/')} class="px-7 py-3 border border-white/20 hover:border-white/50 text-white text-sm font-semibold rounded transition-colors text-center">
-          Contact Us
-        </a>
+  <section class="bg-white border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="rounded-xl bg-[#E0252E] overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-center gap-8 px-10 py-10">
+          <div class="flex-1">
+            <p class="text-red-200 text-[11px] font-mono uppercase tracking-[0.18em] mb-3">Cambridge Instruments &amp; Engg. Co. · Est. 1963</p>
+            <p class="text-white font-bold text-2xl md:text-3xl leading-snug mb-3">Looking for an instrument,<br/>not just an answer?</p>
+            <p class="text-red-100 text-sm leading-relaxed max-w-md">Multimeters, clamp meters, insulation testers, earth testers — manufactured in Howrah, India. Pan-India supply.</p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+            <a href={u('/products/')} class="px-7 py-3 bg-white hover:bg-gray-50 text-[#E0252E] text-sm font-bold rounded transition-colors text-center">
+              Browse Products
+            </a>
+            <a href={u('/contact/')} class="px-7 py-3 border-2 border-white/40 hover:border-white text-white text-sm font-semibold rounded transition-colors text-center">
+              Contact Us
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
