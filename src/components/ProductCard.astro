@@ -17,6 +17,11 @@ const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${model} —
 const imgSrc = image
   ? (image.startsWith('vartech/') ? u(`/images/${image}`) : u(`/images/products/${image}`))
   : u(`/images/products/${id}.webp`);
+// Vartech products live under /authorised-dealership/{slug}/, not /products/{categoryId}/
+// categoryId pattern: "vartech-oscilloscopes" → dealer slug: "oscilloscopes"
+const detailHref = categoryId.startsWith('vartech-')
+  ? u(`/authorised-dealership/${categoryId.replace('vartech-', '')}/${id}/`)
+  : u(`/products/${categoryId}/${id}/`);
 ---
 
 <article class={`bg-white rounded-lg border border-[#E8ECF2] overflow-hidden flex flex-col transition-shadow duration-200 hover:shadow-md ${featured ? 'ring-2 ring-[#E0252E]/20' : ''}`}>
@@ -55,7 +60,7 @@ const imgSrc = image
 
     <div class="flex flex-col gap-2 mt-auto">
       <a
-        href={u(`/products/${categoryId}/${id}`)}
+        href={detailHref}
         class="text-center px-4 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors"
       >
         View Specifications
