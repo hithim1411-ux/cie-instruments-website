@@ -181,7 +181,7 @@
       { "label": "Accessories", "value": "Power adaptor, user manual, S/W CD, USB cable, BNC cable" },
       { "label": "Dimensions & Weight", "value": "180 × 190 × 71 mm  |  Approx. 600 g  (+450 g adaptor)" }
     ],
-    "images": [],
+    "images": ["sgd-6m.webp", "sgd-6m-2.webp", "sgd-6m-3.webp"],
     "catalogue": "sgd-6m.pdf"
   }
 ]
