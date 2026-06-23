@@ -1,0 +1,129 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Every electrical engineer, electrician, and technical student encounters the question early: what is the fundamental difference between AC and DC? The answer shapes everything — from how power is generated and transmitted across India's national grid to how you select the right test instrument for a job. Getting this distinction right is not academic; it determines which measurement mode you switch to, which safety precautions you apply, and which wiring system you install.
+</p>
+
+<h2 id="what-is-ac">What Is Alternating Current (AC)?</h2>
+
+<p>Alternating current is electricity that periodically reverses direction. The voltage rises to a positive peak, falls back through zero, descends to a negative peak, and rises again — completing one full cycle. In India the supply frequency is <strong>50 Hz</strong>, meaning this cycle repeats 50 times every second. The mains supply is nominally 230 V AC (phase-to-neutral) or 415 V AC (phase-to-phase) for three-phase systems.</p>
+
+<p>The sinusoidal shape is not accidental. Rotating a coil of wire inside a magnetic field naturally produces this smooth sine wave — which is exactly how every alternator and generator in a thermal, hydro, or wind power station works. The shape also has important mathematical properties that simplify transformer design and power calculations.</p>
+
+<!-- Sine wave vs flat line diagram -->
+<div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">AC vs DC — waveform comparison</div>
+  <div class="p-6">
+    <svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" class="w-full">
+      <!-- Grid lines -->
+      {[0,1,2,3,4].map(i => (
+        <line x1="30" y1={40 + i*30} x2="270" y2={40 + i*30} stroke="#e5e7eb" stroke-width="0.7"/>
+      ))}
+      {[0,1,2,3,4].map(i => (
+        <line x1="300" y1={40 + i*30} x2="540" y2={40 + i*30} stroke="#e5e7eb" stroke-width="0.7"/>
+      ))}
+      <!-- AC panel -->
+      <rect x="20" y="25" width="260" height="150" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="150" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a5f" font-family="sans-serif">AC — Alternating Current</text>
+      <!-- Zero axis AC -->
+      <line x1="30" y1="100" x2="270" y2="100" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3"/>
+      <!-- Sine wave: two full cycles across 240px -->
+      <path d="M30,100 C45,100 52,40 70,40 C88,40 95,100 110,100 C125,100 132,160 150,160 C168,160 175,100 190,100 C205,100 212,40 230,40 C248,40 255,100 270,100" stroke="#E0252E" stroke-width="2.5" fill="none"/>
+      <!-- AC labels -->
+      <text x="150" y="185" text-anchor="middle" font-size="11" fill="#64748b" font-family="sans-serif">50 Hz · 230 V rms · reverses direction 100×/sec</text>
+      <text x="67" y="38" text-anchor="middle" font-size="11" fill="#E0252E" font-family="sans-serif">+peak</text>
+      <text x="150" y="173" text-anchor="middle" font-size="11" fill="#E0252E" font-family="sans-serif">−peak</text>
+      <!-- DC panel -->
+      <rect x="290" y="25" width="260" height="150" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="420" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a5f" font-family="sans-serif">DC — Direct Current</text>
+      <!-- Flat DC line -->
+      <line x1="300" y1="85" x2="540" y2="85" stroke="#2563eb" stroke-width="2.5"/>
+      <!-- Zero axis DC -->
+      <line x1="300" y1="130" x2="540" y2="130" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3"/>
+      <text x="420" y="73" text-anchor="middle" font-size="11" fill="#2563eb" font-family="sans-serif">+12 V (constant)</text>
+      <text x="420" y="145" text-anchor="middle" font-size="11" fill="#94a3b8" font-family="sans-serif">0 V (reference)</text>
+      <text x="420" y="185" text-anchor="middle" font-size="11" fill="#64748b" font-family="sans-serif">Battery / rectified supply · constant polarity</text>
+    </svg>
+  </div>
+</div>
+
+<h2 id="what-is-dc">What Is Direct Current (DC)?</h2>
+
+<p>Direct current flows in one direction only. The voltage (and current) remains at a constant level — represented as a flat horizontal line on an oscilloscope. Batteries are the most familiar DC source: the positive terminal is always positive and the negative always negative. Electronic circuits, telecommunications equipment, LED drivers, and modern inverter systems all operate on DC internally, even when they are connected to the AC mains through a power supply.</p>
+
+<p>DC is not limited to batteries. Rectifiers convert AC to DC — this is how your phone charger, laptop adapter, and industrial DC drives work. Solar photovoltaic panels also produce DC directly from sunlight, which must be inverted back to AC before it can be fed into the grid.</p>
+
+<h2 id="how-measured">How Each Is Measured</h2>
+
+<p>The measurement mode you select on your multimeter or clamp meter matters enormously. AC and DC measurements use different internal circuitry:</p>
+
+<div class="my-6 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-4 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Parameter</th>
+        <th class="text-center px-4 py-4 text-red-300 font-bold">AC Measurement</th>
+        <th class="text-center px-4 py-4 text-blue-300 font-bold">DC Measurement</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Voltage display','RMS value (230 V on Indian mains)','Actual voltage (12.6 V battery)'],
+        ['Internal method','True-RMS or average-responding rectifier','Direct ADC measurement'],
+        ['Zero crossing','Handled internally — not visible','No zero crossing exists'],
+        ['Polarity shown','No — AC has no fixed polarity','Yes — + or − sign displayed'],
+        ['Frequency measurement','Yes — dedicated Hz function','Not applicable'],
+        ['Oscilloscope coupling','AC coupling removes DC offset','DC coupling shows true level'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-medium text-[#0D1B2A] border-b border-gray-100 text-xs">{row[0]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-gray-700">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="warning" title="Wrong mode = wrong reading">
+  Measuring AC voltage on a DC multimeter setting will give a near-zero reading — the meter will show only the DC offset (if any) and ignore the alternating component. Always verify your mode selector before taking a measurement.
+</Callout>
+
+<h2 id="why-ac-won">Why AC Won the Distribution War</h2>
+
+<p>In the 1880s, Thomas Edison championed DC distribution while Nikola Tesla and George Westinghouse advocated for AC. AC won for one decisive reason: <strong>transformers</strong>. A transformer can step AC voltage up to hundreds of kilovolts for long-distance transmission (reducing current and therefore resistive losses by the square), then step it back down for safe use at homes and factories. No equivalent device exists for DC.</p>
+
+<p>India's national grid transmits at 400 kV, 220 kV, and 132 kV AC. By the time it reaches your workshop or factory, it has been stepped down through multiple substations to 11 kV, then 415/230 V. This entire chain is only possible because the supply is AC. Modern HVDC (High Voltage DC) transmission is now used for some ultra-long corridors — but it still requires AC at both ends and expensive converter stations in between.</p>
+
+<h2 id="safety">Safety Considerations</h2>
+
+<p>Both AC and DC carry lethal risk at mains voltages, but they behave differently on the human body:</p>
+
+<div class="my-6 space-y-3">
+  {[
+    { label: 'AC at 50 Hz', detail: 'Particularly dangerous because 50 Hz is close to the frequency that can cause ventricular fibrillation. AC tends to cause muscular tetanus — the victim cannot let go of the conductor. The let-go threshold is approximately 6–9 mA for AC.' },
+    { label: 'DC above 60 V', detail: 'DC causes a single strong muscular contraction that may throw the victim clear — but this can itself cause injury from the fall. DC burns tend to be more severe at the entry and exit points. Battery systems above 60 V DC are classified as hazardous.' },
+    { label: 'High frequency AC', detail: 'At very high frequencies (above ~100 kHz), current flows on the skin surface rather than through the body core — this is the basis of RF diathermy in medicine. Standard mains AC at 50 Hz does NOT benefit from this effect.' },
+  ].map(item => (
+    <div class="flex gap-4 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+      <div class="shrink-0 w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center">
+        <span class="text-white text-base font-bold">!</span>
+      </div>
+      <div>
+        <div class="font-bold text-amber-900 text-sm">{item.label}</div>
+        <div class="text-xs text-amber-800 mt-0.5">{item.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="tip" title="Always use CAT-rated instruments">
+  When measuring on mains circuits, use instruments rated CAT II (household sockets), CAT III (distribution boards, fixed installations), or CAT IV (service entrance, energy meters). Never use a CAT I instrument or an unrated meter on mains circuits — transient overvoltages can exceed the meter's withstand capability and cause arc flash or explosion.
+</Callout>
+
+<p>
+  CIE manufactures a range of instruments suited to both AC and DC measurements — from True RMS digital multimeters for accurate AC work to insulation testers that apply controlled DC voltage to check the integrity of AC wiring. Explore our <a href={u('/products/')}>full product catalogue</a> or <a href={u('/contact/')}>contact our technical team</a> to find the right instrument for your application.
+</p>

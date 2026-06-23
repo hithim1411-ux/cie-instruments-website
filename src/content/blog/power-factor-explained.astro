@@ -1,0 +1,134 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Power factor is one of the most misunderstood concepts in electrical engineering — and one of the most financially significant for any industrial or commercial electricity consumer in India. A low power factor does not mean equipment is damaged or wiring is wrong. It means the electrical system is carrying more current than the actual work being done strictly requires, and that excess current costs money in losses, in maximum demand charges, and — if DISCOM penalises low PF — in direct surcharges on your electricity bill. Understanding what power factor is, why it goes low, how to measure it, and how to correct it is essential knowledge for any electrical engineer or energy auditor.
+</p>
+
+<h2 id="what-is-pf">What Is Power Factor?</h2>
+
+<p>Power factor (PF) is the ratio of real power (the power that does actual work) to apparent power (the total power the supply must deliver). It is a dimensionless number between 0 and 1 (or expressed as a percentage between 0% and 100%).</p>
+
+<div class="my-6 rounded-xl bg-[#0D1B2A] p-5 font-mono text-sm">
+  <div class="text-[#94a3b8] text-xs uppercase tracking-widest mb-3">Power factor definitions</div>
+  <div class="text-[#00FF88] text-base font-bold mb-2">PF = P / S = Real Power (kW) / Apparent Power (kVA)</div>
+  <div class="text-[#00FF88] text-base font-bold mb-4">PF = cos φ (where φ is the angle between voltage and current)</div>
+  <div class="text-gray-400 text-xs space-y-1">
+    <div><span class="text-yellow-300">P</span> = Real (active) power in kW — does useful work</div>
+    <div><span class="text-yellow-300">Q</span> = Reactive power in kVAR — magnetises inductors and capacitors</div>
+    <div><span class="text-yellow-300">S</span> = Apparent power in kVA — what the generator/transformer must supply</div>
+    <div><span class="text-yellow-300">φ</span> = Phase angle between voltage and current waveforms</div>
+  </div>
+</div>
+
+<h2 id="power-triangle">The Power Triangle</h2>
+
+<div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Power triangle — P, Q, S relationship</div>
+  <div class="p-6 flex justify-center">
+    <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-md">
+      <!-- Right angle box -->
+      <rect x="60" y="155" width="15" height="15" fill="none" stroke="#94a3b8" stroke-width="1"/>
+      <!-- Triangle -->
+      <polygon points="60,170 280,170 280,60" fill="none" stroke="#0D1B2A" stroke-width="2"/>
+      <!-- P — base (horizontal) -->
+      <line x1="60" y1="170" x2="280" y2="170" stroke="#2563eb" stroke-width="3"/>
+      <text x="170" y="190" text-anchor="middle" font-size="14" font-weight="700" fill="#2563eb" font-family="sans-serif">P (kW)</text>
+      <text x="170" y="205" text-anchor="middle" font-size="11" fill="#64748b" font-family="sans-serif">Real / Active power</text>
+      <!-- Q — vertical -->
+      <line x1="280" y1="170" x2="280" y2="60" stroke="#E0252E" stroke-width="3"/>
+      <text x="320" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#E0252E" font-family="sans-serif">Q (kVAR)</text>
+      <text x="340" y="132" text-anchor="middle" font-size="11" fill="#64748b" font-family="sans-serif">Reactive power</text>
+      <!-- S — hypotenuse -->
+      <line x1="60" y1="170" x2="280" y2="60" stroke="#22C55E" stroke-width="3"/>
+      <text x="145" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#22C55E" font-family="sans-serif">S (kVA)</text>
+      <text x="130" y="114" text-anchor="middle" font-size="11" fill="#64748b" font-family="sans-serif">Apparent power</text>
+      <!-- Angle arc -->
+      <path d="M105,170 A45,45 0 0,1 85,135" fill="none" stroke="#0D1B2A" stroke-width="1.5"/>
+      <text x="118" y="148" text-anchor="middle" font-size="13" fill="#0D1B2A" font-family="sans-serif">φ</text>
+      <!-- PF label -->
+      <text x="200" y="230" text-anchor="middle" font-size="12" fill="#0D1B2A" font-family="sans-serif">PF = cos φ = P / S</text>
+    </svg>
+  </div>
+</div>
+
+<p>Pythagoras applies to the power triangle: S² = P² + Q². A unity power factor (PF = 1.0) means Q = 0 — all the apparent power is real power, doing useful work. A power factor of 0.8 means 80% of the apparent power is real, and 20% is circulating reactive power that contributes to losses but does no work.</p>
+
+<h2 id="causes">What Causes Low Power Factor?</h2>
+
+<p>Inductive loads draw lagging reactive current — current that lags behind the voltage. This is the primary cause of low power factor in industrial and commercial electrical systems. Capacitive loads cause leading power factor (current leads voltage), which is less common in practice but occurs in lightly loaded cable networks and certain electronic equipment.</p>
+
+<div class="my-6 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Typical power factor by equipment type</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Equipment / load type</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Typical PF</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Character</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Resistive heaters, incandescent lamps', '1.00', 'Unity — ideal'],
+        ['Synchronous motors (over-excited)', '0.95–1.00 leading', 'Leading — can self-correct'],
+        ['LED drivers, switch-mode PSU (modern, PFC)', '0.90–0.98', 'Near unity with PFC'],
+        ['Induction motors at full load', '0.85–0.92 lagging', 'Lagging — common'],
+        ['Induction motors at half load', '0.70–0.85 lagging', 'Worsens as load decreases'],
+        ['Induction motors at no load', '0.20–0.40 lagging', 'Very poor — mostly reactive'],
+        ['Fluorescent lights (magnetic ballast)', '0.50–0.65 lagging', 'Old technology — poor'],
+        ['Arc furnaces', '0.65–0.85 lagging', 'Variable, depends on arc'],
+        ['Welding sets', '0.35–0.60 lagging', 'Poor — high reactive draw'],
+        ['VFD-fed motors (with PFC)', '0.95–0.98', 'Near unity at input'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-medium text-[#0D1B2A] border-b border-gray-100 text-xs">{row[0]}</td>
+          <td class={`px-4 py-3 text-center text-xs border-b border-gray-100 font-mono font-semibold ${parseFloat(row[1]) >= 0.9 ? 'text-green-700' : parseFloat(row[1]) >= 0.75 ? 'text-amber-700' : 'text-red-700'}`}>{row[1]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-gray-600">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="warning" title="Low PF penalty from DISCOMs in India">
+  Most state DISCOMs in India impose a power factor penalty (typically 1–2% surcharge per 0.01 PF below 0.90 or 0.95) on HT consumers and large LT industrial tariff consumers. Some DISCOMs also offer an incentive (rebate) for maintaining PF above 0.95 or unity. Check your DISCOM tariff schedule — the financial impact of poor PF correction is often larger than the cost of the capacitor bank itself.
+</Callout>
+
+<h2 id="measurement">How to Measure Power Factor</h2>
+
+<p>Power factor is measured by a power analyser or power quality meter that simultaneously captures voltage, current, and the phase angle between them. A basic multimeter cannot measure power factor directly — you need an instrument with a power measurement function.</p>
+
+<p>On a three-phase system, use a three-phase power analyser to measure total PF (which may differ from individual phase PF if loading is unbalanced). Record PF at different load levels — light load PF is typically worse than full load PF for induction motor-dominated plants.</p>
+
+<h2 id="correction">Power Factor Correction with Capacitors</h2>
+
+<p>The standard method of improving lagging power factor is to install shunt capacitor banks. Capacitors draw leading reactive current, which cancels the lagging reactive current drawn by inductive loads. The net reactive demand seen by the supply is reduced, bringing the apparent power (kVA) closer to the real power (kW).</p>
+
+<div class="my-6 space-y-2">
+  {[
+    { step: 'Measure existing PF and kW demand', detail: 'Record actual kW, kVAR, and kVA at the main incomer over a representative working period.' },
+    { step: 'Calculate target kVAR', detail: 'Use: Q_cap = P × (tan φ₁ − tan φ₂), where φ₁ is present angle and φ₂ is target angle (e.g., for PF 0.95, tan φ₂ = 0.329).' },
+    { step: 'Select capacitor bank rating', detail: 'Choose the nearest standard kVAR rating above your calculated requirement. Add 10% margin for safety and growth.' },
+    { step: 'Install at appropriate point', detail: 'Individual capacitors at motor terminals correct PF at source. A central bank at the main DB corrects the metered demand. Both approaches are used depending on installation size.' },
+    { step: 'Verify with measurement after installation', detail: 'Measure PF at the incomer after installation and across the load cycle. Adjust APFC relay steps if using an automatic capacitor bank controller.' },
+  ].map((s, i) => (
+    <div class="flex gap-4 items-start">
+      <div class="shrink-0 w-7 h-7 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
+      <div class="pb-2 border-b border-gray-100 flex-1">
+        <div class="font-semibold text-[#0D1B2A] text-sm">{s.step}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{s.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="tip" title="Avoid over-correction">
+  Installing more capacitor kVAR than required causes leading power factor, which can be equally penalised by DISCOMs and may cause voltage rise and resonance problems. Use an automatic power factor correction (APFC) relay-controlled bank, which switches capacitor steps in and out as load varies, maintaining PF near the target value throughout the working day.
+</Callout>
+
+<p>
+  Accurate power factor measurement starts with the right instrument. CIE's power quality analysers and clamp meters provide the measurement foundation for a PF correction project. Visit our <a href={u('/products/')}>instruments range</a> or <a href={u('/contact/')}>contact our energy measurement specialists</a> for guidance on power quality assessment and correction.
+</p>

@@ -1,0 +1,124 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Soldering is taught in every electronics course. Desoldering — the art of removing components cleanly without damaging the PCB, the pads, or the surrounding components — receives far less attention, yet it is the more technically demanding skill. A botched desoldering job lifts pads, snaps PCB traces, overheats adjacent components, or leaves behind contamination that causes intermittent failures months later. This guide covers the three principal desoldering methods, when to use each, and the technique required to do it correctly.
+</p>
+
+<h2 id="three-methods">Three Methods — When to Use Each</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Desoldering method comparison</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Method</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Equipment cost</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Speed</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Cleanliness</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Best for</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Solder wick (braid)', 'Low', 'Slow', 'Excellent', 'Fine pitch SMD, cleanup work, small quantities'],
+        ['Solder pump (sucker)', 'Low', 'Medium', 'Good', 'Through-hole components, moderate production'],
+        ['Desoldering station', 'High', 'Fast', 'Very good', 'Production rework, high-value boards, multiple joints'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-bold text-[#0D1B2A] border-b border-gray-100 text-xs">{row[0]}</td>
+          <td class={`px-4 py-3 text-center text-xs border-b border-gray-100 font-semibold ${i === 0 ? 'text-green-700' : i === 1 ? 'text-amber-700' : 'text-red-700'}`}>{row[1]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-gray-700">{row[2]}</td>
+          <td class={`px-4 py-3 text-center text-xs border-b border-gray-100 ${i === 0 ? 'text-green-700 font-semibold' : 'text-gray-700'}`}>{row[3]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-gray-600">{row[4]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="solder-wick">Method 1 — Solder Wick (Desoldering Braid)</h2>
+
+<p>Solder wick is a braided copper wire impregnated with flux. When heated and pressed against a solder joint, it wicks (absorbs) the molten solder by capillary action, leaving a clean pad. It is the most controllable and least aggressive method — ideal for fine pitch work and situations where you must not disturb neighbouring components.</p>
+
+<div class="my-6 space-y-2">
+  {[
+    { step: 'Select the right braid width', detail: 'Use wick slightly narrower than the pad you are working on. Braid that overhangs the pad risks lifting adjacent pads or bridging to other traces. 1.5 mm braid for standard SMD work; 2.5–3 mm for through-hole joints.' },
+    { step: 'Apply fresh flux to the joint', detail: 'Adding liquid or gel flux to the joint before placing the braid dramatically improves wicking speed and reduces the time the iron is on the pad. This is the single most effective technique improvement.' },
+    { step: 'Place braid flat on the joint', detail: 'Do not crimp or fold the braid — lay it flat. The contact area with the pad determines how efficiently heat transfers and solder wicks.' },
+    { step: 'Apply iron to the braid (not the pad)', detail: 'Press the iron tip onto the top surface of the braid, directly over the solder joint. Heat transfers through the braid to the solder. Use a temperature of 330–370°C.' },
+    { step: 'Watch for wicking — lift quickly', detail: 'As soon as you see the solder flow into the braid (it will darken and stiffen), lift both the iron and braid simultaneously. Do not drag the braid — it will pull the pad.' },
+    { step: 'Move to fresh braid for the next joint', detail: 'Once braid is saturated with solder it cannot wick more. Always advance to a clean section. Cut off and discard used braid.' },
+  ].map((s, i) => (
+    <div class="flex gap-4 items-start">
+      <div class="shrink-0 w-7 h-7 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
+      <div class="pb-2 border-b border-gray-100 flex-1">
+        <div class="font-semibold text-[#0D1B2A] text-sm">{s.step}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{s.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="warning" title="Do not press too hard or dwell too long">
+  The most common error with solder wick is applying too much pressure or leaving the iron on too long. Excessive pressure crushes the braid against the pad, reducing capillary action and increasing heat transfer to the board substrate. More than 3–4 seconds on a single joint risks delaminating the PCB or lifting the pad — particularly on older or thin FR4 boards.
+</Callout>
+
+<h2 id="solder-pump">Method 2 — Solder Pump (Desoldering Pump / Solder Sucker)</h2>
+
+<p>The solder pump is a spring-loaded vacuum device. The spring is compressed (cocked), the nozzle placed near the molten solder, and the trigger button releases the spring — creating a brief vacuum pulse that sucks the molten solder into the barrel. It is faster than solder wick for through-hole components with large solder fillets.</p>
+
+<div class="my-6 space-y-2">
+  {[
+    { step: 'Cock the pump spring', detail: 'Push the plunger down until it clicks and locks. The pump is now ready. Have it in your non-dominant hand before you touch the iron.' },
+    { step: 'Heat the solder joint to full melt', detail: 'Apply the iron to the joint and wait until the solder is fully liquid — 1–3 seconds depending on joint size. The solder should visibly reflow and become shiny.' },
+    { step: 'Position the pump nozzle over the joint', detail: 'While holding the iron on the joint, bring the pump nozzle immediately adjacent to the joint — touching the solder if possible. Speed matters: solder cools fast once the iron moves.' },
+    { step: 'Press the trigger', detail: 'Press the button to release the spring. The suction pulse draws molten solder into the barrel. Done correctly, you will hear a distinct "thwack" and the joint will look visibly depleted.' },
+    { step: 'Inspect and repeat if necessary', detail: 'Joints with large solder volumes may need two or three pump cycles. Reheat between each cycle — never pump cold solder.' },
+    { step: 'Clear the barrel regularly', detail: 'Eject collected solder by pressing the plunger without cocking. Accumulated solder in the barrel reduces suction efficiency.' },
+  ].map((s, i) => (
+    <div class="flex gap-4 items-start">
+      <div class="shrink-0 w-7 h-7 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
+      <div class="pb-2 border-b border-gray-100 flex-1">
+        <div class="font-semibold text-[#0D1B2A] text-sm">{s.step}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{s.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="desoldering-station">Method 3 — Desoldering Station</h2>
+
+<p>A desoldering station combines a heated tip with a continuous vacuum pump — all in one tool. The hollow tip heats the joint while simultaneously drawing the molten solder up through the tip and into a solder collection chamber. This is the professional production method: fastest, most repeatable, and least likely to damage the PCB because dwell time on the pad is minimised.</p>
+
+<p>The technique is straightforward: set temperature (typically 350–400°C for tin-lead solder, 380–420°C for lead-free), place the hollow tip over the joint, activate the vacuum with the foot pedal or trigger, wait for full melt (typically 1–2 seconds), then lift. The entire cycle takes under three seconds on a typical through-hole joint. Clear the collection chamber every 20–30 desoldering operations to maintain suction efficiency.</p>
+
+<Callout type="tip" title="Lead-free solder requires higher temperatures">
+  Lead-free solder (SAC305 — the most common type in modern electronics) melts at approximately 217°C — significantly higher than tin-lead (183°C). In practice, this means setting your iron or desoldering station 30–50°C higher and allowing longer dwell time. Use a chisel or bevel tip rather than a fine conical tip for better heat transfer on lead-free joints.
+</Callout>
+
+<h2 id="tips">Professional Tips for Better Results</h2>
+
+<div class="my-6 space-y-2">
+  {[
+    { tip: 'Add fresh solder before desoldering', detail: 'Adding a small amount of new solder to an old, oxidised joint before desoldering refreshes the flux and lowers the melting point of the oxide layer, making the existing solder more fluid and easier to remove.' },
+    { tip: 'Keep the iron tip tinned', detail: 'A bright, tinned tip transfers heat efficiently. A black, oxidised tip has poor thermal contact. Wipe on brass wool (not wet sponge — rapid temperature cycling kills tips) and re-tin before each use.' },
+    { tip: 'Use isopropyl alcohol (IPA) for cleanup', detail: 'After desoldering, clean residual flux with 99% IPA and an ESD-safe brush. Flux residue in humid Indian conditions can absorb moisture and cause corrosion or leakage paths on high-impedance circuits.' },
+    { tip: 'For multi-leg ICs, use ChipQuik or similar', detail: 'ChipQuik is a low-melting-point alloy that, when mixed with the existing solder, lowers the melting point enough that all pins of a DIP or SO IC can be desoldered simultaneously without damaging pads.' },
+    { tip: 'Stabilise the board', detail: 'A third-hand tool, PCB vice, or anti-static silicone mat keeps the board steady. Trying to desolder while holding the board guarantees lifted pads as the PCB flexes.' },
+  ].map((item, i) => (
+    <div class="flex gap-4 p-4 border border-gray-200 rounded-xl bg-white">
+      <div class="shrink-0 w-7 h-7 rounded-full bg-[#1B3A5B] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
+      <div>
+        <div class="font-bold text-[#0D1B2A] text-sm">{item.tip}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{item.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<p>
+  Vartech soldering and desoldering stations are designed for professional electronics rework — with precise temperature control, ESD-safe design, and interchangeable tips for every application from SMD work to through-hole production rework. Explore the Vartech range on our <a href={u('/products/')}>products page</a> or <a href={u('/contact/')}>contact us</a> for specifications and pricing.
+</p>

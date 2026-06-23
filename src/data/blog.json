@@ -1,119 +1,27 @@
 [
-  {
-    "slug": "what-is-a-multimeter",
-    "title": "What Is a Multimeter? A Complete Guide to How It Works",
-    "description": "Learn what a multimeter is, how it works, and what it measures — voltage, current, and resistance — in this beginner-to-advanced guide for engineers and electricians.",
-    "publishDate": "2026-06-01",
-    "readTime": "8 min read",
-    "category": "Guides",
-    "excerpt": "A multimeter is the most essential instrument in any electrician's or engineer's toolkit. This guide breaks down exactly how it works — from basic physics to practical usage."
-  },
-  {
-    "slug": "how-to-use-a-clamp-meter",
-    "title": "How to Use a Clamp Meter: Step-by-Step Guide for Electricians",
-    "description": "A step-by-step guide on how to use a clamp meter safely to measure AC and DC current without breaking a circuit — ideal for electricians and electrical engineers.",
-    "publishDate": "2026-06-08",
-    "readTime": "7 min read",
-    "category": "How-To",
-    "excerpt": "Clamp meters let you measure current safely without cutting a wire. Here's everything you need to know — from jaw placement to reading AC vs DC current."
-  },
-  {
-    "slug": "ohms-law-explained",
-    "title": "Ohm's Law Explained: The Physics Behind Every Electrical Tester",
-    "description": "Understand Ohm's Law — V = IR — and how it underpins every measurement made by multimeters, clamp meters, and insulation testers used by engineers worldwide.",
-    "publishDate": "2026-06-12",
-    "readTime": "6 min read",
-    "category": "Physics",
-    "excerpt": "Every reading on a multimeter or clamp meter traces back to one equation: V = IR. Master Ohm's Law and you'll understand exactly what every tester is measuring — and why."
-  },
-  {
-    "slug": "continuity-testing-guide",
-    "title": "Continuity Testing: What It Is and Why Every Electrician Needs It",
-    "description": "Learn what continuity testing is, how it works using resistance measurement, and how to use a multimeter to find open circuits, blown fuses, and broken wiring.",
-    "publishDate": "2026-06-16",
-    "readTime": "6 min read",
-    "category": "How-To",
-    "excerpt": "Continuity testing is the quickest way to confirm a complete electrical path. Learn the physics behind it and how to run the test correctly with any multimeter."
-  },
-  {
-    "slug": "clamp-meter-vs-multimeter",
-    "title": "Clamp Meter vs Multimeter: Which Tester Do You Actually Need?",
-    "description": "Compare clamp meters and multimeters side by side — find out which instrument to use for current measurement, voltage testing, resistance checks, and field electrical work.",
-    "publishDate": "2026-06-20",
-    "readTime": "7 min read",
-    "category": "Buying Guide",
-    "excerpt": "Both measure electrical quantities — but they work very differently. Here's a practical breakdown of when to reach for a clamp meter versus a multimeter."
-  },
-  {
-    "slug": "how-to-use-an-oscilloscope",
-    "title": "How to Use an Oscilloscope: A Complete Beginner's Guide",
-    "description": "Learn how to use an oscilloscope step by step — how to connect probes, set voltage and time scales, read waveforms, and measure frequency, period, and amplitude.",
-    "publishDate": "2026-07-01",
-    "readTime": "10 min read",
-    "category": "Guides",
-    "excerpt": "An oscilloscope turns invisible electrical signals into visible waveforms you can measure. This complete guide takes you from unpacking to your first real measurement."
-  },
-  {
-    "slug": "insulation-resistance-testing-guide",
-    "title": "Insulation Resistance Testing: What It Is and How to Do It",
-    "description": "A complete guide to insulation resistance testing — what it measures, how a megohmmeter works, correct test voltages for cables and motors, and how to interpret results.",
-    "publishDate": "2026-07-05",
-    "readTime": "9 min read",
-    "category": "How-To",
-    "excerpt": "Insulation resistance testing is the single most important test you can run on any electrical installation. Learn the test voltages, procedures, and how to read the results."
-  },
-  {
-    "slug": "dc-power-supply-guide",
-    "title": "DC Power Supply Explained: Types, Uses, and How to Choose One",
-    "description": "Everything you need to know about DC power supplies — linear vs switching, regulated vs unregulated, constant current vs constant voltage, and how to select one for your bench.",
-    "publishDate": "2026-07-08",
-    "readTime": "8 min read",
-    "category": "Guides",
-    "excerpt": "A DC power supply is the foundation of any electronics lab or test bench. This guide breaks down every type, what the specs actually mean, and how to choose the right one."
-  },
-  {
-    "slug": "earth-resistance-testing-guide",
-    "title": "Earth Resistance Testing: Why It Matters and How to Measure It",
-    "description": "Learn what earth resistance is, why it must be measured, the 3-point fall-of-potential method, and how to use an earth tester to ensure electrical safety compliance.",
-    "publishDate": "2026-07-12",
-    "readTime": "8 min read",
-    "category": "How-To",
-    "excerpt": "A poor earth connection is the most invisible and most dangerous electrical fault. This guide explains earth resistance, accepted limits, and how to measure it correctly."
-  },
-  {
-    "slug": "soldering-station-vs-soldering-iron",
-    "title": "Soldering Station vs Soldering Iron: Which Should You Buy?",
-    "description": "Compare soldering stations and soldering irons on temperature control, tip types, safety, and value — and find out which is right for electronics work, PCBs, and field repairs.",
-    "publishDate": "2026-07-15",
-    "readTime": "7 min read",
-    "category": "Buying Guide",
-    "excerpt": "Both heat up and melt solder — but the similarity ends there. Here's a clear breakdown of when a basic iron is enough and when you need a proper soldering station."
-  },
-  {
-    "slug": "lux-meter-guide",
-    "title": "What Is a Lux Meter? How to Measure Light Intensity Correctly",
-    "description": "Learn what a lux meter measures, how it works, correct measurement technique, standard lux requirements for offices, factories, and outdoor spaces, and how to choose one.",
-    "publishDate": "2026-07-18",
-    "readTime": "7 min read",
-    "category": "Guides",
-    "excerpt": "Lux is the unit of illuminance — and measuring it correctly requires more than just pointing a sensor at a light. Here's everything you need to know about lux meters."
-  },
-  {
-    "slug": "transformer-oil-bdv-test",
-    "title": "Transformer Oil BDV Test: What It Is and How to Perform It",
-    "description": "Learn what the transformer oil breakdown voltage (BDV) test is, why it is critical for transformer maintenance, the test procedure, and how to interpret results per IS standards.",
-    "publishDate": "2026-07-22",
-    "readTime": "8 min read",
-    "category": "How-To",
-    "excerpt": "The BDV test is the primary health check for transformer oil — and a failing result is an early warning of catastrophic failure. Here's exactly how to run and read the test."
-  },
-  {
-    "slug": "oscilloscope-waveform-guide",
-    "title": "How to Read an Oscilloscope Waveform: Voltage, Time, Frequency",
-    "description": "Learn how to read an oscilloscope screen — measure amplitude, period, frequency, duty cycle, rise time, and understand common waveform types with practical examples.",
-    "publishDate": "2026-07-25",
-    "readTime": "9 min read",
-    "category": "Physics",
-    "excerpt": "The oscilloscope screen is a graph — once you know what the axes mean and what each waveform type looks like, every signal tells a story. Here's how to read it."
-  }
+  { "slug": "what-is-a-multimeter", "title": "What Is a Multimeter? A Complete Guide to How It Works", "description": "Learn what a multimeter is, how it works, and what it measures — voltage, current, and resistance — in this beginner-to-advanced guide for engineers and electricians.", "publishDate": "2026-06-01", "readTime": "8 min read", "category": "Guides", "excerpt": "A multimeter is the most essential instrument in any electrician's or engineer's toolkit. This guide breaks down exactly how it works — from basic physics to practical usage." },
+  { "slug": "how-to-use-a-clamp-meter", "title": "How to Use a Clamp Meter: Step-by-Step Guide for Electricians", "description": "A step-by-step guide on how to use a clamp meter safely to measure AC and DC current without breaking a circuit.", "publishDate": "2026-06-08", "readTime": "7 min read", "category": "How-To", "excerpt": "Clamp meters let you measure current safely without cutting a wire. Here's everything you need to know — from jaw placement to reading AC vs DC current." },
+  { "slug": "ohms-law-explained", "title": "Ohm's Law Explained: The Physics Behind Every Electrical Tester", "description": "Understand Ohm's Law — V = IR — and how it underpins every measurement made by multimeters, clamp meters, and insulation testers used by engineers worldwide.", "publishDate": "2026-06-12", "readTime": "6 min read", "category": "Physics", "excerpt": "Every reading on a multimeter or clamp meter traces back to one equation: V = IR. Master Ohm's Law and you'll understand exactly what every tester is measuring." },
+  { "slug": "continuity-testing-guide", "title": "Continuity Testing: What It Is and Why Every Electrician Needs It", "description": "Learn what continuity testing is, how it works, and how to use a multimeter to find open circuits, blown fuses, and broken wiring.", "publishDate": "2026-06-16", "readTime": "6 min read", "category": "How-To", "excerpt": "Continuity testing is the quickest way to confirm a complete electrical path. Learn the physics behind it and how to run the test correctly with any multimeter." },
+  { "slug": "clamp-meter-vs-multimeter", "title": "Clamp Meter vs Multimeter: Which Tester Do You Actually Need?", "description": "Compare clamp meters and multimeters side by side — find out which instrument to use for current measurement, voltage testing, resistance checks, and field electrical work.", "publishDate": "2026-06-20", "readTime": "7 min read", "category": "Buying Guide", "excerpt": "Both measure electrical quantities — but they work very differently. Here's a practical breakdown of when to reach for a clamp meter versus a multimeter." },
+  { "slug": "how-to-use-an-oscilloscope", "title": "How to Use an Oscilloscope: A Complete Beginner's Guide", "description": "Learn how to use an oscilloscope step by step — how to connect probes, set voltage and time scales, read waveforms, and measure frequency, period, and amplitude.", "publishDate": "2026-07-01", "readTime": "10 min read", "category": "Guides", "excerpt": "An oscilloscope turns invisible electrical signals into visible waveforms you can measure. This complete guide takes you from unpacking to your first real measurement." },
+  { "slug": "insulation-resistance-testing-guide", "title": "Insulation Resistance Testing: What It Is and How to Do It", "description": "A complete guide to insulation resistance testing — what it measures, how a megohmmeter works, correct test voltages for cables and motors, and how to interpret results.", "publishDate": "2026-07-05", "readTime": "9 min read", "category": "How-To", "excerpt": "Insulation resistance testing is the single most important test you can run on any electrical installation. Learn the test voltages, procedures, and how to read the results." },
+  { "slug": "dc-power-supply-guide", "title": "DC Power Supply Explained: Types, Uses, and How to Choose One", "description": "Everything you need to know about DC power supplies — linear vs switching, regulated vs unregulated, constant current vs constant voltage, and how to select one for your bench.", "publishDate": "2026-07-08", "readTime": "8 min read", "category": "Guides", "excerpt": "A DC power supply is the foundation of any electronics lab or test bench. This guide breaks down every type, what the specs actually mean, and how to choose the right one." },
+  { "slug": "earth-resistance-testing-guide", "title": "Earth Resistance Testing: Why It Matters and How to Measure It", "description": "Learn what earth resistance is, why it must be measured, the 3-point fall-of-potential method, and how to use an earth tester to ensure electrical safety compliance.", "publishDate": "2026-07-12", "readTime": "8 min read", "category": "How-To", "excerpt": "A poor earth connection is the most invisible and most dangerous electrical fault. This guide explains earth resistance, accepted limits, and how to measure it correctly." },
+  { "slug": "soldering-station-vs-soldering-iron", "title": "Soldering Station vs Soldering Iron: Which Should You Buy?", "description": "Compare soldering stations and soldering irons on temperature control, tip types, safety, and value.", "publishDate": "2026-07-15", "readTime": "7 min read", "category": "Buying Guide", "excerpt": "Both heat up and melt solder — but the similarity ends there. Here's a clear breakdown of when a basic iron is enough and when you need a proper soldering station." },
+  { "slug": "lux-meter-guide", "title": "What Is a Lux Meter? How to Measure Light Intensity Correctly", "description": "Learn what a lux meter measures, how it works, correct measurement technique, standard lux requirements for offices, factories, and outdoor spaces.", "publishDate": "2026-07-18", "readTime": "7 min read", "category": "Guides", "excerpt": "Lux is the unit of illuminance — and measuring it correctly requires more than just pointing a sensor at a light. Here's everything you need to know about lux meters." },
+  { "slug": "transformer-oil-bdv-test", "title": "Transformer Oil BDV Test: What It Is and How to Perform It", "description": "Learn what the transformer oil breakdown voltage (BDV) test is, why it is critical for transformer maintenance, the test procedure, and how to interpret results per IS standards.", "publishDate": "2026-07-22", "readTime": "8 min read", "category": "How-To", "excerpt": "The BDV test is the primary health check for transformer oil — and a failing result is an early warning of catastrophic failure. Here's exactly how to run and read the test." },
+  { "slug": "oscilloscope-waveform-guide", "title": "How to Read an Oscilloscope Waveform: Voltage, Time, Frequency", "description": "Learn how to read an oscilloscope screen — measure amplitude, period, frequency, duty cycle, and understand common waveform types with practical examples.", "publishDate": "2026-07-25", "readTime": "9 min read", "category": "Physics", "excerpt": "The oscilloscope screen is a graph — once you know what the axes mean and what each waveform type looks like, every signal tells a story. Here's how to read it." },
+  { "slug": "ac-vs-dc-electricity", "title": "AC vs DC Electricity: What's the Difference and Which Is Dangerous?", "description": "Understand the fundamental difference between alternating current (AC) and direct current (DC) — how each is generated, measured, used, and why both matter for electrical safety.", "publishDate": "2026-08-01", "readTime": "7 min read", "category": "Physics", "excerpt": "AC powers your home, DC powers your phone — but the difference goes much deeper than that. Here's the physics, the history, and why every electrician must understand both." },
+  { "slug": "how-to-test-motor-windings", "title": "How to Test Motor Windings: Insulation, Resistance, and Continuity", "description": "Learn how to test electric motor windings using a multimeter and insulation tester — checking continuity, winding resistance balance, and insulation resistance to earth.", "publishDate": "2026-08-05", "readTime": "8 min read", "category": "How-To", "excerpt": "A failed motor is expensive. A bad winding test costs minutes. This guide covers the three tests that tell you whether a motor is healthy, degraded, or ready to fail." },
+  { "slug": "voltage-drop-explained", "title": "Voltage Drop: What It Is, Why It Matters, and How to Calculate It", "description": "Learn what voltage drop is, what causes it, how to calculate it using Ohm's Law, and the maximum permissible limits for LT installations per IS 732.", "publishDate": "2026-08-08", "readTime": "7 min read", "category": "Physics", "excerpt": "Voltage drop is the silent cause of overheating motors, dim lighting, and equipment faults. Here's how to calculate it and keep it within safe limits." },
+  { "slug": "true-rms-vs-average-rms", "title": "True RMS vs Average RMS: Why It Matters for Your Multimeter", "description": "Learn the difference between True RMS and average-responding multimeters, when it matters, and why using the wrong type gives wildly inaccurate readings on modern loads.", "publishDate": "2026-08-12", "readTime": "6 min read", "category": "Guides", "excerpt": "Most cheap multimeters assume a perfect sine wave. Modern loads — VFDs, inverters, switch-mode supplies — are not sine waves. Here's why True RMS matters." },
+  { "slug": "how-to-test-a-relay", "title": "How to Test a Relay: Continuity, Coil Resistance, and Operate Voltage", "description": "Learn how to test an electromechanical relay with a multimeter — checking coil resistance, normally open and normally closed contact continuity, and pull-in voltage.", "publishDate": "2026-08-15", "readTime": "7 min read", "category": "How-To", "excerpt": "A faulty relay is one of the hardest faults to find without the right test procedure. Here's a step-by-step guide to testing any relay with basic instruments." },
+  { "slug": "power-factor-explained", "title": "Power Factor Explained: What It Is, Why It Drops, and How to Correct It", "description": "Understand power factor — the ratio of real to apparent power — why it drops in industrial installations, the financial penalties, and how capacitor banks correct it.", "publishDate": "2026-08-19", "readTime": "8 min read", "category": "Physics", "excerpt": "A low power factor is costing your facility money every hour. Here's what power factor actually means, how to measure it, and how to correct it." },
+  { "slug": "phase-sequence-testing", "title": "Phase Sequence Testing: Why It Matters for 3-Phase Motors and How to Check It", "description": "Learn what phase sequence is, why reversing it damages motors and equipment, and how to use a phase sequence indicator to verify the correct RYB sequence.", "publishDate": "2026-08-22", "readTime": "6 min read", "category": "How-To", "excerpt": "Connect three-phase power in the wrong sequence and the motor runs backwards — or worse. Here's why phase sequence matters and how to check it in 30 seconds." },
+  { "slug": "how-to-choose-a-multimeter", "title": "How to Choose a Multimeter: Complete Buying Guide for 2026", "description": "A practical buying guide to choosing the right multimeter — covering CAT safety ratings, auto-ranging, True RMS, resolution, and what to look for at every price point.", "publishDate": "2026-08-26", "readTime": "8 min read", "category": "Buying Guide", "excerpt": "There are hundreds of multimeters on the market. This guide cuts through the noise — CAT ratings, True RMS, resolution, and what actually matters for your type of work." },
+  { "slug": "what-is-electrical-earthing", "title": "What Is Electrical Earthing? Types, Methods, and Why It's Non-Negotiable", "description": "Learn what electrical earthing is, the different earthing systems (TN, TT, IT), why it is the most critical safety measure in any installation, and how it is tested.", "publishDate": "2026-08-29", "readTime": "8 min read", "category": "Physics", "excerpt": "Earthing is not optional — it is the last line of defence between a fault and a fatal shock. Here's how every earthing system works and why testing it matters." },
+  { "slug": "desoldering-guide", "title": "Desoldering Guide: Wick, Pump, and Station — How to Remove Solder Cleanly", "description": "Learn the three desoldering methods — solder wick, solder sucker, and desoldering station — with step-by-step technique for PCB components and through-hole parts.", "publishDate": "2026-09-02", "readTime": "7 min read", "category": "How-To", "excerpt": "Removing solder cleanly is harder than applying it. Here's when to use wick, when to use a pump, and when you need a proper desoldering station." },
+  { "slug": "short-circuit-open-circuit-ground-fault", "title": "Short Circuit vs Open Circuit vs Ground Fault: What's the Difference?", "description": "Understand the three fundamental electrical faults — short circuit, open circuit, and ground fault — how each occurs, what damage it causes, and how to identify it.", "publishDate": "2026-09-05", "readTime": "7 min read", "category": "Physics", "excerpt": "Three faults. Three completely different failure modes. Three different ways to find them. Every electrician needs to know the difference — and how to test for each." },
+  { "slug": "digital-vs-analogue-multimeter", "title": "Digital vs Analogue Multimeter: Which Is Better for Your Work?", "description": "Compare digital (DMM) and analogue (AVM) multimeters — accuracy, response time, reading live signals, resistance measurement, and which type suits which application.", "publishDate": "2026-09-09", "readTime": "6 min read", "category": "Buying Guide", "excerpt": "Analogue multimeters were the standard for decades. Digital took over — but analogue still has real advantages in specific situations. Here's an honest comparison." }
 ]

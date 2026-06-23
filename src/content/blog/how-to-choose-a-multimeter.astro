@@ -1,0 +1,166 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  The Indian market offers digital multimeters at every price point — from imported no-brand instruments sold for a few hundred rupees to professional-grade CAT IV meters from established manufacturers. The difference between them is not simply build quality or brand prestige. It is the difference between a meter that protects you during a fault and one that can explode in your hands. This guide explains every specification that matters, cuts through the marketing language, and tells you exactly what to buy for your use case.
+</p>
+
+<h2 id="cat-ratings">CAT Ratings — The Most Important Specification</h2>
+
+<p>The Category (CAT) rating is an IEC 61010 safety classification that specifies the maximum transient overvoltage a meter can safely withstand. It is not primarily about the steady-state voltage rating — it is about the energy in a fault. Lower CAT numbers are for circuits farther from the mains source, where fault energy is lower. Higher CAT numbers are for circuits closer to the source, where a fault can release enormous energy very quickly.</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">IEC 61010 CAT rating reference table</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">CAT level</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Where it applies</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Transient withstand</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Typical applications</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['CAT I', 'Secondary circuits not directly connected to mains', '1500 V peak', 'Electronic equipment, battery circuits, protected secondary circuits'],
+        ['CAT II', 'Single-phase loads connected to mains sockets', '2500 V peak', 'Household appliances, socket outlets, portable equipment'],
+        ['CAT III', 'Three-phase distribution, fixed installation', '4000 V peak', 'DB boards, motor starters, bus bars, industrial equipment'],
+        ['CAT IV', 'Service entrance, utility connection point', '8000 V peak', 'Energy meters, overhead lines, underground service entrance, LT switchgear'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class={`px-5 py-3 font-bold border-b border-gray-100 text-xs ${i === 0 ? 'text-gray-600' : i === 1 ? 'text-amber-700' : i === 2 ? 'text-orange-700' : 'text-red-700'}`}>{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-mono font-semibold text-gray-800">{row[2]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{row[3]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500">The voltage rating after CAT (e.g., "CAT III 600 V") is the maximum continuous voltage — both the CAT level and voltage rating must be appropriate for your application. A CAT III 300 V meter is NOT suitable for 415 V distribution boards.</div>
+</div>
+
+<Callout type="warning" title="Fake CAT ratings are common in the Indian market">
+  Many cheap imported meters print CAT III or CAT IV on the body but are not independently verified or tested to IEC 61010. A meter that fails during a transient can arc flash, explode, or cause fatal injury. Buy only from manufacturers whose instruments are tested and certified by recognised test laboratories. A true CAT III 600 V meter has an internal fuse rated for the CAT level — not just a glass fuse on a spring clip.
+</Callout>
+
+<h2 id="resolution-digits">Resolution — What "3.5 Digit" and "4.5 Digit" Mean</h2>
+
+<p>The digit count describes the display resolution. A "half digit" means the leading digit can only display 0 or 1. So:</p>
+
+<div class="my-6 grid sm:grid-cols-3 gap-4">
+  {[
+    { type: '3½ digit', max: '1999', example: 'Reads 230.1 V on 200 V range — but goes to 1 decimal place only', use: 'General purpose, field checks' },
+    { type: '4½ digit', max: '19999', example: 'Reads 230.14 V — 10× better resolution', use: 'Precision lab, calibration work' },
+    { type: '5½ digit', max: '199999', example: 'Reads 230.148 V — reference-grade resolution', use: 'Standards lab, very high precision' },
+  ].map(item => (
+    <div class="rounded-xl border border-gray-200 bg-white p-4">
+      <div class="font-bold text-[#E0252E] text-lg mb-1 font-mono">{item.type}</div>
+      <div class="font-semibold text-[#0D1B2A] text-xs mb-1">Max display: {item.max}</div>
+      <div class="text-xs text-gray-600 mb-2">{item.example}</div>
+      <div class="text-xs text-blue-700 font-medium">{item.use}</div>
+    </div>
+  ))}
+</div>
+
+<p>For most field electrical work, a 3½ digit meter is sufficient. For calibration, precise component measurement, or reference work, 4½ digit is worthwhile. Beyond 4½ digit, you are in bench instrument territory — important for metrology laboratories but unnecessary for general electrical measurement.</p>
+
+<h2 id="true-rms">True RMS — Non-Negotiable for Modern Systems</h2>
+
+<p>As covered in detail in our True RMS vs Average-Responding article, any multimeter used on circuits containing VFDs, UPS systems, inverters, switched-mode power supplies, or non-linear loads must be a True RMS instrument. An average-responding meter will underread current by 20–60% on these loads, leading to incorrect cable and fuse selection.</p>
+
+<p>True RMS adds a modest cost premium. For the majority of electrical engineers and electricians in India working on modern equipment, it is the baseline — not an upgrade. Do not buy a non-True-RMS multimeter for professional use.</p>
+
+<h2 id="auto-ranging">Auto-Ranging vs Manual Ranging</h2>
+
+<p>Auto-ranging meters select the appropriate measurement range automatically. Manual ranging meters require the operator to select the range before measuring. Both approaches have their place:</p>
+
+<div class="my-6 grid sm:grid-cols-2 gap-4">
+  <div class="rounded-xl border border-gray-200 bg-blue-50 p-4">
+    <div class="font-bold text-blue-900 text-sm mb-2">Auto-ranging — best for:</div>
+    <div class="space-y-1">
+      {['Unknown signals — meter selects optimal range', 'Single-handed operation in tight spaces', 'Faster measurements when switching between quantities', 'Less chance of overload on wrong range'].map(item => (
+        <div class="flex gap-2 items-start text-xs text-blue-800">
+          <span class="shrink-0 text-blue-500 mt-0.5">✓</span>
+          <span>{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+    <div class="font-bold text-gray-900 text-sm mb-2">Manual ranging — best for:</div>
+    <div class="space-y-1">
+      {['Known signal range — immediate reading without autorange hunting', 'Faster response time on rapidly varying signals', 'Older meter designs — simpler and often more robust', 'Very low-level signals where range selection maximises resolution'].map(item => (
+        <div class="flex gap-2 items-start text-xs text-gray-700">
+          <span class="shrink-0 text-gray-400 mt-0.5">○</span>
+          <span>{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<h2 id="connectivity">Connectivity and Additional Functions</h2>
+
+<p>Modern professional multimeters offer features beyond basic electrical measurement. Evaluate these based on your specific workflow:</p>
+
+<div class="my-6 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-4 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Feature</th>
+        <th class="text-center px-4 py-4 text-blue-300 font-bold text-xs">Value</th>
+        <th class="text-left px-4 py-4 text-blue-300 font-bold text-xs">When you need it</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Bluetooth / USB logging', 'High', 'Commissioning, load surveys, trending over time'],
+        ['MIN / MAX / AVG hold', 'High', 'Capturing peaks, inrush, worst-case readings'],
+        ['Backlit display', 'High', 'Working in panels, switchgear, or low-light conditions'],
+        ['Temperature (K-type thermocouple)', 'Medium', 'Thermal checks on motor bearings, panels, terminations'],
+        ['Capacitance measurement', 'Medium', 'Capacitor bank testing, motor start capacitors'],
+        ['Frequency measurement', 'Medium', 'VFD output frequency, generator frequency'],
+        ['Low-pass filter mode', 'Medium', 'Accurate voltage/current on VFD outputs (removes switching noise)'],
+        ['Diode test', 'Medium', 'Electronic component testing, rectifier diodes'],
+        ['Duty cycle measurement', 'Low–Medium', 'PWM signal analysis, control system troubleshooting'],
+        ['Inrush / peak capture', 'Low', 'Motor starting current — better done with a clamp meter'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-medium text-[#0D1B2A] border-b border-gray-100 text-xs">{row[0]}</td>
+          <td class={`px-4 py-3 text-center text-xs border-b border-gray-100 font-semibold ${row[1] === 'High' ? 'text-green-700' : row[1] === 'Medium' ? 'text-amber-700' : 'text-gray-500'}`}>{row[1]}</td>
+          <td class="px-4 py-3 text-xs border-b border-gray-100 text-gray-600">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="recommendation">Use-Case Recommendations</h2>
+
+<div class="my-6 space-y-3">
+  {[
+    { role: 'Residential electrician', spec: 'CAT III 600 V, 3½ digit, True RMS, auto-range, continuity beeper. Budget: mid-range. No need for logging or temperature.' },
+    { role: 'Industrial plant electrician', spec: 'CAT III 600 V or CAT IV 600 V, 3½ digit, True RMS, MIN/MAX hold, backlit display, temperature probe. Low-pass filter mode useful for VFD work.' },
+    { role: 'Instrumentation / controls engineer', spec: 'CAT III 600 V, 4½ digit, True RMS, mA current measurement for 4–20 mA loops, millivolt range for thermocouple reference, logging capability.' },
+    { role: 'Electronics / R&D', spec: 'CAT II 600 V minimum, 4½ digit, True RMS, capacitance, frequency, diode test, duty cycle. Consider bench DMM for lab work.' },
+    { role: 'Electrical contractor / commissioning', spec: 'CAT IV 600 V, 3½ or 4½ digit, True RMS, Bluetooth logging, temperature, MIN/MAX. Pair with clamp meter and insulation tester.' },
+  ].map(item => (
+    <div class="flex gap-4 p-4 bg-white border border-gray-200 rounded-xl">
+      <div class="shrink-0 w-2 rounded-full bg-[#E0252E]"></div>
+      <div>
+        <div class="font-bold text-[#0D1B2A] text-sm">{item.role}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{item.spec}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="tip" title="Buy once, buy right">
+  A professional multimeter from an established manufacturer — one that carries genuine CAT ratings, certified True RMS measurement, and robust test lead assembly — will outlast several cycles of cheap replacements. The true cost of an entry-level instrument includes the cost of wrong readings, undetected faults, and eventual replacement. For an instrument you will use every working day, investing in quality pays for itself quickly.
+</Callout>
+
+<p>
+  CIE manufactures digital multimeters designed for the conditions and requirements of Indian industrial and electrical contracting work — genuine CAT ratings, True RMS measurement, and a sixty-year track record of field reliability. Explore the full range at our <a href={u('/products/')}>products page</a> or <a href={u('/contact/')}>contact our sales team</a> for a recommendation tailored to your specific requirements.
+</p>

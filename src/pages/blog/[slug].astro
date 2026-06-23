@@ -15,6 +15,18 @@ import SolderingGuide from '../../content/blog/soldering-station-vs-soldering-ir
 import LuxGuide from '../../content/blog/lux-meter-guide.astro';
 import BdvGuide from '../../content/blog/transformer-oil-bdv-test.astro';
 import WaveformGuide from '../../content/blog/oscilloscope-waveform-guide.astro';
+import AcDcGuide from '../../content/blog/ac-vs-dc-electricity.astro';
+import MotorWindingGuide from '../../content/blog/how-to-test-motor-windings.astro';
+import VoltageDropGuide from '../../content/blog/voltage-drop-explained.astro';
+import TrueRmsGuide from '../../content/blog/true-rms-vs-average-rms.astro';
+import RelayGuide from '../../content/blog/how-to-test-a-relay.astro';
+import PowerFactorGuide from '../../content/blog/power-factor-explained.astro';
+import PhaseSequenceGuide from '../../content/blog/phase-sequence-testing.astro';
+import ChooseMultimeterGuide from '../../content/blog/how-to-choose-a-multimeter.astro';
+import EarthingGuide from '../../content/blog/what-is-electrical-earthing.astro';
+import DesolderingGuide from '../../content/blog/desoldering-guide.astro';
+import FaultsGuide from '../../content/blog/short-circuit-open-circuit-ground-fault.astro';
+import DigitalVsAnalogueGuide from '../../content/blog/digital-vs-analogue-multimeter.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -37,6 +49,18 @@ const contentMap: Record<string, any> = {
   'lux-meter-guide': LuxGuide,
   'transformer-oil-bdv-test': BdvGuide,
   'oscilloscope-waveform-guide': WaveformGuide,
+  'ac-vs-dc-electricity': AcDcGuide,
+  'how-to-test-motor-windings': MotorWindingGuide,
+  'voltage-drop-explained': VoltageDropGuide,
+  'true-rms-vs-average-rms': TrueRmsGuide,
+  'how-to-test-a-relay': RelayGuide,
+  'power-factor-explained': PowerFactorGuide,
+  'phase-sequence-testing': PhaseSequenceGuide,
+  'how-to-choose-a-multimeter': ChooseMultimeterGuide,
+  'what-is-electrical-earthing': EarthingGuide,
+  'desoldering-guide': DesolderingGuide,
+  'short-circuit-open-circuit-ground-fault': FaultsGuide,
+  'digital-vs-analogue-multimeter': DigitalVsAnalogueGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -135,6 +159,90 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'waveform-types', label: 'Waveform Types' },
     { id: 'measurements', label: 'Making Measurements' },
     { id: 'abnormal', label: 'Abnormal Waveforms' },
+  ],
+  'ac-vs-dc-electricity': [
+    { id: 'what-is-ac', label: 'What Is AC?' },
+    { id: 'what-is-dc', label: 'What Is DC?' },
+    { id: 'how-measured', label: 'How Each Is Measured' },
+    { id: 'why-ac-won', label: 'Why AC Won' },
+    { id: 'safety', label: 'Safety' },
+  ],
+  'how-to-test-motor-windings': [
+    { id: 'three-tests', label: 'The Three Tests' },
+    { id: 'continuity-test', label: 'Continuity Test' },
+    { id: 'winding-resistance', label: 'Winding Resistance' },
+    { id: 'insulation-test', label: 'Insulation to Earth' },
+    { id: 'interpreting', label: 'Interpreting Results' },
+  ],
+  'voltage-drop-explained': [
+    { id: 'what-is', label: 'What Is Voltage Drop?' },
+    { id: 'causes', label: 'What Causes It' },
+    { id: 'formula', label: 'The Formula' },
+    { id: 'is-732-limits', label: 'IS 732 Limits' },
+    { id: 'how-to-measure', label: 'How to Measure It' },
+  ],
+  'true-rms-vs-average-rms': [
+    { id: 'how-rms-works', label: 'How RMS Works' },
+    { id: 'average-responding', label: 'Average-Responding Meters' },
+    { id: 'true-rms', label: 'True RMS Meters' },
+    { id: 'when-it-matters', label: 'When It Matters' },
+    { id: 'which-to-buy', label: 'Which to Buy?' },
+  ],
+  'how-to-test-a-relay': [
+    { id: 'relay-basics', label: 'Relay Basics' },
+    { id: 'coil-test', label: 'Coil Resistance Test' },
+    { id: 'contact-test', label: 'Contact Continuity Test' },
+    { id: 'operate-voltage', label: 'Operate Voltage Test' },
+    { id: 'interpreting', label: 'Interpreting Results' },
+  ],
+  'power-factor-explained': [
+    { id: 'what-is-pf', label: 'What Is Power Factor?' },
+    { id: 'power-triangle', label: 'The Power Triangle' },
+    { id: 'causes', label: 'Why PF Drops' },
+    { id: 'measurement', label: 'How to Measure It' },
+    { id: 'correction', label: 'Correction Methods' },
+  ],
+  'phase-sequence-testing': [
+    { id: 'what-is-phase-sequence', label: 'What Is Phase Sequence?' },
+    { id: 'consequences', label: 'Wrong Sequence Consequences' },
+    { id: 'how-to-test', label: 'How to Test' },
+    { id: 'visual-indicator', label: 'Phase Sequence Indicators' },
+  ],
+  'how-to-choose-a-multimeter': [
+    { id: 'cat-ratings', label: 'CAT Safety Ratings' },
+    { id: 'resolution-digits', label: 'Resolution & Digits' },
+    { id: 'true-rms', label: 'True RMS' },
+    { id: 'auto-ranging', label: 'Auto-Ranging' },
+    { id: 'connectivity', label: 'Connectivity' },
+    { id: 'recommendation', label: 'Recommendations' },
+  ],
+  'what-is-electrical-earthing': [
+    { id: 'why-earthing', label: 'Why Earthing Matters' },
+    { id: 'earthing-systems', label: 'Earthing Systems' },
+    { id: 'tn-system', label: 'TN System' },
+    { id: 'tt-system', label: 'TT System' },
+    { id: 'how-tested', label: 'How It Is Tested' },
+  ],
+  'desoldering-guide': [
+    { id: 'three-methods', label: 'Three Methods' },
+    { id: 'solder-wick', label: 'Solder Wick (Braid)' },
+    { id: 'solder-pump', label: 'Solder Sucker' },
+    { id: 'desoldering-station', label: 'Desoldering Station' },
+    { id: 'tips', label: 'Tips for Clean Work' },
+  ],
+  'short-circuit-open-circuit-ground-fault': [
+    { id: 'short-circuit', label: 'Short Circuit' },
+    { id: 'open-circuit', label: 'Open Circuit' },
+    { id: 'ground-fault', label: 'Ground Fault' },
+    { id: 'how-to-identify', label: 'How to Identify Each' },
+    { id: 'protection', label: 'Protection Devices' },
+  ],
+  'digital-vs-analogue-multimeter': [
+    { id: 'how-each-works', label: 'How Each Works' },
+    { id: 'accuracy', label: 'Accuracy' },
+    { id: 'reading-live-signals', label: 'Reading Live Signals' },
+    { id: 'input-impedance', label: 'Input Impedance' },
+    { id: 'which-to-choose', label: 'Which to Choose?' },
   ],
 };
 

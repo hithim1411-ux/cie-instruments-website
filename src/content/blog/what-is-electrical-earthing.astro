@@ -1,0 +1,118 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Electrical earthing (grounding in North American terminology) is the practice of intentionally connecting the non-current-carrying metallic parts of an electrical installation — enclosures, frames, conduit, equipment cases — to the general mass of earth. It is one of the oldest and most fundamental safety provisions in electrical engineering, and it remains one of the most commonly misunderstood. Understanding why earthing exists, the different earthing system arrangements used in Indian practice, and how to test that earthing is effective are core competencies for any electrical professional.
+</p>
+
+<h2 id="why-earthing">Why Earthing Matters</h2>
+
+<p>Earthing serves three distinct purposes, each critical in its own right:</p>
+
+<div class="my-6 space-y-2">
+  {[
+    { n: '1', title: 'Shock protection', desc: 'If a live conductor contacts an earthed equipment enclosure (a fault condition), the fault current flows to earth rather than through the body of a person who touches the enclosure. Combined with protective devices (MCB, RCD/ELCB), earthing ensures the fault is cleared before a fatal shock can be delivered.' },
+    { n: '2', title: 'Fault current path for protection', desc: 'A low-impedance earth path allows sufficient fault current to flow to operate fuses, MCBs, and other protective devices quickly. Without a proper earth return path, fault current may be insufficient to trip the protective device, leaving equipment live and dangerous.' },
+    { n: '3', title: 'Voltage stabilisation', desc: 'Earthing the neutral of a supply transformer establishes a reference point for the system voltage. Without it, system voltages "float" and can rise to dangerous levels during transient events or certain fault conditions.' },
+  ].map(step => (
+    <div class="flex gap-4 items-start p-4 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div class="shrink-0 w-9 h-9 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-base">{step.n}</div>
+      <div>
+        <div class="font-bold text-[#0D1B2A] text-sm">{step.title}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{step.desc}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="earthing-systems">The IEC Earthing System Notation</h2>
+
+<p>IEC 60364 defines earthing systems using a two-letter (or three-letter) code. Understanding this notation is essential for specifying, installing, and testing earthing correctly. The letters describe two things: how the supply transformer neutral is connected to earth (first letter), and how the installation's exposed metalwork is connected (second letter).</p>
+
+<div class="my-6 rounded-xl bg-[#0D1B2A] p-5 font-mono text-sm">
+  <div class="text-[#94a3b8] text-xs uppercase tracking-widest mb-3">IEC earthing system letter codes</div>
+  <div class="space-y-2 text-xs">
+    <div><span class="text-yellow-300">T</span> <span class="text-gray-300">(first letter)</span> = Supply neutral directly connected to earth (Terre)</div>
+    <div><span class="text-yellow-300">I</span> <span class="text-gray-300">(first letter)</span> = Supply neutral Isolated from earth (or connected through high impedance)</div>
+    <div class="mt-2"><span class="text-[#00FF88]">T</span> <span class="text-gray-300">(second letter)</span> = Equipment frames directly connected to earth (local earth electrode)</div>
+    <div><span class="text-[#00FF88]">N</span> <span class="text-gray-300">(second letter)</span> = Equipment frames connected to supply Neutral (PEN conductor)</div>
+    <div class="mt-2"><span class="text-blue-300">S</span> <span class="text-gray-300">(third letter, TN only)</span> = Separate PE and N conductors throughout</div>
+    <div><span class="text-blue-300">C</span> <span class="text-gray-300">(third letter, TN only)</span> = Combined PEN conductor (PE + N in one conductor)</div>
+  </div>
+</div>
+
+<h2 id="tn-system">TN Systems (TN-S, TN-C, TN-C-S)</h2>
+
+<p>TN systems are the most common in Indian industrial and commercial installations. The supply transformer neutral is solidly earthed at the substation. Equipment frames (exposed conductive parts) are connected back to that earthed neutral via the PE (Protective Earth) conductor.</p>
+
+<div class="my-6 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Comparison of earthing system types</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">System</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Neutral earthing</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Equipment earth</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Common use in India</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">RCD required?</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['TN-S', 'Earthed at source', 'Separate PE conductor from source', 'New industrial installations, hospitals, data centres', 'Recommended'],
+        ['TN-C', 'Earthed at source', 'Combined PEN conductor', 'Older industrial installations (being phased out)', 'Cannot use RCD'],
+        ['TN-C-S', 'Earthed at source', 'PEN then split to PE + N at main DB', 'Most common in Indian commercial buildings', 'After split point'],
+        ['TT', 'Earthed at source', 'Local earth electrode at installation', 'Rural areas, portable buildings, where TN not available', 'Mandatory'],
+        ['IT', 'Isolated or high-Z to earth', 'Local earth electrodes', 'Operating theatres, mines, offshore — critical uptime', 'Insulation monitor required'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-bold text-[#E0252E] border-b border-gray-100 text-xs font-mono">{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{row[2]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{row[3]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-semibold text-gray-700">{row[4]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="tt-system">TT Systems and Rural Indian Installations</h2>
+
+<p>The TT (Terra-Terra) system is used where the supply neutral is not available as a PE conductor at the installation — common in rural India where long overhead LT lines make a reliable TN-S earth return impractical. Each installation in a TT system has its own local earth electrode (an earth pit, driven rods, or plate electrodes). The protective earth at the installation is connected to this local electrode, not back to the substation neutral.</p>
+
+<p>The critical implication is that fault current in a TT system must flow through two earth electrodes in series — the installation's earth electrode and the substation earth electrode. The fault current may be too low to trip a fuse or MCB reliably. This is why RCDs (Residual Current Devices — also called ELCBs in older Indian terminology) are mandatory in TT systems. An RCD detects the fault current by current imbalance between phase and neutral, and can trip on currents as low as 30 mA — far below the level needed to operate an MCB.</p>
+
+<Callout type="warning" title="Earth electrode resistance limits — IS 3043">
+  IS 3043 (Code of Practice for Earthing) specifies maximum earth electrode resistance values: typically 1 Ω for generating stations, 2 Ω for large substations, and 5 Ω for distribution systems. For installations with RCD protection, higher electrode resistance may be acceptable — but must be verified against the RCD trip current and the maximum voltage that can appear on exposed metalwork during a fault. Earth electrode resistance must be tested with a dedicated earth resistance tester (earth tester), not a multimeter.
+</Callout>
+
+<h2 id="how-tested">How Earthing Is Tested</h2>
+
+<div class="my-6 space-y-2">
+  {[
+    { step: 'Earth electrode resistance (earth tester)', detail: 'Uses a 4-terminal or 3-terminal Wenner method to inject AC current via auxiliary electrodes and measure the true resistance of the earth electrode. A standard multimeter cannot perform this test.' },
+    { step: 'Earth loop impedance (loop tester)', detail: 'Measures the impedance of the complete earth fault loop: source → live conductor → fault → PE conductor → back to source. Determines whether fault current will be sufficient to operate the protective device within the required time.' },
+    { step: 'Continuity of protective conductors', detail: 'Tests that every exposed conductive part is actually connected to the PE system. Done with a low-resistance ohmmeter — measure from main earth terminal to each equipment frame and bonded service pipe.' },
+    { step: 'RCD operation test', detail: 'Tests the RCD trips within the specified time (typically 300 ms for 30 mA, 40 ms for 100 mA) and at the correct current threshold. A dedicated RCD tester applies test currents at multiple angles of the AC waveform.' },
+    { step: 'Insulation resistance to earth', detail: 'Verifies that live conductors are properly insulated from earth — the complement of confirming that earth connections are intact.' },
+  ].map((s, i) => (
+    <div class="flex gap-4 items-start">
+      <div class="shrink-0 w-7 h-7 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
+      <div class="pb-2 border-b border-gray-100 flex-1">
+        <div class="font-semibold text-[#0D1B2A] text-sm">{s.step}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{s.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="tip" title="Earth resistance testing frequency">
+  IS 3043 recommends testing earth electrode resistance annually in corrosive soil conditions (coastal areas, industrial sites with chemical contamination) and every three years in normal conditions. The monsoon season — when soil moisture is highest — gives optimistically low readings; test in the dry season for the worst-case value that governs safety.
+</Callout>
+
+<p>
+  CIE manufactures earth resistance testers (earth testers) covering single-electrode measurements to comprehensive 4-terminal clamp-on earth testing without disconnecting the electrode. View the full earthing test equipment range on our <a href={u('/products/')}>products page</a> or <a href={u('/contact/')}>contact our technical team</a> for guidance on earthing system design, testing, and IS 3043 compliance.
+</p>

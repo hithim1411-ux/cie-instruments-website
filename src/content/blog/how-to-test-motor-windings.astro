@@ -1,0 +1,138 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Electric motor failures are responsible for a significant share of industrial downtime across Indian manufacturing. Studies of motor failures consistently show that winding failures — insulation breakdown, turn-to-turn shorts, and open circuits — account for over 30% of all motor breakdowns. Three targeted electrical tests, performed with basic instruments, can identify a failing motor before it trips a plant or burns out completely. This guide covers each test in sequence, explains what the numbers mean, and tells you when to act.
+</p>
+
+<h2 id="three-tests">The Three Essential Winding Tests</h2>
+
+<p>Every motor winding test programme follows the same logical order: first confirm the winding is complete (continuity), then verify the three phases are electrically balanced (winding resistance), and finally confirm the insulation separating the windings from the motor frame is healthy (insulation resistance). Skipping steps or reversing the order wastes time and can miss critical faults.</p>
+
+<div class="my-6 space-y-3">
+  {[
+    { n: '1', title: 'Continuity test', desc: 'Confirms each winding is a complete, unbroken circuit. Detects open-circuit failures — a broken winding, a blown internal fuse, or a bad connection.' },
+    { n: '2', title: 'Winding resistance balance', desc: 'Measures DC resistance of each phase and compares them. An imbalance greater than 5% points to shorted turns, poor connections, or uneven winding damage.' },
+    { n: '3', title: 'Insulation resistance (IR) to earth', desc: 'Applies a DC high voltage (typically 500 V or 1000 V) between winding and frame. Measures the resistance of the insulating material itself — the critical health indicator.' },
+  ].map(step => (
+    <div class="flex gap-4 items-start p-4 bg-white border border-gray-200 rounded-xl shadow-sm">
+      <div class="shrink-0 w-9 h-9 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-base">{step.n}</div>
+      <div>
+        <div class="font-bold text-[#0D1B2A] text-sm">{step.title}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{step.desc}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="continuity-test">Test 1 — Continuity</h2>
+
+<p>Set your multimeter to the continuity or resistance (Ω) function. Identify the motor's terminal box — a three-phase squirrel cage motor will have six terminals (U1, V1, W1, U2, V2, W2) or three terminals if internally star or delta connected. Test across each phase pair:</p>
+
+<div class="my-6 space-y-2">
+  {[
+    { step: 'Isolate and lock out the motor', detail: 'Disconnect from supply. Apply LOTO (Lockout/Tagout). Verify zero voltage across all terminals with a multimeter.' },
+    { step: 'Discharge any capacitors', detail: 'Single-phase motors have a start or run capacitor — discharge it through a 10 kΩ resistor before touching terminals.' },
+    { step: 'Test U1 to U2', detail: 'Probe both ends of phase U. You should hear a continuity beep or see resistance between 0.5 Ω and 50 Ω depending on motor size.' },
+    { step: 'Repeat for V and W phases', detail: 'Test V1–V2 and W1–W2 in the same way. All three phases must show continuity.' },
+    { step: 'Test phase-to-phase', detail: 'In a star-connected motor, testing U1 to V1 should show continuity (through the star point). In a delta motor, each pair also shows continuity.' },
+  ].map((s, i) => (
+    <div class="flex gap-4 items-start">
+      <div class="shrink-0 w-7 h-7 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
+      <div class="pb-2 border-b border-gray-100 flex-1">
+        <div class="font-semibold text-[#0D1B2A] text-sm">{s.step}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{s.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="warning" title="VFD-driven motors — discharge DC bus before testing">
+  Variable frequency drives (inverters) contain large electrolytic capacitors on the DC bus that remain charged to 500–700 V for several minutes after power is removed. Never connect an insulation tester or touch motor terminals until you have verified the DC bus voltage has dropped below 50 V using a CAT III rated multimeter. The drive's display going dark does not mean the capacitors are discharged.
+</Callout>
+
+<h2 id="winding-resistance">Test 2 — Winding Resistance Balance</h2>
+
+<p>Use a low-resistance ohmmeter or a multimeter's resistance function. Measure and record the DC resistance of each phase. For a healthy motor, all three readings should be within 2% of each other — some standards permit up to 5% imbalance before action is required.</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Typical winding resistance by motor rating</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Motor rating</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Typical winding R (per phase)</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Max allowable imbalance</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Action if exceeded</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['0.37 kW (0.5 HP)', '8 – 25 Ω', '5%', 'Inspect connections, retest'],
+        ['1.5 kW (2 HP)', '2 – 8 Ω', '5%', 'Inspect connections, retest'],
+        ['5.5 kW (7.5 HP)', '0.5 – 2 Ω', '5%', 'Rewinding likely required'],
+        ['22 kW (30 HP)', '0.1 – 0.5 Ω', '2%', 'Rewinding likely required'],
+        ['75 kW (100 HP)', '0.02 – 0.1 Ω', '2%', 'Specialist assessment'],
+        ['> 200 kW', '< 0.02 Ω', '1%', 'Specialist assessment'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          {row.map((cell, j) => (
+            <td class={`px-${j === 0 ? 5 : 4} py-3 ${j === 0 ? 'font-medium text-[#0D1B2A]' : 'text-center text-gray-700'} border-b border-gray-100 text-xs`}>{cell}</td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500">Values are indicative — refer to the motor nameplate and manufacturer data. Resistance increases ~0.4% per °C rise; take readings at a known temperature.</div>
+</div>
+
+<p>Calculate imbalance as: <strong>((Highest R − Lowest R) / Average R) × 100%</strong>. A reading outside tolerance on one phase points to a problem in that winding or its connections. Check terminal screws for tightness first — a loose screw adds resistance that looks like a winding fault.</p>
+
+<h2 id="insulation-test">Test 3 — Insulation Resistance to Earth</h2>
+
+<p>This is the most important test for predicting motor health. An insulation tester (megohmmeter) applies a steady DC voltage — typically 500 V for 415 V motors, 1000 V for higher voltage motors — between the short-circuited winding terminals and the motor frame (earth). The leakage current through the insulation material is measured, and the result is displayed as resistance in megohms (MΩ).</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Insulation resistance limits — IEEE 43 / IS 900 guidance</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">IR reading at 40°C</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Condition</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Recommended action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['< 1 MΩ', 'Dangerous / failed', 'Do not energise — rewind or replace'],
+        ['1 – 2 MΩ', 'Poor', 'Investigate immediately — dry out or rewind'],
+        ['2 – 5 MΩ', 'Questionable', 'Monitor closely, plan intervention'],
+        ['5 – 100 MΩ', 'Fair to Good', 'Acceptable for service — trend over time'],
+        ['> 100 MΩ', 'Excellent', 'Healthy winding insulation'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class={`px-5 py-3 font-medium border-b border-gray-100 text-xs ${i === 0 ? 'text-red-700' : i === 1 ? 'text-orange-700' : i === 2 ? 'text-amber-700' : 'text-green-700'}`}>{row[0]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-gray-700 font-medium">{row[1]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-gray-600">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500">IR values halve approximately every 10°C temperature rise. Always record the winding temperature alongside IR readings to allow meaningful comparisons over time.</div>
+</div>
+
+<h2 id="interpreting">Interpreting Results and Trending</h2>
+
+<p>A single IR reading tells you the current condition. A series of readings taken at regular intervals tells you the trajectory — which is far more valuable. A motor that tests at 80 MΩ today and 20 MΩ three months later is telling you something that a single reading cannot: the insulation is deteriorating rapidly and intervention is needed before it fails in service.</p>
+
+<p>Record every test result with the date, winding temperature, test voltage, and duration (a 1-minute reading is standard; a 10-minute reading and the polarisation index ratio add further diagnostic value). Trending this data over months and years turns routine testing into a predictive maintenance programme.</p>
+
+<Callout type="info" title="Polarisation Index (PI)">
+  The PI is the ratio of the 10-minute IR reading to the 1-minute IR reading. A PI above 2.0 indicates good insulation. A PI below 1.0 suggests contamination or moisture. Some test standards recommend a PI test annually on motors above 100 kW or on any motor deemed critical to production.
+</Callout>
+
+<p>
+  CIE manufactures insulation testers with test voltages from 250 V to 5000 V DC, suitable for motors from fractional kW to large HT machines. Visit our <a href={u('/products/')}>product range</a> to find the right megohmmeter for your application, or <a href={u('/contact/')}>contact our technical support team</a> for advice on setting up a motor maintenance programme.
+</p>

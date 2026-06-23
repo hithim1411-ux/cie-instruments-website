@@ -1,0 +1,165 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Voltage drop is one of the most under-appreciated causes of equipment malfunction in Indian electrical installations. A motor that trips on under-voltage protection, an LED driver that flickers, a control relay that fails to pick up reliably — these faults often trace back not to the equipment itself but to excessive resistance in the wiring feeding it. Understanding voltage drop, calculating it correctly, and measuring it in the field are essential skills for any electrician or electrical engineer working on LT installations.
+</p>
+
+<h2 id="what-is">What Is Voltage Drop?</h2>
+
+<p>Every conductor has resistance. When current flows through that resistance, energy is lost as heat and the voltage at the far end of the cable is lower than the voltage at the source end. This difference — the voltage that is "used up" by the cable rather than delivered to the load — is voltage drop.</p>
+
+<p>A simple analogy: imagine water flowing through a long, narrow pipe. Friction in the pipe resists the flow and the water pressure at the tap end is lower than at the pump. Electrical voltage drop works the same way — current (flow) through resistance (friction in the conductor) produces a pressure loss along the cable run.</p>
+
+<div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Voltage drop — single phase circuit</div>
+  <div class="p-6">
+    <svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg" class="w-full">
+      <!-- Source box -->
+      <rect x="10" y="40" width="70" height="50" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <text x="45" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a5f" font-family="sans-serif">230 V</text>
+      <text x="45" y="76" text-anchor="middle" font-size="11" fill="#3B82F6" font-family="sans-serif">Supply</text>
+      <!-- Live wire top -->
+      <line x1="80" y1="52" x2="200" y2="52" stroke="#E0252E" stroke-width="3"/>
+      <!-- Resistance symbol on live -->
+      <rect x="200" y="44" width="50" height="16" rx="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1.5"/>
+      <text x="225" y="55" text-anchor="middle" font-size="11" fill="#92400E" font-family="monospace">R_cable</text>
+      <line x1="250" y1="52" x2="380" y2="52" stroke="#E0252E" stroke-width="3"/>
+      <!-- Voltage labels -->
+      <text x="140" y="40" text-anchor="middle" font-size="11" fill="#E0252E" font-family="sans-serif">230 V →</text>
+      <text x="315" y="40" text-anchor="middle" font-size="11" fill="#dc2626" font-family="sans-serif">→ 221 V</text>
+      <!-- Load box -->
+      <rect x="380" y="40" width="70" height="50" rx="8" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+      <text x="415" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d" font-family="sans-serif">221 V</text>
+      <text x="415" y="76" text-anchor="middle" font-size="11" fill="#22C55E" font-family="sans-serif">Load</text>
+      <!-- Neutral wire bottom -->
+      <line x1="80" y1="82" x2="380" y2="82" stroke="#1e3a5f" stroke-width="2"/>
+      <!-- Voltage drop arrow -->
+      <line x1="200" y1="100" x2="250" y2="100" stroke="#CA8A04" stroke-width="2" marker-end="url(#arr)"/>
+      <text x="225" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E" font-family="sans-serif">VD = 9 V (3.9%)</text>
+      <defs>
+        <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#CA8A04"/>
+        </marker>
+      </defs>
+      <!-- Current label -->
+      <text x="460" y="52" text-anchor="start" font-size="11" fill="#64748b" font-family="sans-serif">I = 10 A</text>
+      <text x="460" y="66" text-anchor="start" font-size="11" fill="#64748b" font-family="sans-serif">L = 45 m</text>
+    </svg>
+  </div>
+</div>
+
+<h2 id="causes">Common Causes of Excessive Voltage Drop</h2>
+
+<div class="my-6 space-y-2">
+  {[
+    { cause: 'Undersized cable', detail: 'The most common cause. A cable selected for a lower load, then subjected to a higher current as the load grows, will see voltage drop increase as the square of current.' },
+    { cause: 'Excessive cable length', detail: 'Voltage drop is directly proportional to length. Long sub-main runs to distant DB boards or motors at the far end of a factory are frequent offenders.' },
+    { cause: 'Loose or corroded connections', detail: 'A poorly terminated lug, a corroded busbar joint, or a loose terminal adds resistance at that point — often enough to cause significant drop at full load.' },
+    { cause: 'High ambient temperature', detail: 'Copper resistance increases approximately 0.4% per °C. Cable running through a hot area (engine room, above furnaces) has higher resistance than the same cable in a cool environment.' },
+    { cause: 'Harmonics and skin effect', detail: 'High harmonic content in the load current increases the effective resistance of the conductor, particularly in larger cable sizes.' },
+  ].map((item, i) => (
+    <div class="flex gap-4 p-4 border border-gray-200 rounded-xl bg-white">
+      <div class="shrink-0 w-7 h-7 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
+      <div>
+        <div class="font-bold text-[#0D1B2A] text-sm">{item.cause}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{item.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="formula">The Voltage Drop Formula</h2>
+
+<p>The standard formula for voltage drop in a single-phase circuit (live + neutral, both conductors contribute resistance):</p>
+
+<div class="my-6 rounded-xl bg-[#0D1B2A] p-6 font-mono text-sm overflow-x-auto">
+  <div class="text-[#94a3b8] text-xs uppercase tracking-widest mb-3">Single-phase voltage drop</div>
+  <div class="text-[#00FF88] text-lg font-bold mb-2">VD = 2 × ρ × L × I / A</div>
+  <div class="text-gray-400 text-xs space-y-1 mt-4">
+    <div><span class="text-yellow-300">VD</span> = Voltage drop (Volts)</div>
+    <div><span class="text-yellow-300">ρ</span> = Resistivity of copper = 0.0175 Ω·mm²/m (at 20°C)</div>
+    <div><span class="text-yellow-300">L</span> = One-way cable length (metres)</div>
+    <div><span class="text-yellow-300">I</span> = Load current (Amperes)</div>
+    <div><span class="text-yellow-300">A</span> = Cable cross-sectional area (mm²)</div>
+    <div class="mt-3 text-[#94a3b8]">Alternatively: <span class="text-[#00FF88]">VD = I × R × L × 2</span> where R is resistance per metre from cable tables</div>
+  </div>
+</div>
+
+<div class="my-6 rounded-xl bg-blue-50 border border-blue-200 p-5">
+  <div class="text-blue-900 font-bold text-sm mb-3">Worked Example</div>
+  <div class="text-xs text-blue-800 space-y-2 leading-relaxed">
+    <div><strong>Scenario:</strong> A 10 A load is connected 45 m from the distribution board via 4 mm² copper cable.</div>
+    <div><strong>VD</strong> = 2 × 0.0175 × 45 × 10 / 4</div>
+    <div><strong>VD</strong> = 2 × 0.0175 × 450 / 4</div>
+    <div><strong>VD</strong> = 2 × 1.969 = <strong>3.94 V</strong></div>
+    <div><strong>% VD</strong> = (3.94 / 230) × 100 = <strong>1.71%</strong> — within IS 732 limit</div>
+    <div class="mt-2 pt-2 border-t border-blue-200"><strong>Check:</strong> If cable were 2.5 mm², VD = 6.3 V = 2.74% — still acceptable but closer to the limit. Going to 50 m run would push it to 3.0% — borderline.</div>
+  </div>
+</div>
+
+<h2 id="is-732-limits">IS 732 Voltage Drop Limits</h2>
+
+<p>IS 732 (Code of Practice for Electrical Wiring Installations) sets the permissible voltage drop limits for LT installations in India. These limits apply from the origin of the installation (typically the energy meter / service entrance) to any point of utilisation:</p>
+
+<div class="my-6 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-4 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Installation type</th>
+        <th class="text-center px-4 py-4 text-yellow-300 font-bold text-xs">Max voltage drop</th>
+        <th class="text-center px-4 py-4 text-blue-300 font-bold text-xs">Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Lighting circuits', '3%', 'From origin to lamp; sensitive to flicker'],
+        ['Power circuits (general)', '5%', 'From origin to socket/fixed equipment'],
+        ['Motor starting (transient)', 'Up to 15%', 'Transient only — steady-state still ≤ 5%'],
+        ['Sub-mains (main to sub-DB)', 'Included in overall 5%', 'No separate limit; part of total budget'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-medium text-[#0D1B2A] border-b border-gray-100 text-xs">{row[0]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 font-bold text-amber-700">{row[1]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-gray-600">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="info" title="IS 732 vs IEC 60364">
+  IS 732 is substantially aligned with IEC 60364. Some project specifications — particularly for industrial plants, data centres, or export-oriented facilities — reference IEC 60364-5-52 directly, which also specifies 3% for lighting and 5% for other circuits. Always check project specifications before finalising cable sizing.
+</Callout>
+
+<h2 id="how-to-measure">How to Measure Voltage Drop in the Field</h2>
+
+<p>Calculating voltage drop during design is good practice. Measuring it on an installed circuit confirms whether the installation actually meets the limits under real load conditions — which accounts for actual cable routing, connection quality, and operating temperature.</p>
+
+<div class="my-6 space-y-2">
+  {[
+    { step: 'Energise the circuit under full load', detail: 'Voltage drop must be measured under the actual operating current. Measuring at no load gives zero drop, which tells you nothing.' },
+    { step: 'Measure voltage at the supply end', detail: 'Place your multimeter probes at the source terminals — the incoming terminals of the MCB or fuse feeding the circuit.' },
+    { step: 'Measure voltage at the load end', detail: 'Without changing the load condition, measure voltage at the load terminals — the motor terminal box, socket outlet, or final connection point.' },
+    { step: 'Calculate the difference', detail: 'VD = V_source − V_load. Express as a percentage of nominal: (VD / 230) × 100 for single phase.' },
+    { step: 'Measure load current simultaneously', detail: 'Use a clamp meter to record current during the voltage measurement. This allows you to cross-check against your calculated design values.' },
+  ].map((s, i) => (
+    <div class="flex gap-4 items-start">
+      <div class="shrink-0 w-7 h-7 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
+      <div class="pb-2 border-b border-gray-100 flex-1">
+        <div class="font-semibold text-[#0D1B2A] text-sm">{s.step}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{s.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="tip" title="Use a True RMS meter for accurate results">
+  Non-linear loads (VFDs, rectifiers, UPS systems, LED drivers) produce distorted current waveforms that cause additional heating in cables — and therefore additional voltage drop. A True RMS multimeter accurately captures the heating effect of distorted waveforms; an average-responding meter will underread on these loads.
+</Callout>
+
+<p>
+  CIE's True RMS digital multimeters and clamp meters are well-suited to voltage drop measurement in both residential and industrial installations. For cable sizing calculations, fault level verification, and commissioning support, explore our <a href={u('/products/')}>instruments range</a> or <a href={u('/contact/')}>speak to our technical team</a>.
+</p>

@@ -1,0 +1,131 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Phase sequence is one of those electrical parameters that is invisible in normal operation — until something goes wrong. Connect a three-phase induction motor to a supply with the wrong phase sequence and the motor runs in reverse. For a centrifugal pump that is correct rotation, that means pumping backwards. For a compressor, it can mean immediate mechanical failure. For an overhead crane, it can mean catastrophic load movement in the wrong direction. Phase sequence testing is a quick, inexpensive, and often mandatory check before energising any three-phase motor or equipment — and it takes less than thirty seconds with a phase sequence indicator.
+</p>
+
+<h2 id="what-is-phase-sequence">What Is Phase Sequence?</h2>
+
+<p>In a three-phase AC supply, three voltage waveforms are present simultaneously — each displaced from the others by 120°. The order in which these three phases reach their positive peak voltage is the phase sequence. In India, the standard phase sequence is <strong>R-Y-B</strong> (Red-Yellow-Blue) — also written as L1-L2-L3 in IEC terminology or A-B-C in some international standards.</p>
+
+<!-- Three-phase phasor diagram -->
+<div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Three-phase phasor diagram — RYB (positive) sequence</div>
+  <div class="p-6 flex justify-center">
+    <svg viewBox="0 0 380 280" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-sm">
+      <!-- Circle guide -->
+      <circle cx="190" cy="140" r="95" fill="none" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 3"/>
+      <!-- Centre point -->
+      <circle cx="190" cy="140" r="4" fill="#0D1B2A"/>
+      <!-- R phasor — pointing right (0°) -->
+      <line x1="190" y1="140" x2="285" y2="140" stroke="#E0252E" stroke-width="3" marker-end="url(#arrR)"/>
+      <text x="300" y="145" font-size="14" font-weight="700" fill="#E0252E" font-family="sans-serif">R</text>
+      <text x="295" y="160" font-size="11" fill="#E0252E" font-family="sans-serif">0°</text>
+      <!-- Y phasor — 120° behind R (pointing lower-left) -->
+      <line x1="190" y1="140" x2="143" y2="222" stroke="#CA8A04" stroke-width="3" marker-end="url(#arrY)"/>
+      <text x="120" y="240" font-size="14" font-weight="700" fill="#CA8A04" font-family="sans-serif">Y</text>
+      <text x="110" y="255" font-size="11" fill="#CA8A04" font-family="sans-serif">−120°</text>
+      <!-- B phasor — 240° behind R (pointing upper-left) -->
+      <line x1="190" y1="140" x2="143" y2="58" stroke="#2563eb" stroke-width="3" marker-end="url(#arrB)"/>
+      <text x="118" y="55" font-size="14" font-weight="700" fill="#2563eb" font-family="sans-serif">B</text>
+      <text x="108" y="70" font-size="11" fill="#2563eb" font-family="sans-serif">+120°</text>
+      <!-- Rotation arrow -->
+      <path d="M240,100 A60,60 0 0,1 240,180" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrRot)"/>
+      <text x="300" y="105" font-size="11" fill="#64748b" font-family="sans-serif">Anti-clockwise</text>
+      <text x="302" y="118" font-size="11" fill="#64748b" font-family="sans-serif">rotation →</text>
+      <text x="302" y="131" font-size="11" fill="#64748b" font-family="sans-serif">RYB sequence</text>
+      <!-- Defs -->
+      <defs>
+        <marker id="arrR" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#E0252E"/>
+        </marker>
+        <marker id="arrY" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#CA8A04"/>
+        </marker>
+        <marker id="arrB" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#2563eb"/>
+        </marker>
+        <marker id="arrRot" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+  <div class="px-5 pb-4 text-xs text-center text-gray-500">Standard Indian/IEC positive phase sequence: R leads Y by 120°, Y leads B by 120°. Reversed (negative) sequence: R-B-Y.</div>
+</div>
+
+<p>If any two phases are swapped — say, the R and Y connections are interchanged — the motor sees the sequence R-B-Y instead of R-Y-B. The rotating magnetic field in the stator reverses direction, and the motor turns in the opposite direction. All three-phase motors are affected the same way: swap any two phases, reverse the direction of rotation.</p>
+
+<h2 id="consequences">Consequences of Wrong Phase Sequence</h2>
+
+<div class="my-6 space-y-2">
+  {[
+    { icon: '⚙️', equip: 'Three-phase induction motors', consequence: 'Reverses rotation. May trip on overload immediately (pump against closed valve, compressor at wrong end), or operate at reduced efficiency.' },
+    { icon: '🏗️', equip: 'Overhead cranes and hoists', consequence: 'Reversal of lift direction. A load commanded to raise may lower. Extremely dangerous — potential for serious injury or fatality.' },
+    { icon: '💧', equip: 'Centrifugal pumps', consequence: 'Reversed impeller rotation. Pump will not develop head or flow. Prolonged reverse running can damage mechanical seals and bearings.' },
+    { icon: '❄️', equip: 'Compressors (reciprocating/screw)', consequence: 'Incorrect valve sequence. Reduced output. Potential mechanical damage to valve seats and suction/discharge arrangement.' },
+    { icon: '🔌', equip: 'Transformers and switchgear', consequence: 'Phase sequence affects power quality instruments and directional protection relays. Incorrect sequence can cause protection maloperation.' },
+    { icon: '📊', equip: 'Energy meters (three-phase)', consequence: 'Some older induction disc meters run backwards on reverse phase sequence — resulting in negative energy registration.' },
+  ].map(item => (
+    <div class="flex gap-3 p-4 bg-red-50 border border-red-200 rounded-xl">
+      <span class="text-xl shrink-0">{item.icon}</span>
+      <div>
+        <div class="font-bold text-red-900 text-sm">{item.equip}</div>
+        <div class="text-xs text-red-800 mt-0.5">{item.consequence}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="warning" title="Never start a motor without checking phase sequence first">
+  On any new installation, after any wiring modification, after a switchgear replacement, or after any work that involves disturbing cable connections — always check phase sequence before energising three-phase motors. The thirty seconds it takes is insignificant compared to the cost of a seized compressor or a crane accident.
+</Callout>
+
+<h2 id="how-to-test">How to Test Phase Sequence</h2>
+
+<p>The simplest and most reliable method is a dedicated phase sequence indicator (also called a phase rotation tester). These instruments connect to the three-phase supply via three test leads and immediately display whether the sequence is correct (positive, R-Y-B) or reversed (negative, R-B-Y).</p>
+
+<div class="my-6 space-y-2">
+  {[
+    { step: 'Identify the phase conductors', detail: 'In Indian installations, R is red, Y is yellow, B is blue, N is black. In new IEC colour-coded installations: L1 brown, L2 black, L3 grey.' },
+    { step: 'Connect the phase sequence indicator', detail: 'Clip or probe R/L1 to the R terminal of the PSI, Y/L2 to Y, B/L3 to B. The instrument typically has colour-coded probes or terminals.' },
+    { step: 'Energise (or the supply is already live)', detail: 'Phase sequence indicators are designed for live measurement — this is a voltage measurement, not current.' },
+    { step: 'Read the display', detail: 'A rotating disc indicator spins clockwise for correct RYB sequence, anticlockwise for reversed. LED indicators light green for correct, red for reversed. Digital instruments show "RYB" or "RBY" (or equivalent).' },
+    { step: 'Correct if reversed', detail: 'To reverse sequence, swap any two of the three phase conductors at the motor terminal box or at the supply incomer. Retest after swapping.' },
+  ].map((s, i) => (
+    <div class="flex gap-4 items-start">
+      <div class="shrink-0 w-7 h-7 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
+      <div class="pb-2 border-b border-gray-100 flex-1">
+        <div class="font-semibold text-[#0D1B2A] text-sm">{s.step}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{s.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="visual-indicator">Types of Phase Sequence Indicators</h2>
+
+<div class="my-6 grid sm:grid-cols-3 gap-4">
+  {[
+    { type: 'Rotating disc', desc: 'Traditional design with a small induction motor. Clockwise rotation = correct. Reliable, no batteries required. Robust for field use.', models: 'CIE PSI-1' },
+    { type: 'LED indicator', desc: 'Modern design — lights green for correct sequence, red for reversed. Compact, fast. Some models also display individual phase voltage levels.', models: 'CIE PSI-2' },
+    { type: 'Digital multifunction', desc: 'Displays phase sequence, individual phase voltages, frequency, and phase-to-phase voltage. Ideal for commissioning and site surveys.', models: 'CIE-5050A' },
+  ].map(item => (
+    <div class="rounded-xl border border-gray-200 bg-white p-4">
+      <div class="font-bold text-[#0D1B2A] text-sm mb-1">{item.type}</div>
+      <div class="text-xs text-gray-600 mb-2">{item.desc}</div>
+      <div class="text-xs font-mono text-[#E0252E] bg-red-50 px-2 py-1 rounded">{item.models}</div>
+    </div>
+  ))}
+</div>
+
+<Callout type="tip" title="Phase sequence and motor direction are separate issues">
+  Correct phase sequence only guarantees the motor rotates in the designed direction relative to the supply sequence. If the motor has been mechanically connected the wrong way around (fan backwards, pump impeller reversed on shaft), correcting phase sequence will not fix a mechanical installation error. Always verify actual rotation direction by brief no-load test before coupling to the driven equipment.
+</Callout>
+
+<p>
+  CIE manufactures phase sequence indicators including the PSI-1, PSI-2, and the CIE-5050A multifunction tester — trusted by electrical contractors and plant maintenance teams across India. View the full range at our <a href={u('/products/')}>products page</a> or <a href={u('/contact/')}>contact us</a> for availability and specifications.
+</p>

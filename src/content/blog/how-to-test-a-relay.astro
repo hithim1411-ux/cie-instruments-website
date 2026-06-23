@@ -1,0 +1,163 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Relays are among the most widely used switching devices in electrical and electronics systems — from a simple 12 V automotive relay to the protection relays guarding transformers and feeders in a 33 kV substation. When a relay fails, the symptom is often a circuit that will not operate, a motor that will not start, or — more dangerously — a protective relay that fails to trip during a fault. Testing a relay systematically with a multimeter (and, for protection relays, a dedicated relay test set) is a skill every electrical technician should have.
+</p>
+
+<h2 id="relay-basics">Relay Basics — What You Are Testing</h2>
+
+<!-- Relay schematic SVG -->
+<div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Relay internal schematic</div>
+  <div class="p-6 flex justify-center">
+    <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-lg">
+      <!-- Coil box -->
+      <rect x="30" y="80" width="100" height="40" rx="6" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+      <text x="80" y="97" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a5f" font-family="sans-serif">COIL</text>
+      <text x="80" y="111" text-anchor="middle" font-size="11" fill="#3B82F6" font-family="sans-serif">A1 / A2</text>
+      <!-- Coil terminals -->
+      <circle cx="30" cy="88" r="4" fill="#3B82F6"/>
+      <text x="18" y="85" text-anchor="middle" font-size="11" fill="#3B82F6" font-family="sans-serif">A1</text>
+      <circle cx="30" cy="112" r="4" fill="#3B82F6"/>
+      <text x="18" y="115" text-anchor="middle" font-size="11" fill="#3B82F6" font-family="sans-serif">A2</text>
+      <!-- Armature / plunger arrow -->
+      <line x1="130" y1="100" x2="200" y2="100" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 3"/>
+      <text x="165" y="93" text-anchor="middle" font-size="11" fill="#94a3b8" font-family="sans-serif">magnetic</text>
+      <text x="165" y="115" text-anchor="middle" font-size="11" fill="#94a3b8" font-family="sans-serif">linkage</text>
+      <!-- Common contact -->
+      <circle cx="220" cy="100" r="5" fill="#0D1B2A"/>
+      <text x="220" y="125" text-anchor="middle" font-size="11" fill="#0D1B2A" font-family="sans-serif">COM</text>
+      <line x1="180" y1="100" x2="215" y2="100" stroke="#0D1B2A" stroke-width="2"/>
+      <!-- NO contact -->
+      <circle cx="340" cy="60" r="5" fill="#22C55E"/>
+      <text x="340" y="45" text-anchor="middle" font-size="11" font-weight="700" fill="#22C55E" font-family="sans-serif">NO</text>
+      <text x="340" y="35" text-anchor="middle" font-size="11" fill="#64748b" font-family="sans-serif">Normally Open</text>
+      <!-- NO wire (open gap) -->
+      <line x1="225" y1="97" x2="290" y2="68" stroke="#0D1B2A" stroke-width="2"/>
+      <line x1="310" y1="61" x2="335" y2="61" stroke="#22C55E" stroke-width="2"/>
+      <!-- gap symbol -->
+      <circle cx="299" cy="65" r="3" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+      <!-- NC contact -->
+      <circle cx="340" cy="140" r="5" fill="#E0252E"/>
+      <text x="340" y="165" text-anchor="middle" font-size="11" font-weight="700" fill="#E0252E" font-family="sans-serif">NC</text>
+      <text x="340" y="178" text-anchor="middle" font-size="11" fill="#64748b" font-family="sans-serif">Normally Closed</text>
+      <!-- NC wire (closed) -->
+      <line x1="225" y1="103" x2="335" y2="140" stroke="#E0252E" stroke-width="2"/>
+      <!-- Terminal labels -->
+      <text x="380" y="63" font-size="11" fill="#22C55E" font-family="sans-serif">Open when</text>
+      <text x="380" y="76" font-size="11" fill="#22C55E" font-family="sans-serif">de-energised</text>
+      <text x="380" y="143" font-size="11" fill="#E0252E" font-family="sans-serif">Closed when</text>
+      <text x="380" y="156" font-size="11" fill="#E0252E" font-family="sans-serif">de-energised</text>
+    </svg>
+  </div>
+</div>
+
+<p>Every electromechanical relay has two electrically isolated circuits: the <strong>coil</strong> (the electromagnet that does the switching) and one or more sets of <strong>contacts</strong> (the actual switching elements). The coil has terminals A1 and A2; applying rated voltage across them energises the relay. The contacts are described as Normally Open (NO — open when coil is de-energised), Normally Closed (NC — closed when de-energised), and Common (COM — the pivot terminal shared between NO and NC).</p>
+
+<h2 id="coil-test">Test 1 — Coil Resistance</h2>
+
+<p>Set your multimeter to the resistance (Ω) function. Place probes across the coil terminals (A1 and A2). A healthy coil shows a specific resistance that you can compare against the datasheet. An open coil shows infinite resistance (OL). A shorted coil shows near-zero resistance.</p>
+
+<div class="my-6 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-4 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Coil voltage</th>
+        <th class="text-center px-4 py-4 text-blue-300 font-bold text-xs">Typical coil resistance</th>
+        <th class="text-center px-4 py-4 text-blue-300 font-bold text-xs">Reading if open</th>
+        <th class="text-center px-4 py-4 text-blue-300 font-bold text-xs">Reading if shorted</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['5 V DC', '25 – 100 Ω', 'OL / ∞', '< 1 Ω'],
+        ['12 V DC', '100 – 400 Ω', 'OL / ∞', '< 1 Ω'],
+        ['24 V DC', '400 – 900 Ω', 'OL / ∞', '< 1 Ω'],
+        ['230 V AC', '3 – 15 kΩ', 'OL / ∞', '< 50 Ω'],
+        ['415 V AC', '8 – 30 kΩ', 'OL / ∞', '< 100 Ω'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-medium text-[#0D1B2A] border-b border-gray-100 text-xs">{row[0]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 font-mono text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-red-700 font-semibold">{row[2]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-red-700 font-semibold">{row[3]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="warning" title="De-energise before resistance testing">
+  Always ensure the relay coil is completely de-energised (supply disconnected) before measuring coil resistance. Applying a live AC or DC voltage to the resistance measurement terminals of a multimeter will damage the meter and may cause injury. Verify zero voltage across the coil terminals before connecting your probes.
+</Callout>
+
+<h2 id="contact-test">Test 2 — Contact Continuity (NO and NC)</h2>
+
+<p>With the relay de-energised (coil not powered), test the contacts using the continuity or resistance function:</p>
+
+<div class="my-6 space-y-2">
+  {[
+    { step: 'Test COM to NC (de-energised)', detail: 'Should show continuity (beep) or very low resistance (< 1 Ω). This is the normally closed path — it must be intact at rest.' },
+    { step: 'Test COM to NO (de-energised)', detail: 'Should show open circuit (OL / no beep). The normally open contact must be open at rest.' },
+    { step: 'Energise the coil', detail: 'Apply rated voltage to A1 and A2. You should hear a distinct click as the armature pulls in.' },
+    { step: 'Test COM to NO (energised)', detail: 'Should now show continuity. The relay has switched — the NO contact is now closed.' },
+    { step: 'Test COM to NC (energised)', detail: 'Should now show open circuit. The NC contact has opened as expected.' },
+    { step: 'De-energise and retest', detail: 'Remove coil voltage. Contacts should return to their original (rest) state. If they do not, the relay is mechanically stuck.' },
+  ].map((s, i) => (
+    <div class="flex gap-4 items-start">
+      <div class="shrink-0 w-7 h-7 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
+      <div class="pb-2 border-b border-gray-100 flex-1">
+        <div class="font-semibold text-[#0D1B2A] text-sm">{s.step}</div>
+        <div class="text-xs text-gray-600 mt-0.5">{s.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="operate-voltage">Test 3 — Pick-up and Drop-out Voltage</h2>
+
+<p>The operate (pick-up) voltage is the minimum coil voltage at which the relay reliably pulls in. The drop-out voltage is the maximum voltage at which the relay releases. These tests verify that the relay will operate correctly across its full specified voltage range — important in battery-backed systems where supply voltage varies.</p>
+
+<p>Use a variable DC power supply (or a variac for AC relay coils) and slowly increase voltage from zero while monitoring with a multimeter. Record the voltage at which you hear the relay click. This is the pick-up voltage — it should be no more than 75–85% of rated coil voltage per most relay specifications. Then reduce voltage slowly and record the drop-out voltage.</p>
+
+<Callout type="info" title="Protection relay testing requires a dedicated relay test set">
+  The multimeter tests above are appropriate for auxiliary relays, contactors, and simple electromechanical relays. Testing protection relays — overcurrent, differential, distance, earth fault relays — requires a dedicated relay test set capable of injecting precise current and voltage quantities and measuring operate times to millisecond accuracy. CIE manufactures relay test sets specifically for this purpose.
+</Callout>
+
+<h2 id="interpreting">Interpreting Failures</h2>
+
+<div class="my-6 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-4 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Symptom</th>
+        <th class="text-center px-4 py-4 text-blue-300 font-bold text-xs">Likely cause</th>
+        <th class="text-center px-4 py-4 text-blue-300 font-bold text-xs">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Coil OL — no resistance reading', 'Open coil winding', 'Replace relay'],
+        ['Coil near-zero resistance', 'Shorted coil', 'Replace relay'],
+        ['Correct coil R but relay does not click', 'Mechanical seizure or wrong voltage', 'Check supply voltage; replace relay'],
+        ['NC shows OL when de-energised', 'Burnt or welded NC contact (open)', 'Replace relay'],
+        ['NO shows continuity when de-energised', 'Welded NO contact (stuck closed)', 'Replace relay — do not use'],
+        ['High contact resistance (> 5 Ω)', 'Corroded or eroded contacts', 'Clean or replace; check load current'],
+        ['Relay picks up but contacts chatter', 'Low supply voltage or coil failing', 'Check supply; replace relay'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-medium text-[#0D1B2A] border-b border-gray-100 text-xs">{row[0]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-amber-700">{row[1]}</td>
+          <td class="px-4 py-3 text-center text-xs border-b border-gray-100 text-gray-700">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<p>
+  For testing protection relays in substations and switchgear — where accuracy and logged test records are essential — CIE's relay test sets provide the precision current and voltage injection capability required. Visit our <a href={u('/products/')}>relay test equipment range</a> or <a href={u('/contact/')}>contact our application engineers</a> to discuss your protection testing requirements.
+</p>
