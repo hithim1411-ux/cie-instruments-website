@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/BlogBase.astro';
+import Base from '../../layouts/Base.astro';
 import { u } from '../../utils/url';
 import posts from '../../data/blog.json';
 import MultimeterGuide from '../../content/blog/what-is-a-multimeter.astro';
@@ -87,17 +87,17 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
   description={post.description}
 >
 
-  <!-- ── Article Hero ── -->
-  <div class="border-b border-gray-100 bg-white">
+  <!-- ── Article Header — gray bg, clearly framed ── -->
+  <div class="bg-[#F5F7FA] border-b-2 border-gray-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10">
 
       <!-- Breadcrumb -->
-      <nav class="mb-7" aria-label="Breadcrumb">
+      <nav class="mb-6" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 text-xs text-gray-400 font-mono">
           <li><a href={u('/')} class="hover:text-[#0D1B2A] transition-colors">Home</a></li>
-          <li aria-hidden="true">›</li>
+          <li aria-hidden="true" class="text-gray-300">›</li>
           <li><a href={u('/blog/')} class="hover:text-[#0D1B2A] transition-colors">Insights</a></li>
-          <li aria-hidden="true">›</li>
+          <li aria-hidden="true" class="text-gray-300">›</li>
           <li class="text-gray-500 truncate max-w-[180px]">{post.category}</li>
         </ol>
       </nav>
@@ -106,35 +106,29 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
         {post.category}
       </span>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-[#0D1B2A] leading-tight tracking-tight max-w-3xl mb-5">
+      <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-[#0D1B2A] leading-tight tracking-tight max-w-3xl mb-4">
         {post.title}
       </h1>
 
-      <p class="text-[#64748b] text-lg max-w-2xl mb-8 leading-relaxed">{post.description}</p>
+      <p class="text-[#64748b] text-base max-w-2xl mb-7 leading-relaxed">{post.description}</p>
 
       <!-- Meta row -->
-      <div class="flex flex-wrap items-center gap-5 text-sm text-gray-400 border-t border-gray-100 pt-6">
-        <div class="flex items-center gap-2.5">
-          <img
-            src={u('/logo/cie-logo.png')}
-            alt="CIE Instruments"
-            width="22"
-            height="22"
-            class="object-contain shrink-0"
-          />
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+        <div class="flex items-center gap-2">
+          <img src={u('/logo/cie-logo.png')} alt="CIE Instruments" width="20" height="20" class="object-contain shrink-0" />
           <span class="text-gray-600 font-medium text-sm">CIE Instruments</span>
         </div>
-        <span class="text-gray-200">|</span>
-        <time datetime={post.publishDate} class="font-mono text-xs">
-          {new Date(post.publishDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
+        <span class="text-gray-300">·</span>
+        <time datetime={post.publishDate} class="font-mono text-xs text-gray-500">
+          {new Date(post.publishDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
         </time>
-        <span class="text-gray-200">|</span>
-        <span class="font-mono text-xs">{post.readTime}</span>
+        <span class="text-gray-300">·</span>
+        <span class="font-mono text-xs text-gray-500">{post.readTime}</span>
       </div>
     </div>
   </div>
 
-  <!-- ── Body: article + sidebar ── -->
+  <!-- ── Article body — white bg, starts here ── -->
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
     <div class="flex gap-14 items-start">
 
