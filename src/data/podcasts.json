@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "what-is-a-clamp-meter-podcast",
+    "title": "What Is a Clamp Meter? How It Works and When to Use One",
+    "description": "In this episode we break down how a clamp meter works — the Hall-effect sensor, the jaw geometry, and why you can measure hundreds of amps without breaking a circuit. We also cover when to reach for a clamp meter versus a standard multimeter, and the common mistakes that give bad readings.",
+    "spotifyEmbedUrl": "https://open.spotify.com/embed/episode/PLACEHOLDER_EPISODE_ID?utm_source=generator",
+    "publishDate": "2026-06-15",
+    "duration": "18 min",
+    "category": "How-To",
+    "excerpt": "A clamp meter measures current without cutting a wire — but the physics behind that trick is worth understanding. We explain Hall-effect sensing, jaw placement, and the real differences from a multimeter."
+  }
+]
