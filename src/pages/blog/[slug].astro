@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import { u } from '../../utils/url';
 import posts from '../../data/blog.json';
-import podcastsData from '../../data/podcasts.json';
 import MultimeterGuide from '../../content/blog/what-is-a-multimeter.astro';
 import ClampMeterGuide from '../../content/blog/how-to-use-a-clamp-meter.astro';
 import OhmsLaw from '../../content/blog/ohms-law-explained.astro';
@@ -30,16 +29,11 @@ import FaultsGuide from '../../content/blog/short-circuit-open-circuit-ground-fa
 import DigitalVsAnalogueGuide from '../../content/blog/digital-vs-analogue-multimeter.astro';
 
 export function getStaticPaths() {
-  const articlePaths = posts.map(post => ({ params: { slug: post.slug } }));
-  const podcastPaths = podcastsData.map(ep => ({ params: { slug: ep.slug } }));
-  return [...articlePaths, ...podcastPaths];
+  return posts.map(post => ({ params: { slug: post.slug } }));
 }
 
 const { slug } = Astro.params;
-const articlePost = posts.find(p => p.slug === slug);
-const podcastPost = podcastsData.find(p => p.slug === slug);
-const isPodcast = !!podcastPost;
-const post = (articlePost ?? podcastPost)! as any;
+const post = posts.find(p => p.slug === slug)!;
 
 const contentMap: Record<string, any> = {
   'what-is-a-multimeter': MultimeterGuide,
@@ -263,27 +257,6 @@ const categoryColors: Record<string, string> = {
   'Buying Guide': 'text-emerald-700 bg-emerald-50 border-emerald-200',
 };
 const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 border-gray-200';
-
-// PodcastEpisode JSON-LD (only for podcast slugs)
-const podcastSchema = isPodcast ? {
-  '@context': 'https://schema.org',
-  '@type': 'PodcastEpisode',
-  name: post.title,
-  description: post.description,
-  datePublished: post.publishDate,
-  timeRequired: `PT${parseInt(post.duration)}M`,
-  url: `https://cieinstruments.in/blog/${post.slug}/`,
-  partOfSeries: {
-    '@type': 'PodcastSeries',
-    name: 'CIE Instruments Podcast',
-    url: 'https://cieinstruments.in/blog/',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Cambridge Instruments & Engg. Co.',
-    url: 'https://cieinstruments.in/',
-  },
-} : null;
 ---
 
 <Base
@@ -306,17 +279,9 @@ const podcastSchema = isPodcast ? {
         </ol>
       </nav>
 
-      <div class="flex items-center gap-3 mb-5">
-        {isPodcast && (
-          <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border text-green-700 bg-green-50 border-green-200">
-            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4zm-2 6a5 5 0 0010 0H13a3 3 0 01-6 0H5zm5 5v2H8v1h4v-1h-2v-2h-1z"/></svg>
-            Podcast
-          </span>
-        )}
-        <span class={`inline-block text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border ${catStyle}`}>
-          {post.category}
-        </span>
-      </div>
+      <span class={`inline-block text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border mb-5 ${catStyle}`}>
+        {post.category}
+      </span>
 
       <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-[#0D1B2A] leading-tight tracking-tight max-w-3xl mb-4">
         {post.title}
@@ -335,51 +300,22 @@ const podcastSchema = isPodcast ? {
           {new Date(post.publishDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
         </time>
         <span class="text-gray-300">·</span>
-        <span class="font-mono text-xs text-gray-500">{isPodcast ? post.duration : post.readTime}</span>
+        <span class="font-mono text-xs text-gray-500">{post.readTime}</span>
       </div>
     </div>
   </div>
 
-  {/* PodcastEpisode JSON-LD */}
-  {isPodcast && podcastSchema && (
-    <script type="application/ld+json" set:html={JSON.stringify(podcastSchema)} />
-  )}
-
-  <!-- ── Body — white bg ── -->
+  <!-- ── Article body — white bg, starts here ── -->
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
     <div class="flex gap-14 items-start">
 
-      {isPodcast ? (
-        <!-- Podcast layout: embed + show notes, no sidebar -->
-        <div class="min-w-0 flex-1 max-w-3xl">
-          <!-- Spotify embed -->
-          <div class="mb-8">
-            <iframe
-              src={post.spotifyEmbedUrl}
-              width="100%"
-              height={post.embedHeight ?? 352}
-              frameborder="0"
-              allowfullscreen=""
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              class="rounded-xl w-full"
-            ></iframe>
-          </div>
-          <!-- Show notes -->
-          <div class="blog-content">
-            <h2 id="show-notes" class="!mt-0">Episode Notes</h2>
-            <p>{post.description}</p>
-          </div>
-        </div>
-      ) : (
-        <!-- Article content -->
-        <article class="min-w-0 flex-1 blog-content">
-          <Content />
-        </article>
-      )}
+      <!-- Article content -->
+      <article class="min-w-0 flex-1 blog-content">
+        <Content />
+      </article>
 
-      <!-- Sidebar — articles only -->
-      {!isPodcast && <aside class="hidden lg:block w-64 shrink-0">
+      <!-- Sidebar -->
+      <aside class="hidden lg:block w-64 shrink-0">
         <div class="sticky top-24 space-y-6">
 
           <!-- TOC -->
@@ -437,7 +373,7 @@ const podcastSchema = isPodcast ? {
             </div>
           )}
         </div>
-      </aside>}
+      </aside>
     </div>
   </div>
 

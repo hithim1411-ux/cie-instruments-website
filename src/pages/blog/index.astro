@@ -1,19 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { u } from '../../utils/url';
-import articles from '../../data/blog.json';
-import podcasts from '../../data/podcasts.json';
+import posts from '../../data/blog.json';
 
-// Merge and tag each entry with its type
-const allArticles = articles.map(p => ({ ...p, type: 'article' as const }));
-const allPodcasts = podcasts.map(p => ({ ...p, type: 'podcast' as const }));
-const all = [...allArticles, ...allPodcasts].sort((a, b) => b.publishDate.localeCompare(a.publishDate));
+const sorted = [...posts].sort((a, b) => b.publishDate.localeCompare(a.publishDate));
 
-// Featured = newest overall entry
-const featured = all[0];
-const rest = all.slice(1);
-
-// Category colour maps (articles)
 const catBar: Record<string, string> = {
   'Guides':       'bg-violet-500',
   'How-To':       'bg-blue-500',
@@ -46,48 +37,38 @@ const catChip: Record<string, string> = {
         Engineering<br/>Knowledge.
       </h1>
       <p class="text-[#64748b] text-base leading-relaxed max-w-xl">
-        Technical articles and podcast episodes on measurement instruments, testing methodology, and the physics behind every reading — written and recorded for engineers and electricians.
+        Technical articles on measurement instruments, testing methodology, and the physics behind every reading — written for engineers and electricians.
       </p>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════════
-       FEATURED — newest entry across articles + podcasts
+       FEATURED — dark navy
   ═══════════════════════════════════════════════════════════ -->
   <section class="bg-[#0D1B2A]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-      <p class="text-[10px] font-mono uppercase tracking-[0.18em] text-[#94a3b8] mb-8">
-        {featured.type === 'podcast' ? 'Latest Episode' : 'Latest Article'}
-      </p>
-      <a href={u(`/blog/${featured.slug}/`)} class="group block">
+      <p class="text-[10px] font-mono uppercase tracking-[0.18em] text-[#94a3b8] mb-8">Latest Article</p>
+      <a href={u(`/blog/${sorted[0].slug}/`)} class="group block">
         <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
           <div class="max-w-2xl">
-            <div class="flex items-center gap-3 mb-6">
-              {featured.type === 'podcast' && (
-                <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border text-green-300 bg-green-900/40 border-green-700">
-                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4zm-2 6a5 5 0 0010 0H13a3 3 0 01-6 0H5zm5 5v2H8v1h4v-1h-2v-2h-1z"/></svg>
-                  Podcast
-                </span>
-              )}
-              <span class={`inline-block text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border ${catChip[featured.category] ?? 'text-gray-300 bg-white/10 border-white/20'}`}>
-                {featured.category}
-              </span>
-            </div>
+            <span class={`inline-block text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border mb-6 ${catChip[sorted[0].category] ?? 'text-gray-300 bg-white/10 border-white/20'}`}>
+              {sorted[0].category}
+            </span>
             <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight mb-5 group-hover:text-[#E0252E] transition-colors">
-              {featured.title}
+              {sorted[0].title}
             </h2>
-            <p class="text-[#94a3b8] text-base leading-relaxed">{featured.excerpt}</p>
+            <p class="text-[#94a3b8] text-base leading-relaxed">{sorted[0].excerpt}</p>
           </div>
           <div class="shrink-0 flex flex-col items-start lg:items-end gap-4">
             <div class="text-[#64748b] font-mono text-xs">
-              <time datetime={featured.publishDate}>
-                {new Date(featured.publishDate).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })}
+              <time datetime={sorted[0].publishDate}>
+                {new Date(sorted[0].publishDate).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })}
               </time>
               <span class="mx-2">·</span>
-              <span>{featured.type === 'podcast' ? (featured as any).duration : (featured as any).readTime}</span>
+              <span>{sorted[0].readTime}</span>
             </div>
             <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#E0252E] group-hover:bg-[#D72631] text-white text-sm font-semibold rounded transition-colors">
-              {featured.type === 'podcast' ? 'Listen' : 'Read Article'}
+              Read Article
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </span>
           </div>
@@ -97,79 +78,84 @@ const catChip: Record<string, string> = {
   </section>
 
   <!-- ════════════════════════════════════════════════════════
-       FILTER — All / Articles / Podcasts
+       PODCAST — Spotify embed
   ═══════════════════════════════════════════════════════════ -->
-  <section class="bg-gray-50 border-b border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-      <div class="flex items-center gap-2" role="group" aria-label="Filter content type">
-        <button
-          data-filter="all"
-          class="filter-btn active px-4 py-2 rounded-lg text-sm font-semibold border transition-all duration-150"
-        >All</button>
-        <button
-          data-filter="article"
-          class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold border transition-all duration-150"
-        >Articles</button>
-        <button
-          data-filter="podcast"
-          class="filter-btn px-4 py-2 rounded-lg text-sm font-semibold border transition-all duration-150"
-        >
-          <span class="inline-flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4zm-2 6a5 5 0 0010 0H13a3 3 0 01-6 0H5zm5 5v2H8v1h4v-1h-2v-2h-1z"/></svg>
-            Podcasts
-          </span>
-        </button>
+  <section class="bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="flex flex-col lg:flex-row lg:items-center gap-10">
+
+        <!-- Left: text -->
+        <div class="lg:w-80 shrink-0">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-8 h-0.5 bg-[#1DB954]"></span>
+            <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-[#1DB954]">Podcast</p>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#0D1B2A] leading-snug mb-4">
+            We're on<br/>Spotify.
+          </h2>
+          <p class="text-[#64748b] text-sm leading-relaxed mb-6">
+            Deep-dives on measurement instruments, testing methodology, and electrical engineering — for engineers and electricians who want more than just a manual.
+          </p>
+          <a
+            href="https://open.spotify.com/show/033DkaSuC0aDSc2X2TApyV"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#1DB954] hover:bg-[#17a349] text-white text-sm font-semibold rounded-full transition-colors"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            Follow on Spotify
+          </a>
+        </div>
+
+        <!-- Right: embed -->
+        <div class="flex-1 min-w-0">
+          <iframe
+            src="https://open.spotify.com/embed/show/033DkaSuC0aDSc2X2TApyV?utm_source=generator"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            class="rounded-xl w-full"
+          ></iframe>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════════
-       GRID — articles + podcast cards unified
+       ARTICLE GRID
   ═══════════════════════════════════════════════════════════ -->
   <section class="bg-gray-50 border-b border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 pt-8">
-      <div class="grid sm:grid-cols-2 gap-5" id="insights-grid">
-        {rest.map(post => (
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <p class="text-[10px] font-mono uppercase tracking-[0.18em] text-[#94a3b8] mb-8">All Articles</p>
+      <div class="grid sm:grid-cols-2 gap-5">
+        {sorted.slice(1).map(post => (
           <a
             href={u(`/blog/${post.slug}/`)}
-            data-type={post.type}
-            class="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col insight-card"
+            class="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col"
           >
-            {/* Top colour stripe */}
-            {post.type === 'podcast'
-              ? <div class="h-1 w-full bg-green-500"></div>
-              : <div class={`h-1 w-full ${catBar[post.category] ?? 'bg-gray-300'}`}></div>
-            }
-
+            <div class={`h-1 w-full ${catBar[post.category] ?? 'bg-gray-300'}`}></div>
             <div class="p-7 flex flex-col flex-1">
-              {/* Badge row */}
-              <div class="flex items-center gap-2 mb-4">
-                {post.type === 'podcast' && (
-                  <span class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border text-green-700 bg-green-50 border-green-200">
-                    <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20"><path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4zm-2 6a5 5 0 0010 0H13a3 3 0 01-6 0H5zm5 5v2H8v1h4v-1h-2v-2h-1z"/></svg>
-                    Podcast
-                  </span>
-                )}
-                <span class={`inline-block self-start text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border ${catChip[post.category] ?? 'text-gray-600 bg-gray-50 border-gray-200'}`}>
-                  {post.category}
-                </span>
-              </div>
-
+              <span class={`inline-block self-start text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border mb-4 ${catChip[post.category] ?? 'text-gray-600 bg-gray-50 border-gray-200'}`}>
+                {post.category}
+              </span>
               <h2 class="text-lg font-bold text-[#0D1B2A] group-hover:text-[#E0252E] transition-colors leading-snug mb-3 flex-1">
                 {post.title}
               </h2>
               <p class="text-sm text-[#64748b] leading-relaxed mb-6 line-clamp-2">{post.excerpt}</p>
-
               <div class="flex items-center justify-between pt-4 border-t border-gray-100">
                 <div class="flex items-center gap-3 text-xs text-gray-400 font-mono">
                   <time datetime={post.publishDate}>
                     {new Date(post.publishDate).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })}
                   </time>
                   <span>·</span>
-                  <span>{post.type === 'podcast' ? (post as any).duration : (post as any).readTime}</span>
+                  <span>{post.readTime}</span>
                 </div>
                 <span class="text-xs font-semibold text-[#E0252E] flex items-center gap-1">
-                  {post.type === 'podcast' ? 'Listen' : 'Read'}
+                  Read
                   <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </span>
               </div>
@@ -177,9 +163,6 @@ const catChip: Record<string, string> = {
           </a>
         ))}
       </div>
-
-      <!-- Empty state when filter matches nothing -->
-      <p id="no-results" class="hidden text-center text-[#64748b] text-sm py-12">No entries in this category yet.</p>
     </div>
   </section>
 
@@ -209,44 +192,3 @@ const catChip: Record<string, string> = {
   </section>
 
 </Base>
-
-<style>
-.filter-btn {
-  color: #64748b;
-  background: white;
-  border-color: #e2e8f0;
-}
-.filter-btn:hover {
-  color: #0D1B2A;
-  border-color: #0D1B2A;
-}
-.filter-btn.active {
-  color: white;
-  background: #0D1B2A;
-  border-color: #0D1B2A;
-}
-</style>
-
-<script>
-const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-const cards   = document.querySelectorAll<HTMLElement>('.insight-card');
-const noResults = document.getElementById('no-results')!;
-
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const filter = btn.dataset.filter!;
-
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    let visible = 0;
-    cards.forEach(card => {
-      const show = filter === 'all' || card.dataset.type === filter;
-      card.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
-
-    noResults.classList.toggle('hidden', visible > 0);
-  });
-});
-</script>
