@@ -1,12 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { u } from '../../utils/url';
-import EyebrowLabel from '../../components/EyebrowLabel.astro';
-import CategoryCard from '../../components/CategoryCard.astro';
 import CTABand from '../../components/CTABand.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import categories from '../../data/categories.json';
 import products from '../../data/products.json';
+import site from '../../data/site.json';
 
 const cieCategories = categories.filter((c: any) => !c.brand || c.brand === 'cie');
 const vartechCategories = categories.filter((c: any) => c.brand === 'vartech');
@@ -35,7 +34,7 @@ const vartechProducts = products.filter((p: any) => p.brand === 'vartech');
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- CIE brand header -->
-      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
         <div class="flex items-center gap-4">
           <img src={u('/logo/cie-logo.png')} alt="CIE®" width="36" height="36" class="object-contain" />
           <div>
@@ -43,31 +42,90 @@ const vartechProducts = products.filter((p: any) => p.brand === 'vartech');
             <h2 class="text-xl font-bold text-[#0D1B2A]">CIE Manufactured Instruments</h2>
           </div>
         </div>
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0D1B2A] text-white text-xs font-bold rounded-full">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0D1B2A] text-white text-xs font-bold rounded-full self-start sm:self-auto">
           <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
           Manufactured in Howrah since 1963
         </span>
       </div>
 
-      <!-- CIE category grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-4">
+      <!-- Category filter pills -->
+      <div class="flex flex-wrap gap-2 mb-8" id="cie-filters">
+        <button
+          data-filter="all"
+          class="filter-pill active px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors"
+        >
+          All ({cieProducts.length})
+        </button>
         {cieCategories.map(cat => {
-          const count = products.filter((p: any) => p.categoryId === cat.id).length;
+          const count = cieProducts.filter((p: any) => p.categoryId === cat.id).length;
           return (
-            <a href={u(`/products/${cat.id}/`)}
-              class="group flex flex-col p-5 rounded-xl border border-gray-200 bg-white hover:border-[#1B3A5B] hover:shadow-md transition-all duration-200">
-              <div class="flex items-start justify-between mb-3">
-                <span class="text-2xl">{cat.icon}</span>
-                <span class="text-[10px] font-mono text-gray-400">{count} {count === 1 ? 'model' : 'models'}</span>
-              </div>
-              <h3 class="font-bold text-[#0D1B2A] text-sm leading-snug group-hover:text-[#1B3A5B] transition-colors mb-1">{cat.shortName}</h3>
-              <p class="text-xs text-gray-500 leading-relaxed flex-1">{cat.description.slice(0, 80)}…</p>
-              <div class="mt-3 text-xs font-semibold text-[#1B3A5B] group-hover:underline">View range →</div>
-            </a>
+            <button
+              data-filter={cat.id}
+              class="filter-pill px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors"
+            >
+              {cat.icon} {cat.shortName} ({count})
+            </button>
           );
         })}
       </div>
-      <p class="text-xs text-[#94a3b8]">{cieProducts.length} CIE instruments across {cieCategories.length} categories</p>
+
+      <!-- CIE product grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" id="cie-product-grid">
+        {cieProducts.map((p: any) => {
+          const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${p.model} — ${p.name}`);
+          return (
+            <article
+              data-category={p.categoryId}
+              class="cie-product-card bg-white rounded-xl border border-[#E8ECF2] overflow-hidden flex flex-col hover:shadow-md hover:border-[#1B3A5B] transition-all duration-200"
+            >
+              <!-- Product image -->
+              <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] h-40 flex items-center justify-center relative">
+                <img
+                  src={u(`/images/products/${p.id}.webp`)}
+                  alt={`${p.model} — ${p.name}`}
+                  width="300"
+                  height="300"
+                  class="object-contain h-32 w-auto"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                />
+                <div class="hidden absolute inset-0 flex-col items-center justify-center gap-1 text-[#b0bec5]">
+                  <svg class="w-10 h-10 opacity-25" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/>
+                    <path d="M3 9l4-4 4 4 4-4 4 4" stroke-width="1.5"/>
+                  </svg>
+                  <span class="text-[10px] font-mono uppercase tracking-wider opacity-40">Image coming soon</span>
+                </div>
+              </div>
+
+              <div class="p-4 flex flex-col flex-1">
+                <p class="text-[11px] font-mono text-[#E0252E] mb-0.5">{p.model}</p>
+                <h3 class="font-bold text-[#0D2547] text-sm leading-snug mb-2">{p.name}</h3>
+                <p class="text-xs text-[#64748B] mb-4 flex-1 line-clamp-3">{p.tagline}</p>
+
+                <div class="flex flex-col gap-2 mt-auto">
+                  <a
+                    href={u(`/products/${p.categoryId}/${p.id}`)}
+                    class="text-center px-3 py-2 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-xs font-semibold rounded transition-colors"
+                  >
+                    View Specifications
+                  </a>
+                  <a
+                    href={`https://wa.me/${site.whatsapp}?text=${waMsg}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-center px-3 py-2 border border-[#25D366] text-[#1a6e38] hover:bg-[#25D366]/10 text-xs font-medium rounded transition-colors"
+                  >
+                    Enquire on WhatsApp
+                  </a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <p class="mt-4 text-xs text-[#94a3b8]">{cieProducts.length} CIE instruments across {cieCategories.length} categories</p>
     </div>
   </section>
 
@@ -93,10 +151,10 @@ const vartechProducts = products.filter((p: any) => p.brand === 'vartech');
         </div>
       </div>
 
-      <!-- Vartech category grid — distinct teal/dark teal colour scheme -->
+      <!-- Vartech category grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-4">
         {vartechCategories.map(cat => {
-          const count = products.filter((p: any) => p.categoryId === cat.id).length;
+          const count = vartechProducts.filter((p: any) => p.categoryId === cat.id).length;
           return (
             <a href={u(`/products/${cat.id}/`)}
               class="group flex flex-col p-5 rounded-xl border-2 border-emerald-100 bg-white hover:border-emerald-500 hover:shadow-md transition-all duration-200">
@@ -118,3 +176,45 @@ const vartechProducts = products.filter((p: any) => p.brand === 'vartech');
 
   <CTABand />
 </Base>
+
+<style>
+  .filter-pill {
+    background: white;
+    color: #64748b;
+    border-color: #e2e8f0;
+  }
+  .filter-pill:hover {
+    border-color: #1B3A5B;
+    color: #1B3A5B;
+  }
+  .filter-pill.active {
+    background: #1B3A5B;
+    color: white;
+    border-color: #1B3A5B;
+  }
+  .cie-product-card.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  const filters = document.querySelectorAll<HTMLButtonElement>('#cie-filters .filter-pill');
+  const cards = document.querySelectorAll<HTMLElement>('#cie-product-grid .cie-product-card');
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter!;
+
+      filters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
