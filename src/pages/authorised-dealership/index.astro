@@ -3,38 +3,61 @@ import Base from '../../layouts/Base.astro';
 import { u } from '../../utils/url';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CTABand from '../../components/CTABand.astro';
+import multimeters from '../../data/vartech-multimeters.json';
+import clampMeters from '../../data/vartech-clamp-meters.json';
+import oscilloscopes from '../../data/vartech-oscilloscopes.json';
+import functionGenerators from '../../data/vartech-function-generators.json';
+import lcrMeters from '../../data/vartech-lcr-meters.json';
+import dcLoads from '../../data/vartech-dc-loads.json';
 
-const brands = [
+const categories = [
   {
-    id: 'vartech',
-    name: 'Vartech',
-    logo: u('/images/vartech/vartech-logo.avif'),
-    logoAlt: 'Vartech — precision digital test instruments logo',
-    tagline: 'Precision Digital Test & Measurement Instruments',
-    description:
-      'Vartech is a trusted Indian manufacturer of high-quality digital multimeters, LCR meters, calibrators and bench-top instruments. CIE Instruments is an authorised dealer and distributor of Vartech products across India, supplying engineers, utilities and research institutions with reliable, feature-rich instruments backed by expert technical support.',
-    categories: [
-      {
-        label: 'Multimeters',
-        href: u('/authorised-dealership/multimeters/'),
-        icon: '🔌',
-        count: 12,
-        description: 'True RMS digital multimeters — pocket-friendly to bench-top, 2000 to 30000 counts.',
-      },
-      {
-        label: 'Clamp Meters',
-        href: u('/authorised-dealership/clamp-meters/'),
-        icon: '🔧',
-        count: 6,
-        description: 'Digital clamp meters — 1000 A AC, True RMS, mA leakage testers and smart compact models.',
-      },
-    ],
+    label: 'Multimeters',
+    href: u('/authorised-dealership/multimeters/'),
+    icon: '🔌',
+    count: multimeters.length,
+    description: 'True RMS digital multimeters — pocket-friendly to bench-top, 2000 to 30000 counts.',
+  },
+  {
+    label: 'Clamp Meters',
+    href: u('/authorised-dealership/clamp-meters/'),
+    icon: '🔧',
+    count: clampMeters.length,
+    description: 'Digital clamp meters — 1000 A AC, True RMS, mA leakage testers and smart compact models.',
+  },
+  {
+    label: 'Oscilloscopes',
+    href: u('/authorised-dealership/oscilloscopes/'),
+    icon: '📡',
+    count: oscilloscopes.length,
+    description: 'Analog CROs (20–30 MHz) and digital storage oscilloscopes (80–150 MHz, 1 GS/s, 7" TFT).',
+  },
+  {
+    label: 'Function Generators',
+    href: u('/authorised-dealership/function-generators/'),
+    icon: '〜',
+    count: functionGenerators.length,
+    description: 'DDS function generators — 6 MHz to 80 MHz, dual channel, arbitrary waveforms, USB interface.',
+  },
+  {
+    label: 'LCR & Cap Meters',
+    href: u('/authorised-dealership/lcr-meters/'),
+    icon: '🔵',
+    count: lcrMeters.length,
+    description: 'Portable LC meters, handheld LCR multimeters and bench-top LCR-D-Q instruments with USB/RS232.',
+  },
+  {
+    label: 'DC Electronic Loads',
+    href: u('/authorised-dealership/dc-loads/'),
+    icon: '⚡',
+    count: dcLoads.length,
+    description: '600 W programmable DC loads with CC/CV/CR/CP modes — for battery, power supply and charger testing.',
   },
 ];
 
 const pageTitle = 'Authorised Dealership — Vartech Instruments | CIE Instruments';
 const pageDesc =
-  'CIE Instruments is an authorised dealer and distributor of Vartech precision digital test instruments in India — multimeters, LCR meters and calibrators. Expert support, pan-India supply from Howrah.';
+  'CIE Instruments is an authorised dealer and distributor of Vartech precision digital test instruments in India — multimeters, clamp meters, oscilloscopes, function generators, LCR meters and DC electronic loads. Expert support, pan-India supply from Howrah.';
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -63,60 +86,59 @@ const breadcrumbSchema = {
       <p class="eyebrow mt-4 mb-3">— CIE® Authorised Dealership</p>
       <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">Authorised Dealership</h1>
       <p class="mt-2 text-[#64748B] max-w-2xl">
-        CIE Instruments represents select instrument brands as an authorised dealer, bringing you quality products with dedicated technical support and pan-India supply.
+        CIE Instruments represents Vartech as an authorised dealer — supplying the complete range of Vartech precision digital test instruments with dedicated technical support and pan-India delivery.
       </p>
     </div>
   </div>
 
-  <!-- Brand sections -->
-  {brands.map(brand => (
-    <section class="bg-white py-12 lg:py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Vartech brand section -->
+  <section class="bg-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Brand identity -->
-        <div class="flex flex-col sm:flex-row sm:items-start gap-6 pb-8 border-b border-[#E8ECF2] mb-10">
-          <div class="shrink-0">
-            <img
-              src={brand.logo}
-              alt={brand.logoAlt}
-              width="220"
-              height="80"
-              class="h-16 w-auto object-contain"
-              loading="eager"
-            />
-          </div>
-          <div>
-            <span class="inline-block mb-2 text-xs font-mono uppercase tracking-widest text-[#E0252E] bg-[#E0252E]/10 px-2 py-0.5 rounded">Authorised Dealer</span>
-            <h2 class="text-xl font-bold text-[#0D2547] mb-2">{brand.tagline}</h2>
-            <p class="text-sm text-[#64748B] leading-relaxed max-w-2xl">{brand.description}</p>
-          </div>
+      <!-- Brand identity -->
+      <div class="flex flex-col sm:flex-row sm:items-start gap-6 pb-8 border-b border-[#E8ECF2] mb-10">
+        <div class="shrink-0">
+          <img
+            src={u('/images/vartech/vartech-logo.avif')}
+            alt="Vartech — precision digital test instruments"
+            width="220" height="80"
+            class="h-16 w-auto object-contain"
+            loading="eager"
+          />
         </div>
-
-        <!-- Product category cards -->
-        <h2 class="text-lg font-bold text-[#0D2547] mb-5">Product Categories</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {brand.categories.map(cat => (
-            <a
-              href={cat.href}
-              class="group bg-white border border-[#E8ECF2] rounded-lg p-5 flex flex-col gap-3 hover:shadow-md hover:border-[#1B3A5B]/30 transition-all duration-200"
-            >
-              <div class="flex items-center gap-3">
-                <span class="text-2xl" aria-hidden="true">{cat.icon}</span>
-                <div>
-                  <p class="font-bold text-[#0D2547] text-base group-hover:text-[#1B3A5B] transition-colors">{cat.label}</p>
-                  <p class="text-xs text-[#64748B] font-mono">{cat.count} products</p>
-                </div>
-              </div>
-              <p class="text-sm text-[#64748B] leading-relaxed flex-1">{cat.description}</p>
-              <span class="text-sm font-semibold text-[#1B3A5B] group-hover:text-[#E0252E] transition-colors">
-                Browse {cat.label} →
-              </span>
-            </a>
-          ))}
+        <div>
+          <span class="inline-block mb-2 text-xs font-mono uppercase tracking-widest text-[#E0252E] bg-[#E0252E]/10 px-2 py-0.5 rounded">Authorised Dealer</span>
+          <h2 class="text-xl font-bold text-[#0D2547] mb-2">Precision Digital Test &amp; Measurement Instruments</h2>
+          <p class="text-sm text-[#64748B] leading-relaxed max-w-2xl">
+            Vartech is a trusted manufacturer of high-quality digital test and measurement instruments. CIE Instruments is an authorised dealer and distributor of Vartech products across India, supplying engineers, utilities, research institutions and educational establishments with reliable, feature-rich instruments backed by expert technical support.
+          </p>
         </div>
       </div>
-    </section>
-  ))}
+
+      <!-- Product category cards — all 6 -->
+      <h2 class="text-lg font-bold text-[#0D2547] mb-5">Product Categories</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {categories.map(cat => (
+          <a
+            href={cat.href}
+            class="group bg-white border border-[#E8ECF2] rounded-lg p-5 flex flex-col gap-3 hover:shadow-md hover:border-[#1B3A5B]/30 transition-all duration-200"
+          >
+            <div class="flex items-center gap-3">
+              <span class="text-2xl" aria-hidden="true">{cat.icon}</span>
+              <div>
+                <p class="font-bold text-[#0D2547] text-base group-hover:text-[#1B3A5B] transition-colors">{cat.label}</p>
+                <p class="text-xs text-[#64748B] font-mono">{cat.count} models</p>
+              </div>
+            </div>
+            <p class="text-sm text-[#64748B] leading-relaxed flex-1">{cat.description}</p>
+            <span class="text-sm font-semibold text-[#1B3A5B] group-hover:text-[#E0252E] transition-colors">
+              Browse {cat.label} →
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <CTABand />
 </Base>

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "el-600-plus",
+    "model": "EL-600+",
+    "name": "600 W Programmable DC Electronic Load (Enhanced)",
+    "tagline": "600 W programmable DC load with 150 V / 120 A maximum ratings, RS232C interface and enhanced dynamic test capability.",
+    "description": "The Vartech EL-600+ is a 600 W programmable DC electronic load with enhanced dynamic testing capability. It accepts input up to 150 V and 120 A, and operates in constant current (CC), constant voltage (CV), constant resistance (CR) and constant power (CP) modes. The RS232C interface enables PC control for automated test sequences. The EL-600+ adds enhanced dynamic load testing over the standard EL-600 — supporting rapid step changes in load for battery impedance characterisation, power supply transient response testing, and DC-DC converter evaluation. Front-panel programming with a large digital display shows voltage, current and power simultaneously.",
+    "features": [
+      "600 W power rating — handles most bench-level power supply and battery testing",
+      "150 V maximum input voltage — suitable for higher-voltage DC sources",
+      "120 A maximum input current (enhanced over standard EL-600) — high-current battery and charger testing",
+      "CC, CV, CR, CP operating modes — simulate any real-world DC load condition",
+      "Enhanced dynamic load testing — rapid step changes for battery impedance and power supply transient response",
+      "RS232C interface — PC control for automated test system integration",
+      "Front-panel display showing voltage, current and power simultaneously"
+    ],
+    "specs": [
+      { "label": "Maximum Power", "value": "600 W" },
+      { "label": "Maximum Input Voltage", "value": "150 V DC" },
+      { "label": "Maximum Input Current", "value": "120 A" },
+      { "label": "Operating Modes", "value": "Constant Current (CC), Constant Voltage (CV), Constant Resistance (CR), Constant Power (CP)" },
+      { "label": "Dynamic Testing", "value": "Yes — enhanced dynamic mode for transient response and impedance testing" },
+      { "label": "Interface", "value": "RS232C" },
+      { "label": "Display", "value": "Front-panel digital display — simultaneous V, A, W readout" },
+      { "label": "Power Supply", "value": "Mains (230 V AC)" }
+    ],
+    "images": ["el-600-plus.webp"],
+    "catalogue": "el-600-plus.pdf"
+  },
+  {
+    "id": "el-600",
+    "model": "EL-600",
+    "name": "600 W Programmable DC Electronic Load",
+    "tagline": "600 W programmable DC load with 150 V / 60 A ratings and RS232C — reliable, versatile and cost-effective load testing.",
+    "description": "The Vartech EL-600 is a 600 W programmable DC electronic load for testing batteries, power supplies, DC-DC converters, chargers, solar panels and fuel cells. It accepts input up to 150 V and 60 A, and operates in constant current (CC), constant voltage (CV), constant resistance (CR) and constant power (CP) modes. Unlike a resistive load bank, the EL-600 maintains programmed load conditions regardless of source voltage variation — enabling consistent, repeatable tests. RS232C interface allows PC control. A front-panel display shows voltage, current and power simultaneously.",
+    "features": [
+      "600 W power rating for most bench-level power and battery testing applications",
+      "150 V maximum input voltage",
+      "60 A maximum input current",
+      "CC, CV, CR, CP modes — simulate any DC load condition accurately",
+      "RS232C interface for PC control and automated testing",
+      "Front-panel digital display — simultaneous voltage, current and power readout",
+      "Suitable for battery testing, power supply characterisation, charger validation, solar panel evaluation"
+    ],
+    "specs": [
+      { "label": "Maximum Power", "value": "600 W" },
+      { "label": "Maximum Input Voltage", "value": "150 V DC" },
+      { "label": "Maximum Input Current", "value": "60 A" },
+      { "label": "Operating Modes", "value": "Constant Current (CC), Constant Voltage (CV), Constant Resistance (CR), Constant Power (CP)" },
+      { "label": "Interface", "value": "RS232C" },
+      { "label": "Display", "value": "Front-panel digital display — simultaneous V, A, W readout" },
+      { "label": "Power Supply", "value": "Mains (230 V AC)" }
+    ],
+    "images": ["el-600.webp"],
+    "catalogue": "el-600.pdf"
+  }
+]

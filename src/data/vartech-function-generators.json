@@ -1,0 +1,161 @@
+[
+  {
+    "id": "sgda-80m",
+    "model": "SGDA-80M",
+    "name": "80 MHz Programmable DDS Function Generator",
+    "tagline": "Dual-channel, 80 MHz DDS with 3.5-inch TFT display, arbitrary waveforms and USB — fully programmable for automated test systems.",
+    "description": "The Vartech SGDA-80M is an 80 MHz dual-channel programmable DDS function generator with a 300 MSa/s sampling rate and a 3.5-inch TFT colour LCD display. It generates sine, square, pulse, triangle, ramp, CMOS, DC level, noise, arbitrary and a wide range of standard waveforms. A USB interface enables PC control for automated test system integration. With modulation modes including AM, FM, PM and PWM, sweep, and burst functions, the SGDA-80M is a comprehensive signal source for R&D labs, electronics engineering, and production testing.",
+    "features": [
+      "80 MHz bandwidth, 300 MSa/s sampling rate — sufficient for most analogue and digital signal generation work",
+      "Dual independent channels — two simultaneous, independent signal outputs",
+      "3.5-inch TFT colour LCD — clear, full-colour parameter and waveform display",
+      "Rich waveform set — sine, square, pulse, triangle, ramp, CMOS, DC level, noise, arbitrary and more",
+      "Modulation modes — AM, FM, PM, PWM, ASK, FSK, PSK",
+      "Sweep, burst and frequency counter built in",
+      "USB interface — PC control for automated test integration",
+      "Store/recall settings — save and restore setups quickly"
+    ],
+    "specs": [
+      { "label": "Frequency Range", "value": "1 nHz — 80 MHz" },
+      { "label": "Channels", "value": "2 (Dual Channel)" },
+      { "label": "Sampling Rate", "value": "300 MSa/s" },
+      { "label": "Display", "value": "3.5\" TFT Colour LCD (64K true colour)" },
+      { "label": "Standard Waveforms", "value": "Sine, Square, Pulse, Triangle, Ramp, CMOS, DC Level, Partial Sine, Half/Full Wave, Positive/Inverse Step, Noise, Exponential Rise/Fall, Log Ascending/Descending, Multi-Tone, Lorenz" },
+      { "label": "Modulation", "value": "AM, FM, PM, PWM, ASK, FSK, PSK" },
+      { "label": "Sweep", "value": "Linear and Logarithmic" },
+      { "label": "Burst", "value": "Yes" },
+      { "label": "Interface", "value": "USB" },
+      { "label": "Power Supply", "value": "Mains (230 V AC)" }
+    ],
+    "images": ["sgda-80m.webp"],
+    "catalogue": "sgda-80m.pdf"
+  },
+  {
+    "id": "sgda-60m",
+    "model": "SGDA-60M",
+    "name": "60 MHz Dual Channel DDS Function & Arbitrary Waveform Generator",
+    "tagline": "60 MHz DDS with arbitrary waveform generation, 2.8-inch colour screen and built-in frequency counter — ideal for DIY, R&D and production.",
+    "description": "The Vartech SGDA-60M is a dual-channel DDS function and arbitrary waveform generator with a 60 MHz bandwidth and a 2.8-inch colour screen with comfortable silicone keys. It outputs sine, square, triangular, pulse, DC and arbitrary waveforms. Modulation modes include waveform modulation, burst, PWM, frequency sweep, amplitude sweep, duty sweep, and VCO voltage-controlled scanning. A built-in frequency meter and counter are included. Suitable for DIY electronics, scientific research, education, product development and debugging.",
+    "features": [
+      "60 MHz bandwidth with dual independent channels",
+      "Arbitrary waveform generation — create and output custom waveforms via PC software",
+      "2.8-inch colour screen with silicone keys — comfortable, clear user interface",
+      "Waveform modulation, burst, PWM, frequency/amplitude/duty sweep and VCO scanning",
+      "Built-in frequency meter and counter",
+      "Suitable for DIY, R&D, education and product development"
+    ],
+    "specs": [
+      { "label": "Frequency Range", "value": "Up to 60 MHz" },
+      { "label": "Channels", "value": "2 (Dual Channel)" },
+      { "label": "Display", "value": "2.8\" Colour Screen" },
+      { "label": "Standard Waveforms", "value": "Sine, Square, Triangle, Pulse, DC, Arbitrary" },
+      { "label": "Modulation / Functions", "value": "Waveform Modulation, Burst, PWM, Frequency Sweep, Amplitude Sweep, Duty Sweep, VCO" },
+      { "label": "Frequency Counter", "value": "Built-in" },
+      { "label": "Interface", "value": "USB" },
+      { "label": "Power Supply", "value": "Mains (230 V AC)" }
+    ],
+    "images": ["sgda-60m.webp"],
+    "catalogue": "sgda-60m.pdf"
+  },
+  {
+    "id": "sgda-30m",
+    "model": "SGDA-30M",
+    "name": "30 MHz Dual Channel DDS Function Generator",
+    "tagline": "30 MHz DDS with 2.4-inch TFT, 266 MSa/s, USB interface and 60 arbitrary waveforms — a feature-complete bench signal source.",
+    "description": "The Vartech SGDA-30M is a 30 MHz dual-channel DDS function generator with a 266 MSa/s sampling rate, 14-bit vertical resolution, and a 2.4-inch TFT colour LCD display. Frequency output covers up to 30 MHz for sine, with 25 MHz for square and triangle, 6 MHz for pulse, TTL and arbitrary waveforms. 60 arbitrary waveforms are built in. A multifunction frequency counter covers 1 Hz to 100 MHz. DC offset, linear/log sweep, burst and store/recall are all provided. An optional power amplifier module extends output power for driving higher loads.",
+    "features": [
+      "30 MHz sine, 25 MHz square/triangle, 6 MHz pulse and arbitrary — versatile frequency coverage",
+      "266 MSa/s, 14-bit vertical resolution — clean, accurate waveform generation",
+      "Dual independent channels — two simultaneous outputs",
+      "60 built-in arbitrary waveforms — plus sine, square, pulse, triangle, CMOS, noise, and more",
+      "Multifunction frequency counter — 1 Hz to 100 MHz",
+      "DC offset, linear/log sweep, burst, store/recall",
+      "2.4-inch TFT LCD with USB and TTL external interface"
+    ],
+    "specs": [
+      { "label": "Frequency Range — Sine", "value": "30 MHz (0.01 µHz resolution)" },
+      { "label": "Frequency Range — Square & Triangle", "value": "25 MHz" },
+      { "label": "Frequency Range — Pulse, TTL & Arbitrary", "value": "6 MHz" },
+      { "label": "Channels", "value": "2 (Dual Channel)" },
+      { "label": "Sampling Rate", "value": "266 MSa/s (14-bit vertical resolution)" },
+      { "label": "Amplitude — Sine ≤ 10 MHz", "value": "2 mVpp — 20 Vpp" },
+      { "label": "Amplitude — Sine ≥ 10 MHz", "value": "2 mVpp — 10 Vpp" },
+      { "label": "Amplitude — Square & Triangle ≤ 10 MHz", "value": "2 mVpp — 20 Vpp" },
+      { "label": "Amplitude — Square & Triangle ≥ 10 MHz", "value": "2 mVpp — 5 Vpp" },
+      { "label": "Arbitrary Waveforms", "value": "60 built-in" },
+      { "label": "Frequency Counter", "value": "1 Hz — 100 MHz" },
+      { "label": "Other Functions", "value": "DC Offset, Sweep (Lin/Log), Burst, Store/Recall" },
+      { "label": "Display", "value": "2.4\" TFT LCD" },
+      { "label": "Interface", "value": "USB, TTL External" },
+      { "label": "Accessory", "value": "Optional Power Amplifier Module" },
+      { "label": "Power Supply", "value": "Mains (230 V AC)" }
+    ],
+    "images": ["sgda-30m.webp"],
+    "catalogue": "sgda-30m.pdf"
+  },
+  {
+    "id": "sgda-15m",
+    "model": "SGDA-15M",
+    "name": "15 MHz Dual Channel DDS Function Generator",
+    "tagline": "15 MHz DDS with 2.4-inch TFT, 266 MSa/s and 60 arbitrary waveforms — compact, capable and cost-effective.",
+    "description": "The Vartech SGDA-15M is a 15 MHz dual-channel DDS function generator sharing the same proven platform as the SGDA-30M but at a more accessible frequency range. Sampling rate is 266 MSa/s with 14-bit vertical resolution. It supports sine, square, triangle, pulse, CMOS, noise, arbitrary and 13 other waveform types, 60 arbitrary waveforms, a 1 Hz to 100 MHz frequency counter, DC offset, sweep and burst — all via a 2.4-inch TFT LCD interface with USB and TTL external connections.",
+    "features": [
+      "15 MHz sine, square and triangle — 6 MHz pulse, TTL and arbitrary",
+      "266 MSa/s, 14-bit resolution — the same precision platform as the 30M model",
+      "Dual independent channels",
+      "60 built-in arbitrary waveforms",
+      "Frequency counter: 1 Hz — 100 MHz",
+      "DC offset, sweep, burst, store/recall",
+      "2.4-inch TFT LCD, USB and TTL external interface"
+    ],
+    "specs": [
+      { "label": "Frequency Range — Sine, Square & Triangle", "value": "15 MHz (0.01 µHz resolution)" },
+      { "label": "Frequency Range — Pulse, TTL & Arbitrary", "value": "6 MHz" },
+      { "label": "Channels", "value": "2 (Dual Channel)" },
+      { "label": "Sampling Rate", "value": "266 MSa/s (14-bit vertical resolution)" },
+      { "label": "Amplitude — Sine ≤ 10 MHz", "value": "2 mVpp — 20 Vpp" },
+      { "label": "Amplitude — Sine ≥ 10 MHz", "value": "2 mVpp — 10 Vpp" },
+      { "label": "Amplitude — Square & Triangle ≤ 10 MHz", "value": "2 mVpp — 20 Vpp" },
+      { "label": "Amplitude — Square & Triangle ≥ 10 MHz", "value": "2 mVpp — 5 Vpp" },
+      { "label": "Arbitrary Waveforms", "value": "60 built-in" },
+      { "label": "Frequency Counter", "value": "1 Hz — 100 MHz" },
+      { "label": "Other Functions", "value": "DC Offset, Sweep (Lin/Log), Burst, Store/Recall" },
+      { "label": "Display", "value": "2.4\" TFT LCD" },
+      { "label": "Interface", "value": "USB, TTL External" },
+      { "label": "Accessory", "value": "Optional Power Amplifier Module" },
+      { "label": "Power Supply", "value": "Mains (230 V AC)" }
+    ],
+    "images": ["sgda-15m.webp"],
+    "catalogue": "sgda-15m.pdf"
+  },
+  {
+    "id": "sgd-6m",
+    "model": "SGD-6M",
+    "name": "6 MHz Dual Channel DDS Function Generator",
+    "tagline": "Entry-level 6 MHz DDS with backlit LCD, USB interface and frequency counter — everything needed for basic bench signal generation.",
+    "description": "The Vartech SGD-6M is a 6 MHz dual-channel DDS function generator with a backlit LCD display and USB interface. It generates sine, square, triangle, sawtooth, TTL digital and 16 arbitrary waveforms with a 200 MSa/s, 12-bit sampling system. A multifunction frequency counter covers 0.1 Hz to 60 MHz. DC offset, linear/log sweep, burst and invert functions are provided. The SGD-6M is an economical but capable entry-level DDS signal source for students, hobbyists, and technicians who need routine bench signal generation.",
+    "features": [
+      "6 MHz output frequency — covers audio and low-frequency electronics applications",
+      "Dual independent channels",
+      "200 MSa/s, 12-bit resolution — clean waveform generation at all frequencies",
+      "Sine, square, triangle, sawtooth, TTL digital and 16 arbitrary waveforms",
+      "Frequency counter: 0.1 Hz — 60 MHz",
+      "DC offset, linear/log sweep, burst and invert",
+      "Backlit LCD display with USB and TTL external interface"
+    ],
+    "specs": [
+      { "label": "Frequency Range", "value": "6 MHz (10 mHz resolution)" },
+      { "label": "Channels", "value": "2 (Dual Channel)" },
+      { "label": "Sampling Rate", "value": "200 MSa/s (12-bit vertical resolution)" },
+      { "label": "Waveforms", "value": "Sine, Square, Triangle, Sawtooth, TTL Digital, 16 Arbitrary" },
+      { "label": "Amplitude", "value": "5 mVpp — 20 Vpp (–20 dB attenuation available)" },
+      { "label": "Frequency Counter", "value": "0.1 Hz — 60 MHz" },
+      { "label": "Other Functions", "value": "DC Offset, Sweep (Lin/Log), Burst, Invert, Store/Recall" },
+      { "label": "Display", "value": "LCD with Backlight" },
+      { "label": "Interface", "value": "USB, TTL External" },
+      { "label": "Power Supply", "value": "Mains (230 V AC via power adaptor)" }
+    ],
+    "images": ["sgd-6m.webp"],
+    "catalogue": "sgd-6m.pdf"
+  }
+]

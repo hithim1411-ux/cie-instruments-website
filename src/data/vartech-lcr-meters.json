@@ -1,0 +1,115 @@
+[
+  {
+    "id": "lcm-1",
+    "model": "LCM-1",
+    "name": "Portable Digital LC Meter",
+    "tagline": "High-precision portable LC meter with wide measurement range — from 1 pF capacitance to 100 H inductance in two range modes.",
+    "description": "The Vartech LCM-1 is a compact, high-precision portable LC meter with a 4-digit LCD display. It features two measurement modes: Low Range for precise measurement of small capacitors (1 pF to 10 µF) and inductors (1 µH to 100 mH), and High Range for larger values (1 µF to 100 mF capacitance, 100 mH to 100 H inductance). Test frequencies of 500 kHz (L and C low range) and 500 Hz to 50 kHz (high L range) ensure accurate measurement across the full range. The LCM-1 is ideal for incoming inspection, component sorting, resonant circuit design, and general electronics lab work.",
+    "features": [
+      "Wide L and C range — 1 pF to 100 mF capacitance, 1 µH to 100 H inductance across two modes",
+      "High precision — 4-digit LCD display with high resolution in both low and high range modes",
+      "Two measurement modes — Low Range for small components, High Range for large values",
+      "Compact and portable — fits easily in a toolkit or component drawer",
+      "Test frequencies optimised per range — 500 kHz for L/C low range, 500 Hz to 50 kHz for high-L range"
+    ],
+    "specs": [
+      { "label": "Display", "value": "4-Digit LCD" },
+      { "label": "Capacitance — Low Range", "value": "1 pF — 10 µF" },
+      { "label": "Capacitance — High Range", "value": "1 µF — 100 mF" },
+      { "label": "Inductance — Low Range", "value": "1 µH — 100 mH" },
+      { "label": "Inductance — High Range", "value": "100 mH — 100 H" },
+      { "label": "Test Frequency — L & C Low Range", "value": "500 kHz" },
+      { "label": "Test Frequency — High L Range", "value": "500 Hz — 50 kHz" }
+    ],
+    "images": ["lcm-1.webp"],
+    "catalogue": "lcm-1.pdf"
+  },
+  {
+    "id": "v-8222h",
+    "model": "V 8222 H",
+    "name": "Handheld LCR Multimeter — True RMS, 1000 V",
+    "tagline": "3½-digit True RMS handheld multimeter with L, C, R measurement, temperature, frequency and transistor test — the only meter you need.",
+    "description": "The Vartech V 8222 H is a heavy-duty 3½-digit handheld digital multimeter with True RMS measurement and built-in LCR (inductance, capacitance, resistance) measurement capability. It measures DC and AC voltage up to 1000/750 V, DC and AC current up to 20 A, resistance up to 200 MΩ, capacitance (20 nF to 2 mF, auto-ranging), inductance (2 mH to 20 H in two auto ranges), temperature (with thermocouple), frequency up to 20 MHz, duty cycle, transistor hFE, continuity, and diode test — all in one instrument. Features include backlight, torch, data hold, min/max, auto power off, and shockproof construction.",
+    "features": [
+      "True RMS — accurate measurement on non-sinusoidal waveforms from VFDs, inverters and switching supplies",
+      "LCR measurement — capacitance 20 nF to 2 mF, inductance 2 mH to 20 H, auto-ranging on both",
+      "1000 V DC / 750 V AC — high-voltage safety rating",
+      "20 A DC/AC current measurement",
+      "Frequency measurement up to 20 MHz with duty cycle",
+      "Temperature measurement with thermocouple input",
+      "Transistor hFE, continuity, diode test",
+      "Backlight, torch, data hold, min/max, auto power off",
+      "Shockproof construction — survives workshop drops"
+    ],
+    "specs": [
+      { "label": "Display", "value": "3½ Digits, 2000 Counts, with Backlight" },
+      { "label": "Ranging", "value": "Manual" },
+      { "label": "DC Voltage", "value": "1000 V max" },
+      { "label": "AC Voltage", "value": "750 V max (True RMS)" },
+      { "label": "DC / AC Current", "value": "20 A max" },
+      { "label": "Resistance", "value": "200 Ω — 200 MΩ" },
+      { "label": "Capacitance", "value": "20 nF — 2 mF (Auto-Ranging)" },
+      { "label": "Inductance", "value": "2 mH — 20 H (2 Auto Ranges)" },
+      { "label": "Frequency", "value": "Up to 20 MHz" },
+      { "label": "Temperature", "value": "Yes (thermocouple)" },
+      { "label": "Transistor Test", "value": "hFE (NPN/PNP)" },
+      { "label": "Other Functions", "value": "Continuity, Diode, Data Hold, Min/Max, Auto Power Off, Torch" }
+    ],
+    "images": ["v-8222h.webp"],
+    "catalogue": "v-8222h.pdf"
+  },
+  {
+    "id": "lcr-1b",
+    "model": "LCR-1B",
+    "name": "Bench Top LCR Meter — 10 Hz to 10 kHz Continuously Variable",
+    "tagline": "5-digit bench LCR meter with continuously variable 10 Hz to 10 kHz test frequency, L-C-R-D-Q measurement and USB/RS232 interface.",
+    "description": "The Vartech LCR-1B is a bench-top LCR meter with a 5-digit, 3.5-inch colour LCD display and mains operation. It measures inductance (2 µH to 9999 H), capacitance (2 pF to 9999 µF), resistance (2 Ω to 99.99 MΩ), dissipation factor (D) and quality factor (Q) — with auto-detection of the parameter under test. The test frequency is continuously variable from 10 Hz to 10 kHz, allowing accurate characterisation across the measurement frequency range. USB and RS232 interfaces are provided for computer connectivity and data logging.",
+    "features": [
+      "Full L-C-R-D-Q measurement with auto-detection — identifies the dominant parameter automatically",
+      "Test frequency 10 Hz to 10 kHz continuously variable — select the measurement frequency for your application",
+      "5-digit, 3.5-inch colour LCD — high-resolution display for accurate reading",
+      "Wide measurement range — L: 2 µH to 9999 H, C: 2 pF to 9999 µF, R: 2 Ω to 99.99 MΩ",
+      "USB and RS232 interfaces for PC connectivity and data logging",
+      "Mains operated — stable bench measurement without battery concerns"
+    ],
+    "specs": [
+      { "label": "Display", "value": "5 Digits, 3.5\" Colour LCD" },
+      { "label": "Operation", "value": "Mains" },
+      { "label": "Inductance (L)", "value": "2 µH — 9999 H" },
+      { "label": "Capacitance (C)", "value": "2 pF — 9999 µF" },
+      { "label": "Resistance (R)", "value": "2 Ω — 99.99 MΩ" },
+      { "label": "Other Parameters", "value": "Dissipation Factor (D), Quality Factor (Q)" },
+      { "label": "Test Frequency", "value": "10 Hz — 10 kHz (Continuously Variable)" },
+      { "label": "Interface", "value": "USB, RS232" }
+    ],
+    "images": ["lcr-1b.webp"],
+    "catalogue": "lcr-1b.pdf"
+  },
+  {
+    "id": "lcr-2a",
+    "model": "LCR-2A",
+    "name": "Bench Top LCR Meter — 100 Hz to 10 kHz Step-Adjustable",
+    "tagline": "5-digit bench LCR meter with step-adjustable 100 Hz to 10 kHz test frequency — USB and RS232 for data logging.",
+    "description": "The Vartech LCR-2A is a bench-top LCR meter with a 5-digit, 3.5-inch colour LCD display and mains operation. It shares the same wide measurement range as the LCR-1B — inductance 2 µH to 9999 H, capacitance 2 pF to 9999 µF, resistance 2 Ω to 99.99 MΩ, plus D and Q factors. The test frequency is step-adjustable from 100 Hz to 10 kHz, covering the standard measurement frequencies used in component characterisation and incoming inspection. USB and RS232 interfaces are provided for computer connectivity.",
+    "features": [
+      "L-C-R-D-Q measurement with auto-detection of parameter under test",
+      "Test frequency step-adjustable from 100 Hz to 10 kHz — covers 100 Hz, 120 Hz, 1 kHz and 10 kHz standard test points",
+      "5-digit, 3.5-inch colour LCD — same high-resolution display as LCR-1B",
+      "Wide measurement range — L: 2 µH to 9999 H, C: 2 pF to 9999 µF, R: 2 Ω to 99.99 MΩ",
+      "USB and RS232 interfaces for PC connectivity and data logging",
+      "Mains operated bench instrument"
+    ],
+    "specs": [
+      { "label": "Display", "value": "5 Digits, 3.5\" Colour LCD" },
+      { "label": "Operation", "value": "Mains" },
+      { "label": "Inductance (L)", "value": "2 µH — 9999 H" },
+      { "label": "Capacitance (C)", "value": "2 pF — 9999 µF" },
+      { "label": "Resistance (R)", "value": "2 Ω — 99.99 MΩ" },
+      { "label": "Other Parameters", "value": "Dissipation Factor (D), Quality Factor (Q)" },
+      { "label": "Test Frequency", "value": "100 Hz — 10 kHz (Step-Adjustable)" },
+      { "label": "Interface", "value": "USB, RS232" }
+    ],
+    "images": ["lcr-2a.webp"],
+    "catalogue": "lcr-2a.pdf"
+  }
+]

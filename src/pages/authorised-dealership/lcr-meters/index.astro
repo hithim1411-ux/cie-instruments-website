@@ -1,0 +1,143 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { u } from '../../../utils/url';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CTABand from '../../../components/CTABand.astro';
+import products from '../../../data/vartech-lcr-meters.json';
+
+const pageTitle = 'Vartech LCR & Capacitance Meters — Authorised Dealer India | CIE Instruments';
+const pageDesc =
+  'Buy Vartech LCR meters and capacitance meters in India — portable LC meters, handheld LCR multimeters and bench-top LCR-D-Q instruments with USB and RS232. CIE Instruments is an authorised Vartech dealer supplying engineers and labs across India from Howrah.';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cieinstruments.in/' },
+    { '@type': 'ListItem', position: 2, name: 'Authorised Dealership', item: 'https://cieinstruments.in/authorised-dealership/' },
+    { '@type': 'ListItem', position: 3, name: 'Vartech LCR Meters', item: 'https://cieinstruments.in/authorised-dealership/lcr-meters/' },
+  ],
+};
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Vartech LCR & Capacitance Meters',
+  numberOfItems: products.length,
+  itemListElement: products.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Product',
+      name: `${p.model} — ${p.name}`,
+      description: p.description,
+      brand: { '@type': 'Brand', name: 'Vartech' },
+      offers: {
+        '@type': 'Offer',
+        seller: { '@type': 'Organization', name: 'Cambridge Instruments & Engg. Co.' },
+        availability: 'https://schema.org/InStock',
+        priceCurrency: 'INR',
+        price: '0',
+        priceSpecification: { '@type': 'PriceSpecification', description: 'Contact for price' },
+      },
+    },
+  })),
+};
+---
+
+<Base title={pageTitle} description={pageDesc} ogImage={u('/images/vartech/vartech-logo.avif')} rawTitle>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  </Fragment>
+
+  <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[
+        { label: 'Authorised Dealership', href: u('/authorised-dealership/') },
+        { label: 'Vartech LCR Meters' },
+      ]} />
+      <p class="eyebrow mt-4 mb-3">— Vartech® LCR &amp; Capacitance Meters</p>
+      <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">Vartech LCR &amp; Capacitance Meters</h1>
+      <p class="mt-3 text-[#64748B] max-w-2xl leading-relaxed">
+        As the authorised dealer for Vartech in India, CIE Instruments supplies the complete Vartech LCR meter range — from the portable LCM-1 LC meter and the all-in-one V 8222 H handheld LCR multimeter, to the high-precision LCR-1B and LCR-2A bench-top instruments with 5-digit display, D-Q measurement and USB/RS232 interface.
+      </p>
+    </div>
+  </div>
+
+  <section class="bg-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-lg font-bold text-[#0D2547]">{products.length} Vartech LCR meter models</h2>
+        <a href={u('/authorised-dealership/')} class="text-sm text-[#64748B] hover:text-[#1B3A5B] transition-colors">← Authorised Dealership</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        {products.map(p => (
+          <article class="bg-white rounded-lg border border-[#E8ECF2] overflow-hidden flex flex-col transition-shadow duration-200 hover:shadow-md">
+            <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] h-44 flex items-center justify-center relative">
+              <img
+                src={u(`/images/vartech/lcr-meters/${p.images[0]}`)}
+                alt={`${p.model} — ${p.name}`}
+                width="400" height="400"
+                class="object-contain h-36 w-auto"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+              />
+              <div class="hidden absolute inset-0 flex-col items-center justify-center gap-2 text-[#b0bec5]">
+                <svg class="w-12 h-12 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/>
+                  <path d="M3 9l4-4 4 4 4-4 4 4" stroke-width="1.5"/>
+                </svg>
+                <span class="text-xs font-mono uppercase tracking-wider opacity-50">Image coming soon</span>
+              </div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <p class="model-code text-xs mb-1">{p.model}</p>
+              <h3 class="font-bold text-[#0D2547] text-base mb-2 leading-snug">{p.name}</h3>
+              <p class="text-sm text-[#64748B] mb-4 flex-1 line-clamp-3">{p.tagline}</p>
+              <div class="flex flex-col gap-2 mt-auto">
+                <a href={u(`/authorised-dealership/lcr-meters/${p.id}/`)}
+                  class="text-center px-4 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors">
+                  View Details & Specs
+                </a>
+                <a href={u(`/downloads/vartech/lcr-meters/${p.catalogue}`)}
+                  target="_blank" rel="noopener noreferrer"
+                  class="flex items-center justify-center gap-2 text-center px-4 py-2 border border-[#1B3A5B] text-[#1B3A5B] hover:bg-[#1B3A5B]/5 text-sm font-medium rounded transition-colors">
+                  <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a1 1 0 001 1h16a1 1 0 001-1v-3"/>
+                  </svg>
+                  Download Catalogue
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#F5F7FA] py-12 lg:py-16 border-t border-[#E8ECF2]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-[#0D2547] mb-6">About Vartech LCR &amp; Capacitance Meters</h2>
+      <div class="space-y-4 text-sm text-[#64748B] leading-relaxed">
+        <p>
+          Vartech's LCR meter range covers every inductance, capacitance and resistance measurement need — from the pocket-sized LCM-1 portable LC meter for quick component sorting, to the V 8222 H handheld True RMS multimeter with built-in L-C-R measurement, and the high-precision LCR-1B and LCR-2A bench instruments with 5-digit colour displays, dissipation factor (D), quality factor (Q) and variable test frequency from 10 Hz to 10 kHz.
+        </p>
+        <p>
+          CIE Instruments (Cambridge Instruments &amp; Engg. Co., Howrah) is an authorised Vartech dealer for India. We supply Vartech LCR meters to electronics manufacturing facilities, testing laboratories, engineering colleges and R&amp;D departments across India — including Kolkata, Howrah, Bhubaneswar, Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Ahmedabad, Pune, Lucknow and Chandigarh.
+        </p>
+        <p>
+          For pricing, availability or guidance on model selection, <a href="/contact/" class="text-[#1B3A5B] hover:underline font-medium">contact our team</a> or enquire via WhatsApp.
+        </p>
+      </div>
+      <div class="mt-8 pt-6 border-t border-[#E8ECF2]">
+        <p class="text-xs text-[#94a3b8]">
+          Cambridge Instruments &amp; Engg. Co. (CIE) — manufacturer of precision electrical test instruments in Howrah since 1963, and authorised dealer for Vartech.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>
