@@ -1,0 +1,121 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A DC power supply is the foundation of any electronics lab, test bench, or manufacturing line. It converts mains AC into a controllable, stable DC voltage — letting you power circuits, test components, and simulate battery conditions with precision. This guide explains every type, what the specs actually mean, and how to choose the right one.
+</p>
+
+<h2 id="types">Linear vs Switching — The Core Choice</h2>
+
+<div class="my-8 grid sm:grid-cols-2 gap-5">
+  <div class="rounded-xl overflow-hidden border-2 border-[#1B3A5B]">
+    <div class="bg-[#1B3A5B] px-5 py-4 text-center">
+      <div class="text-white font-bold text-lg">Linear Power Supply</div>
+      <div class="text-blue-200 text-xs mt-1">Low noise · Simple · Heavy</div>
+    </div>
+    <div class="p-5 bg-[#EFF6FF] space-y-2">
+      {['Regulates by dissipating excess voltage as heat in a pass transistor','Extremely low output noise — ideal for audio, RF, and sensitive analogue circuits','Large transformer = heavy and bulky','Efficiency typically 30–50%','Output voltage limited (usually < 50 V)'].map(r => (
+        <div class="flex gap-2 items-start text-sm text-[#1e3a5f]">
+          <span class="text-blue-500 font-bold shrink-0 mt-0.5">✓</span>
+          <span>{r}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="rounded-xl overflow-hidden border-2 border-red-200">
+    <div class="bg-[#E0252E] px-5 py-4 text-center">
+      <div class="text-white font-bold text-lg">Switching Power Supply</div>
+      <div class="text-red-100 text-xs mt-1">Efficient · Compact · Some ripple</div>
+    </div>
+    <div class="p-5 bg-[#FEF2F2] space-y-2">
+      {['Regulates by rapidly switching transistors on/off (50–500 kHz)','Efficiency 80–95% — stays cool even at high power','Compact and lightweight — same power in a much smaller box','Higher output ripple / noise than linear','Can output high voltages and currents in small form factors'].map(r => (
+        <div class="flex gap-2 items-start text-sm text-[#7f1d1d]">
+          <span class="text-[#E0252E] font-bold shrink-0 mt-0.5">✓</span>
+          <span>{r}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<h2 id="specs">Understanding the Key Specifications</h2>
+
+<div class="my-8 space-y-3">
+  {[
+    { spec:'Output Voltage Range', detail:'The range of voltages the supply can produce. A 0–30 V supply can be set to any voltage from 0 to 30 V. Choose a supply whose maximum exceeds your circuit\'s highest supply voltage.', icon:'⚡' },
+    { spec:'Output Current Rating', detail:'The maximum current the supply can deliver. Size this at least 20% above your circuit\'s peak demand. A 5 A supply running at 5 A continuously will run hot.', icon:'⚡' },
+    { spec:'Voltage Regulation (Load Reg.)', detail:'How much the output voltage changes when the load current changes. Expressed as a percentage or mV. Better supplies maintain output within ±0.01% from no load to full load.', icon:'📐' },
+    { spec:'Ripple & Noise', detail:'The AC component remaining on the DC output. Measured in mV peak-to-peak or mV RMS. Critical for sensitive analogue, RF, and audio circuits. Linear supplies typically < 1 mV; switching supplies 10–50 mV.', icon:'〜' },
+    { spec:'CC / CV Modes', detail:'Constant Voltage (CV) maintains set voltage regardless of load. Constant Current (CC) limits current to a set value — essential for battery charging, LED testing, and protecting DUT under fault conditions.', icon:'🔒' },
+    { spec:'OVP / OCP / OTP', detail:'Over-Voltage Protection, Over-Current Protection, Over-Temperature Protection. A quality bench supply should have all three — they prevent damage to both supply and device under test.', icon:'🛡️' },
+  ].map(s => (
+    <div class="flex gap-4 p-4 rounded-xl border border-gray-200 bg-white">
+      <span class="text-2xl shrink-0">{s.icon}</span>
+      <div>
+        <div class="font-bold text-[#0D1B2A] text-sm mb-1">{s.spec}</div>
+        <div class="text-sm text-gray-600 leading-relaxed">{s.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="choosing">How to Choose the Right Supply</h2>
+
+<div class="my-8 rounded-xl border border-gray-200 overflow-hidden">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-3 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Application</th>
+        <th class="text-left px-5 py-3 text-white font-semibold">Type</th>
+        <th class="text-left px-5 py-3 text-white font-semibold">Key Spec to Watch</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['General electronics lab bench','Dual-output 0–30 V / 0–5 A linear or switching','CV + CC modes, OVP, clear display'],
+        ['Audio / RF / analogue circuit testing','Linear supply','Noise < 1 mV RMS (critical)'],
+        ['MCU / microcontroller dev boards','Single 5 V or 3.3 V switching','USB output or fixed 5 V regulated'],
+        ['Battery simulation / charging','Programmable switching supply','Accurate CC mode, remote sense'],
+        ['High-power testing (motors, heaters)','High-current switching supply','Efficiency, fan cooling, OCP'],
+        ['Production line / automated test','Programmable / remote-controlled','RS-232 / USB / LAN interface'],
+      ].map(([app, type, spec], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 text-[#0D1B2A] font-medium border-b border-gray-100 text-xs">{app}</td>
+          <td class="px-5 py-3 text-gray-600 border-b border-gray-100 text-xs">{type}</td>
+          <td class="px-5 py-3 text-[#64748b] border-b border-gray-100 text-xs">{spec}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="using">How to Use a Bench Power Supply Correctly</h2>
+
+<div class="my-6 space-y-0">
+  {[
+    { n:1, t:'Set voltage with no load connected', b:'Turn the voltage dial to your target before connecting the circuit. This prevents a surge on connection.' },
+    { n:2, t:'Set the current limit', b:'Set the current limit just above your circuit\'s expected maximum draw. This protects the DUT if there\'s a short. In CC mode, the supply limits current and drops voltage accordingly.' },
+    { n:3, t:'Enable OVP', b:'Set the over-voltage protection threshold about 10–15% above your set voltage. This protects the circuit if the supply malfunctions.' },
+    { n:4, t:'Connect load — observe mode indicator', b:'A supply in CV mode shows set voltage; moving to CC mode means the load is drawing more current than the set limit — investigate.' },
+    { n:5, t:'Use remote sense for long leads', b:'On quality supplies, the remote sense terminals connect to the load terminals directly, compensating for voltage drop in long connecting cables.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#E0252E] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.t}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.b}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="tip" title="Dual-tracking output for op-amp circuits">
+  <p>Many bench supplies have two independently adjustable channels. Configure them as a dual-tracking ±15 V supply for op-amp circuits: set channel 1 to +15 V and channel 2 to −15 V relative to a common ground. Some supplies do this automatically with a tracking switch.</p>
+</Callout>
+
+<p>
+  CIE supplies <a href={u('/products/')}>Vartech bench DC power supplies</a> for labs, workshops, and production environments. <a href={u('/contact/')}>Contact us</a> for a recommendation based on your voltage, current, and noise requirements.
+</p>

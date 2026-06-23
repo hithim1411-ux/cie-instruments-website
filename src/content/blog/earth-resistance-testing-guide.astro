@@ -1,0 +1,148 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A poor earth connection is the most invisible and potentially most dangerous electrical fault in any installation. You cannot see or smell it — but in a fault condition, it determines whether a person lives or dies. This guide explains what earth resistance is, why it must be measured, the correct test method, and how to interpret your results.
+</p>
+
+<h2 id="what-is">What Is Earth Resistance and Why Does It Matter?</h2>
+
+<p>
+  Earth resistance is the total opposition to current flow from the earthing electrode (the buried stake or plate) through the soil to a remote reference point. It is measured in ohms (Ω). A low earth resistance ensures that:
+</p>
+
+<div class="my-6 grid sm:grid-cols-3 gap-4">
+  {[
+    { icon:'⚡', heading:'Fault current flows', body:'If a live conductor touches exposed metalwork, fault current flows freely to earth — tripping the breaker or fuse before anyone is harmed.' },
+    { icon:'🛡️', heading:'Touch voltage is limited', body:'High earth resistance means fault current is small, so protective devices don\'t trip quickly — leaving dangerous voltage on exposed surfaces for longer.' },
+    { icon:'📡', heading:'Lightning protection works', body:'Lightning protection systems must discharge massive surge currents to earth. High resistance means the surge energy stays in the structure.' },
+  ].map(f => (
+    <div class="p-4 rounded-xl border border-gray-200 bg-white text-center">
+      <div class="text-3xl mb-2">{f.icon}</div>
+      <div class="font-bold text-[#0D1B2A] text-sm mb-1">{f.heading}</div>
+      <div class="text-xs text-gray-600 leading-relaxed">{f.body}</div>
+    </div>
+  ))}
+</div>
+
+<h2 id="standards">Accepted Earth Resistance Limits</h2>
+
+<div class="my-8 rounded-xl border border-gray-200 overflow-hidden">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-3 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Installation Type</th>
+        <th class="text-center px-5 py-3 text-white font-semibold">Maximum Earth Resistance</th>
+        <th class="text-left px-5 py-3 text-white font-semibold">Standard</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['General LT installations', '< 1 Ω', 'IS 3043, IEEE 142'],
+        ['Substation earth grid', '< 1 Ω (target < 0.5 Ω)', 'IS 3043'],
+        ['Telecommunications / data centres', '< 1 Ω (often < 0.5 Ω)', 'TIA-607'],
+        ['Lightning protection (IS 2309)', '< 10 Ω per electrode', 'IS 2309'],
+        ['Isolated earthing (IT systems)', '< 1000 Ω (high-resistance intentional)', 'IS 3043'],
+        ['Petrol / chemical plants', '< 1 Ω', 'IS 3043'],
+      ].map(([inst, max, std], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 text-[#0D1B2A] font-medium border-b border-gray-100 text-xs">{inst}</td>
+          <td class="px-5 py-3 text-center font-mono font-bold text-[#E0252E] border-b border-gray-100 text-xs">{max}</td>
+          <td class="px-5 py-3 text-gray-500 border-b border-gray-100 text-xs">{std}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="method">The 3-Point Fall-of-Potential Method</h2>
+
+<p>The <strong>fall-of-potential method</strong> is the most accurate and widely accepted technique for measuring earth resistance. It uses three connections: the earth electrode under test (E), a current probe (C), and a potential probe (P).</p>
+
+<!-- 3-point method diagram -->
+<div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden">
+  <div class="p-6">
+    <svg viewBox="0 0 560 220" class="w-full max-w-2xl mx-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ground plane -->
+      <rect x="0" y="150" width="560" height="70" fill="#F0FDF4" rx="0"/>
+      <text x="280" y="195" text-anchor="middle" font-size="11" fill="#64748B" font-family="sans-serif">Soil / Earth</text>
+      <!-- Earth electrode E -->
+      <rect x="50" y="100" width="16" height="60" rx="3" fill="#E0252E"/>
+      <text x="58" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="#E0252E" font-family="monospace">E</text>
+      <text x="58" y="78" text-anchor="middle" font-size="10" fill="#64748B" font-family="sans-serif">Under test</text>
+      <!-- Potential probe P -->
+      <rect x="248" y="120" width="12" height="40" rx="2" fill="#F59E0B"/>
+      <text x="254" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#F59E0B" font-family="monospace">P</text>
+      <text x="254" y="98" text-anchor="middle" font-size="10" fill="#64748B" font-family="sans-serif">62% distance</text>
+      <!-- Current probe C -->
+      <rect x="468" y="110" width="16" height="50" rx="3" fill="#60A5FA"/>
+      <text x="476" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#60A5FA" font-family="monospace">C</text>
+      <text x="476" y="88" text-anchor="middle" font-size="10" fill="#64748B" font-family="sans-serif">10× E distance</text>
+      <!-- Earth tester box -->
+      <rect x="150" y="20" width="160" height="55" rx="8" fill="#1B3A5B" stroke="#E0252E" stroke-width="1.5"/>
+      <text x="230" y="45" text-anchor="middle" font-size="11" font-weight="700" fill="white" font-family="sans-serif">EARTH TESTER</text>
+      <text x="230" y="62" text-anchor="middle" font-size="13" font-weight="900" fill="#00FF88" font-family="monospace">0.45 Ω</text>
+      <!-- Connection lines -->
+      <line x1="150" y1="47" x2="58" y2="100" stroke="#E0252E" stroke-width="1.5"/>
+      <line x1="230" y1="75" x2="254" y2="120" stroke="#F59E0B" stroke-width="1.5"/>
+      <line x1="310" y1="47" x2="476" y2="110" stroke="#60A5FA" stroke-width="1.5"/>
+      <!-- Distance arrows -->
+      <line x1="58" y1="175" x2="254" y2="175" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="156" y="188" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="sans-serif">D × 0.62</text>
+      <line x1="58" y1="200" x2="476" y2="200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="267" y="215" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="sans-serif">Distance D (10× electrode depth)</text>
+    </svg>
+  </div>
+  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure — 3-point fall-of-potential method: P probe at 62% of E-to-C distance</p>
+</div>
+
+<h2 id="procedure">Step-by-Step Test Procedure</h2>
+
+<div class="my-6 space-y-0">
+  {[
+    { n:1, t:'Disconnect the earth electrode from the system', b:'Temporarily disconnect the earth conductor. Testing with the earth connected gives a parallel reading that is always too low — giving a false pass.' },
+    { n:2, t:'Drive the current probe (C)', b:'Drive a temporary test stake at a distance of at least 10× the depth of the electrode under test — typically 20–40 m for a 2 m rod. Direction: away from buried pipes and cables.' },
+    { n:3, t:'Place the potential probe (P) at 62% of the E-to-C distance', b:'This is the theoretical null point where the potential reference is unaffected by either electrode. For 30 m separation, P goes at 18.6 m from E.' },
+    { n:4, t:'Connect earth tester terminals', b:'E terminal → earth electrode under test. P terminal → potential probe stake. C terminal → current probe stake.' },
+    { n:5, t:'Press TEST and record reading', b:'The earth tester injects AC test current (typically 128 Hz or 820 Hz) and measures the resulting potential difference. The ratio gives resistance in ohms.' },
+    { n:6, t:'Repeat at 52% and 72% of D — check for consistency', b:'If all three readings are within ±2% of each other, the 62% result is valid. Large variation indicates a buried conductor is affecting the measurement — reposition C.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#E0252E] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.t}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.b}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="info" title="Clamp-on earth testers — no disconnection needed">
+  <p>Clamp-on earth testers (like the CIE DET-2000) can measure earth resistance in multi-electrode systems <em>without disconnecting the electrode</em>. They inject a test signal via induction and measure the return current through the complete earth loop. Ideal for quick audits of live systems.</p>
+</Callout>
+
+<h2 id="improving">How to Improve a High Earth Resistance Reading</h2>
+
+<div class="my-6 space-y-2">
+  {[
+    { action:'Drive additional rods in parallel', detail:'Each additional electrode in parallel halves the total resistance (approximately). Space them at > 2× rod depth apart.' },
+    { action:'Use chemical earthing compounds', detail:'Backfill around the electrode with conductive bentonite or graphite compound — lowers soil resistivity immediately around the electrode.' },
+    { action:'Increase electrode depth', detail:'Deeper burial reaches moister, lower-resistivity soil. Soil resistivity drops significantly below the frost/dry line.' },
+    { action:'Water the electrode', detail:'In dry soils, regular watering around the electrode keeps soil resistivity low. Not a permanent solution but useful for audit.' },
+  ].map(a => (
+    <div class="flex gap-3 p-4 rounded-xl border border-blue-200 bg-blue-50">
+      <span class="text-blue-500 shrink-0 mt-0.5">→</span>
+      <div>
+        <div class="font-bold text-blue-900 text-sm">{a.action}</div>
+        <div class="text-sm text-blue-800 mt-0.5">{a.detail}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<p>
+  CIE manufactures the <a href={u('/products/')}>CIE-222M, DET-2000, and MR-253A</a> earth and micro-ohm testers for installations ranging from domestic earthing to substation earth grids. <a href={u('/contact/')}>Contact us</a> for a recommendation.
+</p>

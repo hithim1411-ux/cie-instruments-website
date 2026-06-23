@@ -1,0 +1,114 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  The oscilloscope screen is a graph — voltage on the vertical axis, time on the horizontal. Once you know what the axes mean and what each waveform type looks like, every signal tells a story: whether a power supply has ripple, whether a square wave has timing problems, whether an audio signal is clipping. This guide teaches you to read that graph.
+</p>
+
+<h2 id="the-axes">Understanding the Two Axes</h2>
+
+<div class="my-8 grid sm:grid-cols-2 gap-5">
+  <div class="p-5 rounded-xl border-l-4 border-[#E0252E] bg-red-50">
+    <div class="font-bold text-[#0D1B2A] mb-2">Vertical Axis — Voltage</div>
+    <p class="text-sm text-gray-700 leading-relaxed">Each vertical division (grid square) represents a set voltage — the <strong>V/div setting</strong>. A waveform 4 squares tall at 2 V/div has a peak-to-peak voltage of 8 V. Moving the V/div knob zooms in or out on the signal amplitude.</p>
+  </div>
+  <div class="p-5 rounded-xl border-l-4 border-blue-500 bg-blue-50">
+    <div class="font-bold text-[#0D1B2A] mb-2">Horizontal Axis — Time</div>
+    <p class="text-sm text-gray-700 leading-relaxed">Each horizontal division represents a set duration — the <strong>time/div setting</strong>. A waveform that completes one full cycle in 5 squares at 1 ms/div has a period of 5 ms, meaning a frequency of 200 Hz. Turning the time/div knob zooms in or out in time.</p>
+  </div>
+</div>
+
+<h2 id="waveform-types">The Four Common Waveform Types</h2>
+
+<div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden">
+  <div class="p-6">
+    <svg viewBox="0 0 600 240" class="w-full max-w-2xl mx-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Grid background -->
+      <rect x="0" y="0" width="600" height="240" fill="#0D1B2A" rx="8"/>
+      {[40,80,120,160,200].map(y => <line x1="0" y1={y} x2="600" y2={y} stroke="#1B3A5B" stroke-width="0.8"/>)}
+      {[100,200,300,400,500].map(x => <line x1={x} y1="0" x2={x} y2="240" stroke="#1B3A5B" stroke-width="0.8"/>)}
+      <!-- Sine wave (left) -->
+      <path d="M10,120 C35,120 45,20 70,20 C95,20 105,220 130,220 C155,220 165,20 190,20 C215,20 225,220 250,220 C255,220 258,190 260,170" stroke="#00FF88" stroke-width="2" fill="none"/>
+      <text x="50" y="235" text-anchor="middle" font-size="10" fill="#00FF88" font-family="sans-serif">Sine wave</text>
+      <!-- Square wave (second quarter) -->
+      <path d="M280,60 L280,180 L310,180 L310,60 L370,60 L370,180 L400,180 L400,60 L430,60" stroke="#60A5FA" stroke-width="2" fill="none"/>
+      <text x="355" y="235" text-anchor="middle" font-size="10" fill="#60A5FA" font-family="sans-serif">Square wave</text>
+      <!-- Triangle wave (third quarter) -->
+      <path d="M450,180 L470,60 L490,180 L510,60 L530,180 L550,60 L570,180 L590,60" stroke="#F59E0B" stroke-width="2" fill="none"/>
+      <text x="520" y="235" text-anchor="middle" font-size="10" fill="#F59E0B" font-family="sans-serif">Triangle wave</text>
+      <!-- Labels -->
+      <text x="5" y="10" font-size="9" fill="#94a3b8" font-family="sans-serif">+V</text>
+      <text x="5" y="125" font-size="9" fill="#94a3b8" font-family="sans-serif">0V</text>
+      <text x="5" y="238" font-size="9" fill="#94a3b8" font-family="sans-serif">−V</text>
+    </svg>
+  </div>
+  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure — Sine, square, and triangle waveforms on oscilloscope grid</p>
+</div>
+
+<div class="my-8 space-y-3">
+  {[
+    { wave:'Sine Wave', color:'text-emerald-700 bg-emerald-50 border-emerald-200', where:'Mains supply (50 Hz), audio signals, RF carrier, AC motor outputs', tells:'Clean sine = healthy source. Distorted sine = non-linear load, clipping, or harmonic distortion.' },
+    { wave:'Square Wave', color:'text-blue-700 bg-blue-50 border-blue-200', where:'Digital logic signals, PWM, clock signals, switching power supply outputs', tells:'Rise time reveals bandwidth. Rounded edges = bandwidth limitation. Ringing = poor decoupling or impedance mismatch.' },
+    { wave:'Triangle Wave', color:'text-amber-700 bg-amber-50 border-amber-200', where:'Sawtooth in switched-mode PSUs, audio test signals, function generators', tells:'Slope linearity indicates integrator quality. Flat tops/bottoms reveal saturation.' },
+    { wave:'Pulse / PWM', color:'text-violet-700 bg-violet-50 border-violet-200', where:'Motor drives, LED dimmers, servo control, switch-mode regulators', tells:'Duty cycle = on/off ratio. Period reveals control frequency. Width variation = modulation.' },
+  ].map(w => (
+    <div class={`rounded-xl border p-4 ${w.color}`}>
+      <div class="flex flex-wrap items-start gap-3 mb-2">
+        <span class={`font-bold text-sm px-2.5 py-0.5 rounded-full border ${w.color}`}>{w.wave}</span>
+        <span class="text-xs text-gray-500">Found in: {w.where}</span>
+      </div>
+      <div class="text-sm leading-relaxed"><strong>Reading it:</strong> {w.tells}</div>
+    </div>
+  ))}
+</div>
+
+<h2 id="measurements">Making Measurements — Step by Step</h2>
+
+<h3 id="measure-vpp">Measuring Peak-to-Peak Voltage (Vpp)</h3>
+<div class="my-4 p-5 bg-gray-50 rounded-xl border border-gray-200">
+  <div class="space-y-2 text-sm text-gray-700">
+    <div class="flex gap-2"><span class="font-bold text-[#E0252E] shrink-0">1.</span>Count the number of vertical grid divisions from the bottom of the waveform to the top.</div>
+    <div class="flex gap-2"><span class="font-bold text-[#E0252E] shrink-0">2.</span>Multiply by the V/div setting.</div>
+    <div class="flex gap-2"><span class="font-bold text-[#E0252E] shrink-0">Eg.</span><span>Waveform spans 6 divisions at 2 V/div → <strong>Vpp = 6 × 2 = 12 V</strong></span></div>
+  </div>
+</div>
+
+<h3 id="measure-freq">Measuring Frequency and Period</h3>
+<div class="my-4 p-5 bg-gray-50 rounded-xl border border-gray-200">
+  <div class="space-y-2 text-sm text-gray-700">
+    <div class="flex gap-2"><span class="font-bold text-blue-600 shrink-0">1.</span>Count the horizontal divisions from one point on the waveform to the same point one cycle later (e.g. rising zero crossing to next rising zero crossing).</div>
+    <div class="flex gap-2"><span class="font-bold text-blue-600 shrink-0">2.</span>Multiply by the time/div setting → this gives the Period (T).</div>
+    <div class="flex gap-2"><span class="font-bold text-blue-600 shrink-0">3.</span>Frequency f = 1 ÷ T</div>
+    <div class="flex gap-2"><span class="font-bold text-blue-600 shrink-0">Eg.</span><span>One cycle spans 4 divisions at 5 ms/div → T = 20 ms → <strong>f = 1 ÷ 0.02 = 50 Hz</strong></span></div>
+  </div>
+</div>
+
+<h2 id="abnormal">Recognising Abnormal Waveforms</h2>
+
+<div class="my-8 grid sm:grid-cols-2 gap-4">
+  {[
+    { sign:'Clipping (flat tops/bottoms)', meaning:'Amplifier or supply is saturated — signal is being cut. Reduce input level or increase supply voltage.' },
+    { sign:'Ringing on square wave edges', meaning:'Resonance between inductance and capacitance. Add series damping resistor or improve PCB layout.' },
+    { sign:'Noise on DC rail (ripple)', meaning:'Power supply filter is inadequate. Measure ripple in AC coupling mode. > 100 mVpp on 5V rail is poor.' },
+    { sign:'Asymmetric waveform', meaning:'Even harmonics in the signal. In power systems, this suggests half-wave rectification or DC offset.' },
+    { sign:'Waveform drifts / unstable', meaning:'Trigger not set correctly. Use edge trigger on the most stable edge of the signal.' },
+    { sign:'Two different frequencies visible', meaning:'Signal is modulated, or you are seeing interference pickup. Check probe grounding and cable routing.' },
+  ].map(a => (
+    <div class="rounded-xl border border-gray-200 overflow-hidden">
+      <div class="bg-gray-50 border-b border-gray-200 px-4 py-2.5">
+        <div class="font-bold text-[#0D1B2A] text-sm">{a.sign}</div>
+      </div>
+      <div class="px-4 py-3 text-sm text-gray-600 leading-relaxed">{a.meaning}</div>
+    </div>
+  ))}
+</div>
+
+<Callout type="tip" title="Use cursors for precision — don't count grid squares">
+  <p>Modern digital oscilloscopes have cursor measurement functions (vertical cursors for time, horizontal cursors for voltage). Place the cursors and the scope calculates the difference automatically — far more accurate than counting grid squares by eye. Access via the CURSOR or MEASURE menu.</p>
+</Callout>
+
+<p>
+  CIE supplies <a href={u('/products/')}>Vartech digital oscilloscopes</a> for labs, service workshops, and field diagnostics. <a href={u('/contact/')}>Contact us</a> for the right bandwidth and channel count for your signals.
+</p>

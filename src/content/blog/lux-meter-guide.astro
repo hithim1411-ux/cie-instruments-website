@@ -1,0 +1,123 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Lux is the unit of illuminance — the amount of light falling on a surface per unit area. Measuring it correctly tells you whether a workspace is properly lit for the task, whether a lighting installation meets legal requirements, and whether LED retrofits are delivering the right output. This guide covers the physics, correct measurement technique, and reference values for every common environment.
+</p>
+
+<h2 id="what-is-lux">What Is Lux? The Physics Explained</h2>
+
+<div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden">
+  <div class="p-6">
+    <svg viewBox="0 0 540 200" class="w-full max-w-2xl mx-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Light source -->
+      <circle cx="270" cy="30" r="20" fill="#FBBF24" stroke="#F59E0B" stroke-width="2"/>
+      <text x="270" y="35" text-anchor="middle" font-size="11" fill="white" font-weight="700" font-family="sans-serif">LAMP</text>
+      <!-- Light rays -->
+      {[200,230,260,290,320,350].map((x, i) => (
+        <line x1="270" y1="50" x2={x} y2="145" stroke="#FBBF24" stroke-width="1.5" opacity="0.7"/>
+      ))}
+      <!-- Work surface -->
+      <rect x="150" y="145" width="240" height="12" rx="3" fill="#E8ECF2" stroke="#94a3b8" stroke-width="1"/>
+      <text x="270" y="172" text-anchor="middle" font-size="11" fill="#64748B" font-family="sans-serif">Work surface (measurement plane)</text>
+      <!-- Lux meter on surface -->
+      <rect x="250" y="133" width="40" height="20" rx="4" fill="#0D1B2A" stroke="#E0252E" stroke-width="1"/>
+      <text x="270" y="147" text-anchor="middle" font-size="9" fill="#00FF88" font-family="monospace">500 lx</text>
+      <!-- Angle label -->
+      <text x="150" y="140" text-anchor="end" font-size="10" fill="#64748B" font-family="sans-serif">sensor parallel</text>
+      <text x="150" y="154" text-anchor="end" font-size="10" fill="#64748B" font-family="sans-serif">to surface</text>
+      <!-- Formula -->
+      <text x="450" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#0D1B2A" font-family="monospace">E = Φ / A</text>
+      <text x="450" y="118" text-anchor="middle" font-size="10" fill="#64748B" font-family="sans-serif">E = Illuminance (lux)</text>
+      <text x="450" y="132" text-anchor="middle" font-size="10" fill="#64748B" font-family="sans-serif">Φ = Luminous flux (lm)</text>
+      <text x="450" y="146" text-anchor="middle" font-size="10" fill="#64748B" font-family="sans-serif">A = Area (m²)</text>
+      <text x="450" y="165" text-anchor="middle" font-size="10" fill="#E0252E" font-family="sans-serif">1 lux = 1 lm/m²</text>
+    </svg>
+  </div>
+  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure — Illuminance measured at the work surface, sensor parallel to the plane</p>
+</div>
+
+<h2 id="reference-values">Lux Requirements by Environment</h2>
+
+<div class="my-8 rounded-xl border border-gray-200 overflow-hidden">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-3 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Environment / Task</th>
+        <th class="text-center px-5 py-3 text-white font-semibold">Recommended Lux</th>
+        <th class="text-left px-5 py-3 text-white font-semibold">Standard</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Emergency staircase / walkway', '10–50 lx', 'IS 3646'],
+        ['General storage / warehouse', '100–200 lx', 'IS 3646'],
+        ['Office — general work', '300–500 lx', 'IS 3646, NBC 2016'],
+        ['Reading, computer work', '500 lx', 'IS 3646'],
+        ['Drawing office / detailed work', '750 lx', 'IS 3646'],
+        ['Operating theatre, precision assembly', '1000+ lx', 'NBC 2016'],
+        ['Outdoor — car parks', '20–50 lx', 'IS 1944'],
+        ['Outdoor — sports facilities (broadcast)', '1400+ lx', 'CIE 169'],
+      ].map(([env, lux, std], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 text-[#0D1B2A] font-medium border-b border-gray-100 text-xs">{env}</td>
+          <td class="px-5 py-3 text-center font-mono font-bold text-[#E0252E] border-b border-gray-100 text-xs">{lux}</td>
+          <td class="px-5 py-3 text-gray-500 border-b border-gray-100 text-xs">{std}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="how-to-measure">How to Measure Lux Correctly</h2>
+
+<Callout type="warning" title="Sensor position is everything">
+  <p>A lux meter only measures light falling <em>on</em> the sensor. If the sensor is angled, shaded by your hand, or at the wrong height, the reading is wrong. Standard task-plane measurements are taken at 0.85 m (desk height) facing upward.</p>
+</Callout>
+
+<div class="my-6 space-y-0">
+  {[
+    { n:1, t:'Allow the meter to adapt', b:'Bring the meter from bright to dark (or vice versa) and wait 5 minutes before measuring. Photosensors have a settling time, especially moving from high to low light.' },
+    { n:2, t:'Set the correct measurement range', b:'Auto-ranging meters handle this automatically. On manual meters, start at the highest range and step down until you are in the upper half of the range for best accuracy.' },
+    { n:3, t:'Position the sensor at the correct height', b:'Task plane (desk, workbench): 0.85 m above floor. Walking areas: 0.0 m (floor level). Always note the measurement height in your records.' },
+    { n:4, t:'Hold sensor parallel to the measured surface', b:'Horizontal surfaces: sensor faces up. Vertical surfaces (display screens, walls): sensor faces the light source. Do not tilt — cosine error is significant.' },
+    { n:5, t:'Keep your body shadow off the sensor', b:'Extend the meter at arm\'s length or use a tripod mount. Your body blocks light and can reduce the reading by 20–40% in small spaces.' },
+    { n:6, t:'Take multiple readings and average', b:'Take readings at a grid of points across the area (minimum 4 points for a small room, 9+ for a large space). Average them for the maintained illuminance (Em) value.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#E0252E] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.t}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.b}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="features">Key Features to Look for in a Lux Meter</h2>
+
+<div class="my-8 grid sm:grid-cols-2 gap-4">
+  {[
+    { feature:'Cosine correction', why:'Real sensors over-read oblique light. A cosine-corrected diffuser dome gives accurate readings regardless of light angle.' },
+    { feature:'Colour correction factor (f1\')', why:'LEDs and fluorescent lights have non-standard spectral distributions. A low f1\' (< 3%) gives accurate readings across light source types.' },
+    { feature:'Range: 0–200,000 lx', why:'Allows both indoor (100–1000 lx) and outdoor sunshine (up to 100,000 lx) measurement with one meter.' },
+    { feature:'Data logging / USB output', why:'For lighting surveys and compliance reports, you need to record readings over time or export to a spreadsheet.' },
+    { feature:'Peak / hold / average modes', why:'Flickering sources (fluorescent, some LEDs) need an averaging mode for accurate results.' },
+    { feature:'Separate sensor head', why:'Lets you position the sensor precisely while reading the display from a comfortable position — essential for overhead measurements.' },
+  ].map(f => (
+    <div class="flex gap-3 p-4 rounded-xl border border-gray-200 bg-white">
+      <span class="text-[#E0252E] font-bold shrink-0 mt-0.5">✓</span>
+      <div>
+        <div class="font-bold text-[#0D1B2A] text-sm">{f.feature}</div>
+        <div class="text-xs text-gray-600 mt-0.5 leading-relaxed">{f.why}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<p>
+  CIE supplies <a href={u('/products/')}>Vartech lux meters</a> for building services, electrical contractors, and lighting designers. <a href={u('/contact/')}>Contact us</a> to discuss your measurement range and accuracy requirements.
+</p>

@@ -1,0 +1,151 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Insulation resistance testing is the single most important electrical health check you can perform. A cable, motor, or transformer that looks perfectly fine on the outside can have insulation that has degraded to the point of danger — and the only way to know is to test it. This guide covers everything: how the test works, correct voltages, procedure, and how to read the results.
+</p>
+
+<h2 id="what-it-measures">What Insulation Resistance Testing Measures</h2>
+
+<p>
+  Every electrical conductor is surrounded by insulation material — PVC, rubber, XLPE — that prevents current from leaking to adjacent conductors or to earth. Over time, heat, moisture, mechanical damage, and chemical contamination degrade this insulation. The test applies a high DC voltage and measures the tiny current that leaks through the insulation. Using Ohm's Law (<strong>R = V ÷ I</strong>), it calculates the insulation resistance in megohms (MΩ) or gigohms (GΩ).
+</p>
+
+<!-- Insulation test diagram -->
+<div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden">
+  <div class="p-6">
+    <svg viewBox="0 0 560 200" class="w-full max-w-2xl mx-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Megohmmeter box -->
+      <rect x="20" y="60" width="120" height="80" rx="8" fill="#1B3A5B" stroke="#E0252E" stroke-width="1.5"/>
+      <text x="80" y="95" text-anchor="middle" font-size="11" font-weight="700" fill="white" font-family="sans-serif">MEGOHMMETER</text>
+      <text x="80" y="112" text-anchor="middle" font-size="12" font-weight="900" fill="#00FF88" font-family="monospace">500 MΩ</text>
+      <text x="80" y="128" text-anchor="middle" font-size="10" fill="#94a3b8" font-family="sans-serif">500V DC test</text>
+      <!-- HV wire to conductor -->
+      <line x1="140" y1="85" x2="240" y2="85" stroke="#E0252E" stroke-width="2.5"/>
+      <text x="190" y="75" text-anchor="middle" font-size="10" fill="#E0252E" font-family="sans-serif">HV test lead</text>
+      <!-- Conductor cross-section -->
+      <circle cx="280" cy="100" r="50" fill="#1B3A5B" stroke="#0D1B2A" stroke-width="1"/>
+      <circle cx="280" cy="100" r="35" fill="#F59E0B" stroke="#0D1B2A" stroke-width="1"/>
+      <circle cx="280" cy="100" r="20" fill="#1B3A5B"/>
+      <text x="280" y="104" text-anchor="middle" font-size="9" fill="#00FF88" font-family="monospace">CORE</text>
+      <text x="280" y="160" text-anchor="middle" font-size="10" fill="#94a3b8" font-family="sans-serif">Cable cross-section</text>
+      <!-- Leakage current arrow -->
+      <path d="M330,100 Q380,100 390,140" stroke="#E0252E" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <polygon points="388,145 384,133 396,136" fill="#E0252E"/>
+      <text x="395" y="155" font-size="10" fill="#E0252E" font-family="sans-serif">Leakage I</text>
+      <!-- Ground return -->
+      <line x1="140" y1="115" x2="200" y2="115" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="200" y1="115" x2="200" y2="175" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="200" y1="175" x2="400" y2="175" stroke="#64748B" stroke-width="1.5"/>
+      <text x="300" y="190" text-anchor="middle" font-size="10" fill="#64748B" font-family="sans-serif">Return / Earth</text>
+      <!-- Insulation label -->
+      <text x="280" y="93" text-anchor="middle" font-size="8" fill="#F59E0B" font-family="sans-serif">INSULATION</text>
+    </svg>
+  </div>
+  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure — Megohmmeter applies HV between conductor and earth, measures leakage current</p>
+</div>
+
+<h2 id="test-voltages">Correct Test Voltages</h2>
+
+<Callout type="warning" title="Using the wrong test voltage invalidates the result">
+  <p>Too low a voltage won't stress the insulation enough to reveal weak spots. Too high a voltage can damage good insulation. Always use the voltage specified for the equipment rating.</p>
+</Callout>
+
+<div class="my-8 rounded-xl border border-gray-200 overflow-hidden">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-3 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Equipment Rating</th>
+        <th class="text-center px-5 py-3 text-white font-semibold">Test Voltage</th>
+        <th class="text-center px-5 py-3 text-white font-semibold">Minimum IR (1 min)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['LT cables and wiring (up to 1000 V)', '500 V DC', '> 1 MΩ'],
+        ['Motors and generators (< 1 kV)', '500 V DC', '> 1 MΩ (new), > 0.5 MΩ (service)'],
+        ['HT cables and equipment (1–33 kV)', '1000–2500 V DC', '> 100 MΩ'],
+        ['Switchgear and busbars', '1000 V DC', '> 100 MΩ'],
+        ['Transformers (HV winding)', '2500 V DC', '> 500 MΩ'],
+      ].map(([eq, v, r], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 text-[#0D1B2A] font-medium border-b border-gray-100 text-xs">{eq}</td>
+          <td class="px-5 py-3 text-center font-mono text-[#E0252E] border-b border-gray-100 text-xs font-bold">{v}</td>
+          <td class="px-5 py-3 text-center text-gray-700 border-b border-gray-100 text-xs">{r}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="procedure">Test Procedure — Step by Step</h2>
+
+<Callout type="warning" title="Isolate and discharge before testing">
+  <p>The equipment must be <strong>completely de-energised</strong>, isolated, locked out, and discharged before connecting the megohmmeter. Capacitive equipment (motors, long cables) will store charge from the test voltage — always discharge via the instrument's built-in discharge function or a discharge resistor after testing.</p>
+</Callout>
+
+<div class="my-6 space-y-0">
+  {[
+    { n:1, t:'Isolate and verify zero voltage', b:'Switch off, lock out, and use a voltage tester to confirm zero volts on all phases and to earth.' },
+    { n:2, t:'Disconnect equipment under test', b:'Disconnect cables from switchgear, motors from drives, etc. Test leads of other instruments connected in parallel give false low readings.' },
+    { n:3, t:'Connect megohmmeter leads', b:'Connect the Line (L) terminal to the conductor under test. Connect Earth (E) to the equipment frame or earth. Some tests also use a Guard terminal to eliminate surface leakage.' },
+    { n:4, t:'Select correct test voltage', b:'Use the table above. Most mains-voltage installations use 500 V DC.' },
+    { n:5, t:'Apply voltage for 60 seconds', b:'Press the test button. Note the reading at 15 seconds and at 60 seconds. A rising reading (R60 > R15) indicates good insulation. A falling or stable reading may indicate moisture or contamination.' },
+    { n:6, t:'Record and discharge', b:'Note the 1-minute reading. Immediately use the discharge function or hold the test leads connected for 60 seconds after removing voltage to discharge stored charge safely.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#E0252E] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.t}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.b}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="polarisation-index">The Polarisation Index (PI)</h2>
+
+<p>The <strong>Polarisation Index</strong> is the ratio of the 10-minute reading to the 1-minute reading. It is a more reliable indicator of insulation condition than a single reading, because it filters out surface effects.</p>
+
+<div class="my-6 font-mono text-center text-xl font-bold text-[#0D1B2A] p-5 bg-gray-50 rounded-xl border border-gray-200">
+  PI = R<sub class="text-sm">10 min</sub> ÷ R<sub class="text-sm">1 min</sub>
+</div>
+
+<div class="my-6 grid sm:grid-cols-3 gap-3">
+  {[
+    { pi:'PI < 1', condition:'Dangerous', color:'bg-red-50 border-red-200 text-red-800' },
+    { pi:'PI 1.0 – 2.0', condition:'Questionable / Needs attention', color:'bg-amber-50 border-amber-200 text-amber-800' },
+    { pi:'PI > 2.0', condition:'Good insulation condition', color:'bg-emerald-50 border-emerald-200 text-emerald-800' },
+  ].map(p => (
+    <div class={`p-4 rounded-xl border text-center ${p.color}`}>
+      <div class="font-mono font-bold text-lg mb-1">{p.pi}</div>
+      <div class="text-xs font-medium">{p.condition}</div>
+    </div>
+  ))}
+</div>
+
+<h2 id="interpreting">Interpreting Your Results</h2>
+
+<p>A single megohm reading in isolation means little — trend analysis over time is far more valuable. Key rules:</p>
+
+<div class="my-6 space-y-2">
+  {[
+    { ok:true, text:'A reading that is consistent with previous records and above the minimum = insulation is acceptable.' },
+    { ok:true, text:'A rising reading during the test (R at 60s > R at 30s) = insulation is absorbing charge normally = healthy polarisation.' },
+    { ok:false, text:'A reading 30–50% below previous records = investigate immediately, even if it is above the minimum threshold.' },
+    { ok:false, text:'A reading that falls during the test = surface leakage or moisture = dry out and retest before energising.' },
+    { ok:false, text:'Zero or very low reading (< 0.5 MΩ on a 500V test) = definite fault. Do not energise.' },
+  ].map(rule => (
+    <div class={`flex gap-3 items-start p-3.5 rounded-xl ${rule.ok ? 'bg-emerald-50 border border-emerald-200' : 'bg-red-50 border border-red-200'}`}>
+      <span class={`shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold mt-0.5 ${rule.ok ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white'}`}>{rule.ok ? '✓' : '✕'}</span>
+      <p class={`text-sm leading-relaxed ${rule.ok ? 'text-emerald-900' : 'text-red-900'}`}>{rule.text}</p>
+    </div>
+  ))}
+</div>
+
+<p>
+  CIE manufactures hand-operated and motorised insulation testers for LT and HT applications — from the compact <a href={u('/products/')}>CIE-555</a> to the high-voltage <a href={u('/products/')}>CIE-777 series</a>. <a href={u('/contact/')}>Contact our team</a> to select the right model for your application.
+</p>

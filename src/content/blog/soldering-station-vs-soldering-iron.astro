@@ -1,0 +1,118 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Both heat up and melt solder — but the similarity ends there. A basic soldering iron and a temperature-controlled soldering station operate on fundamentally different principles, produce very different results, and suit completely different work. Here's a clear breakdown of when each one is right.
+</p>
+
+<h2 id="core-difference">The Core Difference</h2>
+
+<div class="my-8 grid sm:grid-cols-2 gap-5">
+  <div class="rounded-xl overflow-hidden border-2 border-gray-300">
+    <div class="bg-[#374151] px-5 py-4 text-center">
+      <div class="text-white font-bold text-lg">Basic Soldering Iron</div>
+      <div class="text-gray-300 text-xs mt-1">Fixed power · No temperature control</div>
+    </div>
+    <div class="p-5 bg-gray-50 space-y-2">
+      {['Heating element at fixed power (e.g. 25 W, 40 W)','Temperature drifts with ambient and tip mass','Temperature can overshoot 400–500 °C on light joints','No feedback — no way to know actual tip temperature','Better for plumbing, heavy electrical cable joints','Much cheaper to buy'].map(r => (
+        <div class="flex gap-2 items-start text-sm text-gray-700">
+          <span class="text-gray-500 font-bold shrink-0 mt-0.5">·</span>
+          <span>{r}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+  <div class="rounded-xl overflow-hidden border-2 border-[#E0252E]">
+    <div class="bg-[#E0252E] px-5 py-4 text-center">
+      <div class="text-white font-bold text-lg">Soldering Station</div>
+      <div class="text-red-100 text-xs mt-1">Closed-loop control · Stable temperature</div>
+    </div>
+    <div class="p-5 bg-[#FEF2F2] space-y-2">
+      {['Temperature sensor (thermocouple / sensor) in the tip','PID controller adjusts power to maintain set temperature','Holds ±2–5 °C of target — no overshoot','Digital display shows actual tip temperature','Interchangeable tips (chisel, conical, hoof, etc.)','ESD-safe design protects CMOS components'].map(r => (
+        <div class="flex gap-2 items-start text-sm text-[#7f1d1d]">
+          <span class="text-[#E0252E] font-bold shrink-0 mt-0.5">✓</span>
+          <span>{r}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<h2 id="temperature-matters">Why Temperature Control Matters for Electronics</h2>
+
+<div class="my-8 rounded-xl border border-gray-200 overflow-hidden">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-3 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Temperature</th>
+        <th class="text-left px-5 py-3 text-white font-semibold">What Happens</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['< 180 °C', 'Solder doesn\'t flow properly — cold joints, dull finish, poor mechanical strength'],
+        ['183–200 °C', 'Sn63/Pb37 eutectic solder melts — minimum working temperature'],
+        ['220–260 °C', 'Ideal range for most lead-free (SAC305) PCB work'],
+        ['260–330 °C', 'Heavy joints, thick tracks, ground planes — higher thermal mass needs more heat'],
+        ['> 350 °C', 'PCB pads lift, IC packages crack, flux burns too fast, tip oxidises rapidly'],
+        ['> 400 °C (uncontrolled iron)', 'Component damage zone — SMD ICs, MOSFET gate oxides vulnerable'],
+      ].map(([temp, what], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-mono font-bold text-[#E0252E] border-b border-gray-100 text-xs">{temp}</td>
+          <td class="px-5 py-3 text-gray-700 border-b border-gray-100 text-xs">{what}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="tip-types">Soldering Station Tips and When to Use Them</h2>
+
+<div class="my-8 grid sm:grid-cols-3 gap-4">
+  {[
+    { tip:'Conical', use:'Fine SMD work, through-hole components', best:'1–2 mm fine point' },
+    { tip:'Chisel', use:'General PCB work, drag soldering, pads', best:'Most versatile — start here' },
+    { tip:'Bevel / Hoof', use:'QFP/SOIC drag soldering, large pads', best:'Holds solder on flat face' },
+    { tip:'Knife / Blade', use:'SMD rework, desoldering bridges', best:'Precision SMD repair' },
+    { tip:'Micro / Needle', use:'0402 / 0201 passive components, fine pitch', best:'< 0.5 mm tip diameter' },
+    { tip:'T-shaped / Flat', use:'Wire-to-connector joints, heavy cables', best:'Maximum heat transfer' },
+  ].map(t => (
+    <div class="p-4 border border-gray-200 rounded-xl bg-white">
+      <div class="font-bold text-[#0D1B2A] text-sm mb-1">{t.tip} Tip</div>
+      <div class="text-xs text-gray-600 mb-2 leading-snug">{t.use}</div>
+      <div class="text-[11px] font-mono text-[#E0252E]">{t.best}</div>
+    </div>
+  ))}
+</div>
+
+<h2 id="which-to-buy">Which One Should You Buy?</h2>
+
+<div class="my-8 space-y-3">
+  {[
+    { situation:'PCB assembly, component repair, electronics prototyping', verdict:'Station', reason:'You need temperature control. An uncontrolled iron will damage SMD components and lift pads.' },
+    { situation:'Joining heavy electrical cables, plumbing copper, sheet metal', verdict:'Iron', reason:'A 100 W iron or gas torch is better here — the high thermal mass needs sustained raw heat, not precision.' },
+    { situation:'Hobbyist through-hole kits (Raspberry Pi HATs, Arduino shields)', verdict:'Station (budget OK)', reason:'A basic station (₹1,500–3,000) gives enough control for through-hole work and grows with your skills.' },
+    { situation:'Professional electronics service workshop', verdict:'Station (quality)', reason:'Invest in a Hakko or equivalent with fast thermal recovery, ESD safety, calibration support, and tip availability.' },
+    { situation:'One-off repair (single job, never solder again)', verdict:'Iron', reason:'A 25–40 W iron is adequate for a single through-hole joint. Don\'t over-invest.' },
+  ].map(s => (
+    <div class="rounded-xl border border-gray-200 overflow-hidden">
+      <div class="bg-gray-50 border-b border-gray-200 px-4 py-2.5">
+        <div class="text-sm text-[#0D1B2A] font-medium">{s.situation}</div>
+      </div>
+      <div class="px-4 py-3 flex gap-3 items-start">
+        <span class={`shrink-0 text-xs font-bold px-2.5 py-1 rounded-full ${s.verdict === 'Station' || s.verdict === 'Station (budget OK)' || s.verdict === 'Station (quality)' ? 'bg-red-100 text-red-700' : 'bg-gray-200 text-gray-700'}`}>{s.verdict}</span>
+        <div class="text-sm text-gray-600">{s.reason}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="tip" title="Temperature settings for common solder types">
+  <p><strong>Sn63/Pb37 (leaded):</strong> 300–340 °C for general PCB work. <strong>SAC305 lead-free:</strong> 340–380 °C — higher melting point needs more heat. <strong>Chip Quik low-melt:</strong> 180–220 °C — use for desoldering SMD parts without damage. Always tin the tip before and after use.</p>
+</Callout>
+
+<p>
+  CIE supplies <a href={u('/products/')}>Vartech soldering stations</a> for electronics labs, service centres, and production environments. <a href={u('/contact/')}>Contact us</a> for a recommendation based on your work type and volume.
+</p>

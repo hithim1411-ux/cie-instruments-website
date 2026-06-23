@@ -6,7 +6,6 @@
     "publishDate": "2026-06-01",
     "readTime": "8 min read",
     "category": "Guides",
-    "heroAlt": "A digital multimeter measuring voltage on a circuit board",
     "excerpt": "A multimeter is the most essential instrument in any electrician's or engineer's toolkit. This guide breaks down exactly how it works — from basic physics to practical usage."
   },
   {
@@ -16,7 +15,6 @@
     "publishDate": "2026-06-08",
     "readTime": "7 min read",
     "category": "How-To",
-    "heroAlt": "Clamp meter clamped around a live conductor measuring current",
     "excerpt": "Clamp meters let you measure current safely without cutting a wire. Here's everything you need to know — from jaw placement to reading AC vs DC current."
   },
   {
@@ -26,7 +24,6 @@
     "publishDate": "2026-06-12",
     "readTime": "6 min read",
     "category": "Physics",
-    "heroAlt": "Diagram showing Ohm's Law triangle V = IR with circuit elements",
     "excerpt": "Every reading on a multimeter or clamp meter traces back to one equation: V = IR. Master Ohm's Law and you'll understand exactly what every tester is measuring — and why."
   },
   {
@@ -36,7 +33,6 @@
     "publishDate": "2026-06-16",
     "readTime": "6 min read",
     "category": "How-To",
-    "heroAlt": "Multimeter probes testing continuity on a fuse",
     "excerpt": "Continuity testing is the quickest way to confirm a complete electrical path. Learn the physics behind it and how to run the test correctly with any multimeter."
   },
   {
@@ -46,7 +42,78 @@
     "publishDate": "2026-06-20",
     "readTime": "7 min read",
     "category": "Buying Guide",
-    "heroAlt": "Clamp meter and multimeter placed side by side for comparison",
     "excerpt": "Both measure electrical quantities — but they work very differently. Here's a practical breakdown of when to reach for a clamp meter versus a multimeter."
+  },
+  {
+    "slug": "how-to-use-an-oscilloscope",
+    "title": "How to Use an Oscilloscope: A Complete Beginner's Guide",
+    "description": "Learn how to use an oscilloscope step by step — how to connect probes, set voltage and time scales, read waveforms, and measure frequency, period, and amplitude.",
+    "publishDate": "2026-07-01",
+    "readTime": "10 min read",
+    "category": "Guides",
+    "excerpt": "An oscilloscope turns invisible electrical signals into visible waveforms you can measure. This complete guide takes you from unpacking to your first real measurement."
+  },
+  {
+    "slug": "insulation-resistance-testing-guide",
+    "title": "Insulation Resistance Testing: What It Is and How to Do It",
+    "description": "A complete guide to insulation resistance testing — what it measures, how a megohmmeter works, correct test voltages for cables and motors, and how to interpret results.",
+    "publishDate": "2026-07-05",
+    "readTime": "9 min read",
+    "category": "How-To",
+    "excerpt": "Insulation resistance testing is the single most important test you can run on any electrical installation. Learn the test voltages, procedures, and how to read the results."
+  },
+  {
+    "slug": "dc-power-supply-guide",
+    "title": "DC Power Supply Explained: Types, Uses, and How to Choose One",
+    "description": "Everything you need to know about DC power supplies — linear vs switching, regulated vs unregulated, constant current vs constant voltage, and how to select one for your bench.",
+    "publishDate": "2026-07-08",
+    "readTime": "8 min read",
+    "category": "Guides",
+    "excerpt": "A DC power supply is the foundation of any electronics lab or test bench. This guide breaks down every type, what the specs actually mean, and how to choose the right one."
+  },
+  {
+    "slug": "earth-resistance-testing-guide",
+    "title": "Earth Resistance Testing: Why It Matters and How to Measure It",
+    "description": "Learn what earth resistance is, why it must be measured, the 3-point fall-of-potential method, and how to use an earth tester to ensure electrical safety compliance.",
+    "publishDate": "2026-07-12",
+    "readTime": "8 min read",
+    "category": "How-To",
+    "excerpt": "A poor earth connection is the most invisible and most dangerous electrical fault. This guide explains earth resistance, accepted limits, and how to measure it correctly."
+  },
+  {
+    "slug": "soldering-station-vs-soldering-iron",
+    "title": "Soldering Station vs Soldering Iron: Which Should You Buy?",
+    "description": "Compare soldering stations and soldering irons on temperature control, tip types, safety, and value — and find out which is right for electronics work, PCBs, and field repairs.",
+    "publishDate": "2026-07-15",
+    "readTime": "7 min read",
+    "category": "Buying Guide",
+    "excerpt": "Both heat up and melt solder — but the similarity ends there. Here's a clear breakdown of when a basic iron is enough and when you need a proper soldering station."
+  },
+  {
+    "slug": "lux-meter-guide",
+    "title": "What Is a Lux Meter? How to Measure Light Intensity Correctly",
+    "description": "Learn what a lux meter measures, how it works, correct measurement technique, standard lux requirements for offices, factories, and outdoor spaces, and how to choose one.",
+    "publishDate": "2026-07-18",
+    "readTime": "7 min read",
+    "category": "Guides",
+    "excerpt": "Lux is the unit of illuminance — and measuring it correctly requires more than just pointing a sensor at a light. Here's everything you need to know about lux meters."
+  },
+  {
+    "slug": "transformer-oil-bdv-test",
+    "title": "Transformer Oil BDV Test: What It Is and How to Perform It",
+    "description": "Learn what the transformer oil breakdown voltage (BDV) test is, why it is critical for transformer maintenance, the test procedure, and how to interpret results per IS standards.",
+    "publishDate": "2026-07-22",
+    "readTime": "8 min read",
+    "category": "How-To",
+    "excerpt": "The BDV test is the primary health check for transformer oil — and a failing result is an early warning of catastrophic failure. Here's exactly how to run and read the test."
+  },
+  {
+    "slug": "oscilloscope-waveform-guide",
+    "title": "How to Read an Oscilloscope Waveform: Voltage, Time, Frequency",
+    "description": "Learn how to read an oscilloscope screen — measure amplitude, period, frequency, duty cycle, rise time, and understand common waveform types with practical examples.",
+    "publishDate": "2026-07-25",
+    "readTime": "9 min read",
+    "category": "Physics",
+    "excerpt": "The oscilloscope screen is a graph — once you know what the axes mean and what each waveform type looks like, every signal tells a story. Here's how to read it."
   }
 ]

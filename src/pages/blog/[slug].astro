@@ -7,6 +7,14 @@ import ClampMeterGuide from '../../content/blog/how-to-use-a-clamp-meter.astro';
 import OhmsLaw from '../../content/blog/ohms-law-explained.astro';
 import ContinuityGuide from '../../content/blog/continuity-testing-guide.astro';
 import ClampVsMultimeter from '../../content/blog/clamp-meter-vs-multimeter.astro';
+import OscilloscopeGuide from '../../content/blog/how-to-use-an-oscilloscope.astro';
+import InsulationGuide from '../../content/blog/insulation-resistance-testing-guide.astro';
+import DcPowerGuide from '../../content/blog/dc-power-supply-guide.astro';
+import EarthGuide from '../../content/blog/earth-resistance-testing-guide.astro';
+import SolderingGuide from '../../content/blog/soldering-station-vs-soldering-iron.astro';
+import LuxGuide from '../../content/blog/lux-meter-guide.astro';
+import BdvGuide from '../../content/blog/transformer-oil-bdv-test.astro';
+import WaveformGuide from '../../content/blog/oscilloscope-waveform-guide.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -21,6 +29,14 @@ const contentMap: Record<string, any> = {
   'ohms-law-explained': OhmsLaw,
   'continuity-testing-guide': ContinuityGuide,
   'clamp-meter-vs-multimeter': ClampVsMultimeter,
+  'how-to-use-an-oscilloscope': OscilloscopeGuide,
+  'insulation-resistance-testing-guide': InsulationGuide,
+  'dc-power-supply-guide': DcPowerGuide,
+  'earth-resistance-testing-guide': EarthGuide,
+  'soldering-station-vs-soldering-iron': SolderingGuide,
+  'lux-meter-guide': LuxGuide,
+  'transformer-oil-bdv-test': BdvGuide,
+  'oscilloscope-waveform-guide': WaveformGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -66,6 +82,59 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'choose-clamp', label: 'When to Choose Clamp' },
     { id: 'can-clamp-replace', label: 'Can Clamp Replace DMM?' },
     { id: 'which-first', label: 'Which to Buy First?' },
+  ],
+  'how-to-use-an-oscilloscope': [
+    { id: 'what-it-shows', label: 'What It Shows You' },
+    { id: 'key-controls', label: 'Four Key Controls' },
+    { id: 'connect-probe', label: 'Connect the Probe' },
+    { id: 'first-measurement', label: 'Get a Stable Waveform' },
+    { id: 'measurements', label: 'Make Measurements' },
+    { id: 'coupling', label: 'AC vs DC Coupling' },
+    { id: 'common-mistakes', label: 'Common Mistakes' },
+  ],
+  'insulation-resistance-testing-guide': [
+    { id: 'what-it-measures', label: 'What It Measures' },
+    { id: 'test-voltages', label: 'Correct Test Voltages' },
+    { id: 'procedure', label: 'Test Procedure' },
+    { id: 'polarisation-index', label: 'Polarisation Index (PI)' },
+    { id: 'interpreting', label: 'Interpreting Results' },
+  ],
+  'dc-power-supply-guide': [
+    { id: 'types', label: 'Linear vs Switching' },
+    { id: 'specs', label: 'Key Specifications' },
+    { id: 'choosing', label: 'Choosing the Right Supply' },
+    { id: 'using', label: 'Using It Correctly' },
+  ],
+  'earth-resistance-testing-guide': [
+    { id: 'what-is', label: 'What Is Earth Resistance?' },
+    { id: 'standards', label: 'Accepted Limits' },
+    { id: 'method', label: 'Fall-of-Potential Method' },
+    { id: 'procedure', label: 'Test Procedure' },
+    { id: 'improving', label: 'Improving High Resistance' },
+  ],
+  'soldering-station-vs-soldering-iron': [
+    { id: 'core-difference', label: 'The Core Difference' },
+    { id: 'temperature-matters', label: 'Why Temperature Matters' },
+    { id: 'tip-types', label: 'Tip Types' },
+    { id: 'which-to-buy', label: 'Which to Buy?' },
+  ],
+  'lux-meter-guide': [
+    { id: 'what-is-lux', label: 'What Is Lux?' },
+    { id: 'reference-values', label: 'Lux by Environment' },
+    { id: 'how-to-measure', label: 'How to Measure Correctly' },
+    { id: 'features', label: 'Key Features to Look For' },
+  ],
+  'transformer-oil-bdv-test': [
+    { id: 'what-it-measures', label: 'What BDV Measures' },
+    { id: 'test-cell', label: 'Test Cell & Gap' },
+    { id: 'procedure', label: 'Test Procedure (IS 6792)' },
+    { id: 'interpreting', label: 'Interpreting Results' },
+  ],
+  'oscilloscope-waveform-guide': [
+    { id: 'the-axes', label: 'The Two Axes' },
+    { id: 'waveform-types', label: 'Waveform Types' },
+    { id: 'measurements', label: 'Making Measurements' },
+    { id: 'abnormal', label: 'Abnormal Waveforms' },
   ],
 };
 

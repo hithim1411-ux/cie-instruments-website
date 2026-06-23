@@ -1,0 +1,190 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  An oscilloscope turns invisible electrical signals into visible waveforms you can measure. It shows you <strong>how voltage changes over time</strong> — making it indispensable for electronics design, circuit debugging, and signal analysis. This guide takes you from unpacking the instrument to making your first real measurement.
+</p>
+
+<h2 id="what-it-shows">What an Oscilloscope Actually Shows You</h2>
+
+<!-- Screen anatomy diagram -->
+<div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden">
+  <div class="p-6">
+    <svg viewBox="0 0 580 320" class="w-full max-w-2xl mx-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Screen border -->
+      <rect x="20" y="10" width="380" height="300" rx="8" fill="#0D1B2A" stroke="#E0252E" stroke-width="2"/>
+      <!-- Grid lines horizontal -->
+      {[60,110,160,210,260].map(y => (
+        <line x1="20" y1={y} x2="400" y2={y} stroke="#1B3A5B" stroke-width="0.8"/>
+      ))}
+      <!-- Grid lines vertical -->
+      {[96,172,248,324].map(x => (
+        <line x1={x} y1="10" x2={x} y2="310" stroke="#1B3A5B" stroke-width="0.8"/>
+      ))}
+      <!-- Sine wave -->
+      <path d="M20,160 C50,160 60,60 96,60 C132,60 140,260 172,260 C208,260 216,60 248,60 C284,60 292,260 324,260 C360,260 368,160 400,160" stroke="#00FF88" stroke-width="2.5" fill="none"/>
+      <!-- Amplitude arrow -->
+      <line x1="410" y1="60" x2="410" y2="160" stroke="#E0252E" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <polygon points="410,55 406,65 414,65" fill="#E0252E"/>
+      <text x="415" y="115" font-size="11" fill="#E0252E" font-family="sans-serif">Amplitude</text>
+      <!-- Period arrow -->
+      <line x1="96" y1="285" x2="248" y2="285" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <polygon points="92,285 102,281 102,289" fill="#60A5FA"/>
+      <polygon points="252,285 242,281 242,289" fill="#60A5FA"/>
+      <text x="145" y="300" font-size="11" fill="#60A5FA" font-family="sans-serif">Period (T)</text>
+      <!-- Axes labels -->
+      <text x="25" y="25" font-size="10" fill="#94a3b8" font-family="sans-serif">Voltage (V) ↑</text>
+      <text x="340" y="308" font-size="10" fill="#94a3b8" font-family="sans-serif">Time →</text>
+      <!-- Zero line label -->
+      <text x="405" y="163" font-size="10" fill="#94a3b8" font-family="sans-serif">0V</text>
+      <!-- Controls panel -->
+      <rect x="410" y="10" width="150" height="300" rx="6" fill="#13243A" stroke="#1B3A5B" stroke-width="1"/>
+      <text x="485" y="35" text-anchor="middle" font-size="11" fill="#E0252E" font-family="sans-serif" font-weight="700">CONTROLS</text>
+      <text x="420" y="65" font-size="10" fill="#94a3b8" font-family="sans-serif">V/div knob</text>
+      <text x="420" y="82" font-size="10" fill="#60A5FA" font-family="sans-serif">→ vertical scale</text>
+      <text x="420" y="110" font-size="10" fill="#94a3b8" font-family="sans-serif">Time/div knob</text>
+      <text x="420" y="127" font-size="10" fill="#60A5FA" font-family="sans-serif">→ horizontal scale</text>
+      <text x="420" y="155" font-size="10" fill="#94a3b8" font-family="sans-serif">Trigger level</text>
+      <text x="420" y="172" font-size="10" fill="#60A5FA" font-family="sans-serif">→ stable display</text>
+      <text x="420" y="200" font-size="10" fill="#94a3b8" font-family="sans-serif">CH1 input</text>
+      <text x="420" y="217" font-size="10" fill="#60A5FA" font-family="sans-serif">→ probe BNC</text>
+      <text x="420" y="245" font-size="10" fill="#94a3b8" font-family="sans-serif">Position knob</text>
+      <text x="420" y="262" font-size="10" fill="#60A5FA" font-family="sans-serif">→ move trace</text>
+    </svg>
+  </div>
+  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure — Oscilloscope screen: sine wave with amplitude and period marked</p>
+</div>
+
+<p>The screen is a <strong>graph of voltage (Y-axis) vs time (X-axis)</strong>. Two knobs control the scale of each axis, letting you zoom in or out on any signal.</p>
+
+<h2 id="key-controls">The Four Controls You Must Know</h2>
+
+<div class="my-8 grid sm:grid-cols-2 gap-4">
+  {[
+    { name:'Volts/div (V/div)', color:'bg-red-50 border-[#E0252E] text-[#E0252E]', desc:'Controls the vertical scale. Each grid square represents this many volts. Turn it down to zoom in on a small signal, up for a large one.' },
+    { name:'Time/div (s/div)', color:'bg-blue-50 border-blue-500 text-blue-700', desc:'Controls the horizontal (time) scale. Each grid square represents this duration. Use faster settings for high-frequency signals.' },
+    { name:'Trigger Level', color:'bg-amber-50 border-amber-500 text-amber-700', desc:'Sets the voltage threshold at which the scope starts drawing. A correctly set trigger makes the waveform appear stationary and stable.' },
+    { name:'Position / Offset', color:'bg-emerald-50 border-emerald-500 text-emerald-700', desc:'Moves the trace up/down (vertical position) or left/right (horizontal position). Use it to centre the waveform on screen.' },
+  ].map(c => (
+    <div class={`rounded-xl border-l-4 p-4 ${c.color}`}>
+      <div class={`font-bold text-sm mb-1.5 ${c.color.split(' ')[2]}`}>{c.name}</div>
+      <div class="text-sm text-gray-700 leading-relaxed">{c.desc}</div>
+    </div>
+  ))}
+</div>
+
+<h2 id="connect-probe">Step 1 — Connect the Probe Correctly</h2>
+
+<Callout type="warning" title="Probe ground is a hard connection">
+  <p>The probe's ground clip connects to the instrument's earth. Clipping it to the wrong point creates a short circuit through your scope. Always connect ground first, signal tip second.</p>
+</Callout>
+
+<div class="my-6 space-y-0">
+  {[
+    { n:1, t:'Set probe attenuation', b:'Most probes have a 1x/10x switch. Use 10x for most measurements (less loading on the circuit). Match the scope\'s channel setting to the probe switch.' },
+    { n:2, t:'Compensate the probe', b:'Attach the probe tip to the square-wave calibration output on the scope front panel. Adjust the small trimmer screw on the probe until the waveform has perfectly flat tops — not rounded or spiked.' },
+    { n:3, t:'Connect ground clip', b:'Clip the probe\'s ground lead to the circuit ground (or chassis). Keep this lead as short as possible to avoid noise pickup.' },
+    { n:4, t:'Touch probe tip to test point', b:'Gently touch the probe tip to the signal you want to measure. Don\'t push hard — the probe spring clip is enough.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#E0252E] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.t}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.b}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="first-measurement">Step 2 — Get a Stable Waveform</h2>
+
+<div class="my-6 space-y-0">
+  {[
+    { n:1, t:'Press AUTO or AUTOSET', b:'Most scopes have an auto-configure button. It sets approximate V/div and time/div based on the signal. Always a good starting point.' },
+    { n:2, t:'Adjust V/div so the waveform fills 4–6 divisions', b:'Too small = noise is proportionally large. Too large = waveform clips off screen. Aim to see 1–2 full cycles.' },
+    { n:3, t:'Adjust time/div to show 2–3 complete cycles', b:'This makes frequency and period easy to read. For a 50 Hz mains signal, 5 ms/div shows one full cycle per division.' },
+    { n:4, t:'Set the trigger', b:'Choose edge trigger on the rising edge. Set the trigger level line (usually a small arrow on the right of the screen) to the middle of the waveform\'s swing. The waveform should snap stable.' },
+  ].map((s, i, arr) => (
+    <div class="flex gap-4 relative">
+      {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
+      <div class="shrink-0 w-10 h-10 rounded-full bg-[#1B3A5B] text-white font-bold text-sm flex items-center justify-center z-10 shadow">{s.n}</div>
+      <div class="pb-6">
+        <p class="font-bold text-[#0D1B2A]">{s.t}</p>
+        <p class="text-gray-600 text-sm mt-0.5">{s.b}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 id="measurements">Step 3 — Make Your Measurements</h2>
+
+<div class="my-8 rounded-xl border border-gray-200 overflow-hidden">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#0D1B2A]">
+        <th class="text-left px-5 py-3 text-[#94a3b8] font-mono text-xs uppercase tracking-widest">Measurement</th>
+        <th class="text-left px-5 py-3 text-white font-semibold">How to Read It</th>
+        <th class="text-left px-5 py-3 text-white font-semibold">Formula</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Peak-to-peak voltage', 'Count grid squares from top to bottom of waveform × V/div', 'Vpp = divisions × V/div'],
+        ['Period (T)', 'Count grid squares for one complete cycle × time/div', 'T = divisions × time/div'],
+        ['Frequency', 'Invert the period', 'f = 1 / T (Hz)'],
+        ['RMS voltage', 'For a pure sine wave only', 'Vrms = Vpeak ÷ √2 ≈ 0.707 × Vpeak'],
+        ['Duty cycle', 'Measure ON-time and full period', 'D = T_on / T × 100%'],
+      ].map(([m, h, f], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-medium text-[#0D1B2A] border-b border-gray-100 text-xs">{m}</td>
+          <td class="px-5 py-3 text-gray-600 border-b border-gray-100 text-xs">{h}</td>
+          <td class="px-5 py-3 font-mono text-[#E0252E] border-b border-gray-100 text-xs">{f}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="coupling">AC vs DC Coupling — Which to Use?</h2>
+
+<div class="my-6 grid sm:grid-cols-2 gap-4">
+  <div class="p-5 rounded-xl border border-gray-200 bg-white">
+    <div class="font-bold text-[#0D1B2A] mb-2">DC Coupling</div>
+    <p class="text-sm text-gray-600 leading-relaxed">Shows the complete signal — AC waveform <em>plus</em> any DC offset. Use for: DC power supply rails, mixed AC+DC signals, battery measurements.</p>
+  </div>
+  <div class="p-5 rounded-xl border border-gray-200 bg-white">
+    <div class="font-bold text-[#0D1B2A] mb-2">AC Coupling</div>
+    <p class="text-sm text-gray-600 leading-relaxed">Strips out the DC component — shows only the AC variation. Use for: viewing ripple on a power supply, audio signals, any AC signal sitting on a DC level.</p>
+  </div>
+</div>
+
+<h2 id="common-mistakes">Common Beginner Mistakes</h2>
+
+<div class="my-6 space-y-3">
+  {[
+    { m:'Ground clip connected to wrong point', f:'Creates a short — can destroy the circuit. Always verify ground before touching the probe tip to any signal.' },
+    { m:'V/div set too high', f:'Waveform appears as a flat line near the centre. Turn V/div down until the wave fills the screen.' },
+    { m:'Trigger not set', f:'Waveform scrolls across the screen continuously. Set edge trigger to the rising edge at mid-amplitude.' },
+    { m:'Probe compensation not done', f:'Readings are inaccurate. The calibration step takes 30 seconds and must be done each time you change probes.' },
+    { m:'10x probe / 1x scope mismatch', f:'All voltage readings are 10× too high or too low. Match scope channel input to probe attenuation switch.' },
+  ].map(e => (
+    <div class="flex gap-3 p-4 rounded-xl border border-amber-200 bg-amber-50">
+      <span class="text-amber-500 shrink-0 mt-0.5 text-base">⚠</span>
+      <div>
+        <div class="font-bold text-amber-900 text-sm">{e.m}</div>
+        <div class="text-sm text-amber-800 mt-0.5">{e.f}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<Callout type="tip" title="Use the built-in measurements menu">
+  <p>Modern digital oscilloscopes have an automatic measurement menu (often labelled MEAS or MEASURE) that calculates frequency, period, Vpp, Vrms, and duty cycle for you. Use it to verify your manual readings and speed up your workflow.</p>
+</Callout>
+
+<p>
+  CIE stocks <a href={u('/products/')}>Vartech digital oscilloscopes</a> suited for electronics labs, service workshops, and field work. <a href={u('/contact/')}>Contact us</a> to find the right bandwidth and channel count for your application.
+</p>
