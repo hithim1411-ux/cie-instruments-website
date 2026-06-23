@@ -22,7 +22,7 @@
       { "label": "Probes Included", "value": "2 × 10:1 ratio probes" },
       { "label": "Power Supply", "value": "Mains (230 V AC)" }
     ],
-    "images": ["ss-5020b.webp"],
+    "images": ["ss-5020b.webp", "ss-5020b-2.webp"],
     "catalogue": "ss-5020b.pdf"
   },
   {
@@ -166,7 +166,7 @@
       { "label": "Accessories Included", "value": "2 × ratio probes, 1 × BNC cable" },
       { "label": "Power Supply", "value": "Mains (230 V AC)" }
     ],
-    "images": ["ss-5150ds1b-fg.webp"],
+    "images": ["ss-5150ds1bfg.webp"],
     "catalogue": "ss-5150ds1b-fg.pdf"
   }
 ]
