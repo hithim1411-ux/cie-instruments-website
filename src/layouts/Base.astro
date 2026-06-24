@@ -10,8 +10,9 @@ interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
-  rawTitle?: boolean; // when true, use title as-is without appending brand suffix
-  preloadImage?: string; // URL of LCP image to preload
+  rawTitle?: boolean;
+  preloadImage?: string;
+  keywords?: string;
 }
 
 const {
@@ -21,7 +22,11 @@ const {
   noindex = false,
   rawTitle = false,
   preloadImage,
+  keywords,
 } = Astro.props;
+
+const baseKeywords = 'insulation tester supplier Kolkata, insulation tester supplier India, test and measurement instruments supplier India, electrical test equipment supplier Kolkata, earth tester supplier, megger supplier India, relay test set supplier, oil BDV tester supplier, HV test set supplier, electrical instruments supplier West Bengal, industrial test equipment supplier, Cambridge Instruments, CIE Instruments, insulation tester Howrah, insulation tester West Bengal, electrical measuring instruments supplier, digital multimeters India, clamp meters India, oscilloscopes India, vartech multimeters India, vartech clamp meters, function generators India, LCR meters India, DC electronic loads India, test measurement instruments Howrah';
+const fullKeywords = keywords ? `${keywords}, ${baseKeywords}` : baseKeywords;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = rawTitle
@@ -158,6 +163,22 @@ const orgSchema = {
         'Transformer Oil Test Sets',
         'Digital Multimeters',
         'Clamp Meters',
+        'True RMS Multimeters',
+        'Vartech Instruments',
+        'Oscilloscopes',
+        'Digital Storage Oscilloscopes',
+        'Function Generators',
+        'Signal Generators',
+        'LCR Meters',
+        'Capacitance Meters',
+        'DC Electronic Loads',
+        'Test and Measurement',
+        'Electrical Safety Testing',
+        'Power Quality Measurement',
+        'Panel Testing',
+        'Motor Winding Testing',
+        'Cable Testing',
+        'Substation Testing',
         'Micro-Ohm Meters',
         'HV Test Sets',
         'High Voltage Test Equipment',
@@ -166,6 +187,10 @@ const orgSchema = {
         'Test and Measurement Instruments',
         'Industrial Test Equipment',
         'Electrical Instruments',
+      ],
+      sameAs: [
+        'https://cieinstruments.in/',
+        'https://maps.app.goo.gl/cieinstruments',
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
@@ -208,7 +233,7 @@ const orgSchema = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
-  <meta name="keywords" content="insulation tester supplier Kolkata, insulation tester supplier India, test and measurement instruments supplier India, electrical test equipment supplier Kolkata, earth tester supplier, megger supplier India, relay test set supplier, oil BDV tester supplier, HV test set supplier, electrical instruments supplier West Bengal, industrial test equipment supplier, Cambridge Instruments, CIE Instruments, insulation tester Howrah, insulation tester West Bengal, electrical measuring instruments supplier" />
+  <meta name="keywords" content={fullKeywords} />
   <link rel="canonical" href={canonicalStr} />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
 

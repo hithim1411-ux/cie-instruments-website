@@ -53,9 +53,62 @@ const pageTitle       = (category as any).metaTitle  ?? `${category.name} | CIE 
 const pageDescription = (category as any).metaDesc   ?? `${category.name} — ${category.description} CIE instruments, manufactured in Howrah since 1963.`;
 const seoContent      = (category as any).seoContent as string[] | undefined;
 const isCombined      = vartechSections.length > 0;
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: category.name,
+  description: category.description,
+  url: `https://cieinstruments.in/products/${category.id}/`,
+  numberOfItems: isCombined
+    ? catProducts.length + vartechSections.reduce((s: number, sec: any) => s + sec.items.length, 0)
+    : isVartechBrand
+      ? vartechItems.length
+      : catProducts.length,
+  itemListElement: [
+    ...(isCombined || !isVartechBrand ? catProducts.map((p: any, i: number) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://cieinstruments.in/products/${p.categoryId}/${p.id}/`,
+      name: `${p.model} — ${p.name}`,
+    })) : []),
+    ...(isCombined
+      ? vartechSections.flatMap((sec: any, si: number) =>
+          sec.items.map((p: any, pi: number) => ({
+            '@type': 'ListItem',
+            position: catProducts.length + (si * 100) + pi + 1,
+            url: `https://cieinstruments.in/authorised-dealership/${sec.slug}/${p.id}/`,
+            name: `Vartech ${p.model} — ${p.name}`,
+          }))
+        )
+      : isVartechBrand
+        ? vartechItems.map((p: any, i: number) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            url: `https://cieinstruments.in/authorised-dealership/${brandSlug}/${p.id}/`,
+            name: `Vartech ${p.model} — ${p.name}`,
+          }))
+        : []),
+  ],
+};
+
+const categoryFaqs = (category as any).faq as { q: string; a: string }[] | undefined;
+const faqSchema = categoryFaqs && categoryFaqs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: categoryFaqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+} : null;
+
+const catKeywords = [category.name, ...(categoryFaqs?.map(f => f.q) ?? [])].join(', ');
 ---
 
-<Base title={pageTitle} description={pageDescription} rawTitle={(category as any).metaTitle != null}>
+<Base title={pageTitle} description={pageDescription} rawTitle={(category as any).metaTitle != null} keywords={catKeywords}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  {faqSchema && <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <!-- Page header -->
   <div class={(category as any).brand === 'vartech' ? 'bg-emerald-50 border-b border-emerald-200 py-10' : 'bg-[#F5F7FA] border-b border-[#E8ECF2] py-10'}>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -251,6 +304,29 @@ const isCombined      = vartechSections.length > 0;
             ))}
           </div>
         )}
+      </div>
+    </section>
+  )}
+
+  {categoryFaqs && categoryFaqs.length > 0 && (
+    <section class="bg-white py-10 lg:py-14 border-t border-[#E8ECF2]">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-xl font-bold text-[#0D2547] mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-5">
+          {categoryFaqs.map(faq => (
+            <details class="group border border-[#E8ECF2] rounded-lg overflow-hidden">
+              <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer font-semibold text-[#0D2547] text-sm list-none hover:bg-[#F5F7FA] transition-colors">
+                {faq.q}
+                <svg class="w-4 h-4 shrink-0 text-[#64748B] group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </summary>
+              <div class="px-5 pb-5 pt-1 text-sm text-[#64748B] leading-relaxed border-t border-[#E8ECF2]">
+                {faq.a}
+              </div>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   )}

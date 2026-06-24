@@ -262,6 +262,7 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
 <Base
   title={`${post.title} | CIE Instruments`}
   description={post.description}
+  keywords={`${post.title}, ${post.category}, electrical measurement, test and measurement, CIE instruments`}
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',

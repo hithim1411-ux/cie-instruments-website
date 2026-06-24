@@ -6,8 +6,26 @@
     "eyebrow": "Insulation Testers · Hand-Driven Generator",
     "description": "Rugged hand-driven generator type insulation testers in metal and wooden body variants, from 100 V to 10 kV test voltages. The original CIE design — built and calibrated in Howrah since 1963.",
     "icon": "⚡",
-    "metaTitle": "Hand-Driven Insulation Testers | Cambridge Instruments (CIE) — Manufacturer, Howrah",
-    "metaDesc": "Buy hand-driven insulation testers from CIE — India's leading manufacturer since 1963. 100 V to 10 kV test voltages. Metal & wooden body. Supplied to PGCIL, Indian Railways, WBSETCL. Kolkata, Howrah.",
+    "metaTitle": "Hand-Driven Insulation Testers India | CIE Megohmmeter Manufacturer — Howrah",
+    "metaDesc": "Buy CIE hand-driven insulation testers (meggers) — 100V to 10kV, metal & wooden body. Supplied to PGCIL, Indian Railways, WBSETCL. Manufacturer in Howrah. Pan-India supply.",
+    "faq": [
+      {
+        "q": "What is a hand-driven insulation tester?",
+        "a": "A hand-driven insulation tester (also called a megger or megohmmeter) uses a manual hand-crank generator to produce a DC test voltage — no batteries or mains supply needed. It measures insulation resistance in megaohms across cables, motors, transformers, and electrical equipment. CIE manufactures them in metal (CIE/444) and wooden body (CIE/666) variants from 100V to 10,000V."
+      },
+      {
+        "q": "What is the difference between CIE/444 and CIE/666 insulation testers?",
+        "a": "The CIE/444 has an anti-magnetic aluminium die-cast body and is available up to 5000V. The CIE/666 has a seasoned teak wood body and covers higher voltage ranges up to 10,000V — wider range than the metal body model. Both use the same silent clutch-type generator mechanism and cross-coil indicator."
+      },
+      {
+        "q": "Are CIE insulation testers supplied with a calibration certificate?",
+        "a": "Yes. All CIE insulation testers are calibrated against reference standards before leaving our Howrah works and are supplied with a calibration certificate. They carry a 12-month warranty against manufacturing defects."
+      },
+      {
+        "q": "What voltage should I use to test motor insulation?",
+        "a": "For motors up to 440V rating, use a 500V or 1000V test voltage. For motors rated 3.3kV to 11kV, use 2500V to 5000V. The CIE/444 and CIE/666 cover 100V, 500V, 1000V, 2500V and higher ranges — select the range appropriate for the equipment's rated voltage."
+      }
+    ],
     "seoContent": [
       "CIE hand-driven insulation testers are generator-type instruments that require no batteries or mains supply — a built-in hand-cranked AC generator produces the test voltage, which is rectified to DC by silicon diodes and applied across the insulation under test. The result is read directly off a cross-coil analog indicator. This operating principle makes them inherently robust and suitable for use in remote field locations, substations, and industrial sites across India where power supply is unavailable or unreliable.",
       "CIE manufactures hand-driven insulation testers in two body variants: the CIE/444 in an anti-magnetic aluminium die-cast body, and the CIE/666 in a teak wood body. Both are available in test voltages from 100 V to 10 kV, making them suitable for testing low-voltage domestic wiring, medium-voltage distribution cables, HV transmission equipment, and large rotating machines. All instruments conform to ISS: 2992-1987.",
@@ -84,6 +102,20 @@
     "icon": "🌍",
     "metaTitle": "Earth Resistance Testers | Analog & Digital — Cambridge Instruments (CIE), Howrah",
     "metaDesc": "CIE earth resistance testers — analog hand-driven (CIE/222M) and digital (DET-2000). 3-terminal earth resistance and 4-terminal soil resistivity measurement. Manufacturer in Howrah, India.",
+    "faq": [
+      {
+        "q": "What is earth resistance and why must it be tested?",
+        "a": "Earth resistance is the resistance between an earthing electrode and the true earth (remote earth). Low earth resistance is mandatory at every electrical installation to ensure that fault currents flow safely to earth, protecting personnel from electric shock and equipment from damage. Indian Electricity Rules and IS 3043 specify maximum earth resistance values — typically less than 1 ohm for power stations and less than 10 ohms for domestic installations."
+      },
+      {
+        "q": "What is the difference between 3-terminal and 4-terminal earth testing?",
+        "a": "3-terminal earth testing (fall-of-potential method) measures the resistance of a single earth electrode by driving two auxiliary stakes and measuring the voltage drop. 4-terminal Wenner method testing passes current through outer electrodes and measures voltage across inner electrodes to determine soil resistivity — used for designing earth grid systems at substations and large installations."
+      },
+      {
+        "q": "Which CIE earth tester should I use for substation testing?",
+        "a": "The CIE/222M analog earth tester supports both 3-terminal earth resistance and 4-terminal soil resistivity testing and is supplied as a complete kit with stakes, wires, carrying bag, and hammer. For digital readout and higher accuracy, the DET-2000 digital earth tester provides direct numerical display and supports 4-terminal measurement for soil resistivity surveys used in substation earth grid design."
+      }
+    ],
     "seoContent": [
       "Earth resistance testing is mandatory at every electrical installation — from domestic earthing systems to substation earth grids — to ensure personnel safety and equipment protection. CIE manufactures both analog and digital earth resistance testers for a wide range of applications.",
       "The CIE/222M is an analog, hand-driven earth tester supplied as a complete kit with earth spikes, wire spools, a carrying bag, and a hammer — everything needed for a 3-terminal earth resistance measurement in the field. It also supports 4-terminal Wenner method soil resistivity measurement, making it suitable for substation earth grid design. The DET-2000 is the digital companion: a 4-terminal digital earth resistance tester with direct numerical readout, eliminating the parallax-reading uncertainty of the analog instrument.",
@@ -130,8 +162,22 @@
     "eyebrow": "Clamp Meters · True-RMS",
     "description": "True-RMS clamp meters up to 1000 A AC/DC for measuring current in live conductors without breaking the circuit. For panels, motor control centres, and distribution systems.",
     "icon": "🔧",
-    "metaTitle": "Clamp Meters | DCM Series True-RMS — Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE True-RMS clamp meters — DCM 2250 TR, DCM 5410 TR. Up to 1000 A AC/DC. For panels, MCCs, distribution systems. Manufacturer in Howrah. Pan-India supply.",
+    "metaTitle": "Clamp Meters India | True RMS 1000A AC/DC | CIE & Vartech — Howrah",
+    "metaDesc": "Buy clamp meters in India — CIE DCM series True RMS and Vartech 1000A clamp multimeters. Measure live current without breaking the circuit. Pan-India supply from Howrah.",
+    "faq": [
+      {
+        "q": "What is a clamp meter used for?",
+        "a": "A clamp meter measures AC or DC current by clamping around a conductor without breaking the circuit — essential for measuring live current in panels, motor control centres, and distribution boards. It can also measure voltage, resistance, and frequency like a standard multimeter. CIE True RMS clamp meters (DCM series) and Vartech clamp meters cover up to 1000A AC/DC."
+      },
+      {
+        "q": "What is the difference between a clamp meter and a multimeter?",
+        "a": "A clamp meter measures high AC/DC current non-invasively by clamping around a conductor using the Hall effect or CT principle. A multimeter measures voltage, resistance, and small currents via test leads inserted into the circuit. Many modern clamp meters like the Vartech V 266+ and M 2101 combine both functions — current clamping plus full multimeter measurement."
+      },
+      {
+        "q": "Can I measure DC current with a clamp meter?",
+        "a": "Yes, but only with a True RMS AC/DC clamp meter that uses a Hall-effect sensor, such as the Vartech M 2101 (True RMS AC/DC, 1000A). Standard clamp meters using current transformer (CT) principles measure AC current only and give zero or erratic readings on DC. Always check the meter specification for DC current capability before use."
+      }
+    ],
     "seoContent": [
       "CIE True-RMS clamp meters measure AC and DC current up to 1000 A without breaking the circuit — essential for live conductor measurements in panels, motor control centres, and distribution systems. The DCM 2250 TR and DCM 5410 TR use True-RMS measurement for accuracy with non-sinusoidal waveforms from variable frequency drives (VFDs) and power electronics.",
       "Clamp meters are used by electrical engineers, electricians, HVAC technicians, panel builders, and industrial maintenance teams across India. Available directly from CIE with pan-India supply to Kolkata, Howrah, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, and all major cities."
@@ -147,8 +193,22 @@
     "eyebrow": "Multimeters · Digital",
     "description": "3½-digit digital multimeters for voltage, current, resistance, capacitance, frequency, and temperature measurement. True-RMS and standard variants.",
     "icon": "📐",
-    "metaTitle": "Digital Multimeters | DM Series — Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE digital multimeters — DM 235 (3½-digit) and DM 321T (True-RMS). Voltage, current, resistance, capacitance, frequency, temperature. Manufacturer in Howrah. Pan-India supply.",
+    "metaTitle": "Digital Multimeters India | True RMS | CIE & Vartech — Buy from Howrah",
+    "metaDesc": "Buy digital multimeters in India — CIE DM series and Vartech True RMS multimeters. Auto-ranging, 2000 to 30000 counts. Manufacturer & authorised dealer in Howrah. Pan-India supply.",
+    "faq": [
+      {
+        "q": "What is a True RMS digital multimeter?",
+        "a": "A True RMS (Root Mean Square) digital multimeter accurately measures non-sinusoidal AC waveforms — essential when measuring circuits with variable frequency drives (VFDs), inverters, or switching power supplies. Standard average-responding multimeters give up to 40% error with distorted waveforms. CIE DM 321T and all Vartech multimeters with TRMS designation use True RMS measurement."
+      },
+      {
+        "q": "Which digital multimeter is best for industrial use in India?",
+        "a": "For industrial electrical work, a True RMS multimeter rated CAT III or CAT IV is recommended. The Vartech V 890 D (1000V DC / 750V AC, 20A, True RMS) and Vartech V 981+ (30000 counts, bench-top with PC interface) are popular choices. For general field work, the Vartech V 92 S (smart multimeter, True RMS, auto-ranging) is compact and reliable."
+      },
+      {
+        "q": "What is the difference between a 2000-count and a 30000-count multimeter?",
+        "a": "Count refers to the resolution of the digital display. A 2000-count multimeter (3½-digit) reads up to 1999, meaning 1V resolution on the 20V range. A 30000-count multimeter reads 29999 — 10x finer resolution, important for precise measurements like contact resistance, small voltage drops, or component testing. Higher-count meters like the Vartech V 981+ are preferred for laboratory and precision measurement work."
+      }
+    ],
     "seoContent": [
       "CIE digital multimeters provide accurate measurement of voltage, current, resistance, capacitance, frequency, and temperature. The DM 321T is a True-RMS multimeter for accurate measurement of non-sinusoidal waveforms, while the DM 235 is a cost-effective 3½-digit instrument for general electrical measurement. All CIE multimeters conform to relevant IEC safety standards.",
       "Digital multimeters are used by electricians, engineers, technicians, and students across India for general electrical measurement, troubleshooting, and maintenance. Available from CIE with pan-India supply to Kolkata, Howrah, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, and all major cities."
@@ -208,6 +268,16 @@
     "icon": "🔬",
     "metaTitle": "Relay Test Sets | Single Phase & Three Phase — Cambridge Instruments (CIE), Howrah",
     "metaDesc": "CIE relay test sets — single phase (RTS-5, RTS-5A, 400 VA) and three phase (RTS-33, 250 VA, 0–360° phase angle). For protection relay commissioning. Manufacturer in Howrah, India.",
+    "faq": [
+      {
+        "q": "What is a relay test set used for?",
+        "a": "A relay test set is used for secondary injection testing of protection relays — verifying that overcurrent relays, earth fault relays, distance relays, and differential relays operate correctly at their set values. Testing involves injecting calibrated AC current, AC/DC voltage, and phase angle into the relay and measuring its operate time and value. CIE manufactures single-phase (RTS-5/5A) and three-phase (RTS-33) relay test sets."
+      },
+      {
+        "q": "What is the difference between CIE RTS-5 and RTS-33?",
+        "a": "The CIE RTS-5 and RTS-5A are single-phase relay test sets (400 VA) providing variable AC current and voltage for testing overcurrent, earth fault, and other single-phase protection relays. The CIE RTS-33 is a three-phase relay test set providing three-phase AC current, AC and DC voltage, and continuously variable 0–360° phase angle — essential for testing distance relays, differential protection, and directional overcurrent relays."
+      }
+    ],
     "seoContent": [
       "Protection relay testing is a critical activity in power system commissioning and maintenance — every relay protecting a transmission line, transformer, bus, or feeder must be tested to verify that it will operate correctly under fault conditions. CIE manufactures single-phase and three-phase relay test sets for secondary current injection testing of protection relays.",
       "The CIE RTS-5 and RTS-5A are single-phase relay test sets providing continuously variable AC current from 0 to 200 A across multiple ranges, with built-in digital timer (0–99.99 sec), digital ammeter, and AC voltmeter. They are used for testing over-current relays, earth fault relays, and other single-phase protection devices. The RTS-33 is a three-phase relay test set providing variable three-phase AC current, AC and DC voltage, and continuously variable phase angle (0–360°) — essential for testing distance relays, differential relays, and directional protection relays.",
@@ -246,8 +316,22 @@
     "eyebrow": "Vartech® · Oscilloscopes",
     "description": "Analog and digital storage oscilloscopes from 20 MHz to 150 MHz — dual and 4-channel, with options for component tester and built-in function generator. Supplied by CIE as authorised Vartech dealer.",
     "icon": "📡",
-    "metaTitle": "Oscilloscopes — Vartech SS Series | CIE Instruments, Howrah",
-    "metaDesc": "Vartech oscilloscopes — analog CROs 20–30 MHz and digital storage oscilloscopes 80–150 MHz. SS-5020B, SS-5030B, SS-5080DS4, SS-5100DS1B, SS-5150DS1BFG. Available through CIE Instruments.",
+    "metaTitle": "Oscilloscopes India | Analog & DSO | Vartech SS Series — CIE Instruments",
+    "metaDesc": "Buy oscilloscopes in India — Vartech SS series analog CROs (20-30 MHz) and digital storage oscilloscopes (80-150 MHz, 1 GS/s). Authorised dealer in Howrah. Pan-India supply.",
+    "faq": [
+      {
+        "q": "What bandwidth oscilloscope do I need?",
+        "a": "For general electronics bench work and audio, 20–50 MHz is sufficient. For embedded systems, microcontrollers, and power electronics, 100 MHz minimum. For high-speed digital signals and RF work, 150 MHz or more. Vartech oscilloscopes range from the SS-5020B (20 MHz analog CRO) and SS-5030B (30 MHz) to the SS-5080DS4 (80 MHz, 4-channel DSO) and SS-5150DS1BFG (150 MHz DSO with built-in function generator)."
+      },
+      {
+        "q": "What is the difference between an analog oscilloscope and a digital storage oscilloscope (DSO)?",
+        "a": "An analog oscilloscope (CRO) displays waveforms in real time on a phosphor screen — ideal for viewing live repetitive signals and subtle amplitude variations. A digital storage oscilloscope (DSO) captures waveforms digitally, enabling storage, zoom, trigger on single-shot events, and computer export via USB. For modern electronics and debugging work, a DSO like the Vartech SS-5080DS4 or SS-5100DS1B is recommended."
+      },
+      {
+        "q": "Where can I buy a Vartech oscilloscope in India?",
+        "a": "CIE Instruments (Cambridge Instruments & Engg. Co.) is an authorised dealer for Vartech oscilloscopes in India. The full Vartech SS series — SS-5020B, SS-5030B, SS-5030BC, SS-5080DS4, SS-5100DS1B, and SS-5150DS1BFG — is available through CIE. Contact us via WhatsApp or email for pricing, availability, and delivery across India."
+      }
+    ],
     "seoContent": [
       "CIE Instruments supplies Vartech oscilloscopes — a complete range of analog CROs and digital storage oscilloscopes (DSOs) for electronics labs, service workshops, R&D departments, and educational institutions. The Vartech SS series covers 20 MHz to 150 MHz bandwidth in dual-channel and 4-channel configurations, with sampling rates up to 1 GS/s on the DSO models.",
       "The SS-5020B and SS-5030B are classic dual-channel analog oscilloscopes with compact bench-top design. The SS-5030BC adds a built-in component tester for checking resistors, capacitors, inductors, transistors, and diodes without an external instrument. The SS-5080DS4 is a 4-channel 80 MHz DSO — ideal for embedded systems and power electronics work where multiple signals must be observed simultaneously. The SS-5100DS1B and SS-5150DS1BFG are high-performance dual-channel DSOs at 100 MHz and 150 MHz, with the FG model including an integrated 25 MHz function generator.",
@@ -262,8 +346,18 @@
     "eyebrow": "Vartech® · Function Generators",
     "description": "DDS function generators from 15 MHz to 80 MHz with sine, square, triangle, and arbitrary waveforms. Programmable models with USB interface and PC connectivity.",
     "icon": "〜",
-    "metaTitle": "Function Generators — Vartech SGDA Series | CIE Instruments, Howrah",
-    "metaDesc": "Vartech SGDA function generators — 15 MHz, 30 MHz, 60 MHz DDS, 80 MHz programmable. Sine, square, triangle, arbitrary waveforms. Available through CIE Instruments, Howrah.",
+    "metaTitle": "Function Generators India | Vartech SGDA Series DDS — CIE Instruments",
+    "metaDesc": "Buy DDS function generators in India — Vartech SGDA series 15 MHz to 80 MHz. Sine, square, triangle, arbitrary waveforms, USB interface. Authorised dealer in Howrah.",
+    "faq": [
+      {
+        "q": "What is a DDS function generator?",
+        "a": "A DDS (Direct Digital Synthesis) function generator uses digital techniques to produce stable, accurate waveforms — sine, square, triangle, ramp, and arbitrary waveforms — across a wide frequency range. DDS generators like the Vartech SGDA series offer much better frequency stability, resolution, and waveform quality compared to older analog VCO-based generators."
+      },
+      {
+        "q": "Where can I buy a Vartech function generator in India?",
+        "a": "CIE Instruments is an authorised Vartech dealer in India. The Vartech SGDA series — SGD-6M (6 MHz), SGDA-15M (15 MHz), SGDA-30M (30 MHz), SGDA-60M (60 MHz with ARB), and SGDA-80M (80 MHz programmable) — are available through CIE with pan-India delivery. Contact us for pricing and technical support."
+      }
+    ],
     "seoContent": [
       "CIE Instruments supplies the Vartech SGDA series of DDS function generators — reliable, full-featured signal sources for electronics labs, educational institutions, service workshops, and R&D departments. The SGDA range covers 15 MHz to 80 MHz with sine, square, triangle, and ramp waveforms as standard, with the SGDA-60M and SGDA-80M adding arbitrary waveform generation capability.",
       "The SGDA-15M and SGDA-30M are compact, cost-effective DDS function generators for everyday bench use. The SGDA-60M adds arbitrary waveform generation via PC software, while the SGDA-80M is a fully programmable instrument with USB/RS-232 interface for automated test system integration. All models feature clear digital frequency display and stable output across the full frequency range.",
