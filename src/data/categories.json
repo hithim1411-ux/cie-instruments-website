@@ -124,6 +124,10 @@
     "id": "clamp-multimeters",
     "name": "Clamp Meters & Multimeters",
     "shortName": "Clamp Meters & Multimeters",
+    "vartechEquivalents": [
+      { "categoryId": "vartech-multimeters", "label": "Multimeters", "slug": "multimeters" },
+      { "categoryId": "vartech-clamp-meters", "label": "Clamp Meters", "slug": "clamp-meters" }
+    ],
     "eyebrow": "Clamp Meters · Multimeters",
     "description": "True-RMS clamp meters up to 1000 A AC/DC and 3½-digit digital multimeters for voltage, current, resistance, capacitance, and temperature measurement.",
     "icon": "📏",
