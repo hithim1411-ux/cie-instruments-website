@@ -50,18 +50,22 @@ const seoContent      = (category as any).seoContent as string[] | undefined;
         <a href={u('/products/')} class="text-sm text-[#64748B] hover:text-[#1B3A5B] transition-colors">← All products</a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      <!-- Mobile: horizontal scroll slider; sm+: grid -->
+      <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 sm:overflow-visible sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-5"
+        style="scrollbar-width:none; -ms-overflow-style:none;">
         {catProducts.map(p => (
-          <ProductCard
-            model={p.model}
-            name={p.name}
-            tagline={p.tagline}
-            categoryId={p.categoryId}
-            id={p.id}
-            featured={p.featured}
-            image={p.image}
-            hideImage={p.hideImage}
-          />
+          <div class="shrink-0 snap-start w-[75vw] sm:w-auto">
+            <ProductCard
+              model={p.model}
+              name={p.name}
+              tagline={p.tagline}
+              categoryId={p.categoryId}
+              id={p.id}
+              featured={p.featured}
+              image={p.image}
+              hideImage={p.hideImage}
+            />
+          </div>
         ))}
       </div>
     </div>

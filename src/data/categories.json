@@ -196,6 +196,30 @@
     ]
   },
   {
+    "id": "vartech-multimeters",
+    "brand": "vartech",
+    "name": "Vartech Multimeters",
+    "shortName": "Multimeters",
+    "eyebrow": "Vartech® · Digital Multimeters",
+    "description": "True RMS digital multimeters — pocket-friendly to bench-top, 2000 to 30000 counts. Available through CIE as authorised Vartech dealer.",
+    "icon": "🔌",
+    "metaTitle": "Vartech Digital Multimeters | CIE Instruments, Howrah",
+    "metaDesc": "Vartech digital multimeters — True RMS, auto-ranging, 2000 to 30000 counts. Available through CIE Instruments as authorised dealer.",
+    "seoContent": []
+  },
+  {
+    "id": "vartech-clamp-meters",
+    "brand": "vartech",
+    "name": "Vartech Clamp Meters",
+    "shortName": "Clamp Meters",
+    "eyebrow": "Vartech® · Digital Clamp Meters",
+    "description": "Digital clamp meters — 1000 A AC, True RMS, mA leakage testers and smart compact models. Available through CIE as authorised Vartech dealer.",
+    "icon": "🔧",
+    "metaTitle": "Vartech Digital Clamp Meters | CIE Instruments, Howrah",
+    "metaDesc": "Vartech digital clamp meters — True RMS, 1000 A AC/DC, leakage testers. Available through CIE Instruments as authorised dealer.",
+    "seoContent": []
+  },
+  {
     "id": "vartech-oscilloscopes",
     "brand": "vartech",
     "name": "Oscilloscopes",

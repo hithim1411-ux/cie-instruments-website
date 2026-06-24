@@ -2,19 +2,34 @@
 import site from '../data/site.json';
 import categories from '../data/categories.json';
 import products from '../data/products.json';
+import vartechMultimeters from '../data/vartech-multimeters.json';
+import vartechClampMeters from '../data/vartech-clamp-meters.json';
+import vartechOscilloscopes from '../data/vartech-oscilloscopes.json';
+import vartechFunctionGenerators from '../data/vartech-function-generators.json';
+import vartechLcrMeters from '../data/vartech-lcr-meters.json';
+import vartechDcLoads from '../data/vartech-dc-loads.json';
 
 interface Props {
-  productName?: string;   // pre-selected model string (e.g. from ?product= param)
+  productName?: string;
 }
 const { productName = '' } = Astro.props;
 
-// Build category → [{id, model, name}] map for the JS dropdown
+const vartechByCategory: Record<string, {id: string, model: string, name: string}[]> = {
+  'vartech-multimeters':        vartechMultimeters.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'vartech-clamp-meters':       vartechClampMeters.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'vartech-oscilloscopes':      vartechOscilloscopes.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'vartech-function-generators': vartechFunctionGenerators.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'vartech-lcr-meters':         vartechLcrMeters.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'vartech-dc-loads':           vartechDcLoads.map(p => ({ id: p.id, model: p.model, name: p.name })),
+};
+
 const productsByCategory = categories.map(cat => ({
   id:   cat.id,
   name: cat.name,
-  products: products
-    .filter(p => p.categoryId === cat.id)
-    .map(p => ({ id: p.id, model: p.model, name: p.name })),
+  products: [
+    ...products.filter(p => p.categoryId === cat.id).map(p => ({ id: p.id, model: p.model, name: p.name })),
+    ...(vartechByCategory[cat.id] ?? []),
+  ],
 }));
 
 const waMsg = productName
