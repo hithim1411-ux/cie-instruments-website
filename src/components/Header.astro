@@ -2,8 +2,11 @@
 import { u } from '../utils/url';
 import categories from '../data/categories.json';
 
-// Only CIE-manufactured categories in the nav dropdown; dealer brands live in /authorised-dealership/
-const cieCategories = categories.filter((c: any) => !c.brand || c.brand === 'cie');
+// Nav dropdown: CIE categories + Vartech-unique types only.
+// vartech-multimeters and vartech-clamp-meters are excluded because CIE already has
+// "Clamp Meters & Multimeters" covering that product type — no need to list it twice.
+const DROPDOWN_EXCLUDE = new Set(['vartech-multimeters', 'vartech-clamp-meters']);
+const cieCategories = categories.filter((c: any) => !DROPDOWN_EXCLUDE.has(c.id));
 
 const otherNav = [
   { label: 'Insights',               href: u('/blog') },
