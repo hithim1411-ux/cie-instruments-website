@@ -9,10 +9,17 @@ import categories from '../data/categories.json';
 import products from '../data/products.json';
 import clients from '../data/clients.json';
 
-const categoryCount = categories.map(cat => ({
-  ...cat,
-  count: products.filter(p => p.categoryId === cat.id).length,
-}));
+// Remove Vartech categories that duplicate an existing CIE category in the slider.
+// "Multimeters" and "Clamp Meters" overlap with CIE's "Clamp Meters & Multimeters".
+// Vartech-only categories (oscilloscopes, function generators, LCR meters, DC loads) are kept.
+const SLIDER_EXCLUDE = new Set(['vartech-multimeters', 'vartech-clamp-meters']);
+
+const categoryCount = categories
+  .filter((cat: any) => !SLIDER_EXCLUDE.has(cat.id))
+  .map((cat: any) => ({
+    ...cat,
+    count: products.filter((p: any) => p.categoryId === cat.id).length,
+  }));
 
 const featured = products.filter(p => p.featured);
 
