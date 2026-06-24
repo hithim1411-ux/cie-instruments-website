@@ -97,7 +97,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
                 {categories.map((cat, i) => (
                   <li role="none">
                     <a
-                      href={u(`/products/${cat.id}/`)}
+                      href={u((cat as any).brand === 'vartech' ? `/authorised-dealership/${cat.id.replace('vartech-', '')}/` : `/products/${cat.id}/`)}
                       role="menuitem"
                       data-dropdown-item
                       tabindex="-1"
@@ -145,7 +145,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
   </div>
 
   <!-- ── Mobile Menu ── -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-[#13243A] border-t border-white/10">
+  <div id="mobile-menu" class="hidden lg:hidden bg-[#13243A] border-t border-white/10 max-h-[calc(100vh-4rem)] overflow-y-auto">
     <nav class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1" aria-label="Mobile navigation">
 
       <!-- Home -->
@@ -175,7 +175,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         <!-- Category accordion panel -->
         <div id="mobile-products-dropdown" class="hidden ml-3 border-l border-white/10 pl-3 py-1 mt-0.5">
           {categories.map(cat => (
-            <a href={u(`/products/${cat.id}/`)}
+            <a href={u((cat as any).brand === 'vartech' ? `/authorised-dealership/${cat.id.replace('vartech-', '')}/` : `/products/${cat.id}/`)}
                class="flex items-center gap-2 px-2 py-2 text-xs text-[#94a3b8] hover:text-[#b0bec5] hover:bg-white/5 rounded transition-colors">
               <span aria-hidden="true">{cat.icon}</span>
               {cat.shortName}
