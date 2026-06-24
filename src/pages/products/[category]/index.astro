@@ -44,6 +44,11 @@ const vartechSections = (vartechEquivalents ?? []).map(eq => ({
   items: vartechDataMap[eq.categoryId] ?? [],
 }));
 
+// For pure Vartech brand pages (oscilloscopes, function-generators, etc.) — load products directly
+const isVartechBrand  = (category as any).brand === 'vartech';
+const brandSlug       = category.id.replace('vartech-', '');
+const vartechItems    = isVartechBrand ? (vartechDataMap[category.id] ?? []) : [];
+
 const pageTitle       = (category as any).metaTitle  ?? `${category.name} | CIE Instruments`;
 const pageDescription = (category as any).metaDesc   ?? `${category.name} — ${category.description} CIE instruments, manufactured in Howrah since 1963.`;
 const seoContent      = (category as any).seoContent as string[] | undefined;
@@ -177,23 +182,75 @@ const isCombined      = vartechSections.length > 0;
       })}
     </div>
   ) : (
-    /* ── SINGLE BRAND PAGE (unchanged) ─────────────────────────────────────── */
-    <section class="bg-white py-12 lg:py-16">
+    /* ── SINGLE BRAND PAGE ───────────────────────────────────────────────────── */
+    <section class={`py-12 lg:py-16 ${isVartechBrand ? '' : 'bg-white'}`}
+      style={isVartechBrand ? 'background: linear-gradient(to bottom, #f0fdf4, #fff)' : ''}>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between mb-8">
-          <h2 class="text-lg font-bold text-[#0D2547]">{catProducts.length} {catProducts.length === 1 ? 'instrument' : 'instruments'} in this category</h2>
-          <a href={u('/products/')} class="text-sm text-[#64748B] hover:text-[#1B3A5B] transition-colors">← All products</a>
-        </div>
-        <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 sm:overflow-visible sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-5"
-          style="scrollbar-width:none; -ms-overflow-style:none;">
-          {catProducts.map(p => (
-            <div class="shrink-0 snap-start w-[75vw] sm:w-auto">
-              <ProductCard model={p.model} name={p.name} tagline={p.tagline}
-                categoryId={p.categoryId} id={p.id} featured={p.featured}
-                image={p.image} hideImage={p.hideImage} />
+        {isVartechBrand ? (
+          <div class="flex items-center justify-between mb-8 gap-4 flex-wrap">
+            <div class="flex items-center gap-4">
+              <img src={u('/images/vartech/vartech-logo.avif')} alt="Vartech®" width="90" height="32" class="object-contain" />
+              <h2 class="text-lg font-bold text-[#0D1B2A]">{vartechItems.length} models</h2>
             </div>
-          ))}
-        </div>
+            <a href={u('/products/')} class="text-sm text-[#64748B] hover:text-[#1B3A5B] transition-colors">← All products</a>
+          </div>
+        ) : (
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-lg font-bold text-[#0D2547]">{catProducts.length} {catProducts.length === 1 ? 'instrument' : 'instruments'} in this category</h2>
+            <a href={u('/products/')} class="text-sm text-[#64748B] hover:text-[#1B3A5B] transition-colors">← All products</a>
+          </div>
+        )}
+
+        {isVartechBrand ? (
+          <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 sm:overflow-visible sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-5"
+            style="scrollbar-width:none; -ms-overflow-style:none;">
+            {vartechItems.map((p: any) => {
+              const imgFile = p.images?.[0] ?? `${p.id}.webp`;
+              return (
+                <div class="shrink-0 snap-start w-[75vw] sm:w-auto">
+                  <article class="bg-white rounded-lg border-2 border-emerald-100 overflow-hidden flex flex-col hover:shadow-md hover:border-emerald-400 transition-all duration-200">
+                    <div class="bg-[#F5F7FA] border-b border-emerald-100 h-44 flex items-center justify-center relative">
+                      <img src={u(`/images/vartech/${brandSlug}/${imgFile}`)}
+                        alt={`${p.model} — ${p.name}`} width="300" height="300"
+                        class="object-contain h-36 w-auto" loading="lazy"
+                        onerror="this.style.display='none'" />
+                      <span class="absolute top-2 left-2 text-[9px] font-mono font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
+                        Vartech®
+                      </span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-1">
+                      <p class="text-[11px] font-mono text-emerald-600 mb-0.5">{p.model}</p>
+                      <h3 class="font-bold text-[#0D2547] text-sm leading-snug mb-2">{p.name}</h3>
+                      <p class="text-xs text-[#64748B] mb-4 flex-1 line-clamp-3">{p.tagline ?? p.description}</p>
+                      <div class="flex flex-col gap-2 mt-auto">
+                        <a href={u(`/authorised-dealership/${brandSlug}/${p.id}/`)}
+                          class="text-center px-3 py-2 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-xs font-semibold rounded transition-colors">
+                          View Specifications
+                        </a>
+                        <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} — ${p.name}`)}`}
+                          target="_blank" rel="noopener noreferrer"
+                          class="text-center px-3 py-2 border border-[#25D366] text-[#1a6e38] hover:bg-[#25D366]/10 text-xs font-medium rounded transition-colors">
+                          Enquire on WhatsApp
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 sm:overflow-visible sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-5"
+            style="scrollbar-width:none; -ms-overflow-style:none;">
+            {catProducts.map(p => (
+              <div class="shrink-0 snap-start w-[75vw] sm:w-auto">
+                <ProductCard model={p.model} name={p.name} tagline={p.tagline}
+                  categoryId={p.categoryId} id={p.id} featured={p.featured}
+                  image={p.image} hideImage={p.hideImage} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )}

@@ -263,6 +263,32 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
   title={`${post.title} | CIE Instruments`}
   description={post.description}
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description ?? post.excerpt,
+    datePublished: post.publishDate,
+    dateModified: post.publishDate,
+    author: {
+      '@type': 'Organization',
+      name: 'Cambridge Instruments & Engg. Co.',
+      url: 'https://cieinstruments.in/',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Cambridge Instruments & Engg. Co.',
+      logo: { '@type': 'ImageObject', url: 'https://cieinstruments.in/logo/cie-logo.png' },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://cieinstruments.in/blog/${post.slug}/`,
+    },
+    url: `https://cieinstruments.in/blog/${post.slug}/`,
+    inLanguage: 'en-IN',
+    keywords: post.category,
+    isPartOf: { '@id': 'https://cieinstruments.in/#website' },
+  })} />
 
   <!-- ── Article Header — gray bg, clearly framed ── -->
   <div class="bg-[#F5F7FA] border-b-2 border-gray-200">

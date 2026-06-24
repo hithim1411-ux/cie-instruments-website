@@ -33,6 +33,39 @@ const fullTitle = rawTitle
 const ogImageURL = new URL(ogImage, Astro.site).toString();
 const canonicalStr = canonicalURL.toString();
 
+// BreadcrumbList schema
+const slugLabels: Record<string, string> = {
+  products: 'Products', blog: 'Insights', contact: 'Contact',
+  'authorised-dealership': 'Authorised Dealership', about: 'About Us',
+  faq: 'FAQs', industries: 'Industries', quality: 'Quality',
+  'insulation-testers-hand': 'Insulation Testers (Hand-Driven)',
+  'multirange-insulation-hand': 'Multirange Insulation Testers',
+  'motor-operated-insulation': 'Motor-Operated Insulation Testers',
+  'multirange-motorised-insulation': 'Multirange Motorised Insulation',
+  'compact-insulation-testers': 'Compact Insulation Testers',
+  'earth-tester': 'Earth Testers', 'digital-insulation-testers': 'Digital Insulation Testers',
+  'digital-earth-micro-ohm': 'Micro-Ohm Meters', 'clamp-meters': 'Clamp Meters',
+  multimeters: 'Digital Multimeters', 'hv-phase-sequence': 'HV Test Sets',
+  'phase-sequence-indicators': 'Phase Sequence Indicators',
+  'oil-test-sets': 'Oil BDV Test Sets', 'relay-test-sets': 'Relay Test Sets',
+  oscilloscopes: 'Oscilloscopes', 'function-generators': 'Function Generators',
+  'lcr-meters': 'LCR & Cap Meters', 'dc-loads': 'DC Electronic Loads',
+};
+const pathParts = Astro.url.pathname.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
+const breadcrumbSchema = pathParts.length > 0 ? JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cieinstruments.in/' },
+    ...pathParts.map((seg, i) => ({
+      '@type': 'ListItem',
+      position: i + 2,
+      name: slugLabels[seg] ?? seg.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()),
+      item: `https://cieinstruments.in/${pathParts.slice(0, i + 1).join('/')}/`,
+    })),
+  ],
+}) : null;
+
 // Organisation + WebSite structured data (site-wide)
 const orgSchema = {
   '@context': 'https://schema.org',
@@ -211,6 +244,9 @@ const orgSchema = {
 
   <link rel="icon" type="image/png" href={u('/logo/cie-logo.png')} />
   <link rel="apple-touch-icon" href={u('/logo/cie-logo.png')} />
+
+  <!-- BreadcrumbList schema (computed in frontmatter) -->
+  {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
 
   <!-- Slot for per-page structured data / additional head tags -->
   <slot name="head" />
