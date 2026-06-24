@@ -12,6 +12,8 @@ import clients from '../data/clients.json';
 // Remove Vartech categories that duplicate an existing CIE category in the slider.
 // "Multimeters" and "Clamp Meters" overlap with CIE's "Clamp Meters & Multimeters".
 // Vartech-only categories (oscilloscopes, function generators, LCR meters, DC loads) are kept.
+// Vartech multimeters/clamp-meters are excluded because CIE now has separate
+// "Clamp Meters" and "Digital Multimeters" categories that already cover those types.
 const SLIDER_EXCLUDE = new Set(['vartech-multimeters', 'vartech-clamp-meters']);
 
 const categoryCount = categories

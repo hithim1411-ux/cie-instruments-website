@@ -1962,7 +1962,7 @@
   },
   {
     "id": "dcm-2250-tr",
-    "categoryId": "clamp-multimeters",
+    "categoryId": "clamp-meters",
     "model": "DCM 2250 TR",
     "name": "Digital Clamp Multimeter — True-RMS AC, 1000 A",
     "tagline": "True-RMS AC clamp multimeter — 6 A/60 A/600 A/1000 A, NCV, Low-Z ACV, 6000-count. AC current only (no DC current).",
@@ -2046,7 +2046,7 @@
   },
   {
     "id": "dcm-5410-tr",
-    "categoryId": "clamp-multimeters",
+    "categoryId": "clamp-meters",
     "model": "DCM 5410 TR",
     "name": "Digital Clamp Multimeter — True-RMS AC/DC, 1000 A",
     "tagline": "True-RMS AC/DC clamp multimeter — 1000 A AC and DC, plus capacitance, frequency, and temperature. CAT III 600 V.",
@@ -2143,7 +2143,7 @@
   },
   {
     "id": "dm-235",
-    "categoryId": "clamp-multimeters",
+    "categoryId": "multimeters",
     "model": "DM 235",
     "name": "Digital Multimeter — 3½-digit",
     "tagline": "3½-digit manual-ranging DMM — DC/AC voltage, DC/AC current, resistance, capacitance, continuity, diode, hFE. 9 V battery.",
@@ -2224,7 +2224,7 @@
   },
   {
     "id": "dm-321t",
-    "categoryId": "clamp-multimeters",
+    "categoryId": "multimeters",
     "model": "DM 321T",
     "name": "True-RMS Digital Multimeter — Manual Ranging, 3½-digit",
     "tagline": "True-RMS, manual-ranging 3½-digit DMM with transistor hFE test, capacitance, backlight, and protective holster.",

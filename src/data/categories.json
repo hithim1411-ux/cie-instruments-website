@@ -121,22 +121,37 @@
     ]
   },
   {
-    "id": "clamp-multimeters",
-    "name": "Clamp Meters & Multimeters",
-    "shortName": "Clamp Meters & Multimeters",
+    "id": "clamp-meters",
+    "name": "Clamp Meters",
+    "shortName": "Clamp Meters",
     "vartechEquivalents": [
-      { "categoryId": "vartech-multimeters", "label": "Multimeters", "slug": "multimeters" },
       { "categoryId": "vartech-clamp-meters", "label": "Clamp Meters", "slug": "clamp-meters" }
     ],
-    "eyebrow": "Clamp Meters · Multimeters",
-    "description": "True-RMS clamp meters up to 1000 A AC/DC and 3½-digit digital multimeters for voltage, current, resistance, capacitance, and temperature measurement.",
-    "icon": "📏",
-    "metaTitle": "Clamp Meters & Digital Multimeters | DCM, DM Series — Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE clamp meters (True-RMS, 1000 A AC/DC) and digital multimeters. DCM 2250 TR, DCM 5410 TR, DM 235, DM 321T. T&M instruments from Howrah. Pan-India supply.",
+    "eyebrow": "Clamp Meters · True-RMS",
+    "description": "True-RMS clamp meters up to 1000 A AC/DC for measuring current in live conductors without breaking the circuit. For panels, motor control centres, and distribution systems.",
+    "icon": "🔧",
+    "metaTitle": "Clamp Meters | DCM Series True-RMS — Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE True-RMS clamp meters — DCM 2250 TR, DCM 5410 TR. Up to 1000 A AC/DC. For panels, MCCs, distribution systems. Manufacturer in Howrah. Pan-India supply.",
     "seoContent": [
-      "CIE supplies True-RMS clamp meters and digital multimeters for electrical measurement in industrial, commercial, and field applications. The DCM 2250 TR and DCM 5410 TR are True-RMS clamp meters capable of measuring AC current up to 1000 A without breaking the circuit — essential for measuring current in live conductors in panels, motor control centres, and distribution systems. True-RMS measurement ensures accuracy with non-sinusoidal waveforms from variable frequency drives (VFDs) and other power electronics.",
-      "The DM 321T True-RMS digital multimeter provides accurate voltage, current, resistance, capacitance, frequency, and temperature measurement in a compact handheld format. The DM 235 is a cost-effective 3½-digit multimeter for general electrical measurement. All CIE clamp meters and multimeters conform to relevant IEC safety standards.",
-      "CIE clamp meters and multimeters are used by electrical engineers, electricians, HVAC technicians, panel builders, and industrial maintenance teams across India. They are available through CIE directly and through authorised dealers, with supply to customers in Kolkata, Howrah, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, and all major cities across India."
+      "CIE True-RMS clamp meters measure AC and DC current up to 1000 A without breaking the circuit — essential for live conductor measurements in panels, motor control centres, and distribution systems. The DCM 2250 TR and DCM 5410 TR use True-RMS measurement for accuracy with non-sinusoidal waveforms from variable frequency drives (VFDs) and power electronics.",
+      "Clamp meters are used by electrical engineers, electricians, HVAC technicians, panel builders, and industrial maintenance teams across India. Available directly from CIE with pan-India supply to Kolkata, Howrah, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, and all major cities."
+    ]
+  },
+  {
+    "id": "multimeters",
+    "name": "Digital Multimeters",
+    "shortName": "Multimeters",
+    "vartechEquivalents": [
+      { "categoryId": "vartech-multimeters", "label": "Multimeters", "slug": "multimeters" }
+    ],
+    "eyebrow": "Multimeters · Digital",
+    "description": "3½-digit digital multimeters for voltage, current, resistance, capacitance, frequency, and temperature measurement. True-RMS and standard variants.",
+    "icon": "📐",
+    "metaTitle": "Digital Multimeters | DM Series — Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE digital multimeters — DM 235 (3½-digit) and DM 321T (True-RMS). Voltage, current, resistance, capacitance, frequency, temperature. Manufacturer in Howrah. Pan-India supply.",
+    "seoContent": [
+      "CIE digital multimeters provide accurate measurement of voltage, current, resistance, capacitance, frequency, and temperature. The DM 321T is a True-RMS multimeter for accurate measurement of non-sinusoidal waveforms, while the DM 235 is a cost-effective 3½-digit instrument for general electrical measurement. All CIE multimeters conform to relevant IEC safety standards.",
+      "Digital multimeters are used by electricians, engineers, technicians, and students across India for general electrical measurement, troubleshooting, and maintenance. Available from CIE with pan-India supply to Kolkata, Howrah, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, and all major cities."
     ]
   },
   {
