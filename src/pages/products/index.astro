@@ -119,8 +119,20 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
         })}
       </div>
 
+      <!-- CIE product grid nav -->
+      <div class="hidden sm:flex items-center gap-2 mb-4">
+        <button id="cie-prev" aria-label="Previous products"
+          class="w-9 h-9 rounded-full border border-[#E8ECF2] bg-white hover:border-[#1B3A5B] hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] transition-all flex items-center justify-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button id="cie-next" aria-label="Next products"
+          class="w-9 h-9 rounded-full border border-[#E8ECF2] bg-white hover:border-[#1B3A5B] hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] transition-all flex items-center justify-center">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
       <!-- CIE product grid -->
-      <div class="product-slider gap-5" id="cie-product-grid">
+      <div class="product-slider product-slider--desktop-scroll gap-5 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8" id="cie-product-grid">
         {cieProducts.map((p: any) => {
           const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${p.model} — ${p.name}`);
           return (
@@ -245,6 +257,25 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
 </style>
 
 <script>
+  // ── CIE grid prev/next ──────────────────────────────────────────────────────
+  {
+    const track = document.getElementById('cie-product-grid');
+    const prev  = document.getElementById('cie-prev') as HTMLButtonElement | null;
+    const next  = document.getElementById('cie-next') as HTMLButtonElement | null;
+    if (track) {
+      let cachedW = 285;
+      const updateW = () => {
+        const first = track.querySelector('article');
+        if (first) cachedW = first.offsetWidth + 20;
+      };
+      requestAnimationFrame(updateW);
+      new ResizeObserver(updateW).observe(track);
+      prev?.addEventListener('click', () => track.scrollBy({ left: -cachedW * 4, behavior: 'smooth' }));
+      next?.addEventListener('click', () => track.scrollBy({ left:  cachedW * 4, behavior: 'smooth' }));
+    }
+  }
+
+  // ── Category filter pills ───────────────────────────────────────────────────
   const filters = document.querySelectorAll<HTMLButtonElement>('#cie-filters .filter-pill');
   const cards = document.querySelectorAll<HTMLElement>('#cie-product-grid .cie-product-card');
 

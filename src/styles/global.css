@@ -95,6 +95,7 @@ body {
    On mobile: horizontal scroll with snap. On sm (640px+): standard CSS grid.
    Apply class="product-slider gap-5" (or gap-6) to the container.
    Direct children (article or a) become scrollable cards on mobile.
+   Add "product-slider--desktop-scroll" to ALSO scroll on desktop (4 visible).
 ─────────────────────────────────────────────────────────────────────────────── */
 .product-slider {
   display: flex;
@@ -102,7 +103,6 @@ body {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  /* slight bottom padding so box-shadows on cards aren't clipped */
   padding-bottom: 6px;
   margin-bottom: -6px;
 }
@@ -112,7 +112,6 @@ body {
 .product-slider > a {
   flex-shrink: 0;
   scroll-snap-align: start;
-  /* show ~1.2 cards so users see there is more to scroll */
   width: 78vw;
   max-width: 300px;
 }
@@ -139,5 +138,30 @@ body {
 }
 @media (min-width: 1280px) {
   .product-slider { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* ── Desktop-scroll modifier: stays as horizontal slider on all breakpoints ── */
+@media (min-width: 640px) {
+  .product-slider--desktop-scroll {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px !important;
+    margin-bottom: -6px !important;
+  }
+  .product-slider--desktop-scroll > article,
+  .product-slider--desktop-scroll > a {
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+    width: calc(50% - 10px) !important;
+    max-width: none !important;
+  }
+}
+@media (min-width: 1024px) {
+  .product-slider--desktop-scroll > article,
+  .product-slider--desktop-scroll > a {
+    width: 270px !important;
+  }
 }
 

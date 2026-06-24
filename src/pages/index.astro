@@ -300,11 +300,23 @@ const industries = [
   <!-- ── FEATURED PRODUCTS ─────────────────────────────────────────────────── -->
   <section class="bg-[#F5F7FA] py-16 lg:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
-        <EyebrowLabel text="Flagship Instruments" class="mb-3" />
-        <h2 class="text-3xl font-black text-[#0D2547]">Selected from Our Range</h2>
+      <div class="flex items-end justify-between mb-10 gap-4">
+        <div>
+          <EyebrowLabel text="Flagship Instruments" class="mb-3" />
+          <h2 class="text-3xl font-black text-[#0D2547]">Selected from Our Range</h2>
+        </div>
+        <div class="hidden sm:flex items-center gap-2 shrink-0">
+          <button id="feat-prev" aria-label="Previous products"
+            class="w-9 h-9 rounded-full border border-[#E8ECF2] bg-white hover:border-[#1B3A5B] hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] transition-all flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button id="feat-next" aria-label="Next products"
+            class="w-9 h-9 rounded-full border border-[#E8ECF2] bg-white hover:border-[#1B3A5B] hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] transition-all flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="product-slider gap-6">
+      <div id="feat-track" class="product-slider product-slider--desktop-scroll gap-6 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
         {featured.map(p => (
           <ProductCard model={p.model} name={p.name} tagline={p.tagline} categoryId={p.categoryId}
             id={p.id} featured={p.featured} image={p.image} hideImage={p.hideImage} />
@@ -312,6 +324,25 @@ const industries = [
       </div>
     </div>
   </section>
+
+  <script>
+  {
+    const track = document.getElementById('feat-track');
+    const prev  = document.getElementById('feat-prev') as HTMLButtonElement | null;
+    const next  = document.getElementById('feat-next') as HTMLButtonElement | null;
+    if (track) {
+      let cachedW = 286;
+      const updateW = () => {
+        const first = track.querySelector('article');
+        if (first) cachedW = first.offsetWidth + 24;
+      };
+      requestAnimationFrame(updateW);
+      new ResizeObserver(updateW).observe(track);
+      prev?.addEventListener('click', () => track.scrollBy({ left: -cachedW * 4, behavior: 'smooth' }));
+      next?.addEventListener('click', () => track.scrollBy({ left:  cachedW * 4, behavior: 'smooth' }));
+    }
+  }
+  </script>
 
   <!-- ── INDUSTRIES ─────────────────────────────────────────────────────────── -->
   <section class="blueprint-bg text-white py-16 lg:py-20">
