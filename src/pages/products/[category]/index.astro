@@ -133,13 +133,13 @@ const isCombined      = vartechSections.length > 0;
                 style="scrollbar-width:none; -ms-overflow-style:none;">
                 {sec.items.map((p: any) => {
                   const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} — ${p.name}`);
-                  const imgSlug = p.images?.[0] ?? `${p.id}-1`;
+                  const imgSlug = p.images?.[0] ?? `${p.id}.webp`;
                   return (
                     <div class="shrink-0 snap-start w-[75vw] sm:w-auto">
                       <article class="bg-white rounded-lg border-2 border-emerald-100 overflow-hidden flex flex-col hover:shadow-md hover:border-emerald-400 transition-all duration-200">
                         <div class="bg-[#F5F7FA] border-b border-emerald-100 h-44 flex items-center justify-center relative">
                           <img
-                            src={u(`/images/vartech/${sec.slug}/${imgSlug}.webp`)}
+                            src={u(`/images/vartech/${sec.slug}/${imgSlug}`)}
                             alt={`${p.model} — ${p.name}`}
                             width="300" height="300"
                             class="object-contain h-36 w-auto"
