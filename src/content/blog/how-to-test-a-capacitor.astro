@@ -1,0 +1,154 @@
+---
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Capacitors are one of the most common sources of failure in electronics — power supply filter capacitors bulge and lose capacitance, motor-run capacitors degrade and cause starting problems, and coupling capacitors go leaky and corrupt signals. Knowing how to test a capacitor quickly and accurately saves hours of troubleshooting. This guide covers every method from a basic multimeter continuity check to a full LCR meter analysis, including in-circuit testing.
+</p>
+
+<Callout type="warning" title="Always discharge capacitors before testing">
+  Large electrolytic capacitors store dangerous charge — a 4700 μF capacitor charged to 400 V holds over 375 joules, enough to cause fatal burns. Before touching any capacitor, discharge it through a resistor (use 1 kΩ, 5 W for large capacitors, not a direct short). Confirm the voltage is zero with a multimeter before connecting test leads.
+</Callout>
+
+<h2 id="visual-inspection">Step 1: Visual Inspection</h2>
+
+<p>Start with your eyes. Many failed capacitors announce themselves physically before any electrical test is needed:</p>
+
+<ul>
+  <li><strong>Bulged top</strong>: The vent score on the top of an electrolytic capacitor is designed to expand when internal pressure builds. A dome-shaped or cracked top means the electrolyte has vented — the capacitor has failed. Replace it immediately.</li>
+  <li><strong>Electrolyte residue</strong>: Brown or black residue around the base of a capacitor on the PCB is electrolyte that leaked through the bottom seal. The capacitor is failed and the surrounding PCB traces may be corroded.</li>
+  <li><strong>Burn marks</strong>: Scorch marks indicate the capacitor overheated — from overcurrent, reverse polarity, or overvoltage. Failed.</li>
+  <li><strong>Split or cracked body</strong>: Ceramic, film, and tantalum capacitors can crack under mechanical stress. A cracked capacitor is unreliable even if it still tests within spec.</li>
+</ul>
+
+<p>If the capacitor passes visual inspection, proceed with electrical testing.</p>
+
+<h2 id="multimeter-capacitance">Method 1: Multimeter Capacitance Mode</h2>
+
+<p>Modern digital multimeters include a capacitance measurement function — usually the symbol F or a range labelled nF/μF. This is the quickest check but it only tells you the capacitance value; it does not test ESR, leakage, or dissipation factor.</p>
+
+<ol>
+  <li>Power down the circuit and discharge the capacitor completely.</li>
+  <li>Desolder at least one lead, or remove the capacitor from the circuit entirely. In-circuit readings are almost always wrong because parallel paths affect the measurement.</li>
+  <li>Set the multimeter to the capacitance range that covers the expected value. Auto-ranging meters select this automatically.</li>
+  <li>Connect the probes — observe polarity for electrolytics (positive probe to positive lead marked with the longer leg or the side opposite the stripe).</li>
+  <li>Read the display and compare to the marked capacitance and tolerance (typically ±20% for electrolytics, ±5% or ±10% for film caps).</li>
+</ol>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Interpreting capacitance readings</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Reading</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">What It Indicates</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Within tolerance (±20% electrolytic, ±5–10% film)', 'Capacitance value is good', 'Test ESR separately if in a critical application'],
+        ['10–30% low (e.g. 68 μF instead of 100 μF)', 'Electrolyte drying / partial failure', 'Replace in any power supply or audio application'],
+        ['More than 30% low or near zero', 'Open circuit — capacitor has failed open', 'Replace immediately'],
+        ['Overrange or very high value', 'Short circuit — plates have contacted', 'Replace immediately; check for PCB damage'],
+        ['Fluctuating or unstable reading', 'Intermittent internal connection', 'Replace'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600 font-semibold">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="multimeter-resistance">Method 2: Resistance Mode (Leakage Check)</h2>
+
+<p>A capacitor should block DC. If it passes significant DC current, it has a leakage fault — the dielectric has degraded or broken down. A multimeter in resistance mode can detect this, though it is a qualitative test rather than a precision measurement.</p>
+
+<ol>
+  <li>Discharge the capacitor and set the multimeter to its highest resistance range (typically 20 MΩ or 200 MΩ).</li>
+  <li>Connect the probes — observe polarity for electrolytics.</li>
+  <li>Watch the display: the resistance should start low (the meter charges the capacitor) and rise steadily toward "OL" (open loop / overrange) as the cap charges. This charging behaviour confirms the capacitor is not short-circuited.</li>
+  <li>If the resistance settles at a finite value (e.g., 100 kΩ or 1 MΩ) instead of rising to overrange, the capacitor has DC leakage. The lower the settled value, the worse the leakage.</li>
+</ol>
+
+<Callout type="info" title="Polarity matters for this test on electrolytics">
+  Apply the positive probe to the positive terminal of the electrolytic capacitor. Reverse polarity will cause the capacitor to conduct through the oxide — which will look like leakage even in a healthy capacitor.
+</Callout>
+
+<h2 id="esr-testing">Method 3: ESR Testing — The Most Important Test for Electrolytics</h2>
+
+<p>Equivalent Series Resistance (ESR) is the internal resistance of a capacitor — it represents the combined resistance of the electrolyte, the foil, the leads, and the oxide layer. In new, healthy electrolytic capacitors, ESR is typically a few milliohms to a few ohms depending on size and type. As the electrolyte dries out or degrades, ESR rises — sometimes to tens of ohms — while the capacitance value may still appear correct on a basic meter.</p>
+
+<p>High ESR is responsible for:</p>
+<ul>
+  <li>Power supply ripple voltage increasing (cap can't charge/discharge fast enough)</li>
+  <li>Capacitor overheating from I²R losses at the ripple frequency</li>
+  <li>Audio amplifier distortion and oscillator instability</li>
+  <li>Motor-start capacitor failure — the motor hums but won't start</li>
+</ul>
+
+<p>ESR can be measured in-circuit with a dedicated ESR meter, without desoldering. Most ESR meters apply a very low-voltage AC signal at 100 kHz — at this frequency, the capacitive reactance of a large electrolytic is essentially zero, so the instrument reads almost pure ESR. This is one of the fastest diagnostic tools in electronics servicing.</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Typical ESR limits for electrolytic capacitors</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Capacitor size</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">New ESR (typical)</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Replace above</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['1 μF – 10 μF, 50 V', '5 – 15 Ω', '20 Ω'],
+        ['47 μF – 100 μF, 25 V', '1 – 5 Ω', '8 Ω'],
+        ['220 μF – 1000 μF, 25 V', '0.2 – 1 Ω', '2 Ω'],
+        ['2200 μF – 4700 μF, 25 V', '0.05 – 0.3 Ω', '0.5 Ω'],
+        ['Motor-run film cap, 1 μF – 50 μF', '< 0.5 Ω at 50 Hz', '1 Ω at 50 Hz'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-mono text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-mono font-bold text-[#E0252E]">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500">ESR varies with temperature — it rises dramatically at low temperatures. If equipment fails in cold conditions but works when warm, high ESR capacitors are a prime suspect.</div>
+</div>
+
+<h2 id="lcr-meter">Method 4: LCR Meter (Most Complete Test)</h2>
+
+<p>An LCR meter gives you the complete picture: capacitance, ESR, dissipation factor (D), and quality factor (Q) all in one measurement. For incoming inspection or precision work, this is the only acceptable method.</p>
+
+<ol>
+  <li>Discharge the capacitor and remove from circuit.</li>
+  <li>Run open and short compensation on the test fixture.</li>
+  <li>Select the test frequency: 100 Hz for large electrolytics (this is the ripple frequency they'll see), 1 kHz for film caps, 1 MHz for small ceramics.</li>
+  <li>Connect the capacitor — observe polarity for electrolytics.</li>
+  <li>Read Cs (series capacitance) and D (dissipation factor). For a healthy electrolytic, D should be below 0.1. For film capacitors, D should be below 0.01. For good ceramic caps, below 0.05.</li>
+</ol>
+
+<h2 id="motor-capacitors">Testing Motor-Run and Motor-Start Capacitors</h2>
+
+<p>Single-phase AC motors use capacitors to create a phase shift for starting and running. These capacitors are subject to both high voltage (typically 250–440 V AC) and mechanical vibration, and they fail more often than almost any other component in industrial equipment.</p>
+
+<p><strong>Symptoms of a failed motor capacitor</strong>: motor hums loudly but won't start; motor starts if given a manual push; motor draws high current; capacitor body is swollen or shows white powder residue.</p>
+
+<p>To test a motor-run capacitor with a multimeter:</p>
+<ol>
+  <li>Disconnect power completely. The capacitor is connected directly to mains voltage — treat it as live until you have confirmed it is discharged.</li>
+  <li>Discharge through a 10 kΩ, 5 W resistor held across the terminals for 30 seconds.</li>
+  <li>Measure capacitance and compare to the marking. Motor-run capacitors are typically rated at ±5% — a 25 μF capacitor reading below 22 μF should be replaced.</li>
+  <li>Measure insulation resistance from each terminal to the case using a 500 V insulation tester. Should exceed 100 MΩ. Low insulation indicates the capacitor is unsafe and must be replaced.</li>
+</ol>
+
+<h2 id="in-circuit">In-Circuit Testing Limitations</h2>
+
+<p>Testing capacitors in-circuit without desoldering is possible but unreliable. Parallel components create parallel paths that appear as additional capacitance or reduced resistance. An ESR meter is the most reliable in-circuit tool because the ESR measurement is dominated by the lowest-impedance path — the capacitor being tested — and most circuit components in parallel have much higher impedance at 100 kHz.</p>
+
+<p>Even with an ESR meter, any reading that seems unusually low should be confirmed by desoldering one lead. In-circuit ESR testing is a screen, not a definitive test.</p>

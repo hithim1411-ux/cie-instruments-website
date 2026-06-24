@@ -1,0 +1,125 @@
+---
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  "Megger" is the trade name that became a generic term — like "Thermos" or "Hoover" — for a megohmmeter, an instrument that applies a high DC voltage to measure the resistance of electrical insulation. Every electrician who maintains cables, motors, generators, transformers, or switchgear needs to understand how a megger works, which test voltage to use, what readings are acceptable, and critically, what the readings mean about the condition of the insulation.
+</p>
+
+<h2 id="what-is-insulation-resistance">What Is Insulation Resistance?</h2>
+
+<p>Every cable, motor winding, and switchgear component has two types of resistance: the conductor resistance (typically milliohms to a few ohms, measured at low voltage) and the insulation resistance — the resistance of the material separating the conductors from each other and from earth. Good insulation has resistance measured in megaohms to gigaohms or higher.</p>
+
+<p>Insulation is never a perfect insulator. It passes a tiny current called the leakage current. As insulation ages, absorbs moisture, gets contaminated with carbon or conductive dust, or suffers mechanical damage, this leakage current increases and the insulation resistance falls. Eventually, if resistance falls below a critical threshold, the insulation breaks down under normal operating voltage and the equipment fails — often catastrophically with arc flash, fire, or fatal shock.</p>
+
+<p>The megger catches this degradation before it becomes a failure. It is the only test that can tell you whether insulation is safe to energise.</p>
+
+<h2 id="why-high-voltage">Why You Need High Voltage to Test Insulation</h2>
+
+<p>A standard multimeter in resistance mode applies only about 0.5 V to 9 V. At this voltage, even poor insulation appears to have very high resistance because the leakage current is negligibly small. A megger applies 500 V, 1000 V, 2500 V, or even 5000 V DC — voltages that actually stress the insulation the way operating voltage does, and cause meaningful leakage current through weak spots that a DMM would never detect.</p>
+
+<p>The test voltage must be chosen appropriately for the rated operating voltage of the equipment. Using too low a test voltage misses weak spots; using too high a voltage can damage healthy insulation.</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Recommended megger test voltages by equipment type (IEEE 43 / IS 732)</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Equipment / Rated Voltage</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Test Voltage (DC)</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Minimum Acceptable IR</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Low-voltage equipment up to 250 V (sockets, lighting, small appliances)', '250 V DC', '≥ 1 MΩ'],
+        ['LV equipment and cables 251 V – 600 V (motors, panels, fixed wiring)', '500 V DC', '≥ 1 MΩ (new: ≥ 100 MΩ)'],
+        ['HV motors and cables 601 V – 5000 V', '1000 V DC', '≥ 100 MΩ (new: ≥ 1 GΩ)'],
+        ['HV equipment 5001 V – 15000 V', '2500 V DC', '≥ 1000 MΩ'],
+        ['HV equipment above 15000 V', '5000 V DC', '≥ 1000 MΩ'],
+        ['Transformer windings (LV side, <1 kV)', '1000 V DC', '≥ 200 MΩ (wdg to wdg and wdg to earth)'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-mono font-bold text-[#1B3A5B]">{row[1]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-mono font-semibold text-emerald-700">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500">These are maintenance minimums. Brand-new insulation should read far above these limits — often hundreds of MΩ or several GΩ. The minimum values are thresholds for "safe to re-energise," not targets to aim for.</div>
+</div>
+
+<h2 id="types-of-megger">Types of Megohmmeter</h2>
+
+<p><strong>Hand-cranked (manual) megger</strong>: The original type — a hand-turned generator produces the high-voltage DC. Still used in field work because it needs no battery or mains supply. The test voltage is approximately fixed by the generator speed; experienced operators maintain a consistent crank speed. CIE's range includes these instruments for field maintenance use.</p>
+
+<p><strong>Battery-powered electronic megger</strong>: Uses internal electronics to generate a precisely regulated high-voltage DC from a battery supply. The test voltage is stable regardless of the operator. Multiple test voltage ranges (250 V, 500 V, 1000 V, 2500 V) selectable by a switch. This type also supports timed tests (PI, DAR) and can display results in GΩ, not just MΩ.</p>
+
+<p><strong>Auto-ranging digital megger</strong>: The modern standard for maintenance departments. Displays IR in MΩ or GΩ with high resolution, logs time-resistance curves for PI calculation, has a battery status indicator, and typically includes a buzzer to warn against testing live circuits.</p>
+
+<h2 id="how-to-use">How to Use a Megger Correctly</h2>
+
+<Callout type="warning" title="Safety first — the megger applies lethal voltage">
+  A 1000 V DC megger output can cause ventricular fibrillation. The equipment under test must be completely isolated from the supply, locked out (LOTO procedure), and discharged before connecting the megger. After the test, allow the capacitive charge to discharge through the discharge function (most modern meggers have this) or through a resistor before touching any terminal. Never touch test leads while the megger is operating.
+</Callout>
+
+<ol>
+  <li><strong>Isolate and lock out</strong>: Switch off and lock out the supply. Verify the circuit is dead with a voltage tester — never with the megger itself.</li>
+  <li><strong>Disconnect all equipment</strong> that should not be exposed to high voltage: semiconductor devices, surge suppressors, sensitive electronics. These will be damaged by megger voltage.</li>
+  <li><strong>Discharge residual capacitance</strong>: Large motors and long cable runs store charge. Short the conductors to earth through a resistor and verify zero voltage before proceeding.</li>
+  <li><strong>Connect the megger</strong>: Line terminal (L or H) to the conductor being tested, Earth terminal (E or G) to the earth conductor or metallic enclosure. The Guard terminal (G), if present, is used to bypass surface leakage current on the insulation surface — connect guard around any surface contamination or moisture to get a true bulk reading.</li>
+  <li><strong>Select test voltage</strong>: Per the table above for the equipment rated voltage.</li>
+  <li><strong>Apply test voltage for the required duration</strong>: One minute minimum for a basic spot reading. Ten minutes for a Polarisation Index test.</li>
+  <li><strong>Read and record</strong>: Note the IR value in MΩ at 1 minute. Note the ambient temperature — insulation resistance drops approximately by half for every 10°C rise in temperature, so results must always be recorded with temperature.</li>
+  <li><strong>Discharge the circuit</strong>: Use the megger's built-in discharge, or remove the Line lead and briefly touch a discharge resistor to the conductor before removing the Earth lead. Never disconnect the Earth lead first.</li>
+</ol>
+
+<h2 id="polarisation-index">Polarisation Index (PI)</h2>
+
+<p>A single IR reading at one minute is a snapshot. The Polarisation Index (PI) is more revealing — it is the ratio of the IR reading at 10 minutes to the IR reading at 1 minute:</p>
+
+<p style="text-align:center;"><strong>PI = IR₁₀ / IR₁</strong></p>
+
+<p>In clean, dry insulation, the IR reading rises over time as the test voltage pushes out mobile charge carriers — a phenomenon called absorption. The ratio (PI) reflects the quality of the insulation independent of its absolute resistance value:</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Polarisation Index interpretation (IEEE 43)</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-center px-5 py-3 text-blue-200 font-semibold text-xs">PI value</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Insulation condition</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Recommended action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['< 1.0', 'Dangerous — insulation is leaking badly', 'Do not energise; investigate and repair immediately'],
+        ['1.0 – 2.0', 'Questionable — contamination or moisture present', 'Dry out, clean, and retest; investigate if possible'],
+        ['2.0 – 4.0', 'Good — acceptable for re-energising', 'Record and monitor trend over time'],
+        ['> 4.0', 'Excellent — insulation is in good condition', 'Record as baseline; retest at next maintenance interval'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class={`px-5 py-3 text-center border-b border-gray-100 text-sm font-bold font-mono ${i === 0 ? 'text-red-600' : i === 1 ? 'text-amber-600' : i === 2 ? 'text-blue-700' : 'text-emerald-700'}`}>{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="dar">Dielectric Absorption Ratio (DAR)</h2>
+
+<p>The DAR is a quicker version of the PI test — it is the ratio of the IR at 60 seconds to the IR at 30 seconds: <strong>DAR = IR₆₀ / IR₃₀</strong>. A DAR above 1.25 is generally considered acceptable; below 1.0 is dangerous. The DAR test is used when a 10-minute test is impractical.</p>
+
+<h2 id="common-mistakes">Common Mistakes When Using a Megger</h2>
+
+<ul>
+  <li><strong>Testing on live circuits</strong>: The megger is designed for de-energised equipment only. Applying megger voltage to a live circuit will destroy the megger and may cause flashover.</li>
+  <li><strong>Not disconnecting semiconductor devices</strong>: VFD input diodes, surge arresters, and capacitive filters will be damaged or destroyed by megger voltage. Always disconnect these before testing.</li>
+  <li><strong>Ignoring temperature</strong>: IR halves for every 10°C rise. A motor that reads 50 MΩ at 40°C would read 200 MΩ at 20°C. Always record temperature with every reading and correct to a reference temperature (typically 40°C) for trend comparison.</li>
+  <li><strong>Testing wet insulation and accepting the reading</strong>: Wet insulation gives artificially low readings that are not representative of dry operating condition. Dry the equipment first, then test. Alternatively, test and note that the result is a wet-condition baseline.</li>
+  <li><strong>Not discharging after testing</strong>: A large motor or long cable run can store significant charge from a 1000 V megger. Always discharge before removing leads.</li>
+</ul>

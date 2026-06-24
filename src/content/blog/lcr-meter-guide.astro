@@ -1,0 +1,148 @@
+---
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  An LCR meter is the only instrument that can directly and accurately measure inductance (L), capacitance (C), and resistance (R) as individual component parameters — not as the blunt DC resistance a multimeter sees, but as the true impedance components at a specific test frequency. If you work with electronics, power electronics, transformers, or motor drives, an LCR meter removes the guesswork from component qualification, PCB debugging, and incoming inspection.
+</p>
+
+<h2 id="what-it-measures">What an LCR Meter Actually Measures</h2>
+
+<p>Every passive component — resistor, capacitor, inductor — has an impedance Z that is complex: it has both a real part (resistance, R) and an imaginary part (reactance, X). An LCR meter applies a small AC stimulus at a controlled frequency, measures the resulting current and the phase angle between voltage and current, and then calculates all the derived parameters from those two numbers.</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Key parameters measured by LCR meters</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Parameter</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Symbol</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">What It Tells You</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Units</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Impedance', 'Z', 'Total opposition to AC current flow', 'Ω'],
+        ['Inductance', 'L', 'Energy stored in magnetic field per cycle', 'H, mH, μH'],
+        ['Capacitance', 'C', 'Charge stored per unit voltage', 'F, mF, μF, nF, pF'],
+        ['Resistance (AC)', 'R', 'Real (dissipative) part of impedance', 'Ω, kΩ, MΩ'],
+        ['Quality factor', 'Q', 'Ratio of energy stored to energy lost — higher = better inductor or capacitor', '—'],
+        ['Dissipation factor', 'D', 'Ratio of energy lost to energy stored (= 1/Q) — lower = better', '—'],
+        ['ESR', 'Rs', 'Equivalent Series Resistance — internal loss in capacitors and inductors', 'Ω, mΩ'],
+        ['Phase angle', 'θ', 'Phase shift between voltage and current', 'degrees'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 font-semibold border-b border-gray-100 text-xs text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs font-mono font-bold text-[#E0252E]">{row[1]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{row[2]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs font-mono text-gray-600">{row[3]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="test-frequency">Why Test Frequency Matters</h2>
+
+<p>The single most important thing to understand about LCR measurement is that every parameter depends on frequency. A 100 μF electrolytic capacitor measured at 100 Hz will show a different value than the same capacitor at 1 kHz or 10 kHz. Neither reading is "wrong" — the component's behaviour genuinely changes with frequency because ESR, lead inductance, and dielectric properties all shift.</p>
+
+<p>Always match the test frequency to the frequency at which the component will operate in the circuit. Standard test frequencies and their typical applications:</p>
+
+<ul>
+  <li><strong>100 Hz / 120 Hz</strong> — large electrolytic capacitors (power supply filter caps, motor-run caps), power transformers. This is the ripple frequency they'll see in service.</li>
+  <li><strong>1 kHz</strong> — the most common default. Ceramic capacitors, small inductors, general component testing, incoming inspection.</li>
+  <li><strong>10 kHz</strong> — small-value capacitors (nF range), RF inductors, switching power supply components.</li>
+  <li><strong>100 kHz</strong> — SMD components, high-frequency transformers, ferrite cores, RF components.</li>
+  <li><strong>1 MHz and above</strong> — RF inductors, chip capacitors, transmission line components.</li>
+</ul>
+
+<Callout type="warning" title="Never use a multimeter's capacitance mode to qualify electrolytic caps">
+  Most DMMs measure capacitance at 100–400 Hz with a low-accuracy single measurement. They cannot measure ESR, Q, or D — the parameters that actually tell you if the cap is failing. A 100 μF electrolytic that reads 98 μF on a multimeter could have an ESR of 5 Ω and be completely unsuitable for its application. Use an LCR meter.
+</Callout>
+
+<h2 id="how-it-works">How the Measurement Circuit Works</h2>
+
+<p>Inside an LCR meter, a precision oscillator generates an AC stimulus — typically a sine wave at the selected test frequency with an amplitude between 0.1 V and 2 V RMS. This signal is applied to the component under test (DUT) through a current-sense resistor. The meter then simultaneously measures:</p>
+
+<ol>
+  <li>The voltage across the DUT (V<sub>DUT</sub>)</li>
+  <li>The current through the DUT via the sense resistor (I<sub>DUT</sub>)</li>
+  <li>The phase angle θ between them using phase-sensitive detection</li>
+</ol>
+
+<p>From these, the meter calculates: Z = V<sub>DUT</sub> / I<sub>DUT</sub>, R = Z × cos(θ), X = Z × sin(θ). If X is positive it's inductive; if negative, capacitive. C = 1/(2πfX) or L = X/(2πf).</p>
+
+<p>Higher-end meters use a 4-terminal (Kelvin) connection to eliminate lead and contact resistance from the measurement — critical when measuring components below 1 Ω ESR or below 10 Ω resistance.</p>
+
+<h2 id="4-wire">4-Terminal (Kelvin) Connection</h2>
+
+<p>Standard 2-wire connections introduce lead resistance into the measurement. For a resistor of 100 Ω this is negligible. For a 10 mΩ ESR electrolytic capacitor or a milliohm-level winding resistance, a 50 mΩ lead resistance is five times larger than the quantity being measured.</p>
+
+<p>Kelvin connections solve this with four separate terminals — a pair for current injection (H<sub>cur</sub>, L<sub>cur</sub>) and a separate pair for voltage sensing (H<sub>pot</sub>, L<sub>pot</sub>). Because the voltage-sense path carries essentially no current, its resistance does not affect the reading. For any component below 10 Ω, always use 4-wire Kelvin connection if your meter supports it.</p>
+
+<h2 id="measuring-capacitors">Measuring Capacitors</h2>
+
+<p>Set the LCR meter to series equivalent mode (Cs-D or Cs-Rs) for most capacitors. Series mode is correct because the real loss mechanism in a capacitor — the ESR — is in series with the capacitance.</p>
+
+<ul>
+  <li><strong>Electrolytic caps (≥1 μF)</strong>: Test at 100 Hz. Key parameters: C (should be within ±20% of marked value), D (dissipation factor — should be below 0.1 for new caps; above 0.2 indicates a degraded dielectric), ESR (should be milliohms for large caps; high ESR causes ripple heating in power supplies).</li>
+  <li><strong>Film and ceramic caps (nF range)</strong>: Test at 1 kHz. Q should be very high (>100 for good film caps). Low Q indicates contamination or damage.</li>
+  <li><strong>RF ceramic caps (pF range)</strong>: Test at 1 MHz or higher. Stray inductance from leads will dominate below resonance.</li>
+</ul>
+
+<h2 id="measuring-inductors">Measuring Inductors and Coils</h2>
+
+<p>Set the meter to series equivalent mode (Ls-Rs) for most inductors, particularly at higher frequencies where winding resistance is in series with inductance. Use parallel mode (Lp-Rp) for high-Q inductors at low frequencies where core loss is the dominant mechanism.</p>
+
+<ul>
+  <li><strong>Power inductors</strong>: Test at 1 kHz. Check L (within ±10–20% of marked value) and Q (typically 20–100; lower Q means higher copper or core losses).</li>
+  <li><strong>Transformer windings</strong>: Test each winding at 1 kHz with all other windings open-circuited. Inductance proportional to N² tells you if turns are intact.</li>
+  <li><strong>Ferrite chokes</strong>: Test at the frequency where they are expected to suppress noise — often 10–100 kHz. At the wrong frequency they appear inductive rather than resistive and the measurement is meaningless.</li>
+</ul>
+
+<h2 id="measuring-resistors">Measuring Resistors</h2>
+
+<p>For resistors above 100 Ω, a basic multimeter resistance mode is adequate. But for precision resistors (0.01% tolerance), shunt resistors (milliohms), or resistors in high-frequency circuits, the LCR meter's AC resistance measurement is more accurate because it is free from thermoelectric EMF offsets that affect DC resistance measurement.</p>
+
+<p>Use 4-wire Kelvin connection for any resistor below 10 Ω. Open- and short-circuit compensation (zeroing) must be performed before precision measurements — attach the short clip, zero the display, then detach and measure.</p>
+
+<h2 id="open-short-compensation">Open and Short Circuit Compensation</h2>
+
+<p>Test fixture leads, clips, and PCB pads all have stray capacitance and inductance that add to the measurement. Before measuring any component, run:</p>
+
+<ol>
+  <li><strong>Open compensation</strong>: Leave the test terminals open (nothing connected). The meter measures the stray parallel capacitance and subtracts it from subsequent measurements.</li>
+  <li><strong>Short compensation</strong>: Short the test terminals with a known-good shorting clip or bar. The meter measures the stray series resistance and inductance and subtracts it.</li>
+</ol>
+
+<p>Skip this step for rough spot-checks. Never skip it for precision work — the error can exceed the component tolerance at high frequencies.</p>
+
+<Callout type="info" title="Compensation must be repeated when the fixture changes">
+  If you switch from SMD tweezers to clip leads to a test fixture, re-run compensation. The stray parameters are properties of the fixture, not the meter, and they change with every physical change to the test setup.
+</Callout>
+
+<h2 id="applications">Practical Applications</h2>
+
+<p><strong>Incoming inspection</strong>: Verify that capacitors, inductors, and resistors from a new batch meet specification before soldering. Counterfeits and mismarked components are common in the global supply chain. An LCR meter finds them in seconds.</p>
+
+<p><strong>PCB debugging</strong>: Test components in-circuit (with power off) to find failed capacitors, short-circuit inductors, and open resistors. Some in-circuit measurements will be affected by parallel paths — desolder one lead if readings are ambiguous.</p>
+
+<p><strong>Transformer characterisation</strong>: Measure primary inductance, leakage inductance (secondary shorted), turns ratio (by comparing primary and secondary open-circuit inductance), and winding resistance — all with one instrument.</p>
+
+<p><strong>Motor maintenance</strong>: Measure the inductance balance across phases of a three-phase motor. An unbalanced inductance reading indicates shorted turns before the motor has failed completely.</p>
+
+<p><strong>Capacitor bank maintenance</strong>: Power factor correction capacitor banks degrade over years. Periodic LCR measurement of capacitance and ESR identifies capacitors that need replacement before they fail and take the whole bank down.</p>
+
+<h2 id="which-to-buy">Which LCR Meter to Buy</h2>
+
+<p>The key specifications to compare:</p>
+
+<ul>
+  <li><strong>Frequency range</strong>: A meter limited to 100 Hz–100 kHz is adequate for most electronic work. Measurements above 1 MHz require an RF impedance analyser.</li>
+  <li><strong>Basic accuracy</strong>: 0.1% accuracy is adequate for component qualification. 0.02% is needed for precision reference standards.</li>
+  <li><strong>Measurement range</strong>: Verify coverage of the component values you work with — especially pF-range capacitors and μH-range inductors.</li>
+  <li><strong>4-wire (Kelvin) capability</strong>: Essential if you measure anything below 10 Ω.</li>
+  <li><strong>DC bias</strong>: Some capacitors (especially ceramics) require DC bias during measurement because their capacitance varies with applied voltage. An LCR meter with internal DC bias replicates operating conditions.</li>
+  <li><strong>Speed</strong>: Production testing requires fast measurement rates (>10 measurements/second). Bench work doesn't.</li>
+</ul>

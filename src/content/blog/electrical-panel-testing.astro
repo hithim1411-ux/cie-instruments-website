@@ -1,0 +1,122 @@
+---
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  An electrical distribution board (DB) — called a panel board, switchboard, or MCC (Motor Control Centre) in industrial settings — is the nerve centre of any electrical installation. It is also the most common location for electrical faults, overheating, arc flash events, and insulation failures. Knowing how to inspect and test a distribution board systematically is one of the most valuable skills an electrician or electrical engineer can have. This guide covers the complete DB inspection and testing procedure from external visual checks to insulation resistance testing and thermal imaging interpretation.
+</p>
+
+<Callout type="warning" title="Working in or near live panels is high-risk work">
+  Distribution boards contain exposed live conductors at mains voltage or higher. Always use appropriate PPE — insulated gloves rated for the voltage, face shield, and fire-resistant clothing. Ensure you have appropriate CAT-rated instruments. Never work alone in live panels. Follow LOTO (Lock Out Tag Out) procedures when de-energising for testing. This guide describes testing procedures — it does not substitute for proper electrical safety training.
+</Callout>
+
+<h2 id="visual-inspection">Step 1: External Visual Inspection (with panel energised)</h2>
+
+<p>Begin with an external inspection before opening any panel. Many serious defects are detectable externally:</p>
+
+<ul>
+  <li><strong>Smell</strong>: A hot, acrid, or burning smell from a panel is a serious warning — stop and investigate before proceeding. Overheating insulation has a distinct burnt-plastic smell. Arcing has an ozone smell.</li>
+  <li><strong>Sound</strong>: Electrical arcing creates a crackling or buzzing sound. Humming from a contactor or relay that should be silent indicates chattering from a failed coil or poor supply voltage. Buzzing from a circuit breaker can indicate overloading or a loose connection.</li>
+  <li><strong>Visual signs</strong>: Scorch marks around breaker positions, discolouration of the panel face, tripped breakers in an unexpected pattern, moisture ingress through cable entries or conduit.</li>
+  <li><strong>MCB/MCCB status</strong>: Check all breakers are in their correct position. A tripped breaker that no one has reported indicates a fault that may still exist.</li>
+</ul>
+
+<h2 id="internal-visual">Step 2: Internal Visual Inspection (de-energised)</h2>
+
+<p>With the supply isolated, locked out, and verified dead by a voltage tester, open the panel for internal inspection. Check systematically, working from top to bottom and from the incoming supply side to the outgoing circuit side:</p>
+
+<ul>
+  <li><strong>Busbar condition</strong>: Look for discolouration, black oxide deposits, or arcing pits on the busbar. Bright copper or silver tinning indicates good condition. Dark brown or black indicates overheating from loose connections or excessive current.</li>
+  <li><strong>Connection torque</strong>: Loose connections are the primary cause of overheating in panels. Check all busbar connections, breaker terminals, and cable terminations visually for signs of heat (discolouration of insulation, melted lugs, carbon deposits). Check mechanical tightness with an insulated torque screwdriver or wrench — use the manufacturer's specified torque values.</li>
+  <li><strong>Cable condition</strong>: Insulation should be intact and coloured. Cracked, discoloured, or brittle insulation indicates overheating. Cables resting on sharp edges of metalwork will eventually chafe through — look for this and install grommets or edge protection.</li>
+  <li><strong>Earth connections</strong>: The earth bar should have all protective earth conductors connected and terminations tight. Verify the main earthing conductor is intact and properly connected.</li>
+  <li><strong>Neutral bar</strong>: All neutral conductors should be terminated, and the neutral bar should be cleanly separated from earth (in TN-S and TT systems, neutral and earth are separate throughout the installation downstream of the main incomer).</li>
+  <li><strong>Phase identification</strong>: Conductors should be colour-coded — Red/Yellow/Blue (old India standard) or Brown/Black/Grey (new IEC colours) for phases, and Black or Blue for neutral. Mixed or unknown coloring is a hazard and should be labelled and documented.</li>
+  <li><strong>IP rating integrity</strong>: For outdoor or industrial panels with IP ratings, verify all cable gland knockouts are properly sealed and the door seals are intact.</li>
+</ul>
+
+<h2 id="voltage-testing">Step 3: Voltage and Phase Testing (live)</h2>
+
+<p>After re-energising, verify correct voltages with a multimeter or phase rotation tester at each outgoing distribution point:</p>
+
+<ol>
+  <li><strong>Phase-to-neutral voltage</strong>: Should be 230 V ± 10% (207–253 V) at each phase. Low voltage on one phase indicates an overloaded supply transformer or a high-resistance connection in the feeder.</li>
+  <li><strong>Phase-to-phase voltage</strong>: Should be 415 V ± 10% (374–456 V) between any two phases in a three-phase system.</li>
+  <li><strong>Neutral-to-earth voltage</strong>: In a healthy installation, neutral-to-earth voltage at the DB should be less than 1 V. Voltages above 5 V indicate a high-resistance neutral connection, excessive neutral current, or a neutral-earth wiring problem. High neutral-to-earth voltage at sockets causes equipment malfunctions and is a sign of a problem to investigate.</li>
+  <li><strong>Phase sequence</strong>: Verify the correct phase sequence (R-Y-B or L1-L2-L3) at any panel feeding motors. A reversed phase causes motors to run backwards and three-phase equipment to malfunction. Use a phase sequence indicator for a quick check.</li>
+</ol>
+
+<h2 id="load-measurement">Step 4: Load Current Measurement</h2>
+
+<p>With a True RMS clamp meter, measure the current in each outgoing circuit and on the incoming supply:</p>
+
+<ul>
+  <li>Compare measured current to the circuit breaker rating — circuits loaded above 80% of the MCB rating continuously should be reviewed for load reduction or circuit splitting.</li>
+  <li>Check current balance across the three phases — heavy imbalance (one phase at 60 A, another at 20 A) increases losses and stresses the transformer and neutral conductor.</li>
+  <li>Measure the neutral current — in a balanced three-phase system with sinusoidal currents, neutral current approaches zero. High neutral current indicates either severe load imbalance or high harmonic content (triplen harmonics add in the neutral).</li>
+  <li>Measure earth leakage current using a clamp meter around all phase and neutral conductors together (excluding earth). Any reading above a few milliamps indicates leakage to earth somewhere in the circuit.</li>
+</ul>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Distribution board test checklist</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Test</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Instrument</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Pass criterion</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Phase-to-neutral voltage (each phase)', 'Multimeter AC voltage', '207 – 253 V (230 V ±10%)'],
+        ['Neutral-to-earth voltage', 'Multimeter AC voltage', '< 1 V (investigate if > 5 V)'],
+        ['Phase sequence', 'Phase sequence indicator', 'Correct sequence (R-Y-B / L1-L2-L3)'],
+        ['Load current — each outgoing circuit', 'True RMS clamp meter', '< 80% of MCB/MCCB rating'],
+        ['Phase current balance (3-phase panel)', 'True RMS clamp meter', 'Imbalance < 10% of average'],
+        ['Neutral current (3-phase)', 'True RMS clamp meter', '< 10% of line current for balanced loads; investigate if > 60%'],
+        ['Insulation resistance (de-energised)', 'Megohmmeter at 500 V DC', '≥ 1 MΩ per circuit (new wiring: much higher)'],
+        ['Earth continuity — DB enclosure to earth bar', 'Low-resistance ohmmeter / multimeter', '< 0.1 Ω'],
+        ['RCD/ELCB operation', 'RCD tester or test button', 'Trips within 30 ms at rated trip current'],
+        ['Thermal inspection (infrared camera)', 'Thermal imaging camera', 'No hot spots > 10°C above ambient on connections'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-semibold text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs font-mono text-emerald-700 font-semibold">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="insulation-resistance">Step 5: Insulation Resistance Testing (de-energised)</h2>
+
+<p>Insulation resistance testing verifies the integrity of cable insulation throughout the circuits fed from the panel. Perform with all loads disconnected, all switches open, and a 500 V DC megohmmeter connected between each phase conductor and earth.</p>
+
+<p>Standard procedure per IS 732:</p>
+<ol>
+  <li>Isolate and lock out the supply.</li>
+  <li>Disconnect all sensitive equipment — RCDs, TVSS devices, luminaires, electronic equipment. These are damaged by 500 V DC.</li>
+  <li>Switch all MCBs to ON (closed) to include the circuit wiring in the test.</li>
+  <li>Short all phase conductors together for the test. Test each phase-to-earth, then phase-to-phase.</li>
+  <li>Apply 500 V DC for 1 minute and read the insulation resistance.</li>
+  <li>Minimum acceptable: 1 MΩ per circuit. For new wiring, values should be in the hundreds of MΩ.</li>
+</ol>
+
+<h2 id="rcd-testing">Step 6: RCD / ELCB Testing</h2>
+
+<p>Residual Current Devices (RCDs) or Earth Leakage Circuit Breakers (ELCBs) are the primary protection against electric shock. They must be tested at least annually — the test button only verifies mechanical operation, not the actual trip current or time. Use a dedicated RCD tester:</p>
+
+<ul>
+  <li>Apply the rated trip current (typically 30 mA for personal protection) and verify the RCD trips within 300 ms (IEC standard) — most protection-grade RCDs should trip in 30–40 ms.</li>
+  <li>Apply half the rated trip current — the RCD must NOT trip (it should only trip at or above its rated trip current).</li>
+  <li>Apply 5× the rated trip current — the RCD must trip within 40 ms for a standard type-AC RCD per IEC 61008.</li>
+  <li>Test at both positive and negative half-cycles of the test current — some RCDs fail on one polarity but not the other.</li>
+</ul>
+
+<h2 id="thermal-imaging">Thermal Imaging — The Highest-Value Inspection Tool</h2>
+
+<p>An infrared thermal imaging camera can scan an entire energised panel in minutes and identify every loose connection, overloaded conductor, and failing component by the heat they generate. A connection with 2× the normal resistance generates 4× the heat (P = I²R). Even small temperature rises (5–10°C above surrounding components) indicate a problem that will get worse until it fails.</p>
+
+<p>Thermal imaging is not a substitute for physical inspection — it cannot detect insulation degradation or a connection that is about to loosen. But it is the fastest and most effective tool for finding overheating connections in an energised panel without any downtime, and it is one of the most cost-effective preventive maintenance investments for any facility with critical electrical distribution.</p>

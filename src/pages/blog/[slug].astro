@@ -27,6 +27,16 @@ import EarthingGuide from '../../content/blog/what-is-electrical-earthing.astro'
 import DesolderingGuide from '../../content/blog/desoldering-guide.astro';
 import FaultsGuide from '../../content/blog/short-circuit-open-circuit-ground-fault.astro';
 import DigitalVsAnalogueGuide from '../../content/blog/digital-vs-analogue-multimeter.astro';
+import LcrMeterGuide from '../../content/blog/lcr-meter-guide.astro';
+import CapacitorGuide from '../../content/blog/how-to-test-a-capacitor.astro';
+import MeggerGuide from '../../content/blog/what-is-a-megger.astro';
+import FunctionGeneratorGuide from '../../content/blog/function-generator-guide.astro';
+import TransformerGuide from '../../content/blog/how-to-test-a-transformer.astro';
+import BatteryGuide from '../../content/blog/battery-testing-guide.astro';
+import HarmonicsGuide from '../../content/blog/harmonic-distortion-explained.astro';
+import FrequencyGuide from '../../content/blog/how-to-measure-frequency.astro';
+import ClampBuyingGuide from '../../content/blog/how-to-choose-a-clamp-meter.astro';
+import PanelTestingGuide from '../../content/blog/electrical-panel-testing.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -61,6 +71,16 @@ const contentMap: Record<string, any> = {
   'desoldering-guide': DesolderingGuide,
   'short-circuit-open-circuit-ground-fault': FaultsGuide,
   'digital-vs-analogue-multimeter': DigitalVsAnalogueGuide,
+  'lcr-meter-guide': LcrMeterGuide,
+  'how-to-test-a-capacitor': CapacitorGuide,
+  'what-is-a-megger': MeggerGuide,
+  'function-generator-guide': FunctionGeneratorGuide,
+  'how-to-test-a-transformer': TransformerGuide,
+  'battery-testing-guide': BatteryGuide,
+  'harmonic-distortion-explained': HarmonicsGuide,
+  'how-to-measure-frequency': FrequencyGuide,
+  'how-to-choose-a-clamp-meter': ClampBuyingGuide,
+  'electrical-panel-testing': PanelTestingGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -243,6 +263,96 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'reading-live-signals', label: 'Reading Live Signals' },
     { id: 'input-impedance', label: 'Input Impedance' },
     { id: 'which-to-choose', label: 'Which to Choose?' },
+  ],
+  'lcr-meter-guide': [
+    { id: 'what-it-measures', label: 'What It Measures' },
+    { id: 'test-frequency', label: 'Why Test Frequency Matters' },
+    { id: 'how-it-works', label: 'How the Circuit Works' },
+    { id: '4-wire', label: '4-Terminal Kelvin Connection' },
+    { id: 'measuring-capacitors', label: 'Measuring Capacitors' },
+    { id: 'measuring-inductors', label: 'Measuring Inductors' },
+    { id: 'open-short-compensation', label: 'Open/Short Compensation' },
+    { id: 'which-to-buy', label: 'Which to Buy' },
+  ],
+  'how-to-test-a-capacitor': [
+    { id: 'visual-inspection', label: 'Visual Inspection' },
+    { id: 'multimeter-capacitance', label: 'Multimeter Capacitance Mode' },
+    { id: 'multimeter-resistance', label: 'Resistance (Leakage) Check' },
+    { id: 'esr-testing', label: 'ESR Testing' },
+    { id: 'lcr-meter', label: 'LCR Meter Test' },
+    { id: 'motor-capacitors', label: 'Motor Capacitors' },
+  ],
+  'what-is-a-megger': [
+    { id: 'what-is-insulation-resistance', label: 'What Is Insulation Resistance?' },
+    { id: 'why-high-voltage', label: 'Why High Voltage?' },
+    { id: 'types-of-megger', label: 'Types of Megger' },
+    { id: 'how-to-use', label: 'How to Use a Megger' },
+    { id: 'polarisation-index', label: 'Polarisation Index (PI)' },
+    { id: 'dar', label: 'DAR Test' },
+    { id: 'common-mistakes', label: 'Common Mistakes' },
+  ],
+  'function-generator-guide': [
+    { id: 'what-it-produces', label: 'Waveforms It Produces' },
+    { id: 'key-specs', label: 'Key Specifications' },
+    { id: 'how-to-use', label: 'How to Use One' },
+    { id: 'frequency-sweep', label: 'Frequency Sweep Mode' },
+    { id: 'modulation', label: 'AM and FM Modulation' },
+    { id: 'dds-vs-analog', label: 'DDS vs Analogue' },
+    { id: 'practical-tests', label: 'Practical Tests' },
+  ],
+  'how-to-test-a-transformer': [
+    { id: 'failure-modes', label: 'How Transformers Fail' },
+    { id: 'winding-resistance', label: 'Test 1: Winding Resistance' },
+    { id: 'insulation-resistance', label: 'Test 2: Insulation Resistance' },
+    { id: 'turns-ratio', label: 'Test 3: Turns Ratio' },
+    { id: 'polarity', label: 'Test 4: Polarity Test' },
+    { id: 'no-load-test', label: 'Test 5: No-Load Test' },
+    { id: 'load-test', label: 'Test 6: Load Test' },
+  ],
+  'battery-testing-guide': [
+    { id: 'why-voltage-alone-lies', label: 'Why Voltage Misleads' },
+    { id: 'lead-acid-oc-voltage', label: 'Lead-Acid OCV Table' },
+    { id: 'load-test', label: 'Load Test' },
+    { id: 'internal-resistance', label: 'Internal Resistance' },
+    { id: 'lithium-ion', label: 'Lithium-Ion Testing' },
+    { id: 'battery-bank-testing', label: 'Battery Bank Testing' },
+  ],
+  'harmonic-distortion-explained': [
+    { id: 'what-are-harmonics', label: 'What Are Harmonics?' },
+    { id: 'sources', label: 'What Causes Harmonics' },
+    { id: 'triple-n-harmonics', label: 'Triplen Harmonics' },
+    { id: 'effects-on-equipment', label: 'How They Damage Equipment' },
+    { id: 'measuring-harmonics', label: 'How to Measure THD' },
+    { id: 'standards', label: 'IEEE 519 Limits' },
+    { id: 'mitigation', label: 'Mitigation Methods' },
+  ],
+  'how-to-measure-frequency': [
+    { id: 'what-is-frequency', label: 'What Is Frequency?' },
+    { id: 'multimeter-frequency', label: 'Multimeter Method' },
+    { id: 'oscilloscope-frequency', label: 'Oscilloscope Method' },
+    { id: 'frequency-counter', label: 'Frequency Counter' },
+    { id: 'clamp-meter-frequency', label: 'Clamp Meter Method' },
+    { id: 'vfd-verification', label: 'VFD Verification' },
+    { id: 'generator-frequency', label: 'Generator Frequency' },
+  ],
+  'how-to-choose-a-clamp-meter': [
+    { id: 'how-clamps-work', label: 'How Clamp Meters Work' },
+    { id: 'current-range', label: 'Current Range' },
+    { id: 'true-rms', label: 'True RMS' },
+    { id: 'frequency-response', label: 'Frequency Response' },
+    { id: 'jaw-size', label: 'Jaw Size' },
+    { id: 'cat-rating', label: 'CAT Safety Rating' },
+    { id: 'additional-functions', label: 'Additional Functions' },
+    { id: 'what-to-buy', label: 'Buying Recommendations' },
+  ],
+  'electrical-panel-testing': [
+    { id: 'visual-inspection', label: 'Visual Inspection (Live)' },
+    { id: 'internal-visual', label: 'Internal Inspection (Dead)' },
+    { id: 'voltage-testing', label: 'Voltage and Phase Testing' },
+    { id: 'load-measurement', label: 'Load Current Measurement' },
+    { id: 'insulation-resistance', label: 'Insulation Resistance Test' },
+    { id: 'rcd-testing', label: 'RCD Testing' },
+    { id: 'thermal-imaging', label: 'Thermal Imaging' },
   ],
 };
 

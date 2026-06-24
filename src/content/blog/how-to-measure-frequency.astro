@@ -1,0 +1,117 @@
+---
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Frequency — the number of complete cycles per second — is one of the most fundamental parameters in electrical engineering. Measuring it correctly matters for power quality verification, motor speed control, signal analysis, and fault diagnosis. This guide covers every method: using a multimeter's frequency mode, using an oscilloscope, using a dedicated frequency counter, and understanding when each method is appropriate.
+</p>
+
+<h2 id="what-is-frequency">What Is Frequency and Why Measure It?</h2>
+
+<p>Frequency (symbol f, unit hertz Hz) is the number of complete oscillation cycles per second. An Indian mains supply at 50 Hz completes 50 full sine wave cycles — positive peak, zero crossing, negative peak, zero crossing — every second. Period (T) is the reciprocal: T = 1/f. At 50 Hz, the period is 20 milliseconds per cycle.</p>
+
+<p>Measuring frequency matters because:</p>
+<ul>
+  <li><strong>Power quality monitoring</strong>: Indian Grid Code requires mains frequency to stay within 49.5–50.5 Hz. Generators, UPS systems, and inverters must be verified to hold frequency within specification under load.</li>
+  <li><strong>Motor speed</strong>: Induction motor speed is directly proportional to supply frequency. A motor on a 48 Hz supply runs at 4% less than rated speed — which matters for pumps, fans, and compressors.</li>
+  <li><strong>Generator synchronisation</strong>: Before paralleling two generators, their frequencies must match within 0.1 Hz or switching causes a damaging transient.</li>
+  <li><strong>Signal testing</strong>: Oscillators, filters, amplifiers, and communication circuits must be verified to operate at the correct frequency.</li>
+  <li><strong>VFD verification</strong>: Variable frequency drives must output the correct frequency for the commanded speed — measurement confirms the drive is operating correctly.</li>
+</ul>
+
+<h2 id="multimeter-frequency">Method 1: Measuring Frequency with a Multimeter</h2>
+
+<p>Most modern digital multimeters include an AC frequency measurement function — usually on the same range position as AC voltage, accessed by pressing the Hz or FREQ button. This is convenient for mains frequency verification and general-purpose measurement up to a few kilohertz, though not all meters reach higher frequencies.</p>
+
+<h3>How to measure mains frequency with a multimeter</h3>
+<ol>
+  <li>Set the multimeter to AC voltage mode. On meters that require a separate selection, also press the Hz/FREQ button.</li>
+  <li>Insert the black probe into the COM socket and the red probe into the V/Ω socket.</li>
+  <li>Touch the probes to the live and neutral conductors of the supply (or use a socket adapter).</li>
+  <li>Read the frequency on the secondary display (most meters show voltage on the primary display and frequency on the secondary display simultaneously).</li>
+  <li>A healthy mains supply will show 49.5–50.5 Hz. Values outside this range indicate a generator with speed control problems, a frequency converter fault, or poor grid stability.</li>
+</ol>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Multimeter frequency measurement — specifications and limitations</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Specification</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Typical value</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Implication</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Frequency range', '5 Hz – 100 kHz (varies by meter)', 'Adequate for mains, audio, and most signal work; not for RF'],
+        ['Accuracy', '±(0.1% + 2 digits)', 'Sufficient for mains, generator, and VFD verification'],
+        ['Sensitivity threshold', '~10 V RMS minimum (varies)', 'Cannot measure low-amplitude signals — use oscilloscope instead'],
+        ['Input coupling', 'AC coupled', 'Cannot measure DC-offset signals accurately — oscilloscope preferred'],
+        ['Measurement time', '1 – 3 seconds update rate', 'Misses transient frequency changes; use power analyser for dynamic monitoring'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-semibold text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs font-mono text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="oscilloscope-frequency">Method 2: Measuring Frequency with an Oscilloscope</h2>
+
+<p>An oscilloscope measures frequency by displaying the waveform and allowing you to measure the period (time for one complete cycle) directly. It can measure much lower amplitude signals than a multimeter and can measure frequency while simultaneously showing you the waveform shape — essential when you need to know not just the frequency but also the quality of the signal.</p>
+
+<h3>Manual period measurement</h3>
+<ol>
+  <li>Connect the oscilloscope probe to the signal. Set the trigger to the signal's frequency range.</li>
+  <li>Adjust the timebase (TIME/DIV) so that 1–3 complete cycles are visible on screen.</li>
+  <li>Identify two adjacent zero-crossings in the same direction (e.g., rising zero crossing). Count the number of horizontal divisions between them.</li>
+  <li>Multiply by the timebase setting. If the timebase is 5 ms/div and the period spans 4 divisions: T = 4 × 5 ms = 20 ms. f = 1/T = 1/0.020 = 50 Hz.</li>
+</ol>
+
+<h3>Using the oscilloscope's automatic measurement function</h3>
+<p>Digital oscilloscopes include automatic measurement functions. Press MEASURE → FREQUENCY (or PERIOD) and the instrument displays the measured frequency digitally, updated every few milliseconds. This is faster and more accurate than the manual cursor method for stable signals.</p>
+
+<Callout type="info" title="Use the oscilloscope for low-amplitude and complex signals">
+  The oscilloscope can measure frequency on signals as small as a few millivolts — far below what a multimeter's frequency mode can detect. It also shows you if the signal is a clean sine wave, a distorted wave, or a complex waveform — information the multimeter cannot provide. For signal source verification, always use an oscilloscope.
+</Callout>
+
+<h2 id="frequency-counter">Method 3: Dedicated Frequency Counter</h2>
+
+<p>A frequency counter is a specialised instrument that counts the number of complete cycles in a precisely controlled time window (called the gate time) and displays the result. Gate times from 0.01 s to 10 s are typical. A 10-second gate time produces 8-digit frequency resolution — it can measure 50.000000 Hz versus 50.000001 Hz. This level of accuracy is not available from any other instrument except a precision spectrum analyser.</p>
+
+<p>Frequency counters are used for:</p>
+<ul>
+  <li>Calibrating oscillators, signal generators, and frequency references</li>
+  <li>Verifying crystal frequencies (±10 ppm accuracy easily achievable)</li>
+  <li>Measuring the exact frequency of RF transmitters</li>
+  <li>Characterising frequency stability over time (drift)</li>
+</ul>
+
+<p>For most electrical maintenance work, a multimeter's frequency function is adequate. A frequency counter is for precision metrology and RF work.</p>
+
+<h2 id="clamp-meter-frequency">Measuring Frequency on Current Waveforms</h2>
+
+<p>Some clamp meters with frequency measurement can measure the frequency of the current flowing in a conductor by clamping around the conductor and using the Hz function. This is useful when you want to verify the output frequency of a VFD — rather than measuring voltage at the VFD output (which can be dangerous on some designs), you measure current frequency in the cable feeding the motor.</p>
+
+<p>The method works because current in an induction motor driven by a VFD has the same fundamental frequency as the VFD output voltage. Measure the clamp meter frequency reading; it should match the VFD's commanded output frequency within 0.1–0.5 Hz.</p>
+
+<h2 id="vfd-verification">Verifying VFD Output Frequency</h2>
+
+<p>Variable frequency drives are widely used in Indian industry for pump and fan control. After commissioning, maintenance, or a fault, the output frequency must be verified to match the commanded speed.</p>
+
+<p>The correct method depends on the VFD design:</p>
+<ul>
+  <li><strong>VFDs with PWM output</strong>: Most modern VFDs use pulse-width modulation. The output is not a sine wave — it is a series of high-voltage pulses. A multimeter measuring frequency on the VFD output terminals may read the PWM switching frequency (typically 4–16 kHz) rather than the fundamental output frequency. Use the current-clamp method instead, or check the VFD's own display.</li>
+  <li><strong>VFDs with filtered output</strong>: Some VFDs include an output filter (sine filter). With a filter in place, a multimeter can measure the output voltage frequency correctly. Verify whether your VFD has an output filter before connecting voltage probes.</li>
+  <li><strong>Current clamp on motor cable</strong>: Always reliable — the current drawn by the motor reflects the fundamental output frequency regardless of PWM switching.</li>
+</ul>
+
+<h2 id="generator-frequency">Verifying Generator Frequency</h2>
+
+<p>Diesel generators must hold 50 Hz under varying load. Speed governors control this. After maintenance or a governor adjustment, verify frequency using a multimeter in frequency mode at the generator output terminals (with no load first, then at full rated load). The frequency should stay within 49.5–50.5 Hz from no load to full load.</p>
+
+<p>If frequency drops significantly under load (e.g., from 50.2 Hz to 48.5 Hz), the governor droop setting needs adjustment or the engine is underpowered for the load. A frequency that rises above 52 Hz at light load is dangerous — it can overspeed and damage the engine or connected equipment.</p>

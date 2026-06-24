@@ -1,0 +1,124 @@
+---
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Harmonic distortion is one of the most misunderstood and underdiagnosed power quality problems in modern industrial and commercial facilities. It is invisible to the eye and inaudible in most situations, but it overheats cables, damages capacitor banks, trips sensitive equipment, and wastes energy — silently and continuously. This guide explains what harmonics are, why modern equipment generates them, how they cause damage, how to measure them, and what to do about them.
+</p>
+
+<h2 id="what-are-harmonics">What Are Harmonics?</h2>
+
+<p>In an ideal AC power system, the voltage and current are pure sine waves at the supply frequency (50 Hz in India and most of the world, 60 Hz in North America). In reality, most modern electrical loads distort the current waveform — they draw current in pulses rather than as a smooth sine wave. A distorted waveform can be mathematically decomposed into the fundamental frequency plus a series of harmonics: integer multiples of the fundamental frequency.</p>
+
+<p>For a 50 Hz supply:</p>
+<ul>
+  <li><strong>Fundamental (1st harmonic)</strong>: 50 Hz — the supply frequency</li>
+  <li><strong>3rd harmonic</strong>: 150 Hz</li>
+  <li><strong>5th harmonic</strong>: 250 Hz</li>
+  <li><strong>7th harmonic</strong>: 350 Hz</li>
+  <li><strong>9th harmonic</strong>: 450 Hz</li>
+  <li>And so on up to the 25th, 50th, or higher in some systems</li>
+</ul>
+
+<p>The harmonic content is characterised by the Total Harmonic Distortion (THD) — a single percentage that represents the combined magnitude of all harmonics relative to the fundamental:</p>
+
+<p style="text-align:center; font-family: monospace; font-size: 1.1rem; margin: 1.5rem 0;"><strong>THD (%) = (√(H₂² + H₃² + H₄² + ... + Hₙ²) / H₁) × 100</strong></p>
+
+<p>Where H₁ is the fundamental amplitude and H₂, H₃, etc., are the harmonic amplitudes. A pure sine wave has THD = 0%. A typical variable-speed drive input may have current THD of 30–100%.</p>
+
+<h2 id="sources">What Causes Harmonics</h2>
+
+<p>Any load that does not draw current as a smooth sine wave is a harmonic source. Linear loads (resistors, incandescent lights, old induction motors with no VFD) draw nearly sinusoidal current. Non-linear loads distort the waveform:</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Common harmonic sources and their dominant harmonics</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Load type</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Dominant harmonics</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Typical current THD</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Switch-mode power supply (PC, TV, charger)', '3rd, 5th, 7th, 9th (odd harmonics)', '60 – 150%'],
+        ['Variable frequency drive (VFD), 6-pulse rectifier', '5th, 7th (and 11th, 13th)', '30 – 100%'],
+        ['12-pulse rectifier (industrial DC drive)', '11th, 13th', '8 – 15%'],
+        ['LED lighting with basic driver', '3rd, 5th (odd)', '15 – 80%'],
+        ['Fluorescent light with magnetic ballast', '3rd, 5th', '10 – 25%'],
+        ['UPS with SCR rectifier (older type)', '5th, 7th, 11th, 13th', '25 – 40%'],
+        ['Arc furnace / welding equipment', 'Broad spectrum including even harmonics', '10 – 30% (variable)'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs font-mono text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs font-mono font-bold text-[#E0252E]">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="triple-n-harmonics">The Problem of Triple-N (Triplen) Harmonics</h2>
+
+<p>The 3rd harmonic and its multiples (3rd, 9th, 15th...) are called triplen harmonics. They have a special and particularly damaging property in three-phase systems: instead of cancelling in the neutral conductor the way balanced fundamental currents do, triplen harmonics from all three phases are in phase with each other and <em>add</em> in the neutral.</p>
+
+<p>In a balanced three-phase system with only fundamental current, the neutral current is theoretically zero. But with a large triplen harmonic content, the neutral current can exceed the phase current by a factor of 1.73 or more. Buildings wired for IT equipment — offices full of computers and servers — have neutral currents far above design ratings. This causes:</p>
+
+<ul>
+  <li>Neutral conductor overheating — potentially fire risk if not detected</li>
+  <li>Neutral-to-earth voltages appearing at equipment — causing data corruption and equipment damage</li>
+  <li>Distribution transformer overheating — K-rated transformers exist specifically to handle triplen harmonics</li>
+</ul>
+
+<Callout type="warning" title="Overloaded neutrals cause fires that investigators miss">
+  When a neutral conductor overheats and causes a fire, investigators often find the neutral breaker is either absent or the same rating as the phase breakers. Buildings installed before the proliferation of switch-mode power supplies may have neutral conductors rated at half the phase conductor current — a dangerous situation in modern IT-heavy environments. Measure neutral current on any distribution board with significant computer load.
+</Callout>
+
+<h2 id="effects-on-equipment">How Harmonics Damage Equipment</h2>
+
+<p><strong>Capacitor banks</strong>: Power factor correction capacitors are designed for 50 Hz. Their impedance drops with frequency — a 5th harmonic sees 1/5 the capacitive impedance. Combined with source inductance, this can create resonance at the harmonic frequency, causing massively amplified harmonic currents to flow through the capacitors. Capacitors subjected to harmonic resonance fail rapidly and explosively. This is the most dangerous single effect of harmonics in industrial plants.</p>
+
+<p><strong>Transformers</strong>: Harmonic currents increase transformer copper losses (which scale as I²R, and harmonics increase the RMS current without doing useful work). High-frequency harmonic fluxes increase eddy current and hysteresis losses in the core. A transformer loaded to 80% on fundamental current may be loaded to 100% when harmonics are included — reducing its life expectancy significantly.</p>
+
+<p><strong>Motors</strong>: Harmonic voltages applied to motor terminals cause additional heating from iron losses and harmonic currents in the windings. The 5th and 7th harmonics create counter-rotating torque components in three-phase motors — the 5th harmonic (negative sequence) creates a magnetic field rotating backwards, producing braking torque and vibration. This increases losses and reduces motor life.</p>
+
+<p><strong>Metering</strong>: Standard energy meters measure RMS current and voltage at the fundamental frequency. They may over-read or under-read with high harmonic content. True RMS power analysers are required for accurate energy measurement in facilities with high non-linear load content.</p>
+
+<p><strong>Sensitive electronics</strong>: The distorted voltage waveform (harmonics in current cause voltage distortion at the point of common coupling) can cause erroneous operation of zero-crossing timing circuits, lock-in amplifiers, and sensitive instrumentation.</p>
+
+<h2 id="measuring-harmonics">How to Measure Harmonic Distortion</h2>
+
+<p>A True RMS multimeter can tell you whether harmonic distortion is significant by comparing the True RMS reading to the reading from an average-responding meter. If the True RMS reading is more than 2–3% higher than the average-responding reading on the same AC current, harmonics are present and a more detailed measurement is warranted.</p>
+
+<p>For proper harmonic analysis, you need a power quality analyser (also called a power analyser, energy analyser, or harmonic analyser). It performs a Fast Fourier Transform (FFT) on the measured voltage and current waveforms and displays:</p>
+
+<ul>
+  <li>The amplitude of each harmonic as a percentage of the fundamental (harmonic spectrum)</li>
+  <li>Total Harmonic Distortion (THD%) for current and voltage separately</li>
+  <li>Waveform capture (for visual inspection of distortion)</li>
+  <li>Total Demand Distortion (TDD%) — the harmonic current as a percentage of the maximum demand load current, used in IEEE 519 compliance evaluation</li>
+</ul>
+
+<h2 id="standards">Harmonic Limits — IEEE 519 and EN 61000-3-2</h2>
+
+<p>IEEE 519 (US/international) and EN 61000-3-2 (European, adopted in India as IS equivalents) set limits on harmonic injection into the utility supply. IEEE 519 requires measurement at the Point of Common Coupling (PCC) and limits the voltage THD at the PCC to:</p>
+
+<ul>
+  <li>5% total THD for systems up to 69 kV</li>
+  <li>2.5% for systems 69–161 kV</li>
+  <li>1.5% for systems above 161 kV</li>
+</ul>
+
+<p>Current THD limits depend on the ratio of short-circuit current to load current (I<sub>SC</sub>/I<sub>L</sub>) at the PCC — facilities with stronger supply connections are allowed to inject more harmonic current.</p>
+
+<h2 id="mitigation">Harmonic Mitigation Methods</h2>
+
+<ul>
+  <li><strong>Line reactors (chokes)</strong>: Series inductors installed at the input of VFDs and rectifiers. Reduce current THD from ~80% to ~30% cheaply and reliably. The most cost-effective first step.</li>
+  <li><strong>12-pulse or 18-pulse rectifiers</strong>: Multiple rectifiers phase-shifted to cancel lower-order harmonics. Reduces THD to 8–15%. More expensive but eliminates the need for active filters in many installations.</li>
+  <li><strong>Passive harmonic filters</strong>: Tuned LC circuits that provide low-impedance paths for specific harmonics, shunting them away from the supply. Must be carefully designed to avoid resonance problems.</li>
+  <li><strong>Active harmonic filters (AHF)</strong>: Power electronics that inject compensating currents equal and opposite to the harmonic currents in the load. Can reduce THD below 5% for any load. Expensive but flexible and effective.</li>
+  <li><strong>K-rated or harmonic-rated transformers</strong>: For new installations with high non-linear load content, specify K-rated transformers with larger neutral conductors and reduced eddy current losses.</li>
+</ul>

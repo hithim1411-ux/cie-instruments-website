@@ -1,0 +1,134 @@
+---
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A battery that reads 12.5 V on a multimeter can be completely useless — it collapses to 10 V the moment you try to draw current from it. Voltage alone is not a reliable indicator of battery condition. This guide covers every method for testing batteries properly: open-circuit voltage interpretation, load testing, internal resistance measurement, and state-of-charge assessment for lead-acid, lithium-ion, and NiMH batteries.
+</p>
+
+<h2 id="why-voltage-alone-lies">Why Open-Circuit Voltage Alone Is Misleading</h2>
+
+<p>A battery's open-circuit voltage (OCV) is the voltage measured with no current flowing. It reflects the battery's state of charge, but it does not reveal anything about the battery's internal resistance or its ability to deliver current. A heavily sulphated lead-acid battery may show 12.6 V OCV but collapse to 9 V when asked to start an engine or power an inverter.</p>
+
+<p>Internal resistance is the hidden killer. As a battery ages, degrades, or sulphates, its internal resistance rises. A fresh lead-acid battery may have an internal resistance of 5–15 mΩ. A failed battery may have 100 mΩ or more. When current flows, the voltage drop across this internal resistance (V = I × R<sub>internal</sub>) robs the terminal voltage. At 100 A starting current, a 100 mΩ internal resistance causes a 10 V voltage drop — leaving only 2.6 V at the terminals. The engine won't start.</p>
+
+<h2 id="lead-acid-oc-voltage">Lead-Acid Battery State of Charge from OCV</h2>
+
+<p>For flooded lead-acid and sealed AGM batteries, the open-circuit voltage correlates with state of charge — but only after the battery has rested with no charge or load for at least 4–6 hours (ideally 12 hours). Surface charge from recent charging gives a falsely high voltage reading.</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">12 V lead-acid battery OCV vs state of charge (at 25°C, 6-hour rest)</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-center px-5 py-3 text-blue-200 font-semibold text-xs">State of Charge</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">OCV (12 V flooded)</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">OCV (12 V AGM)</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['100%', '12.70 V +', '12.80 V +', 'Fully charged — ready for load test'],
+        ['75%', '12.45 V', '12.60 V', 'Good — charge before long-term storage'],
+        ['50%', '12.20 V', '12.35 V', 'Half discharged — should be charged soon'],
+        ['25%', '11.95 V', '12.10 V', 'Low — charge immediately'],
+        ['0%', '< 11.80 V', '< 11.90 V', 'Deeply discharged — may be damaged'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class={`px-5 py-3 text-center border-b border-gray-100 text-xs font-bold ${i === 0 ? 'text-emerald-700' : i === 4 ? 'text-red-600' : 'text-gray-700'}`}>{row[0]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-mono text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-mono text-gray-700">{row[2]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{row[3]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <div class="px-5 py-3 bg-gray-50 border-t border-gray-100 text-xs text-gray-500">Temperature correction: OCV decreases approximately 0.01 V per 10°C above 25°C and increases at lower temperatures. A battery in a cold storage room at 5°C will show slightly higher OCV at the same state of charge.</div>
+</div>
+
+<h2 id="load-test">Load Test — The Real Battery Test</h2>
+
+<p>A load test applies a controlled current to the battery and measures the voltage under load. This is the definitive test for battery health because it forces the battery to perform — a battery with high internal resistance will fail immediately.</p>
+
+<p>For automotive batteries, the standard load test applies a current equal to 50% of the battery's CCA (Cold Cranking Ampere) rating for 15 seconds. A 500 CCA battery is loaded at 250 A for 15 seconds. The voltage must remain above 9.6 V throughout the test.</p>
+
+<p>For UPS and standby batteries, the load test applies the rated discharge current and measures how long the voltage takes to drop to the end-of-discharge voltage. A battery rated at 100 Ah at the C10 rate should supply 10 A for 10 hours before the voltage drops to the 10.5 V end-of-discharge threshold. Time to reach 10.5 V below 8 hours indicates a battery below 80% of rated capacity — typically the replace threshold.</p>
+
+<Callout type="warning" title="Load testing a deeply discharged battery is unreliable">
+  A battery at less than 70% state of charge will fail a load test even if it is perfectly healthy — it simply doesn't have enough energy stored. Always charge fully and rest before performing a load test. Testing a flat battery and concluding it is "failed" is one of the most common battery testing errors.
+</Callout>
+
+<h2 id="internal-resistance">Internal Resistance Measurement</h2>
+
+<p>Modern battery testers measure internal resistance (or conductance — the inverse of resistance) by applying a small AC current at typically 100 Hz and measuring the AC voltage response. This is much faster than a load test (takes under a second) and can be performed without discharging the battery, but it is less direct than a true load test.</p>
+
+<p>Internal resistance measurement is particularly valuable for:</p>
+<ul>
+  <li>Trending battery health over time — internal resistance rises as batteries age, so regular measurements reveal the degradation rate</li>
+  <li>Comparing cells in a battery bank — a cell with significantly higher resistance than its neighbours is failing and will drag down the entire string</li>
+  <li>Incoming inspection of new batteries — a battery with high internal resistance from new indicates a manufacturing defect or storage damage</li>
+</ul>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Internal resistance vs battery type and condition</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Battery type</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">New (good)</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Replace threshold</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Automotive lead-acid, 60 Ah', '5 – 15 mΩ', '> 30 mΩ'],
+        ['UPS VRLA, 100 Ah, 12 V', '3 – 8 mΩ', '> 20 mΩ (or 150% of new)'],
+        ['Li-ion 18650 cell (3.6 V, 2.5 Ah)', '20 – 100 mΩ', '> 300 mΩ'],
+        ['LiFePO4 cell (3.2 V, 100 Ah)', '0.2 – 0.5 mΩ', '> 1.5 mΩ'],
+        ['NiMH AA cell (1.2 V, 2.5 Ah)', '15 – 30 mΩ', '> 100 mΩ'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-mono text-emerald-700 font-semibold">{row[1]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-mono text-red-600 font-semibold">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="lithium-ion">Testing Lithium-Ion and LiFePO4 Batteries</h2>
+
+<p>Lithium batteries require different handling than lead-acid. They are more sensitive to overcharge, deep discharge, and temperature extremes, and they can fail in ways that create thermal runaway — a dangerous exothermic reaction.</p>
+
+<p><strong>OCV for a single lithium-ion (NMC) cell</strong>:</p>
+<ul>
+  <li>4.20 V = 100% (fully charged — do not exceed)</li>
+  <li>3.70 V ≈ 50%</li>
+  <li>3.00 V = fully discharged (BMS cutoff)</li>
+  <li>Below 2.5 V = over-discharged — cell may be permanently damaged and may swell</li>
+</ul>
+
+<p><strong>OCV for a single LiFePO4 cell</strong>:</p>
+<ul>
+  <li>3.65 V = 100% (fully charged)</li>
+  <li>3.30 V ≈ 50% (very flat voltage curve — OCV is not useful for SoC)</li>
+  <li>2.50 V = fully discharged (BMS cutoff)</li>
+</ul>
+
+<Callout type="warning" title="A swollen lithium cell is a fire hazard">
+  Physical swelling of a lithium-ion or lithium-polymer battery pack indicates gas generation from internal decomposition — the cell is failing and potentially dangerous. Do not charge it, do not puncture it, and handle it with extreme care. Place in a fireproof container outdoors or in a location where a fire can be safely contained. Never throw a swollen cell in regular waste.
+</Callout>
+
+<h2 id="battery-bank-testing">Testing Battery Banks (UPS and Telecom)</h2>
+
+<p>Large UPS systems use strings of 12 V or 2 V cells in series to achieve the required DC bus voltage. A single weak cell in a string can cause premature shutdown under load. Battery bank testing must test each cell or block individually, not just the overall string voltage.</p>
+
+<p>Best practice for UPS battery bank maintenance:</p>
+<ul>
+  <li>Measure internal resistance of each battery block quarterly — trend over time to identify the first failing units</li>
+  <li>Measure float voltage of each cell — a cell floating significantly below the others may be failing or may have a faulty charger connection</li>
+  <li>Perform a timed discharge test annually at the rated load — time to end-of-discharge voltage indicates the remaining capacity</li>
+  <li>Replace any battery block whose capacity falls below 80% of its rated capacity, or whose internal resistance exceeds 150% of its as-new value</li>
+</ul>

@@ -1,0 +1,147 @@
+---
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A transformer appears to be one of the simplest electrical devices — two coils of wire on a shared core — but it fails in at least five distinct ways, and each failure mode requires a different test to detect it. This guide covers every test from a basic multimeter winding resistance check to insulation resistance testing, polarity testing, and turns ratio measurement — the complete electrical commissioning and maintenance test sequence for transformers from small signal types up to large distribution units.
+</p>
+
+<h2 id="failure-modes">How Transformers Fail</h2>
+
+<p>Understanding the failure modes shapes the test sequence. The five main failure mechanisms are:</p>
+
+<ul>
+  <li><strong>Winding open circuit</strong>: A conductor break inside the winding — usually from a surge current or mechanical failure. The affected winding shows infinite resistance. Symptoms: no output voltage from the affected winding.</li>
+  <li><strong>Winding short circuit (inter-turn fault)</strong>: Two adjacent turns of wire make contact, creating a shorted loop. This reduces the effective turns count, increases current, and causes localised overheating. Difficult to detect without an LCR meter or turns ratio tester.</li>
+  <li><strong>Winding-to-core insulation breakdown</strong>: The insulation between the winding and the iron core fails — creating a ground fault. Detected by insulation resistance (megger) test.</li>
+  <li><strong>Winding-to-winding insulation breakdown</strong>: Insulation between primary and secondary fails — creates a direct electrical path between them. Also detected by megger test. Particularly dangerous in isolating transformers where this destroys the safety isolation.</li>
+  <li><strong>Core saturation / wrong turns ratio</strong>: Core damage, rewind errors, or connection errors cause abnormal turns ratio and may result in saturation under load. Detected by turns ratio test.</li>
+</ul>
+
+<h2 id="winding-resistance">Test 1: DC Winding Resistance</h2>
+
+<p>Winding resistance is the DC resistance of each winding's copper conductor. It is used to detect open circuits, poor connections, and inter-turn shorts (an inter-turn short reduces the effective length of the conductor and therefore reduces measured resistance).</p>
+
+<p>Use a multimeter on the resistance range, or a dedicated low-resistance ohmmeter (micro-ohmmeter) for large transformers where winding resistance may be in the milliohm range.</p>
+
+<ol>
+  <li>Disconnect all external connections from the transformer.</li>
+  <li>Measure the resistance between each pair of winding terminals. For a centre-tapped secondary, measure each half separately and the full winding.</li>
+  <li>Compare readings between phases on three-phase transformers — they should be within ±2% of each other. Larger differences indicate a problem.</li>
+  <li>Compare to the nameplate or design specification if available.</li>
+</ol>
+
+<Callout type="info" title="Large transformers have very low winding resistance">
+  A 1000 kVA distribution transformer may have a primary winding resistance of 0.5 Ω and a secondary resistance of 3 mΩ. A standard multimeter cannot accurately measure milliohm values. Use a 4-wire (Kelvin) micro-ohmmeter for accurate results on large machines. The multimeter test is valid for small transformers (VA range) but not large ones.
+</Callout>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Winding resistance test results — interpretation</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Reading</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Interpretation</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Next Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Within ±2% of specification or phase balance', 'Winding is intact', 'Proceed to insulation test'],
+        ['Significantly lower than specification (>5% low)', 'Possible inter-turn short circuit', 'Confirm with turns ratio test; remove for rewinding'],
+        ['Open circuit (OL / infinite)', 'Broken conductor or open joint', 'Internal repair or rewind required'],
+        ['Phase imbalance >2% on 3-phase unit', 'Partial short or connection problem', 'Investigate joints and tap connections before rewinding'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600 font-semibold">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="insulation-resistance">Test 2: Insulation Resistance (Megger Test)</h2>
+
+<p>This test checks the insulation quality between windings and between each winding and the core/earth. Use a 500 V DC megger for transformers rated up to 1 kV; use 1000 V DC for HV transformers; use 2500 V DC or higher for power distribution transformers above 11 kV.</p>
+
+<p>Perform three separate measurements:</p>
+<ol>
+  <li><strong>Primary winding to earth</strong>: Connect megger Line terminal to the primary winding, Earth terminal to the core/tank. Short all primary terminals together and short all secondary terminals together and connect them to earth. Test for 1 minute.</li>
+  <li><strong>Secondary winding to earth</strong>: Connect megger Line terminal to the secondary winding (all terminals shorted together), Earth terminal to core/tank. Primary terminals all shorted to earth. Test for 1 minute.</li>
+  <li><strong>Primary to secondary</strong>: Connect megger Line terminal to primary (all shorted), Earth terminal to secondary (all shorted). Core/tank must be floating (disconnected from earth) for this test.</li>
+</ol>
+
+<p>Minimum acceptable insulation resistance values per IS 2026 (Power Transformers):</p>
+
+<ul>
+  <li>LV winding (up to 1.1 kV): minimum 200 MΩ (new), 100 MΩ (maintenance)</li>
+  <li>HV windings: see manufacturer specification; typically ≥ 1000 MΩ for HV equipment in good condition</li>
+  <li>Primary-to-secondary: must meet or exceed the lower of the two individual values</li>
+</ul>
+
+<h2 id="turns-ratio">Test 3: Turns Ratio Test</h2>
+
+<p>The turns ratio test verifies that the voltage ratio between windings matches the nameplate specification and detects inter-turn short circuits that may not be visible in winding resistance measurements.</p>
+
+<p><strong>Simple AC method</strong> (suitable for small transformers):</p>
+<ol>
+  <li>Apply a known, safe AC voltage to the primary (e.g., 230 V from the mains, or a lower voltage from a variac for safety).</li>
+  <li>Measure the open-circuit secondary voltage with a multimeter in AC voltage mode.</li>
+  <li>Calculate the ratio: Turns Ratio = V<sub>primary</sub> / V<sub>secondary</sub>. This should match the nameplate ratio within ±0.5% for a good transformer.</li>
+</ol>
+
+<Callout type="warning" title="Do not apply mains voltage to unknown or damaged HV transformers">
+  For large or high-voltage transformers, use a dedicated transformer turns ratio (TTR) tester rather than applying mains voltage. A TTR tester applies a low AC voltage (typically 8 V AC) and measures the ratio with high precision. This is safe, accurate to ±0.1%, and can detect inter-turn shorts that change the ratio by small amounts invisible to a basic voltage measurement.
+</Callout>
+
+<h2 id="polarity">Test 4: Polarity Test</h2>
+
+<p>Transformer polarity defines the phase relationship between primary and secondary voltages. Additive polarity means the voltages add when windings are connected in a specific way; subtractive polarity means they oppose. Polarity matters critically when:</p>
+
+<ul>
+  <li>Paralleling transformers (wrong polarity causes a short circuit)</li>
+  <li>Connecting current transformers for metering and protection</li>
+  <li>Building centre-tapped supplies (wrong polarity on one winding means half the output is wrong)</li>
+</ul>
+
+<p>Simple polarity test procedure:</p>
+<ol>
+  <li>Connect a short between one primary terminal (H1) and one secondary terminal (X1).</li>
+  <li>Apply a known AC voltage to the primary (H1–H2).</li>
+  <li>Measure the voltage between H2 and X2 (the remaining terminals).</li>
+  <li>If the reading is V<sub>primary</sub> + V<sub>secondary</sub>: additive polarity. If V<sub>primary</sub> − V<sub>secondary</sub>: subtractive polarity.</li>
+</ol>
+
+<h2 id="no-load-test">Test 5: No-Load (Open-Circuit) Test</h2>
+
+<p>The no-load test measures the core losses (iron losses) and the magnetising current. It is performed by applying rated voltage at rated frequency to the primary with the secondary open-circuited:</p>
+
+<ul>
+  <li>Measure input power (using a wattmeter or power analyser) — this equals the core loss in watts</li>
+  <li>Measure input current — this is the magnetising current, typically 0.5–3% of full-load current</li>
+  <li>An abnormally high no-load current indicates core damage, incorrect core material, or core saturation</li>
+</ul>
+
+<h2 id="load-test">Test 6: Load Test (Short-Circuit Test)</h2>
+
+<p>The short-circuit test determines winding impedance (copper losses) by applying a reduced voltage to the primary while the secondary is short-circuited through a current-limiting impedance. This test is typically done at a manufacturing facility with proper equipment, not in the field — it requires precise control to avoid dangerous currents. It determines:</p>
+
+<ul>
+  <li>Percentage impedance voltage (% Z) — important for fault current calculation</li>
+  <li>Copper losses at full load</li>
+  <li>Leakage inductance</li>
+</ul>
+
+<p>For field verification, compare the measured percentage impedance voltage to the nameplate value (typically 4–6% for distribution transformers). Values significantly outside specification indicate winding problems.</p>
+
+<h2 id="transformer-oil">Oil-Filled Transformer Tests</h2>
+
+<p>Large oil-filled power transformers require additional testing beyond the electrical tests above:</p>
+
+<ul>
+  <li><strong>BDV (Breakdown Voltage) test</strong>: Tests the dielectric strength of the transformer oil — the oil must withstand a high AC voltage across a standard gap before arcing. See our dedicated guide on the transformer oil BDV test.</li>
+  <li><strong>Dissolved Gas Analysis (DGA)</strong>: Laboratory analysis of gases dissolved in the oil — specific gas signatures indicate specific fault types (overheating, arcing, partial discharge) before they become visible failures.</li>
+  <li><strong>Moisture content</strong>: Water in transformer oil dramatically reduces its dielectric strength. Karl Fischer titration or capacitive moisture sensors measure oil water content in ppm.</li>
+</ul>
