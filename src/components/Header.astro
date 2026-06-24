@@ -2,6 +2,9 @@
 import { u } from '../utils/url';
 import categories from '../data/categories.json';
 
+// Only CIE-manufactured categories in the nav dropdown; dealer brands live in /authorised-dealership/
+const cieCategories = categories.filter((c: any) => !c.brand || c.brand === 'cie');
+
 const otherNav = [
   { label: 'Insights',               href: u('/blog') },
   { label: 'Authorised Dealership', href: u('/authorised-dealership') },
@@ -86,18 +89,18 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
             <div class="bg-[#0D1B2A] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
               <!-- Header row -->
               <div class="px-5 py-3 bg-[#1B3A5B]/40 border-b border-white/10 flex items-center justify-between">
-                <span class="text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Browse by Category</span>
+                <span class="text-xs font-mono text-[#94a3b8] uppercase tracking-widest">CIE Products</span>
                 <a href={u('/products/')}
                    class="text-xs font-semibold text-[#E0252E] hover:text-white transition-colors">
                   All Products →
                 </a>
               </div>
-              <!-- Category grid -->
+              <!-- CIE category grid -->
               <ul class="grid grid-cols-2 gap-px bg-white/5 p-px" role="menu">
-                {categories.map((cat, i) => (
+                {cieCategories.map((cat) => (
                   <li role="none">
                     <a
-                      href={u((cat as any).brand === 'vartech' ? `/authorised-dealership/${cat.id.replace('vartech-', '')}/` : `/products/${cat.id}/`)}
+                      href={u(`/products/${cat.id}/`)}
                       role="menuitem"
                       data-dropdown-item
                       tabindex="-1"
@@ -111,6 +114,15 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
                   </li>
                 ))}
               </ul>
+              <!-- Authorised Dealership footer -->
+              <div class="border-t border-white/10 px-5 py-3 flex items-center justify-between bg-[#1B3A5B]/20">
+                <span class="text-xs text-[#64748b]">Vartech · UNI-T · and more — authorised dealer</span>
+                <a href={u('/authorised-dealership/')}
+                   data-dropdown-item tabindex="-1"
+                   class="text-xs font-semibold text-emerald-400 hover:text-white transition-colors">
+                  Authorised Dealership →
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -174,13 +186,17 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
         <!-- Category accordion panel -->
         <div id="mobile-products-dropdown" class="hidden ml-3 border-l border-white/10 pl-3 py-1 mt-0.5">
-          {categories.map(cat => (
-            <a href={u((cat as any).brand === 'vartech' ? `/authorised-dealership/${cat.id.replace('vartech-', '')}/` : `/products/${cat.id}/`)}
+          {cieCategories.map(cat => (
+            <a href={u(`/products/${cat.id}/`)}
                class="flex items-center gap-2 px-2 py-2 text-xs text-[#94a3b8] hover:text-[#b0bec5] hover:bg-white/5 rounded transition-colors">
               <span aria-hidden="true">{cat.icon}</span>
               {cat.shortName}
             </a>
           ))}
+          <a href={u('/authorised-dealership/')}
+             class="flex items-center gap-2 px-2 py-2 text-xs text-emerald-400 hover:text-emerald-300 hover:bg-white/5 rounded transition-colors mt-1 border-t border-white/10 pt-2">
+            🏪 Authorised Dealership (Vartech, UNI-T…)
+          </a>
         </div>
       </div>
 
