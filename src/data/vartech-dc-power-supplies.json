@@ -2,7 +2,7 @@
   {
     "id": "3005-b",
     "model": "3005 B",
-    "name": "3005 B 30V 5A Linear DC regulated power supply with Output On/Off",
+    "name": "30V / 5A Linear DC Regulated Power Supply with Output On/Off",
     "tagline": "0\u201330 V, 0\u20135 A linear DC power supply \u2014 4-digit LED display, Output On/Off pause function, CV/CC, short-circuit protection.",
     "description": "The Vartech 3005 B is a high-quality single-output transformer-based linear DC regulated power supply with a 0\u201330 V, 0\u20135 A output range. It features a 4-digit multicolour LED display for both voltage and current, automatic CV/CC mode switching, and a unique Output Pause function that allows live voltage adjustment while the output is switched off \u2014 so users can pre-set a voltage before connecting the load. Short-circuit and constant-current protection are built in. Suitable for bench-top laboratory, electronic service, and educational use.",
     "features": [
@@ -95,7 +95,7 @@
   {
     "id": "3010",
     "model": "3010",
-    "name": "3010 30V 10A Linear DC regulated power supply",
+    "name": "30V / 10A Heavy-Duty Linear DC Regulated Power Supply",
     "tagline": "0\u201330 V, 0\u201310 A heavy-duty linear DC supply \u2014 4-digit ammeter, CV/CC, Output On/Off, series/parallel capability.",
     "description": "The Vartech 3010 is a heavy-duty single-output transformer-based linear DC regulated power supply rated at 0\u201330 V, 0\u201310 A. It features a 4-digit ammeter LED display (3 digits for voltage), automatic CV/CC switching, output On/Off switch, and can be connected in series or parallel with another unit. Designed for demanding bench-top and industrial applications requiring stable, low-noise DC power.",
     "features": [
@@ -185,7 +185,7 @@
   {
     "id": "3020",
     "model": "3020",
-    "name": "3020 30V 20A Linear DC regulated power supply",
+    "name": "30V / 20A Heavy-Duty Linear DC Regulated Power Supply",
     "tagline": "0\u201330 V, 0\u201320 A heavy-duty linear DC supply \u2014 preset V & I, CV/CC, Output On/Off, series/parallel capable.",
     "description": "The Vartech 3020 is a heavy-duty single-output linear DC power supply rated 0\u201330 V, 0\u201320 A. It adds a preset voltage and current facility (not on the 3010), allowing users to pre-set output values before enabling the output. CV/CC automatic switching, Output On/Off, and series/parallel connection capability make it suitable for high-current bench and industrial applications.",
     "features": [
@@ -278,7 +278,7 @@
   {
     "id": "6005",
     "model": "6005",
-    "name": "6005 60V 5A Linear DC regulated power supply",
+    "name": "60V / 5A Heavy-Duty Linear DC Regulated Power Supply",
     "tagline": "0\u201360 V, 0\u20135 A heavy-duty linear DC supply \u2014 CV/CC, Output On/Off, series/parallel capable.",
     "description": "The Vartech 6005 is a heavy-duty single-output transformer-based linear DC regulated power supply rated at 0\u201360 V, 0\u20135 A. It provides a fully variable output with automatic CV/CC switching, LED displays for voltage and current, Output On/Off switch, and series/parallel connection capability \u2014 suitable for higher-voltage bench and industrial testing applications.",
     "features": [
@@ -367,7 +367,7 @@
   {
     "id": "6010",
     "model": "6010",
-    "name": "6010 60V 10A Linear DC regulated power supply",
+    "name": "60V / 10A Heavy-Duty Linear DC Regulated Power Supply",
     "tagline": "0\u201360 V, 0\u201310 A heavy-duty linear DC supply \u2014 4-digit ammeter, preset V & I, CV/CC, Output On/Off.",
     "description": "The Vartech 6010 is a heavy-duty single-output transformer-based linear DC regulated power supply rated at 0\u201360 V, 0\u201310 A. Like the 3020, it includes preset voltage and current facility in addition to the standard CV/CC, Output On/Off, and 4-digit ammeter LED display. Designed for higher-voltage, higher-current bench and industrial applications.",
     "features": [
@@ -461,7 +461,7 @@
   {
     "id": "3005-3-d2",
     "model": "3005-3 D2",
-    "name": "3005-3 D2 30V 5A Linear DC regulated power supply (Dual / Multi O/P)",
+    "name": "30V / 5A (\u00d72) + 5V / 3A Triple-Output Linear DC Regulated Power Supply",
     "tagline": "3-channel linear DC supply \u2014 0\u201330 V / 0\u20135 A \u00d7 2 variable + 5 V / 3 A fixed, with 5-turn precision pot, 4 LED displays and Output On/Off.",
     "description": "The Vartech 3005-3 D2 is a triple-output transformer-based linear DC regulated power supply with three independent channels: two fully variable 0\u201330 V / 0\u20135 A channels and one fixed 5 V / 3 A output. A 5-turn multiturn potentiometer provides precise voltage control on the variable channels. Outputs can be used independently, in series or in parallel. The unit features 4 LED DPMs, Output On/Off switch, and automatic CV/CC switching on the variable channels.",
     "features": [
@@ -553,7 +553,7 @@
   {
     "id": "3005-4",
     "model": "3005-4",
-    "name": "3005-4 30V 5A Linear DC regulated power supply Multi O/P",
+    "name": "30V / 5A (\u00d72) + 2.2\u201315V / 1A Quad-Output Linear DC Regulated Power Supply",
     "tagline": "4-channel linear DC supply \u2014 0\u201330 V / 0\u20135 A \u00d7 2 (main) + 2.2\u201315 V / 1 A \u00d7 2 (auxiliary), with 4 LED meters, preset V & I and Output On/Off.",
     "description": "The Vartech 3005-4 is a quad-output transformer-based linear DC regulated power supply. It provides two fully variable channels (0\u201330 V / 0\u20135 A, Ch 1 & 2) and two auxiliary channels (2.2\u201315 V / 1 A, Ch 3 & 4). Four LED meters display V and I for the main variable channels. Preset voltage and current facility is included, along with Output On/Off switch. Designed for industrial and laboratory applications requiring multiple independent supply rails. Note: a lower-current variant (3003-4, 30 V / 3 A for Ch 1 & 2) is also available in the same chassis.",
     "features": [
@@ -652,7 +652,7 @@
   {
     "id": "3010-2",
     "model": "3010-2",
-    "name": "3010-2 30V 10A Dual Output DC Power supply Heavy Duty",
+    "name": "30V / 10A \u00d7 2 Dual-Output Heavy-Duty Linear DC Regulated Power Supply",
     "tagline": "0\u201330 V, 0\u201310 A \u00d7 2 independent dual outputs \u2014 series & parallel tracking, preset V & I, high precision linear regulation.",
     "description": "The Vartech 3010-2 is a dual-output transformer-based linear DC regulated power supply with two independent 0\u201330 V / 0\u201310 A channels. Outputs support independent, series and parallel modes (internally and externally), making it ideal for op-amp, bridge circuit and differential circuit testing. Features include preset voltage and current, Output On/Off, automatic CV/CC, auto series/parallel tracking, low ripple and noise, and reverse-polarity protection.",
     "features": [
@@ -727,7 +727,7 @@
   {
     "id": "6005-2",
     "model": "6005-2",
-    "name": "6005-2 60V 5A Dual Output DC Power supply Heavy Duty",
+    "name": "60V / 5A \u00d7 2 Dual-Output Heavy-Duty Linear DC Regulated Power Supply",
     "tagline": "0\u201360 V, 0\u20135 A \u00d7 2 independent dual outputs \u2014 series & parallel tracking, preset V & I, high precision linear regulation.",
     "description": "The Vartech 6005-2 is a dual-output transformer-based linear DC regulated power supply with two independent 0\u201360 V / 0\u20135 A channels. Like the 3010-2 it supports independent, series and parallel operation, auto series/parallel tracking, preset V & I, Output On/Off, and full protection including reverse-polarity. Suited for higher-voltage dual-rail applications in electronics labs, R&D and industrial test benches.",
     "features": [
@@ -802,7 +802,7 @@
   {
     "id": "3005-s",
     "model": "3005 S",
-    "name": "3005 S Slim DC Power supply 30V 5A",
+    "name": "30V / 5A Slim SMPS DC Regulated Power Supply (150W)",
     "tagline": "0\u201330 V, 0\u20135 A, 150 W slim SMPS power supply \u2014 OVP/OCP/OPP/OTP, panel lock, output On/Off, coarse & fine control.",
     "description": "The Vartech 3005 S is a slim, lightweight SMPS-based DC regulated power supply rated at 0\u201330 V, 0\u20135 A (150 W). It uses post-stage voltage regulation technology for high efficiency (> 85 %) in a compact 73 \u00d7 140 \u00d7 205 mm, ~1 kg form factor. Features include adjustable OVP, OCP and OPP, panel lock, beeper alarm, output On/Off, coarse & fine voltage and current controls, and preset voltage/current when output is off.",
     "features": [
@@ -905,7 +905,7 @@
   {
     "id": "3010-s",
     "model": "3010 S",
-    "name": "3010 S Slim DC Power supply 30V 10A",
+    "name": "30V / 10A Slim SMPS DC Regulated Power Supply (300W)",
     "tagline": "0\u201330 V, 0\u201310 A, 300 W slim SMPS power supply \u2014 OVP/OCP/OPP/OTP, panel lock, output On/Off, coarse & fine control.",
     "description": "The Vartech 3010 S is a slim, lightweight SMPS-based DC regulated power supply rated at 0\u201330 V, 0\u201310 A (300 W). It shares the same slim 73 \u00d7 140 \u00d7 205 mm form factor as the 3005 S, with higher current capability and correspondingly wider OCP/OPP ranges. Features include adjustable OVP, OCP and OPP, panel lock, beeper, output On/Off, coarse & fine controls, and preset V/I when output is off.",
     "features": [
@@ -1008,7 +1008,7 @@
   {
     "id": "6005-s",
     "model": "6005 S",
-    "name": "6005 S Slim DC Power supply 60V 5A",
+    "name": "60V / 5A Slim SMPS DC Regulated Power Supply (300W)",
     "tagline": "0\u201360 V, 0\u20135 A, 300 W slim SMPS power supply \u2014 OVP/OCP/OPP/OTP, panel lock, output On/Off, coarse & fine control.",
     "description": "The Vartech 6005 S is a slim, lightweight SMPS-based DC regulated power supply rated at 0\u201360 V, 0\u20135 A (300 W). In the same compact 73 \u00d7 140 \u00d7 205 mm chassis as the 3005 S and 3010 S, it delivers up to 60 V output \u2014 useful for higher-voltage bench testing where a lightweight supply is required. Adjustable OVP (up to 74.4 V), OCP and OPP, panel lock, beeper, output On/Off and preset V/I are all included.",
     "features": [
@@ -1111,7 +1111,7 @@
   {
     "id": "3010-s2",
     "model": "3010 S-2",
-    "name": "3010 S-2 30V 10A SMPS Based DC regulated power supply (Dual / Multi O/P)",
+    "name": "30V / 10A \u00d7 2 Dual-Output SMPS DC Regulated Power Supply",
     "tagline": "0\u201330 V / 0\u201310 A \u00d7 2 dual-output SMPS supply \u2014 4 LED displays, auto CV/CC, light weight, series/parallel capable. Also available as 5005 S-2 (50 V/5 A\u00d72) and 6002 S-2 (60 V/2 A\u00d72).",
     "description": "The Vartech 3010 S-2 is a dual-output SMPS-based DC regulated power supply with two independent 0\u201330 V / 0\u201310 A channels. Being SMPS-type it is significantly lighter and generates less heat than a comparable linear unit, while still offering full CV/CC protection and the ability to connect channels in series or parallel (internally and externally). Four LED displays show V and I for each channel.",
     "features": [
@@ -1193,7 +1193,7 @@
   {
     "id": "6010-s",
     "model": "6010 S",
-    "name": "6010 S 60V 10A SMPS based DC regulated power supply",
+    "name": "60V / 10A SMPS DC Regulated Power Supply",
     "tagline": "0\u201360 V, 0\u201310 A SMPS DC regulated supply \u2014 2 LED displays, fully variable, light weight, short-circuit protection.",
     "description": "The Vartech 6010 S is a single-output SMPS-based DC regulated power supply rated 0\u201360 V, 0\u201310 A. SMPS technology makes it significantly lighter and more energy-efficient than a comparable linear unit. It features two LED displays (one each for voltage and current), a fully variable output, automatic CV/CC switching, short-circuit protection, and an efficient cooling system.",
     "features": [
@@ -1238,7 +1238,7 @@
   {
     "id": "10005-s",
     "model": "10005 S",
-    "name": "10005 S 100V 5A SMPS based DC regulated power supply",
+    "name": "100V / 5A SMPS DC Regulated Power Supply",
     "tagline": "0\u2013100 V, 0\u20135 A SMPS DC regulated supply \u2014 2 LED displays, fully variable, light weight, short-circuit protection.",
     "description": "The Vartech 10005 S is a single-output SMPS-based DC regulated power supply rated 0\u2013100 V, 0\u20135 A. It provides a higher voltage range than the 60 V models, suited for testing equipment that operates at voltages up to 100 V DC. SMPS technology ensures low weight and efficient operation. Features include two LED displays, fully variable output, CV/CC mode and short-circuit protection.",
     "features": [
@@ -1283,7 +1283,7 @@
   {
     "id": "20005-s",
     "model": "20005 S",
-    "name": "20005 S 200V 5A SMPS Based DC Regulated Power supply",
+    "name": "200V / 5A SMPS DC Regulated Power Supply",
     "tagline": "0\u2013200 V, 0\u20135 A SMPS DC supply \u2014 PWM technology, OVP/OCP/OTP/OPP, 4-digit LED display, adjustable OVP range.",
     "description": "The Vartech 20005 S is a single-output SMPS-based DC regulated power supply rated 0\u2013200 V, 0\u20135 A. It uses advanced PWM control technology for compact, lightweight design with automatic CV/CC switching, coarse and fine voltage and current control, intelligent temperature-controlled cooling fan, and comprehensive protection \u2014 OVP (adjustable), OCP (fixed 105% of max current), OTP and OPP. 4-digit LED displays for voltage and current.",
     "features": [
@@ -1336,7 +1336,7 @@
   {
     "id": "20010-s",
     "model": "20010 S",
-    "name": "20010 S 200V 10A SMPS Based DC Regulated Power supply",
+    "name": "200V / 10A SMPS DC Regulated Power Supply",
     "tagline": "0\u2013200 V, 0\u201310 A SMPS DC supply \u2014 PWM technology, OVP/OCP/OTP/OPP, 4-digit LED display, adjustable OVP range.",
     "description": "The Vartech 20010 S is a single-output SMPS-based DC regulated power supply rated 0\u2013200 V, 0\u201310 A \u2014 the highest current in the standard 200 V SMPS range without PC interface. Advanced PWM control, automatic CV/CC switching, adjustable OVP, coarse and fine controls, intelligent cooling fan, and OCP/OTP/OPP protection. Suited for motor drive testing, solenoid testing, and other high-voltage, moderate-current DC applications.",
     "features": [
@@ -1389,7 +1389,7 @@
   {
     "id": "3020-sr",
     "model": "3020 SR",
-    "name": "3020 SR 30V 20A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "30V / 20A SMPS DC Regulated Power Supply with PC Interface (600W)",
     "tagline": "0\u201330 V, 0\u201320 A, 600 W SMPS supply \u2014 4-digit LED, USB/RS232/RS485 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 3020 SR is a 600 W single-output SMPS-based DC regulated power supply with PC interface. It delivers 0\u201330 V / 0\u201320 A with advanced PWM control, auto CV/CC switching, adjustable OVP (up to 110% FS), coarse and fine encoder control, pre-setting of voltage and current, Output On/Off, 4-digit LED displays, and ModBus-RTU protocol via USB (RS232 or RS485 on request). Part of a series covering up to 6 kW output.",
     "features": [
@@ -1504,7 +1504,7 @@
   {
     "id": "3030-sr",
     "model": "3030 SR",
-    "name": "3030 SR 30V 30A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "30V / 30A SMPS DC Regulated Power Supply with PC Interface (900W)",
     "tagline": "0\u201330 V, 0\u201330 A, 900 W SMPS supply \u2014 4-digit LED, USB/RS232/RS485 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 3030 SR is a 900 W single-output SMPS power supply delivering 0\u201330 V / 0\u201330 A with PC interface (USB standard, RS232/RS485 optional, ModBus-RTU). Features PWM control, auto CV/CC, adjustable OVP/OCP/OPP, coarse & fine encoder control, pre-set V & I, Output On/Off, and 4-digit LED displays. Suitable for battery charging, electroplating, motor testing and other high-current 30 V applications.",
     "features": [
@@ -1619,7 +1619,7 @@
   {
     "id": "3040-sr",
     "model": "3040 SR",
-    "name": "3040 SR 30V 40A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "30V / 40A SMPS DC Regulated Power Supply with PC Interface (1200W)",
     "tagline": "0\u201330 V, 0\u201340 A, 1200 W SMPS supply \u2014 4-digit LED, USB/RS232/RS485 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 3040 SR is a 1200 W single-output SMPS power supply delivering 0\u201330 V / 0\u201340 A with PC interface. Designed for high-current applications including battery bank charging, electroplating lines and burn-in test rigs. Features PWM control, auto CV/CC, adjustable OVP/OCP/OPP, encoder coarse & fine control, preset V & I, Output On/Off, 4-digit LED displays and ModBus-RTU communication.",
     "features": [
@@ -1734,7 +1734,7 @@
   {
     "id": "5020-sr",
     "model": "5020 SR",
-    "name": "5020 SR 50V 20A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "50V / 20A SMPS DC Regulated Power Supply with PC Interface (1000W)",
     "tagline": "0\u201350 V, 0\u201320 A, 1000 W SMPS supply \u2014 4-digit LED, USB/RS232/RS485 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 5020 SR is a 1000 W single-output SMPS power supply delivering 0\u201350 V / 0\u201320 A with PC interface. The 50 V range suits EV module testing, LED driver testing and power electronics research. Features PWM control, auto CV/CC, adjustable OVP/OCP/OPP, encoder coarse & fine control, preset V & I, Output On/Off, 4-digit LED displays and ModBus-RTU communication via USB.",
     "features": [
@@ -1849,7 +1849,7 @@
   {
     "id": "5030-sr",
     "model": "5030 SR",
-    "name": "5030 SR 50V 30A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "50V / 30A SMPS DC Regulated Power Supply with PC Interface (1500W)",
     "tagline": "0\u201350 V, 0\u201330 A, 1500 W SMPS supply \u2014 4-digit LED, USB/RS232/RS485 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 5030 SR is a 1500 W single-output SMPS power supply rated 0\u201350 V / 0\u201330 A with PC interface. Higher current than the 5020 SR makes it suitable for heavier loads at the 50 V range. Features include PWM control, auto CV/CC, adjustable OVP/OCP/OPP, encoder coarse & fine control, preset V & I, Output On/Off, 4-digit LED displays and USB/RS232/RS485 interface with ModBus-RTU.",
     "features": [
@@ -1964,7 +1964,7 @@
   {
     "id": "6010-sr",
     "model": "6010 SR",
-    "name": "6010 SR 60V 10A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "60V / 10A SMPS DC Regulated Power Supply with RS232 Interface (600W)",
     "tagline": "0\u201360 V, 0\u201310 A, 600 W SMPS supply \u2014 4-digit LED, RS232 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 6010 SR is a 600 W single-output SMPS power supply rated 0\u201360 V / 0\u201310 A with RS232 PC interface (ModBus-RTU). Features PWM control, auto CV/CC, adjustable OVP/OCP/OPP, encoder coarse & fine control, preset V & I, Output On/Off, 4-digit LED displays. The 60 V range is particularly suited for testing 48 V battery systems, telecom power equipment and LED lighting drivers.",
     "features": [
@@ -2079,7 +2079,7 @@
   {
     "id": "6020-sr",
     "model": "6020 SR",
-    "name": "6020 SR 60V 20A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "60V / 20A SMPS DC Regulated Power Supply with PC Interface (1200W)",
     "tagline": "0\u201360 V, 0\u201320 A, 1200 W SMPS supply \u2014 4-digit LED, USB/RS232/RS485 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 6020 SR is a 1200 W single-output SMPS power supply rated 0\u201360 V / 0\u201320 A with PC interface. Higher current than the 6010 SR for heavier loads at the 60 V range \u2014 suitable for 48 V battery packs, EV charger testing and industrial burn-in applications. Features PWM control, auto CV/CC, adjustable OVP/OCP/OPP, encoder controls, preset V & I, Output On/Off, 4-digit LED displays and USB/RS232/RS485 with ModBus-RTU.",
     "features": [
@@ -2194,7 +2194,7 @@
   {
     "id": "10010-sr",
     "model": "10010 SR",
-    "name": "10010 SR 100V 10A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "100V / 10A SMPS DC Regulated Power Supply with RS232 Interface (1000W)",
     "tagline": "0\u2013100 V, 0\u201310 A, 1000 W SMPS supply \u2014 4-digit LED, RS232 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 10010 SR is a 1000 W single-output SMPS power supply rated 0\u2013100 V / 0\u201310 A with RS232 PC interface (ModBus-RTU). The 100 V range enables testing of motor drives, inverters and power modules at higher voltages. Features include PWM control, auto CV/CC, adjustable OVP/OCP/OPP, encoder coarse & fine control, preset V & I, Output On/Off and 4-digit LED displays.",
     "features": [
@@ -2310,7 +2310,7 @@
   {
     "id": "12005-sr",
     "model": "12005 SR",
-    "name": "12005 SR 120V 5A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "120V / 5A SMPS DC Regulated Power Supply with PC Interface (600W)",
     "tagline": "0\u2013120 V, 0\u20135 A, 600 W SMPS supply \u2014 4-digit LED, USB/RS232/RS485 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 12005 SR is a 600 W single-output SMPS power supply rated 0\u2013120 V / 0\u20135 A with PC interface. The 120 V output range extends suitability to AC motor drive pre-charge circuits, capacitor bank testing and high-voltage electronics research. Features advanced PWM control, auto CV/CC, adjustable OVP/OCP/OPP, encoder controls, preset V & I, Output On/Off, 4-digit LED displays and USB/RS232/RS485 interface with ModBus-RTU.",
     "features": [
@@ -2425,7 +2425,7 @@
   {
     "id": "15003-sr",
     "model": "15003 SR",
-    "name": "15003 SR 150V 3A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "150V / 3A SMPS DC Regulated Power Supply with PC Interface (450W)",
     "tagline": "0\u2013150 V, 0\u20133 A, 450 W SMPS supply \u2014 4-digit LED, USB/RS232/RS485 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 15003 SR is a 450 W single-output SMPS power supply rated 0\u2013150 V / 0\u20133 A with PC interface. The 150 V range is useful for testing high-voltage components, relay coils, solenoid valves, and lighting ballasts. Features PWM control, auto CV/CC, adjustable OVP/OCP/OPP, encoder controls, preset V & I, Output On/Off, 4-digit LED displays and USB/RS232/RS485 with ModBus-RTU.",
     "features": [
@@ -2540,7 +2540,7 @@
   {
     "id": "20010-sr",
     "model": "20010 SR",
-    "name": "20010 SR 200V 10A SMPS Based DC Regulated Power supply with PC Interface",
+    "name": "200V / 10A SMPS DC Regulated Power Supply with RS232 Interface (2000W)",
     "tagline": "0\u2013200 V, 0\u201310 A, 2000 W SMPS supply \u2014 4-digit LED, RS232 interface, ModBus-RTU, OVP/OCP/OPP/OTP.",
     "description": "The Vartech 20010 SR is a 2000 W single-output SMPS power supply rated 0\u2013200 V / 0\u201310 A with RS232 PC interface (ModBus-RTU). The highest-voltage standard SR model, it covers testing of high-voltage motor drives, inverter DC bus simulation, and capacitor formation. Features advanced PWM control, auto CV/CC, adjustable OVP/OCP/OPP, encoder controls, preset V & I, Output On/Off and 4-digit LED displays.",
     "features": [
@@ -2656,7 +2656,7 @@
   {
     "id": "pps-3005-s",
     "model": "PPS-3005 S",
-    "name": "PPS-3005 S Programmable DC power supply 30V 5A",
+    "name": "30V / 5A Programmable SMPS DC Power Supply",
     "tagline": "0\u201330 V, 0\u20135 A programmable SMPS supply \u2014 5 \u00d7 4-digit LED displays, USB interface, ModBus-RTU, 6 memories, list mode.",
     "description": "The Vartech PPS-3005 S is a programmable single-output SMPS DC power supply rated 0\u201330 V / 0\u20135 A. Five 4-digit multicolour LED displays show V set, I set, V out, I out and Watts simultaneously. A high-speed rotary dial, panel lock, beeper, 6 memory sets, list mode, output On/Off with programmable delay time (up to 9999 s), and USB PC interface with ModBus-RTU make it ideal for automated test sequences, R&D labs and educational use. Display resolution is 10 mV / 1 mA.",
     "features": [
@@ -2748,7 +2748,7 @@
   {
     "id": "pps-3010-s",
     "model": "PPS-3010 S",
-    "name": "PPS-3010 S Programmable DC power supply 30V 10A",
+    "name": "30V / 10A Programmable SMPS DC Power Supply",
     "tagline": "0\u201330 V, 0\u201310 A programmable SMPS supply \u2014 5 \u00d7 4-digit LED displays, USB interface, ModBus-RTU, 6 memories, list mode.",
     "description": "The Vartech PPS-3010 S is a programmable single-output SMPS DC power supply rated 0\u201330 V / 0\u201310 A. It shares all features of the PPS-3005 S with doubled current capacity \u2014 five 4-digit LED displays, high-speed rotary dial, panel lock, 6 memory sets, list mode, output On/Off with delay timer, and USB ModBus-RTU PC interface.",
     "features": [
@@ -2840,7 +2840,7 @@
   {
     "id": "pps-3020-s",
     "model": "PPS-3020 S",
-    "name": "PPS-3020 S Programmable DC power supply 30V 20A",
+    "name": "30V / 20A Programmable SMPS DC Power Supply",
     "tagline": "0\u201330 V, 0\u201320 A programmable SMPS supply \u2014 5 \u00d7 4-digit LED displays, USB interface, ModBus-RTU, 6 memories, list mode.",
     "description": "The Vartech PPS-3020 S is a programmable single-output SMPS DC power supply rated 0\u201330 V / 0\u201320 A. The highest-current model in the 30 V PPS-S range \u2014 five 4-digit LED displays, high-speed rotary dial, panel lock, 6 memory sets, list mode, output On/Off with delay timer, and USB ModBus-RTU PC interface.",
     "features": [
@@ -2932,7 +2932,7 @@
   {
     "id": "pps-3610-s",
     "model": "PPS-3610 S",
-    "name": "PPS-3610 S Programmable DC power supply 36V 10A",
+    "name": "36V / 10A Programmable SMPS DC Power Supply",
     "tagline": "0\u201336 V, 0\u201310 A programmable SMPS supply \u2014 5 \u00d7 4-digit LED displays, USB interface, ModBus-RTU, 6 memories, list mode.",
     "description": "The Vartech PPS-3610 S is a programmable single-output SMPS DC power supply rated 0\u201336 V / 0\u201310 A. The 36 V ceiling makes it particularly useful for testing 24 V industrial equipment with margin, lithium battery systems, and telecom 28 V rail testing. Five 4-digit LED displays, high-speed rotary dial, panel lock, 6 memories, list mode, output On/Off with delay timer, USB ModBus-RTU PC interface.",
     "features": [
@@ -3024,7 +3024,7 @@
   {
     "id": "pps-6005-s",
     "model": "PPS-6005 S",
-    "name": "PPS-6005 S Programmable DC power supply 60V 5A",
+    "name": "60V / 5A Programmable SMPS DC Power Supply",
     "tagline": "0\u201360 V, 0\u20135 A programmable SMPS supply \u2014 5 \u00d7 4-digit LED displays, USB interface, ModBus-RTU, 6 memories, list mode.",
     "description": "The Vartech PPS-6005 S is a programmable single-output SMPS DC power supply rated 0\u201360 V / 0\u20135 A. The 60 V range covers 48 V telecom and battery systems with testing margin. All PPS-S features: five 4-digit LED displays, high-speed rotary dial, panel lock, 6 memories, list mode, output On/Off with delay timer, USB ModBus-RTU PC interface, 10 mV / 1 mA resolution.",
     "features": [
@@ -3116,7 +3116,7 @@
   {
     "id": "pps-6010-s",
     "model": "PPS-6010 S",
-    "name": "PPS-6010 S Programmable DC power supply 60V 10A",
+    "name": "60V / 10A Programmable SMPS DC Power Supply",
     "tagline": "0\u201360 V, 0\u201310 A programmable SMPS supply \u2014 5 \u00d7 4-digit LED displays, USB interface, ModBus-RTU, 6 memories, list mode.",
     "description": "The Vartech PPS-6010 S is a programmable single-output SMPS DC power supply rated 0\u201360 V / 0\u201310 A \u2014 the highest-current programmable model in the 60 V PPS-S range. Full PPS-S features: five 4-digit LED displays, high-speed rotary dial, panel lock, 6 memories, list mode, output On/Off with delay timer, USB ModBus-RTU interface, and 10 mV / 1 mA display resolution.",
     "features": [
@@ -3208,7 +3208,7 @@
   {
     "id": "pps-10003-s",
     "model": "PPS-10003 S",
-    "name": "PPS-10003 S Programmable DC power supply 100V 3A",
+    "name": "100V / 3A Programmable SMPS DC Power Supply",
     "tagline": "0\u2013100 V, 0\u20133 A programmable SMPS supply \u2014 5 \u00d7 4-digit LED displays, USB interface, ModBus-RTU, 6 memories, list mode.",
     "description": "The Vartech PPS-10003 S is a programmable single-output SMPS DC power supply rated 0\u2013100 V / 0\u20133 A. The 100 V range enables automated testing of motor drives, power modules, relay coils and high-voltage electronics. Full PPS-S features: five 4-digit LED displays, high-speed rotary dial, panel lock, 6 memories, list mode, output On/Off with delay timer, USB ModBus-RTU PC interface.",
     "features": [
@@ -3300,7 +3300,7 @@
   {
     "id": "pps-3005-3",
     "model": "PPS 3005-3",
-    "name": "PPS 3005-3 Programmable DC power supply 30V 5A Multi Output",
+    "name": "30V / 5A (\u00d72) + 2.5/3.3/5V / 3A Triple-Output Programmable Linear DC Power Supply",
     "tagline": "3-channel programmable linear supply \u2014 0\u201330 V / 0\u20135 A \u00d7 2 main + selectable 2.5 V / 3.3 V / 5 V / 3 A fixed aux, USB interface (LabVIEW), 4-memory sets.",
     "description": "The Vartech PPS 3005-3 is a triple-output programmable linear DC power supply. Two main variable channels deliver 0\u201330 V / 0\u20135 A each, and one auxiliary channel provides selectable fixed output of 2.5 V, 3.3 V or 5 V at 3 A \u2014 covering all common digital logic supply rails. A USB PC interface (supports LabVIEW) enables remote control and automation. Features include 5-digit (V) + 4-digit (A) LED displays, 4 memory sets, panel lock, auto CV/CC, high resolution (100 mV / 10 mA) and comprehensive protection. A lower-current variant (PPS-3003-3, 30 V / 3 A for Ch 1 & 2, 7.5 kg) is also available in the same chassis.",
     "features": [
@@ -3410,7 +3410,7 @@
   {
     "id": "ppsa-100w-8005-s",
     "model": "PPSA-100W-8005 S",
-    "name": "PPSA-100W-8005 S Auto Ranging Programmable DC Power supply 80V 5A - 100W",
+    "name": "80V / 5A Auto-Ranging Programmable DC Power Supply (100W)",
     "tagline": "0\u201380 V / 0\u20135 A auto-ranging 100 W programmable supply \u2014 RS232/RS485 + SCPI/ModBus-RTU, remote sensing, list mode, slim design.",
     "description": "The Vartech PPSA-100W-8005 S is a next-generation slim auto-ranging programmable DC power supply with 100 W output. Auto-ranging allows wider combined voltage and current coverage than a conventional fixed-range supply \u2014 within the 100 W envelope the voltage and current limits automatically trade off, maximising the usable output range. Features include RS232 & RS485 standard interface (SCPI and ModBus-RTU), remote sensing (compensates up to 2 V lead drop), external trigger, list mode (100 groups \u00d7 4 memories), data recording software, 4-digit displays, and comprehensive protections (OVP, OCP, OTP). Resolution is 10 mV / 1 mA.",
     "features": [
