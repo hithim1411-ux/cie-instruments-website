@@ -9,11 +9,9 @@ const cieCategories     = categories.filter((c: any) => (!c.brand || c.brand !==
 const vartechCategories = categories.filter((c: any) => c.brand === 'vartech' && !DROPDOWN_EXCLUDE.has(c.id));
 
 const otherNav = [
-  { label: 'Insights',               href: u('/blog') },
-  { label: 'Authorised Dealership', href: u('/authorised-dealership') },
-  { label: 'About Us',              href: u('/about') },
-  { label: 'FAQs',                  href: u('/faq') },
-  { label: 'Contact',               href: u('/contact') },
+  { label: 'Insights',  href: u('/blog')    },
+  { label: 'About Us',  href: u('/about')   },
+  { label: 'Contact',   href: u('/contact') },
 ];
 
 const currentPath = Astro.url.pathname;
