@@ -1,0 +1,324 @@
+---
+import { u } from '../utils/url';
+import cieProducts    from '../data/products.json';
+import cieCategories  from '../data/categories.json';
+import vMM   from '../data/vartech-multimeters.json';
+import vCM   from '../data/vartech-clamp-meters.json';
+import vOSC  from '../data/vartech-oscilloscopes.json';
+import vFG   from '../data/vartech-function-generators.json';
+import vLCR  from '../data/vartech-lcr-meters.json';
+import vDCL  from '../data/vartech-dc-loads.json';
+import vSLM  from '../data/vartech-sound-level-meters.json';
+import vANE  from '../data/vartech-anemometers.json';
+import vCAL  from '../data/vartech-calibrators.json';
+import vLUX  from '../data/vartech-lux-meters.json';
+import vTHM  from '../data/vartech-thermometers.json';
+import vPS   from '../data/vartech-dc-power-supplies.json';
+
+const catNameMap: Record<string,string> = Object.fromEntries(
+  (cieCategories as any[]).map(c => [c.id, c.shortName || c.name])
+);
+
+type Entry = {
+  id: string; model: string; name: string; tagline: string;
+  category: string; brand: 'cie'|'vartech'; href: string; image: string;
+};
+
+function vImg(slug: string, img: string) {
+  return u(`/images/vartech/${slug}/${img}`);
+}
+
+const vartechSections: { slug: string; label: string; items: any[] }[] = [
+  { slug: 'multimeters',       label: 'Multimeters',           items: vMM  },
+  { slug: 'clamp-meters',      label: 'Clamp Meters',          items: vCM  },
+  { slug: 'oscilloscopes',     label: 'Oscilloscopes',         items: vOSC },
+  { slug: 'function-generators',label:'Function Generators',   items: vFG  },
+  { slug: 'lcr-meters',        label: 'LCR & Cap Meters',      items: vLCR },
+  { slug: 'dc-loads',          label: 'DC Electronic Loads',   items: vDCL },
+  { slug: 'sound-level-meters',label: 'Sound Level Meters',    items: vSLM },
+  { slug: 'anemometers',       label: 'Anemometers',           items: vANE },
+  { slug: 'calibrators',       label: 'Calibrators',           items: vCAL },
+  { slug: 'lux-meters',        label: 'Lux Meters',            items: vLUX },
+  { slug: 'thermometers',      label: 'Thermometers',          items: vTHM },
+  { slug: 'dc-power-supplies', label: 'DC Power Supplies',     items: vPS  },
+];
+
+const searchIndex: Entry[] = [
+  // CIE
+  ...(cieProducts as any[])
+    .filter(p => !p.brand || p.brand === 'cie')
+    .map(p => ({
+      id:       p.id,
+      model:    p.model,
+      name:     p.name,
+      tagline:  p.tagline || '',
+      category: catNameMap[p.categoryId] || p.categoryId,
+      brand:    'cie' as const,
+      href:     u(`/products/${p.categoryId}/${p.id}/`),
+      image:    p.image
+        ? (p.image.startsWith('vartech/') ? u(`/images/${p.image}`) : u(`/images/products/${p.image}`))
+        : u(`/images/products/${p.id}.webp`),
+    })),
+  // Vartech
+  ...vartechSections.flatMap(({ slug, label, items }) =>
+    (items as any[]).map(p => ({
+      id:       p.id,
+      model:    p.model,
+      name:     p.name,
+      tagline:  p.tagline || '',
+      category: label,
+      brand:    'vartech' as const,
+      href:     u(`/authorised-dealership/${slug}/${p.id}/`),
+      image:    p.images?.[0] ? vImg(slug, p.images[0]) : '',
+    }))
+  ),
+];
+---
+
+<!-- ── Search modal ─────────────────────────────────────────────────────── -->
+<dialog
+  id="cie-search"
+  aria-label="Product search"
+  class="fixed inset-0 z-[9999] w-full h-full bg-transparent p-0 m-0 max-w-none max-h-none border-0 backdrop:bg-[#0D1B2A]/70 backdrop:backdrop-blur-sm"
+>
+  <div class="flex items-start justify-center min-h-full pt-[10vh] px-4 pb-10">
+    <div id="search-box"
+      class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+      style="max-height: 80vh;"
+    >
+      <!-- Input row -->
+      <div class="flex items-center gap-3 px-4 py-3.5 border-b border-[#E8ECF2]">
+        <svg class="w-5 h-5 text-[#94A3B8] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input
+          id="search-input"
+          type="search"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Search by model, category, spec, voltage, frequency…"
+          class="flex-1 text-[#0D1B2A] text-base bg-transparent outline-none placeholder:text-[#94A3B8] font-medium"
+        />
+        <kbd class="hidden sm:inline-flex items-center gap-0.5 px-2 py-1 bg-[#F1F5F9] border border-[#E2E8F0] rounded text-[10px] font-mono text-[#64748B]">
+          esc
+        </kbd>
+      </div>
+
+      <!-- Results area -->
+      <div id="search-results" class="overflow-y-auto flex-1" style="scrollbar-width:thin;">
+        <!-- populated by JS -->
+      </div>
+
+      <!-- Footer -->
+      <div class="px-4 py-2.5 border-t border-[#E8ECF2] bg-[#F8FAFC] flex items-center gap-4 text-[10px] text-[#94A3B8] font-mono shrink-0">
+        <span class="flex items-center gap-1"><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">↑↓</kbd> navigate</span>
+        <span class="flex items-center gap-1"><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">↵</kbd> open</span>
+        <span class="flex items-center gap-1"><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">esc</kbd> close</span>
+        <span class="ml-auto flex items-center gap-1">
+          <kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">⌘K</kbd> / <kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">Ctrl+K</kbd> to toggle
+        </span>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Pass search index to browser -->
+<script define:vars={{ searchIndex }}>
+  window.__CIE_SEARCH_INDEX__ = searchIndex;
+</script>
+
+<script>
+import Fuse from 'fuse.js';
+
+type Entry = {
+  id: string; model: string; name: string; tagline: string;
+  category: string; brand: string; href: string; image: string;
+};
+
+const index: Entry[] = (window as any).__CIE_SEARCH_INDEX__ || [];
+
+const fuse = new Fuse(index, {
+  keys: [
+    { name: 'model',    weight: 3 },
+    { name: 'name',     weight: 2 },
+    { name: 'category', weight: 1.5 },
+    { name: 'tagline',  weight: 1 },
+  ],
+  threshold:       0.35,
+  includeScore:    true,
+  includeMatches:  true,
+  minMatchCharLength: 2,
+  useExtendedSearch: false,
+  ignoreLocation:  true,
+});
+
+const modal   = document.getElementById('cie-search') as HTMLDialogElement;
+const input   = document.getElementById('search-input') as HTMLInputElement;
+const results = document.getElementById('search-results') as HTMLElement;
+
+let selectedIdx = -1;
+let flatItems: Entry[] = [];
+
+// ── Open / close ──────────────────────────────────────────────────────────
+function openSearch() {
+  modal.showModal();
+  input.value = '';
+  selectedIdx = -1;
+  renderEmpty();
+  setTimeout(() => input.focus(), 50);
+}
+
+function closeSearch() {
+  modal.close();
+  input.value = '';
+}
+
+modal.addEventListener('click', e => {
+  if (e.target === modal) closeSearch();
+});
+
+document.addEventListener('keydown', e => {
+  const mac = navigator.platform.toUpperCase().includes('MAC');
+  if ((mac ? e.metaKey : e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    modal.open ? closeSearch() : openSearch();
+  }
+  if (e.key === 'Escape' && modal.open) closeSearch();
+});
+
+// ── Keyboard navigation inside modal ─────────────────────────────────────
+modal.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown') { e.preventDefault(); moveSel(1); }
+  if (e.key === 'ArrowUp')   { e.preventDefault(); moveSel(-1); }
+  if (e.key === 'Enter')     { e.preventDefault(); navigateSel(); }
+});
+
+function moveSel(dir: number) {
+  const items = results.querySelectorAll<HTMLAnchorElement>('[data-result]');
+  if (!items.length) return;
+  selectedIdx = Math.max(-1, Math.min(items.length - 1, selectedIdx + dir));
+  items.forEach((el, i) => {
+    el.classList.toggle('bg-[#F0F4FF]', i === selectedIdx);
+    el.classList.toggle('border-l-2', i === selectedIdx);
+    el.classList.toggle('border-[#1B3A5B]', i === selectedIdx);
+  });
+  if (selectedIdx >= 0) items[selectedIdx].scrollIntoView({ block: 'nearest' });
+}
+
+function navigateSel() {
+  const items = results.querySelectorAll<HTMLAnchorElement>('[data-result]');
+  if (selectedIdx >= 0 && items[selectedIdx]) {
+    window.location.href = items[selectedIdx].href;
+    closeSearch();
+  }
+}
+
+// ── Search ────────────────────────────────────────────────────────────────
+input.addEventListener('input', () => {
+  const q = input.value.trim();
+  selectedIdx = -1;
+  if (!q) { renderEmpty(); return; }
+  const raw = fuse.search(q, { limit: 12 });
+  flatItems = raw.map(r => r.item);
+  renderResults(flatItems, q);
+});
+
+// ── Render helpers ────────────────────────────────────────────────────────
+function highlight(text: string, query: string): string {
+  if (!query) return esc(text);
+  const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+  return esc(text).replace(re, '<mark class="bg-yellow-100 text-yellow-800 rounded-sm px-0.5 not-italic">$1</mark>');
+}
+
+function esc(s: string) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderEmpty() {
+  // Show featured / recent items when no query
+  const featured = index.slice(0, 8);
+  results.innerHTML = `
+    <div class="px-4 pt-3 pb-1">
+      <p class="text-[10px] font-mono uppercase tracking-widest text-[#94A3B8] mb-2">Featured Products</p>
+      ${featured.map(item => resultRow(item, '')).join('')}
+    </div>
+    <div class="px-4 py-3 border-t border-[#F1F5F9]">
+      <p class="text-xs text-[#94A3B8]">
+        Searching across <strong class="text-[#64748B]">${index.length} instruments</strong> — CIE manufactured &amp; Vartech authorised range
+      </p>
+    </div>`;
+}
+
+function renderResults(items: Entry[], q: string) {
+  if (!items.length) {
+    results.innerHTML = `<div class="px-6 py-10 text-center">
+      <svg class="w-10 h-10 mx-auto mb-3 text-[#CBD5E1]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/></svg>
+      <p class="text-[#64748B] font-medium">No results for "<span class="text-[#0D1B2A]">${esc(q)}</span>"</p>
+      <p class="text-xs text-[#94A3B8] mt-1">Try a model number, category or specification</p>
+    </div>`;
+    return;
+  }
+
+  const cie      = items.filter(i => i.brand === 'cie');
+  const vartech  = items.filter(i => i.brand === 'vartech');
+  let html = '';
+
+  if (cie.length) {
+    html += `<div class="pt-3 pb-1">
+      <div class="px-4 mb-1.5 flex items-center gap-2">
+        <span class="text-[9px] font-mono uppercase tracking-widest text-[#E0252E] font-bold">CIE — Manufactured</span>
+        <span class="text-[9px] text-[#94A3B8]">${cie.length} result${cie.length!==1?'s':''}</span>
+      </div>
+      ${cie.map(item => resultRow(item, q)).join('')}
+    </div>`;
+  }
+
+  if (vartech.length) {
+    html += `<div class="${cie.length ? 'border-t border-[#F1F5F9]' : ''} pt-3 pb-1">
+      <div class="px-4 mb-1.5 flex items-center gap-2">
+        <span class="text-[9px] font-mono uppercase tracking-widest text-emerald-600 font-bold">Vartech — Authorised Dealer</span>
+        <span class="text-[9px] text-[#94A3B8]">${vartech.length} result${vartech.length!==1?'s':''}</span>
+      </div>
+      ${vartech.map(item => resultRow(item, q)).join('')}
+    </div>`;
+  }
+
+  html += `<div class="px-4 py-2.5 border-t border-[#F1F5F9]">
+    <p class="text-[10px] text-[#94A3B8]">${items.length} result${items.length!==1?'s':''} for "<span class="text-[#64748B]">${esc(q)}</span>"</p>
+  </div>`;
+
+  results.innerHTML = html;
+}
+
+function resultRow(item: Entry, q: string): string {
+  const isCIE = item.brand === 'cie';
+  const badgeClass = isCIE
+    ? 'bg-[#0D2547] text-white'
+    : 'bg-emerald-700 text-white';
+  const taglineShort = item.tagline.length > 80 ? item.tagline.slice(0, 80) + '…' : item.tagline;
+
+  return `<a href="${esc(item.href)}" data-result
+    class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#F0F4FF] transition-colors cursor-pointer group"
+    onclick="document.getElementById('cie-search').close()">
+    <div class="w-10 h-10 rounded-lg bg-[#F8FAFC] border border-[#E8ECF2] flex items-center justify-center shrink-0 overflow-hidden">
+      ${item.image
+        ? `<img src="${esc(item.image)}" alt="" class="w-9 h-9 object-contain p-0.5" loading="lazy" onerror="this.style.display='none'">`
+        : `<svg class="w-5 h-5 text-[#CBD5E1]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/></svg>`}
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2 mb-0.5">
+        <span class="inline-block text-[9px] font-mono font-bold px-1.5 py-0.5 rounded ${badgeClass} shrink-0">${highlight(item.model, q)}</span>
+        <span class="text-[10px] text-[#94A3B8] truncate">${esc(item.category)}</span>
+      </div>
+      <p class="text-sm font-semibold text-[#0D1B2A] leading-snug truncate group-hover:text-[#1B3A5B]">${highlight(item.name, q)}</p>
+      ${taglineShort ? `<p class="text-[11px] text-[#64748B] truncate mt-0.5">${highlight(taglineShort, q)}</p>` : ''}
+    </div>
+    <svg class="w-4 h-4 text-[#CBD5E1] shrink-0 group-hover:text-[#1B3A5B] transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+  </a>`;
+}
+</script>
+
+<style>
+#cie-search::backdrop { background: transparent; }
+#search-results mark { font-style: normal; }
+</style>
