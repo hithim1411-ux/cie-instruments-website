@@ -11,6 +11,7 @@ import clients from '../data/clients.json';
 import vartechThermometers from '../data/vartech-thermometers.json';
 import vartechLuxMeters from '../data/vartech-lux-meters.json';
 import vartechCalibrators from '../data/vartech-calibrators.json';
+import vartechDcPowerSupplies from '../data/vartech-dc-power-supplies.json';
 
 // Remove Vartech categories that duplicate an existing CIE category in the slider.
 // "Multimeters" and "Clamp Meters" overlap with CIE's "Clamp Meters & Multimeters".
@@ -28,11 +29,13 @@ const categoryCount = categories
 
 const featured = products.filter(p => p.featured);
 
-// 3 hand-picked Vartech products from the new categories — highest industrial demand
 const newVartechFeatured = [
-  { ...vartechThermometers.find(p => p.id === 'v-6500')!,  slug: 'thermometers' },
-  { ...vartechLuxMeters.find(p => p.id === 'v-6610-b')!,   slug: 'lux-meters'   },
-  { ...vartechCalibrators.find(p => p.id === 'ms-7221')!,  slug: 'calibrators'  },
+  { ...vartechThermometers.find(p => p.id === 'v-6500')!,           slug: 'thermometers'     },
+  { ...vartechLuxMeters.find(p => p.id === 'v-6610-b')!,            slug: 'lux-meters'       },
+  { ...vartechCalibrators.find(p => p.id === 'ms-7221')!,           slug: 'calibrators'      },
+  { ...vartechDcPowerSupplies.find(p => p.id === '3010')!,          slug: 'dc-power-supplies'},
+  { ...vartechDcPowerSupplies.find(p => p.id === '3020-sr')!,       slug: 'dc-power-supplies'},
+  { ...vartechDcPowerSupplies.find(p => p.id === 'pps-3005-s')!,    slug: 'dc-power-supplies'},
 ];
 
 const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
