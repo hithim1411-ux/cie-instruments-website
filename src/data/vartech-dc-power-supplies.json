@@ -1973,7 +1973,7 @@
       "Pre-setting of voltage & current with Output ON/OFF switch",
       "OVP (adjustable, \u2264110% FS), OCP (\u2264110% FS), OPP (\u2264100% FS), OTP protections",
       "4-digit LED displays for voltage and current (set + readback)",
-      "PC interface: USB standard (RS232 / RS485 optional); ModBus-RTU protocol",
+      "PC interface: RS232 (standard for this model); ModBus-RTU protocol",
       "Intelligent temperature-controlled cooling fan",
       "Low ripple & noise (\u2264 0.5% FS rms)"
     ],
@@ -2203,7 +2203,7 @@
       "Pre-setting of voltage & current with Output ON/OFF switch",
       "OVP (adjustable, \u2264110% FS), OCP (\u2264110% FS), OPP (\u2264100% FS), OTP protections",
       "4-digit LED displays for voltage and current (set + readback)",
-      "PC interface: USB standard (RS232 / RS485 optional); ModBus-RTU protocol",
+      "PC interface: RS232 (standard for this model); ModBus-RTU protocol",
       "Intelligent temperature-controlled cooling fan",
       "Low ripple & noise (\u2264 0.5% FS rms)"
     ],
@@ -2549,7 +2549,7 @@
       "Pre-setting of voltage & current with Output ON/OFF switch",
       "OVP (adjustable, \u2264110% FS), OCP (\u2264110% FS), OPP (\u2264100% FS), OTP protections",
       "4-digit LED displays for voltage and current (set + readback)",
-      "PC interface: USB standard (RS232 / RS485 optional); ModBus-RTU protocol",
+      "PC interface: RS232 (standard for this model); ModBus-RTU protocol",
       "Intelligent temperature-controlled cooling fan",
       "Low ripple & noise (\u2264 0.5% FS rms)"
     ],
