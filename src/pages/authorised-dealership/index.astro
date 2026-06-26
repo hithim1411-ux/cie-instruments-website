@@ -9,6 +9,11 @@ import oscilloscopes from '../../data/vartech-oscilloscopes.json';
 import functionGenerators from '../../data/vartech-function-generators.json';
 import lcrMeters from '../../data/vartech-lcr-meters.json';
 import dcLoads from '../../data/vartech-dc-loads.json';
+import soundLevelMeters from '../../data/vartech-sound-level-meters.json';
+import anemometers from '../../data/vartech-anemometers.json';
+import calibrators from '../../data/vartech-calibrators.json';
+import luxMeters from '../../data/vartech-lux-meters.json';
+import thermometers from '../../data/vartech-thermometers.json';
 
 const categories = [
   {
@@ -53,11 +58,46 @@ const categories = [
     count: dcLoads.length,
     description: '600 W programmable DC loads with CC/CV/CR/CP modes — for battery, power supply and charger testing.',
   },
+  {
+    label: 'Sound Level Meters',
+    href: u('/authorised-dealership/sound-level-meters/'),
+    icon: '🔊',
+    count: soundLevelMeters.length,
+    description: '30–130 dBA digital sound level meters — A-weighting, 1/2-inch condenser microphone, Fast/Slow response.',
+  },
+  {
+    label: 'Anemometers',
+    href: u('/authorised-dealership/anemometers/'),
+    icon: '💨',
+    count: anemometers.length,
+    description: 'Digital anemometers — 0–45 m/s air speed with temperature, wind chill and analog bar graph.',
+  },
+  {
+    label: 'Calibrators',
+    href: u('/authorised-dealership/calibrators/'),
+    icon: '🎛️',
+    count: calibrators.length,
+    description: 'mV, mA, temperature and process calibrators — source & measure T/C, RTD, loop current and voltage.',
+  },
+  {
+    label: 'Lux Meters',
+    href: u('/authorised-dealership/lux-meters/'),
+    icon: '💡',
+    count: luxMeters.length,
+    description: 'Digital lux meters — 0.1 to 200,000 Lux, flexible sensor, Lux/FC select, Auto/Manual ranging.',
+  },
+  {
+    label: 'Thermometers',
+    href: u('/authorised-dealership/thermometers/'),
+    icon: '🌡️',
+    count: thermometers.length,
+    description: 'K-type industrial thermometers (-150 °C to 1300 °C) and compact thermo-hygrometers with clock.',
+  },
 ];
 
 const pageTitle = 'Authorised Dealership — Vartech Instruments | CIE Instruments';
 const pageDesc =
-  'CIE Instruments is an authorised dealer and distributor of Vartech precision digital test instruments in India — multimeters, clamp meters, oscilloscopes, function generators, LCR meters and DC electronic loads. Expert support, pan-India supply from Howrah.';
+  'CIE Instruments is an authorised dealer and distributor of Vartech precision digital test instruments in India — multimeters, clamp meters, oscilloscopes, function generators, LCR meters, DC loads, lux meters, anemometers, calibrators, thermometers and sound level meters. Expert support, pan-India supply from Howrah.';
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',

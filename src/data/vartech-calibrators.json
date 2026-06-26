@@ -1,0 +1,93 @@
+[
+  {
+    "id": "v-7220-r",
+    "model": "V 7220 R",
+    "name": "Temperature & Process Calibrator",
+    "tagline": "5-digit source & measure calibrator for DCV, Resistance, Thermocouple (multiple T/C types) and RTD (2W/3W/4W) — with torch and backlight.",
+    "description": "The Vartech V 7220 R is a professional source-and-measure temperature and process calibrator. It can both source (output) and measure DCV, Resistance (Ohms), Thermocouple signals (multiple T/C types) and RTD signals (various RTD types — 2-wire, 3-wire and 4-wire configurations). A clear 5-digit display with backlight makes field use easy. Additional features include Auto Power Off, On/Off detection and a built-in torch for working in low-light environments. The V 7220 R is designed for calibrating temperature transmitters, RTD sensors and thermocouple-based instruments in industrial and laboratory settings. Full specifications are available in the product catalogue.",
+    "features": [
+      "Source & Measure: DCV, Resistance (Ohms), Thermocouple (various types), RTD (2W / 3W / 4W)",
+      "5-digit display with backlight",
+      "Thermocouple support — multiple T/C types",
+      "RTD support — 2-wire, 3-wire and 4-wire configurations",
+      "On/Off detection",
+      "Torch function for low-light environments",
+      "Auto Power Off"
+    ],
+    "specs": [
+      { "label": "Function", "value": "Source & Measure (bidirectional)" },
+      { "label": "Measurands", "value": "DCV  |  Resistance (Ohms)  |  Thermocouple (various T/C types)  |  RTD (2W / 3W / 4W)" },
+      { "label": "Display", "value": "5 digits with backlight" },
+      { "label": "On/Off Detection", "value": "Yes" },
+      { "label": "Torch", "value": "Built-in" },
+      { "label": "Auto Power Off", "value": "Yes" }
+    ],
+    "images": ["v-7220-r.webp", "v-7220-r-2.webp", "v-7220-r-3.webp"],
+    "catalogue": "v-7220-r.pdf"
+  },
+  {
+    "id": "v-7221-b",
+    "model": "V 7221 B",
+    "name": "Loop Calibrator",
+    "tagline": "5-digit source & measure loop calibrator — source 0–30 mA DC, measure ±35 mA / ±35 V DC, with Sawtooth/Triangle wave, torch and backlight.",
+    "description": "The Vartech V 7221 B is a professional 5-digit source-and-measure loop calibrator for 4–20 mA process control loops. It sources DC current from 0 to 30 mA and simultaneously measures DC mA (±35 mA) and DCV (±35 V). In addition to DC step output, the instrument generates Sawtooth and Triangle wave signals useful for valve stroke testing and transmitter simulation. On/Off detection, Span mode, torch and backlight functions make it well suited for field commissioning and calibration work. Built-in input protection includes a 100 mA / 250 V fast fuse. Input common-mode rejection is better than 120 dB (50/60 Hz) and serial-mode rejection better than 60 dB.",
+    "features": [
+      "Source DC Current: 0–30 mA",
+      "Measure DC mA: ±35 mA  |  Measure DCV: ±35 V",
+      "Sawtooth / Triangle wave output for valve and transmitter testing",
+      "Span mode",
+      "5-digit display with backlight  |  Display refresh: 2–3 times/s",
+      "Maximum input voltage: 60 Vpk  |  Maximum input current: 50 mA",
+      "Input protection: 100 mA / 250 V Fast Fuse",
+      "On/Off detection  |  Torch function  |  Auto Power Off"
+    ],
+    "specs": [
+      { "label": "Function", "value": "Source & Measure (bidirectional)" },
+      { "label": "DC Current Source", "value": "0–30 mA" },
+      { "label": "DC mA Measurement", "value": "±35 mA" },
+      { "label": "DCV Measurement", "value": "±35 V" },
+      { "label": "Waveform Output", "value": "Sawtooth / Triangle wave" },
+      { "label": "Display", "value": "5 digits with backlight  |  Refresh rate: 2–3 times/s" },
+      { "label": "Maximum Input Voltage", "value": "60 Vpk" },
+      { "label": "Maximum Input Current", "value": "50 mA" },
+      { "label": "Input Protection", "value": "100 mA / 250 V Fast Fuse" },
+      { "label": "Input CMR (50/60 Hz)", "value": "> 120 dB" },
+      { "label": "Input SMR (50/60 Hz)", "value": "> 60 dB" },
+      { "label": "RJC (Cold Junction) Range", "value": "-10 °C to 50 °C  |  Accuracy: ±0.5 °C at 18–28 °C;  ±1 °C elsewhere" },
+      { "label": "Cold End Compensation", "value": "10 s / cycle" },
+      { "label": "Temperature Coefficient", "value": "0.1 × basic accuracy / °C  (outside 18–28 °C range)" },
+      { "label": "On/Off Detection", "value": "Yes" },
+      { "label": "Auto Power Off", "value": "Yes" }
+    ],
+    "images": ["v-7221-b.webp", "v-7221-b-2.webp", "v-7221-b-3.webp"],
+    "catalogue": "v-7221-b.pdf"
+  },
+  {
+    "id": "ms-7221",
+    "model": "MS 7221",
+    "name": "V/mA Process Signal Calibrator",
+    "tagline": "4½-digit V/mA calibrator — source and measure 0–24 mA DC loop current and 0–10 V DC, with 0.015% mA accuracy and 24 V loop supply.",
+    "description": "The Vartech MS 7221 is a high-accuracy 4½-digit V/mA process signal calibrator designed for calibrating and testing 4–20 mA current loop transmitters, PLCs and process control equipment. It sources and measures DC loop current from 0 to 24 mA with a very high accuracy of ±(0.015% + 4 digits) and 1 µA resolution, and handles DC voltage from 0 to 100 mV or 0 to 10 V with ±(0.02% + 2 digits) accuracy. The built-in 24 V loop supply enables simultaneous powering and current measurement of 2-wire transmitters — eliminating the need for an external power source during calibration. The MS 7221 provides exceptional stability and is suitable for instrumentation workshops, field calibration and process plant maintenance.",
+    "features": [
+      "Source & Measure DC loop current: 0–24 mA  |  Accuracy: ±(0.015% + 4 digits)  |  Resolution: 1 µA",
+      "Source & Measure DCV: 0–100 mV and 0–10 V  |  Accuracy: ±(0.02% + 2 digits)",
+      "24 V built-in loop supply — power 2-wire transmitters while measuring loop current",
+      "4½-digit display",
+      "Measures voltage output signals from PLCs and transmitters",
+      "High stability and accuracy — Superior quality calibrator"
+    ],
+    "specs": [
+      { "label": "DCV Measure", "value": "0–100 mV  |  0–10 V  |  Accuracy: ±(0.02% + 2 digits)" },
+      { "label": "DCV Source", "value": "0–100 mV  |  0–10 V  |  Accuracy: ±(0.02% + 2 digits)" },
+      { "label": "DC mA Measure (% of span)", "value": "0–24 mA  |  Accuracy: ±(0.015% + 4 digits)  |  Resolution: 1 µA" },
+      { "label": "DC mA Source (% of span)", "value": "0–24 mA  |  Accuracy: ±(0.015% + 4 digits)" },
+      { "label": "Loop Supply", "value": "24 V DC (built-in)  |  Simultaneous current measurement" },
+      { "label": "Display", "value": "4½ digits" },
+      { "label": "Power Supply", "value": "4 × AA batteries" },
+      { "label": "Dimensions", "value": "194 × 93 × 55 mm" },
+      { "label": "Weight", "value": "350 g (including battery)" }
+    ],
+    "images": ["ms-7221.webp", "ms-7221-2.webp", "ms-7221-3.webp"],
+    "catalogue": "ms-7221.pdf"
+  }
+]

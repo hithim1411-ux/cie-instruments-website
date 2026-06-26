@@ -1,0 +1,38 @@
+[
+  {
+    "id": "v-6700-b",
+    "model": "V 6700 B",
+    "name": "Digital Sound Level Meter",
+    "tagline": "30–130 dBA sound level meter with 1/2-inch condenser microphone, Fast/Slow response, Max hold and large backlit display.",
+    "description": "The Vartech V 6700 B is an economical, high-quality digital sound level meter covering a wide 30–130 dBA measuring range. It features a 1/2-inch condenser microphone with A-weighting and a 5-digit backlit display with 0.1 dB resolution sampling at 2 times per second. The instrument provides Fast and Slow dynamic response modes, Maximum hold, and over/under range warning. Compact and easy to use, it is suited for workplace noise assessments, environmental noise surveys, HVAC testing and general-purpose acoustic measurement.",
+    "features": [
+      "30–130 dBA wide measuring range",
+      "±1.5 dB accuracy (referenced to 94 dB @ 1 kHz)",
+      "1/2 inch condenser microphone — A-frequency weighting",
+      "5-digit backlit display — 0.1 dB resolution, 2 samples/s",
+      "Fast / Slow dynamic response modes",
+      "Maximum hold (MAX)",
+      "Over / Under range warning",
+      "Auto Power Off — 9 V battery operation"
+    ],
+    "specs": [
+      { "label": "Measuring Range", "value": "30–130 dBA" },
+      { "label": "Accuracy", "value": "±1.5 dB  (subject to sound pressure reference 94 dB @ 1 kHz)" },
+      { "label": "Frequency Response", "value": "31.5 Hz ~ 8.5 kHz" },
+      { "label": "Dynamic Range", "value": "50 dB" },
+      { "label": "Frequency Weighting", "value": "A" },
+      { "label": "Digital Display", "value": "5 digits  |  Resolution: 0.1 dB  |  Sampling rate: 2 times/s" },
+      { "label": "Dynamic Characteristics", "value": "Fast / Slow reaction rate" },
+      { "label": "Microphone", "value": "1/2 inch condenser microphone" },
+      { "label": "Maximum Hold", "value": "MAX" },
+      { "label": "Power Supply", "value": "9 V battery × 1" },
+      { "label": "Operating Temp. & Humidity", "value": "0 °C to 40 °C  |  10 % to 80 % RH" },
+      { "label": "Storage Temp. & Humidity", "value": "-10 °C to 60 °C  |  10 % to 75 % RH" },
+      { "label": "Dimensions", "value": "162 × 52 × 44 mm" },
+      { "label": "Weight", "value": "Approx. 110 g (including battery)" },
+      { "label": "Accessories", "value": "User manual" }
+    ],
+    "images": ["v-6700-b.webp"],
+    "catalogue": "v-6700-b.pdf"
+  }
+]

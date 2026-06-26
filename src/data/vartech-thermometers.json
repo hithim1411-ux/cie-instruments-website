@@ -1,0 +1,71 @@
+[
+  {
+    "id": "v-6500",
+    "model": "V 6500",
+    "name": "Industrial Digital Thermometer — High Precision",
+    "tagline": "-150 °C to +1300 °C industrial K-type thermocouple thermometer with 0.1 °C / 1 °C resolution, Min/Max/Avg hold and 2000-count HD display.",
+    "description": "The Vartech V 6500 is a high-precision, high-stability industrial digital thermometer covering -150 °C to +1300 °C (-238 °F to +2372 °F) using K-type thermocouple probes. The 2000-count 3½-digit display offers selectable 0.1 °C and 1 °C resolution. A Bead-type K probe (-50 °C to 250 °C) is included; a Rod-type probe (-50 °C to 750 °C) and a High-Temperature probe (-50 °C to 1300 °C) are available as optional accessories. Functions include Data Hold, Min/Max/Avg memory, Auto Power Off, low battery indicator and over-range / sensor open indication. The bead probe tip is 1.25 mm diameter, 97 cm long (excluding plug); the rod probe sensor is 3 mm diameter, 7.5 cm sensor length with 135 cm flexible total length (excluding plug).",
+    "features": [
+      "-150 °C to +1300 °C wide industrial range (-238 °F to +2372 °F)",
+      "Selectable 0.1 °C and 1 °C resolution",
+      "K-type thermocouple — Bead probe included (-50 °C to 250 °C)",
+      "Rod probe optional (-50 °C to 750 °C)  |  High-temp probe optional (up to 1300 °C)",
+      "2000-count 3½-digit HD display",
+      "Min / Max / Avg hold  |  Data Hold",
+      "Low battery indicator  |  Over-range & sensor-open indication",
+      "Auto Power Off  |  Powered by 2 × AAA batteries"
+    ],
+    "specs": [
+      { "label": "Resolution 0.1 °C — Range", "value": "-150 °C to 199.9 °C  |  Accuracy: ±(0.2% + 2 °C)" },
+      { "label": "Resolution 0.1 °F — Range", "value": "-199.9 °F to 199.9 °F  |  Accuracy: ±(0.3% + 3 °F)" },
+      { "label": "Resolution 1 °C — Range 1", "value": "-150 °C to 0 °C  |  Accuracy: ±(0.3% + 2 °C)" },
+      { "label": "Resolution 1 °C — Range 2", "value": "0 °C to 1000 °C  |  Accuracy: ±(0.2% + 2 °C)" },
+      { "label": "Resolution 1 °C — Range 3", "value": "1000 °C to 1300 °C  |  Accuracy: ±(0.5% + 2 °C)" },
+      { "label": "Resolution 1 °F — Range 1", "value": "-238 °F to -40 °F  |  Accuracy: ±(0.5% + 3 °F)" },
+      { "label": "Resolution 1 °F — Range 2", "value": "-40 °F to 1832 °F  |  Accuracy: ±(0.3% + 3 °F)" },
+      { "label": "Resolution 1 °F — Range 3", "value": "1832 °F to 2372 °F  |  Accuracy: ±(0.5% + 2 °F)" },
+      { "label": "Operating Environment", "value": "0 °C to 50 °C  |  RH < 80 %" },
+      { "label": "Thermocouple (included)", "value": "Bead type, K  |  Length: approx. 90 cm  |  Range: -50 °C to 250 °C max (300 °C short-term, ±1.5 °C error)" },
+      { "label": "Probe Options", "value": "Bead (-50 °C to 250 °C, included)  |  Rod (-50 °C to 750 °C, optional)  |  High-temp (-50 °C to 1300 °C, optional)" },
+      { "label": "Indications", "value": "Low battery  |  Over-range  |  Sensor open" },
+      { "label": "Functions", "value": "Data Hold  |  Min. / Max. / Avg.  |  Auto Power Off" },
+      { "label": "Display", "value": "3½ digits (2000 counts)" },
+      { "label": "Power Supply", "value": "2 × AAA batteries (installed)" },
+      { "label": "Dimensions & Weight", "value": "149 × 71 × 35 mm  |  Approx. 200 g (including battery)" },
+      { "label": "Accessories", "value": "User manual  |  Bead-type K thermocouple  |  2 × AAA batteries  |  Optional: Rod probe, High-temp probe" }
+    ],
+    "images": ["v-6500.webp", "v-6500-2.webp", "v-6500-3.webp", "v-6500-4.webp"],
+    "catalogue": "v-6500.pdf"
+  },
+  {
+    "id": "thm-s1",
+    "model": "THM S1",
+    "name": "Compact Thermo-Hygrometer with Clock",
+    "tagline": "Compact desktop thermo-hygrometer — -10 °C to +50 °C temperature, 20–90 % RH humidity, 12/24-hour clock, comfort level display and Min/Max memory.",
+    "description": "The Vartech THM S1 is a compact digital thermo-hygrometer with a built-in 12/24-hour clock. It simultaneously displays temperature (-10 °C to +50 °C / +14 °F to +122 °F), relative humidity (20–90 % RH) and the current time on a 3-line LCD. A comfort level indicator visually signals whether ambient conditions are comfortable. Min./Max. memory records the extremes of both temperature and humidity. °C / °F switching allows use with either scale. At just 9.8 × 5.8 × 1.3 cm it is well-suited for home, office, storage rooms, server rooms and any space where temperature and humidity monitoring is required. Powered by a single 1.5 V AAA battery. Note: this is a consumer-grade instrument and not intended for industrial applications.",
+    "features": [
+      "Temperature: -10 °C to +50 °C  (+14 °F to +122 °F)",
+      "Relative Humidity: 20 % to 90 % RH",
+      "Built-in 12 / 24-hour clock",
+      "3-line display — Temperature, Humidity and Clock simultaneously",
+      "Comfort level display",
+      "Min. / Max. memory for temperature and humidity",
+      "°C / °F switching",
+      "Compact size: 9.8 × 5.8 × 1.3 cm  |  1 × 1.5 V AAA battery"
+    ],
+    "specs": [
+      { "label": "Temperature Range", "value": "-10 °C to +50 °C  (+14 °F to +122 °F)" },
+      { "label": "Humidity Range", "value": "20 % to 90 % RH" },
+      { "label": "Clock", "value": "12 / 24-hour" },
+      { "label": "Display", "value": "3-line LCD — Temperature, Humidity and Clock" },
+      { "label": "Comfort Level", "value": "Displayed" },
+      { "label": "Min. / Max. Memory", "value": "Temperature and Humidity" },
+      { "label": "Unit Switching", "value": "°C / °F" },
+      { "label": "Power Supply", "value": "1 × 1.5 V AAA battery" },
+      { "label": "Dimensions", "value": "9.8 × 5.8 × 1.3 cm" },
+      { "label": "Grade", "value": "Consumer grade — not for industrial use" }
+    ],
+    "images": ["thm-s1.webp"],
+    "catalogue": "thm-s1.pdf"
+  }
+]

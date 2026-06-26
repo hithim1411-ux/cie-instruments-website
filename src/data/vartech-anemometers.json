@@ -1,0 +1,30 @@
+[
+  {
+    "id": "v-6250-b",
+    "model": "V 6250 B",
+    "name": "Digital Anemometer with Temperature",
+    "tagline": "0–45 m/s / 0–140 km/h air speed anemometer with simultaneous air temperature measurement, analog bar graph, wind chill and Avg/Min/Max hold.",
+    "description": "The Vartech V 6250 B is an economical, high-quality digital anemometer that measures both air speed and air temperature simultaneously. Air speed is displayed in m/s or km/h alongside a real-time analog bar graph for quick trend reading. The instrument also computes and displays wind chill temperature. A large backlit LCD makes readings easy in field conditions. Data Hold, Avg/Min/Max memory and Auto Power Off round out the feature set, making the V 6250 B well suited for HVAC commissioning, ventilation testing, industrial air flow assessment and environmental monitoring.",
+    "features": [
+      "Air speed: 0–45 m/s  |  0–140 km/h",
+      "Air temperature measurement: 0–45 °C",
+      "Wind Chill indicator",
+      "Analog bar graph for real-time trend reading",
+      "Avg / Min / Max hold",
+      "Data Hold",
+      "Large backlit LCD display",
+      "Auto Power Off"
+    ],
+    "specs": [
+      { "label": "Air Speed Range", "value": "0–45 m/s  |  0–140 km/h" },
+      { "label": "Air Temperature Range", "value": "0–45 °C" },
+      { "label": "Wind Chill", "value": "Computed and displayed" },
+      { "label": "Display", "value": "Large LCD with backlight  |  Analog bar graph" },
+      { "label": "Data Memory", "value": "Avg / Min / Max hold" },
+      { "label": "Data Hold", "value": "Yes" },
+      { "label": "Auto Power Off", "value": "Yes" }
+    ],
+    "images": ["v-6250-b.webp"],
+    "catalogue": "v-6250-b.pdf"
+  }
+]
