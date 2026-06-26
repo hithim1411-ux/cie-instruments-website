@@ -395,5 +395,80 @@
       "The EL-600 (600 W) and EL-600+ (600 W enhanced) are bench-top instruments with front-panel programming and a large digital display showing voltage, current, and power simultaneously. The EL-600+ adds enhanced dynamic testing capability for battery impedance measurement and power supply transient response characterisation.",
       "DC electronic loads are essential tools for power electronics engineers, battery testing labs, EV component test facilities, and electronics manufacturing QC departments. Available through CIE Instruments with delivery to engineering labs and test facilities across India."
     ]
+  },
+  {
+    "id": "vartech-sound-level-meters",
+    "brand": "vartech",
+    "name": "Digital Sound Level Meters",
+    "shortName": "Sound Level Meters",
+    "eyebrow": "Vartech® · Digital Sound Level Meters",
+    "description": "Digital sound level meters covering 30–130 dBA with A-weighting, 1/2-inch condenser microphone, Fast/Slow response and Max hold — for workplace noise surveys, HVAC and environmental monitoring.",
+    "icon": "🔊",
+    "metaTitle": "Digital Sound Level Meters — Vartech V 6700 B | CIE Instruments, India",
+    "metaDesc": "Vartech V 6700 B digital sound level meter — 30–130 dBA, A-weighting, 1/2-inch condenser microphone. For workplace noise assessment, HVAC and environmental surveys. CIE Instruments authorised dealer.",
+    "seoContent": [
+      "CIE Instruments supplies the Vartech V 6700 B digital sound level meter — covering a wide 30–130 dBA range with A-frequency weighting, a 1/2-inch condenser microphone, and Fast/Slow dynamic response modes. The 5-digit backlit display shows readings at 0.1 dB resolution with Maximum hold for peak capture.",
+      "Sound level meters are essential for workplace noise assessments under factory safety regulations, HVAC system commissioning, environmental noise surveys, machine noise QC, and product acoustic testing. The V 6700 B is compact, easy to use, and suited for routine field measurement."
+    ]
+  },
+  {
+    "id": "vartech-anemometers",
+    "brand": "vartech",
+    "name": "Digital Anemometers",
+    "shortName": "Anemometers",
+    "eyebrow": "Vartech® · Digital Anemometers",
+    "description": "Digital anemometers measuring air speed (0–45 m/s, 0–140 km/h) and air temperature simultaneously — with wind chill indicator, analog bar graph, Avg/Min/Max hold and Auto Power Off.",
+    "icon": "💨",
+    "metaTitle": "Digital Anemometers — Vartech V 6250 B | CIE Instruments, India",
+    "metaDesc": "Vartech V 6250 B digital anemometer — 0–45 m/s air speed with temperature, wind chill, analog bar graph and Avg/Min/Max hold. For HVAC, ventilation and air flow testing. CIE Instruments authorised dealer.",
+    "seoContent": [
+      "CIE Instruments supplies the Vartech V 6250 B digital anemometer — simultaneously measuring air speed (0–45 m/s / 0–140 km/h) and air temperature, with wind chill computation and a real-time analog bar graph. Avg/Min/Max hold enables complete characterisation of air flow profiles during HVAC commissioning, duct surveys, and ventilation testing.",
+      "Anemometers are widely used by HVAC contractors, building commissioning engineers, industrial hygienists, and environmental consultants. The V 6250 B is compact and field-ready, with a backlit display and Auto Power Off for extended battery life."
+    ]
+  },
+  {
+    "id": "vartech-calibrators",
+    "brand": "vartech",
+    "name": "Calibrators — mV, mA, Temperature & Process",
+    "shortName": "Calibrators",
+    "eyebrow": "Vartech® · Process Calibrators",
+    "description": "mV, mA, temperature and process calibrators — source & measure Thermocouple (T/C), RTD, DC loop current (4–20 mA) and DC voltage. Designed for field calibration of transmitters and process instruments.",
+    "icon": "🎛️",
+    "metaTitle": "Process Calibrators mV mA Temperature — Vartech V 7220 R, V 7221 B, MS 7221 | CIE Instruments",
+    "metaDesc": "Vartech process calibrators in India — V 7220 R (temperature/RTD/T/C), V 7221 B (loop calibrator, 0–30 mA), MS 7221 (V/mA, 0–24 mA, 0.015% accuracy). CIE Instruments authorised dealer.",
+    "seoContent": [
+      "CIE Instruments supplies three Vartech process calibrators: the V 7220 R temperature calibrator (source & measure DCV, Resistance, T/C and RTD — 2W/3W/4W), the V 7221 B loop calibrator (source 0–30 mA DC with sawtooth/triangle wave, measure ±35 mA and ±35 V), and the MS 7221 V/mA calibrator (0–24 mA / 0–10 V with 24 V loop supply and 0.015% mA accuracy).",
+      "Process calibrators are essential tools for instrument technicians and calibration engineers in process plants, refineries, power stations and manufacturing facilities. The MS 7221 provides exceptional loop current accuracy with a built-in 24 V loop supply for 2-wire transmitter calibration without an external power source."
+    ]
+  },
+  {
+    "id": "vartech-lux-meters",
+    "brand": "vartech",
+    "name": "Digital Lux Meters",
+    "shortName": "Lux Meters",
+    "eyebrow": "Vartech® · Digital Lux Meters",
+    "description": "Digital lux meters from 0.1 to 200,000 Lux — with 3½ and 4-digit displays, flexible detachable sensor, Lux/FC selection, Auto/Manual ranging and Min/Max hold.",
+    "icon": "💡",
+    "metaTitle": "Digital Lux Meters — Vartech V 6610 B & V 6610+ | CIE Instruments, India",
+    "metaDesc": "Vartech digital lux meters in India — V 6610 B (0–199999 Lux, 4-digit, backlit) and V 6610+ (0.1 to 200,000 Lux, flexible sensor, 3½-digit). CIE Instruments authorised dealer.",
+    "seoContent": [
+      "CIE Instruments supplies two Vartech digital lux meters: the V 6610 B (0–199999 Lux / 0–19999 FC, 4-digit backlit LCD, Auto/Manual ranging, silicon photocell, 320–730 nm spectral range) and the V 6610+ (0.1 to 200,000 Lux, 3½-digit auto-ranging, detachable flexible sensor with 15 cm lead, Lux/FC select).",
+      "Lux meters are used for workplace lighting compliance assessments, building energy audits, stage and studio lighting design, greenhouse horticulture, and verification of emergency lighting systems. Both models offer Data Hold and Min/Max memory for convenient field measurement."
+    ]
+  },
+  {
+    "id": "vartech-thermometers",
+    "brand": "vartech",
+    "name": "Digital Thermometers & Thermo-Hygrometers",
+    "shortName": "Thermometers",
+    "eyebrow": "Vartech® · Thermometers & Hygrometers",
+    "description": "Industrial K-type digital thermometers (-150 °C to +1300 °C) and compact thermo-hygrometers with clock — for process temperature measurement, HVAC, food safety and ambient monitoring.",
+    "icon": "🌡️",
+    "metaTitle": "Digital Thermometers & Thermo-Hygrometers — Vartech V 6500 & THM S1 | CIE Instruments",
+    "metaDesc": "Vartech digital thermometers in India — V 6500 industrial K-type thermometer (-150 °C to 1300 °C) and THM S1 compact thermo-hygrometer with clock. CIE Instruments authorised dealer.",
+    "seoContent": [
+      "CIE Instruments supplies two Vartech thermometer products: the V 6500 industrial digital thermometer (-150 °C to +1300 °C, K-type thermocouple, 0.1/1 °C selectable resolution, Min/Max/Avg, 2000-count display) and the THM S1 compact thermo-hygrometer (-10 °C to +50 °C, 20–90 % RH, 12/24-hour clock, comfort level display).",
+      "The V 6500 covers cryogenic to high-temperature industrial measurement with an included bead probe and optional rod and high-temperature probes for different applications. The THM S1 is ideal for ambient monitoring in offices, server rooms, storage areas, and homes. Both are available through CIE Instruments with pan-India delivery."
+    ]
   }
 ]

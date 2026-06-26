@@ -2,11 +2,11 @@
 import { u } from '../utils/url';
 import categories from '../data/categories.json';
 
-// Nav dropdown: CIE categories + Vartech-unique types only.
-// vartech-multimeters and vartech-clamp-meters are excluded because CIE already has
-// "Clamp Meters & Multimeters" covering that product type — no need to list it twice.
+// Nav dropdown: split CIE-manufactured vs Vartech authorised-dealer categories.
+// vartech-multimeters and vartech-clamp-meters excluded (CIE already covers those types).
 const DROPDOWN_EXCLUDE = new Set(['vartech-multimeters', 'vartech-clamp-meters']);
-const cieCategories = categories.filter((c: any) => !DROPDOWN_EXCLUDE.has(c.id));
+const cieCategories     = categories.filter((c: any) => (!c.brand || c.brand !== 'vartech') && !DROPDOWN_EXCLUDE.has(c.id));
+const vartechCategories = categories.filter((c: any) => c.brand === 'vartech' && !DROPDOWN_EXCLUDE.has(c.id));
 
 const otherNav = [
   { label: 'Insights',               href: u('/blog') },
@@ -80,7 +80,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
             id="products-dropdown"
             role="region"
             aria-label="Product categories"
-            class="absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] w-[560px]
+            class="absolute left-1/2 -translate-x-1/2 top-[calc(100%+10px)] w-[620px]
                    opacity-0 invisible translate-y-1
                    transition-all duration-150 ease-out"
           >
@@ -90,26 +90,20 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
             </div>
 
             <div class="bg-[#0D1B2A] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
-              <!-- Header row -->
-              <div class="px-5 py-3 bg-[#1B3A5B]/40 border-b border-white/10 flex items-center justify-between">
-                <span class="text-xs font-mono text-[#94a3b8] uppercase tracking-widest">CIE Products</span>
-                <a href={u('/products/')}
-                   class="text-xs font-semibold text-[#E0252E] hover:text-white transition-colors">
+
+              <!-- ── CIE section ── -->
+              <div class="px-5 py-2.5 bg-[#1B3A5B]/40 border-b border-white/10 flex items-center justify-between">
+                <span class="text-xs font-mono text-[#94a3b8] uppercase tracking-widest">CIE — Manufactured in India</span>
+                <a href={u('/products/')} class="text-xs font-semibold text-[#E0252E] hover:text-white transition-colors">
                   All Products →
                 </a>
               </div>
-              <!-- CIE category grid -->
               <ul class="grid grid-cols-2 gap-px bg-white/5 p-px" role="menu">
                 {cieCategories.map((cat) => (
                   <li role="none">
-                    <a
-                      href={u(`/products/${cat.id}/`)}
-                      role="menuitem"
-                      data-dropdown-item
-                      tabindex="-1"
-                      class="flex items-start gap-3 px-4 py-3 bg-[#0D1B2A] hover:bg-[#1B3A5B] transition-colors group/item"
-                    >
-                      <span class="text-base shrink-0 mt-0.5" aria-hidden="true">{cat.icon}</span>
+                    <a href={u(`/products/${cat.id}/`)} role="menuitem" data-dropdown-item tabindex="-1"
+                      class="flex items-start gap-3 px-4 py-2.5 bg-[#0D1B2A] hover:bg-[#1B3A5B] transition-colors group/item">
+                      <span class="text-sm shrink-0 mt-0.5" aria-hidden="true">{cat.icon}</span>
                       <span class="text-sm font-medium text-[#b0bec5] group-hover/item:text-white transition-colors leading-snug">
                         {cat.shortName}
                       </span>
@@ -117,15 +111,31 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
                   </li>
                 ))}
               </ul>
-              <!-- Authorised Dealership footer -->
-              <div class="border-t border-white/10 px-5 py-3 flex items-center justify-between bg-[#1B3A5B]/20">
-                <span class="text-xs text-[#64748b]">Vartech · UNI-T · and more — authorised dealer</span>
-                <a href={u('/authorised-dealership/')}
-                   data-dropdown-item tabindex="-1"
-                   class="text-xs font-semibold text-emerald-400 hover:text-white transition-colors">
-                  Authorised Dealership →
+
+              <!-- ── Vartech section ── -->
+              <div class="px-5 py-2.5 bg-emerald-900/30 border-t border-emerald-700/30 border-b border-emerald-700/30 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <img src={u('/images/vartech/vartech-logo.avif')} alt="Vartech®" width="60" height="22" class="h-4 w-auto object-contain opacity-80" />
+                  <span class="text-xs font-mono text-emerald-400/80 uppercase tracking-widest">Authorised Dealer</span>
+                </div>
+                <a href={u('/authorised-dealership/')} data-dropdown-item tabindex="-1"
+                  class="text-xs font-semibold text-emerald-400 hover:text-white transition-colors">
+                  All Vartech →
                 </a>
               </div>
+              <ul class="grid grid-cols-2 gap-px bg-emerald-900/10 p-px" role="menu">
+                {vartechCategories.map((cat) => (
+                  <li role="none">
+                    <a href={u(`/products/${cat.id}/`)} role="menuitem" data-dropdown-item tabindex="-1"
+                      class="flex items-start gap-3 px-4 py-2.5 bg-[#0D1B2A] hover:bg-emerald-900/40 transition-colors group/item">
+                      <span class="text-sm shrink-0 mt-0.5" aria-hidden="true">{cat.icon}</span>
+                      <span class="text-sm font-medium text-[#94a3b8] group-hover/item:text-emerald-300 transition-colors leading-snug">
+                        {cat.shortName}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -189,6 +199,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
         <!-- Category accordion panel -->
         <div id="mobile-products-dropdown" class="hidden ml-3 border-l border-white/10 pl-3 py-1 mt-0.5">
+          <p class="px-2 pt-1 pb-0.5 text-[10px] font-mono text-[#64748b] uppercase tracking-widest">CIE — Manufactured</p>
           {cieCategories.map(cat => (
             <a href={u(`/products/${cat.id}/`)}
                class="flex items-center gap-2 px-2 py-2 text-xs text-[#94a3b8] hover:text-[#b0bec5] hover:bg-white/5 rounded transition-colors">
@@ -196,9 +207,17 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
               {cat.shortName}
             </a>
           ))}
+          <p class="px-2 pt-3 pb-0.5 text-[10px] font-mono text-emerald-500 uppercase tracking-widest border-t border-white/10 mt-1">Vartech® — Authorised Dealer</p>
+          {vartechCategories.map(cat => (
+            <a href={u(`/products/${cat.id}/`)}
+               class="flex items-center gap-2 px-2 py-2 text-xs text-emerald-400/80 hover:text-emerald-300 hover:bg-white/5 rounded transition-colors">
+              <span aria-hidden="true">{cat.icon}</span>
+              {cat.shortName}
+            </a>
+          ))}
           <a href={u('/authorised-dealership/')}
              class="flex items-center gap-2 px-2 py-2 text-xs text-emerald-400 hover:text-emerald-300 hover:bg-white/5 rounded transition-colors mt-1 border-t border-white/10 pt-2">
-            🏪 Authorised Dealership (Vartech, UNI-T…)
+            🏪 All Vartech — Authorised Dealership
           </a>
         </div>
       </div>

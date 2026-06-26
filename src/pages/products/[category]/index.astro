@@ -13,15 +13,25 @@ import vartechOscilloscopes from '../../../data/vartech-oscilloscopes.json';
 import vartechFunctionGenerators from '../../../data/vartech-function-generators.json';
 import vartechLcrMeters from '../../../data/vartech-lcr-meters.json';
 import vartechDcLoads from '../../../data/vartech-dc-loads.json';
+import vartechSoundLevelMeters from '../../../data/vartech-sound-level-meters.json';
+import vartechAnemometers from '../../../data/vartech-anemometers.json';
+import vartechCalibrators from '../../../data/vartech-calibrators.json';
+import vartechLuxMeters from '../../../data/vartech-lux-meters.json';
+import vartechThermometers from '../../../data/vartech-thermometers.json';
 import site from '../../../data/site.json';
 
 const vartechDataMap: Record<string, any[]> = {
-  'vartech-multimeters':         vartechMultimeters,
-  'vartech-clamp-meters':        vartechClampMeters,
-  'vartech-oscilloscopes':       vartechOscilloscopes,
-  'vartech-function-generators': vartechFunctionGenerators,
-  'vartech-lcr-meters':          vartechLcrMeters,
-  'vartech-dc-loads':            vartechDcLoads,
+  'vartech-multimeters':          vartechMultimeters,
+  'vartech-clamp-meters':         vartechClampMeters,
+  'vartech-oscilloscopes':        vartechOscilloscopes,
+  'vartech-function-generators':  vartechFunctionGenerators,
+  'vartech-lcr-meters':           vartechLcrMeters,
+  'vartech-dc-loads':             vartechDcLoads,
+  'vartech-sound-level-meters':   vartechSoundLevelMeters,
+  'vartech-anemometers':          vartechAnemometers,
+  'vartech-calibrators':          vartechCalibrators,
+  'vartech-lux-meters':           vartechLuxMeters,
+  'vartech-thermometers':         vartechThermometers,
 };
 
 export async function getStaticPaths() {
