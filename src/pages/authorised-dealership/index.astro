@@ -14,6 +14,7 @@ import anemometers from '../../data/vartech-anemometers.json';
 import calibrators from '../../data/vartech-calibrators.json';
 import luxMeters from '../../data/vartech-lux-meters.json';
 import thermometers from '../../data/vartech-thermometers.json';
+import dcPowerSupplies from '../../data/vartech-dc-power-supplies.json';
 
 const categories = [
   {
@@ -92,6 +93,13 @@ const categories = [
     icon: '🌡️',
     count: thermometers.length,
     description: 'K-type industrial thermometers (-150 °C to 1300 °C) and compact thermo-hygrometers with clock.',
+  },
+  {
+    label: 'DC Power Supplies',
+    href: u('/authorised-dealership/dc-power-supplies/'),
+    icon: '🔋',
+    count: dcPowerSupplies.length,
+    description: 'Linear, SMPS and programmable DC regulated power supplies — 30 V to 200 V, up to 40 A, with PC interface.',
   },
 ];
 

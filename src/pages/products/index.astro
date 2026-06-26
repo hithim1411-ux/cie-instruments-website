@@ -17,6 +17,7 @@ import vartechAnemometers from '../../data/vartech-anemometers.json';
 import vartechCalibrators from '../../data/vartech-calibrators.json';
 import vartechLuxMeters from '../../data/vartech-lux-meters.json';
 import vartechThermometers from '../../data/vartech-thermometers.json';
+import vartechDcPowerSupplies from '../../data/vartech-dc-power-supplies.json';
 
 const cieCategories = categories.filter((c: any) => !c.brand || c.brand === 'cie');
 const cieProducts = products.filter((p: any) => !p.brand || p.brand === 'cie');
@@ -99,9 +100,16 @@ const vartechCategories = [
     count: vartechThermometers.length,
     description: 'K-type industrial thermometers (-150 °C to 1300 °C) and compact thermo-hygrometers with clock.',
   },
+  {
+    label: 'DC Power Supplies',
+    href: u('/authorised-dealership/dc-power-supplies/'),
+    icon: '🔋',
+    count: vartechDcPowerSupplies.length,
+    description: 'Linear, SMPS and programmable DC supplies — 30 V to 200 V, up to 40 A, with PC interface.',
+  },
 ];
 
-const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.length + vartechOscilloscopes.length + vartechFunctionGenerators.length + vartechLcrMeters.length + vartechDcLoads.length + vartechSoundLevelMeters.length + vartechAnemometers.length + vartechCalibrators.length + vartechLuxMeters.length + vartechThermometers.length;
+const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.length + vartechOscilloscopes.length + vartechFunctionGenerators.length + vartechLcrMeters.length + vartechDcLoads.length + vartechSoundLevelMeters.length + vartechAnemometers.length + vartechCalibrators.length + vartechLuxMeters.length + vartechThermometers.length + vartechDcPowerSupplies.length;
 ---
 
 <Base

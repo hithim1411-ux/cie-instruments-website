@@ -470,5 +470,20 @@
       "CIE Instruments supplies two Vartech thermometer products: the V 6500 industrial digital thermometer (-150 °C to +1300 °C, K-type thermocouple, 0.1/1 °C selectable resolution, Min/Max/Avg, 2000-count display) and the THM S1 compact thermo-hygrometer (-10 °C to +50 °C, 20–90 % RH, 12/24-hour clock, comfort level display).",
       "The V 6500 covers cryogenic to high-temperature industrial measurement with an included bead probe and optional rod and high-temperature probes for different applications. The THM S1 is ideal for ambient monitoring in offices, server rooms, storage areas, and homes. Both are available through CIE Instruments with pan-India delivery."
     ]
+  },
+  {
+    "id": "vartech-dc-power-supplies",
+    "brand": "vartech",
+    "name": "DC Regulated Power Supplies",
+    "shortName": "DC Power Supplies",
+    "eyebrow": "Vartech® · DC Regulated Power Supplies",
+    "description": "Linear, SMPS and programmable DC regulated power supplies — 30 V to 200 V, up to 40 A and 2000 W. Single, dual and multi-output models including slim bench supplies, high-power SMPS with PC interface, and auto-ranging programmable supplies.",
+    "icon": "🔋",
+    "metaTitle": "DC Regulated Power Supplies — Vartech Linear, SMPS & Programmable | CIE Instruments",
+    "metaDesc": "Vartech DC regulated power supplies in India — linear (3005 B, 3010, 3020, 6005, 6010), slim SMPS (3005 S, 3010 S, 6005 S), high-power SMPS with PC interface (SR series), programmable (PPS-S series) and auto-ranging (PPSA-100W). CIE Instruments authorised dealer.",
+    "seoContent": [
+      "CIE Instruments supplies the complete Vartech DC regulated power supply range — from classic transformer-based linear supplies (3005 B, 3010, 3020, 6005, 6010) and dual/multi-output linear units (3005-3 D2, 3005-4, 3010-2, 6005-2) to slim SMPS models (3005 S, 3010 S, 6005 S, 3010 S-2), high-power SMPS with PC interface (SR series: 3020 SR through 20010 SR, up to 2000 W), programmable SMPS supplies (PPS-S series: 7 models, 30–100 V, with USB ModBus-RTU), and the auto-ranging PPSA-100W-8005 S.",
+      "Linear power supplies offer the lowest ripple and noise, making them ideal for sensitive analog, RF and precision measurement applications. SMPS-based models trade slightly higher ripple for dramatically reduced weight and heat — the slim S series units weigh just ~1 kg. The SR series adds USB/RS232/RS485 PC interface and ModBus-RTU protocol for automated test and ATE integration. The programmable PPS-S series adds list mode, 6 memories, a rotary dial and display of watts for complete bench automation. Available through CIE Instruments with pan-India supply."
+    ]
   }
 ]

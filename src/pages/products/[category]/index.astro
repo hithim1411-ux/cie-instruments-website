@@ -18,6 +18,7 @@ import vartechAnemometers from '../../../data/vartech-anemometers.json';
 import vartechCalibrators from '../../../data/vartech-calibrators.json';
 import vartechLuxMeters from '../../../data/vartech-lux-meters.json';
 import vartechThermometers from '../../../data/vartech-thermometers.json';
+import vartechDcPowerSupplies from '../../../data/vartech-dc-power-supplies.json';
 import site from '../../../data/site.json';
 
 const vartechDataMap: Record<string, any[]> = {
@@ -32,6 +33,7 @@ const vartechDataMap: Record<string, any[]> = {
   'vartech-calibrators':          vartechCalibrators,
   'vartech-lux-meters':           vartechLuxMeters,
   'vartech-thermometers':         vartechThermometers,
+  'vartech-dc-power-supplies':   vartechDcPowerSupplies,
 };
 
 export async function getStaticPaths() {
