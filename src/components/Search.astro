@@ -218,7 +218,7 @@ input.addEventListener('input', () => {
   const q = input.value.trim();
   selectedIdx = -1;
   if (!q) { renderEmpty(); return; }
-  const raw = fuse.search(q, { limit: 12 });
+  const raw = fuse.search(q, { limit: 50 });
   flatItems = raw.map(r => r.item);
   renderResults(flatItems, q);
 });
