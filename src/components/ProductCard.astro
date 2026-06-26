@@ -22,6 +22,7 @@ const imgSrc = image
 const detailHref = categoryId.startsWith('vartech-')
   ? u(`/authorised-dealership/${categoryId.replace('vartech-', '')}/${id}/`)
   : u(`/products/${categoryId}/${id}/`);
+const isVartech = categoryId.startsWith('vartech-');
 ---
 
 <article class={`bg-white rounded-lg border border-[#E8ECF2] overflow-hidden flex flex-col transition-shadow duration-200 hover:shadow-md ${featured ? 'ring-2 ring-[#E0252E]/20' : ''}`}>
@@ -45,7 +46,11 @@ const detailHref = categoryId.startsWith('vartech-')
         </svg>
         <span class="text-xs font-mono uppercase tracking-wider opacity-50">Image coming soon</span>
       </div>
-      {featured && (
+      {isVartech ? (
+        <span class="absolute top-2 left-2 text-[9px] font-mono font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
+          Vartech®
+        </span>
+      ) : featured && (
         <span class="absolute top-3 right-3 bg-[#E0252E] text-white text-xs font-mono px-2 py-0.5 rounded uppercase tracking-wider">
           Featured
         </span>
