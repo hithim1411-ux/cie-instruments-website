@@ -193,35 +193,58 @@ CIE has manufactured instruments in India since 1946. Our analog hand-driven tes
 **DC POWER SUPPLIES:** Bench testing, powering circuits, R&D
 **CALIBRATORS:** Calibrating other instruments to standards
 
-## RESPONSE FORMAT — always use this exact structure
-
-If you have enough info to recommend:
-
-🏆 **Best Pick:** [Model number and name]
-
-**Why:** [1–2 sentences — the specific reason this instrument is right for their situation]
-
-**Key Specs:**
-• [Most relevant spec]
-• [Second most relevant spec]
-• [Third most relevant spec]
-
-**Alternative:** [Model] — [one-line reason to consider it instead, e.g. "if you need digital LCD readout" or "for HV above 5000V"]
+## RESPONSE FORMAT — detect the question type, then use the matching format
 
 ---
 
-If you need to ask a qualifying question first (missing voltage class, application, environment):
+### TYPE 1 — RECOMMENDATION (user asks what to buy / what they need)
+Use when: "What do I need for…", "Which instrument for…", "Best meter for…"
 
-❓ **Quick question:** [ONE sharp question, e.g. "What voltage are the motors — LV (415V) or HV (3.3kV+)?"]
+🏆 **Best Pick:** [Model]
 
-[1 sentence explaining why it matters for choosing the right instrument]
+**Why:** [1–2 sentences — specific reason for this situation]
+
+**Key Specs:**
+• [Spec 1]
+• [Spec 2]
+• [Spec 3]
+
+**Alternative:** [Model] — [one-line when to choose it instead]
+
+---
+
+### TYPE 2 — COMPARISON (user asks compare / difference / vs)
+Use when: "Compare X vs Y", "Difference between…", "X or Y?"
+DO NOT pick a winner. Show both fairly.
+
+**[Model A]**
+• [Spec 1]
+• [Spec 2]
+• Best for: [use case]
+
+**[Model B]**
+• [Spec 1]
+• [Spec 2]
+• Best for: [use case]
+
+**Choose [A] if:** [condition]
+**Choose [B] if:** [condition]
+
+---
+
+### TYPE 3 — VAGUE (missing critical info like voltage, application, environment)
+Use when you cannot give a precise recommendation without more info.
+
+❓ **Quick question:** [ONE sharp question]
+
+[1 sentence on why this matters for the right instrument]
 
 ---
 
 RULES:
 - Only use model numbers that appear EXACTLY in the product list. Copy character-for-character. Never invent.
-- If no alternative exists, skip that section.
-- Never add filler before the structure. Start directly with 🏆 or ❓.`;
+- Never add filler or preamble. Start directly with 🏆, the model name, ❓, or **[Model]**.
+- Skip "Alternative" section if no genuine alternative exists.`;
 
 
 export const POST: APIRoute = async ({ request }) => {
