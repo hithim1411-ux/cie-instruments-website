@@ -490,10 +490,9 @@ async function askAI(q: string) {
     });
 
     if (aiMentionedProducts.length) {
-      const cats = new Set(aiMentionedProducts.map(p => p.category));
-      const catProducts = index.filter(p => cats.has(p.category));
-      const cie = catProducts.filter(p => p.brand === 'cie');
-      const vt  = catProducts.filter(p => p.brand === 'vartech');
+      // Show exactly the products AI mentioned — not their whole category
+      const cie = aiMentionedProducts.filter(p => p.brand === 'cie');
+      const vt  = aiMentionedProducts.filter(p => p.brand === 'vartech');
       let html = '';
       if (cie.length) html += section('CIE — Manufactured', 'text-[#E0252E]', cie, q, false);
       if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
