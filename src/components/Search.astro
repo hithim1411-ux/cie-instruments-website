@@ -472,9 +472,32 @@ async function askAI(q: string) {
   }
   isStreaming = false;
 
-  // Show reply box if AI asked a question (detected by ❓ in the response)
+  // Show reply box if AI asked a question
   const askedQuestion = fullText.includes('❓') || fullText.includes('Quick question');
   showReplyBox(askedQuestion);
+
+  // After AI responds, extract model numbers it mentioned and show those products
+  // This handles follow-up answers like "TV", "LV motor" that don't map to catalog keywords
+  if (fullText && !askedQuestion) {
+    const modelMatches = fullText.match(/\*\*([A-Z0-9][A-Z0-9\s\/\-\.+]+?)\*\*/g);
+    if (modelMatches) {
+      const models = modelMatches.map(m => m.replace(/\*\*/g, '').trim().toLowerCase());
+      const aiMentionedProducts = index.filter(item =>
+        models.some(m => item.model.toLowerCase().includes(m) || m.includes(item.model.toLowerCase()))
+      );
+      if (aiMentionedProducts.length) {
+        // Show the categories of AI-mentioned products
+        const cats = new Set(aiMentionedProducts.map(p => p.category));
+        const catProducts = index.filter(p => cats.has(p.category));
+        const cie = catProducts.filter(p => p.brand === 'cie');
+        const vt  = catProducts.filter(p => p.brand === 'vartech');
+        let html = '';
+        if (cie.length) html += section('CIE — Manufactured', 'text-[#E0252E]', cie, q, false);
+        if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
+        if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; }
+      }
+    }
+  }
 }
 
 function showReplyBox(show: boolean) {
