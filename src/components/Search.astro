@@ -304,8 +304,13 @@ document.addEventListener('click', e => {
 });
 
 // ── AI ────────────────────────────────────────────────────────────────────
+let lastAICall = 0;
 async function askAI(q: string) {
   if (isStreaming) return;
+  // Rate limit guard: Groq allows 30 RPM — enforce 2s minimum between calls
+  const now = Date.now();
+  if (now - lastAICall < 2000) return;
+  lastAICall = now;
   isStreaming = true;
 
   aiPanel.classList.remove('hidden');
