@@ -377,7 +377,8 @@ const SYNONYMS: [RegExp, string][] = [
   [/\b(temperature|thermal|thermocouple)\b/gi,                                  'thermometer'],
   [/\b(voltage fluctuations?|voltage variations?|power fluctuations?|voltage dips?|voltage surges?|mains voltage|supply voltage|power quality)\b/gi, 'multimeter'],
   [/\b(continuity|short circuit|open circuit|fuse|wire break)\b/gi,             'multimeter'],
-  [/\b(battery|charge|discharge|capacity test)\b/gi,                            'clamp'],
+  [/\b(ev battery|electric vehicle battery|lithium battery|battery test|battery capacity)\b/gi, 'load clamp'],
+  [/\b(battery|charge|discharge)\b/gi,                                          'clamp'],
   [/\b(rpm|rotation|speed|vibration)\b/gi,                                      'multimeter'],
   [/\b(humidity|moisture|dew point)\b/gi,                                       'thermometer'],
   [/\b(load bank|dummy load|burn.?in)\b/gi,                                     'load'],
@@ -472,22 +473,33 @@ function showWelcome() {
 function smartSearch(q: string): Entry[] {
   const keywords = extractKeywords(q);
   const words = keywords.split(/\s+/).filter(w => w.length >= 2);
-  const seen = new Set<string>(); const candidates: Entry[] = [];
+  const seen = new Set<string>();
+  const scored: { item: Entry; score: number }[] = [];
+
   for (const r of fuse.search(keywords, { limit: 60 })) {
-    if (!seen.has(r.item.id)) { seen.add(r.item.id); candidates.push(r.item); }
+    if (!seen.has(r.item.id)) { seen.add(r.item.id); scored.push({ item: r.item, score: r.score ?? 1 }); }
   }
   for (const word of words) {
     for (const r of fuseStrict.search(word, { limit: 20 })) {
-      if (!seen.has(r.item.id)) { seen.add(r.item.id); candidates.push(r.item); }
+      if (!seen.has(r.item.id)) { seen.add(r.item.id); scored.push({ item: r.item, score: r.score ?? 1 }); }
     }
   }
+
+  const candidates = scored.map(s => s.item);
+
+  // Literal filter: at least one keyword appears in product text
   const filtered = words.length
     ? candidates.filter(item => {
         const text = `${item.name} ${item.model} ${item.category} ${item.tagline}`.toLowerCase();
-        return words.some(w => new RegExp(`\\b${w}`).test(text));
+        return words.some(w => new RegExp(`\\b${w}\\b`).test(text));
       })
     : candidates;
-  return (filtered.length ? filtered : candidates).slice(0, 40);
+
+  if (filtered.length) return filtered.slice(0, 40);
+
+  // Literal filter found nothing (likely typos/vague query).
+  // Don't guess — return empty so the no-match message shows and AI answer is visible.
+  return [];
 }
 
 function renderCatalog(q: string) {

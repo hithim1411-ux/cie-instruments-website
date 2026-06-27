@@ -87,7 +87,8 @@ const SYNONYMS: [RegExp, string][] = [
   [/\b(temperature|thermal|thermocouple)\b/gi,                                  'thermometer'],
   [/\b(voltage fluctuations?|voltage variations?|power fluctuations?|voltage dips?|voltage surges?|mains voltage|supply voltage|power quality)\b/gi, 'multimeter'],
   [/\b(continuity|short circuit|open circuit|fuse|wire break)\b/gi,             'multimeter'],
-  [/\b(battery|charge|discharge|capacity test)\b/gi,                            'clamp'],
+  [/\b(ev battery|electric vehicle battery|lithium battery|battery test|battery capacity)\b/gi, 'load clamp'],
+  [/\b(battery|charge|discharge)\b/gi,                                          'clamp'],
   [/\b(humidity|moisture|dew point)\b/gi,                                       'thermometer'],
   [/\b(load bank|dummy load|burn.?in)\b/gi,                                     'load'],
 ];
