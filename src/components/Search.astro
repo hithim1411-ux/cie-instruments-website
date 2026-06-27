@@ -367,7 +367,9 @@ mobileInput.addEventListener('input', () => onInputChange(mobileInput.value));
 desktopInput.addEventListener('input', () => onInputChange(desktopInput.value));
 
 function onEnter(q: string) {
-  if (q.trim() && !isStreaming) askAI(q.trim());
+  if (!q.trim() || isStreaming) return;
+  renderCatalog(q.trim());
+  askAI(q.trim());
 }
 mobileInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); onEnter(mobileInput.value); } });
 desktopInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); onEnter(desktopInput.value); } });
@@ -498,6 +500,7 @@ function sendReply(input: HTMLInputElement) {
   mobileInput.value = val;
   input.value = '';
   showReplyBox(false);
+  renderCatalog(val);
   askAI(val);
 }
 
