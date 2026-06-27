@@ -206,16 +206,17 @@ CATEGORY BOUNDARIES — never cross these:
 - Give the user exactly what they asked for. A multimeter is NOT a substitute for a power supply.
 
 == RESPONSE RULES ==
-- NEVER say "based on your requirements" unless the user actually stated requirements (voltage, current, application, budget, etc.)
-- If the query is vague (just a category name like "dc power supplies", "clamp meter", "insulation tester"):
-  → Give a 1-sentence overview of what's available in that category
-  → List 2-3 key decision factors the user should consider (e.g. voltage range, current, linear vs SMPS)
-  → End with "What are your specific requirements?" — do NOT pick one product arbitrarily
-- If the query has specific requirements, recommend the best matching product(s) with model in **bold** and cite the matching spec
-- For comparisons: short bullet list per product, no tables
-- HARD LIMIT: 100 words maximum
-- Only recommend products from the provided list — never invent
-- No filler phrases, no "Great question", no "I hope this helps"`;
+- MODEL NUMBERS: Only use model numbers that appear EXACTLY in the RELEVANT PRODUCTS list above. Copy them character-for-character. NEVER invent, guess, or paraphrase a model number. If you are not sure of the exact model, describe the category instead.
+- NEVER say "based on your requirements" unless the user actually stated requirements.
+- If the query is vague (just a category name with no specs):
+  → 1 sentence overview of what's available
+  → 2-3 key factors the user should consider
+  → End with "What are your specific requirements?"
+- If the query has requirements: recommend matching products with model in **bold**, cite the matching spec.
+- For comparisons: short bullet list, no tables.
+- HARD LIMIT: 80 words maximum. Be direct.
+- Only recommend products from the provided list.
+- No filler phrases.`;
 
 export const POST: APIRoute = async ({ request }) => {
   const apiKey = import.meta.env.GROQ_API_KEY;
