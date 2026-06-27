@@ -72,11 +72,28 @@ const productFuse = new Fuse(allProducts, {
   minMatchCharLength: 2,
 });
 
-const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure']);
+const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','suitable','type','types','kind','kinds','used','using','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','multimeter','multimeters','detector','detectors','recorder','recorders','controller','monitor']);
+
+const SYNONYMS: [RegExp, string][] = [
+  [/\b(light intensity|illuminance|brightness|luminance|lux level)\b/gi, 'lux'],
+  [/\b(air speed|wind speed|airflow|air flow)\b/gi,                       'anemometer'],
+  [/\b(noise|decibel|sound pressure|dba)\b/gi,                            'sound'],
+  [/\b(megger|megohm|insulation resistance)\b/gi,                         'insulation'],
+  [/\b(grounding|earthing|earth electrode)\b/gi,                          'earth'],
+  [/\b(winding resistance|contact resistance|micro.?ohm)\b/gi,            'micro-ohm'],
+  [/\b(solar|pv|photovoltaic)\b/gi,                                       'clamp'],
+  [/\b(oscilloscope|waveform|signal capture)\b/gi,                        'oscilloscope'],
+  [/\b(signal generator|waveform generator)\b/gi,                         'function generator'],
+  [/\b(temperature|thermal|thermocouple)\b/gi,                            'thermometer'],
+];
 
 function getRelevantProducts(query: string): string {
-  // Extract meaningful keywords
-  const keywords = query.toLowerCase()
+  // Apply synonyms then extract keywords
+  let expanded = query;
+  for (const [pattern, replacement] of SYNONYMS) {
+    expanded = expanded.replace(pattern, replacement);
+  }
+  const keywords = expanded.toLowerCase()
     .replace(/[?!.,]/g, '')
     .split(/\s+/)
     .filter(w => w.length > 2 && !STOP.has(w))
