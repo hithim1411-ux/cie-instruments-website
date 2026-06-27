@@ -72,90 +72,120 @@ const suggestions = [
 <dialog
   id="cie-search"
   aria-label="Search"
-  class="fixed inset-0 z-[9999] w-full h-full bg-transparent p-0 m-0 max-w-none max-h-none border-0 backdrop:bg-[#0D1B2A]/75 backdrop:backdrop-blur-md"
+  class="fixed inset-0 z-[9999] w-full h-full bg-transparent p-0 m-0 max-w-none max-h-none border-0 backdrop:bg-[#0D1B2A]/80 backdrop:backdrop-blur-sm"
 >
-  <!-- Mobile: bottom sheet. Desktop: centered modal -->
-  <div class="flex items-end sm:items-start justify-center min-h-full sm:pt-[8vh] px-0 sm:px-4 pb-0 sm:pb-10">
-    <div id="search-box" class="w-full sm:max-w-2xl bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden flex flex-col" style="max-height:92vh;">
+  <!-- Desktop: centred overlay. Mobile: full-screen panel -->
+  <div id="search-outer" class="hidden sm:flex items-start justify-center min-h-full pt-[8vh] px-4 pb-10">
+    <div id="search-box-desktop" class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col" style="max-height:84vh;">
 
-      <!-- Input bar -->
-      <div class="flex items-center gap-2 px-3 py-3 border-b border-[#E8ECF2] shrink-0">
+      <!-- Desktop header -->
+      <div class="flex items-center gap-3 px-4 py-3.5 border-b border-[#E8ECF2] shrink-0">
         <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
-          <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/>
-          </svg>
+          <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
         </div>
-        <input
-          id="search-input"
-          type="text"
-          autocomplete="off"
-          spellcheck="false"
+        <input id="search-input" type="text" autocomplete="off" spellcheck="false"
           placeholder="Search products or ask anything…"
           class="flex-1 text-[#0D1B2A] text-[15px] bg-transparent outline-none placeholder:text-[#94A3B8] font-medium min-w-0"
-        />
-        <!-- New Search — appears when there's content -->
+          inputmode="search" enterkeyhint="search" />
         <button id="new-search-btn" class="hidden items-center gap-1 text-[11px] font-medium text-[#1B3A5B] bg-[#EEF2FF] hover:bg-[#E0E9FF] px-2.5 py-1.5 rounded-lg transition-colors shrink-0 whitespace-nowrap">
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 4v16m8-8H4"/></svg>
-          New
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 4v16m8-8H4"/></svg> New
         </button>
-        <!-- Close button — visible always, prominent on mobile -->
-        <button id="search-close-btn" class="flex items-center gap-1 text-[11px] font-medium text-[#64748B] hover:text-[#0D1B2A] hover:bg-[#F1F5F9] px-2.5 py-1.5 rounded-lg transition-colors shrink-0">
+        <button id="search-close-btn" class="flex items-center gap-1.5 text-[11px] font-medium text-[#64748B] hover:text-[#0D1B2A] hover:bg-[#F1F5F9] px-2.5 py-1.5 rounded-lg transition-colors shrink-0">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
-          <span class="sm:hidden">Close</span>
         </button>
       </div>
 
-      <!-- Scrollable body -->
-      <div id="search-body" class="flex-1 overflow-y-auto" style="scrollbar-width:thin;-webkit-overflow-scrolling:touch;">
-
-        <!-- AI answer panel (hidden until triggered) -->
-        <div id="ai-panel" class="hidden border-b border-[#E8ECF2]">
+      <!-- Desktop scroll body — KEY: min-height:0 enables flex child scrolling -->
+      <div class="flex flex-col flex-1 min-h-0">
+        <div id="ai-panel" class="hidden border-b border-[#E8ECF2] shrink-0">
           <div class="px-4 py-3">
             <div class="flex items-center gap-2 mb-2">
               <div class="w-5 h-5 rounded-md bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
                 <svg class="w-2.5 h-2.5 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
               </div>
               <span class="text-[10px] font-mono uppercase tracking-widest text-[#1B3A5B] font-bold">AI Answer</span>
-              <button id="ai-close" class="ml-auto text-[#94A3B8] hover:text-[#64748B] transition-colors">
+              <button id="ai-close" class="ml-auto text-[#94A3B8] hover:text-[#64748B]">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
               </button>
             </div>
             <div id="ai-content" class="text-sm text-[#0D1B2A] leading-relaxed ai-content"></div>
           </div>
         </div>
-
-        <!-- Catalog results -->
-        <div id="catalog-results">
-          <!-- Welcome state -->
-          <div id="welcome-state" class="px-4 py-4">
+        <div id="catalog-results" class="flex-1 overflow-y-auto min-h-0" style="scrollbar-width:thin;">
+          <div class="px-4 py-4">
             <p class="text-xs text-[#94A3B8] mb-3">Try asking a question or search by product name, model, or spec.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="grid grid-cols-2 gap-2">
               {suggestions.map(s => (
-                <button class="suggestion-chip text-left text-sm sm:text-xs px-4 py-3 sm:px-3 sm:py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] active:bg-[#EEF2FF] transition-all" data-query={s}>{s}</button>
+                <button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all" data-query={s}>{s}</button>
               ))}
             </div>
           </div>
         </div>
-
       </div>
 
-      <!-- Footer -->
+      <!-- Desktop footer -->
       <div class="px-4 py-2 border-t border-[#E8ECF2] bg-[#F8FAFC] flex items-center justify-between shrink-0">
         <span class="text-[10px] text-[#94A3B8] font-mono">Powered by Groq · {searchIndex.length} instruments</span>
-        <!-- Desktop: keyboard hints -->
-        <div class="hidden sm:flex items-center gap-3 text-[10px] text-[#94A3B8] font-mono">
+        <div class="flex items-center gap-3 text-[10px] text-[#94A3B8] font-mono">
           <span><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">↵</kbd> ask AI</span>
           <span><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">esc</kbd> close</span>
         </div>
-        <!-- Mobile: tap buttons -->
-        <div class="flex sm:hidden items-center gap-2">
-          <button id="new-search-footer" class="text-[11px] font-medium text-[#1B3A5B] bg-[#EEF2FF] px-3 py-1.5 rounded-lg active:bg-[#E0E9FF]">New Search</button>
-          <button id="close-footer" class="text-[11px] font-medium text-white bg-[#1B3A5B] px-3 py-1.5 rounded-lg active:bg-[#0D2547]">Close</button>
-        </div>
       </div>
-
     </div>
   </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MOBILE FULL-SCREEN PANEL (shown on sm and below)
+  ════════════════════════════════════════════════════════ -->
+  <div id="mobile-panel" class="sm:hidden fixed inset-0 bg-white flex flex-col" style="display:none;">
+
+    <!-- Mobile header -->
+    <div class="flex items-center gap-3 px-4 border-b border-[#E8ECF2] shrink-0" style="height:56px;">
+      <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
+        <svg class="w-4 h-4 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
+      </div>
+      <input id="search-input-mobile" type="text" autocomplete="off" spellcheck="false"
+        placeholder="Search or ask anything…"
+        class="flex-1 text-[#0D1B2A] text-[16px] bg-transparent outline-none placeholder:text-[#94A3B8] font-medium min-w-0"
+        inputmode="search" enterkeyhint="search" />
+      <button id="mobile-clear-btn" class="hidden w-8 h-8 rounded-full bg-[#F1F5F9] items-center justify-center text-[#64748B] active:bg-[#E2E8F0] shrink-0">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile AI answer — collapsible -->
+    <div id="mobile-ai-panel" class="hidden border-b border-[#E8ECF2] shrink-0" style="max-height:40vh; overflow-y:auto; -webkit-overflow-scrolling:touch;">
+      <button id="mobile-ai-toggle" class="w-full flex items-center gap-2 px-4 py-2.5 bg-[#F0F4FF] active:bg-[#E8EFFE]">
+        <div class="w-4 h-4 rounded bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
+          <svg class="w-2 h-2 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
+        </div>
+        <span class="text-[11px] font-bold text-[#1B3A5B] uppercase tracking-wider">AI Answer</span>
+        <svg id="mobile-ai-chevron" class="w-4 h-4 text-[#94A3B8] ml-auto transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div id="mobile-ai-content" class="px-4 pt-1 pb-3 text-sm text-[#0D1B2A] leading-relaxed ai-content"></div>
+    </div>
+
+    <!-- Mobile results — fills all remaining space, scrolls -->
+    <div id="mobile-catalog-results" class="flex-1 overflow-y-auto min-h-0" style="-webkit-overflow-scrolling:touch; overscroll-behavior:contain;">
+      <!-- welcome -->
+      <div id="mobile-welcome" class="px-4 pt-5 pb-4">
+        <p class="text-sm text-[#94A3B8] mb-4">Try a question or search by name, model, or spec.</p>
+        <div class="flex flex-col gap-3">
+          {suggestions.map(s => (
+            <button class="suggestion-chip text-left text-[15px] px-4 py-4 rounded-2xl border border-[#E2E8F0] text-[#334155] active:bg-[#EEF2FF] active:border-[#1B3A5B]" data-query={s}>{s}</button>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile bottom bar (always visible) -->
+    <div class="flex items-center gap-3 px-4 border-t border-[#E8ECF2] bg-[#F8FAFC] shrink-0" style="height:60px; padding-bottom:env(safe-area-inset-bottom);">
+      <span class="text-[10px] text-[#94A3B8] font-mono flex-1">Groq AI · {searchIndex.length} instruments</span>
+      <button id="mobile-new-btn" class="text-sm font-semibold text-[#1B3A5B] bg-[#EEF2FF] px-4 py-2 rounded-xl active:bg-[#E0E9FF]">+ New</button>
+      <button id="mobile-close-btn" class="text-sm font-semibold text-white bg-[#1B3A5B] px-4 py-2 rounded-xl active:bg-[#0D2547]">Close</button>
+    </div>
+  </div>
+
 </dialog>
 
 <script define:vars={{ searchIndex }}>
@@ -166,94 +196,169 @@ const suggestions = [
 import Fuse from 'fuse.js';
 
 type Entry = { id: string; model: string; name: string; tagline: string; category: string; brand: string; href: string; image: string; };
-
 const index: Entry[] = (window as any).__CIE_SEARCH_INDEX__ || [];
 
+// ── Fuse instances ────────────────────────────────────────────────────────
 const fuse = new Fuse(index, {
   keys: [{ name: 'model', weight: 3 }, { name: 'name', weight: 2 }, { name: 'tagline', weight: 1 }, { name: 'category', weight: 0.5 }],
   threshold: 0.35, includeScore: true, minMatchCharLength: 2, ignoreLocation: true,
 });
+const fuseStrict = new Fuse(index, {
+  keys: [{ name: 'model', weight: 3 }, { name: 'name', weight: 2 }, { name: 'tagline', weight: 1 }, { name: 'category', weight: 0.5 }],
+  threshold: 0.15, includeScore: true, minMatchCharLength: 2, ignoreLocation: true,
+});
 
-const modal          = document.getElementById('cie-search') as HTMLDialogElement;
-const input          = document.getElementById('search-input') as HTMLInputElement;
-const newSearchBtn   = document.getElementById('new-search-btn') as HTMLButtonElement;
-const closeBtn       = document.getElementById('search-close-btn') as HTMLButtonElement;
-const newSearchFooter= document.getElementById('new-search-footer') as HTMLButtonElement;
-const closeFooter    = document.getElementById('close-footer') as HTMLButtonElement;
-const aiPanel        = document.getElementById('ai-panel') as HTMLElement;
-const aiContent      = document.getElementById('ai-content') as HTMLElement;
-const aiClose        = document.getElementById('ai-close') as HTMLButtonElement;
-const catalogDiv     = document.getElementById('catalog-results') as HTMLElement;
-const searchBox      = document.getElementById('search-box') as HTMLElement;
+// ── DOM refs ──────────────────────────────────────────────────────────────
+const modal        = document.getElementById('cie-search')       as HTMLDialogElement;
+// Desktop
+const desktopOuter = document.getElementById('search-outer')     as HTMLElement;
+const desktopInput = document.getElementById('search-input')     as HTMLInputElement;
+const desktopNewBtn= document.getElementById('new-search-btn')   as HTMLButtonElement;
+const desktopClose = document.getElementById('search-close-btn') as HTMLButtonElement;
+const aiPanel      = document.getElementById('ai-panel')         as HTMLElement;
+const aiContent    = document.getElementById('ai-content')       as HTMLElement;
+const aiClose      = document.getElementById('ai-close')         as HTMLButtonElement;
+const catalogDiv   = document.getElementById('catalog-results')  as HTMLElement;
+// Mobile
+const mobilePanel  = document.getElementById('mobile-panel')     as HTMLElement;
+const mobileInput  = document.getElementById('search-input-mobile') as HTMLInputElement;
+const mobileClearBtn= document.getElementById('mobile-clear-btn') as HTMLButtonElement;
+const mobileAIPanel= document.getElementById('mobile-ai-panel') as HTMLElement;
+const mobileAIToggle= document.getElementById('mobile-ai-toggle') as HTMLButtonElement;
+const mobileAIChev = document.getElementById('mobile-ai-chevron') as HTMLElement;
+const mobileAICont = document.getElementById('mobile-ai-content') as HTMLElement;
+const mobileCatalog= document.getElementById('mobile-catalog-results') as HTMLElement;
+const mobileNewBtn = document.getElementById('mobile-new-btn')   as HTMLButtonElement;
+const mobileCloseBtn= document.getElementById('mobile-close-btn') as HTMLButtonElement;
 
+// ── State ─────────────────────────────────────────────────────────────────
 let isStreaming = false;
 let history: { role: string; parts: string }[] = [];
 let fuseDebounce: ReturnType<typeof setTimeout>;
+let lastAICall = 0;
+let mobileAIExpanded = true;
+
+const isMobile = () => window.innerWidth < 640;
+
+// ── Helpers: which panel is active ────────────────────────────────────────
+function activeInput()   { return isMobile() ? mobileInput   : desktopInput; }
+function activeCatalog() { return isMobile() ? mobileCatalog : catalogDiv; }
+function activeAIPanel() { return isMobile() ? mobileAIPanel : aiPanel; }
+function activeAICont()  { return isMobile() ? mobileAICont  : aiContent; }
 
 // ── Open / close ──────────────────────────────────────────────────────────
 function openSearch() {
   modal.showModal();
-  newSearch();
-  setTimeout(() => input.focus(), 50);
+  document.body.style.overflow = 'hidden';
+  if (isMobile()) {
+    mobilePanel.style.display = 'flex';
+    desktopOuter.style.display = 'none';
+    adjustMobileHeight();
+  } else {
+    mobilePanel.style.display = 'none';
+    desktopOuter.style.display = 'flex';
+  }
+  newSearch(false);
+  setTimeout(() => activeInput().focus(), 100);
 }
 
 function closeSearch() {
   modal.close();
-  input.value = '';
+  document.body.style.overflow = '';
+  mobilePanel.style.display = 'none';
+  desktopOuter.style.display = 'none';
+  mobileInput.value = '';
+  desktopInput.value = '';
 }
 
-function newSearch() {
-  input.value = '';
-  newSearchBtn.classList.add('hidden');
+function newSearch(focusInput = true) {
+  mobileInput.value = '';
+  desktopInput.value = '';
+  mobileClearBtn.classList.add('hidden');
+  desktopNewBtn.classList.add('hidden');
+  history = [];
   hideAI();
   showWelcome();
-  history = [];
-  setTimeout(() => input.focus(), 50);
+  if (focusInput) setTimeout(() => activeInput().focus(), 50);
 }
 
-// Close on backdrop click (desktop + mobile)
+// ── Mobile keyboard-aware height ──────────────────────────────────────────
+function adjustMobileHeight() {
+  if (!isMobile()) return;
+  const h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  mobilePanel.style.height = h + 'px';
+}
+window.visualViewport?.addEventListener('resize', adjustMobileHeight);
+window.addEventListener('resize', adjustMobileHeight);
+
+// ── Backdrop click ────────────────────────────────────────────────────────
 modal.addEventListener('click', e => { if (e.target === modal) closeSearch(); });
-modal.addEventListener('touchend', e => { if (e.target === modal) closeSearch(); });
 
-// Button wiring
-closeBtn.addEventListener('click', closeSearch);
-closeBtn.addEventListener('touchend', e => { e.preventDefault(); closeSearch(); });
-newSearchBtn.addEventListener('click', newSearch);
-newSearchBtn.addEventListener('touchend', e => { e.preventDefault(); newSearch(); });
-newSearchFooter?.addEventListener('click', newSearch);
-newSearchFooter?.addEventListener('touchend', e => { e.preventDefault(); newSearch(); });
-closeFooter?.addEventListener('click', closeSearch);
-closeFooter?.addEventListener('touchend', e => { e.preventDefault(); closeSearch(); });
+// ── Button wiring ─────────────────────────────────────────────────────────
+desktopClose?.addEventListener('click', closeSearch);
+desktopNewBtn?.addEventListener('click', newSearch);
+aiClose?.addEventListener('click', hideAI);
+mobileCloseBtn?.addEventListener('click', closeSearch);
+mobileNewBtn?.addEventListener('click', () => newSearch());
+mobileClearBtn?.addEventListener('click', () => {
+  mobileInput.value = '';
+  mobileClearBtn.classList.add('hidden');
+  hideAI();
+  showWelcome();
+  mobileInput.focus();
+});
 
-// Keyboard
+// Mobile AI panel collapse/expand
+mobileAIToggle?.addEventListener('click', () => {
+  mobileAIExpanded = !mobileAIExpanded;
+  mobileAICont.style.display = mobileAIExpanded ? 'block' : 'none';
+  mobileAIChev.style.transform = mobileAIExpanded ? 'rotate(0deg)' : 'rotate(-90deg)';
+});
+
+// ── Keyboard shortcuts ────────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
   const mac = navigator.platform.toUpperCase().includes('MAC');
   if ((mac ? e.metaKey : e.ctrlKey) && e.key === 'k') { e.preventDefault(); modal.open ? closeSearch() : openSearch(); }
   if (e.key === 'Escape' && modal.open) closeSearch();
 });
 
-// Swipe down to close on mobile
-let touchStartY = 0;
-searchBox.addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
-searchBox.addEventListener('touchend', e => {
-  const dy = e.changedTouches[0].clientY - touchStartY;
-  if (dy > 80) closeSearch(); // swipe down 80px = close
-}, { passive: true });
-
-// ── Input handling ─────────────────────────────────────────────────────────
-input.addEventListener('input', () => {
-  const q = input.value;
-  newSearchBtn.classList.toggle('hidden', !q.trim());
-  newSearchBtn.classList.toggle('flex', !!q.trim());
-
+// ── Input listeners ───────────────────────────────────────────────────────
+function onInputChange(q: string) {
+  mobileClearBtn.classList.toggle('hidden', !q.trim());
+  desktopNewBtn.classList.toggle('hidden', !q.trim());
+  desktopNewBtn.classList.toggle('flex', !!q.trim());
   clearTimeout(fuseDebounce);
   fuseDebounce = setTimeout(() => {
     if (!q.trim()) { showWelcome(); return; }
     renderCatalog(q.trim());
-  }, 120);
+  }, 150);
+}
+
+mobileInput.addEventListener('input', () => onInputChange(mobileInput.value));
+desktopInput.addEventListener('input', () => onInputChange(desktopInput.value));
+
+function onEnter(q: string) {
+  if (q.trim() && !isStreaming) askAI(q.trim());
+}
+mobileInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); onEnter(mobileInput.value); } });
+desktopInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); onEnter(desktopInput.value); } });
+
+// ── Suggestion chips ──────────────────────────────────────────────────────
+document.addEventListener('click', e => {
+  const chip = (e.target as HTMLElement).closest('.suggestion-chip') as HTMLElement | null;
+  if (!chip) return;
+  const q = chip.dataset.query || '';
+  mobileInput.value = q;
+  desktopInput.value = q;
+  mobileClearBtn.classList.remove('hidden');
+  desktopNewBtn.classList.remove('hidden');
+  desktopNewBtn.classList.add('flex');
+  history = [];
+  renderCatalog(q);
+  askAI(q);
 });
 
-// Synonym map: user terms → product terms
+// ── Synonym + keyword extraction ──────────────────────────────────────────
 const SYNONYMS: [RegExp, string][] = [
   [/\b(light intensity|illuminance|brightness|luminance|lux level)\b/gi, 'lux'],
   [/\b(air speed|wind speed|airflow|air flow)\b/gi,                       'anemometer'],
@@ -266,64 +371,38 @@ const SYNONYMS: [RegExp, string][] = [
   [/\b(signal generator|waveform generator)\b/gi,                         'function generator'],
   [/\b(temperature|thermal|thermocouple)\b/gi,                            'thermometer'],
 ];
+const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','using','used','suitable','type','types','kind','kinds','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','multimeter','multimeters','detector','detectors','recorder','recorders','controller','monitor','dc','ac','rms','true','phase','single','three','dual','channel']);
 
 function extractKeywords(q: string): string {
-  const stop = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','using','used','suitable','type','types','kind','kinds','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','multimeter','multimeters','detector','detectors','recorder','recorders','controller','monitor','dc','ac','rms','true','phase','single','three','dual','channel']);
-  // Apply synonyms first
   let expanded = q;
-  for (const [pattern, replacement] of SYNONYMS) {
-    expanded = expanded.replace(pattern, replacement);
-  }
-  const words = expanded.toLowerCase().replace(/[?!.,]/g,'').split(/\s+/).filter(w => w.length > 1 && !stop.has(w));
+  for (const [p, r] of SYNONYMS) expanded = expanded.replace(p, r);
+  const words = expanded.toLowerCase().replace(/[?!.,]/g,'').split(/\s+/).filter(w => w.length > 1 && !STOP.has(w));
   return words.length ? words.join(' ') : q;
 }
 
-input.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey && input.value.trim() && !isStreaming) {
-    e.preventDefault();
-    askAI(input.value.trim());
-  }
-});
-
-// suggestion chips also show new search btn
-
-
-aiClose.addEventListener('click', hideAI);
-
-// Suggestion chips — trigger both catalog results AND AI answer immediately
-document.addEventListener('click', e => {
-  const chip = (e.target as HTMLElement).closest('.suggestion-chip') as HTMLElement | null;
-  if (!chip) return;
-  const q = chip.dataset.query || '';
-  input.value = q;
-  history = [];
-  newSearchBtn.classList.remove('hidden');
-  newSearchBtn.classList.add('flex');
-  renderCatalog(q);
-  askAI(q);
-});
-
 // ── AI ────────────────────────────────────────────────────────────────────
-let lastAICall = 0;
 async function askAI(q: string) {
   if (isStreaming) return;
-  // Rate limit guard: Groq allows 30 RPM — enforce 2s minimum between calls
   const now = Date.now();
   if (now - lastAICall < 2000) return;
   lastAICall = now;
   isStreaming = true;
 
-  aiPanel.classList.remove('hidden');
-  newSearchBtn.classList.remove('hidden');
-  newSearchBtn.classList.add('flex');
-  aiContent.innerHTML = `<span class="inline-flex gap-1 items-center">
-    <span class="w-1.5 h-1.5 bg-[#94A3B8] rounded-full animate-bounce" style="animation-delay:0ms"></span>
-    <span class="w-1.5 h-1.5 bg-[#94A3B8] rounded-full animate-bounce" style="animation-delay:150ms"></span>
-    <span class="w-1.5 h-1.5 bg-[#94A3B8] rounded-full animate-bounce" style="animation-delay:300ms"></span>
-  </span>`;
+  const panel = activeAIPanel();
+  const cont  = activeAICont();
+  panel.classList.remove('hidden');
+  panel.style.display = 'block';
+  mobileAIExpanded = true;
+  if (mobileAICont) { mobileAICont.style.display = 'block'; }
+  if (mobileAIChev) mobileAIChev.style.transform = 'rotate(0deg)';
+  desktopNewBtn.classList.remove('hidden');
+  desktopNewBtn.classList.add('flex');
 
-  // scroll AI panel into view
-  aiPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  cont.innerHTML = `<span class="inline-flex gap-1.5 items-center py-1">
+    <span class="w-2 h-2 bg-[#1B3A5B] rounded-full animate-bounce" style="animation-delay:0ms"></span>
+    <span class="w-2 h-2 bg-[#1B3A5B] rounded-full animate-bounce" style="animation-delay:150ms"></span>
+    <span class="w-2 h-2 bg-[#1B3A5B] rounded-full animate-bounce" style="animation-delay:300ms"></span>
+  </span>`;
 
   let fullText = '';
   try {
@@ -332,26 +411,25 @@ async function askAI(q: string) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: q, history }),
     });
-
     if (!res.ok) {
       const err = await res.json().catch(() => ({ error: 'Unknown error' }));
-      renderMD(aiContent, `_${err.error || 'Could not reach AI. Check that GEMINI_API_KEY is set in Vercel.'}_`);
+      renderMD(cont, `_${err.error || 'AI temporarily unavailable.'}_`);
     } else {
       const reader = res.body!.getReader();
       const decoder = new TextDecoder();
-      aiContent.innerHTML = '';
+      cont.innerHTML = '';
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
         fullText += decoder.decode(value, { stream: true });
-        renderMD(aiContent, fullText);
+        renderMD(cont, fullText);
       }
       history.push({ role: 'user', parts: q });
       history.push({ role: 'model', parts: fullText });
       if (history.length > 12) history = history.slice(-12);
     }
   } catch {
-    renderMD(aiContent, '_Connection error — please try again._');
+    renderMD(cont, '_Connection error — please try again._');
   }
   isStreaming = false;
 }
@@ -359,38 +437,31 @@ async function askAI(q: string) {
 function hideAI() {
   aiPanel.classList.add('hidden');
   aiContent.innerHTML = '';
+  mobileAIPanel.style.display = 'none';
+  mobileAICont.innerHTML = '';
 }
 
 // ── Catalog ───────────────────────────────────────────────────────────────
+const CHIPS = ['What do I need to measure motor insulation?','Compare LCR-1B vs LCR-2A','Best clamp meter for solar systems','Earth tester for site work'];
+
 function showWelcome() {
   hideAI();
-  catalogDiv.innerHTML = '';
-  const welcome = document.createElement('div');
-  welcome.className = 'px-4 py-4';
-  welcome.id = 'welcome-state';
-  welcome.innerHTML = `
+  const desktopWelcome = `<div class="px-4 py-4">
     <p class="text-xs text-[#94A3B8] mb-3">Try asking a question or search by product name, model, or spec.</p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-      ${['What do I need to measure motor insulation?','Compare LCR-1B vs LCR-2A','Best clamp meter for solar systems','Earth tester for site work']
-        .map(s => `<button class="suggestion-chip text-left text-sm sm:text-xs px-4 py-3 sm:px-3 sm:py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] active:bg-[#EEF2FF] transition-all" data-query="${esc(s)}">${esc(s)}</button>`).join('')}
-    </div>`;
-  catalogDiv.appendChild(welcome);
+    <div class="grid grid-cols-2 gap-2">${CHIPS.map(s => `<button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
+  </div>`;
+  const mobileWelcome = `<div class="px-4 pt-5 pb-4">
+    <p class="text-sm text-[#94A3B8] mb-4">Try a question or search by name, model, or spec.</p>
+    <div class="flex flex-col gap-3">${CHIPS.map(s => `<button class="suggestion-chip text-left text-[15px] font-medium px-4 py-4 rounded-2xl border-2 border-[#E8ECF2] text-[#334155] active:bg-[#EEF2FF] active:border-[#1B3A5B]" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
+  </div>`;
+  catalogDiv.innerHTML = desktopWelcome;
+  mobileCatalog.innerHTML = mobileWelcome;
 }
-
-// Strict fuse for single-word lookups to avoid loose false matches
-const fuseStrict = new Fuse(index, {
-  keys: [{ name: 'model', weight: 3 }, { name: 'name', weight: 2 }, { name: 'tagline', weight: 1 }, { name: 'category', weight: 0.5 }],
-  threshold: 0.15, includeScore: true, minMatchCharLength: 2, ignoreLocation: true,
-});
 
 function smartSearch(q: string): Entry[] {
   const keywords = extractKeywords(q);
-  // Allow 2-char words like "dc", "ac", "lc", "lv", "hv"
   const words = keywords.split(/\s+/).filter(w => w.length >= 2);
-  const seen = new Set<string>();
-  const candidates: Entry[] = [];
-
-  // Gather fuzzy candidates — high limit to catch full categories
+  const seen = new Set<string>(); const candidates: Entry[] = [];
   for (const r of fuse.search(keywords, { limit: 60 })) {
     if (!seen.has(r.item.id)) { seen.add(r.item.id); candidates.push(r.item); }
   }
@@ -399,53 +470,40 @@ function smartSearch(q: string): Entry[] {
       if (!seen.has(r.item.id)) { seen.add(r.item.id); candidates.push(r.item); }
     }
   }
-
-  // Post-filter: keep only items where at least one keyword literally appears
-  // Eliminates false fuzzy matches like "motor" → "Micro-Ohm Meter"
   const filtered = words.length
     ? candidates.filter(item => {
         const text = `${item.name} ${item.model} ${item.category} ${item.tagline}`.toLowerCase();
         return words.some(w => new RegExp(`\\b${w}`).test(text));
       })
     : candidates;
-
   return (filtered.length ? filtered : candidates).slice(0, 40);
 }
 
-function renderCatalog(q: string, _keywords?: string) {
+function renderCatalog(q: string) {
   const items = smartSearch(q);
-  if (!items.length) {
-    catalogDiv.innerHTML = `<div class="px-6 py-8 text-center">
-      <p class="text-[#64748B] font-medium text-sm">No catalog match for "<span class="text-[#0D1B2A]">${esc(q)}</span>"</p>
-      <p class="text-xs text-[#94A3B8] mt-1">Press <kbd class="px-1 py-0.5 bg-[#F1F5F9] border border-[#E2E8F0] rounded text-[9px]">↵</kbd> to ask the AI</p>
-    </div>`;
-    return;
-  }
+  const noMatch = `<div class="px-6 py-8 text-center">
+    <p class="text-[#64748B] font-medium text-sm">No match for "<span class="text-[#0D1B2A]">${esc(q)}</span>"</p>
+    <p class="text-xs text-[#94A3B8] mt-1">Press Enter / tap Send to ask AI</p></div>`;
+  if (!items.length) { catalogDiv.innerHTML = noMatch; mobileCatalog.innerHTML = noMatch; return; }
 
-  const cie     = items.filter(i => i.brand === 'cie');
-  const vartech = items.filter(i => i.brand === 'vartech');
+  const cie = items.filter(i => i.brand === 'cie');
+  const vt  = items.filter(i => i.brand === 'vartech');
   let html = '';
+  if (cie.length) html += section('CIE — Manufactured', 'text-[#E0252E]', cie, q, false);
+  if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
 
-  if (cie.length) {
-    html += `<div class="pt-2.5 pb-1">
-      <div class="px-4 mb-1.5 flex items-center gap-2">
-        <span class="text-[9px] font-mono uppercase tracking-widest text-[#E0252E] font-bold">CIE — Manufactured</span>
-        <span class="text-[9px] text-[#94A3B8]">${cie.length} result${cie.length!==1?'s':''}</span>
-      </div>
-      ${cie.map(item => resultRow(item, q)).join('')}
-    </div>`;
-  }
-  if (vartech.length) {
-    html += `<div class="${cie.length?'border-t border-[#F1F5F9]':''} pt-2.5 pb-1">
-      <div class="px-4 mb-1.5 flex items-center gap-2">
-        <span class="text-[9px] font-mono uppercase tracking-widest text-emerald-600 font-bold">Vartech — Authorised Dealer</span>
-        <span class="text-[9px] text-[#94A3B8]">${vartech.length} result${vartech.length!==1?'s':''}</span>
-      </div>
-      ${vartech.map(item => resultRow(item, q)).join('')}
-    </div>`;
-  }
+  catalogDiv.innerHTML   = html;
+  mobileCatalog.innerHTML = html;
+}
 
-  catalogDiv.innerHTML = html;
+function section(label: string, cls: string, items: Entry[], q: string, border: boolean) {
+  return `<div class="${border?'border-t border-[#F1F5F9]':''} pt-2.5 pb-1">
+    <div class="px-4 mb-1.5 flex items-center gap-2">
+      <span class="text-[9px] font-mono uppercase tracking-widest ${cls} font-bold">${label}</span>
+      <span class="text-[9px] text-[#94A3B8]">${items.length} result${items.length!==1?'s':''}</span>
+    </div>
+    ${items.map(item => resultRow(item, q)).join('')}
+  </div>`;
 }
 
 function resultRow(item: Entry, q: string): string {
@@ -453,11 +511,11 @@ function resultRow(item: Entry, q: string): string {
   const badge = isCIE ? 'bg-[#0D2547] text-white' : 'bg-emerald-700 text-white';
   const tag = item.tagline.length > 75 ? item.tagline.slice(0, 75) + '…' : item.tagline;
   return `<a href="${esc(item.href)}" data-result
-    class="flex items-center gap-3 px-4 py-3 sm:py-2.5 hover:bg-[#F0F4FF] active:bg-[#EEF2FF] transition-colors group"
-    onclick="document.getElementById('cie-search').close()">
-    <div class="w-10 h-10 rounded-lg bg-[#F8FAFC] border border-[#E8ECF2] flex items-center justify-center shrink-0 overflow-hidden">
+    class="flex items-center gap-3 px-4 py-3.5 sm:py-2.5 hover:bg-[#F0F4FF] active:bg-[#EEF2FF] transition-colors group border-b border-[#F8FAFC] last:border-0"
+    onclick="document.getElementById('cie-search').close(); document.body.style.overflow='';">
+    <div class="w-11 h-11 sm:w-10 sm:h-10 rounded-xl bg-[#F8FAFC] border border-[#E8ECF2] flex items-center justify-center shrink-0 overflow-hidden">
       ${item.image
-        ? `<img src="${esc(item.image)}" alt="" class="w-9 h-9 object-contain p-0.5" loading="lazy" onerror="this.style.display='none'">`
+        ? `<img src="${esc(item.image)}" alt="" class="w-10 h-10 sm:w-9 sm:h-9 object-contain p-0.5" loading="lazy" onerror="this.style.display='none'">`
         : `<svg class="w-5 h-5 text-[#CBD5E1]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/></svg>`}
     </div>
     <div class="flex-1 min-w-0">
@@ -468,36 +526,29 @@ function resultRow(item: Entry, q: string): string {
       <p class="text-sm font-semibold text-[#0D1B2A] leading-snug truncate group-hover:text-[#1B3A5B]">${highlight(item.name, q)}</p>
       ${tag ? `<p class="text-[11px] text-[#64748B] truncate mt-0.5">${highlight(tag, q)}</p>` : ''}
     </div>
-    <svg class="w-4 h-4 text-[#CBD5E1] shrink-0 group-hover:text-[#1B3A5B] transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    <svg class="w-4 h-4 text-[#CBD5E1] shrink-0 group-hover:text-[#1B3A5B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
   </a>`;
 }
 
 // ── Markdown ──────────────────────────────────────────────────────────────
 function renderMD(el: HTMLElement, text: string) {
-  // Split into blocks first so tables can be handled separately
   const blocks = text.split(/\n\n+/);
-  const rendered = blocks.map(block => {
+  el.innerHTML = blocks.map(block => {
     const lines = block.trim().split('\n');
-    // Detect markdown table (has | in most lines)
-    const tableLines = lines.filter(l => l.trim().startsWith('|'));
-    if (tableLines.length >= 2) {
-      const rows = tableLines.filter(l => !/^\|[\s|:-]+\|$/.test(l.trim())); // skip separator
+    const tl = lines.filter(l => l.trim().startsWith('|'));
+    if (tl.length >= 2) {
+      const rows = tl.filter(l => !/^\|[\s|:-]+\|$/.test(l.trim()));
       if (rows.length >= 1) {
-        const parseRow = (row: string) =>
-          row.trim().replace(/^\||\|$/g,'').split('|').map(c => c.trim());
+        const pr = (row: string) => row.trim().replace(/^\||\|$/g,'').split('|').map(c => c.trim());
         const [head, ...body] = rows;
-        const headers = parseRow(head);
-        const thHtml = headers.map(h => `<th class="px-3 py-1.5 text-left text-[11px] font-semibold text-[#1B3A5B] bg-[#EEF2FF] border border-[#E0E9FF]">${boldify(h)}</th>`).join('');
-        const trHtml = body.map(row =>
-          `<tr class="even:bg-[#F8FAFC]">${parseRow(row).map(c => `<td class="px-3 py-1.5 text-[12px] text-[#334155] border border-[#E8ECF2]">${boldify(c)}</td>`).join('')}</tr>`
-        ).join('');
-        return `<div class="overflow-x-auto my-2 rounded-lg border border-[#E0E9FF]"><table class="w-full text-left border-collapse"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
+        const th = pr(head).map(h => `<th class="px-3 py-1.5 text-left text-[11px] font-semibold text-[#1B3A5B] bg-[#EEF2FF] border border-[#E0E9FF]">${boldify(h)}</th>`).join('');
+        const tb = body.map(r => `<tr class="even:bg-[#F8FAFC]">${pr(r).map(c => `<td class="px-3 py-1.5 text-[12px] text-[#334155] border border-[#E8ECF2]">${boldify(c)}</td>`).join('')}</tr>`).join('');
+        return `<div class="overflow-x-auto my-2 rounded-lg border border-[#E0E9FF]"><table class="w-full text-left border-collapse"><thead><tr>${th}</tr></thead><tbody>${tb}</tbody></table></div>`;
       }
     }
-    // Normal block
     let b = esc(block)
-      .replace(/^### (.+)$/gm, '<strong class="block text-[#0D2547] font-semibold text-[13px] mt-1">$1</strong>')
-      .replace(/^## (.+)$/gm,  '<strong class="block text-[#0D2547] font-semibold mt-1">$1</strong>')
+      .replace(/^### (.+)$/gm,'<strong class="block text-[#0D2547] font-semibold text-[13px] mt-1">$1</strong>')
+      .replace(/^## (.+)$/gm, '<strong class="block text-[#0D2547] font-semibold mt-1">$1</strong>')
       .replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#0D2547]">$1</strong>')
       .replace(/`([^`]+)`/g, '<code class="bg-[#E8ECF2] px-1 py-0.5 rounded text-[11px] font-mono text-[#1B3A5B]">$1</code>')
       .replace(/^[-•]\s(.+)$/gm, '<li class="ml-4 list-disc list-outside leading-snug">$1</li>')
@@ -505,26 +556,22 @@ function renderMD(el: HTMLElement, text: string) {
     if (b.includes('<li')) b = b.replace(/(<li[^>]*>.*?<\/li>(<br>)?)+/gs, m => `<ul class="space-y-0.5 my-1">${m.replace(/<br>/g,'')}</ul>`);
     return `<p class="text-sm leading-relaxed">${b}</p>`;
   }).join('');
-
-  el.innerHTML = rendered;
 }
-
-function boldify(text: string): string {
-  return esc(text).replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#0D2547]">$1</strong>');
-}
-
+function boldify(t: string) { return esc(t).replace(/\*\*(.+?)\*\*/g,'<strong class="text-[#0D2547]">$1</strong>'); }
 function highlight(text: string, q: string): string {
   if (!q) return esc(text);
   const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
   return esc(text).replace(re, '<mark class="bg-yellow-100 text-yellow-800 rounded-sm px-0.5">$1</mark>');
 }
-function esc(s: string) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+function esc(s: string) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// ── Expose openSearch globally (called by header button) ──────────────────
+(window as any).__openCIESearch = openSearch;
 </script>
 
 <style>
 #cie-search::backdrop { background: transparent; }
-.ai-content p:first-child { margin-top: 0; }
-.ai-content p:last-child  { margin-bottom: 0; }
+.ai-content p:first-child, #mobile-ai-content p:first-child { margin-top: 0; }
+.ai-content p:last-child,  #mobile-ai-content p:last-child  { margin-bottom: 0; }
+#mobile-panel { display: none; }
 </style>

@@ -348,8 +348,8 @@ navToggle?.addEventListener('click', () => {
 
 // ── Search triggers ────────────────────────────────────────────────────────
 function openSearch() {
-  const modal = document.getElementById('cie-search') as HTMLDialogElement | null;
-  if (modal && !modal.open) modal.showModal();
+  const fn = (window as any).__openCIESearch;
+  if (fn) fn();
 }
 document.getElementById('search-trigger')?.addEventListener('click', openSearch);
 document.getElementById('search-trigger-mobile')?.addEventListener('click', openSearch);
