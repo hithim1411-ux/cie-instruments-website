@@ -24,50 +24,39 @@ type Entry = {
   category: string; brand: 'cie'|'vartech'; href: string; image: string;
 };
 
-function vImg(slug: string, img: string) {
-  return u(`/images/vartech/${slug}/${img}`);
-}
+function vImg(slug: string, img: string) { return u(`/images/vartech/${slug}/${img}`); }
 
 const vartechSections: { slug: string; label: string; items: any[] }[] = [
-  { slug: 'multimeters',       label: 'Multimeters',           items: vMM  },
-  { slug: 'clamp-meters',      label: 'Clamp Meters',          items: vCM  },
-  { slug: 'oscilloscopes',     label: 'Oscilloscopes',         items: vOSC },
-  { slug: 'function-generators',label:'Function Generators',   items: vFG  },
-  { slug: 'lcr-meters',        label: 'LCR & Cap Meters',      items: vLCR },
-  { slug: 'dc-loads',          label: 'DC Electronic Loads',   items: vDCL },
-  { slug: 'sound-level-meters',label: 'Sound Level Meters',    items: vSLM },
-  { slug: 'anemometers',       label: 'Anemometers',           items: vANE },
-  { slug: 'calibrators',       label: 'Calibrators',           items: vCAL },
-  { slug: 'lux-meters',        label: 'Lux Meters',            items: vLUX },
-  { slug: 'thermometers',      label: 'Thermometers',          items: vTHM },
-  { slug: 'dc-power-supplies', label: 'DC Power Supplies',     items: vPS  },
+  { slug: 'multimeters',        label: 'Multimeters',          items: vMM  },
+  { slug: 'clamp-meters',       label: 'Clamp Meters',         items: vCM  },
+  { slug: 'oscilloscopes',      label: 'Oscilloscopes',        items: vOSC },
+  { slug: 'function-generators',label: 'Function Generators',  items: vFG  },
+  { slug: 'lcr-meters',         label: 'LCR & Cap Meters',     items: vLCR },
+  { slug: 'dc-loads',           label: 'DC Electronic Loads',  items: vDCL },
+  { slug: 'sound-level-meters', label: 'Sound Level Meters',   items: vSLM },
+  { slug: 'anemometers',        label: 'Anemometers',          items: vANE },
+  { slug: 'calibrators',        label: 'Calibrators',          items: vCAL },
+  { slug: 'lux-meters',         label: 'Lux Meters',           items: vLUX },
+  { slug: 'thermometers',       label: 'Thermometers',         items: vTHM },
+  { slug: 'dc-power-supplies',  label: 'DC Power Supplies',    items: vPS  },
 ];
 
 const searchIndex: Entry[] = [
-  ...(cieProducts as any[])
-    .filter(p => !p.brand || p.brand === 'cie')
-    .map(p => ({
-      id:       p.id,
-      model:    p.model,
-      name:     p.name,
-      tagline:  p.tagline || '',
-      category: catNameMap[p.categoryId] || p.categoryId,
-      brand:    'cie' as const,
-      href:     u(`/products/${p.categoryId}/${p.id}/`),
-      image:    p.image
-        ? (p.image.startsWith('vartech/') ? u(`/images/${p.image}`) : u(`/images/products/${p.image}`))
-        : u(`/images/products/${p.id}.webp`),
-    })),
+  ...(cieProducts as any[]).filter(p => !p.brand || p.brand === 'cie').map(p => ({
+    id: p.id, model: p.model, name: p.name, tagline: p.tagline || '',
+    category: catNameMap[p.categoryId] || p.categoryId,
+    brand: 'cie' as const,
+    href: u(`/products/${p.categoryId}/${p.id}/`),
+    image: p.image
+      ? (p.image.startsWith('vartech/') ? u(`/images/${p.image}`) : u(`/images/products/${p.image}`))
+      : u(`/images/products/${p.id}.webp`),
+  })),
   ...vartechSections.flatMap(({ slug, label, items }) =>
     (items as any[]).map(p => ({
-      id:       p.id,
-      model:    p.model,
-      name:     p.name,
-      tagline:  p.tagline || '',
-      category: label,
-      brand:    'vartech' as const,
-      href:     u(`/authorised-dealership/${slug}/${p.id}/`),
-      image:    p.images?.[0] ? vImg(slug, p.images[0]) : '',
+      id: p.id, model: p.model, name: p.name, tagline: p.tagline || '',
+      category: label, brand: 'vartech' as const,
+      href: u(`/authorised-dealership/${slug}/${p.id}/`),
+      image: p.images?.[0] ? vImg(slug, p.images[0]) : '',
     }))
   ),
 ];
@@ -76,25 +65,20 @@ const suggestions = [
   "What do I need to measure motor insulation?",
   "Compare LCR-1B vs LCR-2A",
   "Best clamp meter for solar systems",
-  "Earth tester for industrial use",
+  "Earth tester for site work",
 ];
 ---
 
-<!-- ── Search modal ─────────────────────────────────────────────────────── -->
 <dialog
   id="cie-search"
-  aria-label="AI Product Search"
+  aria-label="Search"
   class="fixed inset-0 z-[9999] w-full h-full bg-transparent p-0 m-0 max-w-none max-h-none border-0 backdrop:bg-[#0D1B2A]/75 backdrop:backdrop-blur-md"
 >
   <div class="flex items-start justify-center min-h-full pt-[8vh] px-4 pb-10">
-    <div id="search-box"
-      class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
-      style="max-height: 84vh;"
-    >
+    <div id="search-box" class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col" style="max-height:86vh;">
 
-      <!-- Header bar -->
-      <div class="flex items-center gap-3 px-4 py-3.5 border-b border-[#E8ECF2] bg-gradient-to-r from-[#0D2547]/3 to-transparent shrink-0">
-        <!-- AI spark icon -->
+      <!-- Single input bar -->
+      <div class="flex items-center gap-3 px-4 py-3.5 border-b border-[#E8ECF2] shrink-0">
         <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
           <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/>
@@ -105,71 +89,50 @@ const suggestions = [
           type="text"
           autocomplete="off"
           spellcheck="false"
-          placeholder="Ask anything — products, specs, comparisons…"
+          placeholder="Search products or ask anything…"
           class="flex-1 text-[#0D1B2A] text-[15px] bg-transparent outline-none placeholder:text-[#94A3B8] font-medium"
         />
+        <!-- Enter hint -->
+        <span id="enter-hint" class="hidden sm:flex items-center gap-1 text-[10px] text-[#94A3B8] font-mono shrink-0">
+          <kbd class="px-1.5 py-0.5 bg-[#F1F5F9] border border-[#E2E8F0] rounded text-[9px]">↵</kbd> ask AI
+        </span>
         <button id="search-clear" class="hidden w-6 h-6 rounded-full bg-[#F1F5F9] items-center justify-center text-[#64748B] hover:bg-[#E2E8F0] transition-colors shrink-0">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
-        <kbd class="hidden sm:inline-flex items-center gap-0.5 px-2 py-1 bg-[#F1F5F9] border border-[#E2E8F0] rounded text-[10px] font-mono text-[#64748B] shrink-0">esc</kbd>
       </div>
 
-      <!-- Mode tabs -->
-      <div id="mode-tabs" class="flex border-b border-[#E8ECF2] shrink-0">
-        <button id="tab-ai" class="flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold text-[#1B3A5B] border-b-2 border-[#1B3A5B] bg-[#F8FAFC]">
-          <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
-          AI Assistant
-        </button>
-        <button id="tab-catalog" class="flex items-center gap-1.5 px-4 py-2.5 text-xs font-medium text-[#64748B] hover:text-[#0D1B2A] hover:bg-[#F8FAFC] transition-colors">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/></svg>
-          Catalog Search
-        </button>
-      </div>
+      <!-- Scrollable body -->
+      <div id="search-body" class="flex-1 overflow-y-auto" style="scrollbar-width:thin;">
 
-      <!-- AI panel -->
-      <div id="panel-ai" class="flex-1 flex flex-col overflow-hidden">
+        <!-- AI answer panel (hidden until triggered) -->
+        <div id="ai-panel" class="hidden border-b border-[#E8ECF2]">
+          <div class="px-4 py-3">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="w-5 h-5 rounded-md bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
+                <svg class="w-2.5 h-2.5 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
+              </div>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-[#1B3A5B] font-bold">AI Answer</span>
+              <button id="ai-close" class="ml-auto text-[#94A3B8] hover:text-[#64748B] transition-colors">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              </button>
+            </div>
+            <div id="ai-content" class="text-sm text-[#0D1B2A] leading-relaxed ai-content"></div>
+          </div>
+        </div>
 
-        <!-- Conversation area -->
-        <div id="ai-conversation" class="flex-1 overflow-y-auto px-4 py-4 space-y-4" style="scrollbar-width:thin;">
+        <!-- Catalog results -->
+        <div id="catalog-results">
           <!-- Welcome state -->
-          <div id="ai-welcome" class="py-2">
-            <p class="text-sm text-[#64748B] mb-3">Ask anything about our instruments — I know the full catalog.</p>
+          <div id="welcome-state" class="px-4 py-4">
+            <p class="text-xs text-[#94A3B8] mb-3">Try asking a question or search by product name, model, or spec.</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {suggestions.map(s => (
-                <button
-                  class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all"
-                  data-query={s}
-                >{s}</button>
+                <button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all" data-query={s}>{s}</button>
               ))}
             </div>
           </div>
         </div>
 
-        <!-- AI input row -->
-        <div class="border-t border-[#E8ECF2] px-3 py-2.5 flex items-end gap-2 shrink-0 bg-[#FAFBFC]">
-          <textarea
-            id="ai-input"
-            rows="1"
-            placeholder="Ask a question or describe what you need…"
-            class="flex-1 text-sm text-[#0D1B2A] bg-transparent outline-none placeholder:text-[#94A3B8] resize-none leading-relaxed"
-            style="max-height: 120px;"
-          ></textarea>
-          <button id="ai-send"
-            class="w-8 h-8 rounded-xl bg-[#1B3A5B] text-white flex items-center justify-center hover:bg-[#0D2547] transition-colors disabled:opacity-40 disabled:cursor-not-allowed shrink-0"
-            disabled
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Catalog panel (hidden by default) -->
-      <div id="panel-catalog" class="hidden flex-1 flex flex-col overflow-hidden">
-        <div id="catalog-results" class="overflow-y-auto flex-1" style="scrollbar-width:thin;">
-          <!-- populated by JS -->
-        </div>
       </div>
 
       <!-- Footer -->
@@ -185,183 +148,110 @@ const suggestions = [
   </div>
 </dialog>
 
-<script define:vars={{ searchIndex, suggestions }}>
+<script define:vars={{ searchIndex }}>
   window.__CIE_SEARCH_INDEX__ = searchIndex;
-  window.__CIE_SUGGESTIONS__ = suggestions;
 </script>
 
 <script>
 import Fuse from 'fuse.js';
 
-type Entry = {
-  id: string; model: string; name: string; tagline: string;
-  category: string; brand: string; href: string; image: string;
-};
+type Entry = { id: string; model: string; name: string; tagline: string; category: string; brand: string; href: string; image: string; };
 
 const index: Entry[] = (window as any).__CIE_SEARCH_INDEX__ || [];
 
-// ── Fuse (catalog tab) ─────────────────────────────────────────────────────
 const fuse = new Fuse(index, {
-  keys: [
-    { name: 'model',    weight: 3 },
-    { name: 'name',     weight: 2 },
-    { name: 'tagline',  weight: 1 },
-    { name: 'category', weight: 0.5 },
-  ],
-  threshold:          0.2,
-  includeScore:       true,
-  includeMatches:     true,
-  minMatchCharLength: 2,
-  ignoreLocation:     true,
+  keys: [{ name: 'model', weight: 3 }, { name: 'name', weight: 2 }, { name: 'tagline', weight: 1 }, { name: 'category', weight: 0.5 }],
+  threshold: 0.2, includeScore: true, minMatchCharLength: 2, ignoreLocation: true,
 });
 
-// ── DOM refs ───────────────────────────────────────────────────────────────
 const modal       = document.getElementById('cie-search') as HTMLDialogElement;
-const headerInput = document.getElementById('search-input') as HTMLInputElement;
+const input       = document.getElementById('search-input') as HTMLInputElement;
 const clearBtn    = document.getElementById('search-clear') as HTMLButtonElement;
-const tabAI       = document.getElementById('tab-ai') as HTMLButtonElement;
-const tabCatalog  = document.getElementById('tab-catalog') as HTMLButtonElement;
-const panelAI     = document.getElementById('panel-ai') as HTMLElement;
-const panelCatalog= document.getElementById('panel-catalog') as HTMLElement;
-const conversation= document.getElementById('ai-conversation') as HTMLElement;
-const welcome     = document.getElementById('ai-welcome') as HTMLElement;
-const aiInput     = document.getElementById('ai-input') as HTMLTextAreaElement;
-const aiSend      = document.getElementById('ai-send') as HTMLButtonElement;
-const catalogResults = document.getElementById('catalog-results') as HTMLElement;
+const enterHint   = document.getElementById('enter-hint') as HTMLElement;
+const aiPanel     = document.getElementById('ai-panel') as HTMLElement;
+const aiContent   = document.getElementById('ai-content') as HTMLElement;
+const aiClose     = document.getElementById('ai-close') as HTMLButtonElement;
+const catalogDiv  = document.getElementById('catalog-results') as HTMLElement;
+const welcomeDiv  = document.getElementById('welcome-state') as HTMLElement;
 
-// ── State ─────────────────────────────────────────────────────────────────
-let activeTab: 'ai' | 'catalog' = 'ai';
 let isStreaming = false;
 let history: { role: string; parts: string }[] = [];
+let fuseDebounce: ReturnType<typeof setTimeout>;
 
 // ── Open / close ──────────────────────────────────────────────────────────
 function openSearch() {
   modal.showModal();
-  headerInput.value = '';
+  input.value = '';
   clearBtn.classList.add('hidden');
-  setTimeout(() => {
-    if (activeTab === 'ai') aiInput.focus();
-    else headerInput.focus();
-  }, 50);
+  enterHint?.classList.remove('hidden');
+  showWelcome();
+  setTimeout(() => input.focus(), 50);
 }
-
-function closeSearch() {
-  modal.close();
-  headerInput.value = '';
-}
+function closeSearch() { modal.close(); input.value = ''; }
 
 modal.addEventListener('click', e => { if (e.target === modal) closeSearch(); });
-
 document.addEventListener('keydown', e => {
   const mac = navigator.platform.toUpperCase().includes('MAC');
-  if ((mac ? e.metaKey : e.ctrlKey) && e.key === 'k') {
-    e.preventDefault();
-    modal.open ? closeSearch() : openSearch();
-  }
+  if ((mac ? e.metaKey : e.ctrlKey) && e.key === 'k') { e.preventDefault(); modal.open ? closeSearch() : openSearch(); }
   if (e.key === 'Escape' && modal.open) closeSearch();
 });
 
-// ── Header search input (drives catalog tab + tab switch) ──────────────────
-headerInput.addEventListener('input', () => {
-  const q = headerInput.value.trim();
-  clearBtn.classList.toggle('hidden', !q);
-  if (q) {
-    switchTab('catalog');
-    renderCatalogResults(q);
-  } else {
-    renderCatalogEmpty();
+// ── Input handling ─────────────────────────────────────────────────────────
+input.addEventListener('input', () => {
+  const q = input.value;
+  clearBtn.classList.toggle('hidden', !q.trim());
+
+  clearTimeout(fuseDebounce);
+  fuseDebounce = setTimeout(() => {
+    if (!q.trim()) { showWelcome(); return; }
+    renderCatalog(q.trim());
+  }, 120);
+});
+
+input.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey && input.value.trim() && !isStreaming) {
+    e.preventDefault();
+    askAI(input.value.trim());
   }
 });
 
 clearBtn.addEventListener('click', () => {
-  headerInput.value = '';
+  input.value = '';
   clearBtn.classList.add('hidden');
-  if (activeTab === 'catalog') renderCatalogEmpty();
+  hideAI();
+  showWelcome();
+  input.focus();
 });
 
-// ── Tab switching ──────────────────────────────────────────────────────────
-function switchTab(tab: 'ai' | 'catalog') {
-  activeTab = tab;
-  const onAI = tab === 'ai';
+aiClose.addEventListener('click', hideAI);
 
-  tabAI.className = `flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold transition-colors ${
-    onAI ? 'text-[#1B3A5B] border-b-2 border-[#1B3A5B] bg-[#F8FAFC]'
-         : 'text-[#64748B] hover:text-[#0D1B2A] hover:bg-[#F8FAFC]'
-  }`;
-  tabCatalog.className = `flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold transition-colors ${
-    !onAI ? 'text-[#1B3A5B] border-b-2 border-[#1B3A5B] bg-[#F8FAFC]'
-          : 'text-[#64748B] hover:text-[#0D1B2A] hover:bg-[#F8FAFC]'
-  }`;
-
-  panelAI.classList.toggle('hidden', !onAI);
-  panelCatalog.classList.toggle('hidden', onAI);
-  panelAI.classList.toggle('flex', onAI);
-  panelCatalog.classList.toggle('flex', !onAI);
-
-  if (onAI) {
-    setTimeout(() => aiInput.focus(), 50);
-  } else {
-    renderCatalogResults(headerInput.value.trim());
-    setTimeout(() => headerInput.focus(), 50);
-  }
-}
-
-tabAI.addEventListener('click', () => switchTab('ai'));
-tabCatalog.addEventListener('click', () => switchTab('catalog'));
-
-// ── AI chat ───────────────────────────────────────────────────────────────
-aiInput.addEventListener('input', () => {
-  aiSend.disabled = !aiInput.value.trim() || isStreaming;
-  // auto-resize
-  aiInput.style.height = 'auto';
-  aiInput.style.height = Math.min(aiInput.scrollHeight, 120) + 'px';
-});
-
-aiInput.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    if (!aiSend.disabled) sendAI();
-  }
-});
-
-aiSend.addEventListener('click', sendAI);
-
-// suggestion chips
+// Suggestion chips
 document.addEventListener('click', e => {
   const chip = (e.target as HTMLElement).closest('.suggestion-chip') as HTMLElement | null;
-  if (chip) {
-    const q = chip.dataset.query || '';
-    aiInput.value = q;
-    aiInput.dispatchEvent(new Event('input'));
-    sendAI();
-  }
+  if (!chip) return;
+  const q = chip.dataset.query || '';
+  input.value = q;
+  clearBtn.classList.remove('hidden');
+  renderCatalog(q);
+  askAI(q);
 });
 
-async function sendAI() {
-  const q = aiInput.value.trim();
-  if (!q || isStreaming) return;
-
-  // hide welcome, show user bubble
-  welcome?.remove();
-  appendBubble('user', q);
-
-  aiInput.value = '';
-  aiInput.style.height = 'auto';
-  aiSend.disabled = true;
+// ── AI ────────────────────────────────────────────────────────────────────
+async function askAI(q: string) {
+  if (isStreaming) return;
   isStreaming = true;
 
-  // AI bubble with typing indicator
-  const aiBubble = appendBubble('ai', '');
-  const typingDots = document.createElement('span');
-  typingDots.className = 'typing-dots inline-flex gap-1 items-center';
-  typingDots.innerHTML = `<span class="w-1.5 h-1.5 bg-[#94A3B8] rounded-full animate-bounce" style="animation-delay:0ms"></span>
+  aiPanel.classList.remove('hidden');
+  aiContent.innerHTML = `<span class="inline-flex gap-1 items-center">
+    <span class="w-1.5 h-1.5 bg-[#94A3B8] rounded-full animate-bounce" style="animation-delay:0ms"></span>
     <span class="w-1.5 h-1.5 bg-[#94A3B8] rounded-full animate-bounce" style="animation-delay:150ms"></span>
-    <span class="w-1.5 h-1.5 bg-[#94A3B8] rounded-full animate-bounce" style="animation-delay:300ms"></span>`;
-  aiBubble.appendChild(typingDots);
-  scrollConversation();
+    <span class="w-1.5 h-1.5 bg-[#94A3B8] rounded-full animate-bounce" style="animation-delay:300ms"></span>
+  </span>`;
+
+  // scroll AI panel into view
+  aiPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
   let fullText = '';
-
   try {
     const res = await fetch('/api/search', {
       method: 'POST',
@@ -371,105 +261,54 @@ async function sendAI() {
 
     if (!res.ok) {
       const err = await res.json().catch(() => ({ error: 'Unknown error' }));
-      typingDots.remove();
-      renderMarkdown(aiBubble, `Sorry, I couldn't process that. ${err.error || ''}`);
+      renderMD(aiContent, `_${err.error || 'Could not reach AI. Check that GEMINI_API_KEY is set in Vercel.'}_`);
     } else {
-      // stream response
       const reader = res.body!.getReader();
       const decoder = new TextDecoder();
-      typingDots.remove();
-
+      aiContent.innerHTML = '';
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
         fullText += decoder.decode(value, { stream: true });
-        renderMarkdown(aiBubble, fullText);
-        scrollConversation();
+        renderMD(aiContent, fullText);
       }
-
-      // update history
       history.push({ role: 'user', parts: q });
       history.push({ role: 'model', parts: fullText });
-      // keep last 6 turns
       if (history.length > 12) history = history.slice(-12);
     }
   } catch {
-    typingDots.remove();
-    renderMarkdown(aiBubble, 'Connection error. Please try again.');
+    renderMD(aiContent, '_Connection error — please try again._');
   }
-
   isStreaming = false;
-  aiSend.disabled = !aiInput.value.trim();
-  scrollConversation();
 }
 
-function appendBubble(role: 'user' | 'ai', text: string): HTMLElement {
-  const wrap = document.createElement('div');
-  wrap.className = role === 'user'
-    ? 'flex justify-end'
-    : 'flex justify-start';
-
-  const bubble = document.createElement('div');
-  if (role === 'user') {
-    bubble.className = 'max-w-[80%] px-4 py-2.5 rounded-2xl rounded-tr-sm bg-[#1B3A5B] text-white text-sm leading-relaxed';
-    bubble.textContent = text;
-  } else {
-    bubble.className = 'max-w-[92%] px-4 py-3 rounded-2xl rounded-tl-sm bg-[#F0F4FF] border border-[#E0E9FF] text-sm text-[#0D1B2A] leading-relaxed ai-bubble';
-    if (text) renderMarkdown(bubble, text);
-  }
-
-  wrap.appendChild(bubble);
-  conversation.appendChild(wrap);
-  return bubble;
+function hideAI() {
+  aiPanel.classList.add('hidden');
+  aiContent.innerHTML = '';
 }
 
-// Simple markdown renderer (bold, inline code, bullets)
-function renderMarkdown(el: HTMLElement, text: string) {
-  let html = text
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    // headings
-    .replace(/^### (.+)$/gm, '<strong class="block text-[#0D2547] mt-2 mb-0.5">$1</strong>')
-    .replace(/^## (.+)$/gm, '<strong class="block text-[#0D2547] text-[13px] mt-2 mb-0.5">$1</strong>')
-    // bold
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#0D2547]">$1</strong>')
-    // inline code
-    .replace(/`([^`]+)`/g, '<code class="bg-[#E8ECF2] px-1 py-0.5 rounded text-[11px] font-mono text-[#1B3A5B]">$1</code>')
-    // bullet lines
-    .replace(/^[-•]\s(.+)$/gm, '<li class="ml-3 list-disc list-outside">$1</li>')
-    // wrap consecutive li items
-    .replace(/(<li[^>]*>.*<\/li>\n?)+/g, m => `<ul class="space-y-0.5 mt-1 mb-1">${m}</ul>`)
-    // paragraphs (double newline)
-    .replace(/\n\n+/g, '</p><p class="mt-2">')
-    // single newlines
-    .replace(/\n/g, '<br>');
-
-  el.innerHTML = `<p>${html}</p>`;
-}
-
-function scrollConversation() {
-  conversation.scrollTop = conversation.scrollHeight;
-}
-
-// ── Catalog search ────────────────────────────────────────────────────────
-function renderCatalogEmpty() {
-  const featured = index.slice(0, 6);
-  catalogResults.innerHTML = `
-    <div class="px-4 pt-3 pb-1">
-      <p class="text-[10px] font-mono uppercase tracking-widest text-[#94A3B8] mb-2">Featured Products</p>
-      ${featured.map(item => resultRow(item, '')).join('')}
+// ── Catalog ───────────────────────────────────────────────────────────────
+function showWelcome() {
+  hideAI();
+  catalogDiv.innerHTML = '';
+  const welcome = document.createElement('div');
+  welcome.className = 'px-4 py-4';
+  welcome.id = 'welcome-state';
+  welcome.innerHTML = `
+    <p class="text-xs text-[#94A3B8] mb-3">Try asking a question or search by product name, model, or spec.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      ${['What do I need to measure motor insulation?','Compare LCR-1B vs LCR-2A','Best clamp meter for solar systems','Earth tester for site work']
+        .map(s => `<button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all" data-query="${esc(s)}">${esc(s)}</button>`).join('')}
     </div>`;
+  catalogDiv.appendChild(welcome);
 }
 
-function renderCatalogResults(q: string) {
-  if (!q) { renderCatalogEmpty(); return; }
-  const raw = fuse.search(q, { limit: 40 });
-  const items = raw.map(r => r.item);
-
+function renderCatalog(q: string) {
+  const items = fuse.search(q, { limit: 40 }).map(r => r.item);
   if (!items.length) {
-    catalogResults.innerHTML = `<div class="px-6 py-10 text-center">
-      <svg class="w-10 h-10 mx-auto mb-3 text-[#CBD5E1]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/></svg>
-      <p class="text-[#64748B] font-medium">No results for "<span class="text-[#0D1B2A]">${esc(q)}</span>"</p>
-      <p class="text-xs text-[#94A3B8] mt-1">Try the AI tab for natural language queries</p>
+    catalogDiv.innerHTML = `<div class="px-6 py-8 text-center">
+      <p class="text-[#64748B] font-medium text-sm">No catalog match for "<span class="text-[#0D1B2A]">${esc(q)}</span>"</p>
+      <p class="text-xs text-[#94A3B8] mt-1">Press <kbd class="px-1 py-0.5 bg-[#F1F5F9] border border-[#E2E8F0] rounded text-[9px]">↵</kbd> to ask the AI</p>
     </div>`;
     return;
   }
@@ -479,7 +318,7 @@ function renderCatalogResults(q: string) {
   let html = '';
 
   if (cie.length) {
-    html += `<div class="pt-3 pb-1">
+    html += `<div class="pt-2.5 pb-1">
       <div class="px-4 mb-1.5 flex items-center gap-2">
         <span class="text-[9px] font-mono uppercase tracking-widest text-[#E0252E] font-bold">CIE — Manufactured</span>
         <span class="text-[9px] text-[#94A3B8]">${cie.length} result${cie.length!==1?'s':''}</span>
@@ -488,7 +327,7 @@ function renderCatalogResults(q: string) {
     </div>`;
   }
   if (vartech.length) {
-    html += `<div class="${cie.length ? 'border-t border-[#F1F5F9]' : ''} pt-3 pb-1">
+    html += `<div class="${cie.length?'border-t border-[#F1F5F9]':''} pt-2.5 pb-1">
       <div class="px-4 mb-1.5 flex items-center gap-2">
         <span class="text-[9px] font-mono uppercase tracking-widest text-emerald-600 font-bold">Vartech — Authorised Dealer</span>
         <span class="text-[9px] text-[#94A3B8]">${vartech.length} result${vartech.length!==1?'s':''}</span>
@@ -496,19 +335,16 @@ function renderCatalogResults(q: string) {
       ${vartech.map(item => resultRow(item, q)).join('')}
     </div>`;
   }
-  html += `<div class="px-4 py-2.5 border-t border-[#F1F5F9]">
-    <p class="text-[10px] text-[#94A3B8]">${items.length} result${items.length!==1?'s':''} for "<span class="text-[#64748B]">${esc(q)}</span>"</p>
-  </div>`;
 
-  catalogResults.innerHTML = html;
+  catalogDiv.innerHTML = html;
 }
 
 function resultRow(item: Entry, q: string): string {
   const isCIE = item.brand === 'cie';
-  const badgeClass = isCIE ? 'bg-[#0D2547] text-white' : 'bg-emerald-700 text-white';
-  const taglineShort = item.tagline.length > 80 ? item.tagline.slice(0, 80) + '…' : item.tagline;
+  const badge = isCIE ? 'bg-[#0D2547] text-white' : 'bg-emerald-700 text-white';
+  const tag = item.tagline.length > 75 ? item.tagline.slice(0, 75) + '…' : item.tagline;
   return `<a href="${esc(item.href)}" data-result
-    class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#F0F4FF] transition-colors cursor-pointer group"
+    class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#F0F4FF] transition-colors group"
     onclick="document.getElementById('cie-search').close()">
     <div class="w-10 h-10 rounded-lg bg-[#F8FAFC] border border-[#E8ECF2] flex items-center justify-center shrink-0 overflow-hidden">
       ${item.image
@@ -517,34 +353,43 @@ function resultRow(item: Entry, q: string): string {
     </div>
     <div class="flex-1 min-w-0">
       <div class="flex items-center gap-2 mb-0.5">
-        <span class="inline-block text-[9px] font-mono font-bold px-1.5 py-0.5 rounded ${badgeClass} shrink-0">${highlight(item.model, q)}</span>
+        <span class="inline-block text-[9px] font-mono font-bold px-1.5 py-0.5 rounded ${badge} shrink-0">${highlight(item.model, q)}</span>
         <span class="text-[10px] text-[#94A3B8] truncate">${esc(item.category)}</span>
       </div>
       <p class="text-sm font-semibold text-[#0D1B2A] leading-snug truncate group-hover:text-[#1B3A5B]">${highlight(item.name, q)}</p>
-      ${taglineShort ? `<p class="text-[11px] text-[#64748B] truncate mt-0.5">${highlight(taglineShort, q)}</p>` : ''}
+      ${tag ? `<p class="text-[11px] text-[#64748B] truncate mt-0.5">${highlight(tag, q)}</p>` : ''}
     </div>
     <svg class="w-4 h-4 text-[#CBD5E1] shrink-0 group-hover:text-[#1B3A5B] transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
   </a>`;
 }
 
-function highlight(text: string, query: string): string {
-  if (!query) return esc(text);
-  const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
-  return esc(text).replace(re, '<mark class="bg-yellow-100 text-yellow-800 rounded-sm px-0.5">$1</mark>');
+// ── Markdown ──────────────────────────────────────────────────────────────
+function renderMD(el: HTMLElement, text: string) {
+  let html = text
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/^### (.+)$/gm,'<strong class="block text-[#0D2547] mt-2 mb-0.5 text-[13px]">$1</strong>')
+    .replace(/^## (.+)$/gm, '<strong class="block text-[#0D2547] mt-2 mb-0.5">$1</strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#0D2547]">$1</strong>')
+    .replace(/`([^`]+)`/g, '<code class="bg-[#E8ECF2] px-1 py-0.5 rounded text-[11px] font-mono text-[#1B3A5B]">$1</code>')
+    .replace(/^[-•]\s(.+)$/gm, '<li class="ml-4 list-disc list-outside">$1</li>')
+    .replace(/(<li[^>]*>.*<\/li>\n?)+/g, m => `<ul class="space-y-0.5 my-1">${m}</ul>`)
+    .replace(/\n\n+/g,'</p><p class="mt-2">')
+    .replace(/\n/g,'<br>');
+  el.innerHTML = `<p>${html}</p>`;
 }
 
+function highlight(text: string, q: string): string {
+  if (!q) return esc(text);
+  const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+  return esc(text).replace(re, '<mark class="bg-yellow-100 text-yellow-800 rounded-sm px-0.5">$1</mark>');
+}
 function esc(s: string) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-
-// ── Open triggers (from header button / keyboard) ─────────────────────────
-document.querySelectorAll('[data-open-search]').forEach(el => {
-  el.addEventListener('click', openSearch);
-});
 </script>
 
 <style>
 #cie-search::backdrop { background: transparent; }
-.ai-bubble p:first-child { margin-top: 0; }
-.ai-bubble p:last-child  { margin-bottom: 0; }
+.ai-content p:first-child { margin-top: 0; }
+.ai-content p:last-child  { margin-bottom: 0; }
 </style>
