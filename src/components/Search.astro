@@ -74,8 +74,9 @@ const suggestions = [
   aria-label="Search"
   class="fixed inset-0 z-[9999] w-full h-full bg-transparent p-0 m-0 max-w-none max-h-none border-0 backdrop:bg-[#0D1B2A]/75 backdrop:backdrop-blur-md"
 >
-  <div class="flex items-start justify-center min-h-full pt-[8vh] px-4 pb-10">
-    <div id="search-box" class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col" style="max-height:86vh;">
+  <!-- Mobile: bottom sheet. Desktop: centered modal -->
+  <div class="flex items-end sm:items-start justify-center min-h-full sm:pt-[8vh] px-0 sm:px-4 pb-0 sm:pb-10">
+    <div id="search-box" class="w-full sm:max-w-2xl bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden flex flex-col" style="max-height:92vh;">
 
       <!-- Input bar -->
       <div class="flex items-center gap-2 px-3 py-3 border-b border-[#E8ECF2] shrink-0">
@@ -105,7 +106,7 @@ const suggestions = [
       </div>
 
       <!-- Scrollable body -->
-      <div id="search-body" class="flex-1 overflow-y-auto" style="scrollbar-width:thin;">
+      <div id="search-body" class="flex-1 overflow-y-auto" style="scrollbar-width:thin;-webkit-overflow-scrolling:touch;">
 
         <!-- AI answer panel (hidden until triggered) -->
         <div id="ai-panel" class="hidden border-b border-[#E8ECF2]">
@@ -130,7 +131,7 @@ const suggestions = [
             <p class="text-xs text-[#94A3B8] mb-3">Try asking a question or search by product name, model, or spec.</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {suggestions.map(s => (
-                <button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all" data-query={s}>{s}</button>
+                <button class="suggestion-chip text-left text-sm sm:text-xs px-4 py-3 sm:px-3 sm:py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] active:bg-[#EEF2FF] transition-all" data-query={s}>{s}</button>
               ))}
             </div>
           </div>
@@ -248,7 +249,7 @@ input.addEventListener('input', () => {
   clearTimeout(fuseDebounce);
   fuseDebounce = setTimeout(() => {
     if (!q.trim()) { showWelcome(); return; }
-    renderCatalog(q.trim(), extractKeywords(q.trim()));
+    renderCatalog(q.trim());
   }, 120);
 });
 
@@ -289,15 +290,16 @@ input.addEventListener('keydown', e => {
 
 aiClose.addEventListener('click', hideAI);
 
-// Suggestion chips
+// Suggestion chips — trigger both catalog results AND AI answer immediately
 document.addEventListener('click', e => {
   const chip = (e.target as HTMLElement).closest('.suggestion-chip') as HTMLElement | null;
   if (!chip) return;
   const q = chip.dataset.query || '';
   input.value = q;
-  clearBtn.classList.remove('hidden');
-  history = []; // fresh question — don't carry old context
-  renderCatalog(q, extractKeywords(q));
+  history = [];
+  newSearchBtn.classList.remove('hidden');
+  newSearchBtn.classList.add('flex');
+  renderCatalog(q);
   askAI(q);
 });
 
@@ -365,7 +367,7 @@ function showWelcome() {
     <p class="text-xs text-[#94A3B8] mb-3">Try asking a question or search by product name, model, or spec.</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
       ${['What do I need to measure motor insulation?','Compare LCR-1B vs LCR-2A','Best clamp meter for solar systems','Earth tester for site work']
-        .map(s => `<button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all" data-query="${esc(s)}">${esc(s)}</button>`).join('')}
+        .map(s => `<button class="suggestion-chip text-left text-sm sm:text-xs px-4 py-3 sm:px-3 sm:py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] active:bg-[#EEF2FF] transition-all" data-query="${esc(s)}">${esc(s)}</button>`).join('')}
     </div>`;
   catalogDiv.appendChild(welcome);
 }
@@ -446,7 +448,7 @@ function resultRow(item: Entry, q: string): string {
   const badge = isCIE ? 'bg-[#0D2547] text-white' : 'bg-emerald-700 text-white';
   const tag = item.tagline.length > 75 ? item.tagline.slice(0, 75) + '…' : item.tagline;
   return `<a href="${esc(item.href)}" data-result
-    class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#F0F4FF] transition-colors group"
+    class="flex items-center gap-3 px-4 py-3 sm:py-2.5 hover:bg-[#F0F4FF] active:bg-[#EEF2FF] transition-colors group"
     onclick="document.getElementById('cie-search').close()">
     <div class="w-10 h-10 rounded-lg bg-[#F8FAFC] border border-[#E8ECF2] flex items-center justify-center shrink-0 overflow-hidden">
       ${item.image
