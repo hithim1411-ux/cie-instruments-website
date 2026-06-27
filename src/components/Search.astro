@@ -95,9 +95,9 @@ const suggestions = [
         </button>
       </div>
 
-      <!-- Desktop scroll body — KEY: min-height:0 enables flex child scrolling -->
-      <div class="flex flex-col flex-1 min-h-0">
-        <div id="ai-panel" class="hidden border-b border-[#E8ECF2] shrink-0">
+      <!-- Desktop: single scrollable body containing AI answer + catalog -->
+      <div class="flex-1 overflow-y-auto min-h-0" style="scrollbar-width:thin;">
+        <div id="ai-panel" class="hidden border-b border-[#E8ECF2]">
           <div class="px-4 py-3">
             <div class="flex items-center gap-2 mb-2">
               <div class="w-5 h-5 rounded-md bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
@@ -109,18 +109,18 @@ const suggestions = [
               </button>
             </div>
             <div id="ai-content" class="text-sm text-[#0D1B2A] leading-relaxed ai-content"></div>
-            <!-- Reply box — shown when AI asks a question -->
+            <!-- Reply box -->
             <div id="ai-reply-box" class="hidden mt-3 flex items-center gap-2 bg-white border border-[#1B3A5B]/30 rounded-xl px-3 py-2.5 shadow-sm">
               <input id="ai-reply-input" type="text" placeholder="Type your answer here…"
                 class="flex-1 text-sm text-[#0D1B2A] bg-transparent outline-none placeholder:text-[#94A3B8]"
                 inputmode="search" enterkeyhint="send" />
-              <button id="ai-reply-send" class="w-7 h-7 rounded-lg bg-[#1B3A5B] text-white flex items-center justify-center shrink-0 hover:bg-[#0D2547] active:bg-[#0D2547] transition-colors">
+              <button id="ai-reply-send" class="w-7 h-7 rounded-lg bg-[#1B3A5B] text-white flex items-center justify-center shrink-0 hover:bg-[#0D2547] transition-colors">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
             </div>
           </div>
         </div>
-        <div id="catalog-results" class="flex-1 overflow-y-auto min-h-0" style="scrollbar-width:thin;">
+        <div id="catalog-results">
           <div class="px-4 py-4">
             <p class="text-xs text-[#94A3B8] mb-3">Try asking a question or search by product name, model, or spec.</p>
             <div class="grid grid-cols-2 gap-2">
@@ -408,8 +408,7 @@ const SYNONYMS: [RegExp, string][] = [
   [/\b(load bank|dummy load|burn.?in)\b/gi,                                     'load'],
 ];
 const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','using','used','suitable','type','types','kind','kinds','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','detector','detectors','recorder','recorders','controller','monitor','dc','ac','rms','true','phase','single','three','dual','channel','house','home','office','plant','site','building','room','residential','commercial','industrial','fluctuation','variation','fluctuations','variations',
-    'at','by','of','up','per','as','so','no','if','be','it','am','ok',
-    'panel','panels','system','systems','line','lines','unit','units','setup','station','grid','network','application','applications','purpose']);
+    'at','by','of','up','per','as','so','no','if','be','it','am','ok','but','not','more','most','very','just','also','only','even','both','about','detail','details','detailed','simple','quick','fast','slow','basic','complete','full','all','new','old','first','second','third','small','large','big','little','great','better','worse','same','different','other','another','each','every','many','much','few','less','more','such','such','own','right','left','next','last','long','short','far','near']);
 
 function extractKeywords(q: string): string {
   let expanded = q;
