@@ -100,15 +100,25 @@ function getRelevantProducts(query: string): string {
     }
   }
 
-  // Fallback: pick diverse products across categories if nothing found
-  if (!pool.length) {
+  // Post-filter: keep only items where at least one keyword literally appears
+  const kwords = keywords.split(/\s+/).filter(w => w.length > 2);
+  const filtered = kwords.length
+    ? pool.filter(p => {
+        const text = `${p.name} ${p.model} ${p.category} ${p.tagline}`.toLowerCase();
+        return kwords.some(w => new RegExp(`\\b${w}`).test(text));
+      })
+    : pool;
+  const final = filtered.length ? filtered : pool;
+
+  // Fallback: diverse categories if still nothing
+  if (!final.length) {
     const cats = new Set<string>();
     for (const p of allProducts) {
-      if (!cats.has(p.category) && pool.length < 8) { cats.add(p.category); pool.push(p); }
+      if (!cats.has(p.category) && final.length < 8) { cats.add(p.category); (final as FlatProduct[]).push(p); }
     }
   }
 
-  return pool.slice(0, 10).map(p => {
+  return final.slice(0, 10).map(p => {
     const shortSpecs = p.specs.split('; ').slice(0, 3).join('; ');
     return `[${p.model}] ${p.name} (${p.brand}) | ${p.category}\n${p.tagline}\nSpecs: ${shortSpecs}`;
   }).join('\n\n');
