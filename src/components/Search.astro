@@ -109,6 +109,15 @@ const suggestions = [
               </button>
             </div>
             <div id="ai-content" class="text-sm text-[#0D1B2A] leading-relaxed ai-content"></div>
+            <!-- Reply box — shown when AI asks a question -->
+            <div id="ai-reply-box" class="hidden mt-3 flex items-center gap-2 bg-white border border-[#1B3A5B]/30 rounded-xl px-3 py-2.5 shadow-sm">
+              <input id="ai-reply-input" type="text" placeholder="Type your answer here…"
+                class="flex-1 text-sm text-[#0D1B2A] bg-transparent outline-none placeholder:text-[#94A3B8]"
+                inputmode="search" enterkeyhint="send" />
+              <button id="ai-reply-send" class="w-7 h-7 rounded-lg bg-[#1B3A5B] text-white flex items-center justify-center shrink-0 hover:bg-[#0D2547] active:bg-[#0D2547] transition-colors">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
           </div>
         </div>
         <div id="catalog-results" class="flex-1 overflow-y-auto min-h-0" style="scrollbar-width:thin;">
@@ -162,7 +171,16 @@ const suggestions = [
         <span class="text-[11px] font-bold text-[#1B3A5B] uppercase tracking-wider">AI Answer</span>
         <svg id="mobile-ai-chevron" class="w-4 h-4 text-[#94A3B8] ml-auto transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M19 9l-7 7-7-7"/></svg>
       </button>
-      <div id="mobile-ai-content" class="px-4 pt-1 pb-3 text-sm text-[#0D1B2A] leading-relaxed ai-content"></div>
+      <div id="mobile-ai-content" class="px-4 pt-1 pb-2 text-sm text-[#0D1B2A] leading-relaxed ai-content"></div>
+      <!-- Mobile reply box -->
+      <div id="mobile-ai-reply-box" class="hidden mx-4 mb-3 flex items-center gap-2 bg-white border border-[#1B3A5B]/30 rounded-xl px-3 py-2.5 shadow-sm">
+        <input id="mobile-ai-reply-input" type="text" placeholder="Type your answer here…"
+          class="flex-1 text-[15px] text-[#0D1B2A] bg-transparent outline-none placeholder:text-[#94A3B8]"
+          inputmode="search" enterkeyhint="send" />
+        <button id="mobile-ai-reply-send" class="w-8 h-8 rounded-xl bg-[#1B3A5B] text-white flex items-center justify-center shrink-0 active:bg-[#0D2547]">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile results — fills all remaining space, scrolls -->
@@ -216,8 +234,14 @@ const desktopInput = document.getElementById('search-input')     as HTMLInputEle
 const desktopNewBtn= document.getElementById('new-search-btn')   as HTMLButtonElement;
 const desktopClose = document.getElementById('search-close-btn') as HTMLButtonElement;
 const aiPanel      = document.getElementById('ai-panel')         as HTMLElement;
-const aiContent    = document.getElementById('ai-content')       as HTMLElement;
-const aiClose      = document.getElementById('ai-close')         as HTMLButtonElement;
+const aiContent      = document.getElementById('ai-content')         as HTMLElement;
+const aiClose        = document.getElementById('ai-close')           as HTMLButtonElement;
+const aiReplyBox     = document.getElementById('ai-reply-box')       as HTMLElement;
+const aiReplyInput   = document.getElementById('ai-reply-input')     as HTMLInputElement;
+const aiReplySend    = document.getElementById('ai-reply-send')      as HTMLButtonElement;
+const mobReplyBox    = document.getElementById('mobile-ai-reply-box')    as HTMLElement;
+const mobReplyInput  = document.getElementById('mobile-ai-reply-input')  as HTMLInputElement;
+const mobReplySend   = document.getElementById('mobile-ai-reply-send')   as HTMLButtonElement;
 const catalogDiv   = document.getElementById('catalog-results')  as HTMLElement;
 // Mobile
 const mobilePanel  = document.getElementById('mobile-panel')     as HTMLElement;
@@ -444,13 +468,50 @@ async function askAI(q: string) {
     renderMD(cont, '_Connection error — please try again._');
   }
   isStreaming = false;
+
+  // Show reply box if AI asked a question (detected by ❓ in the response)
+  const askedQuestion = fullText.includes('❓') || fullText.includes('Quick question');
+  showReplyBox(askedQuestion);
 }
+
+function showReplyBox(show: boolean) {
+  if (show) {
+    aiReplyBox?.classList.remove('hidden');
+    aiReplyBox?.classList.add('flex');
+    mobReplyBox?.classList.remove('hidden');
+    mobReplyBox?.classList.add('flex');
+    setTimeout(() => (isMobile() ? mobReplyInput : aiReplyInput)?.focus(), 100);
+  } else {
+    aiReplyBox?.classList.add('hidden');
+    aiReplyBox?.classList.remove('flex');
+    mobReplyBox?.classList.add('hidden');
+    mobReplyBox?.classList.remove('flex');
+  }
+}
+
+function sendReply(input: HTMLInputElement) {
+  const val = input.value.trim();
+  if (!val) return;
+  // Mirror reply into main search input so history context is right
+  desktopInput.value = val;
+  mobileInput.value = val;
+  input.value = '';
+  showReplyBox(false);
+  askAI(val);
+}
+
+// Wire reply inputs
+aiReplyInput?.addEventListener('keydown', e => { if (e.key === 'Enter') sendReply(aiReplyInput); });
+aiReplySend?.addEventListener('click', () => sendReply(aiReplyInput));
+mobReplyInput?.addEventListener('keydown', e => { if (e.key === 'Enter') sendReply(mobReplyInput); });
+mobReplySend?.addEventListener('click', () => sendReply(mobReplyInput));
 
 function hideAI() {
   aiPanel.classList.add('hidden');
   aiContent.innerHTML = '';
   mobileAIPanel.style.display = 'none';
   mobileAICont.innerHTML = '';
+  showReplyBox(false);
 }
 
 // ── Catalog ───────────────────────────────────────────────────────────────
