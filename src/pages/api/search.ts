@@ -72,17 +72,43 @@ const productFuse = new Fuse(allProducts, {
   minMatchCharLength: 2,
 });
 
+const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure']);
+
 function getRelevantProducts(query: string): string {
-  const expanded = query
-    .replace(/\bmotor\b/gi, 'motor insulation winding')
-    .replace(/\bearth(ing)?\b/gi, 'earth resistance ground')
-    .replace(/\bsolar\b/gi, 'solar DC current clamp');
+  // Extract meaningful keywords
+  const keywords = query.toLowerCase()
+    .replace(/[?!.,]/g, '')
+    .split(/\s+/)
+    .filter(w => w.length > 2 && !STOP.has(w))
+    .join(' ') || query;
 
-  const hits = productFuse.search(expanded, { limit: 8 });
-  const pool = hits.length ? hits.map(h => h.item) : allProducts.slice(0, 10);
+  const seen = new Set<string>();
+  const pool: FlatProduct[] = [];
 
-  return pool.map(p => {
-    // Keep specs short — first 3 only
+  // 1. Full keyword phrase
+  for (const r of productFuse.search(keywords, { limit: 8 })) {
+    if (!seen.has(r.item.model)) { seen.add(r.item.model); pool.push(r.item); }
+  }
+  // 2. Each word individually with stricter threshold
+  const strictFuse = new Fuse(allProducts, {
+    keys: [{ name: 'name', weight: 3 }, { name: 'model', weight: 3 }, { name: 'tagline', weight: 2 }, { name: 'category', weight: 1 }],
+    threshold: 0.15, ignoreLocation: true, minMatchCharLength: 3,
+  });
+  for (const word of keywords.split(/\s+/).filter(w => w.length > 2)) {
+    for (const r of strictFuse.search(word, { limit: 4 })) {
+      if (!seen.has(r.item.model)) { seen.add(r.item.model); pool.push(r.item); }
+    }
+  }
+
+  // Fallback: pick diverse products across categories if nothing found
+  if (!pool.length) {
+    const cats = new Set<string>();
+    for (const p of allProducts) {
+      if (!cats.has(p.category) && pool.length < 8) { cats.add(p.category); pool.push(p); }
+    }
+  }
+
+  return pool.slice(0, 10).map(p => {
     const shortSpecs = p.specs.split('; ').slice(0, 3).join('; ');
     return `[${p.model}] ${p.name} (${p.brand}) | ${p.category}\n${p.tagline}\nSpecs: ${shortSpecs}`;
   }).join('\n\n');
