@@ -287,12 +287,12 @@ export const POST: APIRoute = async ({ request }) => {
 
     // 6-model chain — try each until one works, covering all rate limit scenarios
     const models = [
-      'nousresearch/hermes-3-llama-3.1-405b:free',   // 405B — best reasoning
+      'nousresearch/hermes-3-llama-3.1-405b:free',   // 405B — best instruction following
       'meta-llama/llama-3.3-70b-instruct:free',       // 70B strong
-      'nvidia/nemotron-3-ultra-550b-a55b:free',       // Nvidia 550B
-      'nvidia/nemotron-3-super-120b-a12b:free',       // Nvidia 120B
-      'google/gemma-4-31b-it:free',                   // Google Gemma
-      'openai/gpt-oss-20b:free',                      // OpenAI OSS
+      'openai/gpt-oss-120b:free',                     // OpenAI OSS 120B
+      'openai/gpt-oss-20b:free',                      // OpenAI OSS 20B
+      'google/gemma-4-31b-it:free',                   // Google Gemma 31B
+      'meta-llama/llama-3.2-3b-instruct:free',        // 3B fast emergency fallback
     ];
     let res = await callOR(models[0]);
     for (let i = 1; i < models.length; i++) {
@@ -327,7 +327,10 @@ export const POST: APIRoute = async ({ request }) => {
               if (data === '[DONE]') continue;
               try {
                 const json = JSON.parse(data);
-                const text = json.choices?.[0]?.delta?.content;
+                // Some models put output in content, others in reasoning_content (thinking models)
+                // We want the final answer (content), skip thinking tokens
+                const delta = json.choices?.[0]?.delta;
+                const text = delta?.content || '';
                 if (text) controller.enqueue(encoder.encode(text));
               } catch {}
             }
