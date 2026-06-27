@@ -1,5 +1,4 @@
 import type { APIRoute } from 'astro';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import cieProducts from '../../data/products.json';
 import cieCategories from '../../data/categories.json';
 import vMM from '../../data/vartech-multimeters.json';
@@ -105,9 +104,9 @@ Rules:
 - Be friendly, expert, and concise`;
 
 export const POST: APIRoute = async ({ request }) => {
-  const apiKey = import.meta.env.GEMINI_API_KEY;
+  const apiKey = import.meta.env.GROQ_API_KEY;
   if (!apiKey) {
-    return new Response(JSON.stringify({ error: 'AI search not configured. Add GEMINI_API_KEY to environment.' }), {
+    return new Response(JSON.stringify({ error: 'AI search not configured. Add GROQ_API_KEY to Vercel environment.' }), {
       status: 503, headers: { 'Content-Type': 'application/json' },
     });
   }
@@ -130,30 +129,61 @@ export const POST: APIRoute = async ({ request }) => {
 
   try {
     const relevantProducts = getRelevantProducts(query);
-    const systemInstruction = `${BASE_SYSTEM}\n\nRELEVANT PRODUCTS FOR THIS QUERY:\n${relevantProducts}`;
+    const systemPrompt = `${BASE_SYSTEM}\n\nRELEVANT PRODUCTS FOR THIS QUERY:\n${relevantProducts}`;
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-2.0-flash',
-      systemInstruction,
+    const messages = [
+      { role: 'system', content: systemPrompt },
+      ...history.map(h => ({ role: h.role === 'model' ? 'assistant' : h.role, content: h.parts })),
+      { role: 'user', content: query },
+    ];
+
+    const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'llama-3.1-8b-instant',
+        messages,
+        stream: true,
+        max_tokens: 512,
+        temperature: 0.4,
+      }),
     });
 
-    const chat = model.startChat({
-      history: history.map(h => ({
-        role: h.role as 'user' | 'model',
-        parts: [{ text: h.parts }],
-      })),
-    });
+    if (!res.ok) {
+      const err = await res.text();
+      console.error('Groq error:', err);
+      return new Response(JSON.stringify({ error: 'AI temporarily unavailable. Try again.' }), {
+        status: 503, headers: { 'Content-Type': 'application/json' },
+      });
+    }
 
-    const result = await chat.sendMessageStream(query);
-
+    // Stream SSE → plain text
     const encoder = new TextEncoder();
     const readable = new ReadableStream({
       async start(controller) {
+        const reader = res.body!.getReader();
+        const decoder = new TextDecoder();
+        let buf = '';
         try {
-          for await (const chunk of result.stream) {
-            const text = chunk.text();
-            if (text) controller.enqueue(encoder.encode(text));
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buf += decoder.decode(value, { stream: true });
+            const lines = buf.split('\n');
+            buf = lines.pop() ?? '';
+            for (const line of lines) {
+              if (!line.startsWith('data: ')) continue;
+              const data = line.slice(6).trim();
+              if (data === '[DONE]') continue;
+              try {
+                const json = JSON.parse(data);
+                const text = json.choices?.[0]?.delta?.content;
+                if (text) controller.enqueue(encoder.encode(text));
+              } catch {}
+            }
           }
         } finally {
           controller.close();
@@ -162,13 +192,10 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     return new Response(readable, {
-      headers: {
-        'Content-Type': 'text/plain; charset=utf-8',
-        'Cache-Control': 'no-cache',
-      },
+      headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' },
     });
   } catch (err: any) {
-    console.error('Gemini error:', err?.message || err);
+    console.error('Groq error:', err?.message || err);
     return new Response(JSON.stringify({ error: 'AI temporarily unavailable. Try again.' }), {
       status: 503, headers: { 'Content-Type': 'application/json' },
     });
