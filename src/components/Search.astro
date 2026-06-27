@@ -77,8 +77,8 @@ const suggestions = [
   <div class="flex items-start justify-center min-h-full pt-[8vh] px-4 pb-10">
     <div id="search-box" class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col" style="max-height:86vh;">
 
-      <!-- Single input bar -->
-      <div class="flex items-center gap-3 px-4 py-3.5 border-b border-[#E8ECF2] shrink-0">
+      <!-- Input bar -->
+      <div class="flex items-center gap-2 px-3 py-3 border-b border-[#E8ECF2] shrink-0">
         <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
           <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/>
@@ -90,14 +90,17 @@ const suggestions = [
           autocomplete="off"
           spellcheck="false"
           placeholder="Search products or ask anything…"
-          class="flex-1 text-[#0D1B2A] text-[15px] bg-transparent outline-none placeholder:text-[#94A3B8] font-medium"
+          class="flex-1 text-[#0D1B2A] text-[15px] bg-transparent outline-none placeholder:text-[#94A3B8] font-medium min-w-0"
         />
-        <!-- Enter hint -->
-        <span id="enter-hint" class="hidden sm:flex items-center gap-1 text-[10px] text-[#94A3B8] font-mono shrink-0">
-          <kbd class="px-1.5 py-0.5 bg-[#F1F5F9] border border-[#E2E8F0] rounded text-[9px]">↵</kbd> ask AI
-        </span>
-        <button id="search-clear" class="hidden w-6 h-6 rounded-full bg-[#F1F5F9] items-center justify-center text-[#64748B] hover:bg-[#E2E8F0] transition-colors shrink-0">
+        <!-- New Search — appears when there's content -->
+        <button id="new-search-btn" class="hidden items-center gap-1 text-[11px] font-medium text-[#1B3A5B] bg-[#EEF2FF] hover:bg-[#E0E9FF] px-2.5 py-1.5 rounded-lg transition-colors shrink-0 whitespace-nowrap">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 4v16m8-8H4"/></svg>
+          New
+        </button>
+        <!-- Close button — visible always, prominent on mobile -->
+        <button id="search-close-btn" class="flex items-center gap-1 text-[11px] font-medium text-[#64748B] hover:text-[#0D1B2A] hover:bg-[#F1F5F9] px-2.5 py-1.5 rounded-lg transition-colors shrink-0">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          <span class="sm:hidden">Close</span>
         </button>
       </div>
 
@@ -138,9 +141,15 @@ const suggestions = [
       <!-- Footer -->
       <div class="px-4 py-2 border-t border-[#E8ECF2] bg-[#F8FAFC] flex items-center justify-between shrink-0">
         <span class="text-[10px] text-[#94A3B8] font-mono">Powered by Groq · {searchIndex.length} instruments</span>
-        <div class="flex items-center gap-3 text-[10px] text-[#94A3B8] font-mono">
-          <span><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">⌘K</kbd> toggle</span>
+        <!-- Desktop: keyboard hints -->
+        <div class="hidden sm:flex items-center gap-3 text-[10px] text-[#94A3B8] font-mono">
+          <span><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">↵</kbd> ask AI</span>
           <span><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">esc</kbd> close</span>
+        </div>
+        <!-- Mobile: tap buttons -->
+        <div class="flex sm:hidden items-center gap-2">
+          <button id="new-search-footer" class="text-[11px] font-medium text-[#1B3A5B] bg-[#EEF2FF] px-3 py-1.5 rounded-lg active:bg-[#E0E9FF]">New Search</button>
+          <button id="close-footer" class="text-[11px] font-medium text-white bg-[#1B3A5B] px-3 py-1.5 rounded-lg active:bg-[#0D2547]">Close</button>
         </div>
       </div>
 
@@ -164,15 +173,17 @@ const fuse = new Fuse(index, {
   threshold: 0.35, includeScore: true, minMatchCharLength: 2, ignoreLocation: true,
 });
 
-const modal       = document.getElementById('cie-search') as HTMLDialogElement;
-const input       = document.getElementById('search-input') as HTMLInputElement;
-const clearBtn    = document.getElementById('search-clear') as HTMLButtonElement;
-const enterHint   = document.getElementById('enter-hint') as HTMLElement;
-const aiPanel     = document.getElementById('ai-panel') as HTMLElement;
-const aiContent   = document.getElementById('ai-content') as HTMLElement;
-const aiClose     = document.getElementById('ai-close') as HTMLButtonElement;
-const catalogDiv  = document.getElementById('catalog-results') as HTMLElement;
-const welcomeDiv  = document.getElementById('welcome-state') as HTMLElement;
+const modal          = document.getElementById('cie-search') as HTMLDialogElement;
+const input          = document.getElementById('search-input') as HTMLInputElement;
+const newSearchBtn   = document.getElementById('new-search-btn') as HTMLButtonElement;
+const closeBtn       = document.getElementById('search-close-btn') as HTMLButtonElement;
+const newSearchFooter= document.getElementById('new-search-footer') as HTMLButtonElement;
+const closeFooter    = document.getElementById('close-footer') as HTMLButtonElement;
+const aiPanel        = document.getElementById('ai-panel') as HTMLElement;
+const aiContent      = document.getElementById('ai-content') as HTMLElement;
+const aiClose        = document.getElementById('ai-close') as HTMLButtonElement;
+const catalogDiv     = document.getElementById('catalog-results') as HTMLElement;
+const searchBox      = document.getElementById('search-box') as HTMLElement;
 
 let isStreaming = false;
 let history: { role: string; parts: string }[] = [];
@@ -181,25 +192,58 @@ let fuseDebounce: ReturnType<typeof setTimeout>;
 // ── Open / close ──────────────────────────────────────────────────────────
 function openSearch() {
   modal.showModal();
-  input.value = '';
-  clearBtn.classList.add('hidden');
-  enterHint?.classList.remove('hidden');
-  showWelcome();
+  newSearch();
   setTimeout(() => input.focus(), 50);
 }
-function closeSearch() { modal.close(); input.value = ''; }
 
+function closeSearch() {
+  modal.close();
+  input.value = '';
+}
+
+function newSearch() {
+  input.value = '';
+  newSearchBtn.classList.add('hidden');
+  hideAI();
+  showWelcome();
+  history = [];
+  setTimeout(() => input.focus(), 50);
+}
+
+// Close on backdrop click (desktop + mobile)
 modal.addEventListener('click', e => { if (e.target === modal) closeSearch(); });
+modal.addEventListener('touchend', e => { if (e.target === modal) closeSearch(); });
+
+// Button wiring
+closeBtn.addEventListener('click', closeSearch);
+closeBtn.addEventListener('touchend', e => { e.preventDefault(); closeSearch(); });
+newSearchBtn.addEventListener('click', newSearch);
+newSearchBtn.addEventListener('touchend', e => { e.preventDefault(); newSearch(); });
+newSearchFooter?.addEventListener('click', newSearch);
+newSearchFooter?.addEventListener('touchend', e => { e.preventDefault(); newSearch(); });
+closeFooter?.addEventListener('click', closeSearch);
+closeFooter?.addEventListener('touchend', e => { e.preventDefault(); closeSearch(); });
+
+// Keyboard
 document.addEventListener('keydown', e => {
   const mac = navigator.platform.toUpperCase().includes('MAC');
   if ((mac ? e.metaKey : e.ctrlKey) && e.key === 'k') { e.preventDefault(); modal.open ? closeSearch() : openSearch(); }
   if (e.key === 'Escape' && modal.open) closeSearch();
 });
 
+// Swipe down to close on mobile
+let touchStartY = 0;
+searchBox.addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
+searchBox.addEventListener('touchend', e => {
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  if (dy > 80) closeSearch(); // swipe down 80px = close
+}, { passive: true });
+
 // ── Input handling ─────────────────────────────────────────────────────────
 input.addEventListener('input', () => {
   const q = input.value;
-  clearBtn.classList.toggle('hidden', !q.trim());
+  newSearchBtn.classList.toggle('hidden', !q.trim());
+  newSearchBtn.classList.toggle('flex', !!q.trim());
 
   clearTimeout(fuseDebounce);
   fuseDebounce = setTimeout(() => {
@@ -240,13 +284,8 @@ input.addEventListener('keydown', e => {
   }
 });
 
-clearBtn.addEventListener('click', () => {
-  input.value = '';
-  clearBtn.classList.add('hidden');
-  hideAI();
-  showWelcome();
-  input.focus();
-});
+// suggestion chips also show new search btn
+
 
 aiClose.addEventListener('click', hideAI);
 
@@ -268,6 +307,8 @@ async function askAI(q: string) {
   isStreaming = true;
 
   aiPanel.classList.remove('hidden');
+  newSearchBtn.classList.remove('hidden');
+  newSearchBtn.classList.add('flex');
   aiContent.innerHTML = `<span class="inline-flex gap-1 items-center">
     <span class="w-1.5 h-1.5 bg-[#94A3B8] rounded-full animate-bounce" style="animation-delay:0ms"></span>
     <span class="w-1.5 h-1.5 bg-[#94A3B8] rounded-full animate-bounce" style="animation-delay:150ms"></span>
