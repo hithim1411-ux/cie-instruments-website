@@ -72,7 +72,7 @@ const productFuse = new Fuse(allProducts, {
   minMatchCharLength: 2,
 });
 
-const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','suitable','type','types','kind','kinds','used','using','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','multimeter','multimeters','detector','detectors','recorder','recorders','controller','monitor','dc','ac','rms','true','phase','single','three','dual','channel','house','home','office','plant','building','room','residential','commercial','fluctuation','variation','fluctuations','variations']);
+const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','suitable','type','types','kind','kinds','used','using','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','detector','detectors','recorder','recorders','controller','monitor','dc','ac','rms','true','phase','single','three','dual','channel','house','home','office','plant','building','room','residential','commercial','fluctuation','variation','fluctuations','variations']);
 
 const SYNONYMS: [RegExp, string][] = [
   [/\b(light intensity|illuminance|brightness|luminance|lux level)\b/gi,       'lux'],
@@ -85,7 +85,7 @@ const SYNONYMS: [RegExp, string][] = [
   [/\b(oscilloscope|waveform|signal capture)\b/gi,                              'oscilloscope'],
   [/\b(signal generator|waveform generator)\b/gi,                               'function generator'],
   [/\b(temperature|thermal|thermocouple)\b/gi,                                  'thermometer'],
-  [/\b(voltage fluctuation|voltage variation|power fluctuation|voltage dip|voltage surge)\b/gi, 'multimeter'],
+  [/\b(voltage fluctuations?|voltage variations?|power fluctuations?|voltage dips?|voltage surges?|mains voltage|supply voltage|power quality)\b/gi, 'multimeter'],
   [/\b(continuity|short circuit|open circuit|fuse|wire break)\b/gi,             'multimeter'],
   [/\b(battery|charge|discharge|capacity test)\b/gi,                            'clamp'],
   [/\b(humidity|moisture|dew point)\b/gi,                                       'thermometer'],
