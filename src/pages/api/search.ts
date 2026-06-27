@@ -72,7 +72,7 @@ const productFuse = new Fuse(allProducts, {
   minMatchCharLength: 2,
 });
 
-const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','suitable','type','types','kind','kinds','used','using','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','multimeter','multimeters','detector','detectors','recorder','recorders','controller','monitor']);
+const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','suitable','type','types','kind','kinds','used','using','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','multimeter','multimeters','detector','detectors','recorder','recorders','controller','monitor','dc','ac','rms','true','phase','single','three','dual','channel']);
 
 const SYNONYMS: [RegExp, string][] = [
   [/\b(light intensity|illuminance|brightness|luminance|lux level)\b/gi, 'lux'],
@@ -190,14 +190,23 @@ THERMOMETERS: Temperature measurement.
 DC POWER SUPPLIES: Bench testing, powering circuits.
 CALIBRATORS: Calibrating other instruments.
 
+CATEGORY BOUNDARIES — never cross these:
+- User asks for a power supply → only recommend DC Power Supplies. Never suggest a multimeter, clamp meter, or any other type.
+- User asks for a clamp meter → only recommend clamp meters.
+- User asks for a multimeter → only recommend multimeters.
+- User asks for an insulation tester → only recommend insulation testers.
+- User asks for an earth tester → only recommend earth testers.
+- User asks for an oscilloscope → only recommend oscilloscopes.
+- Give the user exactly what they asked for. A multimeter is NOT a substitute for a power supply.
+
 == RESPONSE RULES ==
 - Recommend by model number in **bold**
-- Cite the specific spec that makes it right (e.g. "DC Current Ranges: 60A/600A/1000A")
-- For comparisons: short bullet list per product, not a table
-- Under 150 words
-- Only use products from the provided list — never invent
-- End with one short call to action
-- No filler: no "Great question", no "I hope this helps"`;
+- Cite the specific spec that makes it the right choice
+- For comparisons: short bullet list per product, no tables
+- HARD LIMIT: 100 words maximum. Be concise.
+- Only recommend products from the provided list — never invent
+- End with one short call to action sentence
+- No filler phrases`;
 
 export const POST: APIRoute = async ({ request }) => {
   const apiKey = import.meta.env.GROQ_API_KEY;
@@ -243,7 +252,7 @@ export const POST: APIRoute = async ({ request }) => {
         model: 'llama-3.1-8b-instant',
         messages,
         stream: true,
-        max_tokens: 512,
+        max_tokens: 300,
         temperature: 0.4,
       }),
     });
