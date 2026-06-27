@@ -141,8 +141,8 @@ const fuse = new Fuse(index, {
   keys: [
     { name: 'model',    weight: 3 },
     { name: 'name',     weight: 2 },
-    { name: 'category', weight: 1.5 },
     { name: 'tagline',  weight: 1 },
+    { name: 'category', weight: 0.5 },
   ],
   threshold:       0.2,
   includeScore:    true,
