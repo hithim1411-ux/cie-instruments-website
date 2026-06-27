@@ -580,7 +580,8 @@ function smartSearch(q: string): Entry[] {
     ? candidates.filter(item => {
         // Only match name/model/category — not tagline (too many false positives)
         const text = `${item.name} ${item.model} ${item.category}`.toLowerCase();
-        return words.some(w => new RegExp(`\\b${w}\\b`).test(text));
+        // Use prefix match (\bword) — no trailing boundary — so "insu" matches "insulation"
+        return words.some(w => new RegExp(`\\b${w}`).test(text));
       })
     : candidates;
 
