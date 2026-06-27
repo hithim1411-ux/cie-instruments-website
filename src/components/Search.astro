@@ -310,9 +310,33 @@ function showWelcome() {
   catalogDiv.appendChild(welcome);
 }
 
-function renderCatalog(q: string, keywords?: string) {
-  const searchQ = keywords && keywords !== q ? keywords : q;
-  const items = fuse.search(searchQ, { limit: 40 }).map(r => r.item);
+// Strict fuse for single-word lookups to avoid loose false matches
+const fuseStrict = new Fuse(index, {
+  keys: [{ name: 'model', weight: 3 }, { name: 'name', weight: 2 }, { name: 'tagline', weight: 1 }, { name: 'category', weight: 0.5 }],
+  threshold: 0.15, includeScore: true, minMatchCharLength: 3, ignoreLocation: true,
+});
+
+function smartSearch(q: string): Entry[] {
+  const keywords = extractKeywords(q);
+  const words = keywords.split(/\s+/).filter(w => w.length > 2);
+  const seen = new Set<string>();
+  const results: Entry[] = [];
+
+  // 1. Full keyword phrase — broad threshold, catches multi-word matches
+  for (const r of fuse.search(keywords, { limit: 20 })) {
+    if (!seen.has(r.item.id)) { seen.add(r.item.id); results.push(r.item); }
+  }
+  // 2. Each word individually — strict threshold to avoid false matches like "meter" → insulation tester
+  for (const word of words) {
+    for (const r of fuseStrict.search(word, { limit: 8 })) {
+      if (!seen.has(r.item.id)) { seen.add(r.item.id); results.push(r.item); }
+    }
+  }
+  return results.slice(0, 40);
+}
+
+function renderCatalog(q: string, _keywords?: string) {
+  const items = smartSearch(q);
   if (!items.length) {
     catalogDiv.innerHTML = `<div class="px-6 py-8 text-center">
       <p class="text-[#64748B] font-medium text-sm">No catalog match for "<span class="text-[#0D1B2A]">${esc(q)}</span>"</p>

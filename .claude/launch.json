@@ -2,11 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "cie-website",
+      "name": "cie-preview",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 4321,
-      "autoPort": false
+      "runtimeArgs": ["run", "preview"],
+      "port": 4321
     }
   ]
 }
