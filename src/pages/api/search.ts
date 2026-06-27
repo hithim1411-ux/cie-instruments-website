@@ -285,12 +285,12 @@ export const POST: APIRoute = async ({ request }) => {
         body: JSON.stringify({ model, messages, stream: true, max_tokens: 500, temperature: 0.3 }),
       });
 
-    // Primary: Gemini 2.0 Flash (best free quality for sales reasoning)
+    // Primary: Hermes 405B (largest free model — best reasoning)
     // Fallback 1: LLaMA 3.3 70B (strong instruction following)
-    // Fallback 2: LLaMA 3.1 8B (always available)
-    let res = await callOR('google/gemini-2.0-flash-exp:free');
+    // Fallback 2: Gemma 4 31B (Google's free model)
+    let res = await callOR('nousresearch/hermes-3-llama-3.1-405b:free');
     if (res.status === 429 || !res.ok) res = await callOR('meta-llama/llama-3.3-70b-instruct:free');
-    if (res.status === 429 || !res.ok) res = await callOR('meta-llama/llama-3.1-8b-instruct:free');
+    if (res.status === 429 || !res.ok) res = await callOR('google/gemma-4-31b-it:free');
 
     if (!res.ok) {
       console.error('OpenRouter error:', res.status, await res.text());
