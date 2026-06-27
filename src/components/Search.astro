@@ -239,6 +239,7 @@ document.addEventListener('click', e => {
   const q = chip.dataset.query || '';
   input.value = q;
   clearBtn.classList.remove('hidden');
+  history = []; // fresh question — don't carry old context
   renderCatalog(q, extractKeywords(q));
   askAI(q);
 });

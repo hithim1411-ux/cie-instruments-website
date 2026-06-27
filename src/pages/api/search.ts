@@ -73,22 +73,18 @@ const productFuse = new Fuse(allProducts, {
 });
 
 function getRelevantProducts(query: string): string {
-  // Semantic-ish: also add keyword expansion for common intents
   const expanded = query
     .replace(/\bmotor\b/gi, 'motor insulation winding')
     .replace(/\bearth(ing)?\b/gi, 'earth resistance ground')
     .replace(/\bsolar\b/gi, 'solar DC current clamp');
 
-  const hits = productFuse.search(expanded, { limit: 12 });
-  if (!hits.length) {
-    // fall back: return all products in compact form
-    return allProducts.map(p =>
-      `[${p.model}] ${p.name} (${p.brand}) | ${p.category} | ${p.tagline}`
-    ).join('\n');
-  }
-  return hits.map(h => {
-    const p = h.item;
-    return `[${p.model}] ${p.name} (${p.brand})\nCategory: ${p.category}\n${p.tagline}\nSpecs: ${p.specs}${p.apps ? '\nApplications: ' + p.apps : ''}`;
+  const hits = productFuse.search(expanded, { limit: 8 });
+  const pool = hits.length ? hits.map(h => h.item) : allProducts.slice(0, 10);
+
+  return pool.map(p => {
+    // Keep specs short — first 3 only
+    const shortSpecs = p.specs.split('; ').slice(0, 3).join('; ');
+    return `[${p.model}] ${p.name} (${p.brand}) | ${p.category}\n${p.tagline}\nSpecs: ${shortSpecs}`;
   }).join('\n\n');
 }
 
