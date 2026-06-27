@@ -282,25 +282,34 @@ export const POST: APIRoute = async ({ request }) => {
       { role: 'user', content: query },
     ];
 
-    const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
-        messages,
-        stream: true,
-        max_tokens: 400,
-        temperature: 0.4,
-      }),
+    const groqBody = JSON.stringify({
+      model: 'llama-3.3-70b-versatile',
+      messages, stream: true, max_tokens: 400, temperature: 0.4,
     });
+
+    // Retry once on rate limit (429)
+    let res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+      body: groqBody,
+    });
+
+    if (res.status === 429) {
+      await new Promise(r => setTimeout(r, 3000)); // wait 3s, retry
+      res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+        body: groqBody,
+      });
+    }
 
     if (!res.ok) {
       const err = await res.text();
-      console.error('Groq error:', err);
-      return new Response(JSON.stringify({ error: 'AI temporarily unavailable. Try again.' }), {
+      console.error('Groq error:', res.status, err);
+      const msg = res.status === 429
+        ? 'Rate limit reached — please wait a moment and try again.'
+        : 'AI temporarily unavailable. Try again.';
+      return new Response(JSON.stringify({ error: msg }), {
         status: 503, headers: { 'Content-Type': 'application/json' },
       });
     }

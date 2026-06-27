@@ -403,14 +403,14 @@ const SYNONYMS: [RegExp, string][] = [
   [/\b(temperature|thermal|thermocouple)\b/gi,                                  'thermometer'],
   [/\b(voltage fluctuations?|voltage variations?|power fluctuations?|voltage dips?|voltage surges?|mains voltage|supply voltage|power quality)\b/gi, 'multimeter'],
   [/\b(continuity|short circuit|open circuit|fuse|wire break)\b/gi,             'multimeter'],
-  [/\b(ev battery|electric vehicle battery|lithium battery|battery test|battery capacity)\b/gi, 'load clamp'],
-  [/\b(battery|charge|discharge)\b/gi,                                          'clamp'],
+  [/\b(ev battery|electric vehicle battery|lithium battery|battery test|battery capacity|battery analysis|analyse battery|battery health)\b/gi, 'load clamp multimeter'],
+  [/\b(battery|charge|discharge)\b/gi,                                          'load clamp'],
   [/\b(rpm|rotation|speed|vibration)\b/gi,                                      'multimeter'],
   [/\b(humidity|moisture|dew point)\b/gi,                                       'thermometer'],
   [/\b(load bank|dummy load|burn.?in)\b/gi,                                     'load'],
 ];
 const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','using','used','suitable','type','types','kind','kinds','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','detector','detectors','recorder','recorders','controller','monitor','dc','ac','rms','true','phase','single','three','dual','channel','house','home','office','plant','site','building','room','residential','commercial','industrial','fluctuation','variation','fluctuations','variations',
-    'at','by','of','up','per','as','so','no','if','be','it','am','ok','but','not','more','most','very','just','also','only','even','both','about','detail','details','detailed','simple','quick','fast','slow','basic','complete','full','all','new','old','first','second','third','small','large','big','little','great','better','worse','same','different','other','another','each','every','many','much','few','less','more','such','such','own','right','left','next','last','long','short','far','near']);
+    'at','by','of','up','per','as','so','no','if','be','it','am','ok','but','not','more','most','very','just','also','only','even','both','about','detail','details','detailed','analyse','analysis','analyzing','check','verify','measure','simple','quick','fast','slow','basic','complete','full','all','new','old','first','second','third','small','large','big','little','great','better','worse','same','different','other','another','each','every','many','much','few','less','more','such','such','own','right','left','next','last','long','short','far','near']);
 
 function extractKeywords(q: string): string {
   let expanded = q;
