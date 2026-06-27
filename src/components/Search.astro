@@ -478,26 +478,38 @@ async function askAI(q: string) {
   const askedQuestion = fullText.includes('❓') || fullText.includes('Quick question');
   showReplyBox(askedQuestion);
 
-  // After AI responds, extract model numbers it mentioned and show those products
-  // This handles follow-up answers like "TV", "LV motor" that don't map to catalog keywords
+  // After AI responds, always update catalog based on what the AI recommended
   if (fullText && !askedQuestion) {
-    const modelMatches = fullText.match(/\*\*([A-Z0-9][A-Z0-9\s\/\-\.+]+?)\*\*/g);
-    if (modelMatches) {
-      const models = modelMatches.map(m => m.replace(/\*\*/g, '').trim().toLowerCase());
-      const aiMentionedProducts = index.filter(item =>
-        models.some(m => item.model.toLowerCase().includes(m) || m.includes(item.model.toLowerCase()))
-      );
-      if (aiMentionedProducts.length) {
-        // Show the categories of AI-mentioned products
-        const cats = new Set(aiMentionedProducts.map(p => p.category));
-        const catProducts = index.filter(p => cats.has(p.category));
-        const cie = catProducts.filter(p => p.brand === 'cie');
-        const vt  = catProducts.filter(p => p.brand === 'vartech');
-        let html = '';
-        if (cie.length) html += section('CIE — Manufactured', 'text-[#E0252E]', cie, q, false);
-        if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
-        if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; }
-      }
+    // Extract model numbers from the AI response text (not just bolded ones)
+    // Handles: "**Recommended:** CIE/222M", "CIE/444", "DCM 5410 TR", "DET-2000" etc.
+    const textLower = fullText.toLowerCase();
+    const aiMentionedProducts = index.filter(item => {
+      const m = item.model.toLowerCase();
+      // Model appears anywhere in the AI response (after "recommended:", "consider:", or inline)
+      return textLower.includes(m);
+    });
+
+    if (aiMentionedProducts.length) {
+      const cats = new Set(aiMentionedProducts.map(p => p.category));
+      const catProducts = index.filter(p => cats.has(p.category));
+      const cie = catProducts.filter(p => p.brand === 'cie');
+      const vt  = catProducts.filter(p => p.brand === 'vartech');
+      let html = '';
+      if (cie.length) html += section('CIE — Manufactured', 'text-[#E0252E]', cie, q, false);
+      if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
+      if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; return; }
+    }
+
+    // Fallback: run Fuse search on the AI response text to find relevant products
+    const aiSearchResults = fuse.search(fullText.slice(0, 300), { limit: 10 });
+    if (aiSearchResults.length) {
+      const items = aiSearchResults.map(r => r.item);
+      const cie = items.filter(p => p.brand === 'cie');
+      const vt  = items.filter(p => p.brand === 'vartech');
+      let html = '';
+      if (cie.length) html += section('CIE — Manufactured', 'text-[#E0252E]', cie, q, false);
+      if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
+      if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; }
     }
   }
 }
