@@ -226,14 +226,16 @@ End with: "View full specs at [PRODUCT PAGE URL]" or "Contact CIE at cieinstrume
 • [most critical spec for their use case]
 • [second most relevant]
 • [third]
-**Also consider:** [model] — [when to choose this instead] *(only if genuinely different option)*
-→ View full details: [PRODUCT PAGE URL from the product list]
-→ For pricing and availability: cieinstruments.in/contact/
+**Also consider:** [model] — [when to choose this instead] *(only if a genuinely different option exists)*
+→ [Contact CIE for pricing and availability](https://cieinstruments.in/contact/)
+
+Note: Do NOT include product page URLs in the response — the product cards are shown below the answer.
 
 ---
 
 **When comparing (user asked compare/vs/difference):**
 Show both fairly. No winner. End with "Choose [A] if... Choose [B] if..."
+Do NOT include product page URLs — products are shown below.
 
 **[Model A]** — [name]
 • [key spec] • [key spec]
@@ -244,6 +246,7 @@ Show both fairly. No winner. End with "Choose [A] if... Choose [B] if..."
 • Best for: [use case]
 
 Choose **[A]** if [condition]. Choose **[B]** if [condition].
+→ [Contact CIE for pricing](https://cieinstruments.in/contact/)
 
 ---
 

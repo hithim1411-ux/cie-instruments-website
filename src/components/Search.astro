@@ -680,7 +680,9 @@ function renderMD(el: HTMLElement, text: string) {
       .replace(/^## (.+)$/gm, '<strong class="block text-[#0D2547] font-semibold mt-1">$1</strong>')
       .replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#0D2547]">$1</strong>')
       .replace(/`([^`]+)`/g, '<code class="bg-[#E8ECF2] px-1 py-0.5 rounded text-[11px] font-mono text-[#1B3A5B]">$1</code>')
-      .replace(/^[-•]\s(.+)$/gm, '<li class="ml-4 list-disc list-outside leading-snug">$1</li>')
+      // Markdown links [text](url) → clickable anchor
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="text-[#1B3A5B] underline underline-offset-2 hover:text-[#E0252E] transition-colors">$1</a>')
+      .replace(/^[-•→]\s(.+)$/gm, '<li class="ml-4 list-disc list-outside leading-snug">$1</li>')
       .replace(/\n/g, '<br>');
     if (b.includes('<li')) b = b.replace(/(<li[^>]*>.*?<\/li>(<br>)?)+/gs, m => `<ul class="space-y-0.5 my-1">${m.replace(/<br>/g,'')}</ul>`);
     return `<p class="text-sm leading-relaxed">${b}</p>`;
