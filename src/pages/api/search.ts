@@ -240,9 +240,9 @@ STRICT RULES — never break these:
 
 
 export const POST: APIRoute = async ({ request }) => {
-  const apiKey = import.meta.env.GROQ_API_KEY;
+  const apiKey = import.meta.env.OPENROUTER_API_KEY;
   if (!apiKey) {
-    return new Response(JSON.stringify({ error: 'AI search not configured. Add GROQ_API_KEY to Vercel environment.' }), {
+    return new Response(JSON.stringify({ error: 'AI search not configured.' }), {
       status: 503, headers: { 'Content-Type': 'application/json' },
     });
   }
@@ -273,19 +273,27 @@ export const POST: APIRoute = async ({ request }) => {
       { role: 'user', content: query },
     ];
 
-    const callGroq = async (model: string) =>
-      fetch('https://api.groq.com/openai/v1/chat/completions', {
+    const callOR = async (model: string) =>
+      fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
-        headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model, messages, stream: true, max_tokens: 400, temperature: 0.4 }),
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'https://cieinstruments.in',
+          'X-Title': 'CIE Instruments AI Search',
+        },
+        body: JSON.stringify({ model, messages, stream: true, max_tokens: 500, temperature: 0.3 }),
       });
 
-    // Try 70B first (best quality), silently fall back to 8B on rate limit
-    let res = await callGroq('llama-3.3-70b-versatile');
-    if (res.status === 429) res = await callGroq('llama-3.1-8b-instant');
+    // Primary: Gemini 2.0 Flash (best free quality for sales reasoning)
+    // Fallback 1: LLaMA 3.3 70B (strong instruction following)
+    // Fallback 2: LLaMA 3.1 8B (always available)
+    let res = await callOR('google/gemini-2.0-flash-exp:free');
+    if (res.status === 429 || !res.ok) res = await callOR('meta-llama/llama-3.3-70b-instruct:free');
+    if (res.status === 429 || !res.ok) res = await callOR('meta-llama/llama-3.1-8b-instruct:free');
 
     if (!res.ok) {
-      console.error('Groq error:', res.status, await res.text());
+      console.error('OpenRouter error:', res.status, await res.text());
       return new Response(JSON.stringify({ error: 'AI temporarily unavailable. Please try again in a moment.' }), {
         status: 503, headers: { 'Content-Type': 'application/json' },
       });
