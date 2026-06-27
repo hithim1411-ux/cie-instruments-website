@@ -292,7 +292,12 @@ window.visualViewport?.addEventListener('resize', adjustMobileHeight);
 window.addEventListener('resize', adjustMobileHeight);
 
 // ── Backdrop click ────────────────────────────────────────────────────────
-modal.addEventListener('click', e => { if (e.target === modal) closeSearch(); });
+// Click anywhere outside the box closes search
+modal.addEventListener('click', e => {
+  const box = document.getElementById('search-box-desktop');
+  const mob = document.getElementById('mobile-panel');
+  if (!box?.contains(e.target as Node) && !mob?.contains(e.target as Node)) closeSearch();
+});
 
 // ── Button wiring ─────────────────────────────────────────────────────────
 desktopClose?.addEventListener('click', closeSearch);
