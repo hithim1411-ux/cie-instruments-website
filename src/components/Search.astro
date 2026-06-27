@@ -365,18 +365,24 @@ document.addEventListener('click', e => {
 
 // ── Synonym + keyword extraction ──────────────────────────────────────────
 const SYNONYMS: [RegExp, string][] = [
-  [/\b(light intensity|illuminance|brightness|luminance|lux level)\b/gi, 'lux'],
-  [/\b(air speed|wind speed|airflow|air flow)\b/gi,                       'anemometer'],
-  [/\b(noise|decibel|sound pressure|dba)\b/gi,                            'sound'],
-  [/\b(megger|megohm|insulation resistance)\b/gi,                         'insulation'],
-  [/\b(grounding|earthing|earth electrode)\b/gi,                          'earth'],
-  [/\b(winding resistance|contact resistance|micro.?ohm)\b/gi,            'micro-ohm'],
-  [/\b(solar|pv|photovoltaic)\b/gi,                                       'clamp'],
-  [/\b(oscilloscope|waveform|signal capture)\b/gi,                        'oscilloscope'],
-  [/\b(signal generator|waveform generator)\b/gi,                         'function generator'],
-  [/\b(temperature|thermal|thermocouple)\b/gi,                            'thermometer'],
+  [/\b(light intensity|illuminance|brightness|luminance|lux level)\b/gi,       'lux'],
+  [/\b(air speed|wind speed|airflow|air flow)\b/gi,                             'anemometer'],
+  [/\b(noise|decibel|sound pressure|dba)\b/gi,                                  'sound'],
+  [/\b(megger|megohm|insulation resistance)\b/gi,                               'insulation'],
+  [/\b(grounding|earthing|earth electrode)\b/gi,                                'earth'],
+  [/\b(winding resistance|contact resistance|micro.?ohm)\b/gi,                  'micro-ohm'],
+  [/\b(solar|pv|photovoltaic)\b/gi,                                             'clamp'],
+  [/\b(oscilloscope|waveform|signal capture)\b/gi,                              'oscilloscope'],
+  [/\b(signal generator|waveform generator)\b/gi,                               'function generator'],
+  [/\b(temperature|thermal|thermocouple)\b/gi,                                  'thermometer'],
+  [/\b(voltage fluctuation|voltage variation|power fluctuation|voltage dip|voltage surge)\b/gi, 'multimeter'],
+  [/\b(continuity|short circuit|open circuit|fuse|wire break)\b/gi,             'multimeter'],
+  [/\b(battery|charge|discharge|capacity test)\b/gi,                            'clamp'],
+  [/\b(rpm|rotation|speed|vibration)\b/gi,                                      'multimeter'],
+  [/\b(humidity|moisture|dew point)\b/gi,                                       'thermometer'],
+  [/\b(load bank|dummy load|burn.?in)\b/gi,                                     'load'],
 ];
-const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','using','used','suitable','type','types','kind','kinds','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','multimeter','multimeters','detector','detectors','recorder','recorders','controller','monitor','dc','ac','rms','true','phase','single','three','dual','channel']);
+const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','using','used','suitable','type','types','kind','kinds','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','multimeter','multimeters','detector','detectors','recorder','recorders','controller','monitor','dc','ac','rms','true','phase','single','three','dual','channel','house','home','office','plant','site','building','room','residential','commercial','industrial','fluctuation','variation','fluctuations','variations']);
 
 function extractKeywords(q: string): string {
   let expanded = q;
@@ -486,9 +492,11 @@ function smartSearch(q: string): Entry[] {
 
 function renderCatalog(q: string) {
   const items = smartSearch(q);
-  const noMatch = `<div class="px-6 py-8 text-center">
-    <p class="text-[#64748B] font-medium text-sm">No match for "<span class="text-[#0D1B2A]">${esc(q)}</span>"</p>
-    <p class="text-xs text-[#94A3B8] mt-1">Press Enter / tap Send to ask AI</p></div>`;
+  const noMatch = `<div class="px-6 py-6 text-center">
+    <svg class="w-8 h-8 mx-auto mb-2 text-[#CBD5E1]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/></svg>
+    <p class="text-[#64748B] font-medium text-sm mb-1">No direct catalog match</p>
+    <p class="text-xs text-[#94A3B8]">The AI answer above has the right product recommendation for you.</p>
+  </div>`;
   if (!items.length) { catalogDiv.innerHTML = noMatch; mobileCatalog.innerHTML = noMatch; return; }
 
   const cie = items.filter(i => i.brand === 'cie');
