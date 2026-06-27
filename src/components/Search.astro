@@ -161,7 +161,7 @@ const index: Entry[] = (window as any).__CIE_SEARCH_INDEX__ || [];
 
 const fuse = new Fuse(index, {
   keys: [{ name: 'model', weight: 3 }, { name: 'name', weight: 2 }, { name: 'tagline', weight: 1 }, { name: 'category', weight: 0.5 }],
-  threshold: 0.2, includeScore: true, minMatchCharLength: 2, ignoreLocation: true,
+  threshold: 0.35, includeScore: true, minMatchCharLength: 2, ignoreLocation: true,
 });
 
 const modal       = document.getElementById('cie-search') as HTMLDialogElement;
@@ -373,17 +373,43 @@ function resultRow(item: Entry, q: string): string {
 
 // ── Markdown ──────────────────────────────────────────────────────────────
 function renderMD(el: HTMLElement, text: string) {
-  let html = text
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/^### (.+)$/gm,'<strong class="block text-[#0D2547] mt-2 mb-0.5 text-[13px]">$1</strong>')
-    .replace(/^## (.+)$/gm, '<strong class="block text-[#0D2547] mt-2 mb-0.5">$1</strong>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#0D2547]">$1</strong>')
-    .replace(/`([^`]+)`/g, '<code class="bg-[#E8ECF2] px-1 py-0.5 rounded text-[11px] font-mono text-[#1B3A5B]">$1</code>')
-    .replace(/^[-•]\s(.+)$/gm, '<li class="ml-4 list-disc list-outside">$1</li>')
-    .replace(/(<li[^>]*>.*<\/li>\n?)+/g, m => `<ul class="space-y-0.5 my-1">${m}</ul>`)
-    .replace(/\n\n+/g,'</p><p class="mt-2">')
-    .replace(/\n/g,'<br>');
-  el.innerHTML = `<p>${html}</p>`;
+  // Split into blocks first so tables can be handled separately
+  const blocks = text.split(/\n\n+/);
+  const rendered = blocks.map(block => {
+    const lines = block.trim().split('\n');
+    // Detect markdown table (has | in most lines)
+    const tableLines = lines.filter(l => l.trim().startsWith('|'));
+    if (tableLines.length >= 2) {
+      const rows = tableLines.filter(l => !/^\|[\s|:-]+\|$/.test(l.trim())); // skip separator
+      if (rows.length >= 1) {
+        const parseRow = (row: string) =>
+          row.trim().replace(/^\||\|$/g,'').split('|').map(c => c.trim());
+        const [head, ...body] = rows;
+        const headers = parseRow(head);
+        const thHtml = headers.map(h => `<th class="px-3 py-1.5 text-left text-[11px] font-semibold text-[#1B3A5B] bg-[#EEF2FF] border border-[#E0E9FF]">${boldify(h)}</th>`).join('');
+        const trHtml = body.map(row =>
+          `<tr class="even:bg-[#F8FAFC]">${parseRow(row).map(c => `<td class="px-3 py-1.5 text-[12px] text-[#334155] border border-[#E8ECF2]">${boldify(c)}</td>`).join('')}</tr>`
+        ).join('');
+        return `<div class="overflow-x-auto my-2 rounded-lg border border-[#E0E9FF]"><table class="w-full text-left border-collapse"><thead><tr>${thHtml}</tr></thead><tbody>${trHtml}</tbody></table></div>`;
+      }
+    }
+    // Normal block
+    let b = esc(block)
+      .replace(/^### (.+)$/gm, '<strong class="block text-[#0D2547] font-semibold text-[13px] mt-1">$1</strong>')
+      .replace(/^## (.+)$/gm,  '<strong class="block text-[#0D2547] font-semibold mt-1">$1</strong>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#0D2547]">$1</strong>')
+      .replace(/`([^`]+)`/g, '<code class="bg-[#E8ECF2] px-1 py-0.5 rounded text-[11px] font-mono text-[#1B3A5B]">$1</code>')
+      .replace(/^[-•]\s(.+)$/gm, '<li class="ml-4 list-disc list-outside leading-snug">$1</li>')
+      .replace(/\n/g, '<br>');
+    if (b.includes('<li')) b = b.replace(/(<li[^>]*>.*?<\/li>(<br>)?)+/gs, m => `<ul class="space-y-0.5 my-1">${m.replace(/<br>/g,'')}</ul>`);
+    return `<p class="text-sm leading-relaxed">${b}</p>`;
+  }).join('');
+
+  el.innerHTML = rendered;
+}
+
+function boldify(text: string): string {
+  return esc(text).replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#0D2547]">$1</strong>');
 }
 
 function highlight(text: string, q: string): string {
