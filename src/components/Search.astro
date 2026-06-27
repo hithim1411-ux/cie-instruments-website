@@ -204,9 +204,16 @@ input.addEventListener('input', () => {
   clearTimeout(fuseDebounce);
   fuseDebounce = setTimeout(() => {
     if (!q.trim()) { showWelcome(); return; }
-    renderCatalog(q.trim());
+    renderCatalog(q.trim(), extractKeywords(q.trim()));
   }, 120);
 });
+
+// Extract meaningful keywords from a natural language query
+function extractKeywords(q: string): string {
+  const stop = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any']);
+  const words = q.toLowerCase().replace(/[?!.,]/g,'').split(/\s+/).filter(w => w.length > 1 && !stop.has(w));
+  return words.length ? words.join(' ') : q;
+}
 
 input.addEventListener('keydown', e => {
   if (e.key === 'Enter' && !e.shiftKey && input.value.trim() && !isStreaming) {
@@ -232,7 +239,7 @@ document.addEventListener('click', e => {
   const q = chip.dataset.query || '';
   input.value = q;
   clearBtn.classList.remove('hidden');
-  renderCatalog(q);
+  renderCatalog(q, extractKeywords(q));
   askAI(q);
 });
 
@@ -303,8 +310,9 @@ function showWelcome() {
   catalogDiv.appendChild(welcome);
 }
 
-function renderCatalog(q: string) {
-  const items = fuse.search(q, { limit: 40 }).map(r => r.item);
+function renderCatalog(q: string, keywords?: string) {
+  const searchQ = keywords && keywords !== q ? keywords : q;
+  const items = fuse.search(searchQ, { limit: 40 }).map(r => r.item);
   if (!items.length) {
     catalogDiv.innerHTML = `<div class="px-6 py-8 text-center">
       <p class="text-[#64748B] font-medium text-sm">No catalog match for "<span class="text-[#0D1B2A]">${esc(q)}</span>"</p>
