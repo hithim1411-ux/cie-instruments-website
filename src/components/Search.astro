@@ -490,7 +490,8 @@ function smartSearch(q: string): Entry[] {
   // Literal filter: at least one keyword appears in product text
   const filtered = words.length
     ? candidates.filter(item => {
-        const text = `${item.name} ${item.model} ${item.category} ${item.tagline}`.toLowerCase();
+        // Only match name/model/category — not tagline (too many false positives)
+        const text = `${item.name} ${item.model} ${item.category}`.toLowerCase();
         return words.some(w => new RegExp(`\\b${w}\\b`).test(text));
       })
     : candidates;
