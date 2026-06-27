@@ -61,90 +61,63 @@ for (const { label, items } of vartechSections) {
   }
 }
 
-const productFuse = new Fuse(allProducts, {
-  keys: [
-    { name: 'name', weight: 3 }, { name: 'model', weight: 3 },
-    { name: 'tagline', weight: 2 }, { name: 'specs', weight: 2 },
-    { name: 'apps', weight: 1.5 }, { name: 'category', weight: 1 },
-  ],
-  threshold: 0.35,
-  ignoreLocation: true,
-  minMatchCharLength: 2,
-});
-
-const STOP = new Set(['what','do','i','need','to','for','the','a','an','best','good','which','is','are','can','how','me','my','us','we','should','use','get','buy','find','vs','versus','between','and','or','in','on','with','about','please','help','recommend','some','any','measure','measurement','measuring','want','wish','looking','test','testing','instrument','instruments','device','devices','equipment','tool','tools','product','products','check','checking','suitable','type','types','kind','kinds','used','using','high','low','level','range','accuracy','digital','analog','portable','bench','handheld','factory','site','field','lab','industrial','read','reading','current','voltage','resistance','frequency','power','signal','output','input','circuit','electrical','electronic','meter','meters','tester','testers','detector','detectors','recorder','recorders','controller','monitor','dc','ac','rms','true','phase','single','three','dual','channel','house','home','office','plant','building','room','residential','commercial','fluctuation','variation','fluctuations','variations']);
-
-const SYNONYMS: [RegExp, string][] = [
-  [/\b(light intensity|illuminance|brightness|luminance|lux level)\b/gi,       'lux'],
-  [/\b(air speed|wind speed|airflow|air flow)\b/gi,                             'anemometer'],
-  [/\b(noise|decibel|sound pressure|dba)\b/gi,                                  'sound'],
-  [/\b(megger|megohm|insulation resistance)\b/gi,                               'insulation'],
-  [/\b(grounding|earthing|earth electrode)\b/gi,                                'earth'],
-  [/\b(winding resistance|contact resistance|micro.?ohm)\b/gi,                  'micro-ohm'],
-  [/\b(solar|pv|photovoltaic)\b/gi,                                             'clamp'],
-  [/\b(oscilloscope|waveform|signal capture)\b/gi,                              'oscilloscope'],
-  [/\b(signal generator|waveform generator)\b/gi,                               'function generator'],
-  [/\b(temperature|thermal|thermocouple)\b/gi,                                  'thermometer'],
-  [/\b(voltage fluctuations?|voltage variations?|power fluctuations?|voltage dips?|voltage surges?|mains voltage|supply voltage|power quality)\b/gi, 'multimeter'],
-  [/\b(continuity|short circuit|open circuit|fuse|wire break)\b/gi,             'multimeter'],
-  [/\b(ev battery|electric vehicle battery|lithium battery|battery test|battery capacity)\b/gi, 'load clamp'],
-  [/\b(battery|charge|discharge)\b/gi,                                          'clamp'],
-  [/\b(humidity|moisture|dew point)\b/gi,                                       'thermometer'],
-  [/\b(load bank|dummy load|burn.?in)\b/gi,                                     'load'],
+// ── Category routing ──────────────────────────────────────────────────────
+// Maps intent keywords → category labels in allProducts
+const CATEGORY_ROUTES: [RegExp, string[]][] = [
+  [/\binsulat|megger|megohm|winding insul|motor insul|cable insul/i,
+    ['Insulation Testers — Hand-Driven','Multirange Insulation Testers (Hand-Driven)','Motor-Operated Insulation Testers','Multirange Motorised Insulation Testers','Compact / Economical Insulation Testers','Digital Insulation Testers']],
+  [/\bearth\b|earthing|grounding|earth tester|earth electrode|earth resist/i,
+    ['Earth Resistance Testers']],
+  [/\bclamp\b|solar|pv system|photovoltaic|dc clamp/i,
+    ['Clamp Meters']],
+  [/\bmultimeter\b|voltage fluctuat|volt fluctuat|dmm|general electrical|mains voltage/i,
+    ['Digital Multimeters']],
+  [/\blcr\b|inductan|capacitan|impedance|coil test|component test/i,
+    ['LCR & Cap Meters']],
+  [/\boscilloscope\b|waveform|signal capture/i,
+    ['Oscilloscopes']],
+  [/\bfunction generator\b|signal generator\b/i,
+    ['Function Generators']],
+  [/\bpower supply\b|bench supply|lab supply|psu\b/i,
+    ['DC Power Supplies']],
+  [/\bdc load\b|electronic load\b|battery test|ev battery|battery analys|discharge test|load test|dummy load/i,
+    ['DC Electronic Loads']],
+  [/\bsound level\b|noise\b|decibel|dba\b|noise meter/i,
+    ['Sound Level Meters']],
+  [/\blux\b|light intensity|illuminan|brightness meter/i,
+    ['Lux Meters']],
+  [/\banemometer\b|wind speed|air speed|air flow/i,
+    ['Anemometers']],
+  [/\btemperatur\b|thermometer|thermocouple|heat meter/i,
+    ['Thermometers']],
+  [/\bcalibrat/i,
+    ['Calibrators']],
+  [/\bmicro.?ohm\b|winding resist|contact resist|low resist/i,
+    ['Micro-Ohm Meters']],
 ];
 
 function getRelevantProducts(query: string): string {
-  // Apply synonyms then extract keywords
-  let expanded = query;
-  for (const [pattern, replacement] of SYNONYMS) {
-    expanded = expanded.replace(pattern, replacement);
-  }
-  const keywords = expanded.toLowerCase()
-    .replace(/[?!.,]/g, '')
-    .split(/\s+/)
-    .filter(w => w.length > 2 && !STOP.has(w))
-    .join(' ') || query;
-
-  const seen = new Set<string>();
-  const pool: FlatProduct[] = [];
-
-  // 1. Full keyword phrase
-  for (const r of productFuse.search(keywords, { limit: 8 })) {
-    if (!seen.has(r.item.model)) { seen.add(r.item.model); pool.push(r.item); }
-  }
-  // 2. Each word individually with stricter threshold
-  const strictFuse = new Fuse(allProducts, {
-    keys: [{ name: 'name', weight: 3 }, { name: 'model', weight: 3 }, { name: 'tagline', weight: 2 }, { name: 'category', weight: 1 }],
-    threshold: 0.15, ignoreLocation: true, minMatchCharLength: 3,
-  });
-  for (const word of keywords.split(/\s+/).filter(w => w.length > 2)) {
-    for (const r of strictFuse.search(word, { limit: 4 })) {
-      if (!seen.has(r.item.model)) { seen.add(r.item.model); pool.push(r.item); }
-    }
+  // Find matching categories
+  const matchedCats = new Set<string>();
+  for (const [pattern, cats] of CATEGORY_ROUTES) {
+    if (pattern.test(query)) cats.forEach(c => matchedCats.add(c));
   }
 
-  // Post-filter: keep only items where at least one keyword literally appears
-  const kwords = keywords.split(/\s+/).filter(w => w.length > 2);
-  const filtered = kwords.length
-    ? pool.filter(p => {
-        const text = `${p.name} ${p.model} ${p.category} ${p.tagline}`.toLowerCase();
-        return kwords.some(w => new RegExp(`\\b${w}`).test(text));
-      })
-    : pool;
-  const final = filtered.length ? filtered : pool;
+  let pool: FlatProduct[];
 
-  // Fallback: diverse categories if still nothing
-  if (!final.length) {
-    const cats = new Set<string>();
-    for (const p of allProducts) {
-      if (!cats.has(p.category) && final.length < 8) { cats.add(p.category); (final as FlatProduct[]).push(p); }
-    }
+  if (matchedCats.size > 0) {
+    // Send ALL products from matched categories (ensures AI has complete accurate context)
+    pool = allProducts.filter(p => matchedCats.has(p.category));
+  } else {
+    // No category detected — send 1 representative per category so AI can ask clarifying question
+    const seen = new Set<string>();
+    pool = allProducts.filter(p => { if (seen.has(p.category)) return false; seen.add(p.category); return true; });
   }
 
-  return final.slice(0, 10).map(p => {
-    const shortSpecs = p.specs.split('; ').slice(0, 3).join('; ');
-    return `[${p.model}] ${p.name} (${p.brand}) | ${p.category}\n${p.tagline}\nSpecs: ${shortSpecs}`;
-  }).join('\n\n');
+  return pool.map(p => {
+    const specs = p.specs.split('; ').slice(0, 4).join('; ');
+    return `[${p.model}] ${p.name} (${p.brand}) | ${p.category} | ${p.tagline}${specs ? ' | Specs: ' + specs : ''}`;
+  }).join('\n');
 }
 
 const BASE_SYSTEM = `You are the expert product advisor for Cambridge Instruments & Engineering Co. (CIE), a precision instrument manufacturer based in Howrah, India, since 1946.
