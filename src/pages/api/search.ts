@@ -285,12 +285,20 @@ export const POST: APIRoute = async ({ request }) => {
         body: JSON.stringify({ model, messages, stream: true, max_tokens: 500, temperature: 0.3 }),
       });
 
-    // Primary: Hermes 405B (largest free model — best reasoning)
-    // Fallback 1: LLaMA 3.3 70B (strong instruction following)
-    // Fallback 2: Gemma 4 31B (Google's free model)
-    let res = await callOR('nousresearch/hermes-3-llama-3.1-405b:free');
-    if (res.status === 429 || !res.ok) res = await callOR('meta-llama/llama-3.3-70b-instruct:free');
-    if (res.status === 429 || !res.ok) res = await callOR('google/gemma-4-31b-it:free');
+    // 6-model chain — try each until one works, covering all rate limit scenarios
+    const models = [
+      'nousresearch/hermes-3-llama-3.1-405b:free',   // 405B — best reasoning
+      'meta-llama/llama-3.3-70b-instruct:free',       // 70B strong
+      'nvidia/nemotron-3-ultra-550b-a55b:free',       // Nvidia 550B
+      'nvidia/nemotron-3-super-120b-a12b:free',       // Nvidia 120B
+      'google/gemma-4-31b-it:free',                   // Google Gemma
+      'openai/gpt-oss-20b:free',                      // OpenAI OSS
+    ];
+    let res = await callOR(models[0]);
+    for (let i = 1; i < models.length; i++) {
+      if (res.status !== 429 && res.ok) break;
+      res = await callOR(models[i]);
+    }
 
     if (!res.ok) {
       console.error('OpenRouter error:', res.status, await res.text());
