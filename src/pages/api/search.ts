@@ -266,10 +266,41 @@ Choose **[A]** if [condition]. Choose **[B]** if [condition].
 6. Max 200 words unless doing a detailed comparison.`;
 
 
+// ── Shared SSE → plain-text stream helper (OpenAI-compatible format) ─────────
+function openAIStream(res: Response, encoder: TextEncoder): ReadableStream {
+  return new ReadableStream({
+    async start(controller) {
+      const reader = res.body!.getReader();
+      const decoder = new TextDecoder();
+      let buf = '';
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buf += decoder.decode(value, { stream: true });
+          const lines = buf.split('\n');
+          buf = lines.pop() ?? '';
+          for (const line of lines) {
+            if (!line.startsWith('data: ')) continue;
+            const data = line.slice(6).trim();
+            if (!data || data === '[DONE]') continue;
+            try {
+              const json = JSON.parse(data);
+              const text = json.choices?.[0]?.delta?.content ?? '';
+              if (text) controller.enqueue(encoder.encode(text));
+            } catch {}
+          }
+        }
+      } finally {
+        controller.close();
+      }
+    },
+  });
+}
+
 export const POST: APIRoute = async ({ request }) => {
-  const geminiKey = import.meta.env.GEMINI_API_KEY;
-  const orKey     = import.meta.env.OPENROUTER_API_KEY;
-  if (!geminiKey && !orKey) {
+  const groqKey = import.meta.env.GROQ_API_KEY;
+  if (!groqKey) {
     return new Response(JSON.stringify({ error: 'AI search not configured.' }), {
       status: 503, headers: { 'Content-Type': 'application/json' },
     });
@@ -279,14 +310,14 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     body = await request.json();
   } catch {
-    return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
+    return new Response(JSON.stringify({ error: 'Invalid request.' }), {
       status: 400, headers: { 'Content-Type': 'application/json' },
     });
   }
 
   const { query, history = [] } = body;
   if (!query?.trim()) {
-    return new Response(JSON.stringify({ error: 'Empty query' }), {
+    return new Response(JSON.stringify({ error: 'Empty query.' }), {
       status: 400, headers: { 'Content-Type': 'application/json' },
     });
   }
@@ -295,151 +326,54 @@ export const POST: APIRoute = async ({ request }) => {
   const systemPrompt = `${BASE_SYSTEM}\n\nRELEVANT PRODUCTS FOR THIS QUERY:\n${relevantProducts}`;
   const encoder = new TextEncoder();
 
-  // ── Try Gemini 2.0 Flash first (dedicated free quota, reliable) ───────────
-  if (geminiKey) {
+  const messages = [
+    { role: 'system', content: systemPrompt },
+    ...history.map(h => ({ role: h.role === 'model' ? 'assistant' : h.role, content: h.parts })),
+    { role: 'user', content: query },
+  ];
+
+  // Groq model chain — fastest first, fallbacks if rate-limited
+  const groqModels = [
+    'llama-3.3-70b-versatile',
+    'llama3-70b-8192',
+    'mixtral-8x7b-32768',
+    'gemma2-9b-it',
+  ];
+
+  for (const model of groqModels) {
     try {
-      const contents = [
-        ...history.map(h => ({
-          role: h.role === 'model' ? 'model' : 'user',
-          parts: [{ text: h.parts }],
-        })),
-        { role: 'user', parts: [{ text: query }] },
-      ];
-
-      const geminiRes = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=${geminiKey}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            system_instruction: { parts: [{ text: systemPrompt }] },
-            contents,
-            generationConfig: { maxOutputTokens: 350, temperature: 0.3 },
-          }),
-        }
-      );
-
-      if (geminiRes.ok) {
-        const readable = new ReadableStream({
-          async start(controller) {
-            const reader = geminiRes.body!.getReader();
-            const decoder = new TextDecoder();
-            let buf = '';
-            try {
-              while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-                buf += decoder.decode(value, { stream: true });
-                const lines = buf.split('\n');
-                buf = lines.pop() ?? '';
-                for (const line of lines) {
-                  if (!line.startsWith('data: ')) continue;
-                  const data = line.slice(6).trim();
-                  if (!data || data === '[DONE]') continue;
-                  try {
-                    const json = JSON.parse(data);
-                    const text = json.candidates?.[0]?.content?.parts?.[0]?.text || '';
-                    if (text) controller.enqueue(encoder.encode(text));
-                  } catch {}
-                }
-              }
-            } finally {
-              controller.close();
-            }
-          },
-        });
-        return new Response(readable, {
-          headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' },
-        });
-      }
-      console.error('Gemini error:', geminiRes.status, await geminiRes.text());
-    } catch (err: any) {
-      console.error('Gemini fetch error:', err?.message || err);
-    }
-  }
-
-  // ── Fallback: OpenRouter free models ──────────────────────────────────────
-  if (!orKey) {
-    return new Response(JSON.stringify({ error: 'AI temporarily unavailable. Please try again in a moment.' }), {
-      status: 503, headers: { 'Content-Type': 'application/json' },
-    });
-  }
-
-  try {
-    const messages = [
-      { role: 'system', content: systemPrompt },
-      ...history.map(h => ({ role: h.role === 'model' ? 'assistant' : h.role, content: h.parts })),
-      { role: 'user', content: query },
-    ];
-
-    const callOR = async (model: string) =>
-      fetch('https://openrouter.ai/api/v1/chat/completions', {
+      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${orKey}`,
+          'Authorization': `Bearer ${groqKey}`,
           'Content-Type': 'application/json',
-          'HTTP-Referer': 'https://cieinstruments.in',
-          'X-Title': 'CIE Instruments AI Search',
         },
         body: JSON.stringify({ model, messages, stream: true, max_tokens: 350, temperature: 0.3 }),
       });
 
-    const models = [
-      'meta-llama/llama-3.3-70b-instruct:free',
-      'qwen/qwen3-235b-a22b:free',
-      'deepseek/deepseek-chat-v3-0324:free',
-      'google/gemma-3-27b-it:free',
-      'mistralai/mistral-7b-instruct:free',
-    ];
-    let res = await callOR(models[0]);
-    for (let i = 1; i < models.length; i++) {
-      if (res.ok) break;
-      res = await callOR(models[i]);
+      if (res.ok) {
+        return new Response(openAIStream(res, encoder), {
+          headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' },
+        });
+      }
+
+      // 429 = rate limited on this model, try next
+      if (res.status === 429) {
+        console.warn(`Groq model ${model} rate-limited, trying next.`);
+        continue;
+      }
+
+      // Any other error — log and bail
+      const errText = await res.text();
+      console.error(`Groq model ${model} error ${res.status}:`, errText);
+      break;
+    } catch (err: any) {
+      console.error(`Groq fetch error (${model}):`, err?.message || err);
+      break;
     }
-
-    if (!res.ok) {
-      console.error('OpenRouter error:', res.status, await res.text());
-      return new Response(JSON.stringify({ error: 'AI temporarily unavailable. Please try again in a moment.' }), {
-        status: 503, headers: { 'Content-Type': 'application/json' },
-      });
-    }
-
-    const readable = new ReadableStream({
-      async start(controller) {
-        const reader = res.body!.getReader();
-        const decoder = new TextDecoder();
-        let buf = '';
-        try {
-          while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            buf += decoder.decode(value, { stream: true });
-            const lines = buf.split('\n');
-            buf = lines.pop() ?? '';
-            for (const line of lines) {
-              if (!line.startsWith('data: ')) continue;
-              const data = line.slice(6).trim();
-              if (data === '[DONE]') continue;
-              try {
-                const json = JSON.parse(data);
-                const text = json.choices?.[0]?.delta?.content || '';
-                if (text) controller.enqueue(encoder.encode(text));
-              } catch {}
-            }
-          }
-        } finally {
-          controller.close();
-        }
-      },
-    });
-
-    return new Response(readable, {
-      headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' },
-    });
-  } catch (err: any) {
-    console.error('OpenRouter error:', err?.message || err);
-    return new Response(JSON.stringify({ error: 'AI temporarily unavailable. Try again.' }), {
-      status: 503, headers: { 'Content-Type': 'application/json' },
-    });
   }
+
+  return new Response(JSON.stringify({ error: 'AI temporarily unavailable. Please try again in a moment.' }), {
+    status: 503, headers: { 'Content-Type': 'application/json' },
+  });
 };
