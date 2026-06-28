@@ -314,9 +314,12 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Model chain — try each until one works
     const models = [
+      'google/gemini-2.0-flash-exp:free',
       'meta-llama/llama-3.3-70b-instruct:free',
+      'qwen/qwen3-235b-a22b:free',
       'deepseek/deepseek-chat-v3-0324:free',
       'google/gemma-3-27b-it:free',
+      'qwen/qwen3-30b-a3b:free',
       'mistralai/mistral-7b-instruct:free',
     ];
     let res = await callOR(models[0]);
