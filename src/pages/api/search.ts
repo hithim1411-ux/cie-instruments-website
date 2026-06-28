@@ -128,17 +128,17 @@ function getRelevantProducts(query: string): string {
     pool = allProducts.filter(p => { if (seen.has(p.category)) return false; seen.add(p.category); return true; });
   }
 
-  return pool.map(p => {
-    let entry = `MODEL: ${p.model}\nNAME: ${p.name}\nBRAND: ${p.brand}\nCATEGORY: ${p.category}`;
-    if (p.tagline) entry += `\nTAGLINE: ${p.tagline}`;
-    if (p.description) entry += `\nDESCRIPTION: ${p.description}`;
-    if (p.specs) entry += `\nSPECS: ${p.specs}`;
-    if (p.apps) entry += `\nAPPLICATIONS: ${p.apps}`;
-    if (p.orderNote) entry += `\nORDERING: ${p.orderNote}`;
-    if (p.options) entry += `\nOPTIONS: ${p.options}`;
-    entry += `\nPRODUCT PAGE: ${p.url}`;
+  // Cap at 20 products and truncate specs to keep total prompt under ~3000 tokens
+  const capped = pool.slice(0, 20);
+  const text = capped.map(p => {
+    let entry = `MODEL: ${p.model} | NAME: ${p.name} | BRAND: ${p.brand} | CATEGORY: ${p.category}`;
+    if (p.tagline) entry += ` | ${p.tagline}`;
+    if (p.specs) entry += `\nSPECS: ${p.specs.slice(0, 300)}`;
+    if (p.apps) entry += `\nAPPS: ${p.apps.slice(0, 150)}`;
     return entry;
-  }).join('\n\n---\n\n');
+  }).join('\n---\n');
+  // Hard cap at 4000 chars to stay well within Groq TPM limits
+  return text.slice(0, 4000);
 }
 
 const BASE_SYSTEM = `You are Arjun, the lead technical sales expert at Cambridge Instruments & Engineering Co. (CIE), Howrah — India's premier precision instrument manufacturer since 1946. You have 25 years of hands-on field experience across power utilities, steel plants, railways, refineries, and electrical contractors.
