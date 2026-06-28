@@ -316,7 +316,7 @@ export const POST: APIRoute = async ({ request }) => {
     { role: 'user', content: query },
   ];
 
-  // Groq model chain — fastest first, fallbacks if rate-limited
+  // Groq model chain — try every model regardless of error type
   const groqModels = [
     'llama-3.3-70b-versatile',
     'llama3-70b-8192',
@@ -341,19 +341,12 @@ export const POST: APIRoute = async ({ request }) => {
         });
       }
 
-      // 429 = rate limited on this model, try next
-      if (res.status === 429) {
-        console.warn(`Groq model ${model} rate-limited, trying next.`);
-        continue;
-      }
-
-      // Any other error — log and bail
       const errText = await res.text();
-      console.error(`Groq model ${model} error ${res.status}:`, errText);
-      break;
+      console.warn(`Groq model ${model} failed ${res.status}: ${errText.slice(0, 200)}`);
+      // continue to next model regardless of error type
     } catch (err: any) {
-      console.error(`Groq fetch error (${model}):`, err?.message || err);
-      break;
+      console.warn(`Groq fetch error (${model}): ${err?.message || err}`);
+      // continue to next model
     }
   }
 
