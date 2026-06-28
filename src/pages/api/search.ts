@@ -312,16 +312,16 @@ export const POST: APIRoute = async ({ request }) => {
         body: JSON.stringify({ model, messages, stream: true, max_tokens: 300, temperature: 0.3 }),
       });
 
-    // 6-model chain — try each until one works, covering all rate limit scenarios
+    // Model chain — try each until one works
     const models = [
-      'meta-llama/llama-3.3-70b-instruct:free',       // FAST + capable — primary
-      'openai/gpt-oss-20b:free',                      // Fast fallback
-      'google/gemma-4-31b-it:free',                   // Google fallback
-      'nousresearch/hermes-3-llama-3.1-405b:free',   // 405B — last resort (slow)
+      'meta-llama/llama-3.3-70b-instruct:free',
+      'deepseek/deepseek-chat-v3-0324:free',
+      'google/gemma-3-27b-it:free',
+      'mistralai/mistral-7b-instruct:free',
     ];
     let res = await callOR(models[0]);
     for (let i = 1; i < models.length; i++) {
-      if (res.status !== 429 && res.ok) break;
+      if (res.ok) break;
       res = await callOR(models[i]);
     }
 
