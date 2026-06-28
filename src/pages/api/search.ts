@@ -250,38 +250,6 @@ If asking about insulation: ask about TEST PURPOSE (routine vs PI/DAR) and SITE 
 7. Do not repeat the customer's question back to them.`;
 
 
-// ── Shared SSE → plain-text stream helper (OpenAI-compatible format) ─────────
-function openAIStream(res: Response, encoder: TextEncoder): ReadableStream {
-  return new ReadableStream({
-    async start(controller) {
-      const reader = res.body!.getReader();
-      const decoder = new TextDecoder();
-      let buf = '';
-      try {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          buf += decoder.decode(value, { stream: true });
-          const lines = buf.split('\n');
-          buf = lines.pop() ?? '';
-          for (const line of lines) {
-            if (!line.startsWith('data: ')) continue;
-            const data = line.slice(6).trim();
-            if (!data || data === '[DONE]') continue;
-            try {
-              const json = JSON.parse(data);
-              const text = json.choices?.[0]?.delta?.content ?? '';
-              if (text) controller.enqueue(encoder.encode(text));
-            } catch {}
-          }
-        }
-      } finally {
-        controller.close();
-      }
-    },
-  });
-}
-
 export const POST: APIRoute = async ({ request }) => {
   const groqKey = import.meta.env.GROQ_API_KEY;
   if (!groqKey) {
@@ -308,7 +276,6 @@ export const POST: APIRoute = async ({ request }) => {
 
   const relevantProducts = getRelevantProducts(query);
   const systemPrompt = `${BASE_SYSTEM}\n\nRELEVANT PRODUCTS FOR THIS QUERY:\n${relevantProducts}`;
-  const encoder = new TextEncoder();
 
   const messages = [
     { role: 'system', content: systemPrompt },
@@ -316,7 +283,6 @@ export const POST: APIRoute = async ({ request }) => {
     { role: 'user', content: query },
   ];
 
-  // Groq model chain — try every model regardless of error type
   const groqModels = [
     'llama-3.3-70b-versatile',
     'llama3-70b-8192',
@@ -332,21 +298,21 @@ export const POST: APIRoute = async ({ request }) => {
           'Authorization': `Bearer ${groqKey}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ model, messages, stream: true, max_tokens: 350, temperature: 0.3 }),
+        body: JSON.stringify({ model, messages, stream: false, max_tokens: 350, temperature: 0.3 }),
       });
 
       if (res.ok) {
-        return new Response(openAIStream(res, encoder), {
+        const json = await res.json();
+        const text = json.choices?.[0]?.message?.content ?? '';
+        return new Response(text, {
           headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' },
         });
       }
 
       const errText = await res.text();
-      console.warn(`Groq model ${model} failed ${res.status}: ${errText.slice(0, 200)}`);
-      // continue to next model regardless of error type
+      console.warn(`Groq ${model} failed ${res.status}: ${errText.slice(0, 200)}`);
     } catch (err: any) {
       console.warn(`Groq fetch error (${model}): ${err?.message || err}`);
-      // continue to next model
     }
   }
 
