@@ -309,17 +309,15 @@ export const POST: APIRoute = async ({ request }) => {
           'HTTP-Referer': 'https://cieinstruments.in',
           'X-Title': 'CIE Instruments AI Search',
         },
-        body: JSON.stringify({ model, messages, stream: true, max_tokens: 500, temperature: 0.3 }),
+        body: JSON.stringify({ model, messages, stream: true, max_tokens: 300, temperature: 0.3 }),
       });
 
     // 6-model chain — try each until one works, covering all rate limit scenarios
     const models = [
-      'nousresearch/hermes-3-llama-3.1-405b:free',   // 405B — best instruction following
-      'meta-llama/llama-3.3-70b-instruct:free',       // 70B strong
-      'openai/gpt-oss-120b:free',                     // OpenAI OSS 120B
-      'openai/gpt-oss-20b:free',                      // OpenAI OSS 20B
-      'google/gemma-4-31b-it:free',                   // Google Gemma 31B
-      'meta-llama/llama-3.2-3b-instruct:free',        // 3B fast emergency fallback
+      'meta-llama/llama-3.3-70b-instruct:free',       // FAST + capable — primary
+      'openai/gpt-oss-20b:free',                      // Fast fallback
+      'google/gemma-4-31b-it:free',                   // Google fallback
+      'nousresearch/hermes-3-llama-3.1-405b:free',   // 405B — last resort (slow)
     ];
     let res = await callOR(models[0]);
     for (let i = 1; i < models.length; i++) {
