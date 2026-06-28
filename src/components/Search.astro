@@ -62,10 +62,14 @@ const searchIndex: Entry[] = [
 ];
 
 const suggestions = [
-  "What do I need to measure motor insulation?",
+  "Insulation tester for 415V motor",
+  "PI test / DAR test — which tester?",
+  "Best clamp meter for solar DC current",
+  "Earth tester for site — hand-driven or digital?",
+  "True-RMS multimeter for VFD panels",
+  "Megger for HV transformer above 11kV",
+  "Micro-ohm meter for winding resistance",
   "Compare LCR-1B vs LCR-2A",
-  "Best clamp meter for solar systems",
-  "Earth tester for site work",
 ];
 ---
 
@@ -122,10 +126,10 @@ const suggestions = [
         </div>
         <div id="catalog-results">
           <div class="px-4 py-4">
-            <p class="text-xs text-[#94A3B8] mb-3">Try asking a question or search by product name, model, or spec.</p>
+            <p class="text-xs text-[#94A3B8] mb-3">Popular questions — click to ask instantly</p>
             <div class="grid grid-cols-2 gap-2">
               {suggestions.map(s => (
-                <button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all" data-query={s}>{s}</button>
+                <button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all leading-snug" data-query={s}>{s}</button>
               ))}
             </div>
           </div>
@@ -187,10 +191,10 @@ const suggestions = [
     <div id="mobile-catalog-results" class="flex-1 overflow-y-auto min-h-0" style="-webkit-overflow-scrolling:touch; overscroll-behavior:contain;">
       <!-- welcome -->
       <div id="mobile-welcome" class="px-4 pt-5 pb-4">
-        <p class="text-sm text-[#94A3B8] mb-4">Try a question or search by name, model, or spec.</p>
+        <p class="text-sm text-[#94A3B8] mb-4">Popular questions — tap to ask instantly</p>
         <div class="flex flex-col gap-3">
           {suggestions.map(s => (
-            <button class="suggestion-chip text-left text-[15px] px-4 py-4 rounded-2xl border border-[#E2E8F0] text-[#334155] active:bg-[#EEF2FF] active:border-[#1B3A5B]" data-query={s}>{s}</button>
+            <button class="suggestion-chip text-left text-[15px] font-medium px-4 py-3.5 rounded-2xl border-2 border-[#E8ECF2] text-[#334155] active:bg-[#EEF2FF] active:border-[#1B3A5B] leading-snug" data-query={s}>{s}</button>
           ))}
         </div>
       </div>
@@ -555,17 +559,26 @@ function hideAI() {
 }
 
 // ── Catalog ───────────────────────────────────────────────────────────────
-const CHIPS = ['What do I need to measure motor insulation?','Compare LCR-1B vs LCR-2A','Best clamp meter for solar systems','Earth tester for site work'];
+const CHIPS = [
+  'Insulation tester for 415V motor',
+  'PI test / DAR test — which tester?',
+  'Best clamp meter for solar DC current',
+  'Earth tester for site — hand-driven or digital?',
+  'True-RMS multimeter for VFD panels',
+  'Megger for HV transformer above 11kV',
+  'Micro-ohm meter for winding resistance',
+  'Compare LCR-1B vs LCR-2A',
+];
 
 function showWelcome() {
   hideAI();
   const desktopWelcome = `<div class="px-4 py-4">
-    <p class="text-xs text-[#94A3B8] mb-3">Try asking a question or search by product name, model, or spec.</p>
-    <div class="grid grid-cols-2 gap-2">${CHIPS.map(s => `<button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
+    <p class="text-xs text-[#94A3B8] mb-3">Popular questions — click to ask instantly</p>
+    <div class="grid grid-cols-2 gap-2">${CHIPS.map(s => `<button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all leading-snug" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
   </div>`;
   const mobileWelcome = `<div class="px-4 pt-5 pb-4">
-    <p class="text-sm text-[#94A3B8] mb-4">Try a question or search by name, model, or spec.</p>
-    <div class="flex flex-col gap-3">${CHIPS.map(s => `<button class="suggestion-chip text-left text-[15px] font-medium px-4 py-4 rounded-2xl border-2 border-[#E8ECF2] text-[#334155] active:bg-[#EEF2FF] active:border-[#1B3A5B]" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
+    <p class="text-sm text-[#94A3B8] mb-4">Popular questions — tap to ask instantly</p>
+    <div class="flex flex-col gap-3">${CHIPS.map(s => `<button class="suggestion-chip text-left text-[15px] font-medium px-4 py-3.5 rounded-2xl border-2 border-[#E8ECF2] text-[#334155] active:bg-[#EEF2FF] active:border-[#1B3A5B] leading-snug" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
   </div>`;
   catalogDiv.innerHTML = desktopWelcome;
   mobileCatalog.innerHTML = mobileWelcome;
