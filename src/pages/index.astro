@@ -12,6 +12,25 @@ import vartechThermometers from '../data/vartech-thermometers.json';
 import vartechLuxMeters from '../data/vartech-lux-meters.json';
 import vartechCalibrators from '../data/vartech-calibrators.json';
 import vartechDcPowerSupplies from '../data/vartech-dc-power-supplies.json';
+import vartechSoundLevelMeters from '../data/vartech-sound-level-meters.json';
+import vartechAnemometers from '../data/vartech-anemometers.json';
+import vartechOscilloscopes from '../data/vartech-oscilloscopes.json';
+import vartechFunctionGenerators from '../data/vartech-function-generators.json';
+import vartechLcrMeters from '../data/vartech-lcr-meters.json';
+import vartechDcLoads from '../data/vartech-dc-loads.json';
+
+const vartechCounts: Record<string, number> = {
+  'vartech-sound-level-meters': (vartechSoundLevelMeters as any[]).length,
+  'vartech-anemometers':        (vartechAnemometers as any[]).length,
+  'vartech-calibrators':        (vartechCalibrators as any[]).length,
+  'vartech-lux-meters':         (vartechLuxMeters as any[]).length,
+  'vartech-thermometers':       (vartechThermometers as any[]).length,
+  'vartech-dc-power-supplies':  (vartechDcPowerSupplies as any[]).length,
+  'vartech-oscilloscopes':      (vartechOscilloscopes as any[]).length,
+  'vartech-function-generators':(vartechFunctionGenerators as any[]).length,
+  'vartech-lcr-meters':         (vartechLcrMeters as any[]).length,
+  'vartech-dc-loads':           (vartechDcLoads as any[]).length,
+};
 
 // Remove Vartech categories that duplicate an existing CIE category in the slider.
 // "Multimeters" and "Clamp Meters" overlap with CIE's "Clamp Meters & Multimeters".
@@ -24,7 +43,7 @@ const categoryCount = categories
   .filter((cat: any) => !SLIDER_EXCLUDE.has(cat.id))
   .map((cat: any) => ({
     ...cat,
-    count: products.filter((p: any) => p.categoryId === cat.id).length,
+    count: products.filter((p: any) => p.categoryId === cat.id).length || vartechCounts[cat.id] || 0,
   }));
 
 const featured = products.filter(p => p.featured);
