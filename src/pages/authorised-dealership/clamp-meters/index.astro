@@ -13,9 +13,9 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cieinstruments.in/' },
-    { '@type': 'ListItem', position: 2, name: 'Authorised Dealership', item: 'https://cieinstruments.in/authorised-dealership/' },
-    { '@type': 'ListItem', position: 3, name: 'Vartech Clamp Meters', item: 'https://cieinstruments.in/authorised-dealership/clamp-meters/' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.cieinstruments.in/' },
+    { '@type': 'ListItem', position: 2, name: 'Authorised Dealership', item: 'https://www.cieinstruments.in/authorised-dealership/' },
+    { '@type': 'ListItem', position: 3, name: 'Vartech Clamp Meters', item: 'https://www.cieinstruments.in/authorised-dealership/clamp-meters/' },
   ],
 };
 
@@ -31,7 +31,7 @@ const productSchema = {
       '@type': 'Product',
       name: `${p.model} — ${p.name}`,
       description: p.description,
-      image: `https://cieinstruments.in/images/vartech/clamp-meters/${p.images[0]}`,
+      image: `https://www.cieinstruments.in/images/vartech/clamp-meters/${p.images[0]}`,
       brand: { '@type': 'Brand', name: 'Vartech' },
       offers: {
         '@type': 'Offer',

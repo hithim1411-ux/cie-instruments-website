@@ -13,15 +13,15 @@ export async function getStaticPaths() {
 const { product } = Astro.props;
 const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${product.model} — ${product.name}. Please send me details and pricing.`);
 const quoteMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent(`Quote Request — Vartech ${product.model}`)}&body=${encodeURIComponent(`Hello CIE team,\n\nI would like to request a quote for:\nBrand: Vartech\nModel: ${product.model} — ${product.name}\n\nQuantity:\nApplication:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.`)}`;
-const canonicalPath = `https://cieinstruments.in/authorised-dealership/function-generators/${product.id}/`;
+const canonicalPath = `https://www.cieinstruments.in/authorised-dealership/function-generators/${product.id}/`;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cieinstruments.in/' },
-    { '@type': 'ListItem', position: 2, name: 'Authorised Dealership', item: 'https://cieinstruments.in/authorised-dealership/' },
-    { '@type': 'ListItem', position: 3, name: 'Vartech Function Generators', item: 'https://cieinstruments.in/authorised-dealership/function-generators/' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.cieinstruments.in/' },
+    { '@type': 'ListItem', position: 2, name: 'Authorised Dealership', item: 'https://www.cieinstruments.in/authorised-dealership/' },
+    { '@type': 'ListItem', position: 3, name: 'Vartech Function Generators', item: 'https://www.cieinstruments.in/authorised-dealership/function-generators/' },
     { '@type': 'ListItem', position: 4, name: product.model, item: canonicalPath },
   ],
 };

@@ -71,7 +71,7 @@ const itemListSchema = {
   '@type': 'ItemList',
   name: category.name,
   description: category.description,
-  url: `https://cieinstruments.in/products/${category.id}/`,
+  url: `https://www.cieinstruments.in/products/${category.id}/`,
   numberOfItems: isCombined
     ? catProducts.length + vartechSections.reduce((s: number, sec: any) => s + sec.items.length, 0)
     : isVartechBrand
@@ -81,7 +81,7 @@ const itemListSchema = {
     ...(isCombined || !isVartechBrand ? catProducts.map((p: any, i: number) => ({
       '@type': 'ListItem',
       position: i + 1,
-      url: `https://cieinstruments.in/products/${p.categoryId}/${p.id}/`,
+      url: `https://www.cieinstruments.in/products/${p.categoryId}/${p.id}/`,
       name: `${p.model} — ${p.name}`,
     })) : []),
     ...(isCombined
@@ -89,7 +89,7 @@ const itemListSchema = {
           sec.items.map((p: any, pi: number) => ({
             '@type': 'ListItem',
             position: catProducts.length + (si * 100) + pi + 1,
-            url: `https://cieinstruments.in/authorised-dealership/${sec.slug}/${p.id}/`,
+            url: `https://www.cieinstruments.in/authorised-dealership/${sec.slug}/${p.id}/`,
             name: `Vartech ${p.model} — ${p.name}`,
           }))
         )
@@ -97,7 +97,7 @@ const itemListSchema = {
         ? vartechItems.map((p: any, i: number) => ({
             '@type': 'ListItem',
             position: i + 1,
-            url: `https://cieinstruments.in/authorised-dealership/${brandSlug}/${p.id}/`,
+            url: `https://www.cieinstruments.in/authorised-dealership/${brandSlug}/${p.id}/`,
             name: `Vartech ${p.model} — ${p.name}`,
           }))
         : []),

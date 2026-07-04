@@ -43,7 +43,7 @@ for (const p of cieProducts as any[]) {
     apps: (p.applications || []).join(' | '),
     options: (p.options || []).slice(0, 5).join(' | '),
     orderNote: p.orderNote || '',
-    url: `https://cieinstruments.in${slug}`,
+    url: `https://www.cieinstruments.in${slug}`,
   });
 }
 
@@ -72,7 +72,7 @@ for (const { label, slug, items } of vartechSections) {
       apps: (p.features || []).slice(0, 5).join(' | '),
       options: '',
       orderNote: '',
-      url: `https://cieinstruments.in/authorised-dealership/${slug}/${p.id}/`,
+      url: `https://www.cieinstruments.in/authorised-dealership/${slug}/${p.id}/`,
     });
   }
 }
@@ -212,7 +212,7 @@ const BASE_SYSTEM = `You are Arjun, the lead technical sales expert at Cambridge
 • [second]
 • [third]
 **Also consider:** [model] — [specific condition when this is better] *(only if a genuinely different use case exists)*
-→ [Contact CIE for pricing and availability](https://cieinstruments.in/contact/)
+→ [Contact CIE for pricing and availability](https://www.cieinstruments.in/contact/)
 
 Do NOT include product page URLs — product cards are shown below.
 
@@ -226,7 +226,7 @@ Do NOT include product page URLs — product cards are shown below.
 • [key spec] • [key spec] • Best for: [use case]
 
 Choose **[A]** if [specific condition]. Choose **[B]** if [specific condition].
-→ [Contact CIE for pricing](https://cieinstruments.in/contact/)
+→ [Contact CIE for pricing](https://www.cieinstruments.in/contact/)
 
 ---
 

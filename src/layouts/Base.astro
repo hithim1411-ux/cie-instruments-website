@@ -120,12 +120,12 @@ const breadcrumbSchema = pathParts.length > 0 ? JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cieinstruments.in/' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.cieinstruments.in/' },
     ...pathParts.map((seg, i) => ({
       '@type': 'ListItem',
       position: i + 2,
       name: slugLabels[seg] ?? seg.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()),
-      item: `https://cieinstruments.in/${pathParts.slice(0, i + 1).join('/')}/`,
+      item: `https://www.cieinstruments.in/${pathParts.slice(0, i + 1).join('/')}/`,
     })),
   ],
 }) : null;
@@ -136,7 +136,7 @@ const orgSchema = {
   '@graph': [
     {
       '@type': ['Organization', 'LocalBusiness'],
-      '@id': 'https://cieinstruments.in/#organization',
+      '@id': 'https://www.cieinstruments.in/#organization',
       name: 'Cambridge Instruments & Engg. Co.',
       alternateName: [
         'CIE Instruments',
@@ -154,14 +154,14 @@ const orgSchema = {
         'CIE India',
         'Cambridge Inst',
       ],
-      url: 'https://cieinstruments.in/',
+      url: 'https://www.cieinstruments.in/',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://cieinstruments.in/logo/cie-logo.png',
+        url: 'https://www.cieinstruments.in/logo/cie-logo.png',
         width: 200,
         height: 200,
       },
-      image: 'https://cieinstruments.in/logo/cie-logo.png',
+      image: 'https://www.cieinstruments.in/logo/cie-logo.png',
       foundingDate: '1963',
       telephone: '+913326388346',
       email: 'cieinstruments@gmail.com',
@@ -251,7 +251,7 @@ const orgSchema = {
         'CIE 444', 'CIE444', 'CIE model instruments',
       ],
       sameAs: [
-        'https://cieinstruments.in/',
+        'https://www.cieinstruments.in/',
         'https://www.cieinstruments.in/',
         'https://cieinstruments.com/',
         'https://cieinstrument.com/',
@@ -274,15 +274,15 @@ const orgSchema = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://cieinstruments.in/#website',
-      url: 'https://cieinstruments.in/',
+      '@id': 'https://www.cieinstruments.in/#website',
+      url: 'https://www.cieinstruments.in/',
       name: 'CIE Instruments',
-      publisher: { '@id': 'https://cieinstruments.in/#organization' },
+      publisher: { '@id': 'https://www.cieinstruments.in/#organization' },
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://cieinstruments.in/products/?category={search_term_string}',
+          urlTemplate: 'https://www.cieinstruments.in/products/?category={search_term_string}',
         },
         'query-input': 'required name=search_term_string',
       },

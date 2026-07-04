@@ -17,7 +17,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, 'https://cieinstruments.in');
+const canonicalURL = new URL(Astro.url.pathname, 'https://www.cieinstruments.in');
 const currentPath = Astro.url.pathname;
 const onInsights = currentPath.startsWith(u('/blog'));
 ---
@@ -34,7 +34,7 @@ const onInsights = currentPath.startsWith(u('/blog'));
 
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={new URL(ogImage, 'https://cieinstruments.in').toString()} />
+  <meta property="og:image" content={new URL(ogImage, 'https://www.cieinstruments.in').toString()} />
   <meta property="og:type" content="article" />
 
   <link rel="icon" type="image/png" href={u('/logo/cie-logo.png')} />
