@@ -4,11 +4,15 @@
     "model": "LCM-1",
     "name": "Portable Digital LC Meter",
     "tagline": "High-precision portable LC meter with wide measurement range — from 1 pF / 1 µH to 100 mF / 100 H in two range modes.",
-    "description": "The Vartech LCM-1 is a high-precision portable LC meter with a 4-digit LCD display. It measures inductance and capacitance across a wide range using two modes: Low Range (C: 1 pF to 10 µF, L: 1 µH to 100 mH) at a 500 kHz test frequency, and High Range (C: 1 µF to 100 mF, L: 100 mH to 100 H) at 500 Hz to 50 kHz. Ideal for incoming component inspection, component sorting, resonant circuit design and general electronics lab work.",
+    "description": "The Vartech LCM-1 is a high-precision portable LC meter with a 4-digit LCD display. It measures inductance and capacitance across a wide range using two modes: Low Range (C: 1 pF to 10 µF, L: 1 µH to 100 mH) at a 500 kHz test frequency, and High Range (C: 1 µF to 100 mF, L: 100 mH to 100 H) at 500 Hz to 50 kHz. A dedicated Zero button nulls out test-lead and fixture offset before measurement, while the Hi.C / Hi.L / L-C mode keys let you switch ranges with a single press — the meter also auto powers-off to save battery when idle. It ships with a pair of alligator-clip test leads plus an SMD/through-hole tweezer probe, so both leaded and surface-mount components can be measured directly without extra accessories. Ideal for incoming component inspection, component sorting, resonant circuit design and general electronics lab work.",
     "features": [
       "Low Range — Capacitance: 1 pF ~ 10 µF;  Inductance: 1 µH ~ 100 mH;  Test frequency: 500 kHz",
       "High Range — Capacitance: 1 µF ~ 100 mF;  Inductance: 100 mH ~ 100 H;  Test frequency: 500 Hz ~ 50 kHz",
       "4-digit LCD display — high-resolution readout in both modes",
+      "Zero (null) button — cancels test-lead and fixture offset before measuring",
+      "One-touch Hi.C / Hi.L / L-C mode keys for fast range selection",
+      "Auto power-off — conserves battery during idle periods",
+      "Supplied with alligator-clip test leads and an SMD/through-hole tweezer probe",
       "Portable and compact — fits easily in a toolkit or component drawer",
       "High precision — suitable for component sorting and resonant circuit design"
     ],
@@ -19,7 +23,11 @@
       { "label": "Test Frequency — L & C Low Range", "value": "500 kHz" },
       { "label": "Capacitance — High Range", "value": "1 µF ~ 100 mF" },
       { "label": "Inductance — High Range", "value": "100 mH ~ 100 H" },
-      { "label": "Test Frequency — High L Range", "value": "500 Hz ~ 50 kHz" }
+      { "label": "Test Frequency — High L Range", "value": "500 Hz ~ 50 kHz" },
+      { "label": "Zero / Null Adjustment", "value": "Yes — dedicated Zero button" },
+      { "label": "Mode Selection", "value": "Hi.C / Hi.L / L-C one-touch keys" },
+      { "label": "Power Saving", "value": "Auto power-off" },
+      { "label": "Included Accessories", "value": "Alligator-clip test leads + SMD/through-hole tweezer probe" }
     ],
     "images": ["lcm-1.webp", "lcm-1-2.webp", "lcm-1-3.webp", "lcm-1-4.webp", "lcm-1-5.webp"],
     "catalogue": "lcm-1.pdf"
