@@ -14,6 +14,7 @@ interface Props {
   rawTitle?: boolean;
   preloadImage?: string;
   keywords?: string;
+  transparentHero?: boolean;
 }
 
 const {
@@ -24,6 +25,7 @@ const {
   rawTitle = false,
   preloadImage,
   keywords,
+  transparentHero = false,
 } = Astro.props;
 
 const baseKeywords = [
@@ -341,8 +343,8 @@ const orgSchema = {
   <slot name="head" />
 </head>
 <body>
-  <Header />
-  <main>
+  <Header transparentHero={transparentHero} />
+  <main class={transparentHero ? '' : 'pt-16 lg:pt-20'}>
     <slot />
   </main>
   <Footer />
@@ -350,9 +352,10 @@ const orgSchema = {
   <Search />
 
   <script>
-    // ── Scroll-reveal: fade+slide any [data-reveal] element into place once,
-    // the first time it enters the viewport. Subtle, one-shot, no re-trigger.
-    const revealTargets = document.querySelectorAll<HTMLElement>('[data-reveal]');
+    // ── Scroll-reveal: fade+slide any [data-reveal] element (or stagger the
+    // children of any [data-reveal-stagger] container) into place once, the
+    // first time it enters the viewport. Subtle, one-shot, no re-trigger.
+    const revealTargets = document.querySelectorAll<HTMLElement>('[data-reveal], [data-reveal-stagger]');
     if (revealTargets.length) {
       const io = new IntersectionObserver((entries) => {
         for (const entry of entries) {

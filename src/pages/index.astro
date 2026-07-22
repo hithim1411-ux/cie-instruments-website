@@ -87,40 +87,45 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
   description="CIE — Cambridge Instruments & Engg. Co., Howrah. Manufacturer and supplier of insulation testers, earth testers, relay test sets, oil BDV testers, clamp meters, HV test sets. Kolkata, West Bengal. Trusted by PGCIL, WBSETCL, Indian Railways since 1963."
   preloadImage={u('/images/products/cie-444.webp')}
   keywords="test and measurement instruments India, electrical test instruments supplier Kolkata, insulation tester manufacturer India, digital multimeters India, oscilloscopes India, clamp meters India, vartech authorised dealer India, cambridge instruments insulation tester, CIE instruments Howrah, megger supplier India"
+  transparentHero
 >
-  <!-- ── HERO ──────────────────────────────────────────────────────────────── -->
-  <section class="blueprint-bg text-white relative overflow-hidden">
+  <!-- ── HERO — full viewport, scroll-driven ─────────────────────────────────
+       Header floats transparent over this section (transparentHero on Base)
+       and only turns solid once scrolled. Hero content itself fades/scales
+       out as the user scrolls past (see script below), and the product
+       spotlight parallaxes at a slower speed than the page scroll. ── -->
+  <section id="home-hero" class="blueprint-bg text-white relative overflow-hidden min-h-screen flex items-center">
     <!-- Ambient glow -->
     <div class="absolute top-0 right-0 w-[800px] h-[800px] rounded-full opacity-[0.08] pointer-events-none"
       style="background: radial-gradient(circle at top right, #E0252E 0%, transparent 65%);" aria-hidden="true">
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
+    <div id="hero-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 lg:pt-24 lg:pb-20 w-full will-change-[transform,opacity]">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
 
         <!-- ── Left: copy ── -->
-        <div class="max-w-xl" data-reveal>
+        <div class="max-w-xl">
           <!-- Eyebrow -->
-          <div class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
+          <div data-hero-anim style="--d: 0ms" class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
             <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] animate-pulse" aria-hidden="true"></span>
             <span class="text-[11px] font-mono text-[#b0bec5] tracking-widest uppercase">CIE® · Instruments for Accuracy and Reliability</span>
           </div>
 
-          <!-- Headline -->
+          <!-- Headline — each line stages in on its own delay -->
           <h1 class="text-[length:var(--text-hero)] font-extrabold leading-[1.02] tracking-tight mb-6 text-white">
-            <span class="block text-lg lg:text-xl font-medium text-[#8a95a3] tracking-normal mb-3">Cambridge Instruments &amp; Engg. Co.</span>
-            Precision instruments,<br class="hidden sm:block" />
-            <span class="text-[#E0252E]">built in India</span> since 1963.
+            <span data-hero-anim style="--d: 80ms" class="block text-lg lg:text-xl font-medium text-[#8a95a3] tracking-normal mb-3">Cambridge Instruments &amp; Engg. Co.</span>
+            <span data-hero-anim style="--d: 160ms" class="block">Precision instruments,</span>
+            <span data-hero-anim style="--d: 240ms" class="block"><span class="text-[#E0252E]">built in India</span> since 1963.</span>
           </h1>
 
           <!-- Subhead -->
-          <p class="text-lg text-[#a3adb8] mb-10 leading-[1.6] max-w-lg">
+          <p data-hero-anim style="--d: 360ms" class="text-lg text-[#a3adb8] mb-10 leading-[1.6] max-w-lg">
             Manufacturer of insulation testers, earth testers, relay test sets, and oil
             test equipment for India's utilities, railways, and industry.
           </p>
 
           <!-- CTAs -->
-          <div class="flex flex-col sm:flex-row gap-3 mb-12">
+          <div data-hero-anim style="--d: 460ms" class="flex flex-col sm:flex-row gap-3 mb-12">
             <a
               href={u('/products/')}
               class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E0252E] hover:bg-[#D72631] text-white font-semibold rounded-lg text-[15px] transition-all hover:shadow-lg hover:shadow-red-900/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
@@ -139,7 +144,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           </div>
 
           <!-- Trust row -->
-          <div class="flex flex-wrap gap-x-6 gap-y-2 pt-7 border-t border-white/10 text-xs text-[#8a95a3] font-mono uppercase tracking-wide">
+          <div data-hero-anim style="--d: 560ms" class="flex flex-wrap gap-x-6 gap-y-2 pt-7 border-t border-white/10 text-xs text-[#8a95a3] font-mono uppercase tracking-wide">
             {['60+ Years', 'Made in India', '12-Month Warranty', 'In-House Calibration'].map(t => (
               <span class="flex items-center gap-1.5">
                 <span class="w-1 h-1 rounded-full bg-[#E0252E]" aria-hidden="true"></span>
@@ -149,8 +154,8 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           </div>
         </div>
 
-        <!-- ── Right: hero product spotlight ── -->
-        <div class="hidden lg:flex items-center justify-center" data-reveal>
+        <!-- ── Right: hero product spotlight — parallaxes on scroll (desktop) ── -->
+        <div id="hero-image" data-hero-fade style="--d: 200ms" class="hidden lg:flex items-center justify-center will-change-transform">
           <div class="relative w-full max-w-md">
             <!-- Ambient glow behind product -->
             <div class="absolute inset-0 rounded-full bg-gradient-to-br from-[#1B3A5B]/50 to-transparent blur-3xl scale-90" aria-hidden="true"></div>
@@ -205,7 +210,68 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
       </div>
     </div>
+
+    <!-- Scroll cue -->
+    <div id="hero-scroll-cue" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#6b7688] transition-opacity duration-500" aria-hidden="true">
+      <span class="text-[10px] font-mono uppercase tracking-widest">Scroll</span>
+      <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7-7-7M12 21V3"/>
+      </svg>
+    </div>
   </section>
+
+  <script>
+  {
+    // ── Hero scroll dynamics: content fade/scale-out + image parallax ──────
+    // Runs only while the hero is in view (IntersectionObserver-gated) and
+    // only does work inside requestAnimationFrame, so it costs nothing once
+    // the user has scrolled past. Fully skipped for prefers-reduced-motion.
+    const hero    = document.getElementById('home-hero');
+    const content = document.getElementById('hero-content');
+    const image   = document.getElementById('hero-image');
+    const cue     = document.getElementById('hero-scroll-cue');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isDesktop    = window.matchMedia('(min-width: 1024px)').matches;
+
+    if (hero && content && !reduceMotion) {
+      let heroInView = true;
+      let ticking = false;
+
+      function apply() {
+        const heroHeight = hero!.offsetHeight || 1;
+        const progress = Math.min(Math.max(window.scrollY / heroHeight, 0), 1);
+
+        content!.style.opacity = String(Math.max(1 - progress * 1.15, 0));
+        content!.style.transform = `scale(${1 - progress * 0.06})`;
+
+        if (image && isDesktop) {
+          image.style.transform = `translateY(${Math.min(window.scrollY * 0.25, heroHeight * 0.25)}px)`;
+        }
+        if (cue) cue.style.opacity = String(Math.max(1 - progress * 4, 0));
+
+        ticking = false;
+      }
+
+      function onScroll() {
+        if (!heroInView) return;
+        if (!ticking) {
+          requestAnimationFrame(apply);
+          ticking = true;
+        }
+      }
+
+      // Only listen while the hero is anywhere near the viewport.
+      const io = new IntersectionObserver((entries) => {
+        heroInView = entries[0]?.isIntersecting ?? false;
+        if (heroInView) apply();
+      }, { rootMargin: '200px 0px 200px 0px' });
+      io.observe(hero);
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      apply();
+    }
+  }
+  </script>
 
   <!-- ── PRODUCT CATEGORIES (horizontal slider) ───────────────────────────── -->
   <section class="bg-[#F5F7FA] section-pad">
@@ -315,9 +381,9 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         <EyebrowLabel text="Why CIE" class="mb-3" />
         <h2 class="text-[length:var(--text-display)] font-extrabold text-[#0D2547] leading-[1.1] tracking-tight">Built for reliability.<br />Backed by six decades.</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10" data-reveal-stagger>
         {trustPoints.map(tp => (
-          <div class="red-stripe" data-reveal>
+          <div class="red-stripe">
             <div class="w-11 h-11 bg-[#F5F5F7] rounded-xl flex items-center justify-center mb-4">
               <Icon name={tp.icon} class="w-5 h-5 text-[#1B3A5B]" />
             </div>
@@ -419,9 +485,9 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           From grid substations to rolling stock depots — CIE instruments are specified by engineers who need measurements they can stake their signature on.
         </p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-reveal-stagger>
         {industries.map(ind => (
-          <div class="bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-white/20 rounded-2xl p-6 transition-all duration-200" data-reveal>
+          <div class="bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-white/20 rounded-2xl p-6">
             <div class="w-11 h-11 bg-white/5 rounded-xl flex items-center justify-center mb-4">
               <Icon name={ind.icon} class="w-5 h-5 text-[#E0252E]" />
             </div>

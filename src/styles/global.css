@@ -40,6 +40,12 @@
   --text-display: clamp(2rem, 3vw + 1rem, 3.5rem);
 }
 
+:root {
+  /* Shared "settling into place" deceleration curve — used for every
+     scroll-reveal, nav transition, and hero animation on the site. */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 /* ── Base ── */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -76,14 +82,73 @@ p { line-height: 1.65; }
 [data-reveal] {
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium);
 }
 [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ── Staggered group reveal ──
+   Wrap a section's repeating children (cards, grid items) in
+   [data-reveal-stagger]. JS flips .is-visible on the CONTAINER once it
+   intersects; each direct child animates in with an incremental delay
+   so items arrive one after another instead of all at once. ── */
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium),
+    background-color 0.2s ease, border-color 0.2s ease;
+}
+[data-reveal-stagger].is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal-stagger] > *:nth-child(1) { transition-delay: 0ms; }
+[data-reveal-stagger] > *:nth-child(2) { transition-delay: 70ms; }
+[data-reveal-stagger] > *:nth-child(3) { transition-delay: 140ms; }
+[data-reveal-stagger] > *:nth-child(4) { transition-delay: 210ms; }
+[data-reveal-stagger] > *:nth-child(5) { transition-delay: 280ms; }
+[data-reveal-stagger] > *:nth-child(6) { transition-delay: 350ms; }
+[data-reveal-stagger] > *:nth-child(7) { transition-delay: 420ms; }
+[data-reveal-stagger] > *:nth-child(8) { transition-delay: 490ms; }
+
+/* ── Hero load-in: staggered fade-up per line, runs once on page load
+   (not scroll-triggered). Delay is set per-element via inline
+   `style="--d: 120ms"` in the markup. ── */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+[data-hero-anim] {
+  opacity: 0;
+  animation: hero-fade-up 0.7s var(--ease-premium) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* Opacity-only variant — used where JS drives `transform` afterward
+   (the hero product spotlight, for scroll parallax) so the load-in
+   animation never fights a later inline transform. */
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+[data-hero-fade] {
+  opacity: 0;
+  animation: hero-fade-in 0.7s var(--ease-premium) both;
+  animation-delay: var(--d, 0ms);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  [data-reveal],
+  [data-reveal-stagger] > *,
+  [data-hero-anim],
+  [data-hero-fade] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
 }
 
 /* ── Utility classes not easily expressible in Tailwind v4 inline ── */

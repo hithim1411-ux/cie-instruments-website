@@ -5,6 +5,11 @@ import site from '../data/site.json';
 import Icon from './Icon.astro';
 import { categoryIcon } from '../utils/categoryIcons';
 
+interface Props {
+  transparentHero?: boolean;
+}
+const { transparentHero = false } = Astro.props;
+
 // Nav dropdown: split CIE-manufactured vs Vartech authorised-dealer categories.
 // vartech-multimeters and vartech-clamp-meters excluded (CIE already covers those types).
 const DROPDOWN_EXCLUDE = new Set(['vartech-multimeters', 'vartech-clamp-meters']);
@@ -27,12 +32,16 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 ---
 
 
-<header id="site-header" class="sticky top-0 z-50 bg-[#0A0E14] transition-[height,background-color,box-shadow] duration-300 ease-out">
+<header
+  id="site-header"
+  data-transparent-hero={transparentHero ? 'true' : 'false'}
+  class={`fixed top-0 inset-x-0 z-50 transition-[background-color,box-shadow] duration-300 [transition-timing-function:var(--ease-premium)] ${transparentHero ? 'bg-transparent' : 'bg-[#0A0E14]'}`}
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div id="site-header-bar" class="flex items-center justify-between h-16 lg:h-20 transition-[height] duration-300 ease-out">
+    <div id="site-header-bar" class="flex items-center justify-between h-16 lg:h-20 transition-[height] duration-300 [transition-timing-function:var(--ease-premium)]">
 
       <!-- Logo + wordmark -->
-      <a href={u('/')} class="flex items-center gap-2.5 shrink-0 min-w-0" aria-label="CIE Instruments — Home">
+      <a href={u('/')} id="site-logo" class="flex items-center gap-2.5 shrink-0 min-w-0 origin-left transition-transform duration-300 [transition-timing-function:var(--ease-premium)]" aria-label="CIE Instruments — Home">
         <img
           src={u('/logo/cie-logo-transparent.webp')}
           alt="CIE® logo"
@@ -350,18 +359,30 @@ document.getElementById('search-trigger')?.addEventListener('click', openSearch)
 document.getElementById('search-trigger-mobile')?.addEventListener('click', openSearch);
 
 // ── Scroll-condense: shrink height + add blur/shadow once scrolled ────────
+// On pages with a dark full-bleed hero (transparentHero), the header starts
+// fully transparent and blended into the hero; everywhere else it keeps its
+// existing solid dark background at all times. Either way, past a small
+// scroll threshold it condenses to a solid blurred bar.
 const header = document.getElementById('site-header') as HTMLElement;
 const headerBar = document.getElementById('site-header-bar') as HTMLElement;
+const siteLogo = document.getElementById('site-logo') as HTMLElement | null;
+const isTransparentHero = header?.dataset.transparentHero === 'true';
+
 function updateScrollState() {
   const scrolled = window.scrollY > 8;
   header?.classList.toggle('bg-[#0A0E14]/80', scrolled);
   header?.classList.toggle('backdrop-blur-xl', scrolled);
   header?.classList.toggle('shadow-lg', scrolled);
-  header?.classList.toggle('bg-[#0A0E14]', !scrolled);
+  if (isTransparentHero) {
+    header?.classList.toggle('bg-transparent', !scrolled);
+  } else {
+    header?.classList.toggle('bg-[#0A0E14]', !scrolled);
+  }
   headerBar?.classList.toggle('h-14', scrolled);
   headerBar?.classList.toggle('lg:h-16', scrolled);
   headerBar?.classList.toggle('h-16', !scrolled);
   headerBar?.classList.toggle('lg:h-20', !scrolled);
+  siteLogo?.classList.toggle('scale-90', scrolled);
 }
 updateScrollState();
 window.addEventListener('scroll', updateScrollState, { passive: true });
