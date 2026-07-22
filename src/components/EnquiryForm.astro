@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 import site from '../data/site.json';
 import categories from '../data/categories.json';
 import products from '../data/products.json';
@@ -51,20 +52,20 @@ const waMsg = productName
 
 <!-- Products data is passed via define:vars in the script below -->
 
-<div class="bg-white rounded-xl border border-[#E8ECF2] p-6 sm:p-8">
-  <h2 class="text-xl font-bold text-[#0D2547] mb-6">Request a Quote</h2>
+<div class="bg-white rounded-xl border border-border p-6 sm:p-8">
+  <h2 class="text-xl font-bold text-ink mb-6">Request a Quote</h2>
 
   <form id="quote-form" novalidate class="space-y-5">
 
     <!-- ── Row 1: Category + Product ── -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
-        <label for="qf-category" class="block text-sm font-medium text-[#1B3A5B] mb-1">
-          Product Category <span class="text-[#E0252E]">*</span>
+        <label for="qf-category" class="block text-sm font-medium text-ink mb-1">
+          Product Category <span class="text-red">*</span>
         </label>
         <select
           id="qf-category"
-          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors text-[#1B3A5B]"
+          class="w-full px-3 py-2.5 border border-border rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors text-ink"
         >
           <option value="">— Select a category —</option>
           {categories.map(cat => (
@@ -74,13 +75,13 @@ const waMsg = productName
       </div>
 
       <div>
-        <label for="qf-product" class="block text-sm font-medium text-[#1B3A5B] mb-1">
-          Model / Instrument <span class="text-[#E0252E]">*</span>
+        <label for="qf-product" class="block text-sm font-medium text-ink mb-1">
+          Model / Instrument <span class="text-red">*</span>
         </label>
         <select
           id="qf-product"
           disabled
-          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors text-[#1B3A5B] disabled:bg-[#F5F7FA] disabled:text-[#94a3b8] disabled:cursor-not-allowed"
+          class="w-full px-3 py-2.5 border border-border rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors text-ink disabled:bg-cloud disabled:text-muted disabled:cursor-not-allowed"
         >
           <option value="">— Select category first —</option>
         </select>
@@ -89,7 +90,7 @@ const waMsg = productName
 
     <!-- ── Rated voltage / range (context-sensitive hint) ── -->
     <div id="qf-spec-row">
-      <label for="qf-spec" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+      <label for="qf-spec" class="block text-sm font-medium text-ink mb-1">
         Rated Voltage &amp; Resistance Range
       </label>
       <input
@@ -97,31 +98,31 @@ const waMsg = productName
         id="qf-spec"
         name="spec"
         placeholder="e.g. 500 V / 0–1000 MΩ — leave blank if unsure, we'll advise"
-        class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors"
+        class="w-full px-3 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors"
       />
-      <p id="qf-spec-hint" class="mt-1 text-xs text-[#64748B] hidden"></p>
+      <p id="qf-spec-hint" class="mt-1 text-xs text-muted hidden"></p>
     </div>
 
     <!-- ── Row 2: Name + Company ── -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
-        <label for="qf-name" class="block text-sm font-medium text-[#1B3A5B] mb-1">
-          Full Name <span class="text-[#E0252E]">*</span>
+        <label for="qf-name" class="block text-sm font-medium text-ink mb-1">
+          Full Name <span class="text-red">*</span>
         </label>
         <input
           type="text" id="qf-name" autocomplete="name" required
           placeholder="Your name"
-          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors"
+          class="w-full px-3 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors"
         />
       </div>
       <div>
-        <label for="qf-company" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+        <label for="qf-company" class="block text-sm font-medium text-ink mb-1">
           Company / Organisation
         </label>
         <input
           type="text" id="qf-company" autocomplete="organization"
           placeholder="Your company"
-          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors"
+          class="w-full px-3 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors"
         />
       </div>
     </div>
@@ -129,71 +130,64 @@ const waMsg = productName
     <!-- ── Row 3: Phone + Quantity ── -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
-        <label for="qf-phone" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+        <label for="qf-phone" class="block text-sm font-medium text-ink mb-1">
           Phone Number
         </label>
         <input
           type="tel" id="qf-phone" autocomplete="tel"
           placeholder="+91 ..."
-          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors"
+          class="w-full px-3 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors"
         />
       </div>
       <div>
-        <label for="qf-qty" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+        <label for="qf-qty" class="block text-sm font-medium text-ink mb-1">
           Quantity Required
         </label>
         <input
           type="text" id="qf-qty"
           placeholder="e.g. 2 nos."
-          class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] transition-colors"
+          class="w-full px-3 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors"
         />
       </div>
     </div>
 
     <!-- ── Message / Requirement ── -->
     <div>
-      <label for="qf-message" class="block text-sm font-medium text-[#1B3A5B] mb-1">
+      <label for="qf-message" class="block text-sm font-medium text-ink mb-1">
         Additional Requirement / Notes
       </label>
       <textarea
         id="qf-message" rows="3"
         placeholder="Any special specifications, delivery requirements, or questions…"
-        class="w-full px-3 py-2.5 border border-[#E8ECF2] rounded text-sm focus:outline-none focus:ring-2 focus:ring-[#1B3A5B]/30 focus:border-[#1B3A5B] resize-y transition-colors"
+        class="w-full px-3 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink resize-y transition-colors"
       ></textarea>
     </div>
 
     <!-- Validation message -->
-    <p id="qf-error" class="hidden text-sm text-[#E0252E] font-medium"></p>
+    <p id="qf-error" class="hidden text-sm text-red font-medium"></p>
 
     <!-- ── Preview of email body ── -->
     <div id="qf-preview-wrap" class="hidden">
-      <p class="text-xs font-mono font-bold text-[#64748B] uppercase tracking-widest mb-2">Preview — email that will open</p>
+      <p class="text-xs font-mono font-bold text-muted uppercase tracking-widest mb-2">Preview — email that will open</p>
       <pre
         id="qf-preview"
-        class="bg-[#F5F7FA] border border-[#E8ECF2] rounded-lg px-4 py-3 text-xs text-[#1B3A5B] leading-relaxed whitespace-pre-wrap break-words font-mono max-h-52 overflow-y-auto"
+        class="bg-cloud border border-border rounded-lg px-4 py-3 text-xs text-ink leading-relaxed whitespace-pre-wrap break-words font-mono max-h-52 overflow-y-auto"
       ></pre>
     </div>
 
     <!-- ── Actions ── -->
     <div class="flex flex-col sm:flex-row gap-3 pt-1">
-      <button
-        type="submit"
-        class="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded-lg transition-colors text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E0252E]"
-      >
-        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-        </svg>
+      <button type="submit" class="btn-primary flex-1">
+        <Icon name="mail" class="w-4 h-4 shrink-0" />
         Open in Email
       </button>
       <a
         href={`https://wa.me/${site.whatsapp}?text=${waMsg}`}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex-1 flex items-center justify-center gap-2 px-6 py-3 border-2 border-[#25D366] text-[#1a6e38] font-semibold rounded-lg hover:bg-[#25D366]/10 transition-colors text-sm"
+        class="btn-secondary flex-1 text-ink"
       >
-        <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
+        <Icon name="message-circle" class="w-4 h-4 shrink-0" />
         Enquire on WhatsApp
       </a>
     </div>

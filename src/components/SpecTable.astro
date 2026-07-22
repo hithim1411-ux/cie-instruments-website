@@ -9,7 +9,7 @@ interface Props {
 const { specs } = Astro.props;
 ---
 
-<div class="overflow-x-auto rounded border border-[#E8ECF2]">
+<div class="overflow-x-auto rounded border border-border">
   <table class="spec-table w-full text-left border-collapse">
     <thead>
       <tr>
@@ -20,7 +20,7 @@ const { specs } = Astro.props;
     <tbody>
       {specs.map(s => (
         <tr>
-          <td class="font-mono text-xs font-medium text-[#1B3A5B] uppercase tracking-wide">{s.label}</td>
+          <td class="font-mono text-xs font-medium text-ink uppercase tracking-wide">{s.label}</td>
           <td>{s.value}</td>
         </tr>
       ))}

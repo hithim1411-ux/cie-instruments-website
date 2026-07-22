@@ -1,0 +1,24 @@
+---
+// The one "→" link pattern used site-wide — card CTAs, "View all" links,
+// footer links, blog "Read more". Same icon, same 200ms translate, same
+// easing, everywhere. Don't hand-roll a "→" glyph or a raw arrow <svg>
+// anywhere else; use this.
+import { u } from '../utils/url';
+import Icon from './Icon.astro';
+
+interface Props {
+  href: string;
+  class?: string;
+  external?: boolean;
+}
+const { href, class: className = '', external = false } = Astro.props;
+const resolvedHref = external ? href : u(href);
+---
+<a
+  href={resolvedHref}
+  class={`link-arrow ${className}`}
+  {...external ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+>
+  <slot />
+  <Icon name="arrow" class="w-4 h-4 shrink-0" />
+</a>

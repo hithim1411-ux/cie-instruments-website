@@ -402,15 +402,15 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
   })} />
 
   <!-- ── Article Header — gray bg, clearly framed ── -->
-  <div class="bg-[#F5F7FA] border-b-2 border-gray-200">
+  <div class="bg-cloud border-b-2 border-gray-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10">
 
       <!-- Breadcrumb -->
       <nav class="mb-6" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 text-xs text-gray-400 font-mono">
-          <li><a href={u('/')} class="hover:text-[#0D1B2A] transition-colors">Home</a></li>
+          <li><a href={u('/')} class="hover:text-ink transition-colors">Home</a></li>
           <li aria-hidden="true" class="text-gray-300">›</li>
-          <li><a href={u('/blog/')} class="hover:text-[#0D1B2A] transition-colors">Insights</a></li>
+          <li><a href={u('/blog/')} class="hover:text-ink transition-colors">Insights</a></li>
           <li aria-hidden="true" class="text-gray-300">›</li>
           <li class="text-gray-500 truncate max-w-[180px]">{post.category}</li>
         </ol>
@@ -420,11 +420,11 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
         {post.category}
       </span>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-[#0D1B2A] leading-tight tracking-tight max-w-3xl mb-4">
+      <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-ink leading-tight tracking-tight max-w-3xl mb-4">
         {post.title}
       </h1>
 
-      <p class="text-[#64748b] text-base max-w-2xl mb-7 leading-relaxed">{post.description}</p>
+      <p class="text-muted text-base max-w-2xl mb-7 leading-relaxed">{post.description}</p>
 
       <!-- Meta row -->
       <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
@@ -458,7 +458,7 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
           <!-- TOC -->
           {toc.length > 0 && (
             <div class="border border-gray-200 rounded-xl p-5">
-              <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-[#94a3b8] mb-4">In this article</p>
+              <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-muted mb-4">In this article</p>
               <nav>
                 <ul class="space-y-0.5" id="toc-list">
                   {toc.map(item => (
@@ -466,9 +466,9 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
                       <a
                         href={`#${item.id}`}
                         data-toc
-                        class="flex items-center gap-2.5 text-sm text-[#64748b] hover:text-[#0D1B2A] py-1.5 px-2 rounded-lg hover:bg-gray-50 transition-colors group"
+                        class="flex items-center gap-2.5 text-sm text-muted hover:text-ink py-1.5 px-2 rounded-lg hover:bg-gray-50 transition-colors group"
                       >
-                        <span class="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-[#E0252E] transition-colors shrink-0"></span>
+                        <span class="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-red transition-colors shrink-0"></span>
                         {item.label}
                       </a>
                     </li>
@@ -487,9 +487,9 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
               height="502"
               class="h-12 w-auto mb-4 object-contain"
             />
-            <p class="font-bold text-[#0D1B2A] text-sm mb-1">Cambridge Instruments &amp; Engg. Co.</p>
-            <p class="text-xs text-[#64748b] mb-4 leading-relaxed">Precision test and measurement instruments since 1963.</p>
-            <a href={u('/products/')} class="block w-full py-2.5 bg-[#0D1B2A] hover:bg-[#1B3A5B] text-white text-xs font-semibold rounded text-center transition-colors">
+            <p class="font-bold text-ink text-sm mb-1">Cambridge Instruments &amp; Engg. Co.</p>
+            <p class="text-xs text-muted mb-4 leading-relaxed">Precision test and measurement instruments since 1963.</p>
+            <a href={u('/products/')} class="btn-primary btn-primary--sm w-full">
               Browse Products
             </a>
           </div>
@@ -497,12 +497,12 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
           <!-- More articles -->
           {otherPosts.length > 0 && (
             <div class="border border-gray-200 rounded-xl p-5">
-              <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-[#94a3b8] mb-4">More Articles</p>
+              <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-muted mb-4">More Articles</p>
               <div class="space-y-4">
                 {otherPosts.map(p => (
                   <a href={u(`/blog/${p.slug}/`)} class="block group">
-                    <p class="text-[10px] font-mono uppercase tracking-widest text-[#E0252E] mb-0.5">{p.category}</p>
-                    <p class="text-sm font-semibold text-[#0D1B2A] group-hover:text-[#E0252E] transition-colors leading-snug">{p.title}</p>
+                    <p class="text-[10px] font-mono uppercase tracking-widest text-red mb-0.5">{p.category}</p>
+                    <p class="text-sm font-semibold text-ink group-hover:text-red transition-colors leading-snug">{p.title}</p>
                     <p class="text-xs text-gray-400 mt-0.5">{p.readTime}</p>
                   </a>
                 ))}
@@ -517,7 +517,7 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
   <!-- ── Bottom CTA — red card, same as blog index, separates from footer ── -->
   <section class="bg-white border-t border-gray-100">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-      <div class="rounded-2xl bg-[#E0252E] overflow-hidden">
+      <div class="rounded-2xl bg-red overflow-hidden">
         <div class="flex flex-col md:flex-row md:items-center gap-8 px-10 py-10">
           <div class="flex-1">
             <div class="text-red-200 text-[11px] font-mono uppercase tracking-[0.18em] mb-3">Cambridge Instruments &amp; Engg. Co. · Est. 1963</div>
@@ -525,10 +525,10 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
             <div class="text-red-100 text-sm leading-relaxed max-w-md">Multimeters, clamp meters, insulation testers, earth testers — manufactured in Howrah, India. Pan-India supply.</div>
           </div>
           <div class="flex flex-col sm:flex-row gap-3 shrink-0">
-            <a href={u('/products/')} style="color: #E0252E;" class="px-7 py-3 bg-white hover:bg-gray-50 text-sm font-bold rounded-lg transition-colors text-center no-underline">
+            <a href={u('/products/')} class="btn-primary btn-primary--inverse no-underline">
               Browse Products
             </a>
-            <a href={u('/contact/')} style="color: white;" class="px-7 py-3 border-2 border-white/40 hover:border-white text-sm font-semibold rounded-lg transition-colors text-center no-underline">
+            <a href={u('/contact/')} class="btn-secondary text-white no-underline">
               Contact Us
             </a>
           </div>
@@ -541,12 +541,12 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
   {otherPosts.length > 0 && (
     <section class="lg:hidden border-t border-gray-100 bg-gray-50 py-10">
       <div class="max-w-6xl mx-auto px-4">
-        <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-[#94a3b8] mb-5">More Articles</p>
+        <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-muted mb-5">More Articles</p>
         <div class="grid sm:grid-cols-2 gap-4">
           {otherPosts.slice(0, 2).map(p => (
-            <a href={u(`/blog/${p.slug}/`)} class="bg-white border border-gray-200 rounded-xl p-5 group hover:border-[#0D1B2A] transition-colors">
-              <p class="text-[10px] font-mono uppercase tracking-widest text-[#E0252E] mb-1.5">{p.category}</p>
-              <p class="text-sm font-bold text-[#0D1B2A] group-hover:text-[#E0252E] transition-colors leading-snug">{p.title}</p>
+            <a href={u(`/blog/${p.slug}/`)} class="bg-white border border-gray-200 rounded-xl p-5 group hover:border-ink transition-colors">
+              <p class="text-[10px] font-mono uppercase tracking-widest text-red mb-1.5">{p.category}</p>
+              <p class="text-sm font-bold text-ink group-hover:text-red transition-colors leading-snug">{p.title}</p>
             </a>
           ))}
         </div>
@@ -560,18 +560,18 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
 .blog-content h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #0D1B2A;
+  color: var(--color-ink);
   margin-top: 2.75rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #E8ECF2;
+  border-bottom: 1px solid var(--color-border);
   scroll-margin-top: 6rem;
   letter-spacing: -0.01em;
 }
 .blog-content h3 {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #1B3A5B;
+  color: var(--color-ink);
   margin-top: 2rem;
   margin-bottom: 0.6rem;
   scroll-margin-top: 6rem;
@@ -579,14 +579,14 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
 .blog-content > p,
 .blog-content > h2 + p,
 .blog-content > h3 + p {
-  color: #374151;
+  color: var(--color-muted);
   line-height: 1.85;
   margin-bottom: 1.1rem;
   font-size: 1.025rem;
 }
 /* Standalone p that isn't a direct child of a section heading chain */
 .blog-content p {
-  color: #374151;
+  color: var(--color-muted);
   line-height: 1.85;
   margin-bottom: 1.1rem;
   font-size: 1.025rem;
@@ -600,7 +600,7 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
 }
 .blog-content ul, .blog-content ol {
   margin: 0.75rem 0 1.25rem 0;
-  color: #374151;
+  color: var(--color-muted);
   font-size: 1rem;
   padding: 0;
 }
@@ -619,7 +619,7 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #E0252E;
+  background: var(--color-red);
 }
 .blog-content ol { list-style: none; counter-reset: ol-counter; }
 .blog-content ol li {
@@ -637,7 +637,7 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
   width: 1.3rem;
   height: 1.3rem;
   border-radius: 50%;
-  background: #0D1B2A;
+  background: var(--color-ink);
   color: white;
   font-size: 0.7rem;
   font-weight: 700;
@@ -645,13 +645,13 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
   align-items: center;
   justify-content: center;
 }
-.blog-content strong { color: #0D1B2A; font-weight: 700; }
-.blog-content em { color: #1B3A5B; }
-.blog-content a { color: #E0252E; text-decoration: none; font-weight: 500; }
+.blog-content strong { color: var(--color-ink); font-weight: 700; }
+.blog-content em { color: var(--color-ink); }
+.blog-content a { color: var(--color-red); text-decoration: none; font-weight: 500; }
 .blog-content a:hover { text-decoration: underline; }
 .blog-content code {
-  background: #FEF2F2;
-  color: #C0192B;
+  background: color-mix(in srgb, var(--color-red) 6%, white);
+  color: var(--color-red-dark);
   padding: 0.15em 0.4em;
   border-radius: 3px;
   font-size: 0.87em;
@@ -660,11 +660,11 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
 
 /* TOC active */
 .toc-active {
-  color: #0D1B2A !important;
-  background: #F8F9FA !important;
+  color: var(--color-ink) !important;
+  background: var(--color-cloud) !important;
   font-weight: 600;
 }
-.toc-active span { background: #E0252E !important; }
+.toc-active span { background: var(--color-red) !important; }
 </style>
 
 <script>

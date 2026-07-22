@@ -8,7 +8,7 @@ const topCategories = categories.slice(0, 6);
 const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 ---
 
-<footer class="bg-[#0A0E14] text-[#8a95a3]">
+<footer class="bg-ink text-muted-dark">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
 
     <!-- Brand column -->
@@ -20,7 +20,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         Cambridge Instruments &amp; Engg. Co. — instruments for accuracy and reliability,
         manufactured in Howrah since 1963.
       </p>
-      <p class="text-xs text-[#5f6b7a] font-mono uppercase tracking-wider">Est. 1963 · Made in India</p>
+      <p class="text-xs text-muted-dark font-mono uppercase tracking-wider">Est. 1963 · Made in India</p>
     </div>
 
     <!-- Products column -->
@@ -33,7 +33,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
           </li>
         ))}
         <li class="pt-1">
-          <a href={u('/products/')} class="text-[#E0252E] hover:text-[#ff4d56] transition-colors font-medium">
+          <a href={u('/products/')} class="text-red hover:text-red-dark transition-colors font-medium">
             View all products →
           </a>
         </li>
@@ -65,7 +65,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         <div class="space-y-1.5 pt-1">
           {site.phones.map(p => (
             <p>
-              <span class="text-xs text-[#5f6b7a]">{p.label}: </span>
+              <span class="text-xs text-muted-dark">{p.label}: </span>
               <a href={`tel:${p.number.replace(/\s/g,'')}`} class="hover:text-white transition-colors">{p.number}</a>
             </p>
           ))}
@@ -78,7 +78,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
   </div>
 
   <div class="border-t border-white/[0.06]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#5f6b7a]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-dark">
       <p>© {new Date().getFullYear()} Cambridge Instruments &amp; Engg. Co. All rights reserved.</p>
     </div>
   </div>

@@ -12,6 +12,8 @@ interface Props {
 const { model, name, tagline, categoryId, id, featured = false, image, hideImage = false } = Astro.props;
 import site from '../data/site.json';
 import { u } from '../utils/url';
+import Badge from './Badge.astro';
+import Icon from './Icon.astro';
 const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${model} — ${name}`);
 // Vartech images live at /images/vartech/... not /images/products/vartech/...
 const imgSrc = image
@@ -25,21 +27,21 @@ const detailHref = categoryId.startsWith('vartech-')
 const isVartech = categoryId.startsWith('vartech-');
 ---
 
-<article class={`group bg-white rounded-2xl overflow-hidden flex flex-col transition-all duration-200 ease-out border border-transparent hover:border-[#E8ECF2] hover:shadow-xl hover:-translate-y-1 ${isVartech ? 'ring-1 ring-emerald-100 hover:ring-emerald-300' : featured ? 'ring-1 ring-[#E0252E]/15' : 'ring-1 ring-[#E8ECF2]'}`}>
+<article class="card card-interactive group overflow-hidden flex flex-col">
   <!-- Product image -->
   {!hideImage && (
-    <div class="bg-[#F5F5F7] h-56 flex items-center justify-center relative overflow-hidden">
+    <div class="bg-cloud h-56 flex items-center justify-center relative overflow-hidden">
       <img
         src={imgSrc}
         alt={`${model} — ${name}`}
         width="600"
         height="600"
-        class="object-contain h-44 w-auto transition-transform duration-300 ease-out group-hover:scale-105"
+        class="object-contain h-44 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105"
         loading="lazy"
         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
       />
       <!-- Placeholder when no image supplied -->
-      <div class="hidden absolute inset-0 flex-col items-center justify-center gap-2 text-[#b0bec5]">
+      <div class="hidden absolute inset-0 flex-col items-center justify-center gap-2 text-muted/60">
         <svg class="w-12 h-12 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/>
           <path d="M3 9l4-4 4 4 4-4 4 4" stroke-width="1.5"/>
@@ -47,35 +49,29 @@ const isVartech = categoryId.startsWith('vartech-');
         <span class="text-xs font-mono uppercase tracking-wider opacity-50">Image coming soon</span>
       </div>
       {isVartech ? (
-        <span class="absolute top-3 left-3 text-[9px] font-mono font-bold uppercase tracking-widest text-emerald-700 bg-white/90 border border-emerald-200 px-1.5 py-0.5 rounded">
-          Vartech®
-        </span>
+        <Badge variant="emerald" class="absolute top-3 left-3">Vartech®</Badge>
       ) : featured && (
-        <span class="absolute top-3 right-3 bg-[#E0252E] text-white text-xs font-mono px-2 py-0.5 rounded uppercase tracking-wider">
-          Featured
-        </span>
+        <Badge variant="red" class="absolute top-3 right-3">Featured</Badge>
       )}
     </div>
   )}
 
   <div class="p-6 flex flex-col flex-1">
     <p class="model-code text-xs mb-1.5">{model}</p>
-    <h3 class="font-bold text-[#0D2547] text-lg mb-2 leading-snug tracking-tight">{name}</h3>
-    <p class="text-sm text-[#64748B] mb-5 flex-1 line-clamp-2 leading-relaxed">{tagline}</p>
+    <h3 class="font-bold text-ink text-lg mb-2 leading-snug tracking-tight">{name}</h3>
+    <p class="text-sm text-muted mb-5 flex-1 line-clamp-2 leading-relaxed">{tagline}</p>
 
     <div class="flex flex-col gap-2 mt-auto">
-      <a
-        href={detailHref}
-        class="text-center px-4 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded-lg transition-colors"
-      >
+      <a href={detailHref} class="btn-primary btn-primary--sm">
         View Specifications
       </a>
       <a
         href={`https://wa.me/${site.whatsapp}?text=${waMsg}`}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-center px-4 py-2 border border-[#25D366] text-[#1a6e38] hover:bg-[#25D366]/10 text-sm font-medium rounded-lg transition-colors"
+        class="btn-secondary btn-secondary--sm text-ink"
       >
+        <Icon name="message-circle" class="w-4 h-4 shrink-0" />
         Enquire on WhatsApp
       </a>
     </div>

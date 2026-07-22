@@ -10,18 +10,18 @@ const { crumbs } = Astro.props;
 import { u } from '../utils/url';
 ---
 
-<nav aria-label="Breadcrumb" class="text-sm text-[#64748B]">
+<nav aria-label="Breadcrumb" class="text-sm text-muted">
   <ol class="flex flex-wrap items-center gap-1.5">
     <li>
-      <a href={u('/')} class="hover:text-[#1B3A5B] transition-colors">Home</a>
+      <a href={u('/')} class="hover:text-red transition-colors duration-200">Home</a>
     </li>
     {crumbs.map((crumb, i) => (
       <li class="flex items-center gap-1.5">
-        <span class="text-[#b0bec5]">/</span>
+        <span class="text-border">/</span>
         {crumb.href && i < crumbs.length - 1 ? (
-          <a href={crumb.href} class="hover:text-[#1B3A5B] transition-colors">{crumb.label}</a>
+          <a href={crumb.href} class="hover:text-red transition-colors duration-200">{crumb.label}</a>
         ) : (
-          <span class="text-[#1B3A5B] font-medium" aria-current="page">{crumb.label}</span>
+          <span class="text-ink font-medium" aria-current="page">{crumb.label}</span>
         )}
       </li>
     ))}

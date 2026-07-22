@@ -4,6 +4,8 @@ import { u } from '../utils/url';
 import EyebrowLabel from '../components/EyebrowLabel.astro';
 import CTABand from '../components/CTABand.astro';
 import ProductCard from '../components/ProductCard.astro';
+import Badge from '../components/Badge.astro';
+import ArrowLink from '../components/ArrowLink.astro';
 import Icon from '../components/Icon.astro';
 import { categoryIcon } from '../utils/categoryIcons';
 import type { IconName } from '../utils/iconNames';
@@ -107,19 +109,19 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         <div class="max-w-xl">
           <!-- Eyebrow -->
           <div data-hero-anim style="--d: 0ms" class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] animate-pulse" aria-hidden="true"></span>
-            <span class="text-[11px] font-mono text-[#b0bec5] tracking-widest uppercase">CIE® · Instruments for Accuracy and Reliability</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-red animate-pulse" aria-hidden="true"></span>
+            <span class="text-[11px] font-mono text-muted-dark tracking-widest uppercase">CIE® · Instruments for Accuracy and Reliability</span>
           </div>
 
           <!-- Headline — each line stages in on its own delay -->
           <h1 class="text-[length:var(--text-hero)] font-extrabold leading-[1.02] tracking-tight mb-6 text-white">
-            <span data-hero-anim style="--d: 80ms" class="block text-lg lg:text-xl font-medium text-[#8a95a3] tracking-normal mb-3">Cambridge Instruments &amp; Engg. Co.</span>
+            <span data-hero-anim style="--d: 80ms" class="block text-lg lg:text-xl font-medium text-muted-dark tracking-normal mb-3">Cambridge Instruments &amp; Engg. Co.</span>
             <span data-hero-anim style="--d: 160ms" class="block">Precision instruments,</span>
-            <span data-hero-anim style="--d: 240ms" class="block"><span class="text-[#E0252E]">built in India</span> since 1963.</span>
+            <span data-hero-anim style="--d: 240ms" class="block"><span class="text-red">built in India</span> since 1963.</span>
           </h1>
 
           <!-- Subhead -->
-          <p data-hero-anim style="--d: 360ms" class="text-lg text-[#a3adb8] mb-10 leading-[1.6] max-w-lg">
+          <p data-hero-anim style="--d: 360ms" class="text-lg text-muted-dark mb-10 leading-[1.6] max-w-lg">
             Manufacturer of insulation testers, earth testers, relay test sets, and oil
             test equipment for India's utilities, railways, and industry.
           </p>
@@ -128,26 +130,24 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           <div data-hero-anim style="--d: 460ms" class="flex flex-col sm:flex-row gap-3 mb-12">
             <a
               href={u('/products/')}
-              class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E0252E] hover:bg-[#D72631] text-white font-semibold rounded-lg text-[15px] transition-all hover:shadow-lg hover:shadow-red-900/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              class="btn-primary link-arrow focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Explore Products
-              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-              </svg>
+              <Icon name="arrow" class="w-4 h-4 shrink-0" />
             </a>
             <a
               href={genericMailto}
-              class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 hover:border-white/40 text-white font-medium rounded-lg text-[15px] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              class="btn-secondary text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Request a Quote
             </a>
           </div>
 
           <!-- Trust row -->
-          <div data-hero-anim style="--d: 560ms" class="flex flex-wrap gap-x-6 gap-y-2 pt-7 border-t border-white/10 text-xs text-[#8a95a3] font-mono uppercase tracking-wide">
+          <div data-hero-anim style="--d: 560ms" class="flex flex-wrap gap-x-6 gap-y-2 pt-7 border-t border-white/10 text-xs text-muted-dark font-mono uppercase tracking-wide">
             {['60+ Years', 'Made in India', '12-Month Warranty', 'In-House Calibration'].map(t => (
               <span class="flex items-center gap-1.5">
-                <span class="w-1 h-1 rounded-full bg-[#E0252E]" aria-hidden="true"></span>
+                <span class="w-1 h-1 rounded-full bg-red" aria-hidden="true"></span>
                 {t}
               </span>
             ))}
@@ -158,7 +158,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         <div id="hero-image" data-hero-fade style="--d: 200ms" class="hidden lg:flex items-center justify-center will-change-transform">
           <div class="relative w-full max-w-md">
             <!-- Ambient glow behind product -->
-            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-[#1B3A5B]/50 to-transparent blur-3xl scale-90" aria-hidden="true"></div>
+            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-ink/50 to-transparent blur-3xl scale-90" aria-hidden="true"></div>
 
             <!-- Slides -->
             <div id="hero-slides" class="relative h-80 xl:h-96">
@@ -192,7 +192,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
             <!-- Caption -->
             <div class="text-center min-h-[36px]">
-              <p id="hero-model" class="text-xs font-mono text-[#E0252E] uppercase tracking-widest">CIE/444</p>
+              <p id="hero-model" class="text-xs font-mono text-red uppercase tracking-widest">CIE/444</p>
               <p id="hero-name"  class="text-white text-sm font-semibold mt-0.5">Analog Insulation Tester</p>
             </div>
 
@@ -201,7 +201,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
               {[0,1,2,3,4,5,6,7].map(i => (
                 <button data-hero-dot={i}
                   tabindex="-1"
-                  class={`hero-dot transition-all rounded-full ${i === 0 ? 'w-4 h-1.5 bg-[#E0252E]' : 'w-1.5 h-1.5 bg-white/20'}`}
+                  class={`hero-dot transition-all rounded-full ${i === 0 ? 'w-4 h-1.5 bg-red' : 'w-1.5 h-1.5 bg-white/20'}`}
                 />
               ))}
             </div>
@@ -212,7 +212,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
     </div>
 
     <!-- Scroll cue -->
-    <div id="hero-scroll-cue" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#6b7688] transition-opacity duration-500" aria-hidden="true">
+    <div id="hero-scroll-cue" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-dark transition-opacity duration-500" aria-hidden="true">
       <span class="text-[10px] font-mono uppercase tracking-widest">Scroll</span>
       <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7-7-7M12 21V3"/>
@@ -274,24 +274,24 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
   </script>
 
   <!-- ── PRODUCT CATEGORIES (horizontal slider) ───────────────────────────── -->
-  <section class="bg-[#F5F7FA] section-pad">
+  <section class="bg-cloud section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-end justify-between mb-10 gap-4" data-reveal>
         <div>
           <EyebrowLabel text="Product Catalogue" class="mb-3" />
-          <h2 class="text-[length:var(--text-display)] font-extrabold text-[#0D2547] leading-[1.1] tracking-tight">Test &amp; Measurement Instruments</h2>
-          <p class="mt-3 text-[#64748B] max-w-2xl text-lg leading-relaxed">
+          <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Test &amp; Measurement Instruments</h2>
+          <p class="mt-3 text-muted max-w-2xl text-lg leading-relaxed">
             CIE manufactured instruments from Howrah, plus the full Vartech range — backed by direct after-sales support.
           </p>
         </div>
         <!-- Slider arrows -->
         <div class="hidden sm:flex items-center gap-2 shrink-0">
           <button id="cat-prev" aria-label="Previous categories"
-            class="w-9 h-9 rounded-full border border-[#E8ECF2] bg-white hover:border-[#1B3A5B] hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] transition-all flex items-center justify-center disabled:opacity-30 disabled:pointer-events-none">
+            class="w-9 h-9 rounded-full border border-border bg-white hover:border-ink hover:bg-ink hover:text-white text-ink transition-all flex items-center justify-center disabled:opacity-30 disabled:pointer-events-none">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
           </button>
           <button id="cat-next" aria-label="Next categories"
-            class="w-9 h-9 rounded-full border border-[#E8ECF2] bg-white hover:border-[#1B3A5B] hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] transition-all flex items-center justify-center disabled:opacity-30 disabled:pointer-events-none">
+            class="w-9 h-9 rounded-full border border-border bg-white hover:border-ink hover:bg-ink hover:text-white text-ink transition-all flex items-center justify-center disabled:opacity-30 disabled:pointer-events-none">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -303,18 +303,20 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         style="scrollbar-width:none; -ms-overflow-style:none;">
         {categoryCount.map(cat => (
           <a href={u((cat as any).brand === 'vartech' ? `/authorised-dealership/${cat.id.replace('vartech-', '')}/` : `/products/${cat.id}/`)}
-            class="group snap-start shrink-0 w-[260px] sm:w-[280px] bg-white rounded-2xl ring-1 ring-[#E8ECF2] p-6 hover:shadow-xl hover:-translate-y-1 hover:ring-transparent transition-all duration-200 ease-out flex flex-col">
+            class="card card-interactive group snap-start shrink-0 w-[260px] sm:w-[280px] p-6 flex flex-col">
             <div class="flex items-start gap-3 mb-3">
-              <div class="shrink-0 w-11 h-11 bg-[#F5F5F7] rounded-xl flex items-center justify-center group-hover:bg-[#E0252E]/8 transition-colors">
-                <Icon name={categoryIcon(cat.id)} class="w-5 h-5 text-[#1B3A5B] group-hover:text-[#E0252E] transition-colors" />
+              <div class="shrink-0 w-11 h-11 bg-cloud rounded-xl flex items-center justify-center transition-colors duration-200 group-hover:bg-red/8">
+                <Icon name={categoryIcon(cat.id)} class="w-5 h-5 text-ink transition-colors duration-200 group-hover:text-red" />
               </div>
               <div class="flex-1 min-w-0">
-                <h3 class="font-bold text-[#0D2547] text-sm leading-snug group-hover:text-[#1B3A5B] transition-colors line-clamp-2">{cat.name}</h3>
-                <span class="text-xs font-mono text-[#64748B]">{cat.count} {cat.count === 1 ? 'product' : 'products'}</span>
+                <h3 class="font-bold text-ink text-sm leading-snug transition-colors duration-200 group-hover:text-red line-clamp-2">{cat.name}</h3>
+                <span class="text-xs font-mono text-muted">{cat.count} {cat.count === 1 ? 'product' : 'products'}</span>
               </div>
             </div>
-            <p class="text-xs text-[#64748B] leading-relaxed line-clamp-3 flex-1">{cat.description}</p>
-            <div class="mt-3 pt-3 border-t border-[#F0F2F5] text-xs font-semibold text-[#E0252E] group-hover:translate-x-1 transition-transform duration-200">View products →</div>
+            <p class="text-xs text-muted leading-relaxed line-clamp-3 flex-1">{cat.description}</p>
+            <div class="link-arrow mt-3 pt-3 border-t border-border text-xs text-red">
+              View products <Icon name="arrow" class="w-3.5 h-3.5" />
+            </div>
           </a>
         ))}
       </div>
@@ -324,14 +326,14 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         {categoryCount.map((_, i) => (
           <button data-dot={i}
             tabindex="-1"
-            class={`cat-dot w-1.5 h-1.5 rounded-full transition-all ${i === 0 ? 'bg-[#1B3A5B] w-4' : 'bg-[#CBD5E1]'}`}></button>
+            class={`cat-dot w-1.5 h-1.5 rounded-full transition-all ${i === 0 ? 'bg-ink w-4' : 'bg-muted/30'}`}></button>
         ))}
       </div>
 
       <div class="mt-6 text-center">
-        <a href={u('/products/')} class="inline-flex items-center gap-2 text-sm font-semibold text-[#1B3A5B] hover:text-[#E0252E] transition-colors">
-          Browse full catalogue →
-        </a>
+        <ArrowLink href="/products/" class="justify-center text-sm text-ink hover:text-red">
+          Browse full catalogue
+        </ArrowLink>
       </div>
     </div>
   </section>
@@ -365,9 +367,9 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
       track.addEventListener('scroll', () => {
         const idx = Math.round(track.scrollLeft / slideW());
         dots.forEach((d, i) => {
-          d.classList.toggle('bg-[#1B3A5B]', i === idx);
+          d.classList.toggle('bg-ink', i === idx);
           d.classList.toggle('!w-4', i === idx);
-          d.classList.toggle('bg-[#CBD5E1]', i !== idx);
+          d.classList.toggle('bg-muted/30', i !== idx);
         });
       }, { passive: true });
     }
@@ -379,16 +381,16 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-14" data-reveal>
         <EyebrowLabel text="Why CIE" class="mb-3" />
-        <h2 class="text-[length:var(--text-display)] font-extrabold text-[#0D2547] leading-[1.1] tracking-tight">Built for reliability.<br />Backed by six decades.</h2>
+        <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Built for reliability.<br />Backed by six decades.</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10" data-reveal-stagger>
         {trustPoints.map(tp => (
           <div class="red-stripe">
-            <div class="w-11 h-11 bg-[#F5F5F7] rounded-xl flex items-center justify-center mb-4">
-              <Icon name={tp.icon} class="w-5 h-5 text-[#1B3A5B]" />
+            <div class="w-11 h-11 bg-cloud rounded-xl flex items-center justify-center mb-4">
+              <Icon name={tp.icon} class="w-5 h-5 text-ink" />
             </div>
-            <h3 class="font-bold text-[#0D2547] mb-2 text-lg tracking-tight">{tp.label}</h3>
-            <p class="text-sm text-[#64748B] leading-relaxed">{tp.body}</p>
+            <h3 class="font-bold text-ink mb-2 text-lg tracking-tight">{tp.label}</h3>
+            <p class="text-sm text-muted leading-relaxed">{tp.body}</p>
           </div>
         ))}
       </div>
@@ -396,20 +398,20 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
   </section>
 
   <!-- ── FEATURED PRODUCTS ─────────────────────────────────────────────────── -->
-  <section class="bg-[#F5F7FA] section-pad">
+  <section class="bg-cloud section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-end justify-between mb-10 gap-4" data-reveal>
         <div>
           <EyebrowLabel text="Flagship Instruments" class="mb-3" />
-          <h2 class="text-[length:var(--text-display)] font-extrabold text-[#0D2547] leading-[1.1] tracking-tight">Selected from Our Range</h2>
+          <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Selected from Our Range</h2>
         </div>
         <div class="hidden sm:flex items-center gap-2 shrink-0">
           <button id="feat-prev" aria-label="Previous products"
-            class="w-9 h-9 rounded-full border border-[#E8ECF2] bg-white hover:border-[#1B3A5B] hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] transition-all flex items-center justify-center">
+            class="w-9 h-9 rounded-full border border-border bg-white hover:border-ink hover:bg-ink hover:text-white text-ink transition-all flex items-center justify-center">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
           </button>
           <button id="feat-next" aria-label="Next products"
-            class="w-9 h-9 rounded-full border border-[#E8ECF2] bg-white hover:border-[#1B3A5B] hover:bg-[#1B3A5B] hover:text-white text-[#1B3A5B] transition-all flex items-center justify-center">
+            class="w-9 h-9 rounded-full border border-border bg-white hover:border-ink hover:bg-ink hover:text-white text-ink transition-all flex items-center justify-center">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -420,32 +422,30 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
             id={p.id} featured={p.featured} image={p.image} hideImage={p.hideImage} />
         ))}
         {newVartechFeatured.map(p => (
-          <article class="group bg-white rounded-2xl overflow-hidden flex flex-col ring-1 ring-emerald-100 hover:ring-emerald-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-out">
-            <div class="bg-[#F5F5F7] h-56 flex items-center justify-center relative overflow-hidden">
+          <article class="card card-interactive group overflow-hidden flex flex-col">
+            <div class="bg-cloud h-56 flex items-center justify-center relative overflow-hidden">
               <img
                 src={u(`/images/vartech/${p.slug}/${p.images[0]}`)}
                 alt={`Vartech ${p.model} — ${p.name}`}
                 width="300" height="300"
-                class="object-contain h-44 w-auto transition-transform duration-300 ease-out group-hover:scale-105"
+                class="object-contain h-44 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105"
                 loading="lazy"
                 onerror="this.style.display='none'"
               />
-              <span class="absolute top-3 left-3 text-[9px] font-mono font-bold uppercase tracking-widest text-emerald-700 bg-white/90 border border-emerald-200 px-1.5 py-0.5 rounded">
-                Vartech®
-              </span>
+              <Badge variant="emerald" class="absolute top-3 left-3">Vartech®</Badge>
             </div>
             <div class="p-6 flex flex-col flex-1">
-              <p class="text-xs font-mono text-[#E0252E] mb-1.5">{p.model}</p>
-              <h3 class="font-bold text-[#0D2547] text-lg leading-snug mb-2 tracking-tight">{p.name}</h3>
-              <p class="text-sm text-[#64748B] mb-5 flex-1 line-clamp-2 leading-relaxed">{p.tagline}</p>
+              <p class="text-xs font-mono text-red mb-1.5">{p.model}</p>
+              <h3 class="font-bold text-ink text-lg leading-snug mb-2 tracking-tight">{p.name}</h3>
+              <p class="text-sm text-muted mb-5 flex-1 line-clamp-2 leading-relaxed">{p.tagline}</p>
               <div class="flex flex-col gap-2 mt-auto">
-                <a href={u(`/authorised-dealership/${p.slug}/${p.id}/`)}
-                  class="text-center px-4 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded-lg transition-colors">
+                <a href={u(`/authorised-dealership/${p.slug}/${p.id}/`)} class="btn-primary btn-primary--sm">
                   View Specifications
                 </a>
                 <a href={`https://wa.me/919831086649?text=${encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} — ${p.name}`)}`}
                   target="_blank" rel="noopener noreferrer"
-                  class="text-center px-4 py-2 border border-[#25D366] text-[#1a6e38] hover:bg-[#25D366]/10 text-sm font-medium rounded-lg transition-colors">
+                  class="btn-secondary btn-secondary--sm text-ink">
+                  <Icon name="message-circle" class="w-4 h-4 shrink-0" />
                   Enquire on WhatsApp
                 </a>
               </div>
@@ -481,7 +481,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
       <div class="mb-14" data-reveal>
         <EyebrowLabel text="Industries Served" class="mb-3" />
         <h2 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight">Trusted across India's<br />critical infrastructure.</h2>
-        <p class="mt-4 text-[#a3adb8] max-w-xl text-lg leading-relaxed">
+        <p class="mt-4 text-muted-dark max-w-xl text-lg leading-relaxed">
           From grid substations to rolling stock depots — CIE instruments are specified by engineers who need measurements they can stake their signature on.
         </p>
       </div>
@@ -489,15 +489,15 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         {industries.map(ind => (
           <div class="bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-white/20 rounded-2xl p-6">
             <div class="w-11 h-11 bg-white/5 rounded-xl flex items-center justify-center mb-4">
-              <Icon name={ind.icon} class="w-5 h-5 text-[#E0252E]" />
+              <Icon name={ind.icon} class="w-5 h-5 text-red" />
             </div>
             <h3 class="font-bold text-white mb-1.5 text-lg tracking-tight">{ind.name}</h3>
-            <p class="text-sm text-[#a3adb8] leading-relaxed">{ind.desc}</p>
+            <p class="text-sm text-muted-dark leading-relaxed">{ind.desc}</p>
           </div>
         ))}
       </div>
       <div class="mt-10">
-        <a href={u('/industries/')} class="text-sm font-semibold text-[#E0252E] hover:text-white transition-colors">
+        <a href={u('/industries/')} class="text-sm font-semibold text-red hover:text-white transition-colors">
           See all applications →
         </a>
       </div>
@@ -505,12 +505,12 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
   </section>
 
   <!-- ── CLIENTS / TRUSTED BY ───────────────────────────────────────────────── -->
-  <section class="bg-[#F5F5F7] section-pad">
+  <section class="bg-cloud section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16" data-reveal>
         <EyebrowLabel text="Clients" class="mb-3 justify-center" />
-        <h2 class="text-2xl sm:text-3xl font-black text-[#0D2547]">Trusted across India's power &amp; industrial sector</h2>
-        <p class="mt-2 text-[#64748B] max-w-2xl mx-auto">
+        <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Trusted across India's power &amp; industrial sector</h2>
+        <p class="mt-2 text-muted max-w-2xl mx-auto">
           Supplying utilities, railways, PSUs, and institutions for over six decades.
         </p>
       </div>
@@ -545,33 +545,33 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div class="order-2 lg:order-1" data-reveal>
           <EyebrowLabel text="Flagship · Protection Testing" class="mb-5" />
-          <h2 class="text-[length:var(--text-display)] font-extrabold text-[#0D2547] leading-[1.05] tracking-tight mb-4">
+          <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.05] tracking-tight mb-4">
             <span class="model-code text-xl block mb-2">RTS-33</span>
             Three-Phase Relay Test Set
           </h2>
-          <p class="text-[#64748B] text-lg leading-relaxed mb-8 max-w-md">
+          <p class="text-muted text-lg leading-relaxed mb-8 max-w-md">
             Variable three-phase AC current, AC and DC voltage, and 0–360° continuously
             variable phase angle. The preferred instrument for commissioning protection
             relays at India's major power utilities and railways.
           </p>
           <ul class="flex flex-wrap gap-x-6 gap-y-3 mb-10">
             {['Three-phase output', '250 VA burden', '0–360° phase angle', 'AC & DC voltage', '12-month warranty'].map(f => (
-              <li class="flex items-center gap-2 text-sm text-[#1B3A5B] font-medium">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] shrink-0" aria-hidden="true"></span>
+              <li class="flex items-center gap-2 text-sm text-ink font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red shrink-0" aria-hidden="true"></span>
                 {f}
               </li>
             ))}
           </ul>
           <div class="flex gap-3 flex-wrap">
-            <a href={u('/products/relay-test-sets/rts-33/')} class="px-6 py-3 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded-lg transition-colors">
+            <a href={u('/products/relay-test-sets/rts-33/')} class="btn-primary">
               View Specifications
             </a>
-            <a href={rts33Mailto} class="px-6 py-3 border border-[#E0252E] text-[#E0252E] hover:bg-[#E0252E] hover:text-white text-sm font-semibold rounded-lg transition-colors">
+            <a href={rts33Mailto} class="btn-secondary text-ink">
               Request a Quote
             </a>
           </div>
         </div>
-        <div class="order-1 lg:order-2 bg-[#F5F5F7] rounded-3xl flex items-center justify-center overflow-hidden aspect-square" data-reveal>
+        <div class="order-1 lg:order-2 bg-cloud rounded-3xl flex items-center justify-center overflow-hidden aspect-square" data-reveal>
           <img
             src={u('/images/products/rts-33.webp')}
             alt="RTS-33 — Three-Phase Relay Test Set"
@@ -586,25 +586,25 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
   </section>
 
   <!-- ── SUPPLIER COVERAGE + KEYWORD SECTION ──────────────────────────────── -->
-  <section class="bg-[#F5F7FA] section-pad">
+  <section class="bg-cloud section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
         <!-- Left: keyword-rich text -->
         <div data-reveal>
           <EyebrowLabel text="Pan-India Supply" class="mb-4" />
-          <h2 class="text-2xl sm:text-3xl font-black text-[#0D2547] mb-5">
+          <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight mb-5">
             Test &amp; Measurement Instruments Supplier in Kolkata, India
           </h2>
-          <div class="space-y-4 text-[#64748B] leading-relaxed text-sm sm:text-base">
+          <div class="space-y-4 text-muted leading-relaxed text-sm sm:text-base">
             <p>
-              Cambridge Instruments &amp; Engg. Co. (CIE) is a leading <strong class="text-[#1B3A5B]">test and measurement instruments supplier</strong> based in Howrah, West Bengal — serving customers across Kolkata, West Bengal, and throughout India since 1963.
+              Cambridge Instruments &amp; Engg. Co. (CIE) is a leading <strong class="text-ink">test and measurement instruments supplier</strong> based in Howrah, West Bengal — serving customers across Kolkata, West Bengal, and throughout India since 1963.
             </p>
             <p>
-              We supply <strong class="text-[#1B3A5B]">insulation testers</strong> (meggers / megohmmeters), <strong class="text-[#1B3A5B]">earth resistance testers</strong>, <strong class="text-[#1B3A5B]">relay test sets</strong>, <strong class="text-[#1B3A5B]">transformer oil BDV test sets</strong>, <strong class="text-[#1B3A5B]">HV test sets</strong>, <strong class="text-[#1B3A5B]">clamp meters</strong>, <strong class="text-[#1B3A5B]">digital multimeters</strong>, and <strong class="text-[#1B3A5B]">micro-ohm meters</strong> directly from our manufacturing works in Howrah — with pan-India delivery.
+              We supply <strong class="text-ink">insulation testers</strong> (meggers / megohmmeters), <strong class="text-ink">earth resistance testers</strong>, <strong class="text-ink">relay test sets</strong>, <strong class="text-ink">transformer oil BDV test sets</strong>, <strong class="text-ink">HV test sets</strong>, <strong class="text-ink">clamp meters</strong>, <strong class="text-ink">digital multimeters</strong>, and <strong class="text-ink">micro-ohm meters</strong> directly from our manufacturing works in Howrah — with pan-India delivery.
             </p>
             <p>
-              As an <strong class="text-[#1B3A5B]">electrical equipment supplier</strong> and <strong class="text-[#1B3A5B]">industrial test equipment supplier</strong> with 60+ years of experience, CIE provides instruments to power utilities, EPC contractors, Indian Railways, NABL-accredited laboratories, government departments, and industrial companies across all of India.
+              As an <strong class="text-ink">electrical equipment supplier</strong> and <strong class="text-ink">industrial test equipment supplier</strong> with 60+ years of experience, CIE provides instruments to power utilities, EPC contractors, Indian Railways, NABL-accredited laboratories, government departments, and industrial companies across all of India.
             </p>
           </div>
         </div>
@@ -612,7 +612,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         <!-- Right: city coverage grid -->
         <div>
           <EyebrowLabel text="Cities We Supply To" class="mb-4" />
-          <h3 class="text-lg font-bold text-[#0D2547] mb-4">Supplying instruments across India</h3>
+          <h3 class="text-lg font-bold text-ink mb-4">Supplying instruments across India</h3>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {[
               { city: 'Kolkata', state: 'West Bengal' },
@@ -634,13 +634,13 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
               { city: 'Nagpur', state: 'Maharashtra' },
               { city: 'Jaipur', state: 'Rajasthan' },
             ].map(({ city, state }) => (
-              <div class="bg-white border border-[#E8ECF2] rounded-lg px-3 py-2.5">
-                <p class="text-xs font-bold text-[#0D2547]">{city}</p>
-                <p class="text-[10px] text-[#64748B]">{state}</p>
+              <div class="bg-white border border-border rounded-lg px-3 py-2.5">
+                <p class="text-xs font-bold text-ink">{city}</p>
+                <p class="text-[10px] text-muted">{state}</p>
               </div>
             ))}
           </div>
-          <p class="mt-4 text-xs text-[#64748B]">
+          <p class="mt-4 text-xs text-muted">
             … and all major cities, industrial centres, and power sector locations across India.
           </p>
         </div>
@@ -685,7 +685,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
     slides[current].classList.replace('opacity-0','opacity-100');
     slides[current].classList.remove('pointer-events-none');
     (slides[current] as HTMLAnchorElement).tabIndex = 0;
-    dots[current].className = 'hero-dot transition-all rounded-full w-4 h-1.5 bg-[#E0252E]';
+    dots[current].className = 'hero-dot transition-all rounded-full w-4 h-1.5 bg-red';
 
     if (modelEl) modelEl.textContent = data[current].model;
     if (nameEl)  nameEl.textContent  = data[current].name;

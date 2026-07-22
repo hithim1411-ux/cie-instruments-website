@@ -4,6 +4,8 @@ import { u } from '../utils/url';
 import EyebrowLabel from '../components/EyebrowLabel.astro';
 import CTABand from '../components/CTABand.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+import type { IconName } from '../utils/iconNames';
 ---
 
 <Base
@@ -11,12 +13,12 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   description="Cambridge Instruments & Engg. Co. (CIE) — established 1963, Howrah, West Bengal. Manufacturer and supplier of insulation testers, earth testers, relay test sets, oil BDV testers, HV test sets. Trusted supplier to PGCIL, Indian Railways, WBSETCL across India."
 >
   <!-- Header -->
-  <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
+  <div class="bg-cloud border-b border-border py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[{ label: 'About Us' }]} />
       <EyebrowLabel text="Est. 1963 · Howrah, India" class="mt-4 mb-3" />
-      <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">Cambridge Instruments &amp; Engg. Co.</h1>
-      <p class="mt-2 text-lg text-[#64748B] max-w-2xl font-medium">Also known as CIE Instruments — Instruments for Accuracy and Reliability since 1963.</p>
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Cambridge Instruments &amp; Engg. Co.</h1>
+      <p class="mt-2 text-lg text-muted max-w-2xl font-medium">Also known as CIE Instruments — Instruments for Accuracy and Reliability since 1963.</p>
     </div>
   </div>
 
@@ -26,22 +28,22 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div>
           <EyebrowLabel text="Who We Are" class="mb-4" />
-          <h2 class="text-2xl font-black text-[#0D2547] mb-5">An Indian manufacturer built on engineering, craftsmanship, and trust.</h2>
-          <div class="space-y-4 text-[#64748B] leading-relaxed">
+          <h2 class="text-2xl font-black text-ink mb-5">An Indian manufacturer built on engineering, craftsmanship, and trust.</h2>
+          <div class="space-y-4 text-muted leading-relaxed">
             <p>
               Cambridge Instruments &amp; Engineering Co. (CIE) is an Indian manufacturer of
               Electrical &amp; Electronic Test &amp; Measuring Instruments, built upon a legacy of
               engineering, craftsmanship, and trust.
             </p>
             <p>
-              Established in <strong class="text-[#1B3A5B]">1963</strong>, the company has spent
+              Established in <strong class="text-ink">1963</strong>, the company has spent
               decades serving professionals who depend on accurate measurements and reliable instruments
               to perform their work with confidence.
             </p>
             <p>
               From its beginnings in Howrah — one of India's historic industrial centres — to its
               presence today across industries and institutions, CIE has remained committed to the
-              principles that shaped its foundation: <strong class="text-[#1B3A5B]">accuracy,
+              principles that shaped its foundation: <strong class="text-ink">accuracy,
               reliability, and integrity.</strong>
             </p>
           </div>
@@ -59,10 +61,10 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
           ].map(item => (
             <div class="flex gap-5">
               <div class="shrink-0 w-16 text-right">
-                <span class="font-mono font-bold text-[#E0252E] text-sm">{item.year}</span>
+                <span class="font-mono font-bold text-red text-sm">{item.year}</span>
               </div>
-              <div class="flex-1 border-l-2 border-[#E8ECF2] pl-5 pb-2">
-                <p class="text-sm text-[#64748B] leading-relaxed">{item.text}</p>
+              <div class="flex-1 border-l-2 border-border pl-5 pb-2">
+                <p class="text-sm text-muted leading-relaxed">{item.text}</p>
               </div>
             </div>
           ))}
@@ -72,15 +74,15 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   </section>
 
   <!-- Founder story -->
-  <section class="bg-[#F5F7FA] section-pad">
+  <section class="bg-cloud section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <EyebrowLabel text="Where It All Began" class="mb-4" />
-          <h2 class="text-2xl font-black text-[#0D2547] mb-6">A physicist with a practical vision.</h2>
-          <div class="space-y-4 text-[#64748B] leading-relaxed">
+          <h2 class="text-2xl font-black text-ink mb-6">A physicist with a practical vision.</h2>
+          <div class="space-y-4 text-muted leading-relaxed">
             <p>
-              The story of CIE began in Howrah in 1963 when <strong class="text-[#1B3A5B]">Late Shri Prakash Chandra Sharma</strong>,
+              The story of CIE began in Howrah in 1963 when <strong class="text-ink">Late Shri Prakash Chandra Sharma</strong>,
               a Physics Honours graduate from the University of Calcutta, founded the company with a clear vision —
               to manufacture dependable electrical testing instruments in India.
             </p>
@@ -99,7 +101,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
         <!-- Founder photo -->
         <div class="flex justify-center lg:justify-end">
           <div class="relative">
-            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#E0252E]/20 to-[#1B3A5B]/20 -rotate-2"></div>
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-red/20 to-ink/10 -rotate-2"></div>
             <img
               src={u('/images/founder.webp')}
               alt="Late Shri Prakash Chandra Sharma — Founder, Cambridge Instruments & Engineering Co."
@@ -109,9 +111,9 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
               style="object-position: center 20%;"
               loading="lazy"
             />
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0D2547]/80 to-transparent rounded-b-2xl px-4 py-4">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/80 to-transparent rounded-b-2xl px-4 py-4">
               <p class="text-white font-bold text-sm leading-tight">Late Shri Prakash Chandra Sharma</p>
-              <p class="text-[#b0bec5] text-xs mt-0.5">Founder, CIE · 1963</p>
+              <p class="text-muted-dark text-xs mt-0.5">Founder, CIE · 1963</p>
             </div>
           </div>
         </div>
@@ -123,8 +125,8 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   <section class="bg-white section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <EyebrowLabel text="A Manufacturing Heritage" class="mb-4" />
-      <h2 class="text-2xl font-black text-[#0D2547] mb-4">Manufactured in Howrah. Calibrated before despatch. Every instrument.</h2>
-      <p class="text-[#64748B] leading-relaxed max-w-2xl mb-10">
+      <h2 class="text-2xl font-black text-ink mb-4">Manufactured in Howrah. Calibrated before despatch. Every instrument.</h2>
+      <p class="text-muted leading-relaxed max-w-2xl mb-10">
         Manufacturing has always been at the heart of CIE. The company's factory continues to operate from
         Howrah, where generations of experience, technical expertise, and attention to detail come together
         in the production of every instrument.
@@ -133,49 +135,51 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           {
-            icon: '🏭',
+            icon: 'factory' as IconName,
             heading: 'Manufacturing in Howrah',
             body: 'CIE instruments are manufactured at our Howrah works at 23/2, Maulana Abul Kalam Azad Road. Assembly, winding, and finishing are carried out under direct supervision, with quality controlled at every stage.',
           },
           {
-            icon: '📐',
+            icon: 'ruler' as IconName,
             heading: 'Calibration Before Despatch',
             body: 'Each instrument is calibrated against reference standards at our calibration facility before despatch. A calibration record is maintained for every instrument supplied.',
           },
           {
-            icon: '🔧',
+            icon: 'wrench' as IconName,
             heading: 'Custom Manufacturing',
             body: "Any non-standard voltage range, resistance range, or measurement range can be manufactured to the customer's specific requirement. Custom ranges are a standard service at CIE — we have been making custom instruments for utilities and laboratories since the 1960s.",
           },
         ].map(item => (
-          <div class="bg-[#F5F7FA] rounded-lg border border-[#E8ECF2] p-6">
-            <div class="text-3xl mb-4" aria-hidden="true">{item.icon}</div>
-            <h3 class="font-bold text-[#0D2547] mb-3">{item.heading}</h3>
-            <p class="text-sm text-[#64748B] leading-relaxed">{item.body}</p>
+          <div class="card p-6">
+            <div class="w-11 h-11 bg-cloud rounded-xl flex items-center justify-center mb-4">
+              <Icon name={item.icon} class="w-5 h-5 text-ink" />
+            </div>
+            <h3 class="font-bold text-ink mb-3">{item.heading}</h3>
+            <p class="text-sm text-muted leading-relaxed">{item.body}</p>
           </div>
         ))}
       </div>
 
-      <blockquote class="mt-10 border-l-4 border-[#E0252E] pl-6 py-2">
-        <p class="text-[#1B3A5B] font-semibold text-lg italic">
+      <blockquote class="mt-10 border-l-4 border-red pl-6 py-2">
+        <p class="text-ink font-semibold text-lg italic">
           "Build instruments that deliver dependable performance when accuracy matters most."
         </p>
-        <cite class="text-sm text-[#64748B] mt-2 block not-italic">— Manufacturing philosophy, CIE since 1963</cite>
+        <cite class="text-sm text-muted mt-2 block not-italic">— Manufacturing philosophy, CIE since 1963</cite>
       </blockquote>
     </div>
   </section>
 
   <!-- Growth & leadership -->
-  <section class="bg-[#F5F7FA] section-pad">
+  <section class="bg-cloud section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <EyebrowLabel text="Growing With Changing Times" class="mb-4" />
-          <h2 class="text-2xl font-black text-[#0D2547] mb-5">Manufacturing experience meets customer focus.</h2>
-          <div class="space-y-4 text-[#64748B] leading-relaxed">
+          <h2 class="text-2xl font-black text-ink mb-5">Manufacturing experience meets customer focus.</h2>
+          <div class="space-y-4 text-muted leading-relaxed">
             <p>
               As customer requirements evolved, the company expanded its presence with a dedicated office in
-              <strong class="text-[#1B3A5B]">Kolkata</strong> to strengthen customer engagement, marketing
+              <strong class="text-ink">Kolkata</strong> to strengthen customer engagement, marketing
               activities, and product distribution.
             </p>
             <p>
@@ -188,12 +192,12 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
         <div>
           <EyebrowLabel text="Continuing the Legacy" class="mb-4" />
-          <h2 class="text-2xl font-black text-[#0D2547] mb-5">The next generation, the same commitment.</h2>
-          <div class="space-y-4 text-[#64748B] leading-relaxed">
+          <h2 class="text-2xl font-black text-ink mb-5">The next generation, the same commitment.</h2>
+          <div class="space-y-4 text-muted leading-relaxed">
             <p>
               Today, Cambridge Instruments &amp; Engineering Co. is led by
-              <strong class="text-[#1B3A5B]">Mr. Manoj Sharma</strong> and
-              <strong class="text-[#1B3A5B]">Mr. Rajesh Sharma</strong>,
+              <strong class="text-ink">Mr. Manoj Sharma</strong> and
+              <strong class="text-ink">Mr. Rajesh Sharma</strong>,
               who continue the vision established by the founder.
             </p>
             <p>
@@ -212,17 +216,17 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
   <section class="bg-white section-pad">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <img src={u('/logo/cie-logo-transparent.webp')} alt="CIE® — Registered Trade Mark" width="800" height="502" class="h-20 w-auto mx-auto mb-6" />
-      <h2 class="text-2xl font-black text-[#0D2547] mb-4">The Registered CIE® Mark</h2>
-      <p class="text-[#64748B] leading-relaxed max-w-2xl mx-auto mb-8">
-        The <span class="font-mono font-semibold text-[#1B3A5B]">CIE®</span> mark is a registered trade mark
+      <h2 class="text-2xl font-black text-ink mb-4">The Registered CIE® Mark</h2>
+      <p class="text-muted leading-relaxed max-w-2xl mx-auto mb-8">
+        The <span class="font-mono font-semibold text-ink">CIE®</span> mark is a registered trade mark
         of Cambridge Instruments &amp; Engineering Co. It appears on every instrument we manufacture and is a
         guarantee of origin, quality, and after-sales accountability. When you buy CIE®, you buy direct from
         the manufacturer — not from a reseller stickering someone else's instrument.
       </p>
-      <div class="border-t border-[#E8ECF2] pt-8 space-y-1 text-sm text-[#64748B]">
-        <p class="font-semibold text-[#0D2547]">Cambridge Instruments &amp; Engineering Co.</p>
+      <div class="border-t border-border pt-8 space-y-1 text-sm text-muted">
+        <p class="font-semibold text-ink">Cambridge Instruments &amp; Engineering Co.</p>
         <p>Established 1963 &middot; Howrah, India</p>
-        <p class="font-mono text-xs tracking-widest uppercase text-[#E0252E] mt-2">Manufacturing Excellence Across Generations · Made in India</p>
+        <p class="font-mono text-xs tracking-widest uppercase text-red mt-2">Manufacturing Excellence Across Generations · Made in India</p>
       </div>
     </div>
   </section>

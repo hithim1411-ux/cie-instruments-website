@@ -4,6 +4,7 @@ import { u } from '../../utils/url';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CTABand from '../../components/CTABand.astro';
 import Icon from '../../components/Icon.astro';
+import Badge from '../../components/Badge.astro';
 import { categoryIcon } from '../../utils/categoryIcons';
 import multimeters from '../../data/vartech-multimeters.json';
 import clampMeters from '../../data/vartech-clamp-meters.json';
@@ -130,12 +131,12 @@ const breadcrumbSchema = {
   </Fragment>
 
   <!-- Page header -->
-  <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] py-10">
+  <div class="bg-cloud border-b border-border py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[{ label: 'Authorised Dealership' }]} />
       <p class="eyebrow mt-4 mb-3">— CIE® Authorised Dealership</p>
-      <h1 class="text-3xl sm:text-4xl font-black text-[#0D2547]">Authorised Dealership</h1>
-      <p class="mt-2 text-[#64748B] max-w-2xl">
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Authorised Dealership</h1>
+      <p class="mt-2 text-muted max-w-2xl">
         CIE Instruments represents Vartech as an authorised dealer — supplying the complete range of Vartech precision digital test instruments with dedicated technical support and pan-India delivery.
       </p>
     </div>
@@ -146,7 +147,7 @@ const breadcrumbSchema = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Brand identity -->
-      <div class="flex flex-col sm:flex-row sm:items-start gap-6 pb-8 border-b border-[#E8ECF2] mb-10">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-6 pb-8 border-b border-border mb-10">
         <div class="shrink-0">
           <img
             src={u('/images/vartech/vartech-logo.avif')}
@@ -157,35 +158,32 @@ const breadcrumbSchema = {
           />
         </div>
         <div>
-          <span class="inline-block mb-2 text-xs font-mono uppercase tracking-widest text-[#E0252E] bg-[#E0252E]/10 px-2 py-0.5 rounded">Authorised Dealer</span>
-          <h2 class="text-xl font-bold text-[#0D2547] mb-2">Precision Digital Test &amp; Measurement Instruments</h2>
-          <p class="text-sm text-[#64748B] leading-relaxed max-w-2xl">
+          <Badge variant="emerald" class="mb-2">Authorised Dealer</Badge>
+          <h2 class="text-xl font-bold text-ink mb-2">Precision Digital Test &amp; Measurement Instruments</h2>
+          <p class="text-sm text-muted leading-relaxed max-w-2xl">
             Vartech is a trusted manufacturer of high-quality digital test and measurement instruments. CIE Instruments is an authorised dealer and distributor of Vartech products across India, supplying engineers, utilities, research institutions and educational establishments with reliable, feature-rich instruments backed by expert technical support.
           </p>
         </div>
       </div>
 
       <!-- Product category cards — all 6 -->
-      <h2 class="text-lg font-bold text-[#0D2547] mb-5">Product Categories</h2>
+      <h2 class="text-lg font-bold text-ink mb-5">Product Categories</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {categories.map(cat => (
-          <a
-            href={cat.href}
-            class="group bg-white rounded-2xl ring-1 ring-[#E8ECF2] p-6 flex flex-col gap-3 hover:shadow-xl hover:-translate-y-1 hover:ring-transparent transition-all duration-200 ease-out"
-          >
+          <a href={cat.href} class="card card-interactive group p-6 flex flex-col gap-3">
             <div class="flex items-center gap-3">
-              <div class="w-11 h-11 bg-[#F5F5F7] rounded-xl flex items-center justify-center group-hover:bg-[#E0252E]/8 transition-colors shrink-0">
-                <Icon name={categoryIcon(cat.iconId)} class="w-5 h-5 text-[#1B3A5B] group-hover:text-[#E0252E] transition-colors" />
+              <div class="w-11 h-11 bg-cloud rounded-xl flex items-center justify-center transition-colors duration-200 group-hover:bg-emerald-50 shrink-0">
+                <Icon name={categoryIcon(cat.iconId)} class="w-5 h-5 text-emerald-600" />
               </div>
               <div>
-                <p class="font-bold text-[#0D2547] text-base group-hover:text-[#1B3A5B] transition-colors">{cat.label}</p>
-                <p class="text-xs text-[#64748B] font-mono">{cat.count} models</p>
+                <p class="font-bold text-ink text-base transition-colors duration-200 group-hover:text-emerald-700">{cat.label}</p>
+                <p class="text-xs text-muted font-mono">{cat.count} models</p>
               </div>
             </div>
-            <p class="text-sm text-[#64748B] leading-relaxed flex-1">{cat.description}</p>
-            <span class="text-sm font-semibold text-[#1B3A5B] group-hover:text-[#E0252E] transition-colors">
-              Browse {cat.label} →
-            </span>
+            <p class="text-sm text-muted leading-relaxed flex-1">{cat.description}</p>
+            <div class="link-arrow text-sm text-emerald-600">
+              Browse {cat.label} <Icon name="arrow" class="w-4 h-4" />
+            </div>
           </a>
         ))}
       </div>

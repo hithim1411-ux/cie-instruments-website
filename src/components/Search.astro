@@ -76,49 +76,49 @@ const suggestions = [
 <dialog
   id="cie-search"
   aria-label="Search"
-  class="fixed inset-0 z-[9999] w-full h-full bg-transparent p-0 m-0 max-w-none max-h-none border-0 backdrop:bg-[#0D1B2A]/80 backdrop:backdrop-blur-sm"
+  class="fixed inset-0 z-[9999] w-full h-full bg-transparent p-0 m-0 max-w-none max-h-none border-0 backdrop:bg-ink/80 backdrop:backdrop-blur-xl"
 >
   <!-- Desktop: centred overlay. Mobile: full-screen panel -->
   <div id="search-outer" class="hidden sm:flex items-start justify-center min-h-full pt-[8vh] px-4 pb-10">
     <div id="search-box-desktop" class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col" style="max-height:84vh;">
 
       <!-- Desktop header -->
-      <div class="flex items-center gap-3 px-4 py-3.5 border-b border-[#E8ECF2] shrink-0">
-        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
+      <div class="flex items-center gap-3 px-4 py-3.5 border-b border-border shrink-0">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#0A0E14] to-[#E0252E] flex items-center justify-center shrink-0">
           <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
         </div>
         <input id="search-input" type="text" autocomplete="off" spellcheck="false"
           placeholder="Search products or ask anything…"
-          class="flex-1 text-[#0D1B2A] text-[15px] bg-transparent outline-none placeholder:text-[#94A3B8] font-medium min-w-0"
+          class="flex-1 text-[#0A0E14] text-[15px] bg-transparent outline-none placeholder:text-muted font-medium min-w-0"
           inputmode="search" enterkeyhint="search" />
-        <button id="new-search-btn" class="hidden items-center gap-1 text-[11px] font-medium text-[#1B3A5B] bg-[#EEF2FF] hover:bg-[#E0E9FF] px-2.5 py-1.5 rounded-lg transition-colors shrink-0 whitespace-nowrap">
+        <button id="new-search-btn" class="hidden items-center gap-1 text-[11px] font-medium text-[#0A0E14] bg-[#EEF2FF] hover:bg-[#E0E9FF] px-2.5 py-1.5 rounded-lg transition-colors shrink-0 whitespace-nowrap">
           <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 4v16m8-8H4"/></svg> New
         </button>
-        <button id="search-close-btn" class="flex items-center gap-1.5 text-[11px] font-medium text-[#64748B] hover:text-[#0D1B2A] hover:bg-[#F1F5F9] px-2.5 py-1.5 rounded-lg transition-colors shrink-0">
+        <button id="search-close-btn" class="flex items-center gap-1.5 text-[11px] font-medium text-muted hover:text-[#0A0E14] hover:bg-[#F1F5F9] px-2.5 py-1.5 rounded-lg transition-colors shrink-0">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
 
       <!-- Desktop: single scrollable body containing AI answer + catalog -->
       <div class="flex-1 overflow-y-auto min-h-0" style="scrollbar-width:thin;">
-        <div id="ai-panel" class="hidden border-b border-[#E8ECF2]">
+        <div id="ai-panel" class="hidden border-b border-border">
           <div class="px-4 py-3">
             <div class="flex items-center gap-2 mb-2">
-              <div class="w-5 h-5 rounded-md bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
+              <div class="w-5 h-5 rounded-md bg-gradient-to-br from-[#0A0E14] to-[#E0252E] flex items-center justify-center shrink-0">
                 <svg class="w-2.5 h-2.5 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
               </div>
-              <span class="text-[10px] font-mono uppercase tracking-widest text-[#1B3A5B] font-bold">AI Answer</span>
-              <button id="ai-close" class="ml-auto text-[#94A3B8] hover:text-[#64748B]">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-[#0A0E14] font-bold">AI Answer</span>
+              <button id="ai-close" class="ml-auto text-muted hover:text-muted">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
               </button>
             </div>
-            <div id="ai-content" class="text-sm text-[#0D1B2A] leading-relaxed ai-content"></div>
+            <div id="ai-content" class="text-sm text-[#0A0E14] leading-relaxed ai-content"></div>
             <!-- Reply box -->
-            <div id="ai-reply-box" class="hidden mt-3 flex items-center gap-2 bg-white border border-[#1B3A5B]/30 rounded-xl px-3 py-2.5 shadow-sm">
+            <div id="ai-reply-box" class="hidden mt-3 flex items-center gap-2 bg-white border border-[#0A0E14]/30 rounded-xl px-3 py-2.5 shadow-sm">
               <input id="ai-reply-input" type="text" placeholder="Type your answer here…"
-                class="flex-1 text-sm text-[#0D1B2A] bg-transparent outline-none placeholder:text-[#94A3B8]"
+                class="flex-1 text-sm text-[#0A0E14] bg-transparent outline-none placeholder:text-muted"
                 inputmode="search" enterkeyhint="send" />
-              <button id="ai-reply-send" class="w-7 h-7 rounded-lg bg-[#1B3A5B] text-white flex items-center justify-center shrink-0 hover:bg-[#0D2547] transition-colors">
+              <button id="ai-reply-send" class="w-7 h-7 rounded-lg bg-[#0A0E14] text-white flex items-center justify-center shrink-0 hover:bg-[#0A0E14] transition-colors">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
             </div>
@@ -126,10 +126,10 @@ const suggestions = [
         </div>
         <div id="catalog-results">
           <div class="px-4 py-4">
-            <p class="text-xs text-[#94A3B8] mb-3">Popular questions — click to ask instantly</p>
+            <p class="text-xs text-muted mb-3">Popular questions — click to ask instantly</p>
             <div class="grid grid-cols-2 gap-2">
               {suggestions.map(s => (
-                <button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all leading-snug" data-query={s}>{s}</button>
+                <button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#0A0E14] hover:text-[#0A0E14] hover:bg-[#F0F4FF] transition-all leading-snug" data-query={s}>{s}</button>
               ))}
             </div>
           </div>
@@ -137,9 +137,9 @@ const suggestions = [
       </div>
 
       <!-- Desktop footer -->
-      <div class="px-4 py-2 border-t border-[#E8ECF2] bg-[#F8FAFC] flex items-center justify-between shrink-0">
-        <span class="text-[10px] text-[#94A3B8] font-mono">AI Search · {searchIndex.length} instruments</span>
-        <div class="flex items-center gap-3 text-[10px] text-[#94A3B8] font-mono">
+      <div class="px-4 py-2 border-t border-border bg-[#F8FAFC] flex items-center justify-between shrink-0">
+        <span class="text-[10px] text-muted font-mono">AI Search · {searchIndex.length} instruments</span>
+        <div class="flex items-center gap-3 text-[10px] text-muted font-mono">
           <span><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">↵</kbd> ask AI</span>
           <span><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">esc</kbd> close</span>
         </div>
@@ -153,35 +153,35 @@ const suggestions = [
   <div id="mobile-panel" class="sm:hidden fixed inset-0 bg-white flex flex-col" style="display:none;">
 
     <!-- Mobile header -->
-    <div class="flex items-center gap-3 px-4 border-b border-[#E8ECF2] shrink-0" style="height:56px;">
-      <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
+    <div class="flex items-center gap-3 px-4 border-b border-border shrink-0" style="height:56px;">
+      <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#0A0E14] to-[#E0252E] flex items-center justify-center shrink-0">
         <svg class="w-4 h-4 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
       </div>
       <input id="search-input-mobile" type="text" autocomplete="off" spellcheck="false"
         placeholder="Search or ask anything…"
-        class="flex-1 text-[#0D1B2A] text-[16px] bg-transparent outline-none placeholder:text-[#94A3B8] font-medium min-w-0"
+        class="flex-1 text-[#0A0E14] text-[16px] bg-transparent outline-none placeholder:text-muted font-medium min-w-0"
         inputmode="search" enterkeyhint="search" />
-      <button id="mobile-clear-btn" class="hidden w-8 h-8 rounded-full bg-[#F1F5F9] items-center justify-center text-[#64748B] active:bg-[#E2E8F0] shrink-0">
+      <button id="mobile-clear-btn" class="hidden w-8 h-8 rounded-full bg-[#F1F5F9] items-center justify-center text-muted active:bg-[#E2E8F0] shrink-0">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </div>
 
     <!-- Mobile AI answer — collapsible -->
-    <div id="mobile-ai-panel" class="hidden border-b border-[#E8ECF2] shrink-0" style="max-height:40vh; overflow-y:auto; -webkit-overflow-scrolling:touch;">
+    <div id="mobile-ai-panel" class="hidden border-b border-border shrink-0" style="max-height:40vh; overflow-y:auto; -webkit-overflow-scrolling:touch;">
       <button id="mobile-ai-toggle" class="w-full flex items-center gap-2 px-4 py-2.5 bg-[#F0F4FF] active:bg-[#E8EFFE]">
-        <div class="w-4 h-4 rounded bg-gradient-to-br from-[#1B3A5B] to-[#E0252E] flex items-center justify-center shrink-0">
+        <div class="w-4 h-4 rounded bg-gradient-to-br from-[#0A0E14] to-[#E0252E] flex items-center justify-center shrink-0">
           <svg class="w-2 h-2 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
         </div>
-        <span class="text-[11px] font-bold text-[#1B3A5B] uppercase tracking-wider">AI Answer</span>
-        <svg id="mobile-ai-chevron" class="w-4 h-4 text-[#94A3B8] ml-auto transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M19 9l-7 7-7-7"/></svg>
+        <span class="text-[11px] font-bold text-[#0A0E14] uppercase tracking-wider">AI Answer</span>
+        <svg id="mobile-ai-chevron" class="w-4 h-4 text-muted ml-auto transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M19 9l-7 7-7-7"/></svg>
       </button>
-      <div id="mobile-ai-content" class="px-4 pt-1 pb-2 text-sm text-[#0D1B2A] leading-relaxed ai-content"></div>
+      <div id="mobile-ai-content" class="px-4 pt-1 pb-2 text-sm text-[#0A0E14] leading-relaxed ai-content"></div>
       <!-- Mobile reply box -->
-      <div id="mobile-ai-reply-box" class="hidden mx-4 mb-3 flex items-center gap-2 bg-white border border-[#1B3A5B]/30 rounded-xl px-3 py-2.5 shadow-sm">
+      <div id="mobile-ai-reply-box" class="hidden mx-4 mb-3 flex items-center gap-2 bg-white border border-[#0A0E14]/30 rounded-xl px-3 py-2.5 shadow-sm">
         <input id="mobile-ai-reply-input" type="text" placeholder="Type your answer here…"
-          class="flex-1 text-[15px] text-[#0D1B2A] bg-transparent outline-none placeholder:text-[#94A3B8]"
+          class="flex-1 text-[15px] text-[#0A0E14] bg-transparent outline-none placeholder:text-muted"
           inputmode="search" enterkeyhint="send" />
-        <button id="mobile-ai-reply-send" class="w-8 h-8 rounded-xl bg-[#1B3A5B] text-white flex items-center justify-center shrink-0 active:bg-[#0D2547]">
+        <button id="mobile-ai-reply-send" class="w-8 h-8 rounded-xl bg-[#0A0E14] text-white flex items-center justify-center shrink-0 active:bg-[#0A0E14]">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
@@ -191,20 +191,20 @@ const suggestions = [
     <div id="mobile-catalog-results" class="flex-1 overflow-y-auto min-h-0" style="-webkit-overflow-scrolling:touch; overscroll-behavior:contain;">
       <!-- welcome -->
       <div id="mobile-welcome" class="px-4 pt-5 pb-4">
-        <p class="text-sm text-[#94A3B8] mb-4">Popular questions — tap to ask instantly</p>
+        <p class="text-sm text-muted mb-4">Popular questions — tap to ask instantly</p>
         <div class="flex flex-col gap-3">
           {suggestions.map(s => (
-            <button class="suggestion-chip text-left text-[15px] font-medium px-4 py-3.5 rounded-2xl border-2 border-[#E8ECF2] text-[#334155] active:bg-[#EEF2FF] active:border-[#1B3A5B] leading-snug" data-query={s}>{s}</button>
+            <button class="suggestion-chip text-left text-[15px] font-medium px-4 py-3.5 rounded-2xl border-2 border-border text-[#334155] active:bg-[#EEF2FF] active:border-[#0A0E14] leading-snug" data-query={s}>{s}</button>
           ))}
         </div>
       </div>
     </div>
 
     <!-- Mobile bottom bar (always visible) -->
-    <div class="flex items-center gap-3 px-4 border-t border-[#E8ECF2] bg-[#F8FAFC] shrink-0" style="height:60px; padding-bottom:env(safe-area-inset-bottom);">
-      <span class="text-[10px] text-[#94A3B8] font-mono flex-1">AI Search · {searchIndex.length} instruments</span>
-      <button id="mobile-new-btn" class="text-sm font-semibold text-[#1B3A5B] bg-[#EEF2FF] px-4 py-2 rounded-xl active:bg-[#E0E9FF]">+ New</button>
-      <button id="mobile-close-btn" class="text-sm font-semibold text-white bg-[#1B3A5B] px-4 py-2 rounded-xl active:bg-[#0D2547]">Close</button>
+    <div class="flex items-center gap-3 px-4 border-t border-border bg-[#F8FAFC] shrink-0" style="height:60px; padding-bottom:env(safe-area-inset-bottom);">
+      <span class="text-[10px] text-muted font-mono flex-1">AI Search · {searchIndex.length} instruments</span>
+      <button id="mobile-new-btn" class="text-sm font-semibold text-[#0A0E14] bg-[#EEF2FF] px-4 py-2 rounded-xl active:bg-[#E0E9FF]">+ New</button>
+      <button id="mobile-close-btn" class="text-sm font-semibold text-white bg-[#0A0E14] px-4 py-2 rounded-xl active:bg-[#0A0E14]">Close</button>
     </div>
   </div>
 
@@ -444,9 +444,9 @@ async function askAI(q: string) {
   desktopNewBtn.classList.add('flex');
 
   cont.innerHTML = `<span class="inline-flex gap-1.5 items-center py-1">
-    <span class="w-2 h-2 bg-[#1B3A5B] rounded-full animate-bounce" style="animation-delay:0ms"></span>
-    <span class="w-2 h-2 bg-[#1B3A5B] rounded-full animate-bounce" style="animation-delay:150ms"></span>
-    <span class="w-2 h-2 bg-[#1B3A5B] rounded-full animate-bounce" style="animation-delay:300ms"></span>
+    <span class="w-2 h-2 bg-[#0A0E14] rounded-full animate-bounce" style="animation-delay:0ms"></span>
+    <span class="w-2 h-2 bg-[#0A0E14] rounded-full animate-bounce" style="animation-delay:150ms"></span>
+    <span class="w-2 h-2 bg-[#0A0E14] rounded-full animate-bounce" style="animation-delay:300ms"></span>
   </span>`;
 
   let fullText = '';
@@ -498,7 +498,7 @@ async function askAI(q: string) {
       const cie = aiMentionedProducts.filter(p => p.brand === 'cie');
       const vt  = aiMentionedProducts.filter(p => p.brand === 'vartech');
       let html = '';
-      if (cie.length) html += section('CIE — Manufactured', 'text-[#E0252E]', cie, q, false);
+      if (cie.length) html += section('CIE — Manufactured', 'text-red', cie, q, false);
       if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
       if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; return; }
     }
@@ -510,7 +510,7 @@ async function askAI(q: string) {
       const cie = items.filter(p => p.brand === 'cie');
       const vt  = items.filter(p => p.brand === 'vartech');
       let html = '';
-      if (cie.length) html += section('CIE — Manufactured', 'text-[#E0252E]', cie, q, false);
+      if (cie.length) html += section('CIE — Manufactured', 'text-red', cie, q, false);
       if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
       if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; }
     }
@@ -573,12 +573,12 @@ const CHIPS = [
 function showWelcome() {
   hideAI();
   const desktopWelcome = `<div class="px-4 py-4">
-    <p class="text-xs text-[#94A3B8] mb-3">Popular questions — click to ask instantly</p>
-    <div class="grid grid-cols-2 gap-2">${CHIPS.map(s => `<button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#1B3A5B] hover:text-[#1B3A5B] hover:bg-[#F0F4FF] transition-all leading-snug" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
+    <p class="text-xs text-muted mb-3">Popular questions — click to ask instantly</p>
+    <div class="grid grid-cols-2 gap-2">${CHIPS.map(s => `<button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#0A0E14] hover:text-[#0A0E14] hover:bg-[#F0F4FF] transition-all leading-snug" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
   </div>`;
   const mobileWelcome = `<div class="px-4 pt-5 pb-4">
-    <p class="text-sm text-[#94A3B8] mb-4">Popular questions — tap to ask instantly</p>
-    <div class="flex flex-col gap-3">${CHIPS.map(s => `<button class="suggestion-chip text-left text-[15px] font-medium px-4 py-3.5 rounded-2xl border-2 border-[#E8ECF2] text-[#334155] active:bg-[#EEF2FF] active:border-[#1B3A5B] leading-snug" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
+    <p class="text-sm text-muted mb-4">Popular questions — tap to ask instantly</p>
+    <div class="flex flex-col gap-3">${CHIPS.map(s => `<button class="suggestion-chip text-left text-[15px] font-medium px-4 py-3.5 rounded-2xl border-2 border-border text-[#334155] active:bg-[#EEF2FF] active:border-[#0A0E14] leading-snug" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
   </div>`;
   catalogDiv.innerHTML = desktopWelcome;
   mobileCatalog.innerHTML = mobileWelcome;
@@ -622,15 +622,15 @@ function renderCatalog(q: string) {
   const items = smartSearch(q);
   const noMatch = `<div class="px-6 py-6 text-center">
     <svg class="w-8 h-8 mx-auto mb-2 text-[#CBD5E1]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/></svg>
-    <p class="text-[#64748B] font-medium text-sm mb-1">No direct catalog match</p>
-    <p class="text-xs text-[#94A3B8]">The AI answer above has the right product recommendation for you.</p>
+    <p class="text-muted font-medium text-sm mb-1">No direct catalog match</p>
+    <p class="text-xs text-muted">The AI answer above has the right product recommendation for you.</p>
   </div>`;
   if (!items.length) { catalogDiv.innerHTML = noMatch; mobileCatalog.innerHTML = noMatch; return; }
 
   const cie = items.filter(i => i.brand === 'cie');
   const vt  = items.filter(i => i.brand === 'vartech');
   let html = '';
-  if (cie.length) html += section('CIE — Manufactured', 'text-[#E0252E]', cie, q, false);
+  if (cie.length) html += section('CIE — Manufactured', 'text-red', cie, q, false);
   if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
 
   catalogDiv.innerHTML   = html;
@@ -641,7 +641,7 @@ function section(label: string, cls: string, items: Entry[], q: string, border: 
   return `<div class="${border?'border-t border-[#F1F5F9]':''} pt-2.5 pb-1">
     <div class="px-4 mb-1.5 flex items-center gap-2">
       <span class="text-[9px] font-mono uppercase tracking-widest ${cls} font-bold">${label}</span>
-      <span class="text-[9px] text-[#94A3B8]">${items.length} result${items.length!==1?'s':''}</span>
+      <span class="text-[9px] text-muted">${items.length} result${items.length!==1?'s':''}</span>
     </div>
     ${items.map(item => resultRow(item, q)).join('')}
   </div>`;
@@ -649,12 +649,12 @@ function section(label: string, cls: string, items: Entry[], q: string, border: 
 
 function resultRow(item: Entry, q: string): string {
   const isCIE = item.brand === 'cie';
-  const badge = isCIE ? 'bg-[#0D2547] text-white' : 'bg-emerald-700 text-white';
+  const badge = isCIE ? 'bg-[#0A0E14] text-white' : 'bg-emerald-700 text-white';
   const tag = item.tagline.length > 75 ? item.tagline.slice(0, 75) + '…' : item.tagline;
   return `<a href="${esc(item.href)}" data-result
     class="flex items-center gap-3 px-4 py-3.5 sm:py-2.5 hover:bg-[#F0F4FF] active:bg-[#EEF2FF] transition-colors group border-b border-[#F8FAFC] last:border-0"
     onclick="document.getElementById('cie-search').close(); document.body.style.overflow='';">
-    <div class="w-11 h-11 sm:w-10 sm:h-10 rounded-xl bg-[#F8FAFC] border border-[#E8ECF2] flex items-center justify-center shrink-0 overflow-hidden">
+    <div class="w-11 h-11 sm:w-10 sm:h-10 rounded-xl bg-[#F8FAFC] border border-border flex items-center justify-center shrink-0 overflow-hidden">
       ${item.image
         ? `<img src="${esc(item.image)}" alt="" class="w-10 h-10 sm:w-9 sm:h-9 object-contain p-0.5" loading="lazy" onerror="this.style.display='none'">`
         : `<svg class="w-5 h-5 text-[#CBD5E1]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/></svg>`}
@@ -662,12 +662,12 @@ function resultRow(item: Entry, q: string): string {
     <div class="flex-1 min-w-0">
       <div class="flex items-center gap-2 mb-0.5">
         <span class="inline-block text-[9px] font-mono font-bold px-1.5 py-0.5 rounded ${badge} shrink-0">${highlight(item.model, q)}</span>
-        <span class="text-[10px] text-[#94A3B8] truncate">${esc(item.category)}</span>
+        <span class="text-[10px] text-muted truncate">${esc(item.category)}</span>
       </div>
-      <p class="text-sm font-semibold text-[#0D1B2A] leading-snug truncate group-hover:text-[#1B3A5B]">${highlight(item.name, q)}</p>
-      ${tag ? `<p class="text-[11px] text-[#64748B] truncate mt-0.5">${highlight(tag, q)}</p>` : ''}
+      <p class="text-sm font-semibold text-[#0A0E14] leading-snug truncate group-hover:text-[#0A0E14]">${highlight(item.name, q)}</p>
+      ${tag ? `<p class="text-[11px] text-muted truncate mt-0.5">${highlight(tag, q)}</p>` : ''}
     </div>
-    <svg class="w-4 h-4 text-[#CBD5E1] shrink-0 group-hover:text-[#1B3A5B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+    <svg class="w-4 h-4 text-[#CBD5E1] shrink-0 group-hover:text-[#0A0E14]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
   </a>`;
 }
 
@@ -682,25 +682,25 @@ function renderMD(el: HTMLElement, text: string) {
       if (rows.length >= 1) {
         const pr = (row: string) => row.trim().replace(/^\||\|$/g,'').split('|').map(c => c.trim());
         const [head, ...body] = rows;
-        const th = pr(head).map(h => `<th class="px-3 py-1.5 text-left text-[11px] font-semibold text-[#1B3A5B] bg-[#EEF2FF] border border-[#E0E9FF]">${boldify(h)}</th>`).join('');
-        const tb = body.map(r => `<tr class="even:bg-[#F8FAFC]">${pr(r).map(c => `<td class="px-3 py-1.5 text-[12px] text-[#334155] border border-[#E8ECF2]">${boldify(c)}</td>`).join('')}</tr>`).join('');
+        const th = pr(head).map(h => `<th class="px-3 py-1.5 text-left text-[11px] font-semibold text-[#0A0E14] bg-[#EEF2FF] border border-[#E0E9FF]">${boldify(h)}</th>`).join('');
+        const tb = body.map(r => `<tr class="even:bg-[#F8FAFC]">${pr(r).map(c => `<td class="px-3 py-1.5 text-[12px] text-[#334155] border border-border">${boldify(c)}</td>`).join('')}</tr>`).join('');
         return `<div class="overflow-x-auto my-2 rounded-lg border border-[#E0E9FF]"><table class="w-full text-left border-collapse"><thead><tr>${th}</tr></thead><tbody>${tb}</tbody></table></div>`;
       }
     }
     let b = esc(block)
-      .replace(/^### (.+)$/gm,'<strong class="block text-[#0D2547] font-semibold text-[13px] mt-1">$1</strong>')
-      .replace(/^## (.+)$/gm, '<strong class="block text-[#0D2547] font-semibold mt-1">$1</strong>')
-      .replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#0D2547]">$1</strong>')
-      .replace(/`([^`]+)`/g, '<code class="bg-[#E8ECF2] px-1 py-0.5 rounded text-[11px] font-mono text-[#1B3A5B]">$1</code>')
+      .replace(/^### (.+)$/gm,'<strong class="block text-[#0A0E14] font-semibold text-[13px] mt-1">$1</strong>')
+      .replace(/^## (.+)$/gm, '<strong class="block text-[#0A0E14] font-semibold mt-1">$1</strong>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong class="text-[#0A0E14]">$1</strong>')
+      .replace(/`([^`]+)`/g, '<code class="bg-border px-1 py-0.5 rounded text-[11px] font-mono text-ink">$1</code>')
       // Markdown links [text](url) → clickable anchor
-      .replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="text-[#1B3A5B] underline underline-offset-2 hover:text-[#E0252E] transition-colors">$1</a>')
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="text-[#0A0E14] underline underline-offset-2 hover:text-red transition-colors">$1</a>')
       .replace(/^[-•→]\s(.+)$/gm, '<li class="ml-4 list-disc list-outside leading-snug">$1</li>')
       .replace(/\n/g, '<br>');
     if (b.includes('<li')) b = b.replace(/(<li[^>]*>.*?<\/li>(<br>)?)+/gs, m => `<ul class="space-y-0.5 my-1">${m.replace(/<br>/g,'')}</ul>`);
     return `<p class="text-sm leading-relaxed">${b}</p>`;
   }).join('');
 }
-function boldify(t: string) { return esc(t).replace(/\*\*(.+?)\*\*/g,'<strong class="text-[#0D2547]">$1</strong>'); }
+function boldify(t: string) { return esc(t).replace(/\*\*(.+?)\*\*/g,'<strong class="text-[#0A0E14]">$1</strong>'); }
 function highlight(text: string, q: string): string {
   if (!q) return esc(text);
   const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
