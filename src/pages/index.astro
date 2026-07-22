@@ -3,8 +3,10 @@ import Base from '../layouts/Base.astro';
 import { u } from '../utils/url';
 import EyebrowLabel from '../components/EyebrowLabel.astro';
 import CTABand from '../components/CTABand.astro';
-import CategoryCard from '../components/CategoryCard.astro';
 import ProductCard from '../components/ProductCard.astro';
+import Icon from '../components/Icon.astro';
+import { categoryIcon } from '../utils/categoryIcons';
+import type { IconName } from '../utils/iconNames';
 import categories from '../data/categories.json';
 import products from '../data/products.json';
 import clients from '../data/clients.json';
@@ -60,22 +62,22 @@ const newVartechFeatured = [
 const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 const rts33Mailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — RTS-33')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: RTS-33 — Three-Phase Relay Test Set.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 
-const trustPoints = [
-  { icon: '📅', label: '60+ Years of Service',     body: "Established 1963. Generations of engineers at India's utilities and railways have relied on the CIE® mark." },
-  { icon: '🇮🇳', label: 'Made in India',            body: 'Designed and assembled in Howrah, West Bengal, under the registered CIE® trade mark.' },
-  { icon: '🛡️', label: '12-Month Warranty',        body: 'Every instrument carries a 12-month warranty against manufacturing defects, with direct after-sales support.' },
-  { icon: '🔧', label: 'Custom Ranges to Order',   body: 'Non-standard voltage, resistance, or measurement ranges? We manufacture to your specific requirement.' },
-  { icon: '⚡', label: 'Trusted by Power Utilities',body: 'Preferred by PGCIL, WBSETCL, Indian Railways, and EPC contractors across India.' },
-  { icon: '🔬', label: 'Calibrated Before Despatch',body: 'Every instrument is calibrated against reference standards before leaving our works.' },
+const trustPoints: { icon: IconName; label: string; body: string }[] = [
+  { icon: 'calendar',     label: '60+ Years of Service',     body: "Established 1963. Generations of engineers at India's utilities and railways have relied on the CIE® mark." },
+  { icon: 'flag',         label: 'Made in India',            body: 'Designed and assembled in Howrah, West Bengal, under the registered CIE® trade mark.' },
+  { icon: 'shield-check', label: '12-Month Warranty',        body: 'Every instrument carries a 12-month warranty against manufacturing defects, with direct after-sales support.' },
+  { icon: 'wrench',       label: 'Custom Ranges to Order',   body: 'Non-standard voltage, resistance, or measurement ranges? We manufacture to your specific requirement.' },
+  { icon: 'zap',          label: 'Trusted by Power Utilities',body: 'Preferred by PGCIL, WBSETCL, Indian Railways, and EPC contractors across India.' },
+  { icon: 'flask',        label: 'Calibrated Before Despatch',body: 'Every instrument is calibrated against reference standards before leaving our works.' },
 ];
 
-const industries = [
-  { name: 'Power Utilities',           desc: 'PGCIL, WBSETCL, state electricity boards, generation companies', icon: '⚡' },
-  { name: 'Indian Railways',           desc: 'Traction, signalling, and rolling stock testing requirements', icon: '🚂' },
-  { name: 'Substation Commissioning',  desc: 'EPC contractors and commissioning engineers', icon: '🏗️' },
-  { name: 'Industry & Manufacturing',  desc: 'Motors, cables, panels, transformers in heavy industry', icon: '🏭' },
-  { name: 'Test Laboratories',         desc: 'NABL labs, calibration centres, R&D facilities', icon: '🔬' },
-  { name: 'EPC Contractors',           desc: 'Project commissioning and acceptance testing', icon: '📋' },
+const industries: { name: string; desc: string; icon: IconName }[] = [
+  { name: 'Power Utilities',           desc: 'PGCIL, WBSETCL, state electricity boards, generation companies', icon: 'zap' },
+  { name: 'Indian Railways',           desc: 'Traction, signalling, and rolling stock testing requirements', icon: 'train' },
+  { name: 'Substation Commissioning',  desc: 'EPC contractors and commissioning engineers', icon: 'hard-hat' },
+  { name: 'Industry & Manufacturing',  desc: 'Motors, cables, panels, transformers in heavy industry', icon: 'factory' },
+  { name: 'Test Laboratories',         desc: 'NABL labs, calibration centres, R&D facilities', icon: 'flask' },
+  { name: 'EPC Contractors',           desc: 'Project commissioning and acceptance testing', icon: 'clipboard-check' },
 ];
 
 ---
@@ -88,43 +90,40 @@ const industries = [
 >
   <!-- ── HERO ──────────────────────────────────────────────────────────────── -->
   <section class="blueprint-bg text-white relative overflow-hidden">
-    <!-- Left red accent bar -->
-    <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#E0252E]" aria-hidden="true"></div>
-    <!-- Top-right glow -->
-    <div class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-10 pointer-events-none"
+    <!-- Ambient glow -->
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] rounded-full opacity-[0.08] pointer-events-none"
       style="background: radial-gradient(circle at top right, #E0252E 0%, transparent 65%);" aria-hidden="true">
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
 
         <!-- ── Left: copy ── -->
-        <div class="max-w-xl">
+        <div class="max-w-xl" data-reveal>
           <!-- Eyebrow -->
-          <div class="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+          <div class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
             <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] animate-pulse" aria-hidden="true"></span>
             <span class="text-[11px] font-mono text-[#b0bec5] tracking-widest uppercase">CIE® · Instruments for Accuracy and Reliability</span>
           </div>
 
           <!-- Headline -->
-          <h1 class="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl font-black leading-[1.1] mb-5 text-white">
-            <span class="block text-base sm:text-lg lg:text-xl font-semibold text-[#b0bec5] tracking-wide mb-2">Cambridge Instruments &amp; Engg. Co.</span>
-            Precision test &amp; measurement instruments,<br class="hidden sm:block" />
-            <span class="text-[#E0252E]">built in India</span> since&nbsp;1963.
+          <h1 class="text-[length:var(--text-hero)] font-extrabold leading-[1.02] tracking-tight mb-6 text-white">
+            <span class="block text-lg lg:text-xl font-medium text-[#8a95a3] tracking-normal mb-3">Cambridge Instruments &amp; Engg. Co.</span>
+            Precision instruments,<br class="hidden sm:block" />
+            <span class="text-[#E0252E]">built in India</span> since 1963.
           </h1>
 
           <!-- Subhead -->
-          <p class="text-base sm:text-lg text-[#b0bec5] mb-8 leading-relaxed">
-            Cambridge Instruments &amp; Engg. Co. — manufacturer of insulation testers,
-            earth testers, relay test sets, and oil test equipment for India's utilities,
-            railways, and industry.
+          <p class="text-lg text-[#a3adb8] mb-10 leading-[1.6] max-w-lg">
+            Manufacturer of insulation testers, earth testers, relay test sets, and oil
+            test equipment for India's utilities, railways, and industry.
           </p>
 
           <!-- CTAs -->
-          <div class="flex flex-col sm:flex-row gap-3 mb-10">
+          <div class="flex flex-col sm:flex-row gap-3 mb-12">
             <a
               href={u('/products/')}
-              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#E0252E] hover:bg-[#D72631] text-white font-bold rounded-lg text-sm transition-all hover:shadow-lg hover:shadow-red-900/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E0252E] hover:bg-[#D72631] text-white font-semibold rounded-lg text-[15px] transition-all hover:shadow-lg hover:shadow-red-900/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Explore Products
               <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
@@ -133,17 +132,14 @@ const industries = [
             </a>
             <a
               href={genericMailto}
-              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/25 hover:border-white/60 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-lg text-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 hover:border-white/40 text-white font-medium rounded-lg text-[15px] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
               Request a Quote
             </a>
           </div>
 
           <!-- Trust row -->
-          <div class="flex flex-wrap gap-x-6 gap-y-2 pt-7 border-t border-white/10 text-xs text-[#94a3b8] font-mono uppercase tracking-wide">
+          <div class="flex flex-wrap gap-x-6 gap-y-2 pt-7 border-t border-white/10 text-xs text-[#8a95a3] font-mono uppercase tracking-wide">
             {['60+ Years', 'Made in India', '12-Month Warranty', 'In-House Calibration'].map(t => (
               <span class="flex items-center gap-1.5">
                 <span class="w-1 h-1 rounded-full bg-[#E0252E]" aria-hidden="true"></span>
@@ -153,64 +149,56 @@ const industries = [
           </div>
         </div>
 
-        <!-- ── Right: hero product slider ── -->
-        <div class="hidden lg:flex items-center justify-center">
-          <div class="relative">
-            <!-- Outer glow ring -->
-            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#1B3A5B]/60 to-[#E0252E]/10 blur-xl scale-110" aria-hidden="true"></div>
-            <!-- Image frame -->
-            <div class="relative bg-[#0D2547]/80 border border-white/10 rounded-2xl p-8 backdrop-blur-sm shadow-2xl w-80 xl:w-88">
-              <!-- Corner accents -->
-              <div class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#E0252E] rounded-tl" aria-hidden="true"></div>
-              <div class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#E0252E] rounded-tr" aria-hidden="true"></div>
-              <div class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#E0252E] rounded-bl" aria-hidden="true"></div>
-              <div class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#E0252E] rounded-br" aria-hidden="true"></div>
+        <!-- ── Right: hero product spotlight ── -->
+        <div class="hidden lg:flex items-center justify-center" data-reveal>
+          <div class="relative w-full max-w-md">
+            <!-- Ambient glow behind product -->
+            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-[#1B3A5B]/50 to-transparent blur-3xl scale-90" aria-hidden="true"></div>
 
-              <!-- Slides -->
-              <div id="hero-slides" class="relative h-64 xl:h-72">
-                {[
-                  { img: 'cie-444.webp',   model: 'CIE/444',         name: 'Analog Insulation Tester',       href: '/products/insulation-testers-hand/cie-444/' },
-                  { img: 'cie-222m.webp',  model: 'CIE/222M',        name: 'Analog Earth Tester',             href: '/products/earth-tester/cie-222m/' },
-                  { img: 'det-2000.webp',  model: 'DET-2000',        name: 'Digital Earth Resistance Tester', href: '/products/earth-tester/det-2000/' },
-                  { img: 'dit-2500.webp',  model: 'DIT-2500',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-2500/' },
-                  { img: 'dit-5005.webp',  model: 'DIT-5005',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-5005/' },
-                  { img: 'cie-555.webp',   model: 'CIE/555',         name: 'Insulation Tester',               href: '/products/compact-insulation-testers/cie-555/' },
-                  { img: 'cie-5050a.webp', model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           href: '/products/hv-phase-sequence/cie-5050a/' },
-                  { img: 'cie-7050.webp',  model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      href: '/products/oil-test-sets/cie-7050/' },
-                ].map((slide, i) => (
-                  <a href={u(slide.href)}
-                    class={`hero-slide absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                    data-index={i}
-                    tabindex={i === 0 ? 0 : -1}
-                  >
-                    <img
-                      src={u(`/images/products/${slide.img}`)}
-                      alt={`${slide.model} — ${slide.name}`}
-                      width="600"
-                      height="600"
-                      class="max-h-52 xl:max-h-60 w-auto object-contain mx-auto"
-                      loading={i === 0 ? 'eager' : 'lazy'}
-                      fetchpriority={i === 0 ? 'high' : 'auto'}
-                    />
-                  </a>
-                ))}
-              </div>
-
-              <!-- Caption -->
-              <div class="mt-4 text-center min-h-[36px]">
-                <p id="hero-model" class="text-xs font-mono text-[#E0252E] uppercase tracking-widest">CIE/444</p>
-                <p id="hero-name"  class="text-white text-sm font-semibold mt-0.5">Analog Insulation Tester</p>
-              </div>
-
-              <!-- Dot indicators (aria-hidden: purely decorative, tabindex=-1 keeps them unfocusable) -->
-              <div class="flex justify-center gap-1.5 mt-4" aria-hidden="true">
-                {[0,1,2,3,4,5,6,7].map(i => (
-                  <button data-hero-dot={i}
-                    tabindex="-1"
-                    class={`hero-dot transition-all rounded-full ${i === 0 ? 'w-4 h-1.5 bg-[#E0252E]' : 'w-1.5 h-1.5 bg-white/20'}`}
+            <!-- Slides -->
+            <div id="hero-slides" class="relative h-80 xl:h-96">
+              {[
+                { img: 'cie-444.webp',   model: 'CIE/444',         name: 'Analog Insulation Tester',       href: '/products/insulation-testers-hand/cie-444/' },
+                { img: 'cie-222m.webp',  model: 'CIE/222M',        name: 'Analog Earth Tester',             href: '/products/earth-tester/cie-222m/' },
+                { img: 'det-2000.webp',  model: 'DET-2000',        name: 'Digital Earth Resistance Tester', href: '/products/earth-tester/det-2000/' },
+                { img: 'dit-2500.webp',  model: 'DIT-2500',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-2500/' },
+                { img: 'dit-5005.webp',  model: 'DIT-5005',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-5005/' },
+                { img: 'cie-555.webp',   model: 'CIE/555',         name: 'Insulation Tester',               href: '/products/compact-insulation-testers/cie-555/' },
+                { img: 'cie-5050a.webp', model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           href: '/products/hv-phase-sequence/cie-5050a/' },
+                { img: 'cie-7050.webp',  model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      href: '/products/oil-test-sets/cie-7050/' },
+              ].map((slide, i) => (
+                <a href={u(slide.href)}
+                  class={`hero-slide absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                  data-index={i}
+                  tabindex={i === 0 ? 0 : -1}
+                >
+                  <img
+                    src={u(`/images/products/${slide.img}`)}
+                    alt={`${slide.model} — ${slide.name}`}
+                    width="600"
+                    height="600"
+                    class="max-h-72 xl:max-h-80 w-auto object-contain mx-auto drop-shadow-2xl"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={i === 0 ? 'high' : 'auto'}
                   />
-                ))}
-              </div>
+                </a>
+              ))}
+            </div>
+
+            <!-- Caption -->
+            <div class="text-center min-h-[36px]">
+              <p id="hero-model" class="text-xs font-mono text-[#E0252E] uppercase tracking-widest">CIE/444</p>
+              <p id="hero-name"  class="text-white text-sm font-semibold mt-0.5">Analog Insulation Tester</p>
+            </div>
+
+            <!-- Dot indicators (aria-hidden: purely decorative, tabindex=-1 keeps them unfocusable) -->
+            <div class="flex justify-center gap-1.5 mt-4" aria-hidden="true">
+              {[0,1,2,3,4,5,6,7].map(i => (
+                <button data-hero-dot={i}
+                  tabindex="-1"
+                  class={`hero-dot transition-all rounded-full ${i === 0 ? 'w-4 h-1.5 bg-[#E0252E]' : 'w-1.5 h-1.5 bg-white/20'}`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -220,13 +208,13 @@ const industries = [
   </section>
 
   <!-- ── PRODUCT CATEGORIES (horizontal slider) ───────────────────────────── -->
-  <section class="bg-[#F5F7FA] py-16 lg:py-20">
+  <section class="bg-[#F5F7FA] section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between mb-8 gap-4">
+      <div class="flex items-end justify-between mb-10 gap-4" data-reveal>
         <div>
           <EyebrowLabel text="Product Catalogue" class="mb-3" />
-          <h2 class="text-3xl font-black text-[#0D2547]">Test &amp; Measurement Instruments</h2>
-          <p class="mt-2 text-[#64748B] max-w-2xl">
+          <h2 class="text-[length:var(--text-display)] font-extrabold text-[#0D2547] leading-[1.1] tracking-tight">Test &amp; Measurement Instruments</h2>
+          <p class="mt-3 text-[#64748B] max-w-2xl text-lg leading-relaxed">
             CIE manufactured instruments from Howrah, plus the full Vartech range — backed by direct after-sales support.
           </p>
         </div>
@@ -249,10 +237,10 @@ const industries = [
         style="scrollbar-width:none; -ms-overflow-style:none;">
         {categoryCount.map(cat => (
           <a href={u((cat as any).brand === 'vartech' ? `/authorised-dealership/${cat.id.replace('vartech-', '')}/` : `/products/${cat.id}/`)}
-            class="group snap-start shrink-0 w-[260px] sm:w-[280px] bg-white rounded-lg border border-[#E8ECF2] p-5 hover:shadow-md hover:border-[#1B3A5B]/30 transition-all duration-200 flex flex-col">
+            class="group snap-start shrink-0 w-[260px] sm:w-[280px] bg-white rounded-2xl ring-1 ring-[#E8ECF2] p-6 hover:shadow-xl hover:-translate-y-1 hover:ring-transparent transition-all duration-200 ease-out flex flex-col">
             <div class="flex items-start gap-3 mb-3">
-              <div class="shrink-0 w-10 h-10 bg-[#F5F7FA] rounded-lg flex items-center justify-center text-xl group-hover:bg-[#1B3A5B]/5 transition-colors">
-                {cat.icon}
+              <div class="shrink-0 w-11 h-11 bg-[#F5F5F7] rounded-xl flex items-center justify-center group-hover:bg-[#E0252E]/8 transition-colors">
+                <Icon name={categoryIcon(cat.id)} class="w-5 h-5 text-[#1B3A5B] group-hover:text-[#E0252E] transition-colors" />
               </div>
               <div class="flex-1 min-w-0">
                 <h3 class="font-bold text-[#0D2547] text-sm leading-snug group-hover:text-[#1B3A5B] transition-colors line-clamp-2">{cat.name}</h3>
@@ -321,17 +309,19 @@ const industries = [
   </script>
 
   <!-- ── WHY CIE ────────────────────────────────────────────────────────────── -->
-  <section class="bg-white py-16 lg:py-20">
+  <section class="bg-white section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
+      <div class="mb-14" data-reveal>
         <EyebrowLabel text="Why CIE" class="mb-3" />
-        <h2 class="text-3xl font-black text-[#0D2547]">Built for reliability.<br />Backed by six decades.</h2>
+        <h2 class="text-[length:var(--text-display)] font-extrabold text-[#0D2547] leading-[1.1] tracking-tight">Built for reliability.<br />Backed by six decades.</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
         {trustPoints.map(tp => (
-          <div class="red-stripe">
-            <div class="text-2xl mb-3" aria-hidden="true">{tp.icon}</div>
-            <h3 class="font-bold text-[#0D2547] mb-2">{tp.label}</h3>
+          <div class="red-stripe" data-reveal>
+            <div class="w-11 h-11 bg-[#F5F5F7] rounded-xl flex items-center justify-center mb-4">
+              <Icon name={tp.icon} class="w-5 h-5 text-[#1B3A5B]" />
+            </div>
+            <h3 class="font-bold text-[#0D2547] mb-2 text-lg tracking-tight">{tp.label}</h3>
             <p class="text-sm text-[#64748B] leading-relaxed">{tp.body}</p>
           </div>
         ))}
@@ -340,12 +330,12 @@ const industries = [
   </section>
 
   <!-- ── FEATURED PRODUCTS ─────────────────────────────────────────────────── -->
-  <section class="bg-[#F5F7FA] py-16 lg:py-20">
+  <section class="bg-[#F5F7FA] section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-end justify-between mb-10 gap-4">
+      <div class="flex items-end justify-between mb-10 gap-4" data-reveal>
         <div>
           <EyebrowLabel text="Flagship Instruments" class="mb-3" />
-          <h2 class="text-3xl font-black text-[#0D2547]">Selected from Our Range</h2>
+          <h2 class="text-[length:var(--text-display)] font-extrabold text-[#0D2547] leading-[1.1] tracking-tight">Selected from Our Range</h2>
         </div>
         <div class="hidden sm:flex items-center gap-2 shrink-0">
           <button id="feat-prev" aria-label="Previous products"
@@ -364,32 +354,32 @@ const industries = [
             id={p.id} featured={p.featured} image={p.image} hideImage={p.hideImage} />
         ))}
         {newVartechFeatured.map(p => (
-          <article class="bg-white rounded-lg border border-[#E8ECF2] overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-200">
-            <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] h-[180px] flex items-center justify-center relative">
+          <article class="group bg-white rounded-2xl overflow-hidden flex flex-col ring-1 ring-emerald-100 hover:ring-emerald-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-out">
+            <div class="bg-[#F5F5F7] h-56 flex items-center justify-center relative overflow-hidden">
               <img
                 src={u(`/images/vartech/${p.slug}/${p.images[0]}`)}
                 alt={`Vartech ${p.model} — ${p.name}`}
                 width="300" height="300"
-                class="object-contain h-32 w-auto"
+                class="object-contain h-44 w-auto transition-transform duration-300 ease-out group-hover:scale-105"
                 loading="lazy"
                 onerror="this.style.display='none'"
               />
-              <span class="absolute top-2 left-2 text-[9px] font-mono font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
+              <span class="absolute top-3 left-3 text-[9px] font-mono font-bold uppercase tracking-widest text-emerald-700 bg-white/90 border border-emerald-200 px-1.5 py-0.5 rounded">
                 Vartech®
               </span>
             </div>
-            <div class="p-4 flex flex-col flex-1">
-              <p class="text-[11px] font-mono text-[#E0252E] mb-0.5">{p.model}</p>
-              <h3 class="font-bold text-[#0D2547] text-sm leading-snug mb-2">{p.name}</h3>
-              <p class="text-xs text-[#64748B] mb-4 flex-1 line-clamp-3">{p.tagline}</p>
+            <div class="p-6 flex flex-col flex-1">
+              <p class="text-xs font-mono text-[#E0252E] mb-1.5">{p.model}</p>
+              <h3 class="font-bold text-[#0D2547] text-lg leading-snug mb-2 tracking-tight">{p.name}</h3>
+              <p class="text-sm text-[#64748B] mb-5 flex-1 line-clamp-2 leading-relaxed">{p.tagline}</p>
               <div class="flex flex-col gap-2 mt-auto">
                 <a href={u(`/authorised-dealership/${p.slug}/${p.id}/`)}
-                  class="text-center px-3 py-2 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-xs font-semibold rounded transition-colors">
+                  class="text-center px-4 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded-lg transition-colors">
                   View Specifications
                 </a>
                 <a href={`https://wa.me/919831086649?text=${encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} — ${p.name}`)}`}
                   target="_blank" rel="noopener noreferrer"
-                  class="text-center px-3 py-2 border border-[#25D366] text-[#1a6e38] hover:bg-[#25D366]/10 text-xs font-medium rounded transition-colors">
+                  class="text-center px-4 py-2 border border-[#25D366] text-[#1a6e38] hover:bg-[#25D366]/10 text-sm font-medium rounded-lg transition-colors">
                   Enquire on WhatsApp
                 </a>
               </div>
@@ -420,25 +410,27 @@ const industries = [
   </script>
 
   <!-- ── INDUSTRIES ─────────────────────────────────────────────────────────── -->
-  <section class="blueprint-bg text-white py-16 lg:py-20">
+  <section class="blueprint-bg text-white section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
+      <div class="mb-14" data-reveal>
         <EyebrowLabel text="Industries Served" class="mb-3" />
-        <h2 class="text-3xl font-black">Trusted across India's<br />critical infrastructure.</h2>
-        <p class="mt-3 text-[#b0bec5] max-w-xl">
+        <h2 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight">Trusted across India's<br />critical infrastructure.</h2>
+        <p class="mt-4 text-[#a3adb8] max-w-xl text-lg leading-relaxed">
           From grid substations to rolling stock depots — CIE instruments are specified by engineers who need measurements they can stake their signature on.
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {industries.map(ind => (
-          <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg p-5 transition-colors">
-            <div class="text-2xl mb-3" aria-hidden="true">{ind.icon}</div>
-            <h3 class="font-bold text-white mb-1">{ind.name}</h3>
-            <p class="text-sm text-[#b0bec5]">{ind.desc}</p>
+          <div class="bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-white/20 rounded-2xl p-6 transition-all duration-200" data-reveal>
+            <div class="w-11 h-11 bg-white/5 rounded-xl flex items-center justify-center mb-4">
+              <Icon name={ind.icon} class="w-5 h-5 text-[#E0252E]" />
+            </div>
+            <h3 class="font-bold text-white mb-1.5 text-lg tracking-tight">{ind.name}</h3>
+            <p class="text-sm text-[#a3adb8] leading-relaxed">{ind.desc}</p>
           </div>
         ))}
       </div>
-      <div class="mt-8">
+      <div class="mt-10">
         <a href={u('/industries/')} class="text-sm font-semibold text-[#E0252E] hover:text-white transition-colors">
           See all applications →
         </a>
@@ -447,31 +439,31 @@ const industries = [
   </section>
 
   <!-- ── CLIENTS / TRUSTED BY ───────────────────────────────────────────────── -->
-  <section class="bg-[#F5F7FA] py-16 lg:py-20">
+  <section class="bg-[#F5F5F7] section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
+      <div class="text-center mb-16" data-reveal>
         <EyebrowLabel text="Clients" class="mb-3 justify-center" />
         <h2 class="text-2xl sm:text-3xl font-black text-[#0D2547]">Trusted across India's power &amp; industrial sector</h2>
         <p class="mt-2 text-[#64748B] max-w-2xl mx-auto">
           Supplying utilities, railways, PSUs, and institutions for over six decades.
         </p>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-px bg-[#E8ECF2] border border-[#E8ECF2] rounded-xl overflow-hidden">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6" data-reveal>
         {clients.map(client => (
-          <div class="bg-white group flex items-center justify-center p-5 sm:p-6 min-h-[100px]">
+          <div class="group flex items-center justify-center p-6 sm:p-8 min-h-[110px]">
             {client.url ? (
               <a href={client.url} target="_blank" rel="noopener noreferrer" aria-label={client.name}
                  class="flex items-center justify-center w-full h-full">
                 <img src={u(client.logo)} alt={client.name} title={client.name}
                   width="120" height="48"
-                  class="max-h-12 sm:max-h-14 max-w-[120px] w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  class="max-h-12 sm:max-h-16 max-w-[130px] w-auto object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                   loading="lazy" />
               </a>
             ) : (
               <div class="flex items-center justify-center w-full h-full" title={client.name}>
                 <img src={u(client.logo)} alt={client.name} title={client.name}
                   width="120" height="48"
-                  class="max-h-12 sm:max-h-14 max-w-[120px] w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  class="max-h-12 sm:max-h-16 max-w-[130px] w-auto object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                   loading="lazy" />
               </div>
             )}
@@ -482,60 +474,58 @@ const industries = [
   </section>
 
   <!-- ── RTS-33 SPOTLIGHT ────────────────────────────────────────────────────── -->
-  <section class="bg-white py-16 lg:py-20">
+  <section class="bg-white section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto bg-[#F5F7FA] rounded-xl overflow-hidden border border-[#E8ECF2]">
-        <div class="grid grid-cols-1 lg:grid-cols-2">
-          <div class="p-8 lg:p-10">
-            <EyebrowLabel text="Flagship · Protection Testing" class="mb-4" />
-            <h2 class="text-2xl font-black text-[#0D2547] mb-3">
-              <span class="model-code text-lg block mb-1">RTS-33</span>
-              Three-Phase Relay Test Set
-            </h2>
-            <p class="text-[#64748B] text-sm leading-relaxed mb-6">
-              Variable three-phase AC current, AC and DC voltage, and 0–360° continuously variable phase angle.
-              250 VA burden. The preferred instrument for commissioning distance, differential, and directional
-              protection relays at India's major power utilities and railways.
-            </p>
-            <ul class="space-y-2 mb-8">
-              {['Three-phase output', '250 VA burden', '0–360° phase angle', 'AC & DC voltage', '12-month warranty'].map(f => (
-                <li class="flex items-center gap-2 text-sm text-[#1B3A5B]">
-                  <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] shrink-0" aria-hidden="true"></span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <div class="flex gap-3 flex-wrap">
-              <a href={u('/products/relay-test-sets/rts-33/')} class="px-5 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors">
-                View Specifications
-              </a>
-              <a href={rts33Mailto} class="px-5 py-2.5 border border-[#E0252E] text-[#E0252E] hover:bg-[#E0252E] hover:text-white text-sm font-semibold rounded transition-colors">
-                Request a Quote
-              </a>
-            </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="order-2 lg:order-1" data-reveal>
+          <EyebrowLabel text="Flagship · Protection Testing" class="mb-5" />
+          <h2 class="text-[length:var(--text-display)] font-extrabold text-[#0D2547] leading-[1.05] tracking-tight mb-4">
+            <span class="model-code text-xl block mb-2">RTS-33</span>
+            Three-Phase Relay Test Set
+          </h2>
+          <p class="text-[#64748B] text-lg leading-relaxed mb-8 max-w-md">
+            Variable three-phase AC current, AC and DC voltage, and 0–360° continuously
+            variable phase angle. The preferred instrument for commissioning protection
+            relays at India's major power utilities and railways.
+          </p>
+          <ul class="flex flex-wrap gap-x-6 gap-y-3 mb-10">
+            {['Three-phase output', '250 VA burden', '0–360° phase angle', 'AC & DC voltage', '12-month warranty'].map(f => (
+              <li class="flex items-center gap-2 text-sm text-[#1B3A5B] font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#E0252E] shrink-0" aria-hidden="true"></span>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <div class="flex gap-3 flex-wrap">
+            <a href={u('/products/relay-test-sets/rts-33/')} class="px-6 py-3 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded-lg transition-colors">
+              View Specifications
+            </a>
+            <a href={rts33Mailto} class="px-6 py-3 border border-[#E0252E] text-[#E0252E] hover:bg-[#E0252E] hover:text-white text-sm font-semibold rounded-lg transition-colors">
+              Request a Quote
+            </a>
           </div>
-          <div class="bg-[#E8ECF2] lg:min-h-full min-h-48 flex items-center justify-center overflow-hidden">
-            <img
-              src={u('/images/products/rts-33.webp')}
-              alt="RTS-33 — Three-Phase Relay Test Set"
-              width="1179"
-              height="1384"
-              class="object-contain max-h-64 max-w-full p-4"
-              loading="lazy"
-            />
-          </div>
+        </div>
+        <div class="order-1 lg:order-2 bg-[#F5F5F7] rounded-3xl flex items-center justify-center overflow-hidden aspect-square" data-reveal>
+          <img
+            src={u('/images/products/rts-33.webp')}
+            alt="RTS-33 — Three-Phase Relay Test Set"
+            width="1179"
+            height="1384"
+            class="object-contain max-h-[85%] max-w-[85%]"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
   </section>
 
   <!-- ── SUPPLIER COVERAGE + KEYWORD SECTION ──────────────────────────────── -->
-  <section class="bg-[#F5F7FA] py-16 lg:py-20">
+  <section class="bg-[#F5F7FA] section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
         <!-- Left: keyword-rich text -->
-        <div>
+        <div data-reveal>
           <EyebrowLabel text="Pan-India Supply" class="mb-4" />
           <h2 class="text-2xl sm:text-3xl font-black text-[#0D2547] mb-5">
             Test &amp; Measurement Instruments Supplier in Kolkata, India

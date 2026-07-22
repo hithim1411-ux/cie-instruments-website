@@ -25,16 +25,16 @@ const detailHref = categoryId.startsWith('vartech-')
 const isVartech = categoryId.startsWith('vartech-');
 ---
 
-<article class={`bg-white rounded-lg overflow-hidden flex flex-col transition-all duration-200 hover:shadow-md ${isVartech ? 'border-2 border-emerald-100 hover:border-emerald-500' : `border border-[#E8ECF2] ${featured ? 'ring-2 ring-[#E0252E]/20' : ''}`}`}>
+<article class={`group bg-white rounded-2xl overflow-hidden flex flex-col transition-all duration-200 ease-out border border-transparent hover:border-[#E8ECF2] hover:shadow-xl hover:-translate-y-1 ${isVartech ? 'ring-1 ring-emerald-100 hover:ring-emerald-300' : featured ? 'ring-1 ring-[#E0252E]/15' : 'ring-1 ring-[#E8ECF2]'}`}>
   <!-- Product image -->
   {!hideImage && (
-    <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] h-44 flex items-center justify-center relative">
+    <div class="bg-[#F5F5F7] h-56 flex items-center justify-center relative overflow-hidden">
       <img
         src={imgSrc}
         alt={`${model} — ${name}`}
         width="600"
         height="600"
-        class="object-contain h-36 w-auto"
+        class="object-contain h-44 w-auto transition-transform duration-300 ease-out group-hover:scale-105"
         loading="lazy"
         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
       />
@@ -47,7 +47,7 @@ const isVartech = categoryId.startsWith('vartech-');
         <span class="text-xs font-mono uppercase tracking-wider opacity-50">Image coming soon</span>
       </div>
       {isVartech ? (
-        <span class="absolute top-2 left-2 text-[9px] font-mono font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">
+        <span class="absolute top-3 left-3 text-[9px] font-mono font-bold uppercase tracking-widest text-emerald-700 bg-white/90 border border-emerald-200 px-1.5 py-0.5 rounded">
           Vartech®
         </span>
       ) : featured && (
@@ -58,15 +58,15 @@ const isVartech = categoryId.startsWith('vartech-');
     </div>
   )}
 
-  <div class="p-5 flex flex-col flex-1">
-    <p class="model-code text-xs mb-1">{model}</p>
-    <h3 class="font-bold text-[#0D2547] text-base mb-2 leading-snug">{name}</h3>
-    <p class="text-sm text-[#64748B] mb-4 flex-1 line-clamp-3">{tagline}</p>
+  <div class="p-6 flex flex-col flex-1">
+    <p class="model-code text-xs mb-1.5">{model}</p>
+    <h3 class="font-bold text-[#0D2547] text-lg mb-2 leading-snug tracking-tight">{name}</h3>
+    <p class="text-sm text-[#64748B] mb-5 flex-1 line-clamp-2 leading-relaxed">{tagline}</p>
 
     <div class="flex flex-col gap-2 mt-auto">
       <a
         href={detailHref}
-        class="text-center px-4 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded transition-colors"
+        class="text-center px-4 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-sm font-semibold rounded-lg transition-colors"
       >
         View Specifications
       </a>
@@ -74,7 +74,7 @@ const isVartech = categoryId.startsWith('vartech-');
         href={`https://wa.me/${site.whatsapp}?text=${waMsg}`}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-center px-4 py-2 border border-[#25D366] text-[#1a6e38] hover:bg-[#25D366]/10 text-sm font-medium rounded transition-colors"
+        class="text-center px-4 py-2 border border-[#25D366] text-[#1a6e38] hover:bg-[#25D366]/10 text-sm font-medium rounded-lg transition-colors"
       >
         Enquire on WhatsApp
       </a>

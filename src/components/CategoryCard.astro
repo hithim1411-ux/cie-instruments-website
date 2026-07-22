@@ -6,31 +6,33 @@ interface Props {
   icon: string;
   count: number;
 }
-const { id, name, description, icon, count } = Astro.props;
+const { id, name, description, count } = Astro.props;
 import { u } from '../utils/url';
+import Icon from './Icon.astro';
+import { categoryIcon } from '../utils/categoryIcons';
 ---
 
 <a
   href={u(`/products/${id}`)}
-  class="group block bg-white rounded-lg border border-[#E8ECF2] p-6 hover:shadow-md hover:border-[#1B3A5B]/30 transition-all duration-200"
+  class="group block bg-white rounded-2xl ring-1 ring-[#E8ECF2] p-7 hover:shadow-xl hover:-translate-y-1 hover:ring-transparent transition-all duration-200 ease-out"
 >
   <div class="flex items-start gap-4">
-    <div class="shrink-0 w-12 h-12 bg-[#F5F7FA] rounded-lg flex items-center justify-center text-2xl group-hover:bg-[#1B3A5B]/5 transition-colors">
-      {icon}
+    <div class="shrink-0 w-12 h-12 bg-[#F5F5F7] rounded-xl flex items-center justify-center group-hover:bg-[#E0252E]/8 transition-colors">
+      <Icon name={categoryIcon(id)} class="w-6 h-6 text-[#1B3A5B] group-hover:text-[#E0252E] transition-colors" />
     </div>
     <div class="flex-1 min-w-0">
       <div class="flex items-center justify-between gap-2 mb-2">
-        <h3 class="font-bold text-[#0D2547] text-sm leading-snug group-hover:text-[#1B3A5B] transition-colors">
+        <h3 class="font-bold text-[#0D2547] text-[15px] leading-snug group-hover:text-[#1B3A5B] transition-colors">
           {name}
         </h3>
-        <span class="shrink-0 text-xs font-mono text-[#64748B] bg-[#F5F7FA] px-2 py-0.5 rounded">
+        <span class="shrink-0 text-xs font-mono text-[#64748B] bg-[#F5F5F7] px-2 py-0.5 rounded">
           {count} {count === 1 ? 'product' : 'products'}
         </span>
       </div>
-      <p class="text-sm text-[#64748B] line-clamp-2">{description}</p>
+      <p class="text-sm text-[#64748B] line-clamp-2 leading-relaxed">{description}</p>
     </div>
   </div>
-  <div class="mt-4 text-xs font-semibold text-[#E0252E] group-hover:translate-x-1 transition-transform duration-200">
+  <div class="mt-5 text-xs font-semibold text-[#E0252E] group-hover:translate-x-1 transition-transform duration-200">
     View products →
   </div>
 </a>

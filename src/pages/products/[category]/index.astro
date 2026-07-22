@@ -156,7 +156,7 @@ const catKeywords = [category.name, ...(categoryFaqs?.map(f => f.q) ?? [])].join
     /* ── COMBINED BRAND PAGE ────────────────────────────────────────────────── */
     <div>
       <!-- CIE section -->
-      <section class="bg-white py-12 lg:py-16 border-b border-[#E8ECF2]">
+      <section class="bg-white section-pad-sm border-b border-[#E8ECF2]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center gap-4 mb-8">
             <img src={u('/logo/cie-logo.png')} alt="CIE®" width="32" height="32" class="object-contain" />
@@ -182,7 +182,7 @@ const catKeywords = [category.name, ...(categoryFaqs?.map(f => f.q) ?? [])].join
       {vartechSections.map((sec, si) => {
         const isLast = si === vartechSections.length - 1;
         return (
-          <section class={`py-12 lg:py-16 ${isLast ? '' : 'border-b border-emerald-100'}`}
+          <section class={`section-pad-sm ${isLast ? '' : 'border-b border-emerald-100'}`}
             style="background: linear-gradient(to bottom, #f0fdf4, #fff);">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div class="flex items-center justify-between mb-8 gap-4 flex-wrap">
@@ -248,7 +248,7 @@ const catKeywords = [category.name, ...(categoryFaqs?.map(f => f.q) ?? [])].join
     </div>
   ) : (
     /* ── SINGLE BRAND PAGE ───────────────────────────────────────────────────── */
-    <section class={`py-12 lg:py-16 ${isVartechBrand ? '' : 'bg-white'}`}
+    <section class={`section-pad-sm ${isVartechBrand ? '' : 'bg-white'}`}
       style={isVartechBrand ? 'background: linear-gradient(to bottom, #f0fdf4, #fff)' : ''}>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {isVartechBrand ? (
@@ -345,7 +345,7 @@ const catKeywords = [category.name, ...(categoryFaqs?.map(f => f.q) ?? [])].join
 
   <!-- SEO content block -->
   {seoContent && seoContent.length > 0 && (
-    <section class="bg-[#F5F7FA] py-12 lg:py-16 border-t border-[#E8ECF2]">
+    <section class="bg-[#F5F7FA] section-pad-sm border-t border-[#E8ECF2]">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-xl font-bold text-[#0D2547] mb-6">About {category.name}</h2>
         <div class="space-y-4">

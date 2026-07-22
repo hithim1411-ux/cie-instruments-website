@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import { u } from '../../utils/url';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CTABand from '../../components/CTABand.astro';
+import Icon from '../../components/Icon.astro';
+import { categoryIcon } from '../../utils/categoryIcons';
 import multimeters from '../../data/vartech-multimeters.json';
 import clampMeters from '../../data/vartech-clamp-meters.json';
 import oscilloscopes from '../../data/vartech-oscilloscopes.json';
@@ -20,84 +22,84 @@ const categories = [
   {
     label: 'Multimeters',
     href: u('/authorised-dealership/multimeters/'),
-    icon: '🔌',
+    iconId: 'vartech-multimeters',
     count: multimeters.length,
     description: 'True RMS digital multimeters — pocket-friendly to bench-top, 2000 to 30000 counts.',
   },
   {
     label: 'Clamp Meters',
     href: u('/authorised-dealership/clamp-meters/'),
-    icon: '🔧',
+    iconId: 'vartech-clamp-meters',
     count: clampMeters.length,
     description: 'Digital clamp meters — 1000 A AC, True RMS, mA leakage testers and smart compact models.',
   },
   {
     label: 'Oscilloscopes',
     href: u('/authorised-dealership/oscilloscopes/'),
-    icon: '📡',
+    iconId: 'vartech-oscilloscopes',
     count: oscilloscopes.length,
     description: 'Analog CROs (20–30 MHz) and digital storage oscilloscopes (80–150 MHz, 1 GS/s, 7" TFT).',
   },
   {
     label: 'Function Generators',
     href: u('/authorised-dealership/function-generators/'),
-    icon: '〰️',
+    iconId: 'vartech-function-generators',
     count: functionGenerators.length,
     description: 'DDS function generators — 6 MHz to 80 MHz, dual channel, arbitrary waveforms, USB interface.',
   },
   {
     label: 'LCR & Cap Meters',
     href: u('/authorised-dealership/lcr-meters/'),
-    icon: '🔵',
+    iconId: 'vartech-lcr-meters',
     count: lcrMeters.length,
     description: 'Portable LC meters, handheld LCR multimeters and bench-top LCR-D-Q instruments with USB/RS232.',
   },
   {
     label: 'DC Electronic Loads',
     href: u('/authorised-dealership/dc-loads/'),
-    icon: '⚡',
+    iconId: 'vartech-dc-loads',
     count: dcLoads.length,
     description: '600 W programmable DC loads with CC/CV/CR/CP modes — for battery, power supply and charger testing.',
   },
   {
     label: 'Sound Level Meters',
     href: u('/authorised-dealership/sound-level-meters/'),
-    icon: '🔊',
+    iconId: 'vartech-sound-level-meters',
     count: soundLevelMeters.length,
     description: '30–130 dBA digital sound level meters — A-weighting, 1/2-inch condenser microphone, Fast/Slow response.',
   },
   {
     label: 'Anemometers',
     href: u('/authorised-dealership/anemometers/'),
-    icon: '💨',
+    iconId: 'vartech-anemometers',
     count: anemometers.length,
     description: 'Digital anemometers — 0–45 m/s air speed with temperature, wind chill and analog bar graph.',
   },
   {
     label: 'Calibrators',
     href: u('/authorised-dealership/calibrators/'),
-    icon: '🎛️',
+    iconId: 'vartech-calibrators',
     count: calibrators.length,
     description: 'mV, mA, temperature and process calibrators — source & measure T/C, RTD, loop current and voltage.',
   },
   {
     label: 'Lux Meters',
     href: u('/authorised-dealership/lux-meters/'),
-    icon: '💡',
+    iconId: 'vartech-lux-meters',
     count: luxMeters.length,
     description: 'Digital lux meters — 0.1 to 200,000 Lux, flexible sensor, Lux/FC select, Auto/Manual ranging.',
   },
   {
     label: 'Thermometers',
     href: u('/authorised-dealership/thermometers/'),
-    icon: '🌡️',
+    iconId: 'vartech-thermometers',
     count: thermometers.length,
     description: 'K-type industrial thermometers (-150 °C to 1300 °C) and compact thermo-hygrometers with clock.',
   },
   {
     label: 'DC Power Supplies',
     href: u('/authorised-dealership/dc-power-supplies/'),
-    icon: '🔋',
+    iconId: 'vartech-dc-power-supplies',
     count: dcPowerSupplies.length,
     description: 'Linear, SMPS and programmable DC regulated power supplies — 30 V to 200 V, up to 40 A, with PC interface.',
   },
@@ -140,7 +142,7 @@ const breadcrumbSchema = {
   </div>
 
   <!-- Vartech brand section -->
-  <section class="bg-white py-12 lg:py-16">
+  <section class="bg-white section-pad-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Brand identity -->
@@ -169,10 +171,12 @@ const breadcrumbSchema = {
         {categories.map(cat => (
           <a
             href={cat.href}
-            class="group bg-white border border-[#E8ECF2] rounded-lg p-5 flex flex-col gap-3 hover:shadow-md hover:border-[#1B3A5B]/30 transition-all duration-200"
+            class="group bg-white rounded-2xl ring-1 ring-[#E8ECF2] p-6 flex flex-col gap-3 hover:shadow-xl hover:-translate-y-1 hover:ring-transparent transition-all duration-200 ease-out"
           >
             <div class="flex items-center gap-3">
-              <span class="text-2xl" aria-hidden="true">{cat.icon}</span>
+              <div class="w-11 h-11 bg-[#F5F5F7] rounded-xl flex items-center justify-center group-hover:bg-[#E0252E]/8 transition-colors shrink-0">
+                <Icon name={categoryIcon(cat.iconId)} class="w-5 h-5 text-[#1B3A5B] group-hover:text-[#E0252E] transition-colors" />
+              </div>
               <div>
                 <p class="font-bold text-[#0D2547] text-base group-hover:text-[#1B3A5B] transition-colors">{cat.label}</p>
                 <p class="text-xs text-[#64748B] font-mono">{cat.count} models</p>

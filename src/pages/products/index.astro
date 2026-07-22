@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import { u } from '../../utils/url';
 import CTABand from '../../components/CTABand.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import { categoryIcon } from '../../utils/categoryIcons';
 import categories from '../../data/categories.json';
 import products from '../../data/products.json';
 import site from '../../data/site.json';
@@ -26,84 +28,84 @@ const vartechCategories = [
   {
     label: 'Multimeters',
     href: u('/authorised-dealership/multimeters/'),
-    icon: '🔌',
+    iconId: 'vartech-multimeters',
     count: vartechMultimeters.length,
     description: 'True RMS digital multimeters — pocket-friendly to bench-top, 2000 to 30000 counts.',
   },
   {
     label: 'Clamp Meters',
     href: u('/authorised-dealership/clamp-meters/'),
-    icon: '🔧',
+    iconId: 'vartech-clamp-meters',
     count: vartechClampMeters.length,
     description: 'Digital clamp meters — 1000 A AC, True RMS, mA leakage testers and smart compact models.',
   },
   {
     label: 'Oscilloscopes',
     href: u('/authorised-dealership/oscilloscopes/'),
-    icon: '📡',
+    iconId: 'vartech-oscilloscopes',
     count: vartechOscilloscopes.length,
     description: 'Analog CROs (20–30 MHz) and digital storage oscilloscopes (80–150 MHz, 1 GS/s, 7" TFT).',
   },
   {
     label: 'Function Generators',
     href: u('/authorised-dealership/function-generators/'),
-    icon: '〰️',
+    iconId: 'vartech-function-generators',
     count: vartechFunctionGenerators.length,
     description: 'DDS function generators — 6 MHz to 80 MHz, dual channel, arbitrary waveforms, USB.',
   },
   {
     label: 'LCR & Cap Meters',
     href: u('/authorised-dealership/lcr-meters/'),
-    icon: '🔵',
+    iconId: 'vartech-lcr-meters',
     count: vartechLcrMeters.length,
     description: 'Portable LC meters, handheld LCR multimeters and bench-top LCR-D-Q instruments.',
   },
   {
     label: 'DC Electronic Loads',
     href: u('/authorised-dealership/dc-loads/'),
-    icon: '⚡',
+    iconId: 'vartech-dc-loads',
     count: vartechDcLoads.length,
     description: '600 W programmable DC loads with CC/CV/CR/CP modes for battery and power supply testing.',
   },
   {
     label: 'Sound Level Meters',
     href: u('/authorised-dealership/sound-level-meters/'),
-    icon: '🔊',
+    iconId: 'vartech-sound-level-meters',
     count: vartechSoundLevelMeters.length,
     description: '30–130 dBA digital sound level meters — A-weighting, 1/2-inch condenser microphone, Fast/Slow.',
   },
   {
     label: 'Anemometers',
     href: u('/authorised-dealership/anemometers/'),
-    icon: '💨',
+    iconId: 'vartech-anemometers',
     count: vartechAnemometers.length,
     description: 'Digital anemometers — 0–45 m/s air speed with temperature, wind chill and bar graph.',
   },
   {
     label: 'Calibrators',
     href: u('/authorised-dealership/calibrators/'),
-    icon: '🎛️',
+    iconId: 'vartech-calibrators',
     count: vartechCalibrators.length,
     description: 'mV, mA, temperature and process calibrators — source & measure T/C, RTD and loop current.',
   },
   {
     label: 'Lux Meters',
     href: u('/authorised-dealership/lux-meters/'),
-    icon: '💡',
+    iconId: 'vartech-lux-meters',
     count: vartechLuxMeters.length,
     description: 'Digital lux meters — 0.1 to 200,000 Lux, flexible sensor, Lux/FC select.',
   },
   {
     label: 'Thermometers',
     href: u('/authorised-dealership/thermometers/'),
-    icon: '🌡️',
+    iconId: 'vartech-thermometers',
     count: vartechThermometers.length,
     description: 'K-type industrial thermometers (-150 °C to 1300 °C) and compact thermo-hygrometers with clock.',
   },
   {
     label: 'DC Power Supplies',
     href: u('/authorised-dealership/dc-power-supplies/'),
-    icon: '🔋',
+    iconId: 'vartech-dc-power-supplies',
     count: vartechDcPowerSupplies.length,
     description: 'Linear, SMPS and programmable DC supplies — 30 V to 200 V, up to 40 A, with PC interface.',
   },
@@ -129,7 +131,7 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
   </div>
 
   <!-- ── CIE Brand Section ── -->
-  <section class="bg-white py-12 lg:py-16 border-b border-gray-100">
+  <section class="bg-white section-pad-sm border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- CIE brand header -->
@@ -162,7 +164,7 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
               data-filter={cat.id}
               class="filter-pill px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors"
             >
-              {cat.icon} {cat.shortName} ({count})
+              {cat.shortName} ({count})
             </button>
           );
         })}
@@ -187,16 +189,16 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
           return (
             <article
               data-category={p.categoryId}
-              class="cie-product-card bg-white rounded-xl border border-[#E8ECF2] overflow-hidden flex flex-col hover:shadow-md hover:border-[#1B3A5B] transition-all duration-200"
+              class="cie-product-card group bg-white rounded-2xl overflow-hidden flex flex-col ring-1 ring-[#E8ECF2] hover:ring-transparent hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-out"
             >
               <!-- Product image -->
-              <div class="bg-[#F5F7FA] border-b border-[#E8ECF2] h-40 flex items-center justify-center relative">
+              <div class="bg-[#F5F5F7] h-52 flex items-center justify-center relative overflow-hidden">
                 <img
                   src={u(`/images/products/${p.id}.webp`)}
                   alt={`${p.model} — ${p.name}`}
                   width="300"
                   height="300"
-                  class="object-contain h-32 w-auto"
+                  class="object-contain h-40 w-auto transition-transform duration-300 ease-out group-hover:scale-105"
                   loading="lazy"
                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
                 />
@@ -209,15 +211,15 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
                 </div>
               </div>
 
-              <div class="p-4 flex flex-col flex-1">
-                <p class="text-[11px] font-mono text-[#E0252E] mb-0.5">{p.model}</p>
-                <h3 class="font-bold text-[#0D2547] text-sm leading-snug mb-2">{p.name}</h3>
-                <p class="text-xs text-[#64748B] mb-4 flex-1 line-clamp-3">{p.tagline}</p>
+              <div class="p-5 flex flex-col flex-1">
+                <p class="text-xs font-mono text-[#E0252E] mb-1.5">{p.model}</p>
+                <h3 class="font-bold text-[#0D2547] text-base leading-snug mb-2 tracking-tight">{p.name}</h3>
+                <p class="text-sm text-[#64748B] mb-4 flex-1 line-clamp-2 leading-relaxed">{p.tagline}</p>
 
                 <div class="flex flex-col gap-2 mt-auto">
                   <a
                     href={u(`/products/${p.categoryId}/${p.id}`)}
-                    class="text-center px-3 py-2 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-xs font-semibold rounded transition-colors"
+                    class="text-center px-3 py-2.5 bg-[#1B3A5B] hover:bg-[#0D2547] text-white text-xs font-semibold rounded-lg transition-colors"
                   >
                     View Specifications
                   </a>
@@ -225,7 +227,7 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
                     href={`https://wa.me/${site.whatsapp}?text=${waMsg}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-center px-3 py-2 border border-[#25D366] text-[#1a6e38] hover:bg-[#25D366]/10 text-xs font-medium rounded transition-colors"
+                    class="text-center px-3 py-2 border border-[#25D366] text-[#1a6e38] hover:bg-[#25D366]/10 text-xs font-medium rounded-lg transition-colors"
                   >
                     Enquire on WhatsApp
                   </a>
@@ -241,7 +243,7 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
   </section>
 
   <!-- ── Vartech Brand Section ── -->
-  <section class="py-12 lg:py-16" style="background: linear-gradient(to bottom, #f8f9fa, #fff);">
+  <section class="section-pad-sm" style="background: linear-gradient(to bottom, #f8f9fa, #fff);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Vartech brand header -->
@@ -266,9 +268,11 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
       <div class="product-slider gap-5 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-4">
         {vartechCategories.map(cat => (
           <a href={cat.href}
-            class="group flex flex-col p-5 rounded-xl border-2 border-emerald-100 bg-white hover:border-emerald-500 hover:shadow-md transition-all duration-200">
+            class="group flex flex-col p-6 rounded-2xl ring-1 ring-emerald-100 bg-white hover:ring-emerald-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 ease-out">
             <div class="flex items-start justify-between mb-3">
-              <span class="text-2xl">{cat.icon}</span>
+              <div class="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
+                <Icon name={categoryIcon(cat.iconId)} class="w-5 h-5 text-emerald-700" />
+              </div>
               <span class="text-[10px] font-mono text-gray-400">{cat.count} models</span>
             </div>
             <div class="text-[10px] font-mono uppercase tracking-widest text-emerald-600 mb-1">Vartech®</div>

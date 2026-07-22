@@ -7,10 +7,6 @@
 @import "@fontsource/inter/latin-700.css";
 @import "@fontsource/inter/latin-800.css";
 @import "@fontsource/inter/latin-900.css";
-@import "@fontsource/ibm-plex-sans/latin-400.css";
-@import "@fontsource/ibm-plex-sans/latin-500.css";
-@import "@fontsource/ibm-plex-sans/latin-600.css";
-@import "@fontsource/ibm-plex-sans/latin-700.css";
 @import "@fontsource/ibm-plex-mono/latin-400.css";
 @import "@fontsource/ibm-plex-mono/latin-500.css";
 @import "@fontsource/ibm-plex-mono/latin-600.css";
@@ -29,9 +25,19 @@
   --color-muted:        #64748B;
   --color-offwhite:     #EEF2F7;
 
+  /* ── Neutral scale for Apple-style alternating sections ── */
+  --color-ink:          #0A0E14;
+  --color-ink-mid:      #10161F;
+  --color-cloud:        #F5F5F7;
+  --color-cloud-dark:   #EDEEF1;
+
   /* ── Fonts ── */
-  --font-sans: 'Inter', 'IBM Plex Sans', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', 'JetBrains Mono', 'Courier New', monospace;
+
+  /* ── Display / hero type scale ── */
+  --text-hero: clamp(2.75rem, 5vw + 1rem, 6rem);
+  --text-display: clamp(2rem, 3vw + 1rem, 3.5rem);
 }
 
 /* ── Base ── */
@@ -42,6 +48,42 @@ body {
   color: #1a202c;
   background: #fff;
   -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+h1, h2, h3, h4 { line-height: 1.15; }
+p { line-height: 1.65; }
+
+/* ── Section rhythm — 80px mobile → 128–160px desktop ── */
+.section-pad {
+  padding-block: 5rem;
+}
+@media (min-width: 1024px) {
+  .section-pad { padding-block: 8rem; }
+}
+@media (min-width: 1280px) {
+  .section-pad { padding-block: 10rem; }
+}
+.section-pad-sm {
+  padding-block: 4rem;
+}
+@media (min-width: 1024px) {
+  .section-pad-sm { padding-block: 6rem; }
+}
+
+/* ── Scroll-reveal motion primitive ──
+   Elements start hidden+offset, JS (Base.astro) flips .is-visible on
+   IntersectionObserver entry, once. Respects reduced-motion. ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
 
 /* ── Utility classes not easily expressible in Tailwind v4 inline ── */
@@ -60,7 +102,7 @@ body {
 }
 
 .blueprint-bg {
-  background-color: var(--color-navy-deep);
+  background-color: var(--color-ink);
   background-image:
     linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
