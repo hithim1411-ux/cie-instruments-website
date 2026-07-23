@@ -15,6 +15,7 @@ interface Props {
   preloadImage?: string;
   keywords?: string;
   transparentHero?: boolean;
+  canonicalOverride?: string;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   preloadImage,
   keywords,
   transparentHero = false,
+  canonicalOverride,
 } = Astro.props;
 
 const baseKeywords = [
@@ -89,7 +91,9 @@ const baseKeywords = [
 ].join(', ');
 const fullKeywords = keywords ? `${keywords}, ${baseKeywords}` : baseKeywords;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = canonicalOverride
+  ? new URL(canonicalOverride, Astro.site)
+  : new URL(Astro.url.pathname, Astro.site);
 const fullTitle = rawTitle
   ? title
   : title === 'Home'
@@ -171,7 +175,7 @@ const orgSchema = {
       description: 'Manufacturer of precision electrical test and measurement instruments — insulation testers, earth testers, relay test sets, oil BDV testers — since 1963. Made in Howrah, India.',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Howrah',
+        streetAddress: '23/2, Maulana Abul Kalam Azad Road',
         addressLocality: 'Howrah',
         addressRegion: 'West Bengal',
         postalCode: '711101',

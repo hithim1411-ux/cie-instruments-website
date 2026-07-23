@@ -4,6 +4,7 @@ import { u } from '../../../utils/url';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Icon from '../../../components/Icon.astro';
 import CTABand from '../../../components/CTABand.astro';
+import ProductCard from '../../../components/ProductCard.astro';
 import site from '../../../data/site.json';
 import products from '../../../data/vartech-lcr-meters.json';
 
@@ -12,9 +13,23 @@ export async function getStaticPaths() {
 }
 
 const { product } = Astro.props;
+const relatedProducts = (products as any[]).filter(p => p.id !== product.id).slice(0, 3);
 const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${product.model} — ${product.name}. Please send me details and pricing.`);
 const quoteMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent(`Quote Request — Vartech ${product.model}`)}&body=${encodeURIComponent(`Hello CIE team,\n\nI would like to request a quote for:\nBrand: Vartech\nModel: ${product.model} — ${product.name}\n\nQuantity:\nApplication:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.`)}`;
 const canonicalPath = `https://www.cieinstruments.in/authorised-dealership/lcr-meters/${product.id}/`;
+
+// v-8222h is listed as "v-8222h-lcr" under /products/vartech-lcr-meters/ (different slug,
+// same instrument) — that page is canonical for the pair.
+const productsSlugMap: Record<string, string> = {
+  'lcm-1': 'lcm-1',
+  'lcr-1b': 'lcr-1b',
+  'lcr-2a': 'lcr-2a',
+  'v-8222h': 'v-8222h-lcr',
+};
+const canonicalOverride = productsSlugMap[product.id]
+  ? `https://www.cieinstruments.in/products/vartech-lcr-meters/${productsSlugMap[product.id]}/`
+  : undefined;
+const schemaUrl = canonicalOverride ?? canonicalPath;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -37,7 +52,7 @@ const productSchema = {
   offers: {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
-    url: canonicalPath,
+    url: schemaUrl,
     seller: { '@type': 'Organization', name: 'Cambridge Instruments & Engg. Co.' },
   },
   ...(product.specs && product.specs.length > 0 && {
@@ -52,6 +67,7 @@ const productSchema = {
   title={`Vartech ${product.model} — ${product.name} `}
   description={`${product.model} ${product.name} — ${product.tagline} Available from CIE Instruments, authorised Vartech dealer in India.`}
   rawTitle
+  canonicalOverride={canonicalOverride}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -178,6 +194,24 @@ const productSchema = {
       </div>
     </div>
   </div>
+
+  {relatedProducts.length > 0 && (
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <h2 class="text-xl font-bold text-ink mb-6">Related Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {relatedProducts.map((p: any) => (
+          <ProductCard
+            model={p.model}
+            name={p.name}
+            tagline={p.tagline}
+            categoryId="vartech-lcr-meters"
+            id={p.id}
+            image={p.images?.[0] ? `vartech/lcr-meters/${p.images[0]}` : undefined}
+          />
+        ))}
+      </div>
+    </div>
+  )}
 
   <CTABand
     heading={`Interested in the Vartech ${product.model}? Get a quote today.`}

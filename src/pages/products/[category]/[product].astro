@@ -7,9 +7,19 @@ import CTABand from '../../../components/CTABand.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Badge from '../../../components/Badge.astro';
 import Icon from '../../../components/Icon.astro';
+import ProductCard from '../../../components/ProductCard.astro';
 import categories from '../../../data/categories.json';
 import products from '../../../data/products.json';
 import site from '../../../data/site.json';
+
+// Related categories: instrument families that are commonly specified together,
+// used to fill out "Related Products" when a category has few other SKUs of its own.
+const relatedCategoryGroups: string[][] = [
+  ['insulation-testers-hand', 'multirange-insulation-hand', 'motor-operated-insulation', 'multirange-motorised-insulation', 'compact-insulation-testers', 'digital-insulation-testers'],
+  ['earth-tester', 'digital-earth-micro-ohm'],
+  ['hv-phase-sequence', 'phase-sequence-indicators'],
+  ['clamp-meters', 'multimeters'],
+];
 
 export async function getStaticPaths() {
   return products.map(p => {
@@ -84,6 +94,17 @@ const autoDesc  = `${product.model} ${product.name} — ${product.tagline} Manuf
 const pageTitle       = (product as any).metaTitle ?? autoTitle;
 const pageDescription = (product as any).metaDesc  ?? autoDesc;
 const useRawTitle     = !!(product as any).metaTitle;
+
+// Related products: same category first, then the wider instrument family, capped at 3.
+const myGroup = relatedCategoryGroups.find(g => g.includes(product.categoryId));
+const relatedPool = (products as any[]).filter(p =>
+  p.id !== product.id &&
+  (p.categoryId === product.categoryId || (myGroup && myGroup.includes(p.categoryId)))
+);
+const relatedProducts = [
+  ...relatedPool.filter(p => p.categoryId === product.categoryId),
+  ...relatedPool.filter(p => p.categoryId !== product.categoryId),
+].slice(0, 3);
 ---
 
 <Base
@@ -170,6 +191,17 @@ const useRawTitle     = !!(product as any).metaTitle;
           >
             <Icon name="message-circle" class="w-4 h-4 shrink-0" />
             Enquire on WhatsApp
+          </a>
+          <a
+            href={u((product as any).datasheet ?? '/downloads/cie-product-catalogue.pdf')}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary w-full text-ink"
+          >
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a1 1 0 001 1h16a1 1 0 001-1v-3"/>
+            </svg>
+            {(product as any).datasheet ? 'Download Datasheet (PDF)' : 'Download Full Catalogue (PDF)'}
           </a>
         </div>
 
@@ -343,6 +375,24 @@ const useRawTitle     = !!(product as any).metaTitle;
     });
   }
   </script>
+
+  {relatedProducts.length > 0 && (
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <h2 class="text-xl font-bold text-ink mb-6">Related Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {relatedProducts.map((p: any) => (
+          <ProductCard
+            model={p.model}
+            name={p.name}
+            tagline={p.tagline}
+            categoryId={p.categoryId}
+            id={p.id}
+            image={p.image}
+          />
+        ))}
+      </div>
+    </div>
+  )}
 
   <CTABand
     heading={`Interested in the ${product.model}? Get a quote by email.`}

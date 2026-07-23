@@ -21,8 +21,14 @@ const imgSrc = image
   : u(`/images/products/${id}.webp`);
 // Vartech products live under /authorised-dealership/{slug}/, not /products/{categoryId}/
 // categoryId pattern: "vartech-oscilloscopes" → dealer slug: "oscilloscopes"
+// A couple of SKUs use a different product id on the /products/ side than on the
+// /authorised-dealership/ side — map those here so the link always resolves.
+const dealerIdOverrides: Record<string, string> = {
+  'v-8222h-lcr': 'v-8222h',
+  'ss-5150ds1bfg': 'ss-5150ds1b-fg',
+};
 const detailHref = categoryId.startsWith('vartech-')
-  ? u(`/authorised-dealership/${categoryId.replace('vartech-', '')}/${id}/`)
+  ? u(`/authorised-dealership/${categoryId.replace('vartech-', '')}/${dealerIdOverrides[id] ?? id}/`)
   : u(`/products/${categoryId}/${id}/`);
 const isVartech = categoryId.startsWith('vartech-');
 ---

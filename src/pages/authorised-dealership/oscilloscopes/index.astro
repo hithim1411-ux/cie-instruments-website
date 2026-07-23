@@ -45,7 +45,7 @@ const productSchema = {
 };
 ---
 
-<Base title={pageTitle} description={pageDesc} ogImage={u('/images/vartech/vartech-logo.avif')} rawTitle>
+<Base title={pageTitle} description={pageDesc} ogImage={u('/images/vartech/vartech-logo.avif')} rawTitle canonicalOverride="https://www.cieinstruments.in/products/vartech-oscilloscopes/">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
