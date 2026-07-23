@@ -77,6 +77,36 @@ const heroGroups: { img: string; model: string; name: string; href: string }[][]
     { img: 'products/cie-222m.webp',             model: 'CIE/222M',  name: 'Analog Earth Tester',              href: '/products/earth-tester/cie-222m/' },
     { img: 'vartech/multimeters/v-890-d.webp',  model: 'V 890 D',   name: 'Vartech True-RMS Multimeter',      href: '/authorised-dealership/multimeters/v-890-d/' },
   ],
+  [
+    { img: 'products/cie-7100.webp',            model: 'CIE/7100',  name: 'Transformer Oil BDV Tester — 100 kV',       href: '/products/oil-test-sets/cie-7100/' },
+    { img: 'products/cie-7120.webp',            model: 'CIE/7120',  name: 'Transformer Oil BDV Tester — 120 kV',       href: '/products/oil-test-sets/cie-7120/' },
+    { img: 'products/rts-5.webp',               model: 'RTS-5',     name: 'Relay Test Set — Single Phase',             href: '/products/relay-test-sets/rts-5/' },
+    { img: 'products/rts-5a.webp',              model: 'RTS-5A',    name: 'Relay Test Set — Portable Trolley',         href: '/products/relay-test-sets/rts-5a/' },
+  ],
+  [
+    { img: 'vartech/oscilloscopes/ss-5100ds1b.webp',     model: 'SS-5100DS1B',   name: 'Vartech 100 MHz Digital Storage Oscilloscope', href: '/authorised-dealership/oscilloscopes/ss-5100ds1b/' },
+    { img: 'vartech/oscilloscopes/ss-5150ds1bfg.webp',   model: 'SS-5150DS1B FG', name: 'Vartech 150 MHz DSO with Arbitrary Waveform Generator', href: '/authorised-dealership/oscilloscopes/ss-5150ds1b-fg/' },
+    { img: 'vartech/function-generators/sgda-80m.webp',  model: 'SGDA-80M',      name: 'Vartech 80 MHz Programmable Function Generator', href: '/authorised-dealership/function-generators/sgda-80m/' },
+    { img: 'vartech/function-generators/sgda-60m.webp',  model: 'SGDA-60M',      name: 'Vartech 60 MHz DDS Function Generator',        href: '/authorised-dealership/function-generators/sgda-60m/' },
+  ],
+  [
+    { img: 'products/cie-777.webp',             model: 'CIE/777',   name: 'Motorised Insulation Tester',               href: '/products/motor-operated-insulation/cie-777/' },
+    { img: 'products/cie-777-hm.webp',          model: 'CIE/777 HM', name: 'Motor-cum-Hand Driven Insulation Tester',  href: '/products/motor-operated-insulation/cie-777-hm/' },
+    { img: 'products/det-2000.webp',            model: 'DET-2000',  name: 'Digital Earth Resistance Tester',           href: '/products/earth-tester/det-2000/' },
+    { img: 'products/mr-253a.webp',             model: 'MR-253A',   name: 'Digital Micro-Ohm Meter',                   href: '/products/digital-earth-micro-ohm/mr-253a/' },
+  ],
+  [
+    { img: 'vartech/lcr-meters/lcr-2a.webp',     model: 'LCR-2A',    name: 'Vartech Bench-Top LCR Meter',               href: '/authorised-dealership/lcr-meters/lcr-2a/' },
+    { img: 'vartech/dc-loads/el-600-plus.webp',  model: 'EL-600+',   name: 'Vartech 600W DC Electronic Load',           href: '/authorised-dealership/dc-loads/el-600-plus/' },
+    { img: 'vartech/multimeters/v-981-plus.webp', model: 'V 981+',   name: 'Vartech Bench-Top Multimeter, PC Interface', href: '/authorised-dealership/multimeters/v-981-plus/' },
+    { img: 'vartech/multimeters/v-68.webp',      model: 'V 68',      name: 'Vartech True-RMS Digital Multimeter',       href: '/authorised-dealership/multimeters/v-68/' },
+  ],
+  [
+    { img: 'vartech/calibrators/ms-7221.webp',   model: 'MS 7221',   name: 'Vartech V/mA Process Signal Calibrator',    href: '/authorised-dealership/calibrators/ms-7221/' },
+    { img: 'vartech/thermometers/v-6500.webp',   model: 'V 6500',    name: 'Vartech Industrial Digital Thermometer',    href: '/authorised-dealership/thermometers/v-6500/' },
+    { img: 'vartech/lux-meters/v-6610-b.webp',   model: 'V 6610 B',  name: 'Vartech Digital Lux Meter',                 href: '/authorised-dealership/lux-meters/v-6610-b/' },
+    { img: 'vartech/dc-power-supplies/3020-sr-1.webp', model: '3020 SR', name: 'Vartech SMPS DC Power Supply, PC Interface', href: '/authorised-dealership/dc-power-supplies/3020-sr/' },
+  ],
 ];
 
 const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
@@ -172,13 +202,24 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           </div>
         </div>
 
-        <!-- ── Right: hero product grid — parallaxes on scroll (desktop) ──
-             Two curated groups of 4 products cross-fade every ~5s. Each
-             product gets its own card (border + red accent line + label),
-             not a shared background — the grey studio-photo backdrop stays
-             contained inside its own tile instead of floating loose in the
-             dark hero. ── -->
-        <div id="hero-image" data-hero-fade style="--d: 200ms" class="flex items-center justify-center will-change-transform mt-4 lg:mt-0">
+        <!-- ── Right: hero product grid — desktop/tablet only (md+), parallaxes
+             on scroll. 7 curated groups of 4 products cross-fade every ~5s,
+             with prev/next arrows flanking the grid for manual control. Each
+             product gets its own card (nameplate treatment) — the grey
+             studio-photo backdrop stays contained inside its own tile
+             instead of floating loose in the dark hero. ── -->
+        <div id="hero-image" data-hero-fade style="--d: 200ms" class="hidden md:flex items-center justify-center gap-2 lg:gap-3 will-change-transform mt-4 lg:mt-0">
+          <button
+            type="button"
+            data-hero-prev
+            aria-label="Previous products"
+            class="shrink-0 flex items-center justify-center w-8 h-8 lg:w-9 lg:h-9 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-red/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+
           <div class="relative w-full max-w-md lg:max-w-xl">
             <!-- Ambient red glow behind the grid -->
             <div class="absolute inset-0 rounded-full bg-gradient-to-br from-red/[0.12] via-ink/40 to-transparent blur-3xl scale-90 pointer-events-none" aria-hidden="true"></div>
@@ -237,6 +278,17 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
               </div>
             )}
           </div>
+
+          <button
+            type="button"
+            data-hero-next
+            aria-label="Next products"
+            class="shrink-0 flex items-center justify-center w-8 h-8 lg:w-9 lg:h-9 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-red/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
         </div>
 
       </div>
@@ -688,6 +740,8 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 {
   const groups  = document.querySelectorAll<HTMLElement>('.hero-group');
   const dots    = document.querySelectorAll<HTMLButtonElement>('.hero-group-dot');
+  const prevBtn = document.querySelector<HTMLButtonElement>('[data-hero-prev]');
+  const nextBtn = document.querySelector<HTMLButtonElement>('[data-hero-next]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let current = 0;
@@ -717,6 +771,9 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
   dots.forEach(dot => {
     dot.addEventListener('click', () => { goTo(Number(dot.dataset.heroGroupDot)); resetTimer(); });
   });
+
+  prevBtn?.addEventListener('click', () => { goTo((current - 1 + groups.length) % groups.length); resetTimer(); });
+  nextBtn?.addEventListener('click', () => { goTo((current + 1) % groups.length); resetTimer(); });
 
   if (groups.length > 1 && !reduceMotion) startTimer();
 }
