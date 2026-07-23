@@ -193,22 +193,31 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
                     <a
                       href={u(p.href)}
                       tabindex={gi === 0 ? 0 : -1}
-                      class="hero-card relative rounded-xl border border-white/10 bg-white/[0.04] p-2.5 sm:p-3.5 transition-colors hover:border-red/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      class="hero-card block rounded-xl border border-white/10 bg-white/[0.03] overflow-hidden transition-colors hover:border-red/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                     >
-                      <span class="absolute top-0 left-3 right-3 h-[2px] bg-red/70 rounded-b-full" aria-hidden="true"></span>
-                      <div class="bg-cloud rounded-lg h-16 sm:h-24 lg:h-28 flex items-center justify-center overflow-hidden mb-2 sm:mb-2.5">
+                      <!-- Nameplate photo plate: fixed 1:1 frame, contain-fit so no
+                           product is cropped, plus a faint neutral multiply overlay
+                           that pulls every source photo's background (some shot on
+                           pure white, some on off-white grey) toward one shared tone. -->
+                      <div class="relative aspect-square bg-cloud flex items-center justify-center overflow-hidden">
                         <img
                           src={u(`/images/${p.img}`)}
                           alt={`${p.model} — ${p.name}`}
                           width="300"
                           height="300"
-                          class="max-h-full max-w-full object-contain p-1.5"
+                          class="relative z-[1] max-h-[86%] max-w-[86%] object-contain [filter:grayscale(0.12)_contrast(1.04)_brightness(0.98)]"
                           loading={gi === 0 && i === 0 ? 'eager' : 'lazy'}
                           fetchpriority={gi === 0 && i === 0 ? 'high' : 'auto'}
                         />
+                        <div class="absolute inset-0 bg-muted/10 mix-blend-multiply pointer-events-none" aria-hidden="true"></div>
                       </div>
-                      <p class="text-[9px] sm:text-[10px] font-mono text-red uppercase tracking-widest truncate">{p.model}</p>
-                      <p class="text-white text-[11px] sm:text-xs font-semibold mt-0.5 leading-snug line-clamp-2">{p.name}</p>
+                      <!-- Nameplate label: model code is the signature detail, fixed
+                           single-line position; name gets a reserved 2-line height
+                           so every card is exactly the same size regardless of text. -->
+                      <div class="px-2.5 sm:px-3 py-2 sm:py-2.5 border-t border-white/10">
+                        <p class="text-[9px] sm:text-[10px] font-mono text-red uppercase tracking-widest leading-none truncate">{p.model}</p>
+                        <p class="text-white text-[11px] sm:text-xs font-semibold mt-1.5 leading-snug line-clamp-2 min-h-[2.4em] sm:min-h-[2.6em]">{p.name}</p>
+                      </div>
                     </a>
                   ))}
                 </div>
