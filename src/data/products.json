@@ -194,7 +194,10 @@
     "includedWith": [],
     "metaTitle": "CIE/444 Insulation Tester \u2014 Hand-Driven, Metal Body | Cambridge Instruments (CIE), Howrah",
     "metaDesc": "CIE/444 hand-driven megger-type insulation tester in aluminium die-cast body. 100 V to 5000 V, battery-free, ISS 2992-1987. 28 voltage/range combinations. Made by Cambridge Instruments & Engg. Co., Howrah.",
-    "images": null
+    "images": [
+      "cie-444.webp",
+      "cie-444-2.webp"
+    ]
   },
   {
     "id": "cie-666",
@@ -491,6 +494,10 @@
       "H.V. testing leads, 2m \u2014 general \u2014 at extra cost",
       "H.V. testing leads, 2m \u2014 special \u2014 at extra cost",
       "Any other range \u2014 on request"
+    ],
+    "images": [
+      "cie-444-mr.webp",
+      "cie-444-mr-2.webp"
     ]
   },
   {
