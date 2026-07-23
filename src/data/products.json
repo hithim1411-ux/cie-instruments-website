@@ -1648,7 +1648,10 @@
     "includedWith": [],
     "metaTitle": "DIT-2500 Digital Insulation Tester + Multimeter, 2500 V / 50 G\u03a9 | Cambridge Instruments (CIE)",
     "metaDesc": "DIT-2500: digital insulation tester (100\u20132500 V, 50 G\u03a9, DAR, PI) combined with True-RMS multimeter. CAT III 1000 V / CAT IV 600 V. Li-ion rechargeable. Cambridge Instruments & Engg. Co., Howrah.",
-    "images": null
+    "images": [
+      "dit-2500.webp",
+      "dit-2500-2.webp"
+    ]
   },
   {
     "id": "dit-5000",
