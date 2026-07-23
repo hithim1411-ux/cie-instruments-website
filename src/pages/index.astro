@@ -61,6 +61,24 @@ const newVartechFeatured = [
   { ...vartechDcPowerSupplies.find(p => p.id === 'pps-3005-s')!,    slug: 'dc-power-supplies'},
 ];
 
+// Hero product grid — two curated groups of 4 that cross-fade every ~5s.
+// Group 1 is the active-sale priority lines (Vartech trading, oil test sets,
+// relay test sets, HV/breakdown testing); group 2 shows catalogue breadth.
+const heroGroups: { img: string; model: string; name: string; href: string }[][] = [
+  [
+    { img: 'products/rts-33.webp',              model: 'RTS-33',    name: 'Three-Phase Relay Test Set',       href: '/products/relay-test-sets/rts-33/' },
+    { img: 'products/cie-7050.webp',            model: 'CIE/7050',  name: 'Transformer Oil BDV Tester',       href: '/products/oil-test-sets/cie-7050/' },
+    { img: 'products/cie-5050a.webp',           model: 'CIE/5050A', name: 'HV Breakdown Test Set',            href: '/products/hv-phase-sequence/cie-5050a/' },
+    { img: 'vartech/oscilloscopes/ss-5080ds4.webp', model: 'SS-5080DS4', name: 'Vartech 4-Ch Digital Oscilloscope', href: '/authorised-dealership/oscilloscopes/ss-5080ds4/' },
+  ],
+  [
+    { img: 'products/cie-444.webp',             model: 'CIE/444',   name: 'Hand-Driven Insulation Tester',    href: '/products/insulation-testers-hand/cie-444/' },
+    { img: 'products/dit-2500.webp',            model: 'DIT-2500',  name: 'Digital Insulation Tester',        href: '/products/digital-insulation-testers/dit-2500/' },
+    { img: 'products/cie-222m.webp',             model: 'CIE/222M',  name: 'Analog Earth Tester',              href: '/products/earth-tester/cie-222m/' },
+    { img: 'vartech/multimeters/v-890-d.webp',  model: 'V 890 D',   name: 'Vartech True-RMS Multimeter',      href: '/authorised-dealership/multimeters/v-890-d/' },
+  ],
+];
+
 const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 const rts33Mailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — RTS-33')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: RTS-33 — Three-Phase Relay Test Set.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 
@@ -87,7 +105,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 <Base
   title="Home"
   description="CIE — Cambridge Instruments & Engg. Co., Howrah. Manufacturer and supplier of insulation testers, earth testers, relay test sets, oil BDV testers, clamp meters, HV test sets. Kolkata, West Bengal. Trusted by PGCIL, WBSETCL, Indian Railways since 1963."
-  preloadImage={u('/images/products/cie-444.webp')}
+  preloadImage={u('/images/products/rts-33.webp')}
   keywords="test and measurement instruments India, electrical test instruments supplier Kolkata, insulation tester manufacturer India, digital multimeters India, oscilloscopes India, clamp meters India, vartech authorised dealer India, cambridge instruments insulation tester, CIE instruments Howrah, megger supplier India"
   transparentHero
 >
@@ -154,57 +172,61 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           </div>
         </div>
 
-        <!-- ── Right: hero product spotlight — parallaxes on scroll (desktop) ── -->
-        <div id="hero-image" data-hero-fade style="--d: 200ms" class="hidden lg:flex items-center justify-center will-change-transform">
-          <div class="relative w-full max-w-md">
-            <!-- Ambient glow behind product -->
-            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-ink/50 to-transparent blur-3xl scale-90" aria-hidden="true"></div>
+        <!-- ── Right: hero product grid — parallaxes on scroll (desktop) ──
+             Two curated groups of 4 products cross-fade every ~5s. Each
+             product gets its own card (border + red accent line + label),
+             not a shared background — the grey studio-photo backdrop stays
+             contained inside its own tile instead of floating loose in the
+             dark hero. ── -->
+        <div id="hero-image" data-hero-fade style="--d: 200ms" class="flex items-center justify-center will-change-transform mt-4 lg:mt-0">
+          <div class="relative w-full max-w-md lg:max-w-xl">
+            <!-- Ambient red glow behind the grid -->
+            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-red/[0.12] via-ink/40 to-transparent blur-3xl scale-90 pointer-events-none" aria-hidden="true"></div>
 
-            <!-- Slides -->
-            <div id="hero-slides" class="relative h-80 xl:h-96">
-              {[
-                { img: 'cie-444.webp',   model: 'CIE/444',         name: 'Analog Insulation Tester',       href: '/products/insulation-testers-hand/cie-444/' },
-                { img: 'cie-222m.webp',  model: 'CIE/222M',        name: 'Analog Earth Tester',             href: '/products/earth-tester/cie-222m/' },
-                { img: 'det-2000.webp',  model: 'DET-2000',        name: 'Digital Earth Resistance Tester', href: '/products/earth-tester/det-2000/' },
-                { img: 'dit-2500.webp',  model: 'DIT-2500',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-2500/' },
-                { img: 'dit-5005.webp',  model: 'DIT-5005',        name: 'Digital Insulation Tester',       href: '/products/digital-insulation-testers/dit-5005/' },
-                { img: 'cie-555.webp',   model: 'CIE/555',         name: 'Insulation Tester',               href: '/products/compact-insulation-testers/cie-555/' },
-                { img: 'cie-5050a.webp', model: 'CIE/5050A',       name: 'HV Breakdown Test Set',           href: '/products/hv-phase-sequence/cie-5050a/' },
-                { img: 'cie-7050.webp',  model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester',      href: '/products/oil-test-sets/cie-7050/' },
-              ].map((slide, i) => (
-                <a href={u(slide.href)}
-                  class={`hero-slide absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                  data-index={i}
-                  tabindex={i === 0 ? 0 : -1}
+            <div class="relative">
+              {heroGroups.map((group, gi) => (
+                <div
+                  class={`hero-group grid grid-cols-2 gap-3 sm:gap-4 transition-opacity duration-700 ${gi === 0 ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 pointer-events-none'}`}
+                  data-group={gi}
                 >
-                  <img
-                    src={u(`/images/products/${slide.img}`)}
-                    alt={`${slide.model} — ${slide.name}`}
-                    width="600"
-                    height="600"
-                    class="max-h-72 xl:max-h-80 w-auto object-contain mx-auto drop-shadow-2xl"
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                    fetchpriority={i === 0 ? 'high' : 'auto'}
+                  {group.map((p, i) => (
+                    <a
+                      href={u(p.href)}
+                      tabindex={gi === 0 ? 0 : -1}
+                      class="hero-card relative rounded-xl border border-white/10 bg-white/[0.04] p-2.5 sm:p-3.5 transition-colors hover:border-red/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                    >
+                      <span class="absolute top-0 left-3 right-3 h-[2px] bg-red/70 rounded-b-full" aria-hidden="true"></span>
+                      <div class="bg-cloud rounded-lg h-16 sm:h-24 lg:h-28 flex items-center justify-center overflow-hidden mb-2 sm:mb-2.5">
+                        <img
+                          src={u(`/images/${p.img}`)}
+                          alt={`${p.model} — ${p.name}`}
+                          width="300"
+                          height="300"
+                          class="max-h-full max-w-full object-contain p-1.5"
+                          loading={gi === 0 && i === 0 ? 'eager' : 'lazy'}
+                          fetchpriority={gi === 0 && i === 0 ? 'high' : 'auto'}
+                        />
+                      </div>
+                      <p class="text-[9px] sm:text-[10px] font-mono text-red uppercase tracking-widest truncate">{p.model}</p>
+                      <p class="text-white text-[11px] sm:text-xs font-semibold mt-0.5 leading-snug line-clamp-2">{p.name}</p>
+                    </a>
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            <!-- Group indicators — reflect the active GROUP of 4, not individual photos -->
+            {heroGroups.length > 1 && (
+              <div class="flex justify-center gap-1.5 mt-5" aria-hidden="true">
+                {heroGroups.map((_, gi) => (
+                  <button
+                    data-hero-group-dot={gi}
+                    tabindex="-1"
+                    class={`hero-group-dot transition-all rounded-full ${gi === 0 ? 'w-4 h-1.5 bg-red' : 'w-1.5 h-1.5 bg-white/20'}`}
                   />
-                </a>
-              ))}
-            </div>
-
-            <!-- Caption -->
-            <div class="text-center min-h-[36px]">
-              <p id="hero-model" class="text-xs font-mono text-red uppercase tracking-widest">CIE/444</p>
-              <p id="hero-name"  class="text-white text-sm font-semibold mt-0.5">Analog Insulation Tester</p>
-            </div>
-
-            <!-- Dot indicators (aria-hidden: purely decorative, tabindex=-1 keeps them unfocusable) -->
-            <div class="flex justify-center gap-1.5 mt-4" aria-hidden="true">
-              {[0,1,2,3,4,5,6,7].map(i => (
-                <button data-hero-dot={i}
-                  tabindex="-1"
-                  class={`hero-dot transition-all rounded-full ${i === 0 ? 'w-4 h-1.5 bg-red' : 'w-1.5 h-1.5 bg-white/20'}`}
-                />
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
@@ -655,49 +677,38 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
 <script>
 {
-  const slides  = document.querySelectorAll<HTMLElement>('.hero-slide');
-  const dots    = document.querySelectorAll<HTMLButtonElement>('.hero-dot');
-  const modelEl = document.getElementById('hero-model');
-  const nameEl  = document.getElementById('hero-name');
-
-  const data = [
-    { model: 'CIE/444',         name: 'Analog Insulation Tester'       },
-    { model: 'CIE/222M',        name: 'Analog Earth Tester'             },
-    { model: 'DET-2000',        name: 'Digital Earth Resistance Tester' },
-    { model: 'DIT-2500',        name: 'Digital Insulation Tester'       },
-    { model: 'DIT-5005',        name: 'Digital Insulation Tester'       },
-    { model: 'CIE/555',         name: 'Insulation Tester'               },
-    { model: 'CIE/5050A',       name: 'HV Breakdown Test Set'           },
-    { model: 'CIE/7000 Series', name: 'Transformer Oil BDV Tester'      },
-  ];
+  const groups  = document.querySelectorAll<HTMLElement>('.hero-group');
+  const dots    = document.querySelectorAll<HTMLButtonElement>('.hero-group-dot');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let current = 0;
   let timer: ReturnType<typeof setInterval>;
 
   function goTo(idx: number) {
-    slides[current].classList.replace('opacity-100','opacity-0');
-    slides[current].classList.add('pointer-events-none');
-    (slides[current] as HTMLAnchorElement).tabIndex = -1;
-    dots[current].className = 'hero-dot transition-all rounded-full w-1.5 h-1.5 bg-white/20';
+    if (idx === current) return;
+
+    groups[current].classList.replace('opacity-100', 'opacity-0');
+    groups[current].classList.replace('relative', 'absolute');
+    groups[current].classList.add('inset-0', 'pointer-events-none');
+    groups[current].querySelectorAll('a').forEach(a => (a as HTMLAnchorElement).tabIndex = -1);
+    dots[current].className = 'hero-group-dot transition-all rounded-full w-1.5 h-1.5 bg-white/20';
 
     current = idx;
 
-    slides[current].classList.replace('opacity-0','opacity-100');
-    slides[current].classList.remove('pointer-events-none');
-    (slides[current] as HTMLAnchorElement).tabIndex = 0;
-    dots[current].className = 'hero-dot transition-all rounded-full w-4 h-1.5 bg-red';
-
-    if (modelEl) modelEl.textContent = data[current].model;
-    if (nameEl)  nameEl.textContent  = data[current].name;
+    groups[current].classList.replace('opacity-0', 'opacity-100');
+    groups[current].classList.replace('absolute', 'relative');
+    groups[current].classList.remove('inset-0', 'pointer-events-none');
+    groups[current].querySelectorAll('a').forEach(a => (a as HTMLAnchorElement).tabIndex = 0);
+    dots[current].className = 'hero-group-dot transition-all rounded-full w-4 h-1.5 bg-red';
   }
 
-  function startTimer() { timer = setInterval(() => goTo((current + 1) % slides.length), 3000); }
+  function startTimer() { timer = setInterval(() => goTo((current + 1) % groups.length), 5000); }
   function resetTimer()  { clearInterval(timer); startTimer(); }
 
   dots.forEach(dot => {
-    dot.addEventListener('click', () => { goTo(Number(dot.dataset.heroDot)); resetTimer(); });
+    dot.addEventListener('click', () => { goTo(Number(dot.dataset.heroGroupDot)); resetTimer(); });
   });
 
-  if (slides.length > 1) startTimer();
+  if (groups.length > 1 && !reduceMotion) startTimer();
 }
 </script>
