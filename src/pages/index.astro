@@ -64,48 +64,62 @@ const newVartechFeatured = [
 // Hero product grid — two curated groups of 4 that cross-fade every ~5s.
 // Group 1 is the active-sale priority lines (Vartech trading, oil test sets,
 // relay test sets, HV/breakdown testing); group 2 shows catalogue breadth.
+// Grouped strictly by product line — CIE-manufactured slides first (the
+// brand's own manufacturing identity), Vartech trading-line slides after.
+// Never mixed within a single slide. Line is determined by the img/href
+// path prefix ('products/' + /products/... = CIE, 'vartech/' +
+// /authorised-dealership/... = Vartech) — the same distinction ProductCard
+// already uses sitewide, not a guess.
 const heroGroups: { img: string; model: string; name: string; href: string }[][] = [
+  // ── CIE-manufactured (4 slides / 16 products) ──
   [
-    { img: 'products/rts-33.webp',              model: 'RTS-33',    name: 'Three-Phase Relay Test Set',       href: '/products/relay-test-sets/rts-33/' },
-    { img: 'products/cie-7050.webp',            model: 'CIE/7050',  name: 'Transformer Oil BDV Tester',       href: '/products/oil-test-sets/cie-7050/' },
-    { img: 'products/cie-5050a.webp',           model: 'CIE/5050A', name: 'HV Breakdown Test Set',            href: '/products/hv-phase-sequence/cie-5050a/' },
-    { img: 'vartech/oscilloscopes/ss-5080ds4.webp', model: 'SS-5080DS4', name: 'Vartech 4-Ch Digital Oscilloscope', href: '/authorised-dealership/oscilloscopes/ss-5080ds4/' },
+    { img: 'products/rts-33.webp',    model: 'RTS-33',    name: 'Three-Phase Relay Test Set',    href: '/products/relay-test-sets/rts-33/' },
+    { img: 'products/cie-7050.webp',  model: 'CIE/7050',  name: 'Transformer Oil BDV Tester',    href: '/products/oil-test-sets/cie-7050/' },
+    { img: 'products/cie-5050a.webp', model: 'CIE/5050A', name: 'HV Breakdown Test Set',         href: '/products/hv-phase-sequence/cie-5050a/' },
+    { img: 'products/cie-444.webp',   model: 'CIE/444',   name: 'Hand-Driven Insulation Tester', href: '/products/insulation-testers-hand/cie-444/' },
   ],
   [
-    { img: 'products/cie-444.webp',             model: 'CIE/444',   name: 'Hand-Driven Insulation Tester',    href: '/products/insulation-testers-hand/cie-444/' },
-    { img: 'products/dit-2500.webp',            model: 'DIT-2500',  name: 'Digital Insulation Tester',        href: '/products/digital-insulation-testers/dit-2500/' },
-    { img: 'products/cie-222m.webp',             model: 'CIE/222M',  name: 'Analog Earth Tester',              href: '/products/earth-tester/cie-222m/' },
-    { img: 'vartech/multimeters/v-890-d.webp',  model: 'V 890 D',   name: 'Vartech True-RMS Multimeter',      href: '/authorised-dealership/multimeters/v-890-d/' },
+    { img: 'products/dit-2500.webp', model: 'DIT-2500', name: 'Digital Insulation Tester',                href: '/products/digital-insulation-testers/dit-2500/' },
+    { img: 'products/cie-222m.webp', model: 'CIE/222M', name: 'Analog Earth Tester',                       href: '/products/earth-tester/cie-222m/' },
+    { img: 'products/cie-7100.webp', model: 'CIE/7100', name: 'Transformer Oil BDV Tester — 100 kV',       href: '/products/oil-test-sets/cie-7100/' },
+    { img: 'products/cie-7120.webp', model: 'CIE/7120', name: 'Transformer Oil BDV Tester — 120 kV',       href: '/products/oil-test-sets/cie-7120/' },
   ],
   [
-    { img: 'products/cie-7100.webp',            model: 'CIE/7100',  name: 'Transformer Oil BDV Tester — 100 kV',       href: '/products/oil-test-sets/cie-7100/' },
-    { img: 'products/cie-7120.webp',            model: 'CIE/7120',  name: 'Transformer Oil BDV Tester — 120 kV',       href: '/products/oil-test-sets/cie-7120/' },
-    { img: 'products/rts-5.webp',               model: 'RTS-5',     name: 'Relay Test Set — Single Phase',             href: '/products/relay-test-sets/rts-5/' },
-    { img: 'products/rts-5a.webp',              model: 'RTS-5A',    name: 'Relay Test Set — Portable Trolley',         href: '/products/relay-test-sets/rts-5a/' },
+    { img: 'products/rts-5.webp',      model: 'RTS-5',      name: 'Relay Test Set — Single Phase',           href: '/products/relay-test-sets/rts-5/' },
+    { img: 'products/rts-5a.webp',     model: 'RTS-5A',     name: 'Relay Test Set — Portable Trolley',       href: '/products/relay-test-sets/rts-5a/' },
+    { img: 'products/cie-777.webp',   model: 'CIE/777',    name: 'Motorised Insulation Tester',              href: '/products/motor-operated-insulation/cie-777/' },
+    { img: 'products/cie-777-hm.webp', model: 'CIE/777 HM', name: 'Motor-cum-Hand Driven Insulation Tester', href: '/products/motor-operated-insulation/cie-777-hm/' },
   ],
   [
-    { img: 'vartech/oscilloscopes/ss-5100ds1b.webp',     model: 'SS-5100DS1B',   name: 'Vartech 100 MHz Digital Storage Oscilloscope', href: '/authorised-dealership/oscilloscopes/ss-5100ds1b/' },
-    { img: 'vartech/oscilloscopes/ss-5150ds1bfg.webp',   model: 'SS-5150DS1B FG', name: 'Vartech 150 MHz DSO with Arbitrary Waveform Generator', href: '/authorised-dealership/oscilloscopes/ss-5150ds1b-fg/' },
-    { img: 'vartech/function-generators/sgda-80m.webp',  model: 'SGDA-80M',      name: 'Vartech 80 MHz Programmable Function Generator', href: '/authorised-dealership/function-generators/sgda-80m/' },
-    { img: 'vartech/function-generators/sgda-60m.webp',  model: 'SGDA-60M',      name: 'Vartech 60 MHz DDS Function Generator',        href: '/authorised-dealership/function-generators/sgda-60m/' },
+    { img: 'products/det-2000.webp', model: 'DET-2000', name: 'Digital Earth Resistance Tester', href: '/products/earth-tester/det-2000/' },
+    { img: 'products/mr-253a.webp',  model: 'MR-253A',  name: 'Digital Micro-Ohm Meter',         href: '/products/digital-earth-micro-ohm/mr-253a/' },
+    { img: 'products/dit-5005.webp', model: 'DIT-5005', name: 'Digital Insulation Tester',        href: '/products/digital-insulation-testers/dit-5005/' },
+    { img: 'products/cie-555.webp',  model: 'CIE/555',  name: 'Compact Insulation Tester',        href: '/products/compact-insulation-testers/cie-555/' },
+  ],
+  // ── Vartech trading line (4 slides / 16 products) ──
+  [
+    { img: 'vartech/oscilloscopes/ss-5080ds4.webp',    model: 'SS-5080DS4',     name: 'Vartech 4-Ch Digital Oscilloscope',            href: '/authorised-dealership/oscilloscopes/ss-5080ds4/' },
+    { img: 'vartech/oscilloscopes/ss-5100ds1b.webp',   model: 'SS-5100DS1B',    name: 'Vartech 100 MHz Digital Storage Oscilloscope', href: '/authorised-dealership/oscilloscopes/ss-5100ds1b/' },
+    { img: 'vartech/oscilloscopes/ss-5150ds1bfg.webp', model: 'SS-5150DS1B FG', name: 'Vartech 150 MHz DSO with Arbitrary Waveform Generator', href: '/authorised-dealership/oscilloscopes/ss-5150ds1b-fg/' },
+    { img: 'vartech/function-generators/sgda-80m.webp', model: 'SGDA-80M',     name: 'Vartech 80 MHz Programmable Function Generator', href: '/authorised-dealership/function-generators/sgda-80m/' },
   ],
   [
-    { img: 'products/cie-777.webp',             model: 'CIE/777',   name: 'Motorised Insulation Tester',               href: '/products/motor-operated-insulation/cie-777/' },
-    { img: 'products/cie-777-hm.webp',          model: 'CIE/777 HM', name: 'Motor-cum-Hand Driven Insulation Tester',  href: '/products/motor-operated-insulation/cie-777-hm/' },
-    { img: 'products/det-2000.webp',            model: 'DET-2000',  name: 'Digital Earth Resistance Tester',           href: '/products/earth-tester/det-2000/' },
-    { img: 'products/mr-253a.webp',             model: 'MR-253A',   name: 'Digital Micro-Ohm Meter',                   href: '/products/digital-earth-micro-ohm/mr-253a/' },
+    { img: 'vartech/function-generators/sgda-60m.webp', model: 'SGDA-60M', name: 'Vartech 60 MHz DDS Function Generator',      href: '/authorised-dealership/function-generators/sgda-60m/' },
+    { img: 'vartech/lcr-meters/lcr-2a.webp',            model: 'LCR-2A',   name: 'Vartech Bench-Top LCR Meter',                href: '/authorised-dealership/lcr-meters/lcr-2a/' },
+    { img: 'vartech/dc-loads/el-600-plus.webp',         model: 'EL-600+',  name: 'Vartech 600W DC Electronic Load',            href: '/authorised-dealership/dc-loads/el-600-plus/' },
+    { img: 'vartech/multimeters/v-890-d.webp',          model: 'V 890 D',  name: 'Vartech True-RMS Multimeter',                href: '/authorised-dealership/multimeters/v-890-d/' },
   ],
   [
-    { img: 'vartech/lcr-meters/lcr-2a.webp',     model: 'LCR-2A',    name: 'Vartech Bench-Top LCR Meter',               href: '/authorised-dealership/lcr-meters/lcr-2a/' },
-    { img: 'vartech/dc-loads/el-600-plus.webp',  model: 'EL-600+',   name: 'Vartech 600W DC Electronic Load',           href: '/authorised-dealership/dc-loads/el-600-plus/' },
-    { img: 'vartech/multimeters/v-981-plus.webp', model: 'V 981+',   name: 'Vartech Bench-Top Multimeter, PC Interface', href: '/authorised-dealership/multimeters/v-981-plus/' },
-    { img: 'vartech/multimeters/v-68.webp',      model: 'V 68',      name: 'Vartech True-RMS Digital Multimeter',       href: '/authorised-dealership/multimeters/v-68/' },
+    { img: 'vartech/multimeters/v-981-plus.webp', model: 'V 981+',  name: 'Vartech Bench-Top Multimeter, PC Interface', href: '/authorised-dealership/multimeters/v-981-plus/' },
+    { img: 'vartech/multimeters/v-68.webp',       model: 'V 68',    name: 'Vartech True-RMS Digital Multimeter',        href: '/authorised-dealership/multimeters/v-68/' },
+    { img: 'vartech/calibrators/ms-7221.webp',    model: 'MS 7221', name: 'Vartech V/mA Process Signal Calibrator',     href: '/authorised-dealership/calibrators/ms-7221/' },
+    { img: 'vartech/thermometers/v-6500.webp',    model: 'V 6500',  name: 'Vartech Industrial Digital Thermometer',     href: '/authorised-dealership/thermometers/v-6500/' },
   ],
   [
-    { img: 'vartech/calibrators/ms-7221.webp',   model: 'MS 7221',   name: 'Vartech V/mA Process Signal Calibrator',    href: '/authorised-dealership/calibrators/ms-7221/' },
-    { img: 'vartech/thermometers/v-6500.webp',   model: 'V 6500',    name: 'Vartech Industrial Digital Thermometer',    href: '/authorised-dealership/thermometers/v-6500/' },
-    { img: 'vartech/lux-meters/v-6610-b.webp',   model: 'V 6610 B',  name: 'Vartech Digital Lux Meter',                 href: '/authorised-dealership/lux-meters/v-6610-b/' },
-    { img: 'vartech/dc-power-supplies/3020-sr-1.webp', model: '3020 SR', name: 'Vartech SMPS DC Power Supply, PC Interface', href: '/authorised-dealership/dc-power-supplies/3020-sr/' },
+    { img: 'vartech/lux-meters/v-6610-b.webp',         model: 'V 6610 B', name: 'Vartech Digital Lux Meter',                  href: '/authorised-dealership/lux-meters/v-6610-b/' },
+    { img: 'vartech/dc-power-supplies/3020-sr-1.webp', model: '3020 SR',  name: 'Vartech SMPS DC Power Supply, PC Interface', href: '/authorised-dealership/dc-power-supplies/3020-sr/' },
+    { img: 'vartech/anemometers/v-6250-b.webp',        model: 'V 6250 B', name: 'Vartech Digital Anemometer with Temperature', href: '/authorised-dealership/anemometers/v-6250-b/' },
+    { img: 'vartech/sound-level-meters/v-6700-b.webp', model: 'V 6700 B', name: 'Vartech Digital Sound Level Meter',          href: '/authorised-dealership/sound-level-meters/v-6700-b/' },
   ],
 ];
 
@@ -227,7 +241,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
             <div class="relative">
               {heroGroups.map((group, gi) => (
                 <div
-                  class={`hero-group grid grid-cols-2 gap-3 sm:gap-4 transition-opacity duration-700 ${gi === 0 ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 pointer-events-none'}`}
+                  class={`hero-group grid grid-cols-2 gap-3 sm:gap-4 transition-opacity duration-300 ${gi === 0 ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 pointer-events-none'}`}
                   data-group={gi}
                 >
                   {group.map((p, i) => (
@@ -746,23 +760,52 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
   let current = 0;
   let timer: ReturnType<typeof setInterval>;
+  let isTransitioning = false;
+  const FADE_MS = 300;
 
+  // Sequential fade: fade the outgoing group fully OUT first, only then bring
+  // the incoming group into flow and fade it IN. The old version toggled both
+  // groups' opacity in the same tick, so for the whole 700ms transition both
+  // sets of product photos (and their labels) sat opacity-0..1 stacked in the
+  // exact same spot — a literal double exposure. Guarding with isTransitioning
+  // also stops rapid clicks/auto-timer overlap from starting a second
+  // transition before the first one has fully settled.
   function goTo(idx: number) {
-    if (idx === current) return;
+    if (idx === current || isTransitioning) return;
+    isTransitioning = true;
 
-    groups[current].classList.replace('opacity-100', 'opacity-0');
-    groups[current].classList.replace('relative', 'absolute');
-    groups[current].classList.add('inset-0', 'pointer-events-none');
-    groups[current].querySelectorAll('a').forEach(a => (a as HTMLAnchorElement).tabIndex = -1);
+    const outgoing = groups[current];
+    const incoming = groups[idx];
+
+    // Phase 1 — fade OUT only. Incoming stays opacity-0/absolute/inert the
+    // whole time, so nothing from the next slide is visible yet.
+    outgoing.classList.replace('opacity-100', 'opacity-0');
+    outgoing.querySelectorAll('a').forEach(a => (a as HTMLAnchorElement).tabIndex = -1);
     dots[current].className = 'hero-group-dot transition-all rounded-full w-1.5 h-1.5 bg-white/20';
 
-    current = idx;
+    window.setTimeout(() => {
+      // Outgoing has now fully reached opacity 0 — safe to pull it out of
+      // flow before the incoming group takes that layout space.
+      outgoing.classList.replace('relative', 'absolute');
+      outgoing.classList.add('inset-0', 'pointer-events-none');
 
-    groups[current].classList.replace('opacity-0', 'opacity-100');
-    groups[current].classList.replace('absolute', 'relative');
-    groups[current].classList.remove('inset-0', 'pointer-events-none');
-    groups[current].querySelectorAll('a').forEach(a => (a as HTMLAnchorElement).tabIndex = 0);
-    dots[current].className = 'hero-group-dot transition-all rounded-full w-4 h-1.5 bg-red';
+      current = idx;
+
+      incoming.classList.replace('absolute', 'relative');
+      incoming.classList.remove('inset-0', 'pointer-events-none');
+      // Force a reflow so the browser commits the opacity-0/relative state
+      // before we flip to opacity-100 — otherwise both class changes can
+      // land in the same frame and the fade-in transition gets skipped.
+      void incoming.offsetWidth;
+
+      // Phase 2 — fade IN. Outgoing is now fully hidden, so only one set of
+      // photos/labels is ever above 0 opacity at any instant.
+      incoming.classList.replace('opacity-0', 'opacity-100');
+      incoming.querySelectorAll('a').forEach(a => (a as HTMLAnchorElement).tabIndex = 0);
+      dots[idx].className = 'hero-group-dot transition-all rounded-full w-4 h-1.5 bg-red';
+
+      window.setTimeout(() => { isTransitioning = false; }, FADE_MS + 20);
+    }, FADE_MS + 20);
   }
 
   function startTimer() { timer = setInterval(() => goTo((current + 1) % groups.length), 5000); }
