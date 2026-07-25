@@ -98,8 +98,10 @@ import type { IconName } from '../utils/iconNames';
             </p>
           </div>
         </div>
-        <!-- Founder photo -->
-        <div class="flex justify-center lg:justify-end">
+        <!-- Founder photo. lg:mt-[34px] nudges it down past the eyebrow label's height
+             (0.6875rem eyebrow + mb-4) so the photo lines up with the heading below it,
+             not with the small label above the heading. -->
+        <div class="flex justify-center lg:justify-end lg:mt-[34px]">
           <div class="relative">
             <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-red/20 to-ink/10 -rotate-2"></div>
             <img
