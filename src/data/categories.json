@@ -1,21 +1,21 @@
 [
   {
     "id": "insulation-testers-hand",
-    "name": "Insulation Testers — Hand-Driven",
+    "name": "Insulation Testers \u2014 Hand-Driven",
     "shortName": "Insulation Testers (Hand)",
-    "eyebrow": "Insulation Testers · Hand-Driven Generator",
-    "description": "Rugged hand-driven generator type insulation testers in metal and wooden body variants, from 100 V to 10 kV test voltages. The original CIE design — built and calibrated in Howrah since 1963.",
-    "icon": "⚡",
-    "metaTitle": "Hand-Driven Insulation Testers India | CIE Megohmmeter Manufacturer — Howrah",
-    "metaDesc": "Buy CIE hand-driven insulation testers (meggers) — 100V to 10kV, metal & wooden body. Supplied to PGCIL, Indian Railways, WBSETCL. Manufacturer in Howrah. Pan-India supply.",
+    "eyebrow": "Insulation Testers \u00b7 Hand-Driven Generator",
+    "description": "Rugged hand-driven generator type insulation testers in metal and wooden body variants, from 100 V to 10 kV test voltages. The original CIE design \u2014 built and calibrated in Howrah since 1963.",
+    "icon": "\u26a1",
+    "metaTitle": "Hand-Driven Insulation Testers India | CIE Megohmmeter Manufacturer \u2014 Howrah",
+    "metaDesc": "Buy CIE hand-driven insulation testers (meggers) \u2014 100V to 10kV, metal & wooden body. Supplied to PGCIL, Indian Railways, WBSETCL. Manufacturer in Howrah. Pan-India supply.",
     "faq": [
       {
         "q": "What is a hand-driven insulation tester?",
-        "a": "A hand-driven insulation tester (also called a megger or megohmmeter) uses a manual hand-crank generator to produce a DC test voltage — no batteries or mains supply needed. It measures insulation resistance in megaohms across cables, motors, transformers, and electrical equipment. CIE manufactures them in metal (CIE/444) and wooden body (CIE/666) variants from 100V to 10,000V."
+        "a": "A hand-driven insulation tester (also called a megger or megohmmeter) uses a manual hand-crank generator to produce a DC test voltage \u2014 no batteries or mains supply needed. It measures insulation resistance in megaohms across cables, motors, transformers, and electrical equipment. CIE manufactures them in metal (CIE/444) and wooden body (CIE/666) variants from 100V to 10,000V."
       },
       {
         "q": "What is the difference between CIE/444 and CIE/666 insulation testers?",
-        "a": "The CIE/444 has an anti-magnetic aluminium die-cast body and is available up to 5000V. The CIE/666 has a seasoned teak wood body and covers higher voltage ranges up to 10,000V — wider range than the metal body model. Both use the same silent clutch-type generator mechanism and cross-coil indicator."
+        "a": "The CIE/444 has an anti-magnetic aluminium die-cast body and is available up to 5000V. The CIE/666 has a seasoned teak wood body and covers higher voltage ranges up to 10,000V \u2014 wider range than the metal body model. Both use the same silent clutch-type generator mechanism and cross-coil indicator."
       },
       {
         "q": "Are CIE insulation testers supplied with a calibration certificate?",
@@ -23,93 +23,113 @@
       },
       {
         "q": "What voltage should I use to test motor insulation?",
-        "a": "For motors up to 440V rating, use a 500V or 1000V test voltage. For motors rated 3.3kV to 11kV, use 2500V to 5000V. The CIE/444 and CIE/666 cover 100V, 500V, 1000V, 2500V and higher ranges — select the range appropriate for the equipment's rated voltage."
+        "a": "For motors up to 440V rating, use a 500V or 1000V test voltage. For motors rated 3.3kV to 11kV, use 2500V to 5000V. The CIE/444 and CIE/666 cover 100V, 500V, 1000V, 2500V and higher ranges \u2014 select the range appropriate for the equipment's rated voltage."
       }
     ],
     "seoContent": [
-      "CIE hand-driven insulation testers are generator-type instruments that require no batteries or mains supply — a built-in hand-cranked AC generator produces the test voltage, which is rectified to DC by silicon diodes and applied across the insulation under test. The result is read directly off a cross-coil analog indicator. This operating principle makes them inherently robust and suitable for use in remote field locations, substations, and industrial sites across India where power supply is unavailable or unreliable.",
+      "CIE hand-driven insulation testers are generator-type instruments that require no batteries or mains supply \u2014 a built-in hand-cranked AC generator produces the test voltage, which is rectified to DC by silicon diodes and applied across the insulation under test. The result is read directly off a cross-coil analog indicator. This operating principle makes them inherently robust and suitable for use in remote field locations, substations, and industrial sites across India where power supply is unavailable or unreliable.",
       "CIE manufactures hand-driven insulation testers in two body variants: the CIE/444 in an anti-magnetic aluminium die-cast body, and the CIE/666 in a teak wood body. Both are available in test voltages from 100 V to 10 kV, making them suitable for testing low-voltage domestic wiring, medium-voltage distribution cables, HV transmission equipment, and large rotating machines. All instruments conform to ISS: 2992-1987.",
-      "These instruments are widely used by power utilities, electrical contractors, substation commissioning engineers, and industrial maintenance teams across India — including in Kolkata, Howrah, West Bengal, Odisha, Jharkhand, Bihar, and across Eastern India. They are equally specified by engineers in Bangalore, Chennai, Mumbai, Delhi, Hyderabad, Pune, Ahmedabad, and all major industrial centres.",
+      "These instruments are widely used by power utilities, electrical contractors, substation commissioning engineers, and industrial maintenance teams across India \u2014 including in Kolkata, Howrah, West Bengal, Odisha, Jharkhand, Bihar, and across Eastern India. They are equally specified by engineers in Bangalore, Chennai, Mumbai, Delhi, Hyderabad, Pune, Ahmedabad, and all major industrial centres.",
       "Common applications include insulation resistance testing of motors, generators, transformers, HV cables, switchgear, distribution boards, and industrial wiring. CIE insulation testers are used for routine maintenance testing, pre-commissioning acceptance testing, condition monitoring, and fault location. Custom test voltages and resistance ranges can be manufactured to specification."
+    ],
+    "relatedArticles": [
+      "insulation-resistance-testing-guide",
+      "what-is-a-megger"
     ]
   },
   {
     "id": "multirange-insulation-hand",
     "name": "Multirange Insulation Testers (Hand-Driven)",
     "shortName": "Multirange Insulation (Hand)",
-    "eyebrow": "Insulation Testers · Multirange Hand-Driven",
+    "eyebrow": "Insulation Testers \u00b7 Multirange Hand-Driven",
     "description": "Multi-voltage, selectable-range hand-driven insulation testers with built-in continuity range. Available in MR-1 through MR-8 series covering a wide range of voltage and insulation range combinations.",
-    "icon": "🔧",
-    "metaTitle": "Multirange Insulation Testers (Hand-Driven) | Cambridge Instruments (CIE) — Howrah",
-    "metaDesc": "CIE multirange hand-driven insulation testers — selectable voltage and resistance range, built-in continuity. MR-1 to MR-8 series. Manufacturer in Howrah, West Bengal. Pan-India supply.",
+    "icon": "\ud83d\udd27",
+    "metaTitle": "Multirange Insulation Testers (Hand-Driven) | Cambridge Instruments (CIE) \u2014 Howrah",
+    "metaDesc": "CIE multirange hand-driven insulation testers \u2014 selectable voltage and resistance range, built-in continuity. MR-1 to MR-8 series. Manufacturer in Howrah, West Bengal. Pan-India supply.",
     "seoContent": [
       "CIE multirange insulation testers are hand-driven generator-type instruments with a selectable test voltage and multiple insulation resistance ranges on a single instrument. A selector switch allows the operator to choose the required test voltage and range combination without needing separate instruments for different applications. This makes them particularly cost-effective for electrical contractors, testing laboratories, and utilities that test equipment at multiple voltage levels.",
       "The MR series instruments are available in configurations from MR-1 (two voltage ranges) through MR-8 (up to eight combinations), covering test voltages from 100 V to 5000 V. Many variants also include a continuity testing range, allowing the same instrument to verify both insulation integrity and circuit continuity. All instruments use the same silent, hand-driven clutch-type AC generator mechanism and cross-coil indicator as the standard CIE range.",
       "Multirange insulation testers are specified by electrical contractors, PWD departments, defence establishments, and heavy industry across India. CIE supplies these instruments to customers in Kolkata, Howrah, Bhubaneswar, Odisha, Chhattisgarh, Jharkhand, and across Eastern, Western, Northern, and Southern India."
+    ],
+    "relatedArticles": [
+      "insulation-resistance-testing-guide",
+      "what-is-a-megger"
     ]
   },
   {
     "id": "motor-operated-insulation",
     "name": "Motor-Operated Insulation Testers",
     "shortName": "Motor-Operated Insulation",
-    "eyebrow": "Insulation Testers · Motor-Operated",
+    "eyebrow": "Insulation Testers \u00b7 Motor-Operated",
     "description": "Motorised generator type insulation testers for sustained high-voltage testing up to 10 kV. Motor-cum-hand driven variants offer dual operation modes.",
-    "icon": "⚙️",
-    "metaTitle": "Motorised Insulation Testers | CIE/777 Series — Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE/777 motorised insulation testers — mains-driven, up to 10 kV. Motor-cum-hand driven variants. Used by PGCIL, Indian Railways, power utilities. Manufacturer in Howrah, India.",
+    "icon": "\u2699\ufe0f",
+    "metaTitle": "Motorised Insulation Testers | CIE/777 Series \u2014 Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE/777 motorised insulation testers \u2014 mains-driven, up to 10 kV. Motor-cum-hand driven variants. Used by PGCIL, Indian Railways, power utilities. Manufacturer in Howrah, India.",
     "seoContent": [
-      "CIE motorised insulation testers use a mains-powered electric motor to drive the AC generator, eliminating the need for manual cranking. This allows sustained, hands-free testing at consistent voltage — critical for long-duration insulation tests such as polarisation index (PI) and dielectric absorption ratio (DAR) measurements on large motors, generators, and power transformers. The CIE/777 series covers test voltages from 500 V to 10 kV.",
+      "CIE motorised insulation testers use a mains-powered electric motor to drive the AC generator, eliminating the need for manual cranking. This allows sustained, hands-free testing at consistent voltage \u2014 critical for long-duration insulation tests such as polarisation index (PI) and dielectric absorption ratio (DAR) measurements on large motors, generators, and power transformers. The CIE/777 series covers test voltages from 500 V to 10 kV.",
       "The CIE/777 HM (Motor-cum-Hand Driven) variant provides dual operation: the instrument can be used as a standard motorised tester when mains supply is available, and switched to hand-driven mode in the field. This versatility makes it preferred by commissioning engineers and power utility maintenance teams who work both in substations and in remote field locations.",
       "Motorised insulation testers are used extensively by power transmission utilities (PGCIL, WBSETCL, state electricity boards), traction maintenance depots (Indian Railways), and commissioning engineers on EPC projects across India. CIE supplies the CIE/777 series to customers in Kolkata, Howrah, Bhubaneswar, Raipur, Ranchi, Patna, Lucknow, Delhi, and across all major power and industrial centres in India."
+    ],
+    "relatedArticles": [
+      "insulation-resistance-testing-guide",
+      "what-is-a-megger"
     ]
   },
   {
     "id": "multirange-motorised-insulation",
     "name": "Multirange Motorised Insulation Testers",
     "shortName": "Multirange Motorised",
-    "eyebrow": "Insulation Testers · Multirange Motorised",
+    "eyebrow": "Insulation Testers \u00b7 Multirange Motorised",
     "description": "Dual-scale multi-voltage motorised insulation testers. MR-A through MR-E series with inner/outer scale display for multiple test voltage and range combinations.",
-    "icon": "⚙️",
-    "metaTitle": "Multirange Motorised Insulation Testers | CIE/777/MR Series — Cambridge Instruments (CIE)",
-    "metaDesc": "CIE/777/MR multirange motorised insulation testers — dual scale, selectable voltage and range, mains-driven up to 10 kV. Manufacturer in Howrah, India. Pan-India supply.",
+    "icon": "\u2699\ufe0f",
+    "metaTitle": "Multirange Motorised Insulation Testers | CIE/777/MR Series \u2014 Cambridge Instruments (CIE)",
+    "metaDesc": "CIE/777/MR multirange motorised insulation testers \u2014 dual scale, selectable voltage and range, mains-driven up to 10 kV. Manufacturer in Howrah, India. Pan-India supply.",
     "seoContent": [
       "CIE multirange motorised insulation testers combine the sustained output capability of a mains-driven motor with the flexibility of selectable test voltage and resistance range. The dual-scale indicator displays two resistance ranges simultaneously via inner and outer scales, allowing the operator to read the correct value for the selected range combination without changing the indicator. This is particularly useful in commissioning environments where multiple items of equipment must be tested at different voltages.",
       "The CIE/777/MR and CIE/777 HM/MR series cover the full range of industrial insulation testing requirements from 500 V to 10 kV, and are available in MR-A through MR-E configurations. They are used by protection engineers, commissioning teams, and maintenance departments at power utilities, railways, and heavy industry across India.",
-      "CIE supplies multirange motorised insulation testers to customers throughout India — Eastern India (Kolkata, Howrah, Bhubaneswar, Odisha, West Bengal, Bihar, Jharkhand), Northern India (Delhi, Lucknow, Chandigarh), Western India (Mumbai, Pune, Ahmedabad, Surat), and Southern India (Bangalore, Chennai, Hyderabad, Kochi)."
+      "CIE supplies multirange motorised insulation testers to customers throughout India \u2014 Eastern India (Kolkata, Howrah, Bhubaneswar, Odisha, West Bengal, Bihar, Jharkhand), Northern India (Delhi, Lucknow, Chandigarh), Western India (Mumbai, Pune, Ahmedabad, Surat), and Southern India (Bangalore, Chennai, Hyderabad, Kochi)."
+    ],
+    "relatedArticles": [
+      "insulation-resistance-testing-guide",
+      "what-is-a-megger"
     ]
   },
   {
     "id": "compact-insulation-testers",
     "name": "Compact / Economical Insulation Testers",
     "shortName": "Compact Insulation Testers",
-    "eyebrow": "Insulation Testers · Compact Range",
+    "eyebrow": "Insulation Testers \u00b7 Compact Range",
     "description": "Economical bakelite and compact metal body hand-driven insulation testers for everyday site and workshop use at 100 V to 1000 V.",
-    "icon": "🔋",
-    "metaTitle": "Compact Insulation Testers | CIE/555 Bakelite Body — Cambridge Instruments (CIE), Howrah",
+    "icon": "\ud83d\udd0b",
+    "metaTitle": "Compact Insulation Testers | CIE/555 Bakelite Body \u2014 Cambridge Instruments (CIE), Howrah",
     "metaDesc": "CIE/555 compact hand-driven insulation tester in high-grade bakelite body. 100 V to 1000 V. Lightweight, battery-free, conforms to ISS: 2992-1987. Manufacturer in Howrah, India.",
     "seoContent": [
-      "The CIE/555 is a compact, economical insulation tester in a high-grade moulded bakelite body, designed for everyday site and workshop use at test voltages from 100 V to 1000 V. Like all CIE hand-driven insulation testers, it requires no batteries or mains supply — the hand-cranked generator provides the test voltage, making it completely self-contained for field use.",
+      "The CIE/555 is a compact, economical insulation tester in a high-grade moulded bakelite body, designed for everyday site and workshop use at test voltages from 100 V to 1000 V. Like all CIE hand-driven insulation testers, it requires no batteries or mains supply \u2014 the hand-cranked generator provides the test voltage, making it completely self-contained for field use.",
       "The CIE/555 is suited to testing household wiring, light industrial equipment, motors and pumps at low voltage, electrical panels, and distribution boards. It is widely used by electricians, electrical contractors, maintenance engineers, and testing laboratories across India for routine insulation resistance checks on low-voltage equipment.",
-      "At 1.4 kg and 155 × 104 × 70 mm, the CIE/555 is the most portable insulation tester in the CIE range — easy to carry on site and store in a tool kit. It conforms to ISS: 2992-1987 and carries a 12-month warranty against manufacturing defects. Custom resistance ranges from 0–10 MΩ to 0–500 MΩ are available to specification."
+      "At 1.4 kg and 155 \u00d7 104 \u00d7 70 mm, the CIE/555 is the most portable insulation tester in the CIE range \u2014 easy to carry on site and store in a tool kit. It conforms to ISS: 2992-1987 and carries a 12-month warranty against manufacturing defects. Custom resistance ranges from 0\u201310 M\u03a9 to 0\u2013500 M\u03a9 are available to specification."
+    ],
+    "relatedArticles": [
+      "insulation-resistance-testing-guide",
+      "what-is-a-megger"
     ]
   },
   {
     "id": "earth-tester",
     "name": "Earth Resistance Testers",
     "shortName": "Earth Testers",
-    "eyebrow": "Earth Resistance · Analog & Digital",
+    "eyebrow": "Earth Resistance \u00b7 Analog & Digital",
     "description": "Analog and digital earth resistance testers for 3-terminal earth resistance and soil resistivity measurement. Includes hand-driven analog instruments supplied as a complete kit, and digital models with direct numerical readout.",
-    "icon": "🌍",
-    "metaTitle": "Earth Resistance Testers | Analog & Digital — Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE earth resistance testers — analog hand-driven (CIE/222M) and digital (DET-2000). 3-terminal earth resistance and 4-terminal soil resistivity measurement. Manufacturer in Howrah, India.",
+    "icon": "\ud83c\udf0d",
+    "metaTitle": "Earth Resistance Testers | Analog & Digital \u2014 Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE earth resistance testers \u2014 analog hand-driven (CIE/222M) and digital (DET-2000). 3-terminal earth resistance and 4-terminal soil resistivity measurement. Manufacturer in Howrah, India.",
     "faq": [
       {
         "q": "What is earth resistance and why must it be tested?",
-        "a": "Earth resistance is the resistance between an earthing electrode and the true earth (remote earth). Low earth resistance is mandatory at every electrical installation to ensure that fault currents flow safely to earth, protecting personnel from electric shock and equipment from damage. Indian Electricity Rules and IS 3043 specify maximum earth resistance values — typically less than 1 ohm for power stations and less than 10 ohms for domestic installations."
+        "a": "Earth resistance is the resistance between an earthing electrode and the true earth (remote earth). Low earth resistance is mandatory at every electrical installation to ensure that fault currents flow safely to earth, protecting personnel from electric shock and equipment from damage. Indian Electricity Rules and IS 3043 specify maximum earth resistance values \u2014 typically less than 1 ohm for power stations and less than 10 ohms for domestic installations."
       },
       {
         "q": "What is the difference between 3-terminal and 4-terminal earth testing?",
-        "a": "3-terminal earth testing (fall-of-potential method) measures the resistance of a single earth electrode by driving two auxiliary stakes and measuring the voltage drop. 4-terminal Wenner method testing passes current through outer electrodes and measures voltage across inner electrodes to determine soil resistivity — used for designing earth grid systems at substations and large installations."
+        "a": "3-terminal earth testing (fall-of-potential method) measures the resistance of a single earth electrode by driving two auxiliary stakes and measuring the voltage drop. 4-terminal Wenner method testing passes current through outer electrodes and measures voltage across inner electrodes to determine soil resistivity \u2014 used for designing earth grid systems at substations and large installations."
       },
       {
         "q": "Which CIE earth tester should I use for substation testing?",
@@ -117,39 +137,51 @@
       }
     ],
     "seoContent": [
-      "Earth resistance testing is mandatory at every electrical installation — from domestic earthing systems to substation earth grids — to ensure personnel safety and equipment protection. CIE manufactures both analog and digital earth resistance testers for a wide range of applications.",
-      "The CIE/222M is an analog, hand-driven earth tester supplied as a complete kit with earth spikes, wire spools, a carrying bag, and a hammer — everything needed for a 3-terminal earth resistance measurement in the field. It also supports 4-terminal Wenner method soil resistivity measurement, making it suitable for substation earth grid design. The DET-2000 is the digital companion: a 4-terminal digital earth resistance tester with direct numerical readout, eliminating the parallax-reading uncertainty of the analog instrument.",
+      "Earth resistance testing is mandatory at every electrical installation \u2014 from domestic earthing systems to substation earth grids \u2014 to ensure personnel safety and equipment protection. CIE manufactures both analog and digital earth resistance testers for a wide range of applications.",
+      "The CIE/222M is an analog, hand-driven earth tester supplied as a complete kit with earth spikes, wire spools, a carrying bag, and a hammer \u2014 everything needed for a 3-terminal earth resistance measurement in the field. It also supports 4-terminal Wenner method soil resistivity measurement, making it suitable for substation earth grid design. The DET-2000 is the digital companion: a 4-terminal digital earth resistance tester with direct numerical readout, eliminating the parallax-reading uncertainty of the analog instrument.",
       "Earth testers are used by electrical contractors, PWD departments, power utilities, railways, telecom companies, data centre operators, and industrial facilities across India. CIE earth testers are supplied to customers in Kolkata, Howrah, Bhubaneswar, Rourkela, Cuttack, Sambalpur (Odisha), Raipur (Chhattisgarh), Ranchi (Jharkhand), and across Eastern, Northern, Western, and Southern India. Proper earth resistance testing is required by the Indian Electricity Rules and IS 3043."
+    ],
+    "relatedArticles": [
+      "earth-resistance-testing-guide",
+      "what-is-electrical-earthing"
     ]
   },
   {
     "id": "digital-insulation-testers",
     "name": "Digital Insulation Testers",
     "shortName": "Digital Insulation Testers",
-    "eyebrow": "Insulation Testers · Digital",
+    "eyebrow": "Insulation Testers \u00b7 Digital",
     "description": "Microcontroller-based digital insulation testers with LCD display, DAR and PI functions, rechargeable battery option, and test voltages from 100 V up to 5000 V.",
-    "icon": "📟",
-    "metaTitle": "Digital Insulation Testers | DIT-2500, DIT-5000, DIT-5005 — Cambridge Instruments (CIE)",
-    "metaDesc": "CIE digital insulation testers — LCD display, DAR/PI functions, up to 5000 V / 200 GΩ. DIT-2500, DIT-5000, DIT-5005. Manufacturer in Howrah, India. Pan-India supply.",
+    "icon": "\ud83d\udcdf",
+    "metaTitle": "Digital Insulation Testers | DIT-2500, DIT-5000, DIT-5005 \u2014 Cambridge Instruments (CIE)",
+    "metaDesc": "CIE digital insulation testers \u2014 LCD display, DAR/PI functions, up to 5000 V / 200 G\u03a9. DIT-2500, DIT-5000, DIT-5005. Manufacturer in Howrah, India. Pan-India supply.",
     "seoContent": [
-      "CIE digital insulation testers provide direct numerical readout of insulation resistance on a backlit LCD display, eliminating the parallax-reading uncertainty of analog instruments. They incorporate advanced test functions including dielectric absorption ratio (DAR) and polarisation index (PI) measurement — important for assessing the condition of motor windings and large power equipment insulation. Test voltages range from 500 V (DIT-5005) up to 5000 V (DIT-5000), covering the full range from low-voltage equipment testing to HV cable and transformer insulation assessment.",
-      "The DIT-2500 also functions as a digital multimeter, making it a versatile instrument for electrical engineers who need both insulation testing and general electrical measurement in a single handheld unit. The DIT-5000 covers insulation resistance up to 200 GΩ with auto-ranging, making it suitable for testing very high-quality insulation systems in cables, power transformers, and rotating machines.",
-      "Digital insulation testers are widely used by electrical testing laboratories (NABL accredited), power utility maintenance teams, commissioning engineers, and industrial electrical departments. CIE supplies digital insulation testers throughout India — Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, and all major industrial and power sector locations."
+      "CIE digital insulation testers provide direct numerical readout of insulation resistance on a backlit LCD display, eliminating the parallax-reading uncertainty of analog instruments. They incorporate advanced test functions including dielectric absorption ratio (DAR) and polarisation index (PI) measurement \u2014 important for assessing the condition of motor windings and large power equipment insulation. Test voltages range from 500 V (DIT-5005) up to 5000 V (DIT-5000), covering the full range from low-voltage equipment testing to HV cable and transformer insulation assessment.",
+      "The DIT-2500 also functions as a digital multimeter, making it a versatile instrument for electrical engineers who need both insulation testing and general electrical measurement in a single handheld unit. The DIT-5000 covers insulation resistance up to 200 G\u03a9 with auto-ranging, making it suitable for testing very high-quality insulation systems in cables, power transformers, and rotating machines.",
+      "Digital insulation testers are widely used by electrical testing laboratories (NABL accredited), power utility maintenance teams, commissioning engineers, and industrial electrical departments. CIE supplies digital insulation testers throughout India \u2014 Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, and all major industrial and power sector locations."
+    ],
+    "relatedArticles": [
+      "insulation-resistance-testing-guide",
+      "what-is-a-megger"
     ]
   },
   {
     "id": "digital-earth-micro-ohm",
     "name": "Micro-Ohm Meters",
     "shortName": "Micro-Ohm Meters",
-    "eyebrow": "Low Resistance · Micro-Ohm Meters",
+    "eyebrow": "Low Resistance \u00b7 Micro-Ohm Meters",
     "description": "4-terminal (Kelvin) digital micro-ohm meter for precise low-resistance and contact-resistance measurement. Seven-segment LED display, multiple test-current ranges, and direct readout in micro-ohms.",
-    "icon": "🔌",
-    "metaTitle": "Micro-Ohm Meter | MR-253A 4-Terminal Kelvin — Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE MR-253A digital micro-ohm meter — 4-terminal Kelvin method, multiple test current ranges, direct readout in micro-ohms. For contact resistance and low-resistance measurement. Howrah, India.",
+    "icon": "\ud83d\udd0c",
+    "metaTitle": "Micro-Ohm Meter | MR-253A 4-Terminal Kelvin \u2014 Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE MR-253A digital micro-ohm meter \u2014 4-terminal Kelvin method, multiple test current ranges, direct readout in micro-ohms. For contact resistance and low-resistance measurement. Howrah, India.",
     "seoContent": [
-      "The MR-253A is a bench-type digital micro-ohm meter using the 4-terminal (Kelvin) measurement method to eliminate lead and contact resistance from the measurement. This makes it suitable for measuring very low resistances accurately — from contact resistance of switchgear and busbar joints, to winding resistance of transformers and motors, bonding resistance in earthing systems, and resistance of relay coils.",
+      "The MR-253A is a bench-type digital micro-ohm meter using the 4-terminal (Kelvin) measurement method to eliminate lead and contact resistance from the measurement. This makes it suitable for measuring very low resistances accurately \u2014 from contact resistance of switchgear and busbar joints, to winding resistance of transformers and motors, bonding resistance in earthing systems, and resistance of relay coils.",
       "A 4-terminal micro-ohm meter is essential wherever resistance values are in the micro-ohm or milli-ohm range and must be measured precisely. The MR-253A provides multiple test current ranges, allowing the appropriate current to be selected for the resistance being measured, with direct readout in micro-ohms on a seven-segment LED display.",
       "Micro-ohm meters are used in substation commissioning (busbar and switch contact resistance), transformer testing (winding resistance measurement), relay testing laboratories, quality control in manufacturing, and research and calibration facilities. CIE supplies the MR-253A to customers across India including Kolkata, Howrah, Bangalore, Chennai, Mumbai, Delhi, Hyderabad, and Pune."
+    ],
+    "relatedArticles": [
+      "how-to-test-motor-windings",
+      "continuity-testing-guide"
     ]
   },
   {
@@ -157,21 +189,25 @@
     "name": "Clamp Meters",
     "shortName": "Clamp Meters",
     "vartechEquivalents": [
-      { "categoryId": "vartech-clamp-meters", "label": "Clamp Meters", "slug": "clamp-meters" }
+      {
+        "categoryId": "vartech-clamp-meters",
+        "label": "Clamp Meters",
+        "slug": "clamp-meters"
+      }
     ],
-    "eyebrow": "Clamp Meters · True-RMS",
+    "eyebrow": "Clamp Meters \u00b7 True-RMS",
     "description": "True-RMS clamp meters up to 1000 A AC/DC for measuring current in live conductors without breaking the circuit. For panels, motor control centres, and distribution systems.",
-    "icon": "🔧",
-    "metaTitle": "Clamp Meters India | True RMS 1000A AC/DC | CIE & Vartech — Howrah",
-    "metaDesc": "Buy clamp meters in India — CIE DCM series True RMS and Vartech 1000A clamp multimeters. Measure live current without breaking the circuit. Pan-India supply from Howrah.",
+    "icon": "\ud83d\udd27",
+    "metaTitle": "Clamp Meters India | True RMS 1000A AC/DC | CIE & Vartech \u2014 Howrah",
+    "metaDesc": "Buy clamp meters in India \u2014 CIE DCM series True RMS and Vartech 1000A clamp multimeters. Measure live current without breaking the circuit. Pan-India supply from Howrah.",
     "faq": [
       {
         "q": "What is a clamp meter used for?",
-        "a": "A clamp meter measures AC or DC current by clamping around a conductor without breaking the circuit — essential for measuring live current in panels, motor control centres, and distribution boards. It can also measure voltage, resistance, and frequency like a standard multimeter. CIE True RMS clamp meters (DCM series) and Vartech clamp meters cover up to 1000A AC/DC."
+        "a": "A clamp meter measures AC or DC current by clamping around a conductor without breaking the circuit \u2014 essential for measuring live current in panels, motor control centres, and distribution boards. It can also measure voltage, resistance, and frequency like a standard multimeter. CIE True RMS clamp meters (DCM series) and Vartech clamp meters cover up to 1000A AC/DC."
       },
       {
         "q": "What is the difference between a clamp meter and a multimeter?",
-        "a": "A clamp meter measures high AC/DC current non-invasively by clamping around a conductor using the Hall effect or CT principle. A multimeter measures voltage, resistance, and small currents via test leads inserted into the circuit. Many modern clamp meters like the Vartech V 266+ and M 2101 combine both functions — current clamping plus full multimeter measurement."
+        "a": "A clamp meter measures high AC/DC current non-invasively by clamping around a conductor using the Hall effect or CT principle. A multimeter measures voltage, resistance, and small currents via test leads inserted into the circuit. Many modern clamp meters like the Vartech V 266+ and M 2101 combine both functions \u2014 current clamping plus full multimeter measurement."
       },
       {
         "q": "Can I measure DC current with a clamp meter?",
@@ -179,8 +215,13 @@
       }
     ],
     "seoContent": [
-      "CIE True-RMS clamp meters measure AC and DC current up to 1000 A without breaking the circuit — essential for live conductor measurements in panels, motor control centres, and distribution systems. The DCM 2250 TR and DCM 5410 TR use True-RMS measurement for accuracy with non-sinusoidal waveforms from variable frequency drives (VFDs) and power electronics.",
+      "CIE True-RMS clamp meters measure AC and DC current up to 1000 A without breaking the circuit \u2014 essential for live conductor measurements in panels, motor control centres, and distribution systems. The DCM 2250 TR and DCM 5410 TR use True-RMS measurement for accuracy with non-sinusoidal waveforms from variable frequency drives (VFDs) and power electronics.",
       "Clamp meters are used by electrical engineers, electricians, HVAC technicians, panel builders, and industrial maintenance teams across India. Available directly from CIE with pan-India supply to Kolkata, Howrah, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, and all major cities."
+    ],
+    "relatedArticles": [
+      "how-to-use-a-clamp-meter",
+      "how-to-choose-a-clamp-meter",
+      "clamp-meter-vs-multimeter"
     ]
   },
   {
@@ -188,17 +229,21 @@
     "name": "Digital Multimeters",
     "shortName": "Multimeters",
     "vartechEquivalents": [
-      { "categoryId": "vartech-multimeters", "label": "Multimeters", "slug": "multimeters" }
+      {
+        "categoryId": "vartech-multimeters",
+        "label": "Multimeters",
+        "slug": "multimeters"
+      }
     ],
-    "eyebrow": "Multimeters · Digital",
-    "description": "3½-digit digital multimeters for voltage, current, resistance, capacitance, frequency, and temperature measurement. True-RMS and standard variants.",
-    "icon": "📐",
-    "metaTitle": "Digital Multimeters India | True RMS | CIE & Vartech — Buy from Howrah",
-    "metaDesc": "Buy digital multimeters in India — CIE DM series and Vartech True RMS multimeters. Auto-ranging, 2000 to 30000 counts. Manufacturer & authorised dealer in Howrah. Pan-India supply.",
+    "eyebrow": "Multimeters \u00b7 Digital",
+    "description": "3\u00bd-digit digital multimeters for voltage, current, resistance, capacitance, frequency, and temperature measurement. True-RMS and standard variants.",
+    "icon": "\ud83d\udcd0",
+    "metaTitle": "Digital Multimeters India | True RMS | CIE & Vartech \u2014 Buy from Howrah",
+    "metaDesc": "Buy digital multimeters in India \u2014 CIE DM series and Vartech True RMS multimeters. Auto-ranging, 2000 to 30000 counts. Manufacturer & authorised dealer in Howrah. Pan-India supply.",
     "faq": [
       {
         "q": "What is a True RMS digital multimeter?",
-        "a": "A True RMS (Root Mean Square) digital multimeter accurately measures non-sinusoidal AC waveforms — essential when measuring circuits with variable frequency drives (VFDs), inverters, or switching power supplies. Standard average-responding multimeters give up to 40% error with distorted waveforms. CIE DM 321T and all Vartech multimeters with TRMS designation use True RMS measurement."
+        "a": "A True RMS (Root Mean Square) digital multimeter accurately measures non-sinusoidal AC waveforms \u2014 essential when measuring circuits with variable frequency drives (VFDs), inverters, or switching power supplies. Standard average-responding multimeters give up to 40% error with distorted waveforms. CIE DM 321T and all Vartech multimeters with TRMS designation use True RMS measurement."
       },
       {
         "q": "Which digital multimeter is best for industrial use in India?",
@@ -206,82 +251,100 @@
       },
       {
         "q": "What is the difference between a 2000-count and a 30000-count multimeter?",
-        "a": "Count refers to the resolution of the digital display. A 2000-count multimeter (3½-digit) reads up to 1999, meaning 1V resolution on the 20V range. A 30000-count multimeter reads 29999 — 10x finer resolution, important for precise measurements like contact resistance, small voltage drops, or component testing. Higher-count meters like the Vartech V 981+ are preferred for laboratory and precision measurement work."
+        "a": "Count refers to the resolution of the digital display. A 2000-count multimeter (3\u00bd-digit) reads up to 1999, meaning 1V resolution on the 20V range. A 30000-count multimeter reads 29999 \u2014 10x finer resolution, important for precise measurements like contact resistance, small voltage drops, or component testing. Higher-count meters like the Vartech V 981+ are preferred for laboratory and precision measurement work."
       }
     ],
     "seoContent": [
-      "CIE digital multimeters provide accurate measurement of voltage, current, resistance, capacitance, frequency, and temperature. The DM 321T is a True-RMS multimeter for accurate measurement of non-sinusoidal waveforms, while the DM 235 is a cost-effective 3½-digit instrument for general electrical measurement. All CIE multimeters conform to relevant IEC safety standards.",
+      "CIE digital multimeters provide accurate measurement of voltage, current, resistance, capacitance, frequency, and temperature. The DM 321T is a True-RMS multimeter for accurate measurement of non-sinusoidal waveforms, while the DM 235 is a cost-effective 3\u00bd-digit instrument for general electrical measurement. All CIE multimeters conform to relevant IEC safety standards.",
       "Digital multimeters are used by electricians, engineers, technicians, and students across India for general electrical measurement, troubleshooting, and maintenance. Available from CIE with pan-India supply to Kolkata, Howrah, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, and all major cities."
+    ],
+    "relatedArticles": [
+      "what-is-a-multimeter",
+      "how-to-choose-a-multimeter",
+      "digital-vs-analogue-multimeter"
     ]
   },
   {
     "id": "hv-phase-sequence",
     "name": "HV Test Sets",
     "shortName": "HV Test Sets",
-    "eyebrow": "High Voltage · Breakdown Test Sets",
+    "eyebrow": "High Voltage \u00b7 Breakdown Test Sets",
     "description": "AC high-voltage test sets for cable and equipment insulation testing up to 5 kV. Continuously variable output voltage with analog metering and toggle trip.",
-    "icon": "⚡",
-    "metaTitle": "HV Test Sets | AC High Voltage Test Equipment — Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE/5050A AC high voltage test set — continuously variable 0–5 kV output, analog metering, toggle trip. For HV cable and equipment testing. Manufacturer in Howrah, India.",
+    "icon": "\u26a1",
+    "metaTitle": "HV Test Sets | AC High Voltage Test Equipment \u2014 Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE/5050A AC high voltage test set \u2014 continuously variable 0\u20135 kV output, analog metering, toggle trip. For HV cable and equipment testing. Manufacturer in Howrah, India.",
     "seoContent": [
-      "The CIE/5050A is an AC high voltage test set providing a continuously variable output from 0 to 5 kV for HV withstand testing (hipot testing) of cables, switchgear, transformers, bushings, and other electrical equipment. The output voltage is monitored by a built-in analog voltmeter, and the instrument includes a trip mechanism that automatically disconnects the HV output when the relay under test operates — providing an important safety feature during dielectric withstand testing.",
+      "The CIE/5050A is an AC high voltage test set providing a continuously variable output from 0 to 5 kV for HV withstand testing (hipot testing) of cables, switchgear, transformers, bushings, and other electrical equipment. The output voltage is monitored by a built-in analog voltmeter, and the instrument includes a trip mechanism that automatically disconnects the HV output when the relay under test operates \u2014 providing an important safety feature during dielectric withstand testing.",
       "AC high voltage testing is used for acceptance testing of new equipment, periodic maintenance testing per IS/IEC standards, and fault investigation on installed cables and apparatus. The CIE/5050A is suitable for testing cable insulation at rated voltage, verifying the dielectric strength of transformer oil and solid insulation, and commissioning HV switchgear.",
-      "CIE supplies HV test sets to electrical contractors, power utilities, cable manufacturers, switchgear manufacturers, and commissioning companies across India — in Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, and across all regions where HV electrical infrastructure is installed and maintained."
+      "CIE supplies HV test sets to electrical contractors, power utilities, cable manufacturers, switchgear manufacturers, and commissioning companies across India \u2014 in Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, and across all regions where HV electrical infrastructure is installed and maintained."
+    ],
+    "relatedArticles": [
+      "phase-sequence-testing"
     ]
   },
   {
     "id": "phase-sequence-indicators",
     "name": "Phase Sequence Indicators",
     "shortName": "Phase Sequence",
-    "eyebrow": "Phase Sequence · Indicators",
+    "eyebrow": "Phase Sequence \u00b7 Indicators",
     "description": "Phase sequence indicators for verifying the phase rotation of 3-phase AC supplies. Disc-rotating type and compact ABS moulded variants.",
-    "icon": "🔄",
-    "metaTitle": "Phase Sequence Indicators | PSI-1, PSI-2 — Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE phase sequence indicators — disc-rotating type (PSI-1) and compact ABS moulded (PSI-2). Verify 3-phase supply rotation before energisation. Manufacturer in Howrah, India.",
+    "icon": "\ud83d\udd04",
+    "metaTitle": "Phase Sequence Indicators | PSI-1, PSI-2 \u2014 Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE phase sequence indicators \u2014 disc-rotating type (PSI-1) and compact ABS moulded (PSI-2). Verify 3-phase supply rotation before energisation. Manufacturer in Howrah, India.",
     "seoContent": [
       "Phase sequence indicators are used to verify the phase rotation (RYB or RBY) of a 3-phase AC supply before connecting motors, generators, or other rotating equipment. Incorrect phase sequence causes motors to rotate in the wrong direction, which can damage machinery and create safety hazards. CIE manufactures two variants: the PSI-1 with a rotating disc indicator that physically shows the direction of phase rotation, and the PSI-2 in a compact ABS moulded body.",
       "Phase sequence verification is a routine check performed before energising any 3-phase motor or generator, before parallel operation of generators, when taking a supply from a new source, and during commissioning of electrical panels and motor control centres. Phase sequence indicators are compact, portable instruments used by electricians, commissioning engineers, and maintenance teams.",
-      "CIE phase sequence indicators are supplied to customers across India — electrical contractors, industrial maintenance teams, panel builders, and commissioning engineers in Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Mumbai, Delhi, Hyderabad, and all regions where 3-phase electrical systems are installed."
+      "CIE phase sequence indicators are supplied to customers across India \u2014 electrical contractors, industrial maintenance teams, panel builders, and commissioning engineers in Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Mumbai, Delhi, Hyderabad, and all regions where 3-phase electrical systems are installed."
+    ],
+    "relatedArticles": [
+      "phase-sequence-testing"
     ]
   },
   {
     "id": "oil-test-sets",
-    "name": "Oil Test Sets — CIE/7000 Series",
+    "name": "Oil Test Sets \u2014 CIE/7000 Series",
     "shortName": "Oil BDV Test Sets",
-    "eyebrow": "Transformer Oil · BDV Testers",
+    "eyebrow": "Transformer Oil \u00b7 BDV Testers",
     "description": "Transformer oil dielectric strength (BDV) testers from 50 kV to 120 kV. Manual and motorised variants with options for digital display and magnetic stirrer.",
-    "icon": "🛢️",
-    "metaTitle": "Transformer Oil BDV Test Sets | CIE/7000 Series 50–120 kV — Cambridge Instruments (CIE)",
-    "metaDesc": "CIE transformer oil BDV test sets — 50 kV, 100 kV, 120 kV. Manual and motorised. Centre-point grounded test vessel. For power transformers, distribution transformers. Manufacturer, Howrah.",
+    "icon": "\ud83d\udee2\ufe0f",
+    "metaTitle": "Transformer Oil BDV Test Sets | CIE/7000 Series 50\u2013120 kV \u2014 Cambridge Instruments (CIE)",
+    "metaDesc": "CIE transformer oil BDV test sets \u2014 50 kV, 100 kV, 120 kV. Manual and motorised. Centre-point grounded test vessel. For power transformers, distribution transformers. Manufacturer, Howrah.",
     "seoContent": [
-      "Transformer oil dielectric strength testing (breakdown voltage or BDV testing) is a mandatory quality check performed on transformer oil before filling a new transformer, after filtering or processing used oil, and as part of routine transformer maintenance. The dielectric strength of the oil (measured in kV) indicates its ability to withstand electrical stress without breaking down — a critical parameter for transformer reliability and life.",
-      "CIE manufactures the 7000 series of transformer oil BDV testers in three voltage ratings: CIE/7050 (50 kV), CIE/7100 (100 kV), and CIE/7120 (120 kV). Each instrument is supplied with a standard test vessel conforming to IS 6792 / IEC 60156, with centre-point grounded electrodes. Manual and motorised (automatic) variants are available — the motorised variants perform the full test cycle automatically and are preferred in laboratories processing large volumes of oil samples.",
-      "Transformer oil test sets are used by power utilities (PGCIL, WBSETCL, state transcos and discoms), transformer manufacturers, oil processing companies, testing laboratories, and large industrial consumers with HV transformers. CIE supplies oil BDV testers across India — Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, Raipur, Ranchi, and all locations where power and distribution transformers are installed and maintained."
+      "Transformer oil dielectric strength testing (breakdown voltage or BDV testing) is a mandatory quality check performed on transformer oil before filling a new transformer, after filtering or processing used oil, and as part of routine transformer maintenance. The dielectric strength of the oil (measured in kV) indicates its ability to withstand electrical stress without breaking down \u2014 a critical parameter for transformer reliability and life.",
+      "CIE manufactures the 7000 series of transformer oil BDV testers in three voltage ratings: CIE/7050 (50 kV), CIE/7100 (100 kV), and CIE/7120 (120 kV). Each instrument is supplied with a standard test vessel conforming to IS 6792 / IEC 60156, with centre-point grounded electrodes. Manual and motorised (automatic) variants are available \u2014 the motorised variants perform the full test cycle automatically and are preferred in laboratories processing large volumes of oil samples.",
+      "Transformer oil test sets are used by power utilities (PGCIL, WBSETCL, state transcos and discoms), transformer manufacturers, oil processing companies, testing laboratories, and large industrial consumers with HV transformers. CIE supplies oil BDV testers across India \u2014 Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, Raipur, Ranchi, and all locations where power and distribution transformers are installed and maintained."
+    ],
+    "relatedArticles": [
+      "transformer-oil-bdv-test",
+      "how-to-test-a-transformer"
     ]
   },
   {
     "id": "relay-test-sets",
     "name": "Relay Test Sets",
     "shortName": "Relay Test Sets",
-    "eyebrow": "Protection Testing · Relay Test Sets",
+    "eyebrow": "Protection Testing \u00b7 Relay Test Sets",
     "description": "Single-phase and three-phase relay test sets for commissioning and testing of protection relays. Variable AC/DC current and voltage sources with phase angle control.",
-    "icon": "🔬",
-    "metaTitle": "Relay Test Sets | Single Phase & Three Phase — Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE relay test sets — single phase (RTS-5, RTS-5A, 400 VA) and three phase (RTS-33, 250 VA, 0–360° phase angle). For protection relay commissioning. Manufacturer in Howrah, India.",
+    "icon": "\ud83d\udd2c",
+    "metaTitle": "Relay Test Sets | Single Phase & Three Phase \u2014 Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE relay test sets \u2014 single phase (RTS-5, RTS-5A, 400 VA) and three phase (RTS-33, 250 VA, 0\u2013360\u00b0 phase angle). For protection relay commissioning. Manufacturer in Howrah, India.",
     "faq": [
       {
         "q": "What is a relay test set used for?",
-        "a": "A relay test set is used for secondary injection testing of protection relays — verifying that overcurrent relays, earth fault relays, distance relays, and differential relays operate correctly at their set values. Testing involves injecting calibrated AC current, AC/DC voltage, and phase angle into the relay and measuring its operate time and value. CIE manufactures single-phase (RTS-5/5A) and three-phase (RTS-33) relay test sets."
+        "a": "A relay test set is used for secondary injection testing of protection relays \u2014 verifying that overcurrent relays, earth fault relays, distance relays, and differential relays operate correctly at their set values. Testing involves injecting calibrated AC current, AC/DC voltage, and phase angle into the relay and measuring its operate time and value. CIE manufactures single-phase (RTS-5/5A) and three-phase (RTS-33) relay test sets."
       },
       {
         "q": "What is the difference between CIE RTS-5 and RTS-33?",
-        "a": "The CIE RTS-5 and RTS-5A are single-phase relay test sets (400 VA) providing variable AC current and voltage for testing overcurrent, earth fault, and other single-phase protection relays. The CIE RTS-33 is a three-phase relay test set providing three-phase AC current, AC and DC voltage, and continuously variable 0–360° phase angle — essential for testing distance relays, differential protection, and directional overcurrent relays."
+        "a": "The CIE RTS-5 and RTS-5A are single-phase relay test sets (400 VA) providing variable AC current and voltage for testing overcurrent, earth fault, and other single-phase protection relays. The CIE RTS-33 is a three-phase relay test set providing three-phase AC current, AC and DC voltage, and continuously variable 0\u2013360\u00b0 phase angle \u2014 essential for testing distance relays, differential protection, and directional overcurrent relays."
       }
     ],
     "seoContent": [
-      "Protection relay testing is a critical activity in power system commissioning and maintenance — every relay protecting a transmission line, transformer, bus, or feeder must be tested to verify that it will operate correctly under fault conditions. CIE manufactures single-phase and three-phase relay test sets for secondary current injection testing of protection relays.",
-      "The CIE RTS-5 and RTS-5A are single-phase relay test sets providing continuously variable AC current from 0 to 200 A across multiple ranges, with built-in digital timer (0–99.99 sec), digital ammeter, and AC voltmeter. They are used for testing over-current relays, earth fault relays, and other single-phase protection devices. The RTS-33 is a three-phase relay test set providing variable three-phase AC current, AC and DC voltage, and continuously variable phase angle (0–360°) — essential for testing distance relays, differential relays, and directional protection relays.",
-      "CIE relay test sets are used by protection engineers at power utilities, EPC commissioning companies, and testing laboratories. They are supplied to PGCIL, WBSETCL, state electricity boards, Indian Railways, and commissioning contractors across India — Kolkata, Howrah, Delhi, Bangalore, Mumbai, Chennai, Hyderabad, Bhubaneswar, Lucknow, Chandigarh, and all major power sector locations."
+      "Protection relay testing is a critical activity in power system commissioning and maintenance \u2014 every relay protecting a transmission line, transformer, bus, or feeder must be tested to verify that it will operate correctly under fault conditions. CIE manufactures single-phase and three-phase relay test sets for secondary current injection testing of protection relays.",
+      "The CIE RTS-5 and RTS-5A are single-phase relay test sets providing continuously variable AC current from 0 to 200 A across multiple ranges, with built-in digital timer (0\u201399.99 sec), digital ammeter, and AC voltmeter. They are used for testing over-current relays, earth fault relays, and other single-phase protection devices. The RTS-33 is a three-phase relay test set providing variable three-phase AC current, AC and DC voltage, and continuously variable phase angle (0\u2013360\u00b0) \u2014 essential for testing distance relays, differential relays, and directional protection relays.",
+      "CIE relay test sets are used by protection engineers at power utilities, EPC commissioning companies, and testing laboratories. They are supplied to PGCIL, WBSETCL, state electricity boards, Indian Railways, and commissioning contractors across India \u2014 Kolkata, Howrah, Delhi, Bangalore, Mumbai, Chennai, Hyderabad, Bhubaneswar, Lucknow, Chandigarh, and all major power sector locations."
+    ],
+    "relatedArticles": [
+      "how-to-test-a-relay"
     ]
   },
   {
@@ -289,53 +352,67 @@
     "brand": "vartech",
     "name": "Vartech Multimeters",
     "shortName": "Multimeters",
-    "eyebrow": "Vartech® · Digital Multimeters",
-    "description": "True RMS digital multimeters — pocket-friendly to bench-top, 2000 to 30000 counts. Available through CIE as authorised Vartech dealer.",
-    "icon": "🔌",
+    "eyebrow": "Vartech\u00ae \u00b7 Digital Multimeters",
+    "description": "True RMS digital multimeters \u2014 pocket-friendly to bench-top, 2000 to 30000 counts. Available through CIE as authorised Vartech dealer.",
+    "icon": "\ud83d\udd0c",
     "metaTitle": "Vartech Digital Multimeters | CIE Instruments, Howrah",
-    "metaDesc": "Vartech digital multimeters — True RMS, auto-ranging, 2000 to 30000 counts. Available through CIE Instruments as authorised dealer.",
-    "seoContent": []
+    "metaDesc": "Vartech digital multimeters \u2014 True RMS, auto-ranging, 2000 to 30000 counts. Available through CIE Instruments as authorised dealer.",
+    "seoContent": [],
+    "relatedArticles": [
+      "what-is-a-multimeter",
+      "how-to-choose-a-multimeter",
+      "true-rms-vs-average-rms"
+    ]
   },
   {
     "id": "vartech-clamp-meters",
     "brand": "vartech",
     "name": "Vartech Clamp Meters",
     "shortName": "Clamp Meters",
-    "eyebrow": "Vartech® · Digital Clamp Meters",
-    "description": "Digital clamp meters — 1000 A AC, True RMS, mA leakage testers and smart compact models. Available through CIE as authorised Vartech dealer.",
-    "icon": "🔧",
+    "eyebrow": "Vartech\u00ae \u00b7 Digital Clamp Meters",
+    "description": "Digital clamp meters \u2014 1000 A AC, True RMS, mA leakage testers and smart compact models. Available through CIE as authorised Vartech dealer.",
+    "icon": "\ud83d\udd27",
     "metaTitle": "Vartech Digital Clamp Meters | CIE Instruments, Howrah",
-    "metaDesc": "Vartech digital clamp meters — True RMS, 1000 A AC/DC, leakage testers. Available through CIE Instruments as authorised dealer.",
-    "seoContent": []
+    "metaDesc": "Vartech digital clamp meters \u2014 True RMS, 1000 A AC/DC, leakage testers. Available through CIE Instruments as authorised dealer.",
+    "seoContent": [],
+    "relatedArticles": [
+      "how-to-use-a-clamp-meter",
+      "how-to-choose-a-clamp-meter"
+    ]
   },
   {
     "id": "vartech-oscilloscopes",
     "brand": "vartech",
     "name": "Oscilloscopes",
     "shortName": "Oscilloscopes",
-    "eyebrow": "Vartech® · Oscilloscopes",
-    "description": "Analog and digital storage oscilloscopes from 20 MHz to 150 MHz — dual and 4-channel, with options for component tester and built-in function generator. Supplied by CIE as authorised Vartech dealer.",
-    "icon": "📡",
-    "metaTitle": "Oscilloscopes India | Analog & DSO | Vartech SS Series — CIE Instruments",
-    "metaDesc": "Buy oscilloscopes in India — Vartech SS series analog CROs (20-30 MHz) and digital storage oscilloscopes (80-150 MHz, 1 GS/s). Authorised dealer in Howrah. Pan-India supply.",
+    "eyebrow": "Vartech\u00ae \u00b7 Oscilloscopes",
+    "description": "Analog and digital storage oscilloscopes from 20 MHz to 150 MHz \u2014 dual and 4-channel, with options for component tester and built-in function generator. Supplied by CIE as authorised Vartech dealer.",
+    "icon": "\ud83d\udce1",
+    "metaTitle": "Oscilloscopes India | Analog & DSO | Vartech SS Series \u2014 CIE Instruments",
+    "metaDesc": "Buy oscilloscopes in India \u2014 Vartech SS series analog CROs (20-30 MHz) and digital storage oscilloscopes (80-150 MHz, 1 GS/s). Authorised dealer in Howrah. Pan-India supply.",
     "faq": [
       {
         "q": "What bandwidth oscilloscope do I need?",
-        "a": "For general electronics bench work and audio, 20–50 MHz is sufficient. For embedded systems, microcontrollers, and power electronics, 100 MHz minimum. For high-speed digital signals and RF work, 150 MHz or more. Vartech oscilloscopes range from the SS-5020B (20 MHz analog CRO) and SS-5030B (30 MHz) to the SS-5080DS4 (80 MHz, 4-channel DSO) and SS-5150DS1BFG (150 MHz DSO with built-in function generator)."
+        "a": "For general electronics bench work and audio, 20\u201350 MHz is sufficient. For embedded systems, microcontrollers, and power electronics, 100 MHz minimum. For high-speed digital signals and RF work, 150 MHz or more. Vartech oscilloscopes range from the SS-5020B (20 MHz analog CRO) and SS-5030B (30 MHz) to the SS-5080DS4 (80 MHz, 4-channel DSO) and SS-5150DS1BFG (150 MHz DSO with built-in function generator)."
       },
       {
         "q": "What is the difference between an analog oscilloscope and a digital storage oscilloscope (DSO)?",
-        "a": "An analog oscilloscope (CRO) displays waveforms in real time on a phosphor screen — ideal for viewing live repetitive signals and subtle amplitude variations. A digital storage oscilloscope (DSO) captures waveforms digitally, enabling storage, zoom, trigger on single-shot events, and computer export via USB. For modern electronics and debugging work, a DSO like the Vartech SS-5080DS4 or SS-5100DS1B is recommended."
+        "a": "An analog oscilloscope (CRO) displays waveforms in real time on a phosphor screen \u2014 ideal for viewing live repetitive signals and subtle amplitude variations. A digital storage oscilloscope (DSO) captures waveforms digitally, enabling storage, zoom, trigger on single-shot events, and computer export via USB. For modern electronics and debugging work, a DSO like the Vartech SS-5080DS4 or SS-5100DS1B is recommended."
       },
       {
         "q": "Where can I buy a Vartech oscilloscope in India?",
-        "a": "CIE Instruments (Cambridge Instruments & Engg. Co.) is an authorised dealer for Vartech oscilloscopes in India. The full Vartech SS series — SS-5020B, SS-5030B, SS-5030BC, SS-5080DS4, SS-5100DS1B, and SS-5150DS1BFG — is available through CIE. Contact us via WhatsApp or email for pricing, availability, and delivery across India."
+        "a": "CIE Instruments (Cambridge Instruments & Engg. Co.) is an authorised dealer for Vartech oscilloscopes in India. The full Vartech SS series \u2014 SS-5020B, SS-5030B, SS-5030BC, SS-5080DS4, SS-5100DS1B, and SS-5150DS1BFG \u2014 is available through CIE. Contact us via WhatsApp or email for pricing, availability, and delivery across India."
       }
     ],
     "seoContent": [
-      "CIE Instruments supplies Vartech oscilloscopes — a complete range of analog CROs and digital storage oscilloscopes (DSOs) for electronics labs, service workshops, R&D departments, and educational institutions. The Vartech SS series covers 20 MHz to 150 MHz bandwidth in dual-channel and 4-channel configurations, with sampling rates up to 1 GS/s on the DSO models.",
-      "The SS-5020B and SS-5030B are classic dual-channel analog oscilloscopes with compact bench-top design. The SS-5030BC adds a built-in component tester for checking resistors, capacitors, inductors, transistors, and diodes without an external instrument. The SS-5080DS4 is a 4-channel 80 MHz DSO — ideal for embedded systems and power electronics work where multiple signals must be observed simultaneously. The SS-5100DS1B and SS-5150DS1BFG are high-performance dual-channel DSOs at 100 MHz and 150 MHz, with the FG model including an integrated 25 MHz function generator.",
+      "CIE Instruments supplies Vartech oscilloscopes \u2014 a complete range of analog CROs and digital storage oscilloscopes (DSOs) for electronics labs, service workshops, R&D departments, and educational institutions. The Vartech SS series covers 20 MHz to 150 MHz bandwidth in dual-channel and 4-channel configurations, with sampling rates up to 1 GS/s on the DSO models.",
+      "The SS-5020B and SS-5030B are classic dual-channel analog oscilloscopes with compact bench-top design. The SS-5030BC adds a built-in component tester for checking resistors, capacitors, inductors, transistors, and diodes without an external instrument. The SS-5080DS4 is a 4-channel 80 MHz DSO \u2014 ideal for embedded systems and power electronics work where multiple signals must be observed simultaneously. The SS-5100DS1B and SS-5150DS1BFG are high-performance dual-channel DSOs at 100 MHz and 150 MHz, with the FG model including an integrated 25 MHz function generator.",
       "Vartech oscilloscopes are stocked and supplied by CIE Instruments from Howrah, West Bengal, with same-day despatch to customers in Kolkata and pan-India shipping. Applications include electronics manufacturing, circuit design, PCB debugging, power supply testing, motor drive analysis, and educational lab work."
+    ],
+    "relatedArticles": [
+      "how-to-use-an-oscilloscope",
+      "how-to-choose-an-oscilloscope",
+      "oscilloscope-bandwidth-explained"
     ]
   },
   {
@@ -343,25 +420,29 @@
     "brand": "vartech",
     "name": "Function & Signal Generators",
     "shortName": "Function Generators",
-    "eyebrow": "Vartech® · Function Generators",
+    "eyebrow": "Vartech\u00ae \u00b7 Function Generators",
     "description": "DDS function generators from 15 MHz to 80 MHz with sine, square, triangle, and arbitrary waveforms. Programmable models with USB interface and PC connectivity.",
-    "icon": "〰️",
-    "metaTitle": "Function Generators India | Vartech SGDA Series DDS — CIE Instruments",
-    "metaDesc": "Buy DDS function generators in India — Vartech SGDA series 15 MHz to 80 MHz. Sine, square, triangle, arbitrary waveforms, USB interface. Authorised dealer in Howrah.",
+    "icon": "\u3030\ufe0f",
+    "metaTitle": "Function Generators India | Vartech SGDA Series DDS \u2014 CIE Instruments",
+    "metaDesc": "Buy DDS function generators in India \u2014 Vartech SGDA series 15 MHz to 80 MHz. Sine, square, triangle, arbitrary waveforms, USB interface. Authorised dealer in Howrah.",
     "faq": [
       {
         "q": "What is a DDS function generator?",
-        "a": "A DDS (Direct Digital Synthesis) function generator uses digital techniques to produce stable, accurate waveforms — sine, square, triangle, ramp, and arbitrary waveforms — across a wide frequency range. DDS generators like the Vartech SGDA series offer much better frequency stability, resolution, and waveform quality compared to older analog VCO-based generators."
+        "a": "A DDS (Direct Digital Synthesis) function generator uses digital techniques to produce stable, accurate waveforms \u2014 sine, square, triangle, ramp, and arbitrary waveforms \u2014 across a wide frequency range. DDS generators like the Vartech SGDA series offer much better frequency stability, resolution, and waveform quality compared to older analog VCO-based generators."
       },
       {
         "q": "Where can I buy a Vartech function generator in India?",
-        "a": "CIE Instruments is an authorised Vartech dealer in India. The Vartech SGDA series — SGD-6M (6 MHz), SGDA-15M (15 MHz), SGDA-30M (30 MHz), SGDA-60M (60 MHz with ARB), and SGDA-80M (80 MHz programmable) — are available through CIE with pan-India delivery. Contact us for pricing and technical support."
+        "a": "CIE Instruments is an authorised Vartech dealer in India. The Vartech SGDA series \u2014 SGD-6M (6 MHz), SGDA-15M (15 MHz), SGDA-30M (30 MHz), SGDA-60M (60 MHz with ARB), and SGDA-80M (80 MHz programmable) \u2014 are available through CIE with pan-India delivery. Contact us for pricing and technical support."
       }
     ],
     "seoContent": [
-      "CIE Instruments supplies the Vartech SGDA series of DDS function generators — reliable, full-featured signal sources for electronics labs, educational institutions, service workshops, and R&D departments. The SGDA range covers 15 MHz to 80 MHz with sine, square, triangle, and ramp waveforms as standard, with the SGDA-60M and SGDA-80M adding arbitrary waveform generation capability.",
+      "CIE Instruments supplies the Vartech SGDA series of DDS function generators \u2014 reliable, full-featured signal sources for electronics labs, educational institutions, service workshops, and R&D departments. The SGDA range covers 15 MHz to 80 MHz with sine, square, triangle, and ramp waveforms as standard, with the SGDA-60M and SGDA-80M adding arbitrary waveform generation capability.",
       "The SGDA-15M and SGDA-30M are compact, cost-effective DDS function generators for everyday bench use. The SGDA-60M adds arbitrary waveform generation via PC software, while the SGDA-80M is a fully programmable instrument with USB/RS-232 interface for automated test system integration. All models feature clear digital frequency display and stable output across the full frequency range.",
       "Vartech function generators are available through CIE Instruments as authorised dealers, with delivery to electronics labs, engineering colleges, calibration labs, and manufacturing facilities across India."
+    ],
+    "relatedArticles": [
+      "function-generator-guide",
+      "how-to-choose-a-function-generator"
     ]
   },
   {
@@ -369,15 +450,20 @@
     "brand": "vartech",
     "name": "LCR & Capacitance Meters",
     "shortName": "LCR Meters",
-    "eyebrow": "Vartech® · LCR & Cap Meters",
+    "eyebrow": "Vartech\u00ae \u00b7 LCR & Cap Meters",
     "description": "Handheld and bench-top LCR meters and capacitance meters for measuring inductance, capacitance, and resistance of passive components with precision.",
-    "icon": "🔵",
-    "metaTitle": "LCR Meters & Capacitance Meters — Vartech | CIE Instruments, Howrah",
-    "metaDesc": "Vartech LCR meters and capacitance meters — LCM-1, LCR-1B, LCR-2A, V-8222H. Handheld and bench-top. For L, C, R measurement of passive components. Supplied by CIE Instruments.",
+    "icon": "\ud83d\udd35",
+    "metaTitle": "LCR Meters & Capacitance Meters \u2014 Vartech | CIE Instruments, Howrah",
+    "metaDesc": "Vartech LCR meters and capacitance meters \u2014 LCM-1, LCR-1B, LCR-2A, V-8222H. Handheld and bench-top. For L, C, R measurement of passive components. Supplied by CIE Instruments.",
     "seoContent": [
       "CIE Instruments supplies Vartech LCR meters and capacitance meters for precise measurement of inductance (L), capacitance (C), and resistance (R) in passive components. The range includes handheld models for field use and bench-top instruments for laboratory component characterisation.",
-      "The LCM-1 is a compact handheld LC meter for quick inductance and capacitance measurement on individual components. The LCR-1B and LCR-2A are bench-top LCR meters offering higher accuracy and a wider measurement range for laboratory use — including ESR measurement and quality factor (Q) display. The V-8222H combines a True RMS digital multimeter with LCR measurement capability in a single handheld instrument, making it a versatile all-in-one tool for electronics engineers.",
+      "The LCM-1 is a compact handheld LC meter for quick inductance and capacitance measurement on individual components. The LCR-1B and LCR-2A are bench-top LCR meters offering higher accuracy and a wider measurement range for laboratory use \u2014 including ESR measurement and quality factor (Q) display. The V-8222H combines a True RMS digital multimeter with LCR measurement capability in a single handheld instrument, making it a versatile all-in-one tool for electronics engineers.",
       "Vartech LCR meters are used in electronics manufacturing for incoming component inspection, in R&D labs for component characterisation, and in educational institutions for electronics practical work. Available through CIE Instruments with pan-India supply."
+    ],
+    "relatedArticles": [
+      "lcr-meter-guide",
+      "how-to-choose-an-lcr-meter",
+      "how-to-test-a-capacitor"
     ]
   },
   {
@@ -385,15 +471,19 @@
     "brand": "vartech",
     "name": "DC Electronic Loads",
     "shortName": "DC Electronic Loads",
-    "eyebrow": "Vartech® · DC Electronic Loads",
+    "eyebrow": "Vartech\u00ae \u00b7 DC Electronic Loads",
     "description": "Programmable DC electronic loads for testing batteries, power supplies, DC-DC converters, and chargers. 600 W capacity with constant current, voltage, resistance, and power modes.",
-    "icon": "⚡",
-    "metaTitle": "DC Electronic Loads — Vartech EL Series | CIE Instruments, Howrah",
-    "metaDesc": "Vartech EL-600 DC electronic loads — 600 W, programmable CC/CV/CR/CP modes. For testing batteries, DC power supplies, chargers, DC-DC converters. Supplied by CIE Instruments.",
+    "icon": "\u26a1",
+    "metaTitle": "DC Electronic Loads \u2014 Vartech EL Series | CIE Instruments, Howrah",
+    "metaDesc": "Vartech EL-600 DC electronic loads \u2014 600 W, programmable CC/CV/CR/CP modes. For testing batteries, DC power supplies, chargers, DC-DC converters. Supplied by CIE Instruments.",
     "seoContent": [
-      "CIE Instruments supplies the Vartech EL-600 series of programmable DC electronic loads — instruments designed to simulate real electrical loads for testing batteries, DC power supplies, chargers, DC-DC converters, solar panels, and fuel cells. Unlike a simple resistive load, an electronic load can be programmed to maintain constant current, constant voltage, constant resistance, or constant power — and can perform dynamic load testing with rapid step changes.",
+      "CIE Instruments supplies the Vartech EL-600 series of programmable DC electronic loads \u2014 instruments designed to simulate real electrical loads for testing batteries, DC power supplies, chargers, DC-DC converters, solar panels, and fuel cells. Unlike a simple resistive load, an electronic load can be programmed to maintain constant current, constant voltage, constant resistance, or constant power \u2014 and can perform dynamic load testing with rapid step changes.",
       "The EL-600 (600 W) and EL-600+ (600 W enhanced) are bench-top instruments with front-panel programming and a large digital display showing voltage, current, and power simultaneously. The EL-600+ adds enhanced dynamic testing capability for battery impedance measurement and power supply transient response characterisation.",
       "DC electronic loads are essential tools for power electronics engineers, battery testing labs, EV component test facilities, and electronics manufacturing QC departments. Available through CIE Instruments with delivery to engineering labs and test facilities across India."
+    ],
+    "relatedArticles": [
+      "dc-electronic-load-guide",
+      "battery-testing-guide"
     ]
   },
   {
@@ -401,14 +491,17 @@
     "brand": "vartech",
     "name": "Digital Sound Level Meters",
     "shortName": "Sound Level Meters",
-    "eyebrow": "Vartech® · Digital Sound Level Meters",
-    "description": "Digital sound level meters covering 30–130 dBA with A-weighting, 1/2-inch condenser microphone, Fast/Slow response and Max hold — for workplace noise surveys, HVAC and environmental monitoring.",
-    "icon": "🔊",
-    "metaTitle": "Digital Sound Level Meters — Vartech V 6700 B | CIE Instruments, India",
-    "metaDesc": "Vartech V 6700 B digital sound level meter — 30–130 dBA, A-weighting, 1/2-inch condenser microphone. For workplace noise assessment, HVAC and environmental surveys. CIE Instruments authorised dealer.",
+    "eyebrow": "Vartech\u00ae \u00b7 Digital Sound Level Meters",
+    "description": "Digital sound level meters covering 30\u2013130 dBA with A-weighting, 1/2-inch condenser microphone, Fast/Slow response and Max hold \u2014 for workplace noise surveys, HVAC and environmental monitoring.",
+    "icon": "\ud83d\udd0a",
+    "metaTitle": "Digital Sound Level Meters \u2014 Vartech V 6700 B | CIE Instruments, India",
+    "metaDesc": "Vartech V 6700 B digital sound level meter \u2014 30\u2013130 dBA, A-weighting, 1/2-inch condenser microphone. For workplace noise assessment, HVAC and environmental surveys. CIE Instruments authorised dealer.",
     "seoContent": [
-      "CIE Instruments supplies the Vartech V 6700 B digital sound level meter — covering a wide 30–130 dBA range with A-frequency weighting, a 1/2-inch condenser microphone, and Fast/Slow dynamic response modes. The 5-digit backlit display shows readings at 0.1 dB resolution with Maximum hold for peak capture.",
+      "CIE Instruments supplies the Vartech V 6700 B digital sound level meter \u2014 covering a wide 30\u2013130 dBA range with A-frequency weighting, a 1/2-inch condenser microphone, and Fast/Slow dynamic response modes. The 5-digit backlit display shows readings at 0.1 dB resolution with Maximum hold for peak capture.",
       "Sound level meters are essential for workplace noise assessments under factory safety regulations, HVAC system commissioning, environmental noise surveys, machine noise QC, and product acoustic testing. The V 6700 B is compact, easy to use, and suited for routine field measurement."
+    ],
+    "relatedArticles": [
+      "sound-level-meter-guide"
     ]
   },
   {
@@ -416,29 +509,35 @@
     "brand": "vartech",
     "name": "Digital Anemometers",
     "shortName": "Anemometers",
-    "eyebrow": "Vartech® · Digital Anemometers",
-    "description": "Digital anemometers measuring air speed (0–45 m/s, 0–140 km/h) and air temperature simultaneously — with wind chill indicator, analog bar graph, Avg/Min/Max hold and Auto Power Off.",
-    "icon": "💨",
-    "metaTitle": "Digital Anemometers — Vartech V 6250 B | CIE Instruments, India",
-    "metaDesc": "Vartech V 6250 B digital anemometer — 0–45 m/s air speed with temperature, wind chill, analog bar graph and Avg/Min/Max hold. For HVAC, ventilation and air flow testing. CIE Instruments authorised dealer.",
+    "eyebrow": "Vartech\u00ae \u00b7 Digital Anemometers",
+    "description": "Digital anemometers measuring air speed (0\u201345 m/s, 0\u2013140 km/h) and air temperature simultaneously \u2014 with wind chill indicator, analog bar graph, Avg/Min/Max hold and Auto Power Off.",
+    "icon": "\ud83d\udca8",
+    "metaTitle": "Digital Anemometers \u2014 Vartech V 6250 B | CIE Instruments, India",
+    "metaDesc": "Vartech V 6250 B digital anemometer \u2014 0\u201345 m/s air speed with temperature, wind chill, analog bar graph and Avg/Min/Max hold. For HVAC, ventilation and air flow testing. CIE Instruments authorised dealer.",
     "seoContent": [
-      "CIE Instruments supplies the Vartech V 6250 B digital anemometer — simultaneously measuring air speed (0–45 m/s / 0–140 km/h) and air temperature, with wind chill computation and a real-time analog bar graph. Avg/Min/Max hold enables complete characterisation of air flow profiles during HVAC commissioning, duct surveys, and ventilation testing.",
+      "CIE Instruments supplies the Vartech V 6250 B digital anemometer \u2014 simultaneously measuring air speed (0\u201345 m/s / 0\u2013140 km/h) and air temperature, with wind chill computation and a real-time analog bar graph. Avg/Min/Max hold enables complete characterisation of air flow profiles during HVAC commissioning, duct surveys, and ventilation testing.",
       "Anemometers are widely used by HVAC contractors, building commissioning engineers, industrial hygienists, and environmental consultants. The V 6250 B is compact and field-ready, with a backlit display and Auto Power Off for extended battery life."
+    ],
+    "relatedArticles": [
+      "anemometer-guide"
     ]
   },
   {
     "id": "vartech-calibrators",
     "brand": "vartech",
-    "name": "Calibrators — mV, mA, Temperature & Process",
+    "name": "Calibrators \u2014 mV, mA, Temperature & Process",
     "shortName": "Calibrators",
-    "eyebrow": "Vartech® · Process Calibrators",
-    "description": "mV, mA, temperature and process calibrators — source & measure Thermocouple (T/C), RTD, DC loop current (4–20 mA) and DC voltage. Designed for field calibration of transmitters and process instruments.",
-    "icon": "🎛️",
-    "metaTitle": "Process Calibrators mV mA Temperature — Vartech V 7220 R, V 7221 B, MS 7221 | CIE Instruments",
-    "metaDesc": "Vartech process calibrators in India — V 7220 R (temperature/RTD/T/C), V 7221 B (loop calibrator, 0–30 mA), MS 7221 (V/mA, 0–24 mA, 0.015% accuracy). CIE Instruments authorised dealer.",
+    "eyebrow": "Vartech\u00ae \u00b7 Process Calibrators",
+    "description": "mV, mA, temperature and process calibrators \u2014 source & measure Thermocouple (T/C), RTD, DC loop current (4\u201320 mA) and DC voltage. Designed for field calibration of transmitters and process instruments.",
+    "icon": "\ud83c\udf9b\ufe0f",
+    "metaTitle": "Process Calibrators mV mA Temperature \u2014 Vartech V 7220 R, V 7221 B, MS 7221 | CIE Instruments",
+    "metaDesc": "Vartech process calibrators in India \u2014 V 7220 R (temperature/RTD/T/C), V 7221 B (loop calibrator, 0\u201330 mA), MS 7221 (V/mA, 0\u201324 mA, 0.015% accuracy). CIE Instruments authorised dealer.",
     "seoContent": [
-      "CIE Instruments supplies three Vartech process calibrators: the V 7220 R temperature calibrator (source & measure DCV, Resistance, T/C and RTD — 2W/3W/4W), the V 7221 B loop calibrator (source 0–30 mA DC with sawtooth/triangle wave, measure ±35 mA and ±35 V), and the MS 7221 V/mA calibrator (0–24 mA / 0–10 V with 24 V loop supply and 0.015% mA accuracy).",
+      "CIE Instruments supplies three Vartech process calibrators: the V 7220 R temperature calibrator (source & measure DCV, Resistance, T/C and RTD \u2014 2W/3W/4W), the V 7221 B loop calibrator (source 0\u201330 mA DC with sawtooth/triangle wave, measure \u00b135 mA and \u00b135 V), and the MS 7221 V/mA calibrator (0\u201324 mA / 0\u201310 V with 24 V loop supply and 0.015% mA accuracy).",
       "Process calibrators are essential tools for instrument technicians and calibration engineers in process plants, refineries, power stations and manufacturing facilities. The MS 7221 provides exceptional loop current accuracy with a built-in 24 V loop supply for 2-wire transmitter calibration without an external power source."
+    ],
+    "relatedArticles": [
+      "process-calibrator-guide"
     ]
   },
   {
@@ -446,14 +545,17 @@
     "brand": "vartech",
     "name": "Digital Lux Meters",
     "shortName": "Lux Meters",
-    "eyebrow": "Vartech® · Digital Lux Meters",
-    "description": "Digital lux meters from 0.1 to 200,000 Lux — with 3½ and 4-digit displays, flexible detachable sensor, Lux/FC selection, Auto/Manual ranging and Min/Max hold.",
-    "icon": "💡",
-    "metaTitle": "Digital Lux Meters — Vartech V 6610 B & V 6610+ | CIE Instruments, India",
-    "metaDesc": "Vartech digital lux meters in India — V 6610 B (0–199999 Lux, 4-digit, backlit) and V 6610+ (0.1 to 200,000 Lux, flexible sensor, 3½-digit). CIE Instruments authorised dealer.",
+    "eyebrow": "Vartech\u00ae \u00b7 Digital Lux Meters",
+    "description": "Digital lux meters from 0.1 to 200,000 Lux \u2014 with 3\u00bd and 4-digit displays, flexible detachable sensor, Lux/FC selection, Auto/Manual ranging and Min/Max hold.",
+    "icon": "\ud83d\udca1",
+    "metaTitle": "Digital Lux Meters \u2014 Vartech V 6610 B & V 6610+ | CIE Instruments, India",
+    "metaDesc": "Vartech digital lux meters in India \u2014 V 6610 B (0\u2013199999 Lux, 4-digit, backlit) and V 6610+ (0.1 to 200,000 Lux, flexible sensor, 3\u00bd-digit). CIE Instruments authorised dealer.",
     "seoContent": [
-      "CIE Instruments supplies two Vartech digital lux meters: the V 6610 B (0–199999 Lux / 0–19999 FC, 4-digit backlit LCD, Auto/Manual ranging, silicon photocell, 320–730 nm spectral range) and the V 6610+ (0.1 to 200,000 Lux, 3½-digit auto-ranging, detachable flexible sensor with 15 cm lead, Lux/FC select).",
+      "CIE Instruments supplies two Vartech digital lux meters: the V 6610 B (0\u2013199999 Lux / 0\u201319999 FC, 4-digit backlit LCD, Auto/Manual ranging, silicon photocell, 320\u2013730 nm spectral range) and the V 6610+ (0.1 to 200,000 Lux, 3\u00bd-digit auto-ranging, detachable flexible sensor with 15 cm lead, Lux/FC select).",
       "Lux meters are used for workplace lighting compliance assessments, building energy audits, stage and studio lighting design, greenhouse horticulture, and verification of emergency lighting systems. Both models offer Data Hold and Min/Max memory for convenient field measurement."
+    ],
+    "relatedArticles": [
+      "lux-meter-guide"
     ]
   },
   {
@@ -461,14 +563,17 @@
     "brand": "vartech",
     "name": "Digital Thermometers & Thermo-Hygrometers",
     "shortName": "Thermometers",
-    "eyebrow": "Vartech® · Thermometers & Hygrometers",
-    "description": "Industrial K-type digital thermometers (-150 °C to +1300 °C) and compact thermo-hygrometers with clock — for process temperature measurement, HVAC, food safety and ambient monitoring.",
-    "icon": "🌡️",
-    "metaTitle": "Digital Thermometers & Thermo-Hygrometers — Vartech V 6500 & THM S1 | CIE Instruments",
-    "metaDesc": "Vartech digital thermometers in India — V 6500 industrial K-type thermometer (-150 °C to 1300 °C) and THM S1 compact thermo-hygrometer with clock. CIE Instruments authorised dealer.",
+    "eyebrow": "Vartech\u00ae \u00b7 Thermometers & Hygrometers",
+    "description": "Industrial K-type digital thermometers (-150 \u00b0C to +1300 \u00b0C) and compact thermo-hygrometers with clock \u2014 for process temperature measurement, HVAC, food safety and ambient monitoring.",
+    "icon": "\ud83c\udf21\ufe0f",
+    "metaTitle": "Digital Thermometers & Thermo-Hygrometers \u2014 Vartech V 6500 & THM S1 | CIE Instruments",
+    "metaDesc": "Vartech digital thermometers in India \u2014 V 6500 industrial K-type thermometer (-150 \u00b0C to 1300 \u00b0C) and THM S1 compact thermo-hygrometer with clock. CIE Instruments authorised dealer.",
     "seoContent": [
-      "CIE Instruments supplies two Vartech thermometer products: the V 6500 industrial digital thermometer (-150 °C to +1300 °C, K-type thermocouple, 0.1/1 °C selectable resolution, Min/Max/Avg, 2000-count display) and the THM S1 compact thermo-hygrometer (-10 °C to +50 °C, 20–90 % RH, 12/24-hour clock, comfort level display).",
+      "CIE Instruments supplies two Vartech thermometer products: the V 6500 industrial digital thermometer (-150 \u00b0C to +1300 \u00b0C, K-type thermocouple, 0.1/1 \u00b0C selectable resolution, Min/Max/Avg, 2000-count display) and the THM S1 compact thermo-hygrometer (-10 \u00b0C to +50 \u00b0C, 20\u201390 % RH, 12/24-hour clock, comfort level display).",
       "The V 6500 covers cryogenic to high-temperature industrial measurement with an included bead probe and optional rod and high-temperature probes for different applications. The THM S1 is ideal for ambient monitoring in offices, server rooms, storage areas, and homes. Both are available through CIE Instruments with pan-India delivery."
+    ],
+    "relatedArticles": [
+      "infrared-thermometer-guide"
     ]
   },
   {
@@ -476,14 +581,17 @@
     "brand": "vartech",
     "name": "DC Regulated Power Supplies",
     "shortName": "DC Power Supplies",
-    "eyebrow": "Vartech® · DC Regulated Power Supplies",
-    "description": "Linear, SMPS and programmable DC regulated power supplies — 30 V to 200 V, up to 40 A and 2000 W. Single, dual and multi-output models including slim bench supplies, high-power SMPS with PC interface, and auto-ranging programmable supplies.",
-    "icon": "🔋",
-    "metaTitle": "DC Regulated Power Supplies — Vartech Linear, SMPS & Programmable | CIE Instruments",
-    "metaDesc": "Vartech DC regulated power supplies in India — linear (3005 B, 3010, 3020, 6005, 6010), slim SMPS (3005 S, 3010 S, 6005 S), high-power SMPS with PC interface (SR series), programmable (PPS-S series) and auto-ranging (PPSA-100W). CIE Instruments authorised dealer.",
+    "eyebrow": "Vartech\u00ae \u00b7 DC Regulated Power Supplies",
+    "description": "Linear, SMPS and programmable DC regulated power supplies \u2014 30 V to 200 V, up to 40 A and 2000 W. Single, dual and multi-output models including slim bench supplies, high-power SMPS with PC interface, and auto-ranging programmable supplies.",
+    "icon": "\ud83d\udd0b",
+    "metaTitle": "DC Regulated Power Supplies \u2014 Vartech Linear, SMPS & Programmable | CIE Instruments",
+    "metaDesc": "Vartech DC regulated power supplies in India \u2014 linear (3005 B, 3010, 3020, 6005, 6010), slim SMPS (3005 S, 3010 S, 6005 S), high-power SMPS with PC interface (SR series), programmable (PPS-S series) and auto-ranging (PPSA-100W). CIE Instruments authorised dealer.",
     "seoContent": [
-      "CIE Instruments supplies the complete Vartech DC regulated power supply range — from classic transformer-based linear supplies (3005 B, 3010, 3020, 6005, 6010) and dual/multi-output linear units (3005-3 D2, 3005-4, 3010-2, 6005-2) to slim SMPS models (3005 S, 3010 S, 6005 S, 3010 S-2), high-power SMPS with PC interface (SR series: 3020 SR through 20010 SR, up to 2000 W), programmable SMPS supplies (PPS-S series: 7 models, 30–100 V, with USB ModBus-RTU), and the auto-ranging PPSA-100W-8005 S.",
-      "Linear power supplies offer the lowest ripple and noise, making them ideal for sensitive analog, RF and precision measurement applications. SMPS-based models trade slightly higher ripple for dramatically reduced weight and heat — the slim S series units weigh just ~1 kg. The SR series adds USB/RS232/RS485 PC interface and ModBus-RTU protocol for automated test and ATE integration. The programmable PPS-S series adds list mode, 6 memories, a rotary dial and display of watts for complete bench automation. Available through CIE Instruments with pan-India supply."
+      "CIE Instruments supplies the complete Vartech DC regulated power supply range \u2014 from classic transformer-based linear supplies (3005 B, 3010, 3020, 6005, 6010) and dual/multi-output linear units (3005-3 D2, 3005-4, 3010-2, 6005-2) to slim SMPS models (3005 S, 3010 S, 6005 S, 3010 S-2), high-power SMPS with PC interface (SR series: 3020 SR through 20010 SR, up to 2000 W), programmable SMPS supplies (PPS-S series: 7 models, 30\u2013100 V, with USB ModBus-RTU), and the auto-ranging PPSA-100W-8005 S.",
+      "Linear power supplies offer the lowest ripple and noise, making them ideal for sensitive analog, RF and precision measurement applications. SMPS-based models trade slightly higher ripple for dramatically reduced weight and heat \u2014 the slim S series units weigh just ~1 kg. The SR series adds USB/RS232/RS485 PC interface and ModBus-RTU protocol for automated test and ATE integration. The programmable PPS-S series adds list mode, 6 memories, a rotary dial and display of watts for complete bench automation. Available through CIE Instruments with pan-India supply."
+    ],
+    "relatedArticles": [
+      "dc-power-supply-guide"
     ]
   }
 ]

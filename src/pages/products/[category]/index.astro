@@ -10,6 +10,7 @@ import Icon from '../../../components/Icon.astro';
 import ArrowLink from '../../../components/ArrowLink.astro';
 import categories from '../../../data/categories.json';
 import products from '../../../data/products.json';
+import blogPosts from '../../../data/blog.json';
 import vartechMultimeters from '../../../data/vartech-multimeters.json';
 import vartechClampMeters from '../../../data/vartech-clamp-meters.json';
 import vartechOscilloscopes from '../../../data/vartech-oscilloscopes.json';
@@ -119,6 +120,11 @@ const faqSchema = categoryFaqs && categoryFaqs.length > 0 ? {
 } : null;
 
 const catKeywords = [category.name, ...(categoryFaqs?.map(f => f.q) ?? [])].join(', ');
+
+const relatedArticleSlugs = (category as any).relatedArticles as string[] | undefined;
+const relatedArticles = (relatedArticleSlugs ?? [])
+  .map(slug => blogPosts.find(p => p.slug === slug))
+  .filter((p): p is typeof blogPosts[number] => !!p);
 ---
 
 <Base title={pageTitle} description={pageDescription} rawTitle={(category as any).metaTitle != null} keywords={catKeywords}>
@@ -333,6 +339,23 @@ const catKeywords = [category.name, ...(categoryFaqs?.map(f => f.q) ?? [])].join
                 {faq.a}
               </div>
             </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedArticles.length > 0 && (
+    <section class="bg-white py-10 lg:py-14 border-t border-border">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-xl font-bold text-ink mb-6">Related Articles</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {relatedArticles.map(post => (
+            <a href={u(`/blog/${post.slug}/`)} class="group block card card-interactive p-5">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-red mb-2 block">{post.category}</span>
+              <h3 class="font-bold text-ink text-sm leading-snug mb-2 group-hover:text-red transition-colors">{post.title}</h3>
+              <p class="text-xs text-muted leading-relaxed line-clamp-2">{post.excerpt}</p>
+            </a>
           ))}
         </div>
       </div>
