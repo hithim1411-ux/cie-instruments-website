@@ -1,4 +1,5 @@
 ---
+import { u } from '../../utils/url';
 import Callout from '../../components/blog/Callout.astro';
 ---
 
@@ -115,3 +116,7 @@ import Callout from '../../components/blog/Callout.astro';
 <p>Diesel generators must hold 50 Hz under varying load. Speed governors control this. After maintenance or a governor adjustment, verify frequency using a multimeter in frequency mode at the generator output terminals (with no load first, then at full rated load). The frequency should stay within 49.5–50.5 Hz from no load to full load.</p>
 
 <p>If frequency drops significantly under load (e.g., from 50.2 Hz to 48.5 Hz), the governor droop setting needs adjustment or the engine is underpowered for the load. A frequency that rises above 52 Hz at light load is dangerous — it can overspeed and damage the engine or connected equipment.</p>
+
+<p>
+  CIE supplies <a href={u('/products/multimeters/')}>digital multimeters</a> with frequency measurement mode, and <a href={u('/products/vartech-function-generators/')}>Vartech function generators</a> for generating reference frequencies on the bench. <a href={u('/contact/')}>Contact us</a> for a recommendation for your application.
+</p>

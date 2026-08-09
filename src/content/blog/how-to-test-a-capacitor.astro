@@ -1,4 +1,5 @@
 ---
+import { u } from '../../utils/url';
 import Callout from '../../components/blog/Callout.astro';
 ---
 
@@ -152,3 +153,7 @@ import Callout from '../../components/blog/Callout.astro';
 <p>Testing capacitors in-circuit without desoldering is possible but unreliable. Parallel components create parallel paths that appear as additional capacitance or reduced resistance. An ESR meter is the most reliable in-circuit tool because the ESR measurement is dominated by the lowest-impedance path — the capacitor being tested — and most circuit components in parallel have much higher impedance at 100 kHz.</p>
 
 <p>Even with an ESR meter, any reading that seems unusually low should be confirmed by desoldering one lead. In-circuit ESR testing is a screen, not a definitive test.</p>
+
+<p>
+  CIE supplies <a href={u('/products/vartech-lcr-meters/')}>Vartech LCR and capacitance meters</a> with ESR measurement for capacitor diagnostics. <a href={u('/contact/')}>Contact us</a> for a recommendation matched to your bench.
+</p>

@@ -1,4 +1,5 @@
 ---
+import { u } from '../../utils/url';
 import Callout from '../../components/blog/Callout.astro';
 ---
 
@@ -134,3 +135,7 @@ import Callout from '../../components/blog/Callout.astro';
 <p><strong>Rise time measurement</strong>: Apply a square wave at a frequency low enough that the circuit responds completely between edges (start at 1/100 of the expected bandwidth). Measure the 10%–90% rise time of the output waveform on the oscilloscope.</p>
 
 <p><strong>Crystal oscillator testing</strong>: Drive the crystal with a sine wave sweep and look for the series resonant frequency on the oscilloscope — the frequency at which the impedance is minimum and the output is maximum.</p>
+
+<p>
+  CIE supplies <a href={u('/products/vartech-function-generators/')}>Vartech function and signal generators</a>. See our guide on <a href={u('/blog/how-to-choose-a-function-generator/')}>how to choose a function generator</a>, or <a href={u('/contact/')}>contact us</a> for a recommendation matched to your bench.
+</p>
