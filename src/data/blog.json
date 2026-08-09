@@ -225,6 +225,15 @@
     "excerpt": "Analogue multimeters were the standard for decades. Digital took over \u2014 but analogue still has real advantages in specific situations. Here's an honest comparison."
   },
   {
+    "slug": "oscilloscope-bandwidth-explained",
+    "title": "Oscilloscope Bandwidth Explained: Why It Matters",
+    "description": "What oscilloscope bandwidth actually measures, how it relates to rise time, and why sample rate can't compensate for insufficient bandwidth.",
+    "publishDate": "2026-06-26",
+    "readTime": "6 min read",
+    "category": "Physics",
+    "excerpt": "Bandwidth isn't just about sine waves \u2014 it determines how sharp an edge your scope can show at all, and no amount of sample rate can make up for a shortfall."
+  },
+  {
     "slug": "lcr-meter-guide",
     "title": "LCR Meter Guide: How to Measure Inductance, Capacitance, and Resistance",
     "description": "A complete guide to LCR meters \u2014 what they measure, why test frequency matters, how to measure capacitors and inductors correctly, 4-wire Kelvin connection, and open/short compensation.",
@@ -232,6 +241,15 @@
     "readTime": "10 min read",
     "category": "Guides",
     "excerpt": "An LCR meter reveals what a multimeter cannot \u2014 the true impedance parameters of any passive component at the frequency it actually operates at. Here's how to use one correctly."
+  },
+  {
+    "slug": "how-to-test-a-fuse",
+    "title": "How to Test a Fuse with a Multimeter",
+    "description": "How to test a fuse safely with continuity mode and in-circuit voltage mode, and why a fuse that keeps blowing means a fault elsewhere in the circuit.",
+    "publishDate": "2026-06-30",
+    "readTime": "6 min read",
+    "category": "How-To",
+    "excerpt": "Testing a fuse takes seconds \u2014 but replacing one without finding out why it blew is how the same fault takes out the next fuse too."
   },
   {
     "slug": "how-to-test-a-capacitor",
@@ -243,6 +261,15 @@
     "excerpt": "A capacitor that reads the right value on a multimeter can still be completely failed \u2014 if its ESR is too high. Here's every method for testing capacitors properly."
   },
   {
+    "slug": "how-to-test-a-diode",
+    "title": "How to Test a Diode with a Multimeter",
+    "description": "A step-by-step guide to using a multimeter's diode test mode, reading forward voltage drop correctly, and identifying shorted, open, and leaky diodes.",
+    "publishDate": "2026-07-04",
+    "readTime": "6 min read",
+    "category": "How-To",
+    "excerpt": "Diode test mode reveals a component's forward voltage drop in seconds. Learn what a healthy reading looks like and how to catch the three common failure modes."
+  },
+  {
     "slug": "what-is-a-megger",
     "title": "What Is a Megger? How to Use a Megohmmeter for Insulation Testing",
     "description": "Learn what a megger (megohmmeter) is, why you need high voltage to test insulation, which test voltages to use, how to run the test correctly, and how to interpret the Polarisation Index.",
@@ -250,6 +277,15 @@
     "readTime": "9 min read",
     "category": "How-To",
     "excerpt": "A megger tests the one thing a regular multimeter can't \u2014 whether your cable or motor insulation will survive operating voltage without breaking down."
+  },
+  {
+    "slug": "what-is-cat-rating",
+    "title": "What Is a CAT Rating? IEC 61010 Safety Categories Explained",
+    "description": "Understand CAT I through CAT IV safety ratings on multimeters and clamp meters, why they matter more than voltage rating, and how to choose the right one.",
+    "publishDate": "2026-07-08",
+    "readTime": "6 min read",
+    "category": "Guides",
+    "excerpt": "CAT ratings classify measurement locations by transient overvoltage risk \u2014 and a higher voltage number doesn't mean a safer instrument."
   },
   {
     "slug": "function-generator-guide",
@@ -261,6 +297,15 @@
     "excerpt": "A function generator is the signal source that makes every other bench instrument more useful. Here's what it produces, what the specs mean, and how to use it correctly."
   },
   {
+    "slug": "how-to-choose-an-lcr-meter",
+    "title": "How to Choose an LCR Meter: A Buying Guide",
+    "description": "A buying guide to LCR meter test frequency, ESR/D/Q secondary parameters, and 4-terminal measurement \u2014 and when you actually need precision over basic.",
+    "publishDate": "2026-07-12",
+    "readTime": "7 min read",
+    "category": "Buying Guide",
+    "excerpt": "Test frequency changes what an LCR meter reads. Learn why ESR catches failing capacitors a basic tester misses, and how to pick the right tier."
+  },
+  {
     "slug": "how-to-test-a-transformer",
     "title": "How to Test a Transformer: Winding Resistance, Insulation, and Turns Ratio",
     "description": "A complete guide to transformer testing \u2014 winding resistance (open circuit and short circuit detection), insulation resistance, turns ratio test, polarity test, and no-load test.",
@@ -268,6 +313,15 @@
     "readTime": "10 min read",
     "category": "How-To",
     "excerpt": "Transformers fail in five distinct ways and each requires a different test to detect. Here's the complete electrical test sequence for any transformer."
+  },
+  {
+    "slug": "how-to-choose-a-function-generator",
+    "title": "How to Choose a Function Generator: A Buying Guide",
+    "description": "A buying guide to function generator frequency range, waveform types, signal purity, and arbitrary waveform capability.",
+    "publishDate": "2026-07-16",
+    "readTime": "7 min read",
+    "category": "Buying Guide",
+    "excerpt": "From frequency range to arbitrary waveform generation, here's what actually matters when specifying a function generator for your bench."
   },
   {
     "slug": "battery-testing-guide",
@@ -279,6 +333,15 @@
     "excerpt": "A battery that reads 12.5 V can be completely useless. Voltage alone doesn't tell you if a battery can deliver current. Here's how to actually test one."
   },
   {
+    "slug": "how-to-choose-an-oscilloscope",
+    "title": "How to Choose an Oscilloscope: A Buying Guide",
+    "description": "A practical buying guide to oscilloscope bandwidth, sample rate, channel count, and memory depth \u2014 matched to real use cases.",
+    "publishDate": "2026-07-20",
+    "readTime": "8 min read",
+    "category": "Buying Guide",
+    "excerpt": "Bandwidth, sample rate, channels, and memory depth all trade off against each other. Here's how to size an oscilloscope to the signals you actually need to see."
+  },
+  {
     "slug": "harmonic-distortion-explained",
     "title": "Harmonic Distortion Explained: What THD Is and Why It Damages Your Electrical System",
     "description": "Understand harmonic distortion \u2014 what harmonics are, why VFDs and switch-mode supplies generate them, how they damage capacitors, transformers and motors, how to measure THD, and how to mitigate it.",
@@ -286,6 +349,15 @@
     "readTime": "10 min read",
     "category": "Physics",
     "excerpt": "Harmonics are invisible, inaudible, and expensive. They overheat cables, destroy capacitor banks, and trip equipment. Here's what they are and what to do about them."
+  },
+  {
+    "slug": "dc-electronic-load-guide",
+    "title": "What Is a DC Electronic Load? A Complete Guide",
+    "description": "Learn how DC electronic loads work, the four operating modes (CC, CV, CR, CP), and how they're used for battery, power supply, and charger testing.",
+    "publishDate": "2026-07-24",
+    "readTime": "7 min read",
+    "category": "Guides",
+    "excerpt": "A DC electronic load replaces a bank of resistors with a precisely controllable current sink \u2014 essential for battery capacity and power supply testing."
   },
   {
     "slug": "how-to-measure-frequency",
@@ -297,6 +369,15 @@
     "excerpt": "Frequency measurement is simple on a pure sine wave and tricky on VFD outputs. Here's which instrument to use for each application and the common mistakes to avoid."
   },
   {
+    "slug": "infrared-thermometer-guide",
+    "title": "How Infrared Thermometers Work (Non-Contact Temperature Measurement)",
+    "description": "Understand emissivity, distance-to-spot ratio, and the real limitations of non-contact IR temperature measurement for electrical and industrial use.",
+    "publishDate": "2026-07-28",
+    "readTime": "7 min read",
+    "category": "Guides",
+    "excerpt": "IR thermometers read surface temperature instantly without contact \u2014 but emissivity and distance-to-spot ratio can silently distort the reading if ignored."
+  },
+  {
     "slug": "how-to-choose-a-clamp-meter",
     "title": "How to Choose a Clamp Meter: Complete Buying Guide for 2026",
     "description": "A practical buying guide to choosing a clamp meter \u2014 True RMS vs average-responding, jaw size, AC/DC capability, frequency response, CAT safety ratings, in-rush measurement, and use-case recommendations.",
@@ -306,6 +387,15 @@
     "excerpt": "There are clamp meters at every price point \u2014 but the one that reads 30% low on your VFD loads is not saving you money, it's costing you accuracy. Here's what actually matters."
   },
   {
+    "slug": "process-calibrator-guide",
+    "title": "What Is a Process Calibrator? A Complete Guide",
+    "description": "Learn how process calibrators source, measure, and simulate 4-20mA, mV, and thermocouple/RTD signals to verify field instrumentation accuracy.",
+    "publishDate": "2026-08-01",
+    "readTime": "8 min read",
+    "category": "Guides",
+    "excerpt": "Process calibrators inject known reference signals into transmitters and controllers to catch drift before it causes a process problem. Here's how they work."
+  },
+  {
     "slug": "electrical-panel-testing",
     "title": "Electrical Panel Testing: How to Inspect and Test a Distribution Board",
     "description": "A complete guide to testing electrical distribution boards \u2014 visual inspection, voltage testing, load current measurement, insulation resistance testing, RCD testing, and thermal imaging.",
@@ -313,5 +403,23 @@
     "readTime": "10 min read",
     "category": "How-To",
     "excerpt": "The distribution board is the most common location for electrical faults, overheating, and arc flash. Here's the complete systematic test procedure from external check to insulation test."
+  },
+  {
+    "slug": "anemometer-guide",
+    "title": "What Is an Anemometer? Measuring Air Velocity and Airflow",
+    "description": "A guide to vane and hot-wire anemometers \u2014 how they work, how to measure duct airflow correctly, and how to choose the right sensor for HVAC and industrial work.",
+    "publishDate": "2026-08-05",
+    "readTime": "7 min read",
+    "category": "Guides",
+    "excerpt": "Digital anemometers measure air velocity, flow volume, and temperature. Learn the difference between vane and hot-wire sensors and how to run a proper duct traverse."
+  },
+  {
+    "slug": "sound-level-meter-guide",
+    "title": "What Is a Sound Level Meter? A Complete Guide",
+    "description": "Learn how sound level meters work, what A-weighting and Type 1 vs Type 2 accuracy mean, and how to choose the right instrument for noise measurement.",
+    "publishDate": "2026-08-09",
+    "readTime": "7 min read",
+    "category": "Guides",
+    "excerpt": "Sound level meters convert acoustic pressure into a decibel reading engineers can act on. This guide explains weighting, time response, accuracy class, and calibration."
   }
 ]

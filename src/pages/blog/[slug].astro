@@ -37,6 +37,18 @@ import HarmonicsGuide from '../../content/blog/harmonic-distortion-explained.ast
 import FrequencyGuide from '../../content/blog/how-to-measure-frequency.astro';
 import ClampBuyingGuide from '../../content/blog/how-to-choose-a-clamp-meter.astro';
 import PanelTestingGuide from '../../content/blog/electrical-panel-testing.astro';
+import SoundLevelMeterGuide from '../../content/blog/sound-level-meter-guide.astro';
+import AnemometerGuide from '../../content/blog/anemometer-guide.astro';
+import ProcessCalibratorGuide from '../../content/blog/process-calibrator-guide.astro';
+import InfraredThermometerGuide from '../../content/blog/infrared-thermometer-guide.astro';
+import DcElectronicLoadGuide from '../../content/blog/dc-electronic-load-guide.astro';
+import ChooseOscilloscopeGuide from '../../content/blog/how-to-choose-an-oscilloscope.astro';
+import ChooseFunctionGeneratorGuide from '../../content/blog/how-to-choose-a-function-generator.astro';
+import ChooseLcrMeterGuide from '../../content/blog/how-to-choose-an-lcr-meter.astro';
+import CatRatingGuide from '../../content/blog/what-is-cat-rating.astro';
+import DiodeTestGuide from '../../content/blog/how-to-test-a-diode.astro';
+import FuseTestGuide from '../../content/blog/how-to-test-a-fuse.astro';
+import OscilloscopeBandwidthGuide from '../../content/blog/oscilloscope-bandwidth-explained.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -81,6 +93,18 @@ const contentMap: Record<string, any> = {
   'how-to-measure-frequency': FrequencyGuide,
   'how-to-choose-a-clamp-meter': ClampBuyingGuide,
   'electrical-panel-testing': PanelTestingGuide,
+  'sound-level-meter-guide': SoundLevelMeterGuide,
+  'anemometer-guide': AnemometerGuide,
+  'process-calibrator-guide': ProcessCalibratorGuide,
+  'infrared-thermometer-guide': InfraredThermometerGuide,
+  'dc-electronic-load-guide': DcElectronicLoadGuide,
+  'how-to-choose-an-oscilloscope': ChooseOscilloscopeGuide,
+  'how-to-choose-a-function-generator': ChooseFunctionGeneratorGuide,
+  'how-to-choose-an-lcr-meter': ChooseLcrMeterGuide,
+  'what-is-cat-rating': CatRatingGuide,
+  'how-to-test-a-diode': DiodeTestGuide,
+  'how-to-test-a-fuse': FuseTestGuide,
+  'oscilloscope-bandwidth-explained': OscilloscopeBandwidthGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -353,6 +377,90 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'insulation-resistance', label: 'Insulation Resistance Test' },
     { id: 'rcd-testing', label: 'RCD Testing' },
     { id: 'thermal-imaging', label: 'Thermal Imaging' },
+  ],
+  'sound-level-meter-guide': [
+    { id: 'how-it-works', label: 'How It Works' },
+    { id: 'weighting', label: 'A-Weighting and C-Weighting' },
+    { id: 'time-weighting', label: 'Time Weighting' },
+    { id: 'accuracy-class', label: 'Type 1 vs Type 2' },
+    { id: 'calibration', label: 'Field Calibration' },
+    { id: 'applications', label: 'Common Applications' },
+  ],
+  'anemometer-guide': [
+    { id: 'sensor-types', label: 'Vane, Hot-Wire, Cup' },
+    { id: 'measured-quantities', label: 'What It Measures' },
+    { id: 'duct-measurement', label: 'Measuring Duct Airflow' },
+    { id: 'accuracy-response', label: 'Accuracy and Response Time' },
+    { id: 'applications', label: 'Common Applications' },
+  ],
+  'process-calibrator-guide': [
+    { id: 'why-calibrate', label: 'Why Instrumentation Needs Calibration' },
+    { id: 'source-vs-measure', label: 'Source, Measure, Simulate' },
+    { id: '4-20ma-loop', label: 'The 4–20 mA Loop' },
+    { id: 'temperature-simulation', label: 'Thermocouple/RTD Simulation' },
+    { id: 'accuracy-traceability', label: 'Accuracy and Traceability' },
+    { id: 'choosing', label: 'Choosing a Calibrator' },
+  ],
+  'infrared-thermometer-guide': [
+    { id: 'how-it-works', label: 'How It Works' },
+    { id: 'emissivity', label: 'Emissivity' },
+    { id: 'd-s-ratio', label: 'Distance-to-Spot Ratio' },
+    { id: 'what-it-cant-do', label: 'What It Cannot Do' },
+    { id: 'applications', label: 'Common Applications' },
+  ],
+  'dc-electronic-load-guide': [
+    { id: 'how-it-works', label: 'How It Works' },
+    { id: 'operating-modes', label: 'The Four Operating Modes' },
+    { id: 'battery-testing', label: 'Battery Discharge Testing' },
+    { id: 'power-supply-testing', label: 'Power Supply Testing' },
+    { id: 'key-specs', label: 'Key Specifications' },
+  ],
+  'how-to-choose-an-oscilloscope': [
+    { id: 'bandwidth', label: 'Bandwidth' },
+    { id: 'sample-rate', label: 'Sample Rate' },
+    { id: 'channels', label: 'Number of Channels' },
+    { id: 'memory-depth', label: 'Memory Depth' },
+    { id: 'probes', label: 'Probes' },
+    { id: 'buying-summary', label: 'Quick Reference' },
+  ],
+  'how-to-choose-a-function-generator': [
+    { id: 'frequency-range', label: 'Frequency Range' },
+    { id: 'waveform-types', label: 'Waveform Types' },
+    { id: 'signal-purity', label: 'Amplitude Accuracy & Distortion' },
+    { id: 'output-characteristics', label: 'Output Impedance' },
+    { id: 'modulation-sweep', label: 'Modulation and Sweep' },
+    { id: 'buying-summary', label: 'Quick Reference' },
+  ],
+  'how-to-choose-an-lcr-meter': [
+    { id: 'test-frequency', label: 'Test Frequency' },
+    { id: 'secondary-parameters', label: 'ESR, D, and Q' },
+    { id: 'basic-vs-precision', label: 'Basic vs Precision' },
+    { id: 'measurement-range', label: 'Measurement Range' },
+    { id: 'test-leads', label: 'Test Lead Configuration' },
+    { id: 'buying-summary', label: 'Quick Reference' },
+  ],
+  'what-is-cat-rating': [
+    { id: 'why-it-exists', label: 'Why CAT Ratings Exist' },
+    { id: 'categories', label: 'The Four Categories' },
+    { id: 'choosing-the-right-cat', label: 'Choosing the Right CAT' },
+    { id: 'whole-chain', label: 'The Whole Measurement Chain' },
+  ],
+  'how-to-test-a-diode': [
+    { id: 'diode-test-mode', label: 'Using Diode Test Mode' },
+    { id: 'fault-modes', label: 'The Three Failure Modes' },
+    { id: 'in-circuit-caution', label: 'Testing In-Circuit' },
+  ],
+  'how-to-test-a-fuse': [
+    { id: 'continuity-method', label: 'Continuity Method' },
+    { id: 'voltage-method', label: 'In-Circuit Voltage Method' },
+    { id: 'why-it-blew', label: 'Why a Fuse Blows' },
+    { id: 'replacement-rules', label: 'Replacement Rules' },
+  ],
+  'oscilloscope-bandwidth-explained': [
+    { id: 'what-bandwidth-means', label: 'What Bandwidth Means' },
+    { id: 'rise-time-link', label: 'The Rise Time Connection' },
+    { id: 'the-5x-rule', label: 'The 5× Rule' },
+    { id: 'why-it-matters-for-digital', label: 'Why It Matters for Digital' },
   ],
 };
 

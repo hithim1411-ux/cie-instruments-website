@@ -1,0 +1,65 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A function generator produces precise, adjustable electrical waveforms — sine, square, triangle, pulse, and often arbitrary custom shapes — used to stimulate a circuit so its response can be measured, usually alongside an oscilloscope. Choosing the right one comes down to matching frequency range, waveform types, and signal purity to the circuits you're testing. This guide covers the specifications that actually matter.
+</p>
+
+<h2 id="frequency-range">Frequency Range</h2>
+
+<p>
+  Specify frequency range the same way you'd specify oscilloscope bandwidth: comfortably above the highest frequency you need to generate, with margin for testing a circuit's response beyond its nominal operating frequency. Audio and low-frequency electronics work rarely needs more than a few MHz; RF and high-speed digital work needs generators rated well into the tens or hundreds of MHz. Buying more range than you need is wasted budget — but running out of range mid-project means the instrument can't do the job at all.
+</p>
+
+<h2 id="waveform-types">Waveform Types</h2>
+
+<ul>
+  <li><strong>Sine</strong>: The fundamental test waveform for frequency response, filter, and amplifier testing — the cleanest single-frequency stimulus.</li>
+  <li><strong>Square</strong>: Rich in odd harmonics, useful for testing a circuit's transient and high-frequency response, and for clock/logic-level simulation.</li>
+  <li><strong>Triangle/Sawtooth</strong>: Used for linear ramp testing, sweep generation, and some analog circuit characterisation.</li>
+  <li><strong>Pulse</strong>: Adjustable width and duty cycle, used for digital logic testing and simulating switching waveforms.</li>
+  <li><strong>Arbitrary waveform (AWG)</strong>: Lets you define and output any custom waveform shape — essential for simulating real-world signals (sensor outputs, communication waveforms, fault conditions) that standard shapes can't replicate.</li>
+</ul>
+
+<Callout type="tip" title="If you only test standard shapes today, still consider AWG capability">
+  A standard function generator locks you into its built-in shapes. An arbitrary waveform generator (AWG) can reproduce all of them plus any custom or recorded waveform — including simulated fault conditions and noise-injected signals — which matters the moment a project needs something the standard shape library doesn't cover.
+</Callout>
+
+<h2 id="signal-purity">Amplitude Accuracy, Distortion, and Jitter</h2>
+
+<p>
+  Three purity specifications separate a precision instrument from a basic one: <strong>amplitude accuracy</strong> (how close the actual output level matches the displayed setting), <strong>total harmonic distortion</strong> (how close a "pure" sine wave actually is to a true single frequency), and <strong>jitter/phase noise</strong> (short-term timing instability in the output). For calibration work or precision filter characterisation, low THD and tight amplitude accuracy matter directly. For general stimulus/response bench testing, these specifications matter less than frequency range and waveform flexibility.
+</p>
+
+<h2 id="output-characteristics">Output Impedance and Amplitude Range</h2>
+
+<p>
+  Most function generators have a 50 Ω output impedance designed to match standard coaxial test cabling — driving a high-impedance load with a 50 Ω-rated generator without accounting for the mismatch will show double the intended amplitude on the scope, a common source of confusion for anyone new to signal generation. Check the generator's amplitude range covers both the low end (mV-level signals for sensitive amplifier input testing) and the high end (several volts for driving power stages or simulating larger signals) needed for your work.
+</p>
+
+<h2 id="modulation-sweep">Modulation and Sweep</h2>
+
+<p>
+  Built-in AM, FM, PM, and frequency sweep functions let a single instrument simulate more complex real-world signal behaviour — useful for testing a receiver's demodulation, a filter's response across a frequency range, or a control loop's behaviour under a changing input — without needing separate modulation hardware.
+</p>
+
+<h2 id="channels-sync">Number of Channels and Synchronisation</h2>
+
+<p>
+  Dual-channel generators can output two independent (or phase-locked) signals simultaneously — needed for differential signal testing, two-tone intermodulation testing, or simulating multi-phase systems. A single-channel generator is adequate for most single-stimulus bench work.
+</p>
+
+<h2 id="buying-summary">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>General electronics bench / education</strong>: Single channel, up to a few MHz, sine/square/triangle/pulse, basic AM/FM.</li>
+  <li><strong>Audio and filter design work</strong>: Low THD sine output, fine frequency resolution, sweep function for frequency response plotting.</li>
+  <li><strong>Digital/embedded testing</strong>: Pulse mode with adjustable duty cycle and logic-level amplitude, dual channel for clock + data simulation.</li>
+  <li><strong>Advanced R&D / simulation</strong>: Arbitrary waveform capability, dual channel, wide frequency range, modulation and sweep functions.</li>
+</ul>
+
+<p>
+  CIE supplies <a href={u('/products/vartech-function-generators/')}>Vartech function and signal generators</a> across a range of frequency outputs and waveform capabilities. <a href={u('/contact/')}>Contact us</a> to match a model to your test requirements.
+</p>

@@ -1,0 +1,72 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  The <strong>CAT rating</strong> printed on a multimeter, clamp meter, or test lead is a safety classification defined by IEC 61010 — it tells you where in an electrical installation the instrument is safe to use, based on the energy available at that point during a transient overvoltage event. Using an instrument with the wrong CAT rating for its environment is one of the most common and most dangerous mistakes in electrical measurement work. This guide explains what the categories actually mean and how to apply them.
+</p>
+
+<h2 id="why-it-exists">Why CAT Ratings Exist</h2>
+
+<p>
+  A fault or lightning strike anywhere on the electrical grid can cause a brief, very high-energy voltage transient that propagates through the wiring. How large that transient can get, and how much energy it carries, depends entirely on how close the measurement point is to the utility source — closer to the source means lower source impedance, which means a transient can deliver dramatically more destructive energy into a test instrument. CAT ratings classify locations by this transient energy risk, not by the instrument's steady-state voltage rating.
+</p>
+
+<Callout type="warning" title="Voltage rating and CAT rating are not the same thing">
+  A meter rated "1000 V" is not automatically safe in a high-energy environment. A CAT II 1000 V meter is rated for higher steady-state voltage but lower transient energy than a CAT III 600 V meter — and using the CAT II meter at a distribution board can be genuinely more dangerous than using the CAT III meter, despite its higher voltage number. Always check the CAT category first, voltage second.
+</Callout>
+
+<h2 id="categories">The Four CAT Categories</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">IEC 61010 CAT categories</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Category</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Where it applies</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">CAT I</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">Electronic circuits protected by design (signal-level, low-energy) — not mains-connected equipment</td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">CAT II</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">Single-phase outlets and equipment plugged into a wall socket — domestic appliances, portable tools</td>
+      </tr>
+      <tr class="bg-white">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">CAT III</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">Fixed installation wiring — distribution boards, feeders, motor control panels, permanently wired equipment</td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">CAT IV</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">The origin of the installation — utility service entrance, main incoming supply, overhead/underground service lines</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+  Each category is also paired with a voltage figure — for example CAT III 600 V — and a higher CAT category at a given voltage always represents a more demanding rating. A CAT IV 600 V meter is rated for a more severe transient environment than a CAT III 600 V meter, even though the steady-state voltage number is identical.
+</p>
+
+<h2 id="choosing-the-right-cat">Choosing the Right CAT Rating for Your Work</h2>
+
+<ul>
+  <li><strong>Domestic and light commercial electrical work</strong>: CAT III 300 V is generally the practical minimum for anyone working on distribution boards, not just plug-in equipment.</li>
+  <li><strong>Industrial maintenance electricians</strong>: CAT III 600 V is the standard baseline; CAT IV 600 V is preferred if there is any chance of working near the service entrance or main incoming supply.</li>
+  <li><strong>Utility and service-entrance work</strong>: CAT IV is mandatory — this is the highest-energy environment defined by the standard.</li>
+</ul>
+
+<h2 id="whole-chain">The Rating Applies to the Whole Measurement Chain</h2>
+
+<p>
+  A meter's CAT rating is only as good as the test leads connected to it. Using CAT II-rated leads with a CAT III meter reduces the effective safety of the whole measurement to the lowest-rated component in the chain. Always check that test leads, probes, and any clamp accessories carry a CAT rating equal to or higher than the meter itself, and inspect leads regularly for cracked insulation — a common and easily overlooked safety failure.
+</p>
+
+<p>
+  CIE supplies <a href={u('/products/multimeters/')}>digital multimeters</a> and <a href={u('/products/clamp-meters/')}>clamp meters</a> with CAT ratings suited to industrial and utility environments. <a href={u('/contact/')}>Contact us</a> to confirm the right CAT rating for your application.
+</p>

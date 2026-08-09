@@ -1,0 +1,80 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  An LCR meter measures inductance (L), capacitance (C), and resistance (R) — and, on better instruments, the secondary parameters that reveal a component's real-world condition, not just its nominal value. Choosing the right one means matching test frequency, accuracy, and measurement range to the components you actually work with. This guide covers the specifications that separate a basic component checker from a precision LCR meter.
+</p>
+
+<h2 id="test-frequency">Test Frequency — Why It Changes the Reading</h2>
+
+<p>
+  A component's measured inductance or capacitance is not a fixed physical constant — it varies with the frequency at which it's tested, because real components have parasitic effects (winding capacitance in an inductor, equivalent series inductance in a capacitor) that become significant at different frequencies. This is why an LCR meter always specifies the test frequency alongside its reading, and why comparing two measurements taken at different test frequencies is not valid. Most general-purpose LCR meters test at a fixed 100 Hz, 120 Hz, 1 kHz, or 10 kHz; higher-end models let you select the test frequency to match the component's actual operating frequency in-circuit.
+</p>
+
+<Callout type="info" title="Always test at (or near) the component's working frequency">
+  A filter capacitor destined for a 100 kHz switch-mode supply will not show its true in-circuit behaviour when measured at 120 Hz — its ESR and effective capacitance both shift with frequency. For power electronics and RF work, an LCR meter with selectable test frequency gives a far more representative reading than a fixed-frequency instrument.
+</Callout>
+
+<h2 id="secondary-parameters">Secondary Parameters — ESR, D, and Q</h2>
+
+<p>Beyond the primary L, C, or R reading, LCR meters report secondary parameters that reveal how close a component is to ideal behaviour:</p>
+
+<ul>
+  <li><strong>ESR (Equivalent Series Resistance)</strong>: The resistive loss inside a capacitor. A capacitor with a normal capacitance reading but abnormally high ESR is a classic sign of an ageing or drying-out electrolytic capacitor — one of the most common real-world component failures, and one a basic capacitance-only tester will completely miss.</li>
+  <li><strong>D (Dissipation Factor)</strong>: The ratio of a capacitor's resistive loss to its reactive (ideal) behaviour — lower is better, and a rising D value over a component's life is an early warning of degradation.</li>
+  <li><strong>Q (Quality Factor)</strong>: The inverse concept for inductors — the ratio of an inductor's reactance to its internal resistance, higher is better. Q is central to evaluating inductors and coils for RF and resonant circuit work.</li>
+</ul>
+
+<h2 id="basic-vs-precision">Basic Component Checkers vs. Precision LCR Meters</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Choosing the right tier</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Tier</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Typical capability</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Best for</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">Basic handheld</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">Fixed test frequency, L/C/R only, ±1% typical accuracy</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Component sorting, incoming-goods checks, general repair bench</td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">Precision bench</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">Selectable test frequency, ESR/D/Q secondary parameters, ±0.1–0.5% accuracy</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Component qualification, capacitor health diagnostics, R&D, power electronics design</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="measurement-range">Measurement Range</h2>
+
+<p>
+  Confirm the meter's range covers both ends of what you actually work with — small-signal capacitors down to picofarads and inductors down to microhenries need meaningfully different sensitivity than large electrolytic capacitors in the thousands of microfarads or power inductors in the millihenry range. A meter optimised for small precision components may not read large electrolytic capacitors accurately, and vice versa.
+</p>
+
+<h2 id="test-leads">Test Lead Configuration</h2>
+
+<p>
+  Precision LCR measurement uses a 4-terminal (Kelvin) connection — separate current-carrying and voltage-sensing leads — to eliminate the resistance of the test leads themselves from the measurement. This matters most for low-value resistance and ESR readings, where lead resistance (a few tens of milliohms) can be a significant fraction of the value being measured. A simple 2-terminal connection is adequate for general L/C measurement where lead resistance is negligible relative to the reading.
+</p>
+
+<h2 id="buying-summary">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>General repair / component sorting</strong>: Fixed frequency, basic L/C/R, auto-ranging.</li>
+  <li><strong>Capacitor health diagnostics</strong>: ESR measurement is the priority — look for a meter with dedicated in-circuit or out-of-circuit ESR mode.</li>
+  <li><strong>Power electronics / magnetics design</strong>: Selectable test frequency matching actual switching frequency, Q measurement for inductor/transformer design.</li>
+  <li><strong>Incoming inspection / QC</strong>: Higher accuracy class, 4-terminal test leads, repeatable fixture-based measurement.</li>
+</ul>
+
+<p>
+  CIE supplies <a href={u('/products/vartech-lcr-meters/')}>Vartech LCR and capacitance meters</a> across basic and precision tiers. <a href={u('/contact/')}>Contact us</a> to match a model to your component range and accuracy needs.
+</p>

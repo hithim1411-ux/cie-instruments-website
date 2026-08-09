@@ -1,0 +1,73 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A <strong>process calibrator</strong> is an instrument that generates and/or measures precise electrical signals — mA, mV, V, and simulated temperature sensor signals — to verify that field instrumentation (transmitters, PLCs, chart recorders, indicators) is reading and controlling correctly. Where a multimeter tells you what a circuit is doing, a calibrator lets you inject a known, traceable reference signal and check the instrument's response against it. This guide covers what process calibrators do, the signal types involved, and how to choose one.
+</p>
+
+<h2 id="why-calibrate">Why Process Instrumentation Needs Calibration</h2>
+
+<p>
+  Field transmitters, indicators, and control loops drift over time due to component ageing, temperature effects, and mechanical wear. A pressure transmitter reading 2% high doesn't announce itself — the process still runs, just against a wrong number. Scheduled calibration against a traceable reference is how that drift gets caught before it causes a quality problem, a safety incident, or an unplanned shutdown. In regulated industries (pharma, food, oil & gas), calibration records are also a compliance requirement, not just good practice.
+</p>
+
+<h2 id="source-vs-measure">Source, Measure, and Simulate</h2>
+
+<p>Process calibrators operate in three modes, and most instruments combine two or more:</p>
+
+<ul>
+  <li><strong>Source (generate)</strong>: Outputs a precise signal — say, a fixed 12.000 mA current or a 4.00 mV signal — that feeds into the device under test so you can check its display or downstream response.</li>
+  <li><strong>Measure</strong>: Reads an incoming signal from a live transmitter or loop with reference-grade accuracy, used to verify what the field device is actually outputting.</li>
+  <li><strong>Simulate</strong>: Mimics the output of a sensor — most commonly a thermocouple or RTD — so a PLC, indicator, or controller downstream can be checked without needing the physical sensor connected.</li>
+</ul>
+
+<h2 id="4-20ma-loop">The 4–20 mA Loop — The Industry Standard</h2>
+
+<p>
+  The 4–20 mA current loop is the dominant signal standard in process instrumentation, and it's why "mA calibrator" and "process calibrator" are often used interchangeably. Using current rather than voltage makes the signal immune to voltage drop over long cable runs — the same current flows through every point in a series loop regardless of wire resistance, so the reading at the receiving end is accurate even over hundreds of metres of cabling.
+</p>
+
+<table class="w-full text-sm border-collapse my-8">
+  <thead>
+    <tr class="bg-gray-100">
+      <th class="text-left px-4 py-2 border-b border-gray-200 text-xs font-semibold text-gray-600">Signal</th>
+      <th class="text-left px-4 py-2 border-b border-gray-200 text-xs font-semibold text-gray-600">Represents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="px-4 py-2 border-b border-gray-100 text-xs font-mono">4 mA</td><td class="px-4 py-2 border-b border-gray-100 text-xs text-gray-600">0% of measured range (live-zero — distinguishes "at zero" from "loop broken/dead")</td></tr>
+    <tr><td class="px-4 py-2 border-b border-gray-100 text-xs font-mono">20 mA</td><td class="px-4 py-2 border-b border-gray-100 text-xs text-gray-600">100% of measured range</td></tr>
+    <tr><td class="px-4 py-2 border-b border-gray-100 text-xs font-mono">Below 3.8 mA</td><td class="px-4 py-2 border-b border-gray-100 text-xs text-gray-600">Typically flagged as a fault/broken-loop condition by the receiving instrument</td></tr>
+  </tbody>
+</table>
+
+<Callout type="info" title="Why 4 mA and not 0 mA for zero">
+  If the signal range started at 0 mA, there would be no way to distinguish "the process is genuinely at zero" from "the wire is cut" or "the transmitter has lost power" — both would read 0 mA. Starting the live range at 4 mA means anything below that is unambiguously a fault, which is why it's called a live-zero signal.
+</Callout>
+
+<h2 id="temperature-simulation">Thermocouple and RTD Simulation</h2>
+
+<p>
+  Temperature calibrators go a step further than mA/mV sourcing — they simulate the exact millivolt or resistance output a real thermocouple or RTD would produce at a chosen temperature, referencing the correct standard curve for that sensor type (J, K, T, R, S thermocouples; Pt100, Pt1000 RTDs). This lets a technician check a temperature transmitter's calibration at, say, 500°C without needing a furnace or ice bath — the calibrator's output looks electrically identical to what the real sensor would produce.
+</p>
+
+<h2 id="accuracy-traceability">Accuracy and Traceability</h2>
+
+<p>
+  A calibrator's own accuracy must be meaningfully better than the accuracy of the device it's calibrating — as a rule of thumb, at least 4 times better (a 4:1 test uncertainty ratio) so the calibrator's own error doesn't swallow the pass/fail margin. The calibrator itself should carry a valid calibration certificate traceable to a national standards body; an out-of-calibration calibrator invalidates every calibration performed with it.
+</p>
+
+<h2 id="choosing">Choosing a Process Calibrator</h2>
+
+<ul>
+  <li><strong>Loop-powered vs. self-powered</strong>: Confirm whether the calibrator can power a 2-wire loop itself, or whether it needs an external loop supply — this determines what you can test without extra equipment.</li>
+  <li><strong>Signal types supported</strong>: mA, mV, V, and thermocouple/RTD simulation cover most plant instrumentation; some applications also need frequency, resistance, or pressure modules.</li>
+  <li><strong>Documenting vs. non-documenting</strong>: Documenting calibrators log pass/fail results and generate calibration certificates automatically — valuable in regulated environments, unnecessary overhead for a general maintenance bench.</li>
+  <li><strong>Portability</strong>: Field calibration work (checking a transmitter in situ on a process line) favours a rugged, battery-powered handheld unit over a bench instrument.</li>
+</ul>
+
+<p>
+  CIE supplies <a href={u('/products/vartech-calibrators/')}>Vartech process calibrators</a> covering mA, mV, and temperature simulation for instrumentation maintenance. <a href={u('/contact/')}>Contact us</a> to match a calibrator to your loop and sensor types.
+</p>

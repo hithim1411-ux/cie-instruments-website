@@ -1,0 +1,90 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A <strong>sound level meter</strong> is an instrument that measures acoustic sound pressure and converts it into a decibel (dB) reading — a number that reflects how loud a sound is to the human ear. It is the standard tool for workplace noise assessment, environmental noise compliance, HVAC commissioning, and product noise testing. This guide covers how sound level meters work, what the readings actually mean, and how to pick the right instrument for your application.
+</p>
+
+<h2 id="how-it-works">How a Sound Level Meter Works</h2>
+
+<p>
+  Sound arrives at the meter's microphone as a pressure wave, which the microphone converts into an electrical signal proportional to the instantaneous sound pressure. Because the human ear can detect a pressure range spanning roughly a millionfold, sound level meters compress this into a logarithmic decibel scale referenced to 20 micropascals (μPa) — the threshold of human hearing at 1 kHz. A doubling of perceived loudness corresponds to roughly a 10 dB increase, not a doubling of the number.
+</p>
+
+<p>
+  After the microphone stage, the signal passes through a frequency-weighting filter and a time-weighting (averaging) circuit before being displayed as a single dB value. Both stages exist because raw sound pressure doesn't match how loud a sound actually seems to a person.
+</p>
+
+<h2 id="weighting">A-Weighting, C-Weighting, and Why It Matters</h2>
+
+<p>The human ear is not equally sensitive at all frequencies — it is far less sensitive to very low and very high frequencies than to the 1–4 kHz range where speech sits. Weighting filters correct the meter's reading to match this.</p>
+
+<ul>
+  <li><strong>A-weighting (dBA)</strong>: Rolls off low and high frequencies to mimic human hearing at moderate volumes. This is the standard weighting for occupational noise exposure, environmental noise limits, and almost every regulatory noise standard.</li>
+  <li><strong>C-weighting (dBC)</strong>: Nearly flat across the audible range, used for peak/impulse noise measurement (gunfire, impact machinery, explosions) where low-frequency energy matters and A-weighting would understate it.</li>
+  <li><strong>Z-weighting (dBZ)</strong>: No weighting at all — a flat, unfiltered reading used for acoustic engineering and lab work where the true pressure spectrum is needed.</li>
+</ul>
+
+<Callout type="info" title="If your datasheet just says 'dB', it's almost certainly dBA">
+  Workplace noise regulations worldwide (India's Factories Act noise limits included) are written in dBA. When comparing a machine's rated noise output against a legal limit, confirm both figures use the same weighting — comparing a dBC spec against a dBA limit produces a meaningless number.
+</Callout>
+
+<h2 id="time-weighting">Time Weighting — Fast, Slow, and Impulse</h2>
+
+<p>
+  Sound level fluctuates constantly, so the meter must average it over some time window before displaying a number. <strong>Fast</strong> (125 ms time constant) tracks quickly changing sound and is the default for general noise surveys. <strong>Slow</strong> (1 s) smooths out fluctuations for a more stable, readable display in variable environments. <strong>Impulse</strong> (35 ms rise, 1.5 s decay) is designed to capture short, sharp transients — hammer blows, punch presses, gunshots — that Fast weighting would understate.
+</p>
+
+<h2 id="accuracy-class">Accuracy Class — Type 1 vs. Type 2</h2>
+
+<p>
+  IEC 61672 defines two accuracy classes for sound level meters, and the class you need depends on why you're measuring.
+</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Type 1 vs. Type 2 sound level meters</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Class</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Typical tolerance</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Used for</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">Type 1 (precision)</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">±0.7 dB</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Legal/regulatory compliance, environmental impact studies, product noise certification, lab acoustic testing</td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">Type 2 (general purpose)</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">±1 dB</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Workplace noise surveys, HVAC/machinery troubleshooting, general industrial hygiene checks</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>For most factory floor noise surveys and preliminary workplace assessments, a Type 2 meter is sufficient and considerably more affordable. Reach for Type 1 only when the reading will be used as legal or certification evidence, or where the tolerance genuinely affects the outcome.</p>
+
+<h2 id="calibration">Field Calibration</h2>
+
+<p>
+  Every measurement session should start with a field calibration check using an acoustic calibrator — a small device that clamps over the microphone and produces a known, fixed sound pressure level (typically 94 dB or 114 dB at 1 kHz). If the meter's reading doesn't match the calibrator's rated output within tolerance, the meter needs servicing before the readings can be trusted. This takes under a minute and is standard practice before any recorded measurement.
+</p>
+
+<h2 id="applications">Common Applications</h2>
+
+<ul>
+  <li><strong>Occupational noise exposure</strong>: Spot checks and time-weighted average (Leq) surveys to confirm workers aren't exposed above statutory limits, and to identify where hearing protection is required.</li>
+  <li><strong>Environmental/boundary noise</strong>: Measuring noise at a factory or DG-set boundary against local pollution control board limits.</li>
+  <li><strong>HVAC and machinery diagnostics</strong>: Comparing before/after noise levels when troubleshooting a noisy bearing, fan, or compressor.</li>
+  <li><strong>Product and equipment testing</strong>: Verifying a manufactured product's noise output against a datasheet specification.</li>
+</ul>
+
+<p>
+  CIE supplies <a href={u('/products/vartech-sound-level-meters/')}>Vartech digital sound level meters</a> for industrial hygiene, HVAC, and general noise survey work. <a href={u('/contact/')}>Contact us</a> to discuss the accuracy class and range suited to your application.
+</p>

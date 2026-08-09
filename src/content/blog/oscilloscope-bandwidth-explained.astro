@@ -1,0 +1,49 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Bandwidth is the single most important — and most frequently misunderstood — specification on an oscilloscope. It's usually read as "the highest frequency the scope can show," which is close but misses the actual mechanism, and misses why bandwidth matters even when you're not measuring a high-frequency sine wave at all. This article explains what bandwidth actually measures and how it connects directly to rise time.
+</p>
+
+<h2 id="what-bandwidth-means">What "Bandwidth" Actually Means</h2>
+
+<p>
+  An oscilloscope's analog front end behaves like a low-pass filter: as input frequency increases, the scope's ability to faithfully reproduce the signal's true amplitude gradually rolls off. <strong>Bandwidth is defined as the frequency at which a sine wave input is attenuated to 70.7% (−3 dB) of its true amplitude.</strong> Below that frequency, the displayed amplitude is accurate to within a small tolerance. At and above it, the scope is already understating the signal — the −3 dB point isn't a hard cliff, it's the point where meaningful, ongoing error begins.
+</p>
+
+<h2 id="rise-time-link">The Rise Time Connection</h2>
+
+<p>
+  This is the part that surprises people who don't work with fast digital signals: bandwidth doesn't only affect sine waves. Every signal edge — a square wave, a digital logic transition, a switching waveform — is mathematically built from a sum of a fundamental frequency plus its harmonics extending well beyond it. A scope's bandwidth limits how much of that harmonic content it can display, which directly limits how sharp an edge it can show. This relationship has a simple, commonly used approximation:
+</p>
+
+<div class="my-8 rounded-xl bg-ink text-white p-6 text-center">
+  <p class="font-mono text-lg mb-2">Rise time (10–90%) ≈ 0.35 / Bandwidth</p>
+  <p class="text-xs text-gray-400">For a scope with Gaussian frequency response — the standard approximation used across the industry</p>
+</div>
+
+<p>
+  A 100 MHz scope, by this approximation, can resolve edges down to roughly 3.5 ns — faster edges than that get rounded off and displayed slower than they really are, regardless of how fast your sample rate is. This is why a scope with plenty of sample rate but insufficient bandwidth still can't show a fast digital edge accurately: sample rate determines how many dots make up the trace, bandwidth determines whether the analog front end even preserves the true shape before it gets to the ADC.
+</p>
+
+<Callout type="warning" title="A high sample rate does not compensate for low bandwidth">
+  These are two separate limitations. Bandwidth is an analog front-end property that rounds off fast edges before digitisation even happens. Sample rate is how finely the (already-rounded) signal gets digitised afterward. A scope with a very high sample rate but only 20 MHz of bandwidth will smoothly and confidently display a wrong, slowed-down version of a fast edge — the extra sample rate can't recover detail the front end already threw away.
+</Callout>
+
+<h2 id="the-5x-rule">The 5× Rule for Choosing Bandwidth</h2>
+
+<p>
+  Because the −3 dB point already represents meaningful attenuation, practical measurement work needs bandwidth well above the highest frequency of interest — the standard rule of thumb is <strong>5 times the highest frequency component you need to measure accurately</strong>. This gives enough margin that the frequencies you care about sit comfortably in the flat, accurate part of the scope's response rather than right at the point where roll-off begins.
+</p>
+
+<h2 id="why-it-matters-for-digital">Why This Matters Even for "Slow" Signals</h2>
+
+<p>
+  A microcontroller running at a modest clock speed still produces logic edges that transition in a few nanoseconds — the clock <em>frequency</em> is slow, but the edge <em>speed</em> is fast, and it's the edge speed that determines the harmonic content and therefore the bandwidth needed to see it accurately. This is the most common way engineers under-specify an oscilloscope: sizing bandwidth to the nominal signal frequency instead of to the fastest actual transition present in the signal.
+</p>
+
+<p>
+  CIE supplies <a href={u('/products/vartech-oscilloscopes/')}>Vartech digital storage oscilloscopes</a> across a range of bandwidths for electronics, power, and digital signal work. <a href={u('/contact/')}>Contact us</a> to size bandwidth correctly for your application.
+</p>

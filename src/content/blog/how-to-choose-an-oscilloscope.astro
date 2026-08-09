@@ -1,0 +1,61 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Choosing an oscilloscope means matching a handful of core specifications — bandwidth, sample rate, channel count, and memory depth — to the signals you actually need to see. Buying more than you need wastes budget; buying less means real signal detail gets lost before it ever reaches the screen. This guide walks through every specification that matters, in the order you should actually think about them.
+</p>
+
+<h2 id="bandwidth">Bandwidth — Start Here</h2>
+
+<p>
+  Bandwidth is the frequency at which the scope's front end attenuates a signal to 70.7% of its true amplitude — in practice, the ceiling on what the scope can display without distorting it. The common rule of thumb is to choose bandwidth at least <strong>5 times the highest frequency component</strong> you need to measure accurately, not just the nominal signal frequency. A 10 MHz square wave, for instance, contains meaningful harmonic content well above 10 MHz — under-specifying bandwidth rounds off its edges and understates its true rise time.
+</p>
+
+<Callout type="info" title="Match bandwidth to the fastest edge, not the slowest frequency">
+  A 50 Hz mains signal only needs a few kHz of bandwidth to display accurately. But if you're also probing microcontroller I/O, PWM switching edges, or digital communication lines on the same bench, size the scope for the fastest edge you'll ever need to see — not the average job.
+</Callout>
+
+<h2 id="sample-rate">Sample Rate</h2>
+
+<p>
+  Sample rate determines how many data points per second the scope's ADC captures — and it must comfortably exceed the Nyquist minimum of 2× the signal frequency to avoid aliasing. In practice, look for a real-time sample rate of at least <strong>5–10 times the scope's bandwidth</strong> on all active channels simultaneously. Some scopes quote an attractive peak sample rate that only applies with a single channel active or in an interleaved mode — check the per-channel, all-channels-active figure, since that's the number that applies in real multi-signal debugging.
+</p>
+
+<h2 id="channels">Number of Channels</h2>
+
+<p>
+  2-channel scopes suit basic single-signal or simple two-signal comparison work (input vs. output of a stage, for example). 4-channel scopes are the practical standard for most bench and field troubleshooting, since three-phase work, digital bus debugging, and multi-point comparisons routinely need more than two simultaneous traces. Mixed-signal (MSO) scopes add 8 or 16 digital channels alongside the analog ones, valuable for embedded and digital logic debugging where you need to correlate an analog signal against several digital lines at once.
+</p>
+
+<h2 id="memory-depth">Memory Depth</h2>
+
+<p>
+  Memory depth is how many samples the scope can store per acquisition, and it directly trades off against how long a time window you can capture at full sample rate. A scope with shallow memory automatically reduces its sample rate when you widen the time base to see a longer event — meaning a long capture on a shallow-memory scope may actually be sampled far more coarsely than the headline sample-rate spec suggests. Deep memory matters most when you need to capture an infrequent, hard-to-trigger event (an intermittent glitch) while still resolving its fine detail once captured.
+</p>
+
+<h2 id="probes">Probes</h2>
+
+<p>
+  The scope's specifications are only as good as the probe connecting it to the circuit. A standard 10:1 passive probe attenuates the signal 10× and has bandwidth matched to the scope it ships with — using a mismatched or damaged probe silently degrades every measurement made with it. For current measurement, a separate current probe (Hall-effect or Rogowski) is required; the scope itself only measures voltage.
+</p>
+
+<h2 id="analog-vs-digital">Analog Storage vs. Digital Storage Oscilloscopes</h2>
+
+<p>
+  Virtually all oscilloscopes sold today are Digital Storage Oscilloscopes (DSOs) — they digitise the incoming signal and display, store, and analyse it digitally, with automatic measurements, FFT analysis, and waveform storage built in. Analog (CRT-based) scopes have no meaningful advantage remaining for general use and are effectively obsolete for new purchases; the choice today is really between DSO feature tiers, not analog vs. digital.
+</p>
+
+<h2 id="buying-summary">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>General electronics bench / education</strong>: 2–4 channels, 50–100 MHz bandwidth, 1 GSa/s sample rate.</li>
+  <li><strong>Power electronics / motor drives</strong>: 4 channels, 100 MHz+ bandwidth, deep memory for capturing switching transients over longer windows, isolated inputs recommended for floating measurements.</li>
+  <li><strong>Digital/embedded debugging</strong>: MSO with 16 digital channels, protocol decode (I²C, SPI, UART) support, 100 MHz+ bandwidth.</li>
+  <li><strong>Field service / maintenance</strong>: Compact 2–4 channel scope, 50–100 MHz, ruggedised, battery operation useful for panel-side diagnostics.</li>
+</ul>
+
+<p>
+  CIE supplies <a href={u('/products/vartech-oscilloscopes/')}>Vartech digital storage oscilloscopes</a> across a range of bandwidths and channel counts. <a href={u('/contact/')}>Contact us</a> to match a model to your bandwidth, channel, and memory requirements.
+</p>

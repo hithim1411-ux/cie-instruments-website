@@ -1,0 +1,61 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A diode conducts current in one direction and blocks it in the other — and testing whether it still does that correctly is one of the fastest fault-finding checks you can run with a multimeter. Most digital multimeters have a dedicated diode test mode for exactly this purpose. This guide covers how to use it, what a good reading looks like, and how to catch the three common diode failure modes.
+</p>
+
+<h2 id="diode-test-mode">Using the Diode Test Function</h2>
+
+<p>
+  Set the multimeter's rotary dial to the diode test symbol (a diode symbol with an arrow, often sharing a position with continuity test). In this mode, the meter applies a small test current through its probes and displays the forward voltage drop across whatever is connected — unlike resistance mode, which is not designed to characterise a semiconductor junction correctly.
+</p>
+
+<ol>
+  <li>Ensure the circuit is fully powered off and, ideally, the diode is isolated from the circuit — a diode still wired into a circuit can be influenced by parallel paths and give a misleading reading.</li>
+  <li>Connect the red probe to the diode's anode and the black probe to the cathode (the cathode is marked with a printed band on the diode body).</li>
+  <li>Read the display: a healthy silicon diode shows a forward voltage drop, typically in the 0.5–0.8 V range.</li>
+  <li>Reverse the probes. A healthy diode should now show "OL" (open loop/overrange) — no conduction in the reverse direction.</li>
+</ol>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Typical forward voltage by diode type</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Diode type</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Typical forward voltage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white"><td class="px-5 py-3 border-b border-gray-100 text-xs text-gray-700">Silicon rectifier/signal diode</td><td class="px-4 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">0.5 – 0.8 V</td></tr>
+      <tr class="bg-gray-50"><td class="px-5 py-3 border-b border-gray-100 text-xs text-gray-700">Germanium diode</td><td class="px-4 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">0.2 – 0.3 V</td></tr>
+      <tr class="bg-white"><td class="px-5 py-3 border-b border-gray-100 text-xs text-gray-700">Schottky diode</td><td class="px-4 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">0.15 – 0.45 V</td></tr>
+      <tr class="bg-gray-50"><td class="px-5 py-3 border-b border-gray-100 text-xs text-gray-700">Standard LED</td><td class="px-4 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">1.8 – 3.3 V (colour-dependent)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<Callout type="tip" title="LEDs sometimes glow faintly in diode test mode">
+  The small test current the meter applies is often enough to make an LED glow dimly — this is normal and a handy way to visually confirm an LED's polarity and function on the bench.
+</Callout>
+
+<h2 id="fault-modes">The Three Diode Failure Modes</h2>
+
+<ul>
+  <li><strong>Shorted diode</strong>: Reads a low voltage drop (often close to 0 V) in <em>both</em> directions. The junction has broken down and the diode now conducts both ways — a shorted diode is a common cause of a blown fuse or dead-short symptom elsewhere in the circuit.</li>
+  <li><strong>Open diode</strong>: Reads "OL" in <em>both</em> directions. The junction is broken and the diode no longer conducts at all, even forward-biased.</li>
+  <li><strong>Leaky diode</strong>: Shows the correct forward reading, but the reverse direction shows some finite voltage/conduction instead of a clean "OL" — the diode still functions but with degraded reverse-blocking performance, which can cause intermittent or load-dependent circuit faults that are harder to diagnose than a clean short or open.</li>
+</ul>
+
+<h2 id="in-circuit-caution">Testing a Diode In-Circuit</h2>
+
+<p>
+  A diode tested while still connected in a circuit can show a false reading if other components — resistors, other diodes, transformer windings — provide a parallel current path around it. If an in-circuit reading looks ambiguous or doesn't match the expected values above, desolder at least one leg of the diode and retest in isolation before concluding it has failed.
+</p>
+
+<p>
+  CIE supplies <a href={u('/products/multimeters/')}>digital multimeters</a> with built-in diode and continuity test functions for bench and field fault-finding. <a href={u('/contact/')}>Contact us</a> to find the right model for your workshop.
+</p>

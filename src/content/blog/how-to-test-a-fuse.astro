@@ -1,0 +1,54 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A blown fuse is one of the most common — and most misdiagnosed — causes of a "dead" circuit. Testing a fuse takes seconds with a multimeter, but doing it correctly (and understanding why the fuse blew in the first place) prevents the classic mistake of replacing a fuse only to have it blow again immediately. This guide covers both.
+</p>
+
+<h2 id="continuity-method">Testing a Fuse with Continuity Mode</h2>
+
+<p>
+  The fastest and safest method is resistance/continuity testing, done with the fuse <strong>removed from the circuit and the circuit fully de-energised</strong>.
+</p>
+
+<ol>
+  <li>Set the multimeter to continuity mode (the sound-wave/diode symbol) or resistance mode.</li>
+  <li>Remove the fuse from its holder completely.</li>
+  <li>Touch a probe to each end cap of the fuse.</li>
+  <li>A good fuse reads near 0 Ω and/or produces the continuity beep. A blown fuse reads "OL" (open loop) — infinite resistance, no continuity.</li>
+</ol>
+
+<Callout type="warning" title="Never test continuity on a fuse that's still in a live circuit">
+  Continuity mode applies its own small test current and assumes no other voltage source is present. Testing a fuse in-circuit, especially while powered, can give a misleading reading through parallel paths elsewhere in the circuit — and testing any component for continuity in an energised circuit risks damaging the meter and creates a shock hazard. Always isolate and remove the fuse first.
+</Callout>
+
+<h2 id="voltage-method">Testing a Fuse In-Circuit with Voltage Mode</h2>
+
+<p>
+  If removing the fuse isn't practical, a live in-circuit check is possible using voltage mode, with appropriate CAT-rated probes and PPE for the environment. With the circuit powered, measure the voltage across the fuse itself (probe on each end cap). A good fuse — carrying current with negligible resistance — should show close to 0 V across it. A blown fuse, being an open circuit, will show close to the full supply voltage across it, because all of the circuit's voltage drop is now happening across the break.
+</p>
+
+<h2 id="why-it-blew">Why a Fuse Blows — Don't Just Replace It</h2>
+
+<p>
+  A fuse is a designed weak point that protects the rest of the circuit by failing first. Replacing a blown fuse without finding out why it blew is a common and costly mistake — if the underlying fault is still present, the new fuse will blow again, sometimes immediately, sometimes after enough time has passed to look unrelated.
+</p>
+
+<ul>
+  <li><strong>Overload</strong>: The circuit is drawing more current than the fuse's rating, either from a genuine load increase or a developing fault (a motor bearing seizing, a component drawing excess current). Measure the actual running current with a clamp meter before assuming a higher-rated fuse is the fix.</li>
+  <li><strong>Short circuit</strong>: A very rapid, very high current blow — the fuse element vaporises almost instantly, often visibly discolouring the fuse body or glass. This points to an insulation failure or wiring fault, not a load problem, and needs to be found and fixed before re-fusing.</li>
+  <li><strong>Inrush current</strong>: Motors, transformers, and incandescent lamps draw a brief surge current — sometimes 5–10× their running current — at switch-on. A fuse rated for steady-state current alone may nuisance-blow on inrush; this is what time-delay (slow-blow) fuses are designed to tolerate.</li>
+  <li><strong>Age and fatigue</strong>: Repeated thermal cycling near a fuse's rated current can eventually fatigue the element even without an actual overload — an intermittent nuisance-blow pattern with no clear cause is a common symptom.</li>
+</ul>
+
+<h2 id="replacement-rules">Fuse Replacement Rules</h2>
+
+<p>
+  Always replace with the <strong>same current rating, voltage rating, and speed characteristic</strong> (fast-blow vs. time-delay/slow-blow) as the original. A higher-rated fuse "to stop it blowing" defeats the fuse's entire protective purpose and can allow a fault current to persist long enough to damage other components or start a fire. If the correct-rated fuse keeps blowing, the fault is in the circuit, not the fuse.
+</p>
+
+<p>
+  CIE supplies <a href={u('/products/multimeters/')}>digital multimeters</a> and <a href={u('/products/clamp-meters/')}>clamp meters</a> for fuse and circuit fault diagnosis. <a href={u('/contact/')}>Contact us</a> for instrument recommendations for your maintenance work.
+</p>

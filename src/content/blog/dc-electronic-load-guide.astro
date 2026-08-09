@@ -1,0 +1,80 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A <strong>DC electronic load</strong> is a bench instrument that draws a precisely controlled current from a DC power source under test — batteries, power supplies, chargers, and solar panels — in place of the real load the device will eventually see. Instead of building a bank of resistors to test a power supply, an electronic load lets you dial in exactly the current, voltage, resistance, or power profile you want, and change it in software or at the push of a button. This guide covers how electronic loads work and what to look for when choosing one.
+</p>
+
+<h2 id="how-it-works">How an Electronic Load Works</h2>
+
+<p>
+  Inside an electronic load, a bank of power MOSFETs is driven in its linear region to dissipate the electrical energy delivered by the source under test — essentially acting as a controllable resistor, but one that can hold a fixed current or fixed power regardless of the source voltage changing. A feedback control loop continuously adjusts the MOSFETs to maintain whichever operating mode is selected, while an internal heatsink and fan dissipate the resulting heat.
+</p>
+
+<h2 id="operating-modes">The Four Operating Modes</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">DC electronic load operating modes</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Mode</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Behaviour</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Typical use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">CC — Constant Current</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">Draws a fixed current regardless of source voltage</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Battery discharge testing, power supply current-limit checks</td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">CV — Constant Voltage</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">Sinks whatever current is needed to hold the source at a set voltage</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Testing a source's regulation and current capability at a target voltage</td>
+      </tr>
+      <tr class="bg-white">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">CR — Constant Resistance</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">Behaves as a fixed resistive load — current tracks source voltage linearly</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Simulating a resistive load like a heater or incandescent lamp bank</td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">CP — Constant Power</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">Draws whatever current is needed to hold a fixed power dissipation</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Simulating loads like motors or switch-mode converters that draw constant wattage</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="battery-testing">Battery Capacity and Discharge Testing</h2>
+
+<p>
+  The most common application for an electronic load on the bench is discharging a battery at a fixed current (CC mode) while logging voltage over time. Multiplying the discharge current by the elapsed time to the cut-off voltage gives the battery's actual capacity in amp-hours — the only reliable way to verify a battery's real capacity against its rated figure, and the standard method for checking cell health in a battery bank before it fails in service.
+</p>
+
+<Callout type="tip" title="Why CC mode is used for capacity testing, not CR">
+  Constant-resistance mode would draw a falling current as the battery voltage sags during discharge — which doesn't match how most real loads (and capacity-rating standards) actually behave. Constant-current mode holds the discharge rate fixed throughout the test, so the amp-hour calculation is a direct, standard-compliant multiplication of current × time.
+</Callout>
+
+<h2 id="power-supply-testing">Power Supply and Charger Testing</h2>
+
+<p>
+  Electronic loads are used to verify a power supply's load regulation (does output voltage stay stable as load current changes?), transient response (how quickly does it recover after a sudden load step?), and current-limit or overload protection behaviour — all difficult or impossible to test accurately with fixed resistors, since a resistor bank can't step instantly between load levels or hold a fixed power draw as voltage changes.
+</p>
+
+<h2 id="key-specs">Key Specifications When Choosing an Electronic Load</h2>
+
+<ul>
+  <li><strong>Maximum voltage, current, and power</strong>: All three ratings matter independently — a load rated 150 V / 30 A / 150 W cannot actually do 30 A at 150 V simultaneously (that would be 4500 W). Check the full operating envelope, not just the headline numbers.</li>
+  <li><strong>Minimum operating voltage</strong>: Important for low-voltage battery testing (single-cell Li-ion, NiMH) — some loads can't sink meaningful current below 1–2 V.</li>
+  <li><strong>Dynamic/transient mode</strong>: The ability to switch rapidly between two current levels, used to test a power supply's transient response.</li>
+  <li><strong>Remote sense</strong>: Compensates for voltage drop in the test leads so the load regulates based on the actual voltage at the source's terminals, not at the load's own input.</li>
+</ul>
+
+<p>
+  CIE supplies <a href={u('/products/vartech-dc-loads/')}>Vartech DC electronic loads</a> for battery, power supply, and charger testing. <a href={u('/contact/')}>Contact us</a> to match a load's voltage/current envelope to your test requirements.
+</p>

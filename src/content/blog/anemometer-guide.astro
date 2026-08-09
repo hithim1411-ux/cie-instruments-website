@@ -1,0 +1,86 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  An <strong>anemometer</strong> is an instrument that measures the speed of moving air — and, in most digital models, air temperature, airflow volume, and wind chill as well. It is a core tool for HVAC commissioning, building ventilation audits, cleanroom validation, and industrial process airflow checks. This guide explains the different sensing technologies, what the readings mean, and how to choose the right type for your work.
+</p>
+
+<h2 id="sensor-types">Sensor Types — Vane, Hot-Wire, and Cup</h2>
+
+<p>Digital anemometers use one of three sensing methods, each suited to a different measurement situation.</p>
+
+<ul>
+  <li><strong>Vane (impeller) anemometers</strong>: A small rotating fan-like vane spins in the airstream; the rotation speed is converted to an air velocity reading. Vane probes are rugged, inexpensive, and well suited to duct velocity and open-area airflow measurement in the 0.4–30 m/s range typical of HVAC work.</li>
+  <li><strong>Hot-wire (thermal) anemometers</strong>: A heated element loses heat to the passing air; the cooling rate is proportional to air velocity. Hot-wire probes are far more sensitive at very low velocities (down to ~0.1–0.2 m/s) and their thin probe tip reaches into small ducts, diffuser slots, and cleanroom grilles where a vane won't fit.</li>
+  <li><strong>Cup anemometers</strong>: Three or four cups mounted on a rotating spindle, almost always used for outdoor/meteorological wind speed measurement rather than handheld indoor work, since they respond well to wind direction changes but are too large and slow-responding for duct work.</li>
+</ul>
+
+<Callout type="tip" title="Choosing between vane and hot-wire">
+  If you're measuring duct velocity, open room airflow, or outdoor wind speed, a vane probe is the practical, durable choice. If you're validating a cleanroom laminar flow hood, a fume hood face velocity, or airflow through a small diffuser slot, a hot-wire probe's sensitivity at low velocity and its slim tip are worth the extra cost.
+</Callout>
+
+<h2 id="measured-quantities">What a Digital Anemometer Actually Measures</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Readings on a typical digital anemometer</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Reading</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Unit</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">Air velocity</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">m/s, ft/min, km/h</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Direct sensor reading — the primary measurement</td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">Airflow volume</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">m³/min, CFM</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Calculated: velocity × duct/opening cross-sectional area (entered manually)</td>
+      </tr>
+      <tr class="bg-white">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">Air temperature</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">°C / °F</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Built-in thermistor, useful for supply/return air temperature checks alongside airflow</td>
+      </tr>
+      <tr class="bg-gray-50">
+        <td class="px-5 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-[#0D1B2A]">Wind chill</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">°C / °F</td>
+        <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-500">Calculated from velocity + temperature — mostly relevant for outdoor use</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="duct-measurement">Measuring Duct Airflow Correctly</h2>
+
+<p>
+  Air velocity in a duct is never perfectly uniform across the cross-section — it is highest at the centre and drops toward the duct walls due to friction. A single-point reading anywhere in the duct will not give a representative average. The standard method is a <strong>traverse</strong>: dividing the duct cross-section into a grid of equal-area segments (typically 16–25 points for a rectangular duct) and averaging the velocity readings taken at the centre of each segment.
+</p>
+
+<p>Multiplying the traverse-averaged velocity by the duct's cross-sectional area gives the volumetric airflow rate — the number that actually matters for balancing an HVAC system or verifying design airflow.</p>
+
+<h2 id="accuracy-response">Accuracy and Response Time</h2>
+
+<p>
+  Look for stated accuracy as a percentage of reading plus a fixed offset (e.g. ±3% + 0.2 m/s) rather than a single flat number, since anemometer error typically grows at the low end of the range. Response time matters for fluctuating airflows — a slow-responding sensor will smooth out real gusts and turbulence, giving an artificially stable-looking reading that hides the true variation.
+</p>
+
+<h2 id="applications">Common Applications</h2>
+
+<ul>
+  <li><strong>HVAC commissioning and balancing</strong>: Verifying supply/return air volumes match design specification at each diffuser and duct branch.</li>
+  <li><strong>Cleanroom and fume hood validation</strong>: Confirming face velocity meets the standard required for the containment or cleanliness class.</li>
+  <li><strong>Building ventilation audits</strong>: Checking natural or mechanical ventilation rates against occupancy or industrial hygiene requirements.</li>
+  <li><strong>Industrial process airflow</strong>: Combustion air, exhaust ventilation, and drying/curing oven airflow checks.</li>
+</ul>
+
+<p>
+  CIE supplies <a href={u('/products/vartech-anemometers/')}>Vartech digital anemometers</a> for HVAC, building services, and industrial airflow measurement. <a href={u('/contact/')}>Contact us</a> to discuss vane vs. hot-wire probe selection for your application.
+</p>
