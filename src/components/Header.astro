@@ -17,6 +17,7 @@ const cieCategories     = categories.filter((c: any) => (!c.brand || c.brand !==
 const vartechCategories = categories.filter((c: any) => c.brand === 'vartech' && !DROPDOWN_EXCLUDE.has(c.id));
 
 const otherNav = [
+  { label: 'Instrument Finder', href: u('/instrument-finder') },
   { label: 'Insights',  href: u('/blog')    },
   { label: 'About Us',  href: u('/about')   },
   { label: 'Contact',   href: u('/contact') },
