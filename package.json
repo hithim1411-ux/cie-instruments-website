@@ -17,6 +17,7 @@
     "@fontsource/ibm-plex-sans": "^5.2.8",
     "@fontsource/inter": "^5.2.8",
     "@google/generative-ai": "^0.24.1",
+    "@vercel/analytics": "^2.0.1",
     "astro": "^6.4.7",
     "fuse.js": "^7.4.2"
   },

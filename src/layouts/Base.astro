@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import StickyMobileCTA from '../components/StickyMobileCTA.astro';
 import Search from '../components/Search.astro';
+import Analytics from '@vercel/analytics/astro';
 import { u } from '../utils/url';
 
 interface Props {
@@ -357,6 +358,7 @@ const orgSchema = {
   <WhatsAppButton />
   <StickyMobileCTA />
   <Search />
+  <Analytics />
 
   <script>
     // ── Scroll-reveal: fade+slide any [data-reveal] element (or stagger the

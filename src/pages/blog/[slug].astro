@@ -478,7 +478,7 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
 ---
 
 <Base
-  title={post.title}
+  title={post.seoTitle ?? post.title}
   description={post.description}
   keywords={`${post.title}, ${post.category}, electrical measurement, test and measurement, CIE instruments`}
 >
