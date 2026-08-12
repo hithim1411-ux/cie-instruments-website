@@ -1,0 +1,18 @@
+---
+import site from '../data/site.json';
+const phone = site.phones[0].number.replace(/\s/g, '');
+---
+
+<!-- Mobile-only floating call button, stacked directly above the WhatsApp
+     FAB (bottom-24 vs its bottom-6 — one FAB height + gap apart). Desktop
+     already has a "Request a Quote" button and phone numbers in the header
+     and footer, so this is mobile-only where those are easy to miss. -->
+<a
+  href={`tel:${phone}`}
+  aria-label="Call CIE"
+  class="flex lg:hidden fixed bottom-24 right-6 z-50 items-center justify-center w-14 h-14 rounded-full bg-red shadow-xl transition-transform duration-200 [transition-timing-function:var(--ease-premium)] hover:scale-110 focus:outline-none focus:ring-4 focus:ring-red/30"
+>
+  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M2.5 4.5C2.5 3.4 3.4 2.5 4.5 2.5h2.7c.5 0 .9.3 1 .8l1 3.6c.1.4 0 .9-.4 1.1L7.3 9.4c1 2.2 2.8 4 5 5l1.4-1.5c.3-.3.7-.4 1.1-.3l3.6 1c.5.1.8.5.8 1v2.7c0 1.1-.9 2-2 2h-1C9.5 19.3 4.7 14.5 2.5 8v-1Z"/>
+  </svg>
+</a>

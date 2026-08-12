@@ -3,7 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
-import StickyMobileCTA from '../components/StickyMobileCTA.astro';
+import CallButton from '../components/CallButton.astro';
 import Search from '../components/Search.astro';
 import Analytics from '@vercel/analytics/astro';
 import { u } from '../utils/url';
@@ -354,14 +354,14 @@ const orgSchema = {
   <!-- Slot for per-page structured data / additional head tags -->
   <slot name="head" />
 </head>
-<body class="pb-14 lg:pb-0">
+<body>
   <Header transparentHero={transparentHero} />
   <main class={transparentHero ? '' : 'pt-16 lg:pt-20'}>
     <slot />
   </main>
   <Footer />
   <WhatsAppButton />
-  <StickyMobileCTA />
+  <CallButton />
   <Search />
   <Analytics />
 
