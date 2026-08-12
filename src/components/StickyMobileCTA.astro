@@ -1,0 +1,31 @@
+---
+import Icon from './Icon.astro';
+import site from '../data/site.json';
+
+const phone = site.phones[0].number.replace(/\s/g, '');
+---
+
+<!-- Persistent mobile-only conversion bar. Desktop already has a header
+     "Request a Quote" CTA + the corner WhatsApp FAB, but on mobile those
+     are easy to scroll past — this keeps Call + WhatsApp always one tap
+     away. Hidden at lg and above to avoid duplicating the desktop CTAs. -->
+<div class="lg:hidden fixed bottom-0 inset-x-0 z-40 grid grid-cols-2 border-t border-border bg-white/95 backdrop-blur shadow-[0_-4px_16px_rgba(0,0,0,0.08)]" style="padding-bottom: env(safe-area-inset-bottom);">
+  <a
+    href={`tel:${phone}`}
+    class="flex items-center justify-center gap-2 py-3.5 text-sm font-semibold text-ink border-r border-border active:bg-cloud transition-colors"
+  >
+    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M2.5 4.5C2.5 3.4 3.4 2.5 4.5 2.5h2.7c.5 0 .9.3 1 .8l1 3.6c.1.4 0 .9-.4 1.1L7.3 9.4c1 2.2 2.8 4 5 5l1.4-1.5c.3-.3.7-.4 1.1-.3l3.6 1c.5.1.8.5.8 1v2.7c0 1.1-.9 2-2 2h-1C9.5 19.3 4.7 14.5 2.5 8v-1Z"/>
+    </svg>
+    Call
+  </a>
+  <a
+    href={`https://wa.me/${site.whatsapp}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex items-center justify-center gap-2 py-3.5 text-sm font-semibold text-white bg-[#25D366] active:brightness-95 transition-[filter]"
+  >
+    <Icon name="message-circle" class="w-4 h-4 shrink-0" />
+    WhatsApp
+  </a>
+</div>
