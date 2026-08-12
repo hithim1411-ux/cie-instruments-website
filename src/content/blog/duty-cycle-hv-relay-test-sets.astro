@@ -1,0 +1,42 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  "Duty cycle" means something different on a test instrument's rating plate than it does on an oscilloscope screen. A signal's duty cycle describes what fraction of each waveform period it spends high — this article is about the other meaning: an equipment rating that tells you how long an HV test set or relay test set can output its rated current or voltage before it needs to rest. Ignore it, and the risk isn't a wrong reading — it's a damaged instrument.
+</p>
+
+<h2 id="what-it-means">What an Intermittent Duty Rating Actually Means</h2>
+
+<p>
+  High-current or high-voltage test equipment generates significant internal heat while operating at its rated output — the higher the output, the faster heat builds up in transformers, windings, and power electronics inside the unit. An intermittent duty rating, typically expressed as something like "5 minutes ON, 10 minutes OFF," specifies how long the instrument can sustain its rated output before it must be switched off (or reduced) to let that heat dissipate, and how long that cool-down period needs to be before the next full-output run.
+</p>
+
+<Callout type="warning" title="Exceeding duty cycle doesn't trip a warning — it damages the instrument">
+  Unlike a current limit that a protection circuit might catch instantly, thermal buildup from ignoring a duty cycle rating is gradual and often invisible until damage has already occurred — insulation breakdown inside transformers or windings, or component degradation from sustained overheating. Treat the ON/OFF timing on the rating plate as a hard operating limit, not a guideline.
+</Callout>
+
+<h2 id="why-not-continuous">Why These Instruments Aren't Built for Continuous Full Output</h2>
+
+<p>
+  Relay test sets and HV test sets are, by their nature, built to deliver much higher current or voltage than a general-purpose bench instrument — that's the entire point of a relay test set injecting fault-level current, or an HV set applying several kV. Building an instrument that could sustain that output <em>continuously</em> would mean far larger transformers, heavier cooling, and a much bigger, heavier, more expensive unit — for a capability that field and commissioning testing rarely needs, since actual tests are short pulses of high output, not sustained full-power operation. The intermittent rating is a deliberate design trade-off: full test-level output for the duration a real test actually needs, in a portable instrument, provided the rest period is respected between tests.
+</p>
+
+<h2 id="reading-the-rating">How to Read a Duty Cycle Rating Correctly</h2>
+
+<ul>
+  <li><strong>"5 min ON / 10 min OFF" means exactly that</strong> — after up to 5 minutes of rated output, the instrument needs a full 10-minute rest before the next 5-minute run, not a token pause.</li>
+  <li><strong>Ratings can vary by output level on the same instrument</strong> — some relay test sets are rated for continuous operation at lower current taps but only intermittent duty at their highest current ranges. Check the rating that applies to the specific output level you're actually using, not just the headline figure.</li>
+  <li><strong>Multiple short tests still add up</strong> — several 1-minute tests in quick succession, with only brief pauses between them, can accumulate heat similarly to one longer continuous run. The OFF period exists to let accumulated heat actually dissipate, not just to break up the ON time on paper.</li>
+</ul>
+
+<h2 id="practical-planning">Planning a Test Sequence Around Duty Cycle</h2>
+
+<p>
+  For a commissioning job involving many relays or many HV withstand tests in sequence, factor the rest periods into your schedule from the start rather than discovering the constraint mid-job. Testing multiple relays in a panel, or running successive HV withstand tests across several feeders, goes faster overall if the sequence is planned to let the required OFF period elapse naturally — moving to setup, connection, or documentation work on the next item while the previous test's cool-down completes — rather than idling and waiting.
+</p>
+
+<p>
+  CIE's <a href={u('/products/relay-test-sets/')}>RTS relay test sets</a> and <a href={u('/products/hv-phase-sequence/cie-5050a/')}>CIE/5050A HV test set</a> each carry a duty cycle rating on their nameplate — typically 5 minutes ON, 10 minutes OFF at higher output levels. <a href={u('/contact/')}>Contact us</a> if you need help planning a test sequence around it.
+</p>

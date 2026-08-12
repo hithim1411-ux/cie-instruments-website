@@ -1,0 +1,68 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A thermocouple is the simplest temperature sensor there is — two dissimilar metal wires joined at one end, generating a tiny voltage that changes predictably with temperature. But "thermocouple" isn't one sensor, it's a family of them, identified by a letter — K, J, T, E, and others — each built from a different pair of metals with a different usable range, accuracy, and environment it tolerates. Using the wrong type, or worse, mismatching a probe's type to the meter's expected type, gives readings that are confidently wrong rather than obviously wrong. This guide covers what the letters actually mean.
+</p>
+
+<h2 id="how-it-works">How a Thermocouple Actually Works</h2>
+
+<p>
+  When two different metals are joined and the junction is heated, a small voltage appears across the free ends — the Seebeck effect. The size of that voltage depends on which two metals are used and how hot the junction is, so measuring the voltage and knowing the metal pair tells you the temperature. A thermocouple meter (or the thermocouple input on a multimeter or thermometer) contains a reference junction and a lookup table for the specific type selected, converting the measured voltage back into a temperature reading.
+</p>
+
+<Callout type="warning" title="Type mismatch gives a confidently wrong reading">
+  Every thermocouple type has its own voltage-vs-temperature curve. If you connect a Type J probe to an instrument set to read Type K, it will display a number — just the wrong one, often by tens of degrees, with no warning that anything is wrong. Always confirm the meter's type setting matches the probe actually connected.
+</Callout>
+
+<h2 id="common-types">The Common Types</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Thermocouple types by application</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Type</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Metals</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Typical range</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Best suited to</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['K', 'Chromel / Alumel', '−200 °C to +1260 °C', 'The most common general-purpose type — wide range, good accuracy, low cost. Default choice unless a specific reason favours another type.'],
+        ['J', 'Iron / Constantan', '−40 °C to +750 °C', 'Older industrial equipment and applications needing a lower cost sensor within a moderate range; the iron leg limits use in oxidising atmospheres at high temperature.'],
+        ['T', 'Copper / Constantan', '−200 °C to +350 °C', 'Sub-zero and cryogenic work, and food/refrigeration applications — one of the most accurate types at low temperatures.'],
+        ['E', 'Chromel / Constantan', '−200 °C to +900 °C', 'The highest output voltage per degree of any common type — useful where signal strength matters, such as long lead runs at low temperature.'],
+      ].map(([type, metals, range, use], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-sm font-mono font-bold text-[#1B3A5B]">{type}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{metals}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs font-mono text-gray-600">{range}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{use}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="thermocouple-vs-other">Thermocouple vs. Other Temperature Sensors</h2>
+
+<p>
+  A thermocouple is a contact sensor — it must physically touch (or be embedded in) what it's measuring, unlike a non-contact infrared thermometer, which measures radiated heat from a distance. Thermocouples generally respond faster to temperature change than RTDs (resistance temperature detectors) and tolerate higher temperatures, but are somewhat less accurate at a given price point — RTDs are typically preferred where the last fraction of a degree of accuracy matters and response speed is less critical.
+</p>
+
+<h2 id="practical-tips">Practical Tips for Reliable Readings</h2>
+
+<ul>
+  <li><strong>Match probe type to meter setting every time</strong> — don't assume the last setting used is still correct, especially on shared/pool equipment.</li>
+  <li><strong>Ensure good thermal contact</strong> — a probe resting lightly on a surface reads slower and less accurately than one with firm contact or, for surface work, a probe designed for surface contact.</li>
+  <li><strong>Watch for probe damage</strong> — a nicked or corroded thermocouple wire changes its calibration; readings that drift or seem implausible are a common early sign.</li>
+  <li><strong>Allow settling time</strong> — especially for probes with any thermal mass, allow the reading to stabilise before recording it, rather than taking the first number that appears.</li>
+</ul>
+
+<p>
+  CIE supplies the <a href={u('/products/vartech-thermometers/v-6500/')}>Vartech V 6500</a>, a thermocouple-input digital thermometer with a wide resolution and probe-option range, alongside non-contact infrared models. <a href={u('/contact/')}>Contact us</a> to match a probe type and instrument to your temperature range.
+</p>
