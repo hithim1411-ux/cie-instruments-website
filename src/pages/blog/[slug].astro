@@ -51,8 +51,6 @@ import FuseTestGuide from '../../content/blog/how-to-test-a-fuse.astro';
 import OscilloscopeBandwidthGuide from '../../content/blog/oscilloscope-bandwidth-explained.astro';
 import MicroOhmGuide from '../../content/blog/micro-ohm-meter-guide.astro';
 import HvWithstandGuide from '../../content/blog/hv-dielectric-withstand-testing-guide.astro';
-import RelayTestSetGuide from '../../content/blog/how-to-choose-a-relay-test-set.astro';
-import CalibrationIntervalGuide from '../../content/blog/calibration-interval-guide.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -111,8 +109,6 @@ const contentMap: Record<string, any> = {
   'oscilloscope-bandwidth-explained': OscilloscopeBandwidthGuide,
   'micro-ohm-meter-guide': MicroOhmGuide,
   'hv-dielectric-withstand-testing-guide': HvWithstandGuide,
-  'how-to-choose-a-relay-test-set': RelayTestSetGuide,
-  'calibration-interval-guide': CalibrationIntervalGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -483,19 +479,6 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'ac-vs-dc', label: 'AC vs DC Withstand' },
     { id: 'tripping-current', label: 'Tripping Current' },
     { id: 'applications', label: 'Applications' },
-  ],
-  'how-to-choose-a-relay-test-set': [
-    { id: 'secondary-injection', label: 'What Secondary Injection Does' },
-    { id: 'single-vs-three-phase', label: 'Single vs Three-Phase' },
-    { id: 'key-specs', label: 'Key Specifications' },
-    { id: 'what-gets-tested', label: 'What Gets Tested' },
-  ],
-  'calibration-interval-guide': [
-    { id: 'why-it-matters', label: 'Why It Matters' },
-    { id: 'default-interval', label: 'The Default Interval' },
-    { id: 'adjusting-the-interval', label: 'Adjusting the Interval' },
-    { id: 'signs', label: 'Warning Signs' },
-    { id: 'calibration-vs-verification', label: 'Calibration vs Verification' },
   ],
 };
 

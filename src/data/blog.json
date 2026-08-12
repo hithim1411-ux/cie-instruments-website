@@ -481,25 +481,5 @@
     "category": "Guides",
     "excerpt": "An IR test measures a resistance value. A withstand test is pass/fail at a much higher voltage. Confusing the two — or skipping the IR test first — is a common and risky mistake.",
     "seoTitle": "Dielectric Withstand (HV) Testing Explained"
-  },
-  {
-    "slug": "how-to-choose-a-relay-test-set",
-    "title": "How to Choose a Relay Test Set: Single-Phase vs Three-Phase",
-    "description": "How secondary injection testing works, and how to choose between a single-phase and a three-phase, phase-angle-capable relay test set based on the protection scheme you're commissioning.",
-    "publishDate": "2026-08-13",
-    "readTime": "6 min read",
-    "category": "Buying Guide",
-    "excerpt": "Overcurrent and earth fault relays only need single-phase injection. Directional and distance relays need three-phase current, voltage, and precise phase angle control — get this wrong and you can't test the relay correctly at all.",
-    "seoTitle": "How to Choose a Relay Test Set"
-  },
-  {
-    "slug": "calibration-interval-guide",
-    "title": "How Often Should You Calibrate Your Test Instruments?",
-    "description": "How to set a sensible calibration interval for electrical test instruments — the 12-month default, what shortens or lengthens it, and the difference between calibration and verification.",
-    "publishDate": "2026-08-13",
-    "readTime": "5 min read",
-    "category": "Guides",
-    "excerpt": "An out-of-calibration instrument doesn't fail loudly — it just quietly gives wrong readings. Here's how to actually set a calibration interval instead of guessing.",
-    "seoTitle": "How Often to Calibrate Test Instruments"
   }
 ]
