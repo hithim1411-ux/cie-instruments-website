@@ -1,0 +1,77 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Insulation resistance (IR) testing with a megger and dielectric withstand testing with an HV test set are both insulation tests — and both are sometimes lumped together as "megger testing" in casual conversation — but they answer different questions and use fundamentally different test methods. This guide explains what a dielectric withstand (hipot) test actually does, how it differs from an IR test, and when each one is the right test to run.
+</p>
+
+<h2 id="what-is-it">What Is a Dielectric Withstand Test?</h2>
+
+<p>
+  A dielectric withstand test — also called a hipot test or high-potential test — applies a voltage significantly higher than the equipment's normal operating voltage, for a defined short duration, and simply checks whether the insulation breaks down (flashes over or punctures) under that stress. It is a pass/fail test, not a measured value: if the insulation survives the applied voltage for the test duration without breakdown, it passes. If it flashes over, tracks, or punctures, it fails — immediately and often destructively at the weak point.
+</p>
+
+<p>
+  The logic is simple: equipment in service is occasionally exposed to voltage transients well above its rated voltage — switching surges, lightning-induced transients, temporary overvoltages. A withstand test proves the insulation has enough margin to survive a transient of a defined severity without failing.
+</p>
+
+<h2 id="vs-ir">Dielectric Withstand vs. Insulation Resistance (IR) Testing</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Two different tests, often confused</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">&nbsp;</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Insulation Resistance (Megger)</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Dielectric Withstand (HV Test Set)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Test voltage', 'At or near rated operating voltage (typically 500 V–5000 V DC)', 'Well above rated voltage (often 2–4× rated, up to several kV AC or DC)'],
+        ['Duration', '1–10 minutes (spot reading, PI/DAR)', 'Typically 60 seconds, sometimes 1 second (routine test)'],
+        ['Result', 'A measured resistance value in MΩ/GΩ — a trendable number', 'Pass or fail — did it withstand the voltage, or did it break down'],
+        ['Purpose', 'Detects gradual degradation — moisture, contamination, ageing insulation', 'Proves margin against transient overvoltage; catches manufacturing/assembly defects an IR test may miss'],
+        ['Risk to good insulation', 'Negligible — voltage is close to normal operating stress', 'A genuine stress test — can occasionally damage marginal insulation, which is part of the point'],
+      ].map(([label, ir, hv], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{label}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{ir}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{hv}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="warning" title="Run the IR test first, always">
+  A megger test should always be performed before a dielectric withstand test on the same equipment. If insulation resistance is already low, applying a withstand-test voltage on top of already-compromised insulation is far more likely to cause unnecessary damage. Withstand testing is a confirmation step on insulation that has already passed a resistance check — not a substitute for one.
+</Callout>
+
+<h2 id="ac-vs-dc">AC vs. DC Withstand Testing</h2>
+
+<p>
+  Withstand tests can use either AC or DC test voltage, and the choice matters. AC withstand testing stresses insulation the same way it's stressed in normal service (most equipment operates on AC) and is the standard method specified in most equipment and panel-board test standards. DC withstand testing is sometimes preferred for testing long cable runs, because it avoids the large capacitive charging current an AC test would need to supply over cable capacitance — but a DC test does not fully represent AC service stress, particularly for equipment with layered or laminated insulation.
+</p>
+
+<h2 id="tripping-current">Tripping Current — The Instrument's Safety Trip Point</h2>
+
+<p>
+  An HV test set doesn't just apply voltage — it also monitors leakage current continuously and trips (cuts the output) if the current exceeds a preset trip level, which protects both the equipment under test and the operator if breakdown occurs. This trip current is set based on the expected normal leakage current of the item under test plus a safety margin — set it too low and healthy equipment nuisance-trips; set it too high and a real breakdown could go undetected or cause more damage before the trip operates.
+</p>
+
+<h2 id="applications">Typical Applications</h2>
+
+<ul>
+  <li><strong>Panel board and switchgear acceptance testing</strong>: Confirming a newly assembled distribution board or switchboard meets its dielectric strength rating before it's put into service.</li>
+  <li><strong>Cable testing</strong>: Verifying new cable installations or repaired cable joints before energising.</li>
+  <li><strong>Component and material testing</strong>: QC testing of insulating materials, bushings, and components during manufacture.</li>
+  <li><strong>Routine/type testing to standard</strong>: Many equipment standards specify a defined power-frequency withstand voltage and duration as part of routine or type-test acceptance criteria.</li>
+</ul>
+
+<p>
+  CIE manufactures the <a href={u('/products/hv-phase-sequence/cie-5050a/')}>CIE/5050A</a> HV test set, continuously variable up to 3 kV or 5 kV AC with selectable 25 mA/50 mA tripping current and a breakdown-voltage memory function. <a href={u('/contact/')}>Contact us</a> to match test voltage and current capacity to your equipment.
+</p>

@@ -1,0 +1,73 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Every measuring instrument drifts over time — a multimeter, a megger, an oscilloscope, a micro-ohm meter, all of them. Components age, references shift slightly, mechanical parts wear. Calibration is the process of comparing an instrument's readings against a known, traceable reference and correcting or documenting any deviation. The question every maintenance department eventually asks is: how often should this actually happen? This guide covers how to think about calibration intervals sensibly, rather than guessing.
+</p>
+
+<h2 id="why-it-matters">Why Calibration Matters Beyond "Just to Be Safe"</h2>
+
+<p>
+  An out-of-calibration instrument doesn't fail loudly — it keeps giving readings, they're just quietly wrong. That's the real risk: a megger reading insulation resistance 10% higher than actual could mean equipment gets re-energised that shouldn't be, and a clamp meter under-reading current by a similar margin could mean an overloaded circuit looks safe on paper. For instruments used in acceptance testing, commissioning sign-off, or any measurement a customer or regulator relies on, calibration traceability is often a contractual or compliance requirement, not just good practice.
+</p>
+
+<h2 id="default-interval">The Default: Annual Calibration</h2>
+
+<p>
+  In the absence of any other data, a 12-month calibration interval is the most common default across general electrical test and measurement equipment — it's the interval most manufacturers state on their calibration certificates and the interval most calibration labs and quality systems are built around. It's a reasonable starting point for any instrument with no calibration history yet.
+</p>
+
+<h2 id="adjusting-the-interval">When to Shorten or Extend the Interval</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Factors that push the interval shorter or longer</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Factor</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Shortens the interval</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Lengthens the interval</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Usage frequency', 'Daily field use, harsh handling, transport in a vehicle', 'Occasional use, bench-stored between uses'],
+        ['Criticality of the measurement', 'Safety sign-off, contractual acceptance testing, regulatory compliance', 'Internal troubleshooting only, non-critical readings'],
+        ['Environment', 'High vibration, temperature extremes, humidity, dusty sites', 'Stable indoor lab/office environment'],
+        ['Calibration history', 'A track record of drifting close to tolerance each cycle', 'A consistent history of passing well within tolerance, cycle after cycle'],
+        ['Customer/standard requirement', 'A specific contract or accreditation body mandates a shorter interval', 'No external requirement beyond internal quality policy'],
+      ].map(([factor, shorter, longer], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{factor}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{shorter}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{longer}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="tip" title="Let calibration history — not habit — set the interval">
+  The most reliable way to set an interval for a specific instrument is to look at its own calibration history: if it consistently comes back well within tolerance cycle after cycle, an accredited quality system can justify extending the interval. If a cycle ever shows it drifting close to or outside tolerance, shorten the interval immediately rather than waiting to see if the next cycle is worse.
+</Callout>
+
+<h2 id="signs">Signs an Instrument Needs Attention Before Its Due Date</h2>
+
+<ul>
+  <li><strong>Readings drift or become unstable</strong> on a known reference or a stable test point.</li>
+  <li><strong>Repeat measurements of the same point disagree</strong> by more than the instrument's stated accuracy would explain.</li>
+  <li><strong>Physical damage</strong> — a drop, an overload event, exposure to moisture — should trigger a verification check regardless of when the last calibration was.</li>
+  <li><strong>Battery replacement on a precision instrument</strong> can sometimes shift a zero reference — worth a quick verification against a known value afterward.</li>
+</ul>
+
+<h2 id="calibration-vs-verification">Calibration vs. Verification — Not the Same Thing</h2>
+
+<p>
+  Calibration is a formal comparison against a traceable reference, resulting in a certificate documenting the instrument's accuracy at that point in time — it may or may not include physical adjustment. Verification (sometimes called an interim check) is a quicker, informal confidence check — for example, confirming a multimeter still reads correctly on a known reference resistor between full calibration cycles. Interim verification doesn't replace calibration, but it's a low-cost way to catch a badly drifted instrument before its scheduled recalibration date.
+</p>
+
+<p>
+  CIE supplies and calibrates precision test instruments used across NABL-accredited labs, EPC commissioning teams, and industrial maintenance departments — with calibration records provided for the instruments in our range. <a href={u('/contact/')}>Contact us</a> to discuss calibration for your fleet of instruments.
+</p>

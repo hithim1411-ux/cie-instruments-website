@@ -461,5 +461,45 @@
     "readTime": "7 min read",
     "category": "Guides",
     "excerpt": "Sound level meters convert acoustic pressure into a decibel reading engineers can act on. This guide explains weighting, time response, accuracy class, and calibration."
+  },
+  {
+    "slug": "micro-ohm-meter-guide",
+    "title": "Micro-Ohm Meter Guide: Measuring Winding, Contact, and Joint Resistance",
+    "description": "Why a multimeter can't measure micro-ohm resistance, how the 4-terminal Kelvin method works, and what to look for in a micro-ohm meter for winding and contact resistance testing.",
+    "publishDate": "2026-08-13",
+    "readTime": "6 min read",
+    "category": "Guides",
+    "excerpt": "Breaker contacts, winding resistance, and busbar joints all live in the micro-ohm range — far below what a multimeter can resolve. Here's how a 4-terminal Kelvin instrument measures it properly.",
+    "seoTitle": "Micro-Ohm Meter Guide: What It Measures"
+  },
+  {
+    "slug": "hv-dielectric-withstand-testing-guide",
+    "title": "Dielectric Withstand (HV) Testing Explained: IR vs. Hipot",
+    "description": "What a dielectric withstand (hipot) test does, how it differs from an insulation resistance (megger) test, and when each one is the right test to run.",
+    "publishDate": "2026-08-13",
+    "readTime": "6 min read",
+    "category": "Guides",
+    "excerpt": "An IR test measures a resistance value. A withstand test is pass/fail at a much higher voltage. Confusing the two — or skipping the IR test first — is a common and risky mistake.",
+    "seoTitle": "Dielectric Withstand (HV) Testing Explained"
+  },
+  {
+    "slug": "how-to-choose-a-relay-test-set",
+    "title": "How to Choose a Relay Test Set: Single-Phase vs Three-Phase",
+    "description": "How secondary injection testing works, and how to choose between a single-phase and a three-phase, phase-angle-capable relay test set based on the protection scheme you're commissioning.",
+    "publishDate": "2026-08-13",
+    "readTime": "6 min read",
+    "category": "Buying Guide",
+    "excerpt": "Overcurrent and earth fault relays only need single-phase injection. Directional and distance relays need three-phase current, voltage, and precise phase angle control — get this wrong and you can't test the relay correctly at all.",
+    "seoTitle": "How to Choose a Relay Test Set"
+  },
+  {
+    "slug": "calibration-interval-guide",
+    "title": "How Often Should You Calibrate Your Test Instruments?",
+    "description": "How to set a sensible calibration interval for electrical test instruments — the 12-month default, what shortens or lengthens it, and the difference between calibration and verification.",
+    "publishDate": "2026-08-13",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "An out-of-calibration instrument doesn't fail loudly — it just quietly gives wrong readings. Here's how to actually set a calibration interval instead of guessing.",
+    "seoTitle": "How Often to Calibrate Test Instruments"
   }
 ]

@@ -1,0 +1,71 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A relay test set lets you verify a protection relay's behaviour — pickup current, operating time, directional sense, trip characteristic — without waiting for an actual fault to occur on the system. It injects controlled current and voltage into the relay's secondary circuit (the CT/PT-fed inputs the relay actually sees) and times how the relay responds. Choosing the right relay test set comes down to one central question: are you testing single-phase protection, or do you need three-phase, phase-angle-controlled injection? This guide walks through that decision.
+</p>
+
+<h2 id="secondary-injection">What Secondary Injection Testing Actually Does</h2>
+
+<p>
+  Protection relays don't see primary system voltage and current directly — they see scaled-down secondary values from current transformers (CTs) and potential transformers (PTs), typically 1 A or 5 A CT secondaries and 110 V PT secondaries. A relay test set reproduces those secondary conditions directly at the relay's terminals: it injects a controlled test current (simulating a fault current level) and, where required, a controlled test voltage and phase angle, then times precisely how long the relay takes to operate. This proves the relay itself — its settings, its calibration, its mechanical/electronic operating time — completely independent of whether the CTs, wiring, or the rest of the protection scheme are involved.
+</p>
+
+<h2 id="single-vs-three-phase">Single-Phase vs. Three-Phase Relay Test Sets</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Choosing by relay type</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Relay type</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">What it needs from the test set</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Test set class</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Overcurrent (OC) relay', 'A single controlled current, ramped or stepped, with an accurate operate-time measurement', 'Single-phase (RTS-5, RTS-5A)'],
+        ['Earth fault (EF) relay', 'A single controlled current representing the residual/earth fault path', 'Single-phase (RTS-5, RTS-5A)'],
+        ['Directional relay', 'Current and voltage together, with a controlled phase angle between them, to verify the relay only trips for the correct fault direction', 'Three-phase, phase-angle capable (RTS-33)'],
+        ['Distance (impedance) relay', 'Simultaneous multi-phase current and voltage with precise phase angle control, to simulate an apparent impedance at a specific reach point', 'Three-phase, phase-angle capable (RTS-33)'],
+        ['Differential relay', 'Independently controlled currents into two or more relay inputs to simulate through-fault vs. internal-fault conditions', 'Three-phase, multi-source (RTS-33)'],
+      ].map(([relay, need, cls], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-semibold text-[#0D1B2A]">{relay}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{need}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs font-mono font-semibold text-emerald-700">{cls}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="key-specs">Key Specifications to Compare</h2>
+
+<ul>
+  <li><strong>Current output range and burden capacity</strong>: The test set must supply enough current at the relay's rated burden (VA) to reach the pickup and multiples of pickup you need to test — high-set instantaneous elements are often tested at several times pickup current, which demands more output capacity than a simple pickup check.</li>
+  <li><strong>Timer resolution and range</strong>: Operating-time measurement accuracy matters most for time-graded overcurrent schemes, where discrimination between relay stages can depend on differences of tens of milliseconds. Look for millisecond-resolution timing.</li>
+  <li><strong>Phase angle control</strong>: Only relevant for directional and distance relays — but essential for them. A single-phase test set physically cannot verify directional or distance characteristics correctly, regardless of how it's connected.</li>
+  <li><strong>Fixed auxiliary voltages</strong>: Useful for powering relay trip circuits or auxiliary contacts during a test without a separate DC supply.</li>
+  <li><strong>Portability and construction</strong>: Site commissioning work — especially at remote substations — favours a rugged, trolley-portable single-unit design over a bench instrument.</li>
+</ul>
+
+<Callout type="tip" title="Match the test set to the protection scheme, not just the relay">
+  A single overcurrent relay only needs single-phase injection to test — but if it's part of a scheme with directional or distance elements elsewhere in the same panel, plan for three-phase capability from the outset rather than needing a second instrument later.
+</Callout>
+
+<h2 id="what-gets-tested">What a Commissioning Test Actually Verifies</h2>
+
+<ol>
+  <li><strong>Pickup value</strong>: The minimum current (or voltage, for voltage relays) at which the relay just begins to operate — confirmed against the relay's setting.</li>
+  <li><strong>Operating time</strong>: How long the relay takes to trip at a given multiple of pickup — critical for time-graded discrimination between relays at different points in the network.</li>
+  <li><strong>Reset ratio</strong>: The ratio between pickup and dropout (reset) current — confirms the relay resets cleanly once the fault condition is removed, without chattering.</li>
+  <li><strong>Directional/distance characteristic</strong> (where applicable): Confirms the relay only operates for faults in the intended direction or within the intended reach/zone.</li>
+</ol>
+
+<p>
+  CIE manufactures the <a href={u('/products/relay-test-sets/rts-5/')}>RTS-5</a> and <a href={u('/products/relay-test-sets/rts-5a/')}>RTS-5A</a> single-phase relay test sets for overcurrent and earth fault relay testing, and the <a href={u('/products/relay-test-sets/rts-33/')}>RTS-33</a> — a two-unit, three-phase system with full 0–360° phase angle control — for distance, directional, and differential relay commissioning. <a href={u('/contact/')}>Contact us</a> to match a test set to your protection scheme.
+</p>

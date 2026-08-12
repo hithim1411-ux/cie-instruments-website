@@ -1,0 +1,71 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A standard multimeter reads resistance down to about 0.1 Ω with any real confidence — below that, the resistance of its own test leads and probe contacts swamps the reading. But some of the most important resistance measurements in electrical maintenance — circuit breaker contact resistance, transformer winding resistance, busbar joint resistance, welded or bolted cable joints — fall in the micro-ohm to low milliohm range, far below what a multimeter can resolve. A micro-ohm meter (also called a low-resistance ohmmeter or DLRO) is built specifically for this range. This guide explains how it works, what it's used for, and what to look for when choosing one.
+</p>
+
+<h2 id="why-multimeters-fail">Why a Multimeter Can't Measure Micro-Ohms</h2>
+
+<p>
+  A multimeter's resistance function uses a 2-wire (2-terminal) connection — the same pair of leads both carries the test current and senses the resulting voltage. At readings above a few ohms, the few tens of milliohms of resistance in the leads and probe-to-contact junction is negligible. But when the resistance being measured is itself only a few hundred micro-ohms, that same lead and contact resistance can be 10 to 100 times larger than the actual reading — the multimeter is effectively measuring its own leads, not the joint or winding under test.
+</p>
+
+<h2 id="kelvin-method">The 4-Terminal (Kelvin) Method</h2>
+
+<p>
+  A micro-ohm meter solves this with a 4-terminal Kelvin connection: two separate current leads (C1, C2) inject the test current through the component, and two separate potential (voltage-sensing) leads (P1, P2), placed inside the current leads, measure the voltage drop directly across the component only. Because almost no current flows through the potential leads, their resistance and contact quality don't affect the reading — the instrument measures only the resistance of the material between the P1 and P2 contact points.
+</p>
+
+<Callout type="info" title="Why this matters for repeatability">
+  With a 2-wire measurement, moving the probes slightly or changing contact pressure changes the reading — because you're partly measuring contact resistance. With a proper 4-wire Kelvin connection, the same joint reads the same value test after test, which is what makes trend comparison over years of maintenance records meaningful.
+</Callout>
+
+<h2 id="test-current">Why Test Current Matters</h2>
+
+<p>
+  Micro-ohm meters inject a much higher test current than a multimeter — often 1 A or more on the lowest ranges — for two reasons. First, a larger current produces a larger, more easily resolved voltage drop across a very small resistance (Ohm's Law: V = I × R), improving measurement resolution. Second, a higher test current breaks through thin oxide films on metal contact surfaces that would otherwise show as false high resistance at very low test currents — the same reason a genuinely loose or corroded joint sometimes reads deceptively "fine" on a low-current instrument. This is also why winding resistance test currents are often specified as a percentage of the equipment's rated current: a low test current can pass through non-conductive paths that would carry no current in service, masking a real fault.
+</p>
+
+<h2 id="applications">What Micro-Ohm Meters Are Used For</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Common applications</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Application</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">What a rising reading indicates</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Circuit breaker contact resistance', 'Contact erosion or pitting from repeated arc interruption — a key input to breaker maintenance/replacement decisions.'],
+        ['Transformer and motor winding resistance', 'Loose connections, broken strands, or overheating damage in the winding — usually compared winding-to-winding or against factory baseline.'],
+        ['Busbar and cable joint resistance', 'A loosening bolted joint or degrading weld — a leading cause of hotspot failures and fires in switchboards.'],
+        ['Earthing and bonding conductor continuity', 'Corrosion or a failing bond at an earthing connection, which compromises fault current return path.'],
+        ['Switchgear and isolator contact checks', 'Contact wear or misalignment before it causes a temperature rise under load.'],
+      ].map(([app, meaning], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-semibold text-[#0D1B2A]">{app}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{meaning}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="choosing">What to Look For When Choosing One</h2>
+
+<ul>
+  <li><strong>Range and resolution</strong>: Confirm the lowest range resolves the readings you actually need — joint and contact resistance work is often in the low milliohm to micro-ohm range, while cable and winding checks can extend into ohms or kilohms. A wide multi-range instrument (µΩ through kΩ) covers both without needing a second meter.</li>
+  <li><strong>Genuine 4-terminal Kelvin leads</strong>: Confirm the instrument (and the test leads supplied with it) are true 4-wire, not a 2-wire meter with "low resistance" marketing. Kelvin clip or Kelvin probe leads have visibly separate current and potential contact points.</li>
+  <li><strong>Test current level</strong>: Higher test current on the lowest ranges gives a more representative reading of contacts and joints under real load, and is less prone to oxide-film error.</li>
+  <li><strong>Accuracy class</strong>: For maintenance trending (comparing this year's reading to last year's), consistency between tests matters as much as absolute accuracy — but for acceptance testing against a manufacturer's specified value, a tighter accuracy class (e.g., ±0.5% or better) is important.</li>
+</ul>
+
+<p>
+  CIE manufactures the <a href={u('/products/digital-earth-micro-ohm/mr-253a/')}>MR-253A</a>, a 4-terminal Kelvin-method micro-ohm meter ranging from 1 µΩ to 19.99 kΩ across 8 ranges, with test current automatically scaled per range. <a href={u('/contact/')}>Contact us</a> for a recommendation matched to your application.
+</p>
