@@ -122,6 +122,11 @@ const slugLabels: Record<string, string> = {
   'oil-test-sets': 'Oil BDV Test Sets', 'relay-test-sets': 'Relay Test Sets',
   oscilloscopes: 'Oscilloscopes', 'function-generators': 'Function Generators',
   'lcr-meters': 'LCR & Cap Meters', 'dc-loads': 'DC Electronic Loads',
+  'power-utilities': 'Power Utilities', 'indian-railways': 'Indian Railways',
+  'substation-commissioning': 'Substation Commissioning',
+  'industry-manufacturing': 'Industry & Manufacturing',
+  'test-laboratories': 'Test Laboratories', 'epc-contractors': 'EPC Contractors',
+  'instrument-finder': 'Instrument Finder',
 };
 const pathParts = Astro.url.pathname.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
 const breadcrumbSchema = pathParts.length > 0 ? JSON.stringify({

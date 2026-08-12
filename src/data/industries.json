@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "power-utilities",
+    "name": "Power Utilities",
+    "icon": "zap",
+    "customers": "PGCIL, WBSETCL, NTPC, State Electricity Boards",
+    "description": "Power utilities require insulation testing on HV cables, transformers, and switchgear at commissioning and during periodic maintenance. Earth resistance testing is mandatory at every substation. Transformer oil quality (BDV) testing is performed before energisation and at routine maintenance intervals. Protection relay testing is essential for grid security.",
+    "productIds": ["cie-444", "cie-666", "cie-777", "cie-222m", "cie-7050", "rts-33", "dit-2500", "dit-5000"],
+    "relatedCategoryIds": ["insulation-testers-hand", "earth-tester", "oil-test-sets", "relay-test-sets", "digital-insulation-testers"],
+    "metaTitle": "Instruments for Power Utilities — Insulation, Earth & Oil Testing",
+    "metaDesc": "CIE test instruments used by power utilities across India for HV insulation testing, earth resistance, transformer oil BDV, and protection relay commissioning."
+  },
+  {
+    "slug": "indian-railways",
+    "name": "Indian Railways",
+    "icon": "train",
+    "customers": "Traction, Signalling & Telecom, Rolling Stock workshops, OHE teams",
+    "description": "Indian Railways is one of the largest users of electrical test and measurement instruments in India. Traction sub-stations, overhead equipment (OHE), rolling stock, and signalling systems all require regular insulation testing, earth resistance verification, and relay testing. CIE instruments have been specified by Railway workshops for decades.",
+    "productIds": ["cie-666", "cie-444", "cie-222m", "rts-33", "rts-5a", "psi-1", "psi-2"],
+    "relatedCategoryIds": ["insulation-testers-hand", "earth-tester", "relay-test-sets", "phase-sequence-indicators"],
+    "metaTitle": "Instruments for Indian Railways — Traction, OHE & Signalling",
+    "metaDesc": "CIE test instruments specified by Indian Railways workshops for traction sub-stations, OHE, rolling stock, and signalling insulation, earthing, and relay testing."
+  },
+  {
+    "slug": "substation-commissioning",
+    "name": "Substation Commissioning",
+    "icon": "hard-hat",
+    "customers": "EPC contractors, commissioning engineers, turnkey project teams",
+    "description": "Substation commissioning requires a full suite of T&M instruments — from pre-energisation insulation and earth resistance tests through to protection relay commissioning. EPC contractors rely on instruments that are robust, accurate, and carry traceable calibration. CIE instruments are selected by commissioning teams for their proven field reliability.",
+    "productIds": ["cie-444", "cie-666", "cie-777", "cie-222m", "cie-7050", "rts-33", "rts-5a", "mr-253a"],
+    "relatedCategoryIds": ["insulation-testers-hand", "earth-tester", "oil-test-sets", "relay-test-sets", "digital-earth-micro-ohm"],
+    "metaTitle": "Instruments for Substation Commissioning — Full Test Suite",
+    "metaDesc": "CIE instruments for substation commissioning teams: pre-energisation insulation and earth resistance testing, oil quality checks, and protection relay commissioning."
+  },
+  {
+    "slug": "industry-manufacturing",
+    "name": "Industry & Manufacturing",
+    "icon": "factory",
+    "customers": "Steel plants, cement, mining, heavy industry, process industry",
+    "description": "Industrial plants depend on reliable motors, cables, and transformers. Regular insulation testing is the primary tool for preventive maintenance — catching deteriorating insulation before it leads to costly failures. Earth resistance testing ensures equipment safety. CIE instruments are used by maintenance engineers in some of India's largest industrial installations.",
+    "productIds": ["cie-444", "cie-555", "dit-5005", "dit-2500", "dcm-2250-tr", "dcm-5410-tr", "dm-235", "dm-321t", "mr-253a"],
+    "relatedCategoryIds": ["insulation-testers-hand", "compact-insulation-testers", "digital-insulation-testers", "clamp-meters", "multimeters", "digital-earth-micro-ohm"],
+    "metaTitle": "Instruments for Industry & Manufacturing — Preventive Maintenance",
+    "metaDesc": "CIE test instruments for industrial maintenance engineers: insulation testing for motors and cables, clamp meters, multimeters, and motor winding resistance checks."
+  },
+  {
+    "slug": "test-laboratories",
+    "name": "Test Laboratories",
+    "icon": "flask",
+    "customers": "NABL accredited labs, calibration centres, R&D facilities, academic institutions",
+    "description": "Test laboratories require instruments that are stable, accurate, and calibrated to traceable standards. CIE provides calibration records for all instruments in the range — making them suitable for use in NABL-accredited labs and other regulated testing environments.",
+    "productIds": ["dit-2500", "dit-5000", "mr-253a", "det-2000", "cie-5050a", "cie-7050"],
+    "relatedCategoryIds": ["digital-insulation-testers", "digital-earth-micro-ohm", "earth-tester", "hv-phase-sequence", "oil-test-sets"],
+    "metaTitle": "Instruments for Test Laboratories — Calibrated, Traceable",
+    "metaDesc": "CIE precision test instruments with traceable calibration for NABL-accredited labs, calibration centres, and R&D facilities: insulation, earth, HV, and oil test sets."
+  },
+  {
+    "slug": "epc-contractors",
+    "name": "EPC Contractors",
+    "icon": "clipboard-check",
+    "customers": "Turnkey substation contractors, cable laying, power plant construction",
+    "description": "EPC contractors are responsible for instrument-based acceptance testing at project handover. Their T&M instruments must be certified, calibrated, and fit for purpose. CIE's calibration records and 12-month warranty make the complete range a preferred choice for project commissioning stores.",
+    "productIds": ["cie-444", "cie-666", "cie-777", "cie-222m", "cie-7050", "rts-33", "cie-5050a"],
+    "relatedCategoryIds": ["insulation-testers-hand", "motor-operated-insulation", "earth-tester", "oil-test-sets", "relay-test-sets", "hv-phase-sequence"],
+    "metaTitle": "Instruments for EPC Contractors — Commissioning Sign-Off",
+    "metaDesc": "CIE calibrated test instruments for EPC contractors: insulation testing, substation earthing acceptance, oil quality, relay commissioning, and HV withstand tests."
+  }
+]

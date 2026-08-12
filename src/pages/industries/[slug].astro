@@ -1,0 +1,125 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import CTABand from '../../components/CTABand.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import Icon from '../../components/Icon.astro';
+import { u } from '../../utils/url';
+import type { IconName } from '../../utils/iconNames';
+import industries from '../../data/industries.json';
+import products from '../../data/products.json';
+import categories from '../../data/categories.json';
+
+export async function getStaticPaths() {
+  return industries.map(industry => ({
+    params: { slug: industry.slug },
+    props: { industry },
+  }));
+}
+
+const { industry } = Astro.props as { industry: typeof industries[number] };
+
+const industryProducts = industry.productIds
+  .map(id => products.find(p => p.id === id))
+  .filter((p): p is NonNullable<typeof p> => !!p);
+
+// "Why these instruments" — built from each product's own real applications[]
+// data, not invented per-industry copy.
+const applicationHighlights = industryProducts
+  .flatMap(p => (p.applications ?? []).slice(0, 1).map(app => ({ model: p.model, app })))
+  .slice(0, 6);
+
+const relatedCategories = (industry.relatedCategoryIds ?? [])
+  .map(id => categories.find(c => c.id === id))
+  .filter((c): c is NonNullable<typeof c> => !!c);
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `Instruments for ${industry.name}`,
+  description: industry.description,
+  url: `https://www.cieinstruments.in/industries/${industry.slug}/`,
+  numberOfItems: industryProducts.length,
+  itemListElement: industryProducts.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `https://www.cieinstruments.in/products/${p.categoryId}/${p.id}/`,
+    name: `${p.model} — ${p.name}`,
+  })),
+};
+---
+
+<Base title={industry.metaTitle} description={industry.metaDesc} rawTitle>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+
+  <div class="bg-cloud border-b border-border py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Industries', href: '/industries' }, { label: industry.name }]} />
+      <div class="flex items-center gap-3 mt-4 mb-3">
+        <div class="w-11 h-11 bg-white rounded-xl flex items-center justify-center shrink-0">
+          <Icon name={industry.icon as IconName} class="w-5 h-5 text-ink" />
+        </div>
+        <EyebrowLabel text="Industries · Applications" />
+      </div>
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">{industry.name}</h1>
+      <p class="mt-2 text-muted max-w-2xl">{industry.description}</p>
+      <p class="mt-4 text-xs font-mono text-muted uppercase tracking-widest">{industry.customers}</p>
+    </div>
+  </div>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-ink mb-8">Instruments Used in {industry.name}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {industryProducts.map(p => (
+          <ProductCard
+            model={p.model}
+            name={p.name}
+            tagline={p.tagline}
+            categoryId={p.categoryId}
+            id={p.id}
+            featured={p.featured}
+            image={(p as any).image}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {applicationHighlights.length > 0 && (
+    <section class="bg-cloud border-t border-border section-pad-sm">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-xl font-bold text-ink mb-8">Why These Instruments</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {applicationHighlights.map(h => (
+            <div class="bg-white rounded-xl border border-border p-5 flex items-start gap-3">
+              <span class="model-code text-xs shrink-0 mt-0.5">{h.model}</span>
+              <p class="text-sm text-muted leading-relaxed">{h.app}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedCategories.length > 0 && (
+    <section class="bg-white border-t border-border section-pad-sm">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-xl font-bold text-ink mb-6">Browse by Category</h2>
+        <div class="flex flex-wrap gap-3">
+          {relatedCategories.map(cat => (
+            <a href={u(`/products/${cat.id}/`)} class="px-4 py-2 rounded-full border border-border text-sm text-ink hover:border-red hover:text-red transition-colors">
+              {cat.shortName}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CTABand
+    heading={`Tell us your ${industry.name.toLowerCase()} requirement — we'll recommend the right instrument.`}
+    body="Our team has been serving this sector for over 60 years. We know which instrument fits your application."
+  />
+</Base>
