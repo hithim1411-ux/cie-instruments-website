@@ -1,0 +1,65 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Earth resistance testers come in two fundamentally different designs: hand-driven analog instruments with a moving-needle display, and battery-powered digital instruments with a numeric LCD readout. Both measure the same thing using the same fall-of-potential principle — the difference is in power source, readout, and where each one earns its place in a maintenance kit. This guide compares them directly.
+</p>
+
+<h2 id="how-they-differ">The Core Difference</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Analog vs. digital earth tester</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">&nbsp;</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Hand-driven analog</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Digital</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Power source', 'Hand-cranked generator — no battery, no mains', 'Rechargeable battery, charged via mains'],
+        ['Readout', 'Moving-needle scale', 'Numeric LCD — direct, unambiguous reading'],
+        ['Field readiness', 'Always ready — never runs flat, works anywhere', 'Depends on battery charge — must be charged before a field trip'],
+        ['Operator skill', 'Requires a steady, consistent crank speed for accurate readings', 'No technique required — press test, read the number'],
+        ['Robustness', 'Simple electromechanical design, very few failure points', 'Electronics are more capable but marginally more failure modes'],
+        ['Best suited to', 'Remote sites, frequent field use, no reliable charging access', 'Lab/office use, frequent short tests, when digital record-keeping matters'],
+      ].map(([label, a, d], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{label}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{d}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="why-analog-still-matters">Why Hand-Driven Analog Testers Are Still Widely Used</h2>
+
+<p>
+  It might seem counterintuitive that a hand-cranked instrument remains a serious professional tool in the digital era, but the reason is simple: a hand-driven generator has no battery to go flat and no mains dependency. For utility, railway, and EPC maintenance teams working at remote substations, tower sites, or rural installations with no reliable power or charging infrastructure, that's not a minor convenience — it's the difference between completing the test and not. An analog instrument that's been sitting in a store room for two years works exactly the same the day you pick it back up.
+</p>
+
+<h2 id="why-digital">Why Digital Testers Are Preferred for High-Volume or Precision Work</h2>
+
+<p>
+  A digital earth tester removes operator technique from the accuracy equation — there's no crank speed to maintain, and the numeric readout removes any ambiguity in reading a needle position, which matters when documenting results for a report or compliance record. For teams running many tests in a single day — commissioning audits, periodic testing programmes, lab work — the speed and reduced operator fatigue of a digital instrument is a genuine productivity advantage, provided the battery is kept charged and a charging point is accessible.
+</p>
+
+<Callout type="tip" title="Many maintenance departments carry both">
+  It's common for a maintenance store to hold a digital tester for routine office-adjacent and high-volume testing, and a hand-driven analog unit as the dependable backup for remote field trips where charging isn't guaranteed. The two aren't strictly competing — they cover different operational scenarios.
+</Callout>
+
+<h2 id="what-doesnt-change">What Doesn't Change Between the Two</h2>
+
+<p>
+  Regardless of readout type, the underlying test method — the 3-point fall-of-potential technique — and the accepted resistance limits for your installation type are identical. Neither instrument type is inherently "more accurate" than the other at a given accuracy class; the choice is about field conditions and workflow, not measurement fundamentals. See our <a href={u('/blog/earth-resistance-testing-guide/')}>full earth resistance testing guide</a> for the test procedure and accepted limits by installation type.
+</p>
+
+<p>
+  CIE manufactures the <a href={u('/products/earth-tester/cie-222m/')}>CIE/222M</a>, a hand-driven analog earth tester with 3- and 4-terminal configurations, and the <a href={u('/products/earth-tester/det-2000/')}>DET-2000</a>, a digital earth tester with 4-terminal measurement and rechargeable battery power. <a href={u('/contact/')}>Contact us</a> for a recommendation matched to your field conditions.
+</p>

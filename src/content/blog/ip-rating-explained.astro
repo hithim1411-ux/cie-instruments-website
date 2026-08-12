@@ -1,0 +1,90 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Field electrical work rarely happens in a clean, dry lab. Substations, construction sites, outdoor switchyards, and rain-soaked panel rooms all expose test instruments to dust and water. The IP (Ingress Protection) rating printed on an instrument's spec sheet tells you exactly how well it's sealed against both — and choosing an instrument with an IP rating that doesn't match your working environment is a common, avoidable cause of field failures.
+</p>
+
+<h2 id="what-is-ip">What the IP Code Actually Means</h2>
+
+<p>
+  IP ratings are defined by IEC 60529 and written as two digits following "IP" — for example, IP65. The first digit rates protection against solid objects and dust; the second rates protection against liquid ingress. A higher digit means better protection in that category. The two digits are independent — an instrument can have strong dust protection and weak water protection, or vice versa.
+</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">First digit — solid particle protection</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Digit</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Protection level</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['0', 'No protection'],
+        ['1–3', 'Protection against large to medium-sized objects and tools (≥ 2.5 mm)'],
+        ['4', 'Protection against objects ≥ 1 mm (wires, small tools)'],
+        ['5', 'Dust protected — limited dust ingress allowed, does not affect operation'],
+        ['6', 'Dust-tight — no dust ingress at all'],
+      ].map(([d, desc], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-sm font-mono font-bold text-[#1B3A5B]">{d}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{desc}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Second digit — liquid ingress protection (common ratings)</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Digit</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Protection level</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['0', 'No protection'],
+        ['4', 'Splashing water from any direction'],
+        ['5', 'Low-pressure water jets from any direction'],
+        ['6', 'Powerful water jets from any direction — no harmful ingress'],
+        ['7', 'Temporary immersion up to 1 m depth, up to 30 minutes'],
+        ['8', 'Continuous immersion beyond 1 m — depth per manufacturer specification'],
+      ].map(([d, desc], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-sm font-mono font-bold text-[#1B3A5B]">{d}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{desc}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="info" title="An 'X' means that category wasn't tested — not that it failed">
+  Ratings like IPX4 or IP5X use an X where a digit would go. This means the manufacturer did not test or is not claiming protection in that category — it does not necessarily mean zero protection, just that no verified claim is made. Don't assume the worst case, but don't assume any protection either — treat an X digit as unspecified.
+</Callout>
+
+<h2 id="common-ratings">Ratings You'll Actually See on Test Instruments</h2>
+
+<ul>
+  <li><strong>IP40 / IP20</strong>: Typical of bench-only instruments never intended to leave a lab or workshop — protected against tools and fingers, no meaningful water protection.</li>
+  <li><strong>IP54</strong>: A common baseline for general field-use handheld instruments — dust protected, splash resistant. Fine for typical indoor industrial and covered outdoor use.</li>
+  <li><strong>IP65 / IP66</strong>: Dust-tight with strong water-jet resistance — suitable for outdoor site work, substations, and washdown environments.</li>
+  <li><strong>IP67</strong>: Dust-tight with temporary full immersion protection — the choice for genuinely wet field conditions: rain, standing water, accidental drops into puddles.</li>
+</ul>
+
+<h2 id="matching-to-environment">Matching the Rating to Your Actual Environment</h2>
+
+<p>
+  There's no universal "best" IP rating — it should match where the instrument actually works. Over-specifying adds cost for protection you'll never use; under-specifying risks a field failure at the worst possible moment. A clamp meter used exclusively on a clean workshop bench doesn't need IP67. A clamp meter carried in a tool bag to outdoor substation and rooftop solar work genuinely does.
+</p>
+
+<p>
+  CIE and Vartech instruments span this range, from bench-grade units to field-rated meters and environmental instruments built for site conditions. <a href={u('/contact/')}>Contact us</a> to confirm the IP rating that matches your working environment before you specify an instrument.
+</p>

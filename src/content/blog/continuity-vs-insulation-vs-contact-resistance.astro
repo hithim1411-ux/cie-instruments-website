@@ -1,0 +1,72 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Continuity testing, insulation resistance testing, and contact/micro-ohm resistance testing all involve a multimeter-like instrument and a resistance-style reading — which is exactly why they get confused. But they test completely different things, at completely different voltages, for completely different failure modes. Using the wrong one gives you a meaningless answer, or worse, a false pass. This guide is a quick decision map between the three.
+</p>
+
+<h2 id="the-three-tests">The Three Tests at a Glance</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Which test answers which question</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Test</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Question it answers</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Typical test voltage</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Instrument</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Continuity', 'Is this conductor unbroken, or is that switch/fuse/connection actually making contact?', '< 9 V (multimeter continuity mode)', 'Multimeter'],
+        ['Insulation resistance (IR)', 'Is the insulation between this conductor and earth (or another conductor) still good, or is it degrading?', '500 V – 5000 V DC', 'Megohmmeter (megger)'],
+        ['Contact / micro-ohm resistance', 'Is this joint, contact, or winding carrying current with abnormally high resistance — indicating wear, looseness, or damage?', 'Low voltage, higher current (1 A+)', 'Micro-ohm meter (DLRO)'],
+      ].map(([test, q, v, inst], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{test}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{q}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs font-mono text-gray-600">{v}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{inst}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="continuity">Continuity — "Is There a Path?"</h2>
+
+<p>
+  Continuity testing asks a yes/no question at very low voltage: does current have a complete path through this conductor, fuse, switch, or connection? It's a fast, low-voltage check — most multimeters beep instantly when resistance is low enough to indicate a solid connection. It cannot tell you anything about insulation quality or how much current a joint can safely carry — it only confirms the circuit isn't open.
+</p>
+
+<h2 id="insulation">Insulation Resistance — "Is the Barrier Still Good?"</h2>
+
+<p>
+  Insulation resistance testing asks the opposite kind of question: is the material that's supposed to <em>block</em> current flow (between a live conductor and earth, or between two separate conductors) still doing its job? A megger applies a high DC voltage — much higher than a multimeter — because insulation that looks fine at low voltage can still leak dangerously at operating voltage. A good IR reading is a high resistance (megaohms to gigaohms); a low reading means the insulation is compromised.
+</p>
+
+<h2 id="contact-resistance">Contact / Micro-Ohm Resistance — "Is This Joint Healthy?"</h2>
+
+<p>
+  Contact and micro-ohm resistance testing sits at the opposite end of the resistance scale from insulation testing — it measures very low resistance (micro-ohms to milliohms) in things that are supposed to conduct extremely well: breaker contacts, busbar joints, winding conductors, bolted cable lugs. A standard multimeter can't resolve values this small (its own test leads have more resistance than the joint being measured); a dedicated micro-ohm meter using a 4-terminal Kelvin connection is required. A rising reading over time — even one that's still "low" — signals a developing problem before it becomes a hot joint or a failed connection.
+</p>
+
+<Callout type="tip" title="A quick way to remember the direction">
+  Continuity wants to see close to <strong>zero</strong> ohms (a good path). Insulation resistance wants to see very <strong>high</strong> resistance (a good barrier). Contact/micro-ohm resistance also wants low resistance, like continuity — but needs far more precision than a multimeter can give, because the acceptable values are so much smaller.
+</Callout>
+
+<h2 id="which-one">Quick Decision Guide</h2>
+
+<ul>
+  <li><strong>Checking if a fuse, switch, or cable is broken?</strong> → Continuity test with a multimeter.</li>
+  <li><strong>Checking if a motor, cable, or transformer is safe to re-energise, or tracking insulation ageing over time?</strong> → Insulation resistance test with a megger. See our <a href={u('/blog/what-is-a-megger/')}>full megger guide</a>.</li>
+  <li><strong>Checking a circuit breaker contact, busbar joint, or winding resistance for wear or looseness?</strong> → Contact/micro-ohm resistance test with a micro-ohm meter. See our <a href={u('/blog/micro-ohm-meter-guide/')}>micro-ohm meter guide</a>.</li>
+</ul>
+
+<p>
+  CIE manufactures instruments across all three categories — <a href={u('/products/multimeters/')}>digital multimeters</a> for continuity, <a href={u('/products/insulation-testers-hand/')}>insulation testers</a> for IR testing, and the <a href={u('/products/digital-earth-micro-ohm/')}>MR-253A</a> for micro-ohm measurement. <a href={u('/contact/')}>Contact us</a> if you're not sure which test your situation calls for.
+</p>

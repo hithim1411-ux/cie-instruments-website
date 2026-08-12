@@ -1,0 +1,67 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Knowing how to run an insulation resistance test is only half the job — the other half is knowing how often to run it. Test too rarely and insulation can degrade from "fine" to "failed" between visits with no warning. Test on a fixed calendar schedule regardless of actual condition and you waste maintenance hours on motors that don't need it. This guide covers how to build a sensible periodic testing schedule for motor insulation.
+</p>
+
+<h2 id="why-periodic">Why Periodic Testing Beats a Single Spot Check</h2>
+
+<p>
+  A single insulation resistance reading tells you the condition of a motor's insulation on the day of the test — it says nothing about the trend. A motor reading 500 MΩ today could have read 2000 MΩ a year ago and be heading toward failure, or it could have read 500 MΩ for the last decade and be perfectly stable. Periodic testing, with results logged and compared over time, turns a single data point into a trend — and a clearly declining trend is a far more reliable failure predictor than any single absolute value.
+</p>
+
+<h2 id="factors">What Should Set the Interval</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Factors that shorten or lengthen the interval</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Factor</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Shorter interval when...</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Longer interval when...</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Criticality', 'The motor drives a process that cannot tolerate unplanned downtime', 'A spare or non-critical motor is readily available'],
+        ['Environment', 'Damp, dusty, high-vibration, or high-temperature operating conditions', 'Clean, dry, climate-controlled environment'],
+        ['Motor size / rating', 'Large motors (often > 100 kW) where failure cost and PI test practicality both favour more frequent checks', 'Small fractional-horsepower motors with low replacement cost'],
+        ['Age and history', 'Older windings, or any prior test showing a declining trend', 'New or recently rewound motor with a clean, stable history'],
+        ['Duty cycle', 'Continuous, heavily loaded, or frequently started/stopped operation', 'Light, intermittent duty'],
+      ].map(([factor, shorter, longer], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{factor}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{shorter}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{longer}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="typical-practice">Typical Industry Practice</h2>
+
+<p>
+  In the absence of manufacturer- or standard-specific guidance for a particular installation, an annual spot IR test is a common baseline for in-service motors, with a full Polarisation Index (PI) test — the 10-minute sustained test — reserved for larger or more critical motors, often those above roughly 100 kW, or any motor flagged by a declining trend. Motors identified as critical to production, safety-related, or operating in harsh conditions are frequently tested more often — quarterly or even monthly in some maintenance programmes. This is a starting framework to adapt, not a fixed rule for every installation — see our full <a href={u('/blog/what-is-a-megger/')}>megger and PI/DAR testing guide</a> for how to run and interpret the test itself.
+</p>
+
+<Callout type="warning" title="Always test before and after major events">
+  Regardless of the routine schedule, test insulation resistance after any event that could have stressed the winding: after a motor has been in storage for an extended period, after flooding or water exposure, after a rewind or repair, and before re-energising any motor that has been out of service for more than a few weeks.
+</Callout>
+
+<h2 id="building-a-schedule">Building a Practical Schedule</h2>
+
+<ol>
+  <li><strong>Classify motors by criticality</strong> — critical/production-stopping, important/spare available, non-critical.</li>
+  <li><strong>Set a baseline interval per class</strong> — start with an industry-typical baseline (e.g., annual for standard motors, more frequent for critical ones) if no history exists yet.</li>
+  <li><strong>Log every reading with temperature</strong> — insulation resistance is temperature-dependent, so trend comparison is only meaningful if readings are recorded (or corrected) to a consistent reference temperature.</li>
+  <li><strong>Adjust based on trend, not just the schedule</strong> — a motor showing a clear declining trend should move to a shorter interval or immediate investigation, regardless of what the calendar says.</li>
+</ol>
+
+<p>
+  CIE manufactures hand-driven and <a href={u('/products/digital-insulation-testers/')}>digital insulation testers</a>, including <a href={u('/products/motor-operated-insulation/')}>motorised testers for PI and DAR testing</a> on larger motors. <a href={u('/contact/')}>Contact us</a> to build out a testing programme for your motor fleet.
+</p>
