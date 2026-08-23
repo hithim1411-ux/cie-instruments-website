@@ -1,0 +1,47 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A multimeter measuring current doesn't actually measure current directly — it routes the circuit's current through an internal shunt resistor and measures the voltage drop across it. That voltage drop is called <strong>burden voltage</strong>, and it's an extra piece of resistance the meter inserts into the very circuit it's trying to measure — small enough to usually not matter, but large enough on the wrong range, or in the wrong circuit, to produce a reading that's confidently wrong.
+</p>
+
+<h2 id="what-it-is">What Burden Voltage Actually Is</h2>
+
+<p>
+  Every ammeter — analog or digital — measures current by inserting a known low resistance in series with the circuit and reading the voltage it develops (Ohm's law, run in reverse: I = V / R, so V = I × R). That internal resistance is the "burden" the meter places on the circuit, and the voltage it develops under load is the burden voltage. A good multimeter's current shunt is deliberately as low as practical, so the burden voltage stays small — but "small" is relative to the circuit being measured, not an absolute number.
+</p>
+
+<Callout type="warning" title="Burden voltage is a real voltage drop in your circuit, not just a spec sheet number">
+  While the meter is connected in series to measure current, its burden voltage is subtracted from whatever voltage the rest of the circuit has available. In a healthy, well-powered circuit this is negligible. In a marginal circuit — a weak battery, a long thin wire run, a low-voltage sensor loop — it can be the difference between the circuit behaving normally and misbehaving specifically because the meter is connected.
+</Callout>
+
+<h2 id="why-it-matters">Why It Matters in Practice</h2>
+
+<p>
+  Two situations where burden voltage causes real, confusing problems on site:
+</p>
+
+<ul>
+  <li><strong>Low-voltage or low-power circuits</strong>: measuring current in a 5 V logic circuit, a battery-powered sensor loop, or a weak signal path, a burden voltage of even a few hundred millivolts can be a meaningful fraction of the total available voltage — enough to make a circuit that works fine unloaded appear to malfunction the instant an ammeter is inserted in series.</li>
+  <li><strong>Wrong current range selected</strong>: most multimeters use a different internal shunt for different current ranges — a lower-resistance shunt for the high-current (often unfused) range, a higher-resistance one for the mA/µA range. Measuring a small current on a range meant for large currents is usually fine for burden voltage, but the reverse — accidentally exceeding a low range — is how fuses blow. Selecting a needlessly high range for a small current doesn't damage anything, but it can silently reduce reading resolution.</li>
+</ul>
+
+<h2 id="clamp-meters">Why Clamp Meters Don't Have This Problem</h2>
+
+<p>
+  A clamp meter measures current through a jaw that senses the magnetic field around a conductor — it never breaks the circuit or inserts a series shunt at all, so there's no burden voltage to speak of. This is one of the reasons clamp meters are the preferred tool for current measurement on live circuits where even a small series voltage drop is undesirable, or where breaking the circuit to insert an ammeter isn't practical or safe in the first place.
+</p>
+
+<h2 id="minimising-it">How to Minimise Burden Voltage Error</h2>
+
+<ul>
+  <li><strong>Use the correct current range</strong> — don't default to the highest range "to be safe" if the expected current is small; check the meter's burden voltage specification (given in mV/A or as a fixed value per range) in its datasheet if you're working with a marginal circuit.</li>
+  <li><strong>Prefer a clamp meter for sensitive or low-voltage circuits</strong> where inserting any series resistance is undesirable, or where breaking the circuit to insert leads isn't practical.</li>
+  <li><strong>Check burden voltage specifically when troubleshooting</strong> a circuit that behaves differently with a meter connected than without — it's an easy thing to overlook when the fault only appears "because you're measuring it."</li>
+</ul>
+
+<p>
+  CIE supplies <a href={u('/products/multimeters/')}>digital multimeters</a> and <a href={u('/products/clamp-meters/')}>clamp meters</a> for current measurement across a wide range of applications. <a href={u('/contact/')}>Contact us</a> if you need help selecting the right instrument for a sensitive or low-voltage measurement.
+</p>

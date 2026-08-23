@@ -1,0 +1,70 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A datasheet that promises "0.01 resolution" hasn't told you how accurate the instrument is — and one that promises "±0.5% accuracy" hasn't told you how fine a difference it can even display. Accuracy, resolution, and precision are three separate specifications that get used almost interchangeably in casual conversation and completely differently in an instrument's actual datasheet. Confusing them leads to buying an instrument that displays impressively fine digits while being no more trustworthy than a cheaper one with fewer.
+</p>
+
+<h2 id="resolution">Resolution: How Fine a Difference the Display Can Show</h2>
+
+<p>
+  Resolution is the smallest change in a measured value that the instrument can display — for a digital multimeter, it's the value of the last digit on the display at a given range. A meter reading 4.567 V has a resolution of 1 mV on that range; a meter reading 4.57 V has a resolution of 10 mV. Resolution is purely about display granularity. It says nothing about whether the digits shown are actually correct.
+</p>
+
+<h2 id="accuracy">Accuracy: How Close the Reading Is to the True Value</h2>
+
+<p>
+  Accuracy is how close a reading is to the actual, true value of what's being measured, usually stated as ±(percentage of reading + a fixed number of counts) — for example, ±(0.5% + 2 digits). This combined figure matters: on a low reading, the fixed "digits" term can dominate the percentage term, so accuracy in absolute terms is often worse at the bottom of a range than the headline percentage alone suggests.
+</p>
+
+<Callout type="warning" title="High resolution with poor accuracy is a common and misleading combination">
+  A budget meter can easily display 4 digits of resolution while only guaranteeing ±2% accuracy — meaning the last one or two displayed digits are essentially noise, not real information. The display looks precise; the measurement isn't. Always check the accuracy specification separately from resolution before trusting a fine-looking reading.
+</Callout>
+
+<h2 id="precision">Precision: How Repeatable the Reading Is</h2>
+
+<p>
+  Precision (sometimes called repeatability) is how consistent an instrument's readings are when measuring the same value repeatedly under the same conditions — it says nothing about whether those consistent readings are actually correct. An instrument can be highly precise and consistently wrong (every reading close to the others, but all offset from the true value by the same systematic error) or accurate but imprecise (readings scattered around the true value with wider spread). Calibration corrects systematic accuracy error; it can't improve poor precision caused by internal noise or an unstable reference.
+</p>
+
+<h2 id="how-they-relate">How the Three Relate</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">How the three terms relate</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Term</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Question It Answers</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Where to Find It</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Resolution', 'How fine a change can the display show?', 'Display digits / count spec per range'],
+        ['Accuracy', 'How close is the reading to the true value?', '± % of reading + digits'],
+        ['Precision', 'How repeatable is the reading?', 'Rarely stated directly; inferred from spread across repeated readings'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-semibold text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{row[1]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="what-to-check">What to Actually Check When Buying an Instrument</h2>
+
+<ul>
+  <li><strong>Read the accuracy spec for the range you'll actually use</strong>, not the headline "best case" figure often quoted for a single favourable range.</li>
+  <li><strong>Don't equate more displayed digits with a better instrument</strong> — a 4½-digit meter with tight accuracy beats a 6-digit meter with loose accuracy for any measurement where the true value matters, not just the display.</li>
+  <li><strong>For acceptance testing, commissioning sign-off, or any measurement with a pass/fail threshold</strong>, accuracy (and its traceability via calibration) is what actually protects you — see our <a href={u('/blog/calibration-interval-guide/')}>calibration interval guide</a> for how that traceability is maintained over time.</li>
+</ul>
+
+<p>
+  CIE manufactures and supplies <a href={u('/products/multimeters/')}>digital multimeters</a>, <a href={u('/products/clamp-meters/')}>clamp meters</a>, and precision test instruments across our range with accuracy specifications stated clearly for every range. <a href={u('/contact/')}>Contact us</a> if you need help reading a datasheet's accuracy specification for your application.
+</p>

@@ -580,5 +580,45 @@
     "category": "Guides",
     "excerpt": "This is a different 'duty cycle' than the one on a waveform — it's a thermal rating on the equipment itself, and ignoring it doesn't trip a warning, it damages the instrument.",
     "seoTitle": "Duty Cycle Ratings on HV & Relay Test Sets"
+  },
+  {
+    "slug": "what-is-burden-voltage",
+    "title": "What Is Burden Voltage? Why It Matters When Measuring Current",
+    "description": "What burden voltage is, why every ammeter (except a clamp meter) inserts it into the circuit being measured, and when it's large enough to actually distort a reading.",
+    "publishDate": "2026-08-23",
+    "readTime": "4 min read",
+    "category": "Guides",
+    "excerpt": "A multimeter measuring current inserts a small resistor into your circuit and reads the voltage across it. Usually that's negligible — but on a marginal circuit, it can be the reason the reading looks wrong.",
+    "seoTitle": "What Is Burden Voltage?"
+  },
+  {
+    "slug": "accuracy-vs-resolution-vs-precision",
+    "title": "Accuracy vs Resolution vs Precision: What's the Difference?",
+    "description": "Three separate instrument specifications that get confused constantly — what each one actually measures, and why more display digits doesn't mean a better reading.",
+    "publishDate": "2026-08-23",
+    "readTime": "4 min read",
+    "category": "Guides",
+    "excerpt": "A meter can display 4 digits of resolution while only guaranteeing 2% accuracy — the display looks precise, the measurement isn't. Here's what each term actually means.",
+    "seoTitle": "Accuracy vs Resolution vs Precision"
+  },
+  {
+    "slug": "how-to-check-three-phase-imbalance",
+    "title": "How to Check Three-Phase Voltage and Current Imbalance",
+    "description": "How to measure voltage and current imbalance across three phases with a clamp meter, why motors are especially sensitive to it, and what typically causes it.",
+    "publishDate": "2026-08-23",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "A small voltage imbalance produces a current imbalance 6 to 10 times larger inside a running motor — and the motor can look completely normal while one winding quietly overheats.",
+    "seoTitle": "Checking Three-Phase Voltage & Current Imbalance"
+  },
+  {
+    "slug": "nabl-vs-manufacturer-calibration",
+    "title": "NABL vs Manufacturer Calibration: What's the Difference?",
+    "description": "The difference between an NABL-accredited calibration certificate and a standard manufacturer or in-house calibration, and how to decide which one your instrument actually needs.",
+    "publishDate": "2026-08-23",
+    "readTime": "4 min read",
+    "category": "Buying Guide",
+    "excerpt": "Two calibration certificates can both say 'calibrated' and mean very different things to an auditor. Here's what NABL accreditation actually adds, and when you don't need it.",
+    "seoTitle": "NABL vs Manufacturer Calibration"
   }
 ]

@@ -1,0 +1,80 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A three-phase motor can be running, drawing current, and doing useful work while quietly cooking itself from the inside — because the three phases feeding it aren't perfectly equal. Voltage and current imbalance is one of the most common, most preventable causes of premature motor failure, and checking for it takes nothing more than a clamp meter and a few minutes at the panel.
+</p>
+
+<h2 id="what-imbalance-is">What Voltage and Current Imbalance Actually Means</h2>
+
+<p>
+  In a healthy three-phase system, all three line voltages (and, under a balanced load, all three line currents) should be equal in magnitude and evenly spaced 120° apart. In practice they rarely match exactly — unequal single-phase loads on a distribution transformer, a loose or corroded connection on one phase, or a partially failed component all pull one or two phases away from the average. <strong>Voltage imbalance</strong> is the deviation of individual phase voltages from their average; <strong>current imbalance</strong> is the same idea applied to the currents actually flowing to the load.
+</p>
+
+<h2 id="why-it-matters">Why Motors Are Especially Sensitive to It</h2>
+
+<Callout type="warning" title="A small voltage imbalance produces a much larger current imbalance">
+  In an induction motor, the negative-sequence component created by voltage imbalance is opposed by very low impedance in the rotor — the practical result is that current imbalance runs roughly <strong>6 to 10 times</strong> the percentage voltage imbalance that caused it. A modest 2% voltage imbalance can easily produce 15-20% current imbalance on one winding.
+</Callout>
+
+<p>
+  The phase carrying the highest current runs hotter than the others, and that extra heat is exactly what shortens winding insulation life — as a rough industry rule of thumb, every 10°C rise in winding temperature above rated can roughly halve the insulation's expected life. A motor can appear to be running normally — no unusual noise, no obvious fault — while one winding is quietly running well past its rated temperature every time it's loaded.
+</p>
+
+<h2 id="how-to-measure">How to Measure It</h2>
+
+<ol>
+  <li><strong>Measure all three line voltages</strong> (or line currents, for a running motor) with the load connected and operating normally — a snapshot taken with the motor off or unloaded won't reveal a load-dependent imbalance.</li>
+  <li><strong>Calculate the average</strong> of the three readings.</li>
+  <li><strong>Find the maximum deviation</strong> of any single phase from that average.</li>
+  <li><strong>Calculate percentage imbalance</strong>: (maximum deviation from average ÷ average) × 100.</li>
+</ol>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Worked example — line currents</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Phase</th>
+        <th class="text-center px-4 py-3 text-blue-200 font-semibold text-xs">Current</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['R', '48 A'],
+        ['Y', '52 A'],
+        ['B', '44 A'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 text-center border-b border-gray-100 text-xs font-mono font-bold text-[#1B3A5B]">{row[1]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<p>
+  Average = (48 + 52 + 44) ÷ 3 = 48 A. Maximum deviation = |44 − 48| = 4 A. Percentage imbalance = (4 ÷ 48) × 100 ≈ <strong>8.3%</strong> — already well above the commonly cited 5% threshold most motor manufacturers flag as requiring investigation, and enough (per the 6-10× rule above) to trace back to only around 1% voltage imbalance at the source.
+</p>
+
+<h2 id="what-to-check">What Causes It, and Where to Look</h2>
+
+<ul>
+  <li><strong>Unequal single-phase loads</strong> on the same distribution transformer or feeder — lighting, single-phase equipment, or office loads unevenly split across phases upstream.</li>
+  <li><strong>A loose, corroded, or high-resistance connection</strong> on one phase — at a terminal, contactor, or cable joint. A <a href={u('/blog/micro-ohm-meter-guide/')}>micro-ohm meter</a> or a simple voltage-drop check across suspect joints under load will usually find this.</li>
+  <li><strong>A partially degraded motor winding</strong> — if imbalance is present at the motor terminals but not upstream at the panel, suspect the motor itself; an <a href={u('/blog/what-is-a-megger/')}>insulation resistance test</a> and winding resistance comparison are the next diagnostic step.</li>
+  <li><strong>A blown fuse or open contact on one phase</strong> of a three-phase supply — an extreme, single-fault case of imbalance, usually detected immediately since the motor won't start or will hum without turning.</li>
+</ul>
+
+<h2 id="practical-approach">A Practical Testing Routine</h2>
+
+<p>
+  For motors on a maintenance schedule, checking three-phase current with a clamp meter takes under a minute per motor and catches imbalance long before it causes a failure — worth building into the same rounds as vibration or temperature checks. Any motor found running above roughly 5% current imbalance is worth tracing back to its source before it's simply re-run at the same load.
+</p>
+
+<p>
+  CIE supplies <a href={u('/products/clamp-meters/')}>digital clamp meters</a> and <a href={u('/products/multimeters/')}>multimeters</a> for phase current and voltage checks, and the <a href={u('/products/digital-earth-micro-ohm/')}>MR-253A</a> for tracing high-resistance connections. <a href={u('/contact/')}>Contact us</a> for a recommendation for your motor maintenance programme.
+</p>

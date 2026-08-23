@@ -61,6 +61,10 @@ import ThermocoupleTypesGuide from '../../content/blog/thermocouple-types-explai
 import EarthingVsBondingGuide from '../../content/blog/earthing-vs-bonding.astro';
 import MultirangeInsulationGuide from '../../content/blog/multirange-insulation-testers-explained.astro';
 import DutyCycleGuide from '../../content/blog/duty-cycle-hv-relay-test-sets.astro';
+import BurdenVoltageGuide from '../../content/blog/what-is-burden-voltage.astro';
+import AccuracyResolutionPrecisionGuide from '../../content/blog/accuracy-vs-resolution-vs-precision.astro';
+import ThreePhaseImbalanceGuide from '../../content/blog/how-to-check-three-phase-imbalance.astro';
+import NablVsManufacturerCalGuide from '../../content/blog/nabl-vs-manufacturer-calibration.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -129,6 +133,10 @@ const contentMap: Record<string, any> = {
   'earthing-vs-bonding': EarthingVsBondingGuide,
   'multirange-insulation-testers-explained': MultirangeInsulationGuide,
   'duty-cycle-hv-relay-test-sets': DutyCycleGuide,
+  'what-is-burden-voltage': BurdenVoltageGuide,
+  'accuracy-vs-resolution-vs-precision': AccuracyResolutionPrecisionGuide,
+  'how-to-check-three-phase-imbalance': ThreePhaseImbalanceGuide,
+  'nabl-vs-manufacturer-calibration': NablVsManufacturerCalGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -560,6 +568,33 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'why-not-continuous', label: 'Why Not Continuous' },
     { id: 'reading-the-rating', label: 'Reading the Rating' },
     { id: 'practical-planning', label: 'Planning Around It' },
+  ],
+  'what-is-burden-voltage': [
+    { id: 'what-it-is', label: 'What It Is' },
+    { id: 'why-it-matters', label: 'Why It Matters' },
+    { id: 'clamp-meters', label: 'Why Clamp Meters Avoid It' },
+    { id: 'minimising-it', label: 'How to Minimise It' },
+  ],
+  'accuracy-vs-resolution-vs-precision': [
+    { id: 'resolution', label: 'Resolution' },
+    { id: 'accuracy', label: 'Accuracy' },
+    { id: 'precision', label: 'Precision' },
+    { id: 'how-they-relate', label: 'How They Relate' },
+    { id: 'what-to-check', label: 'What to Check When Buying' },
+  ],
+  'how-to-check-three-phase-imbalance': [
+    { id: 'what-imbalance-is', label: 'What Imbalance Means' },
+    { id: 'why-it-matters', label: 'Why It Matters for Motors' },
+    { id: 'how-to-measure', label: 'How to Measure It' },
+    { id: 'what-to-check', label: 'Common Causes' },
+    { id: 'practical-approach', label: 'A Practical Routine' },
+  ],
+  'nabl-vs-manufacturer-calibration': [
+    { id: 'what-nabl-is', label: 'What NABL Means' },
+    { id: 'what-manufacturer-cal-is', label: 'What Manufacturer Cal Is' },
+    { id: 'when-you-need-nabl', label: 'When You Need NABL' },
+    { id: 'when-standard-is-fine', label: 'When Standard Is Fine' },
+    { id: 'how-to-decide', label: 'How to Decide' },
   ],
 };
 

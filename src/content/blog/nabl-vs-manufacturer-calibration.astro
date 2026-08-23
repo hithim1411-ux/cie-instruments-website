@@ -1,0 +1,50 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Two calibration certificates can both say "calibrated" and mean very different things to an auditor. Understanding the difference between an NABL-accredited calibration and a standard manufacturer or in-house calibration — and knowing which one your situation actually requires — can save real money and avoid a failed audit finding, since the accredited version costs more and takes longer for a reason that doesn't always apply.
+</p>
+
+<h2 id="what-nabl-is">What NABL Accreditation Actually Means</h2>
+
+<p>
+  NABL (the National Accreditation Board for Testing and Calibration Laboratories) accredits calibration laboratories in India against the international standard ISO/IEC 17025. An NABL-accredited calibration isn't just "more careful" — it's performed under a formally audited quality system, using reference standards with an unbroken, documented chain of traceability to national or international standards, with the laboratory's measurement uncertainty independently assessed and published on its scope of accreditation. The resulting certificate carries the NABL symbol and is recognised across India and, through mutual recognition arrangements, internationally.
+</p>
+
+<h2 id="what-manufacturer-cal-is">What a Manufacturer or Standard Calibration Is</h2>
+
+<p>
+  A manufacturer's (or any non-accredited lab's) calibration compares an instrument against a reference standard and issues a certificate documenting the result — often to the same underlying procedure and just as technically competent — but without the independent, third-party accreditation audit behind it. Traceability may still exist (the reference standard itself may well be NABL-calibrated), but the calibrating lab's own competence and measurement uncertainty haven't been independently verified and published the way an accredited lab's has.
+</p>
+
+<Callout type="warning" title="'Traceable' and 'NABL-accredited' are not the same claim">
+  A certificate can correctly state that a calibration is traceable to national standards without the calibrating lab itself being NABL-accredited — traceability is about the reference chain, accreditation is about the competence and oversight of the lab performing the work. Read a certificate carefully before assuming it satisfies an NABL requirement specifically.
+</Callout>
+
+<h2 id="when-you-need-nabl">When You Actually Need NABL Accreditation</h2>
+
+<ul>
+  <li><strong>Regulatory or contractual requirement</strong> — many government tenders, PSU contracts, and quality certifications (ISO 9001 audits in particular) explicitly require NABL-traceable calibration for instruments used in acceptance testing or quality-critical measurement.</li>
+  <li><strong>Third-party or customer-facing test results</strong> — if a measurement result is being handed to a customer or regulator as evidence (acceptance testing, commissioning sign-off), an NABL certificate removes any question about the calibrating lab's own credibility.</li>
+  <li><strong>Formal NABL-accredited quality systems</strong> — a lab that is itself NABL-accredited for testing is generally required to calibrate its own reference instruments through an equally accredited chain.</li>
+</ul>
+
+<h2 id="when-standard-is-fine">When a Standard Calibration Is Genuinely Sufficient</h2>
+
+<ul>
+  <li><strong>Internal maintenance and field instruments</strong> not used to generate customer-facing or regulatory test evidence — a clamp meter used for routine troubleshooting doesn't need the same certificate rigor as a reference standard.</li>
+  <li><strong>Instruments with no contractual calibration clause</strong> — check the actual customer or quality-system requirement rather than assuming NABL is needed by default; it often isn't.</li>
+  <li><strong>Budget-constrained fleets</strong> where a standard, traceable calibration on a sensible interval (see our <a href={u('/blog/calibration-interval-guide/')}>calibration interval guide</a>) is a reasonable, defensible middle ground between no calibration and paying for accreditation the application doesn't require.</li>
+</ul>
+
+<h2 id="how-to-decide">How to Decide</h2>
+
+<p>
+  Start from the requirement, not the instrument: check whether a customer contract, tender document, or your own quality management system specifies NABL accreditation by name. If it does, that's non-negotiable — a standard certificate won't satisfy an audit that asks for one. If no such requirement exists, a standard traceable calibration on a sensible schedule is usually the more cost-effective choice, and upgrading to NABL later for a specific instrument, if a requirement appears, is always possible.
+</p>
+
+<p>
+  CIE supplies and calibrates precision test instruments used across NABL-accredited labs, EPC commissioning teams, and industrial maintenance departments. <a href={u('/contact/')}>Contact us</a> to discuss the right calibration approach for your instrument fleet.
+</p>
