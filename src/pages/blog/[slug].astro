@@ -51,6 +51,16 @@ import FuseTestGuide from '../../content/blog/how-to-test-a-fuse.astro';
 import OscilloscopeBandwidthGuide from '../../content/blog/oscilloscope-bandwidth-explained.astro';
 import MicroOhmGuide from '../../content/blog/micro-ohm-meter-guide.astro';
 import HvWithstandGuide from '../../content/blog/hv-dielectric-withstand-testing-guide.astro';
+import RelayTestSetGuide from '../../content/blog/how-to-choose-a-relay-test-set.astro';
+import CalibrationIntervalGuide from '../../content/blog/calibration-interval-guide.astro';
+import IpRatingGuide from '../../content/blog/ip-rating-explained.astro';
+import ContinuityVsInsulationVsContactGuide from '../../content/blog/continuity-vs-insulation-vs-contact-resistance.astro';
+import DigitalVsAnalogEarthTesterGuide from '../../content/blog/digital-vs-analog-earth-tester.astro';
+import MotorInsulationScheduleGuide from '../../content/blog/motor-insulation-testing-schedule.astro';
+import ThermocoupleTypesGuide from '../../content/blog/thermocouple-types-explained.astro';
+import EarthingVsBondingGuide from '../../content/blog/earthing-vs-bonding.astro';
+import MultirangeInsulationGuide from '../../content/blog/multirange-insulation-testers-explained.astro';
+import DutyCycleGuide from '../../content/blog/duty-cycle-hv-relay-test-sets.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -109,6 +119,16 @@ const contentMap: Record<string, any> = {
   'oscilloscope-bandwidth-explained': OscilloscopeBandwidthGuide,
   'micro-ohm-meter-guide': MicroOhmGuide,
   'hv-dielectric-withstand-testing-guide': HvWithstandGuide,
+  'how-to-choose-a-relay-test-set': RelayTestSetGuide,
+  'calibration-interval-guide': CalibrationIntervalGuide,
+  'ip-rating-explained': IpRatingGuide,
+  'continuity-vs-insulation-vs-contact-resistance': ContinuityVsInsulationVsContactGuide,
+  'digital-vs-analog-earth-tester': DigitalVsAnalogEarthTesterGuide,
+  'motor-insulation-testing-schedule': MotorInsulationScheduleGuide,
+  'thermocouple-types-explained': ThermocoupleTypesGuide,
+  'earthing-vs-bonding': EarthingVsBondingGuide,
+  'multirange-insulation-testers-explained': MultirangeInsulationGuide,
+  'duty-cycle-hv-relay-test-sets': DutyCycleGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -479,6 +499,67 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'ac-vs-dc', label: 'AC vs DC Withstand' },
     { id: 'tripping-current', label: 'Tripping Current' },
     { id: 'applications', label: 'Applications' },
+  ],
+  'how-to-choose-a-relay-test-set': [
+    { id: 'secondary-injection', label: 'What Secondary Injection Does' },
+    { id: 'single-vs-three-phase', label: 'Single vs Three-Phase' },
+    { id: 'key-specs', label: 'Key Specifications' },
+    { id: 'what-gets-tested', label: 'What Gets Tested' },
+  ],
+  'calibration-interval-guide': [
+    { id: 'why-it-matters', label: 'Why It Matters' },
+    { id: 'default-interval', label: 'The Default Interval' },
+    { id: 'adjusting-the-interval', label: 'Adjusting the Interval' },
+    { id: 'signs', label: 'Warning Signs' },
+    { id: 'calibration-vs-verification', label: 'Calibration vs Verification' },
+  ],
+  'ip-rating-explained': [
+    { id: 'what-is-ip', label: 'What the IP Code Means' },
+    { id: 'common-ratings', label: 'Common Ratings' },
+    { id: 'matching-to-environment', label: 'Matching to Your Environment' },
+  ],
+  'continuity-vs-insulation-vs-contact-resistance': [
+    { id: 'the-three-tests', label: 'The Three Tests at a Glance' },
+    { id: 'continuity', label: 'Continuity' },
+    { id: 'insulation', label: 'Insulation Resistance' },
+    { id: 'contact-resistance', label: 'Contact / Micro-Ohm Resistance' },
+    { id: 'which-one', label: 'Quick Decision Guide' },
+  ],
+  'digital-vs-analog-earth-tester': [
+    { id: 'how-they-differ', label: 'The Core Difference' },
+    { id: 'why-analog-still-matters', label: 'Why Analog Still Matters' },
+    { id: 'why-digital', label: 'Why Digital Is Preferred' },
+    { id: 'what-doesnt-change', label: "What Doesn't Change" },
+  ],
+  'motor-insulation-testing-schedule': [
+    { id: 'why-periodic', label: 'Why Periodic Testing Matters' },
+    { id: 'factors', label: 'What Sets the Interval' },
+    { id: 'typical-practice', label: 'Typical Industry Practice' },
+    { id: 'building-a-schedule', label: 'Building a Schedule' },
+  ],
+  'thermocouple-types-explained': [
+    { id: 'how-it-works', label: 'How It Works' },
+    { id: 'common-types', label: 'The Common Types' },
+    { id: 'thermocouple-vs-other', label: 'vs Other Sensors' },
+    { id: 'practical-tips', label: 'Practical Tips' },
+  ],
+  'earthing-vs-bonding': [
+    { id: 'earthing', label: 'What Earthing Does' },
+    { id: 'bonding', label: 'What Bonding Does' },
+    { id: 'why-both', label: 'Why You Need Both' },
+    { id: 'testing', label: 'How Each Is Tested' },
+  ],
+  'multirange-insulation-testers-explained': [
+    { id: 'the-problem', label: 'The Problem It Solves' },
+    { id: 'how-it-works', label: 'How It Works' },
+    { id: 'when-it-pays-off', label: 'When It Pays Off' },
+    { id: 'when-not-needed', label: "When You Don't Need It" },
+  ],
+  'duty-cycle-hv-relay-test-sets': [
+    { id: 'what-it-means', label: 'What It Means' },
+    { id: 'why-not-continuous', label: 'Why Not Continuous' },
+    { id: 'reading-the-rating', label: 'Reading the Rating' },
+    { id: 'practical-planning', label: 'Planning Around It' },
   ],
 };
 

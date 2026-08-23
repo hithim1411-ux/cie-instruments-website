@@ -481,5 +481,104 @@
     "category": "Guides",
     "excerpt": "An IR test measures a resistance value. A withstand test is pass/fail at a much higher voltage. Confusing the two — or skipping the IR test first — is a common and risky mistake.",
     "seoTitle": "Dielectric Withstand (HV) Testing Explained"
+  },
+  {
+    "slug": "how-to-choose-a-relay-test-set",
+    "title": "How to Choose a Relay Test Set: Single-Phase vs Three-Phase",
+    "description": "How secondary injection testing works, and how to choose between a single-phase and a three-phase, phase-angle-capable relay test set based on the protection scheme you're commissioning.",
+    "publishDate": "2026-08-23",
+    "readTime": "6 min read",
+    "category": "Buying Guide",
+    "excerpt": "Overcurrent and earth fault relays only need single-phase injection. Directional and distance relays need three-phase current, voltage, and precise phase angle control — get this wrong and you can't test the relay correctly at all.",
+    "seoTitle": "How to Choose a Relay Test Set"
+  },
+  {
+    "slug": "calibration-interval-guide",
+    "title": "How Often Should You Calibrate Your Test Instruments?",
+    "description": "How to set a sensible calibration interval for electrical test instruments — the 12-month default, what shortens or lengthens it, and the difference between calibration and verification.",
+    "publishDate": "2026-08-23",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "An out-of-calibration instrument doesn't fail loudly — it just quietly gives wrong readings. Here's how to actually set a calibration interval instead of guessing.",
+    "seoTitle": "How Often to Calibrate Test Instruments"
+  },
+  {
+    "slug": "ip-rating-explained",
+    "title": "IP Rating Explained: What IP65, IP66, IP67 Mean for Test Instruments",
+    "description": "What the IP (Ingress Protection) code means, how to read the two digits, and how to match a test instrument's IP rating to your actual working environment.",
+    "publishDate": "2026-08-23",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "IP65, IP67, IPX4 — the two-digit ingress protection code tells you exactly how an instrument handles dust and water. Here's how to read it and match it to where you actually work.",
+    "seoTitle": "IP Rating Explained: IP65, IP66, IP67"
+  },
+  {
+    "slug": "continuity-vs-insulation-vs-contact-resistance",
+    "title": "Continuity vs Insulation vs Contact Resistance — Which Test Do You Need?",
+    "description": "A quick decision guide to the three resistance-style tests every electrician confuses: continuity, insulation resistance, and contact/micro-ohm resistance — what each one actually answers.",
+    "publishDate": "2026-08-23",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "All three tests involve a resistance-style reading, which is exactly why they get confused. Here's a quick map of which test answers which question.",
+    "seoTitle": "Continuity, Insulation & Contact Resistance"
+  },
+  {
+    "slug": "digital-vs-analog-earth-tester",
+    "title": "Digital vs Analog Earth Tester: Which Should You Choose?",
+    "description": "Comparing hand-driven analog and digital earth resistance testers — power source, field readiness, and which one fits your working conditions.",
+    "publishDate": "2026-08-23",
+    "readTime": "5 min read",
+    "category": "Buying Guide",
+    "excerpt": "A hand-driven tester never runs flat. A digital tester never needs a steady crank speed. Here's how to choose between them for your working conditions.",
+    "seoTitle": "Digital vs Analog Earth Tester"
+  },
+  {
+    "slug": "motor-insulation-testing-schedule",
+    "title": "How Often Should You Test Motor Insulation? A Maintenance Schedule",
+    "description": "How to build a periodic motor insulation testing schedule — the factors that shorten or lengthen the interval, and typical industry practice for spot IR and PI testing.",
+    "publishDate": "2026-08-23",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "A single insulation reading tells you today's condition. A periodic testing schedule tells you the trend — and the trend is what actually predicts failure.",
+    "seoTitle": "How Often to Test Motor Insulation"
+  },
+  {
+    "slug": "thermocouple-types-explained",
+    "title": "Thermocouple Types Explained: K, J, T, E and Which to Use",
+    "description": "What thermocouple type letters (K, J, T, E) actually mean, their typical temperature ranges, and why matching probe type to meter setting matters.",
+    "publishDate": "2026-08-23",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "A Type J probe connected to a meter set for Type K gives a confidently wrong reading, not an obviously wrong one. Here's what each thermocouple letter actually means.",
+    "seoTitle": "Thermocouple Types Explained: K, J, T, E"
+  },
+  {
+    "slug": "earthing-vs-bonding",
+    "title": "Earthing vs Bonding: What's the Difference?",
+    "description": "Earthing and bonding are often used interchangeably but serve different protective functions. A clear explanation of what each one actually does and how each is tested.",
+    "publishDate": "2026-08-23",
+    "readTime": "4 min read",
+    "category": "Guides",
+    "excerpt": "Earthing gives fault current a path to earth. Bonding gives dangerous potential difference nowhere to exist between two touchable metal parts. They're not the same thing."
+  },
+  {
+    "slug": "multirange-insulation-testers-explained",
+    "title": "Multirange Insulation Testers: Why One Instrument, Multiple Test Voltages",
+    "description": "What a multirange insulation tester is, how voltage-series selection works on the CIE/444/MR and CIE/666/MR, and when the extra flexibility is worth it over a fixed-voltage tester.",
+    "publishDate": "2026-08-23",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "A fixed-voltage tester does one job reliably. A multirange tester covers a whole voltage span from one instrument — here's when that flexibility actually pays off.",
+    "seoTitle": "Multirange Insulation Testers Explained"
+  },
+  {
+    "slug": "duty-cycle-hv-relay-test-sets",
+    "title": "Understanding Duty Cycle Ratings on HV and Relay Test Sets",
+    "description": "What an intermittent duty cycle rating (like 5 min ON / 10 min OFF) means on HV and relay test sets, why it exists, and how to plan a test sequence around it without damaging the instrument.",
+    "publishDate": "2026-08-23",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "This is a different 'duty cycle' than the one on a waveform — it's a thermal rating on the equipment itself, and ignoring it doesn't trip a warning, it damages the instrument.",
+    "seoTitle": "Duty Cycle Ratings on HV & Relay Test Sets"
   }
 ]
