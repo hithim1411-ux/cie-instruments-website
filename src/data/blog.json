@@ -620,5 +620,45 @@
     "category": "Buying Guide",
     "excerpt": "Two calibration certificates can both say 'calibrated' and mean very different things to an auditor. Here's what NABL accreditation actually adds, and when you don't need it.",
     "seoTitle": "NABL vs Manufacturer Calibration"
+  },
+  {
+    "slug": "insulation-resistance-temperature-correction",
+    "title": "Insulation Resistance Temperature Correction Explained",
+    "description": "Why insulation resistance readings must be corrected for temperature before comparing them, the IEEE 43 correction factor table, and a worked example.",
+    "publishDate": "2026-09-07",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "A megger reading of 80 MΩ one day and 30 MΩ the next isn't necessarily a winding going bad — it might just be a colder motor versus a hot one.",
+    "seoTitle": "Insulation Resistance Temperature Correction"
+  },
+  {
+    "slug": "thermo-hygrometer-guide",
+    "title": "Thermo-Hygrometer Guide: Measuring Temperature and Humidity Together",
+    "description": "What a thermo-hygrometer measures, how humidity sensors work, why dew point matters, and what to look for when choosing a combined instrument.",
+    "publishDate": "2026-09-07",
+    "readTime": "4 min read",
+    "category": "Guides",
+    "excerpt": "Temperature alone won't tell you whether a store room is about to grow mould or a workshop is at risk of static discharge — you need humidity too.",
+    "seoTitle": "Thermo-Hygrometer Guide: Temp & Humidity"
+  },
+  {
+    "slug": "step-and-touch-potential-explained",
+    "title": "Step and Touch Potential Explained",
+    "description": "What step potential and touch potential are, why they matter during an earth fault, and how earth grid design and soil resistivity testing reduce the risk.",
+    "publishDate": "2026-09-07",
+    "readTime": "5 min read",
+    "category": "Physics",
+    "excerpt": "When fault current enters the earth, it creates a voltage gradient around the point of contact — and anyone standing in it can become part of the circuit.",
+    "seoTitle": "Step and Touch Potential Explained"
+  },
+  {
+    "slug": "how-to-choose-an-insulation-tester",
+    "title": "How to Choose an Insulation Tester: A Complete Buying Guide",
+    "description": "Hand-driven vs motorised, metal vs wood vs bakelite body, single-range vs multirange, analog vs digital — a decision guide to CIE's full insulation tester range.",
+    "publishDate": "2026-09-07",
+    "readTime": "6 min read",
+    "category": "Buying Guide",
+    "excerpt": "\"Insulation tester\" covers a wider range of instruments than most buyers expect. Picking the right one comes down to four questions.",
+    "seoTitle": "How to Choose an Insulation Tester"
   }
 ]

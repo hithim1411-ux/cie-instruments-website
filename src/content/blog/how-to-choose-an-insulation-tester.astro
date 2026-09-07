@@ -1,0 +1,87 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  "Insulation tester" covers a wider range of instruments than most buyers expect — hand-cranked and motorised, metal and wood and bakelite bodies, single-range and multirange, analog and digital. Picking the right one comes down to four questions: how it's powered, what test voltage and range you need, how many voltage ranges on one instrument, and analog or digital readout. This guide walks through each.
+</p>
+
+<h2 id="power-source">Question 1 — Hand-Driven or Motorised?</h2>
+
+<p>
+  <strong><a href={u('/products/insulation-testers-hand/')}>Hand-driven</a></strong> insulation testers use a manual hand-crank generator to produce the DC test voltage — no batteries, no mains supply. This makes them inherently field-ready: they work in remote substations, on transmission towers, and at sites with no power supply at all. The trade-off is that sustained high-voltage tests (like a Polarisation Index test that runs for 10 minutes) require continuous cranking at a steady speed.
+</p>
+
+<p>
+  <strong><a href={u('/products/motor-operated-insulation/')}>Motorised</a></strong> insulation testers use a mains-powered electric motor to drive the generator instead, giving sustained, hands-free output at a constant voltage — essential for long-duration PI and DAR tests on large motors, generators, and transformers where consistent voltage over many minutes matters. The CIE/777 HM (motor-cum-hand-driven) variant covers both: motorised when mains power is available, hand-driven in the field when it isn't.
+</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Hand-driven vs motorised — quick comparison</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Factor</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Hand-driven</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Motorised</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Power needed', 'None — fully manual', 'Mains supply required'],
+        ['Best for', 'Field testing, remote sites, spot checks', 'Sustained PI/DAR tests, workshop/lab use'],
+        ['Continuous high-voltage hold', 'Depends on operator cranking steadily', 'Consistent, hands-free'],
+        ['Typical range', 'CIE/444 up to 5 kV, CIE/666 up to 10 kV', 'CIE/777 series 500 V to 10 kV'],
+      ].map((row, i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-semibold text-[#0D1B2A]">{row[0]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-[#0D1B2A]">{row[1]}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-[#0D1B2A]">{row[2]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="body-type">Question 2 — Which Body Type?</h2>
+
+<p>
+  For hand-driven testers, body construction affects both durability and voltage range:
+</p>
+
+<ul>
+  <li><strong>Metal (anti-magnetic aluminium die-cast)</strong> — the CIE/444, rugged and compact, covers ranges up to 5000 V.</li>
+  <li><strong>Wood (seasoned teak)</strong> — the CIE/666, covers the full range up to 10,000 V; the wood body provides additional insulation margin at the highest test voltages.</li>
+  <li><strong><a href={u('/products/compact-insulation-testers/')}>Bakelite (compact)</a></strong> — the CIE/555, a lighter, more compact instrument for lower-voltage routine testing where portability matters more than covering the widest voltage range.</li>
+</ul>
+
+<h2 id="single-vs-multirange">Question 3 — Single-Range or Multirange?</h2>
+
+<p>
+  A standard CIE/444 or CIE/666 tests at one selected voltage per instrument configuration. If your work regularly spans multiple voltage classes — testing 500 V domestic wiring one day and 5 kV switchgear the next — a <strong>multirange</strong> instrument avoids needing separate testers for each. The <a href={u('/products/multirange-insulation-hand/')}>hand-driven MR series (MR-1 to MR-8)</a> and the <a href={u('/products/multirange-motorised-insulation/')}>motorised MR-A to MR-E series</a> offer a selector switch for multiple voltage/range combinations on one instrument, and many include a built-in continuity range as well — see our guide on <a href={u('/blog/multirange-insulation-testers-explained/')}>multirange insulation testers</a> for how to pick between the configurations.
+</p>
+
+<h2 id="analog-vs-digital">Question 4 — Analog or Digital?</h2>
+
+<p>
+  Analog cross-coil indicators are simple, rugged, and need no batteries to display a reading (the hand-driven generator directly powers the indicator). <a href={u('/products/digital-insulation-testers/')}>Digital insulation testers</a> — the DIT-2500, DIT-5000, and DIT-5005 — give a direct numerical readout, often with data hold and memory functions, which is easier to log accurately and reduces reading-interpolation error on an analog scale, at the cost of needing a battery or mains supply to operate.
+</p>
+
+<Callout type="tip" title="Selecting test voltage is a separate decision from the instrument type">
+  Whichever instrument type you choose, the test voltage itself should match the equipment being tested — roughly 500 V–1000 V for equipment up to 440 V rated, and 2500 V–5000 V for medium-voltage (3.3 kV–11 kV) equipment. See <a href={u('/blog/what-is-a-megger/')}>our guide to megger use and recommended test voltages</a> for the full table.
+</Callout>
+
+<h2 id="decision-summary">Quick Decision Summary</h2>
+
+<ul>
+  <li><strong>Field engineer doing spot checks at remote sites, no power available</strong> → hand-driven, CIE/444 (metal) or CIE/666 (wood, for higher voltage).</li>
+  <li><strong>Commissioning team running long PI/DAR tests on large machines</strong> → motorised CIE/777 series, or CIE/777 HM if you also need field/hand-driven flexibility.</li>
+  <li><strong>Contractor testing equipment across several voltage classes</strong> → multirange, hand-driven MR series or motorised MR-A to MR-E.</li>
+  <li><strong>Lightweight routine testing, portability a priority</strong> → CIE/555 compact bakelite-body tester.</li>
+  <li><strong>Need precise numerical logging, less concerned about running without a battery</strong> → digital DIT-2500 / DIT-5000 / DIT-5005.</li>
+</ul>
+
+<p>
+  CIE has manufactured insulation testers in Howrah since 1963 and supplies the full range described above to power utilities, Indian Railways, and industry across India. <a href={u('/products/')}>Browse the full insulation tester range</a> or <a href={u('/contact/')}>contact us</a> for help matching an instrument to your application.
+</p>

@@ -34,7 +34,8 @@
     ],
     "relatedArticles": [
       "insulation-resistance-testing-guide",
-      "what-is-a-megger"
+      "what-is-a-megger",
+      "how-to-choose-an-insulation-tester"
     ]
   },
   {
@@ -54,7 +55,8 @@
     "relatedArticles": [
       "insulation-resistance-testing-guide",
       "what-is-a-megger",
-      "multirange-insulation-testers-explained"
+      "multirange-insulation-testers-explained",
+      "how-to-choose-an-insulation-tester"
     ]
   },
   {
@@ -74,7 +76,8 @@
     "relatedArticles": [
       "insulation-resistance-testing-guide",
       "what-is-a-megger",
-      "motor-insulation-testing-schedule"
+      "motor-insulation-testing-schedule",
+      "insulation-resistance-temperature-correction"
     ]
   },
   {
@@ -94,7 +97,8 @@
     "relatedArticles": [
       "insulation-resistance-testing-guide",
       "what-is-a-megger",
-      "multirange-insulation-testers-explained"
+      "multirange-insulation-testers-explained",
+      "insulation-resistance-temperature-correction"
     ]
   },
   {
@@ -113,7 +117,8 @@
     ],
     "relatedArticles": [
       "insulation-resistance-testing-guide",
-      "what-is-a-megger"
+      "what-is-a-megger",
+      "how-to-choose-an-insulation-tester"
     ]
   },
   {
@@ -148,7 +153,8 @@
       "earth-resistance-testing-guide",
       "what-is-electrical-earthing",
       "earthing-vs-bonding",
-      "digital-vs-analog-earth-tester"
+      "digital-vs-analog-earth-tester",
+      "step-and-touch-potential-explained"
     ]
   },
   {
@@ -167,7 +173,8 @@
     ],
     "relatedArticles": [
       "insulation-resistance-testing-guide",
-      "what-is-a-megger"
+      "what-is-a-megger",
+      "insulation-resistance-temperature-correction"
     ]
   },
   {
@@ -589,7 +596,8 @@
     ],
     "relatedArticles": [
       "infrared-thermometer-guide",
-      "thermocouple-types-explained"
+      "thermocouple-types-explained",
+      "thermo-hygrometer-guide"
     ]
   },
   {

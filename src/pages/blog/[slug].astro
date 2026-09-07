@@ -65,6 +65,10 @@ import BurdenVoltageGuide from '../../content/blog/what-is-burden-voltage.astro'
 import AccuracyResolutionPrecisionGuide from '../../content/blog/accuracy-vs-resolution-vs-precision.astro';
 import ThreePhaseImbalanceGuide from '../../content/blog/how-to-check-three-phase-imbalance.astro';
 import NablVsManufacturerCalGuide from '../../content/blog/nabl-vs-manufacturer-calibration.astro';
+import IrTempCorrectionGuide from '../../content/blog/insulation-resistance-temperature-correction.astro';
+import ThermoHygrometerGuide from '../../content/blog/thermo-hygrometer-guide.astro';
+import StepTouchPotentialGuide from '../../content/blog/step-and-touch-potential-explained.astro';
+import ChooseInsulationTesterGuide from '../../content/blog/how-to-choose-an-insulation-tester.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -137,6 +141,10 @@ const contentMap: Record<string, any> = {
   'accuracy-vs-resolution-vs-precision': AccuracyResolutionPrecisionGuide,
   'how-to-check-three-phase-imbalance': ThreePhaseImbalanceGuide,
   'nabl-vs-manufacturer-calibration': NablVsManufacturerCalGuide,
+  'insulation-resistance-temperature-correction': IrTempCorrectionGuide,
+  'thermo-hygrometer-guide': ThermoHygrometerGuide,
+  'step-and-touch-potential-explained': StepTouchPotentialGuide,
+  'how-to-choose-an-insulation-tester': ChooseInsulationTesterGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -595,6 +603,34 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'when-you-need-nabl', label: 'When You Need NABL' },
     { id: 'when-standard-is-fine', label: 'When Standard Is Fine' },
     { id: 'how-to-decide', label: 'How to Decide' },
+  ],
+  'insulation-resistance-temperature-correction': [
+    { id: 'why-ir-falls-with-temperature', label: 'Why IR Falls With Temperature' },
+    { id: 'reference-temperature', label: 'Correcting to a Reference Temperature' },
+    { id: 'worked-example', label: 'Worked Example' },
+    { id: 'practical-notes', label: 'Practical Notes' },
+    { id: 'where-this-fits', label: 'Where This Fits' },
+  ],
+  'thermo-hygrometer-guide': [
+    { id: 'what-it-measures', label: 'What It Measures' },
+    { id: 'dew-point', label: 'Dew Point' },
+    { id: 'why-it-matters', label: 'Why It Matters' },
+    { id: 'what-to-look-for', label: 'What to Look For' },
+    { id: 'cie-instruments', label: 'Instruments for This' },
+  ],
+  'step-and-touch-potential-explained': [
+    { id: 'voltage-gradient', label: 'The Voltage Gradient' },
+    { id: 'touch-potential', label: 'Touch Potential' },
+    { id: 'step-potential', label: 'Step Potential' },
+    { id: 'why-earth-grid-design-matters', label: 'Why Earth Grid Design Matters' },
+    { id: 'staying-safe', label: 'Staying Safe' },
+  ],
+  'how-to-choose-an-insulation-tester': [
+    { id: 'power-source', label: 'Hand-Driven or Motorised?' },
+    { id: 'body-type', label: 'Which Body Type?' },
+    { id: 'single-vs-multirange', label: 'Single-Range or Multirange?' },
+    { id: 'analog-vs-digital', label: 'Analog or Digital?' },
+    { id: 'decision-summary', label: 'Quick Decision Summary' },
   ],
 };
 
