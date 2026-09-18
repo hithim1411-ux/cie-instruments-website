@@ -2343,6 +2343,10 @@
         "value": "Intermittent \u2014 5 min ON, 10 min OFF"
       },
       {
+        "label": "Mode of Operation",
+        "value": "Manual"
+      },
+      {
         "label": "Metering",
         "value": "Analog moving-iron \u2014 KV meter and milliammeter, L.T. side, per IS 1248:1983 (not digital)"
       },
