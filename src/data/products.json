@@ -2232,7 +2232,7 @@
     "model": "DM 321T",
     "name": "True-RMS Digital Multimeter \u2014 Manual Ranging, 3\u00bd-digit",
     "tagline": "True-RMS, manual-ranging 3\u00bd-digit DMM with transistor hFE test, capacitance, backlight, and protective holster.",
-    "description": "The DM 321T is a 3\u00bd-digit True-RMS digital multimeter for general electrical and electronic test work. It is a manual-ranging instrument (not auto-ranging), measuring AC/DC voltage, AC/DC current, resistance, and capacitance, alongside continuity test, diode test, and transistor (hFE) test. Supplied with a protective holster. True-RMS measurement gives accurate readings on non-sinusoidal AC waveforms \u2014 useful when working on circuits with switching loads or harmonics. DC voltage up to 1000 V; DC current up to 20 A. Auto power-off and data hold standard. Dimensions: 175 \u00d7 93 \u00d7 55 mm. Weight: approx. 400 g (incl. battery).",
+    "description": "The DM 321T is a 3\u00bd-digit True-RMS digital multimeter for general electrical and electronic test work. It is a manual-ranging instrument, measuring AC/DC voltage, AC/DC current, resistance, and capacitance, alongside continuity test, diode test, and transistor (hFE) test. Supplied with a protective holster. True-RMS measurement gives accurate readings on non-sinusoidal AC waveforms \u2014 useful when working on circuits with switching loads or harmonics. DC voltage up to 1000 V; DC current up to 20 A. Auto power-off and data hold standard. Dimensions: 175 \u00d7 93 \u00d7 55 mm. Weight: approx. 400 g (incl. battery).",
     "specs": [
       {
         "label": "Measurement Type",
@@ -2240,7 +2240,7 @@
       },
       {
         "label": "Ranging",
-        "value": "Manual (not auto-ranging)"
+        "value": "Manual"
       },
       {
         "label": "Display",
