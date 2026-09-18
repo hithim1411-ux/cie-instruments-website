@@ -1349,6 +1349,14 @@
         "value": "Single / Dual / Triple / Four / Five range"
       },
       {
+        "label": "High Voltage Test",
+        "value": "2 KV A.C. (r.m.s.) for 1 min. between electrical circuit and containing case"
+      },
+      {
+        "label": "Insulation Resistance Test",
+        "value": "Better than 25 MΩ at 500 V D.C. between electrical circuit and containing case"
+      },
+      {
         "label": "Warranty",
         "value": "12 months against manufacturing defects"
       }
