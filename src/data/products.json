@@ -609,7 +609,7 @@
     "model": "CIE/777",
     "name": "Motorised Insulation Tester",
     "tagline": "Mains-motor-driven insulation tester for sustained PI and dielectric absorption testing. 500 V to 10,000 V.",
-    "description": "The CIE/777 is a universal, multi-purpose insulation tester for checking insulation and conductance under simulated operating conditions in high-tension electrical and electronic applications. Driven by a mains motor (230 V AC, 50 Hz), the CIE/777 applies test voltage continuously for as long as needed \u2014 enabling genuine polarization index (PI) and dielectric absorption testing that hand-cranked instruments cannot sustain. PI is calculated as resistance after 10 minutes \u00f7 resistance after 1 minute; better results are obtained with longer periods. Housed in a seasoned wooden cabinet with sunmica finish (detachable lid, handle, lock). Guard ring around the line terminal and guard terminal eliminate surface-leakage errors. Externally accessible infinity adjuster provided. Conforms to IS: 2992-1987. Note on HV testing leads: catalogue lists HV leads as an optional, extra-cost accessory; price list states one pair is supplied with every instrument. Confirm with factory before ordering.",
+    "description": "The CIE/777 is a universal, multi-purpose insulation tester for checking insulation and conductance under simulated operating conditions in high-tension electrical and electronic applications. Driven by a mains motor (230 V AC, 50 Hz), the CIE/777 applies test voltage continuously for as long as needed \u2014 enabling genuine polarization index (PI) and dielectric absorption testing that hand-cranked instruments cannot sustain. PI is calculated as resistance after 10 minutes \u00f7 resistance after 1 minute; better results are obtained with longer periods. Housed in a seasoned wooden cabinet with sunmica finish (detachable lid, handle, lock). Guard ring around the line terminal and guard terminal eliminate surface-leakage errors. Externally accessible infinity adjuster provided. Conforms to IS: 2992-1987.",
     "specs": [
       {
         "label": "Drive",
@@ -727,16 +727,14 @@
       }
     ],
     "includedWith": [
-      "Mains cord, 2 metres",
-      "One pair of H.V. testing leads (per price list \u2014 note conflict with catalogue; confirm with factory)"
+      "Mains cord, 2 metres"
     ],
     "options": [
       "Rexine carrying case \u2014 at extra cost",
       "15-minute timer facility \u2014 at extra cost",
-      "H.V. testing leads, 2m (general or special) \u2014 at extra cost per catalogue; see note above",
+      "H.V. testing leads, 2m (general or special) \u2014 at extra cost",
       "Dual voltage & dual insulation range option \u2014 at extra cost",
       "Single voltage, dual insulation range option \u2014 at extra cost",
-      "Timer (+\u20b93,800) \u2014 at extra cost per price list",
       "Any other range \u2014 on request"
     ],
     "images": null
@@ -747,7 +745,7 @@
     "model": "CIE/777 HM",
     "name": "Motor-cum-Hand Driven Insulation Tester",
     "tagline": "Motor-cum-hand driven insulation tester \u2014 mains motor for PI testing, hand-crank backup for field use. 500 V to 10,000 V.",
-    "description": "The CIE/777 HM combines mains-motor drive with a collapsible hand-crank backup in one instrument. It shares the same motor-driven sustained-voltage capability as the CIE/777 for polarization index (PI) and dielectric absorption testing, while the centrifugal governor (clutch) on the hand-driven circuit ensures constant output voltage when operating by hand crank where mains power is unavailable. The collapsible generator handle is specific to the 777 HM \u2014 it is not present on the plain CIE/777. Weight is 12 kg (including top cover), notably heavier than the 777's 9 kg due to the additional hand-drive mechanism. Housed in the same seasoned wooden cabinet with sunmica finish. Conforms to IS: 2992-1987. Note on HV testing leads: catalogue lists HV leads as optional/extra cost; price list states one pair supplied standard. Confirm with factory.",
+    "description": "The CIE/777 HM combines mains-motor drive with a collapsible hand-crank backup in one instrument. It shares the same motor-driven sustained-voltage capability as the CIE/777 for polarization index (PI) and dielectric absorption testing, while the centrifugal governor (clutch) on the hand-driven circuit ensures constant output voltage when operating by hand crank where mains power is unavailable. The collapsible generator handle is specific to the 777 HM \u2014 it is not present on the plain CIE/777. Weight is 12 kg (including top cover), notably heavier than the 777's 9 kg due to the additional hand-drive mechanism. Housed in the same seasoned wooden cabinet with sunmica finish. Conforms to IS: 2992-1987.",
     "specs": [
       {
         "label": "Drive",
@@ -865,16 +863,14 @@
       }
     ],
     "includedWith": [
-      "Mains cord, 2 metres",
-      "One pair of H.V. testing leads (per price list \u2014 note conflict with catalogue; confirm with factory)"
+      "Mains cord, 2 metres"
     ],
     "options": [
       "Rexine carrying case \u2014 at extra cost",
       "15-minute timer facility \u2014 at extra cost",
-      "H.V. testing leads, 2m (general or special) \u2014 per catalogue; see note",
+      "H.V. testing leads, 2m (general or special) \u2014 at extra cost",
       "Dual voltage & dual insulation range option \u2014 at extra cost",
       "Single voltage, dual insulation range option \u2014 at extra cost",
-      "Timer (+\u20b93,800) \u2014 at extra cost per price list",
       "Any other range \u2014 on request"
     ],
     "images": null
@@ -885,7 +881,7 @@
     "model": "CIE/777/MR",
     "name": "Multirange Motorised Insulation Tester",
     "tagline": "Dual-scale motorised insulation tester \u2014 inner and outer scale readings cover two ranges per voltage. Series MR-A to MR-E.",
-    "description": "The CIE/777/MR is a motorised multi-voltage insulation tester with a dual-scale (inner/outer) reading arrangement. Unlike the range-selector-switch approach used in the hand-driven CIE/444/MR and CIE/666/MR, the 777/MR uses two concentric scales on a single movement: the inner scale covers a standard resistance range and the outer scale covers an extended range, at each rated voltage. This lets the operator read either range without switching instruments. Five series (MR-A to MR-E) cover different combinations of rated voltage and inner/outer scale ranges. Retains full sustained-voltage capability (motor-driven) for PI and dielectric absorption testing. Physical specifications (weight, dimensions) for MR-specific variants are not separately confirmed by catalogue \u2014 confirm with manufacturer before specifying.",
+    "description": "The CIE/777/MR is a motorised multi-voltage insulation tester with a dual-scale (inner/outer) reading arrangement. Unlike the range-selector-switch approach used in the hand-driven CIE/444/MR and CIE/666/MR, the 777/MR uses two concentric scales on a single movement: the inner scale covers a standard resistance range and the outer scale covers an extended range, at each rated voltage. This lets the operator read either range without switching instruments. Five series (MR-A to MR-E) cover different combinations of rated voltage and inner/outer scale ranges. Retains full sustained-voltage capability (motor-driven) for PI and dielectric absorption testing. Physical specifications (weight, dimensions) vary by series \u2014 contact us to confirm for the specific MR variant required.",
     "specs": [
       {
         "label": "Drive",
@@ -901,7 +897,7 @@
       },
       {
         "label": "Note on Specs",
-        "value": "Weight and dimensions for MR variants not separately confirmed \u2014 contact manufacturer"
+        "value": "Varies by series \u2014 contact us to confirm"
       },
       {
         "label": "Warranty",
@@ -1023,7 +1019,7 @@
     "model": "CIE/777 HM/MR",
     "name": "Multirange Motor-cum-Hand Driven Insulation Tester",
     "tagline": "Dual-scale motor-cum-hand driven insulation tester \u2014 inner/outer scale, mains motor plus hand-crank backup. Series MR-A to MR-E.",
-    "description": "The CIE/777 HM/MR combines the dual-scale (inner/outer) multirange capability of the CIE/777/MR with the motor-and-hand dual-drive of the CIE/777 HM. All five MR series (MR-A to MR-E) are available in this configuration. The motor-driven mode enables sustained PI and dielectric absorption testing; the hand-crank backup allows operation where mains power is unavailable. Physical specifications (weight, dimensions) for MR/HM variants are not separately confirmed \u2014 confirm with manufacturer before specifying.",
+    "description": "The CIE/777 HM/MR combines the dual-scale (inner/outer) multirange capability of the CIE/777/MR with the motor-and-hand dual-drive of the CIE/777 HM. All five MR series (MR-A to MR-E) are available in this configuration. The motor-driven mode enables sustained PI and dielectric absorption testing; the hand-crank backup allows operation where mains power is unavailable. Physical specifications (weight, dimensions) vary by series \u2014 contact us to confirm for the specific MR/HM variant required.",
     "specs": [
       {
         "label": "Drive",
@@ -1039,7 +1035,7 @@
       },
       {
         "label": "Note on Specs",
-        "value": "Weight and dimensions not separately confirmed for HM/MR variant \u2014 contact manufacturer"
+        "value": "Varies by series \u2014 contact us to confirm"
       },
       {
         "label": "Warranty",
@@ -1577,7 +1573,7 @@
     "model": "DIT-2500",
     "name": "Digital Insulation Tester + Multimeter \u2014 up to 2500 V",
     "tagline": "Combined digital insulation tester (100 V\u20132500 V, 50 G\u03a9) and True-RMS multimeter with DAR, PI, capacitance, and diode test. CAT III 1000 V / CAT IV 600 V.",
-    "description": "The DIT-2500 combines a digital insulation resistance tester with a full-function True-RMS digital multimeter in one handheld instrument. Insulation testing at five selectable voltages (100 V to 2500 V) with resistance measurement to 50 G\u03a9, including Dielectric Absorption Ratio (DAR) and Polarization Index (PI) calculations. Also functions as a general-purpose multimeter: AC/DC voltage up to 1500 V, resistance to 60 M\u03a9, capacitance to 100 mF, continuity, diode test, and ACV-Hz frequency measurement. Powered by rechargeable Li-ion battery (3.7 V \u00d7 2). Safety rated CAT III 1000 V / CAT IV 600 V. Features data hold, backlight, and auto power-off. Dimensions: 189 \u00d7 89 \u00d7 55 mm. Weight: approx. 380 g. Standard accessories (test leads, charging cable) should be confirmed with manufacturer \u2014 not separately documented in the current source.",
+    "description": "The DIT-2500 combines a digital insulation resistance tester with a full-function True-RMS digital multimeter in one handheld instrument. Insulation testing at five selectable voltages (100 V to 2500 V) with resistance measurement to 50 G\u03a9, including Dielectric Absorption Ratio (DAR) and Polarization Index (PI) calculations. Also functions as a general-purpose multimeter: AC/DC voltage up to 1500 V, resistance to 60 M\u03a9, capacitance to 100 mF, continuity, diode test, and ACV-Hz frequency measurement. Powered by rechargeable Li-ion battery (3.7 V \u00d7 2). Safety rated CAT III 1000 V / CAT IV 600 V. Features data hold, backlight, and auto power-off. Dimensions: 189 \u00d7 89 \u00d7 55 mm. Weight: approx. 380 g.",
     "specs": [
       {
         "label": "Insulation Test Voltage",
@@ -2464,7 +2460,7 @@
     "model": "CIE/7050",
     "name": "Transformer Oil BDV Tester \u2014 50 kV",
     "tagline": "Transformer oil dielectric strength (BDV) tester up to 50 kV. Manual and motorised variants.",
-    "description": "The CIE/7050 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm\u00b2 moving-iron voltmeter, L.T. side, scaled in kV) \u2014 digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5\u201313 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second. Note: 75 kV and 80 kV tiers are confirmed by price list but not by the catalogue PDF \u2014 confirm construction details with manufacturer before specifying those tiers.",
+    "description": "The CIE/7050 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm\u00b2 moving-iron voltmeter, L.T. side, scaled in kV) \u2014 digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5\u201313 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second.",
     "specs": [
       {
         "label": "Output Voltage",
@@ -2514,7 +2510,7 @@
     "specTables": [
       {
         "heading": "CIE/7000 Series \u2014 Output Voltage & Capacity",
-        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. 75 kV and 80 kV tiers confirmed by price list only \u2014 construction details pending catalogue verification.",
+        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty.",
         "columns": [
           "Output Voltage",
           "Capacity",
@@ -2594,7 +2590,7 @@
     "model": "CIE/7100",
     "name": "Transformer Oil BDV Tester \u2014 100 kV",
     "tagline": "Transformer oil dielectric strength (BDV) tester up to 100 kV.",
-    "description": "The CIE/7100 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm\u00b2 moving-iron voltmeter, L.T. side, scaled in kV) \u2014 digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5\u201313 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second. Note: 75 kV and 80 kV tiers are confirmed by price list but not by the catalogue PDF \u2014 confirm construction details with manufacturer before specifying those tiers.",
+    "description": "The CIE/7100 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm\u00b2 moving-iron voltmeter, L.T. side, scaled in kV) \u2014 digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5\u201313 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second.",
     "specs": [
       {
         "label": "Output Voltage",
@@ -2644,7 +2640,7 @@
     "specTables": [
       {
         "heading": "CIE/7000 Series \u2014 Output Voltage & Capacity",
-        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. 75 kV and 80 kV tiers confirmed by price list only \u2014 construction details pending catalogue verification.",
+        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty.",
         "columns": [
           "Output Voltage",
           "Capacity",
@@ -2725,7 +2721,7 @@
     "model": "CIE/7120",
     "name": "Transformer Oil BDV Tester \u2014 120 kV",
     "tagline": "High-capacity transformer oil BDV tester up to 120 kV.",
-    "description": "The CIE/7120 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm\u00b2 moving-iron voltmeter, L.T. side, scaled in kV) \u2014 digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5\u201313 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second. Note: 75 kV and 80 kV tiers are confirmed by price list but not by the catalogue PDF \u2014 confirm construction details with manufacturer before specifying those tiers.",
+    "description": "The CIE/7120 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm\u00b2 moving-iron voltmeter, L.T. side, scaled in kV) \u2014 digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5\u201313 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second.",
     "specs": [
       {
         "label": "Output Voltage",
@@ -2775,7 +2771,7 @@
     "specTables": [
       {
         "heading": "CIE/7000 Series \u2014 Output Voltage & Capacity",
-        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty. 75 kV and 80 kV tiers confirmed by price list only \u2014 construction details pending catalogue verification.",
+        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty.",
         "columns": [
           "Output Voltage",
           "Capacity",
