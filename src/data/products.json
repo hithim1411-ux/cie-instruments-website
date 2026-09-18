@@ -1914,32 +1914,50 @@
         "heading": "Measurement Ranges",
         "note": "All ranges available on a single instrument.",
         "columns": [
-          "Range"
+          "Range",
+          "Resolution",
+          "Test Current"
         ],
         "rows": [
           {
-            "col0": "0\u20131999 \u00b5\u03a9"
+            "col0": "0\u20131999 \u00b5\u03a9",
+            "col1": "1 \u00b5\u03a9",
+            "col2": "1 A"
           },
           {
-            "col0": "0\u201319.99 m\u03a9"
+            "col0": "0\u201319.99 m\u03a9",
+            "col1": "0.01 m\u03a9",
+            "col2": "1 A"
           },
           {
-            "col0": "0\u2013199.9 m\u03a9"
+            "col0": "0\u2013199.9 m\u03a9",
+            "col1": "0.1 m\u03a9",
+            "col2": "1 A"
           },
           {
-            "col0": "0\u20131999 m\u03a9"
+            "col0": "0\u20131999 m\u03a9",
+            "col1": "1 m\u03a9",
+            "col2": "0.1 A (100 mA)"
           },
           {
-            "col0": "0\u201319.99 \u03a9"
+            "col0": "0\u201319.99 \u03a9",
+            "col1": "0.01 \u03a9",
+            "col2": "0.01 A (10 mA)"
           },
           {
-            "col0": "0\u2013199.9 \u03a9"
+            "col0": "0\u2013199.9 \u03a9",
+            "col1": "0.1 \u03a9",
+            "col2": "0.001 A (1 mA)"
           },
           {
-            "col0": "0\u20131999 \u03a9"
+            "col0": "0\u20131999 \u03a9",
+            "col1": "1 \u03a9",
+            "col2": "0.0001 A (0.1 mA)"
           },
           {
-            "col0": "0\u201319.99 k\u03a9"
+            "col0": "0\u201319.99 k\u03a9",
+            "col1": "0.01 k\u03a9",
+            "col2": "0.00001 A (0.01 mA)"
           }
         ]
       }
