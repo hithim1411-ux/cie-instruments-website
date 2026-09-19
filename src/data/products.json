@@ -2523,18 +2523,18 @@
   {
     "id": "cie-7050",
     "categoryId": "oil-test-sets",
-    "model": "CIE/7050",
-    "name": "Transformer Oil BDV Tester \u2014 50 kV",
-    "tagline": "Transformer oil dielectric strength (BDV) tester up to 50 kV. Manual and motorised variants.",
-    "description": "The CIE/7050 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm\u00b2 moving-iron voltmeter, L.T. side, scaled in kV) \u2014 digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5\u201313 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second.",
+    "model": "CIE/7000 Series",
+    "name": "Transformer Oil BDV Tester \u2014 7000 Series",
+    "tagline": "Transformer oil dielectric strength (BDV) tester series \u2014 0\u201350 kV to 0\u2013120 kV, 8 models. Manual and motorised variants.",
+    "description": "The CIE/7000 Series is a range of oil dielectric strength test sets for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992, spanning eight output-voltage tiers from 0\u201350 kV (CIE/7050) up to 0\u2013120 kV (CIE/7120). Every model in the series shares the same design: a cast-resin H.V. transformer with graded insulation and the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm\u00b2 moving-iron voltmeter, L.T. side, scaled in kV) \u2014 digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5\u201313 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Every tier is available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second. Specify the required output voltage tier when ordering \u2014 see the full model table below.",
     "specs": [
       {
-        "label": "Output Voltage",
-        "value": "0\u201350 kV (continuously variable)"
+        "label": "Output Voltage Range",
+        "value": "0\u201350 kV to 0\u2013120 kV (8 models, continuously variable \u2014 see table)"
       },
       {
-        "label": "Capacity",
-        "value": "500 VA"
+        "label": "Capacity Range",
+        "value": "500 VA to 1200 VA (varies by model \u2014 see table)"
       },
       {
         "label": "Input",
@@ -2573,6 +2573,8 @@
     ],
     "featured": false,
     "datasheet": null,
+    "buildToOrder": true,
+    "orderNote": "Specify the required output voltage tier (CIE/7050 to CIE/7120) and manual or motorised drive when ordering.",
     "specTables": [
       {
         "heading": "CIE/7000 Series \u2014 Output Voltage & Capacity",
@@ -2644,270 +2646,11 @@
       "Tripping current set point other than standard \u2014 at extra cost",
       "Digital metering (in place of standard analog) \u2014 at extra cost",
       "2-unit housing \u2014 at extra cost",
-      "Double capacity (20 mA) \u2014 at extra cost",
+      "Double capacity, 20 mA (CIE/7050 to CIE/7080 only) \u2014 at extra cost",
       "Magnetic stirrer \u2014 at extra cost"
     ],
-    "metaTitle": "CIE/7050 Transformer Oil BDV Tester \u2014 50 kV | Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE/7050 transformer oil breakdown voltage (BDV) tester \u2014 50 kV, IS 6792 / IEC 60156 test vessel. Manual and motorised variants. For power and distribution transformers. Cambridge Instruments, Howrah."
-  },
-  {
-    "id": "cie-7100",
-    "categoryId": "oil-test-sets",
-    "model": "CIE/7100",
-    "name": "Transformer Oil BDV Tester \u2014 100 kV",
-    "tagline": "Transformer oil dielectric strength (BDV) tester up to 100 kV.",
-    "description": "The CIE/7100 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm\u00b2 moving-iron voltmeter, L.T. side, scaled in kV) \u2014 digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5\u201313 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second.",
-    "specs": [
-      {
-        "label": "Output Voltage",
-        "value": "0\u2013100 kV (continuously variable)"
-      },
-      {
-        "label": "Capacity",
-        "value": "1000 VA"
-      },
-      {
-        "label": "Input",
-        "value": "230 V \u00b110%, 50 Hz, 1 phase A.C."
-      },
-      {
-        "label": "Duty",
-        "value": "Intermittent"
-      },
-      {
-        "label": "H.V. Winding",
-        "value": "Cast-resin, graded insulation, centre point grounded"
-      },
-      {
-        "label": "Metering",
-        "value": "96 mm\u00b2 A.C. moving-iron voltmeter, L.T. side, scaled in kV (analog \u2014 not digital standard)"
-      },
-      {
-        "label": "Motorised Rate",
-        "value": "Approx. 2 kV/second (motorised variant)"
-      },
-      {
-        "label": "Test Vessel",
-        "value": "Non-absorbent insulating material; two brass spheres 12.5\u201313 mm dia.; gap 4 mm or 2.5 mm adjustable; per IS 6792:1992"
-      },
-      {
-        "label": "Warranty",
-        "value": "12 months against manufacturing defects"
-      }
-    ],
-    "applications": [
-      "Transformer oil dielectric strength testing before energisation",
-      "Routine oil quality monitoring for distribution and power transformers",
-      "Circuit breaker oil testing",
-      "Power utility and substation maintenance laboratories"
-    ],
-    "featured": false,
-    "datasheet": null,
-    "specTables": [
-      {
-        "heading": "CIE/7000 Series \u2014 Output Voltage & Capacity",
-        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty.",
-        "columns": [
-          "Output Voltage",
-          "Capacity",
-          "Manual Model",
-          "Motorised Model"
-        ],
-        "rows": [
-          {
-            "col0": "0\u201350 kV",
-            "col1": "500 VA",
-            "col2": "CIE/7050",
-            "col3": "CIE/7050 MOT"
-          },
-          {
-            "col0": "0\u201360 kV",
-            "col1": "600 VA",
-            "col2": "CIE/7060",
-            "col3": "CIE/7060 MOT"
-          },
-          {
-            "col0": "0\u201370 kV",
-            "col1": "700 VA",
-            "col2": "CIE/7070",
-            "col3": "CIE/7070 MOT"
-          },
-          {
-            "col0": "0\u201375 kV",
-            "col1": "750 VA",
-            "col2": "CIE/7075",
-            "col3": "CIE/7075 MOT"
-          },
-          {
-            "col0": "0\u201380 kV",
-            "col1": "800 VA",
-            "col2": "CIE/7080",
-            "col3": "CIE/7080 MOT"
-          },
-          {
-            "col0": "0\u201390 kV",
-            "col1": "900 VA",
-            "col2": "CIE/7090",
-            "col3": "CIE/7090 MOT"
-          },
-          {
-            "col0": "0\u2013100 kV",
-            "col1": "1000 VA",
-            "col2": "CIE/7100",
-            "col3": "CIE/7100 MOT"
-          },
-          {
-            "col0": "0\u2013120 kV",
-            "col1": "1200 VA",
-            "col2": "CIE/7120",
-            "col3": "CIE/7120 MOT"
-          }
-        ]
-      }
-    ],
-    "includedWith": [
-      "Instruction manual with circuit diagram",
-      "Input supply cable, minimum 2 metres, 3-pin plug",
-      "Test vessel (oil cell) with electrode and gap-setting gauge"
-    ],
-    "options": [
-      "Tripping current set point other than standard \u2014 at extra cost",
-      "Digital metering (in place of standard analog) \u2014 at extra cost",
-      "2-unit housing \u2014 at extra cost",
-      "Magnetic stirrer \u2014 at extra cost"
-    ],
-    "metaTitle": "CIE/7100 Transformer Oil BDV Tester \u2014 100 kV | Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE/7100 transformer oil BDV tester \u2014 100 kV, centre-point grounded electrodes, IS 6792 / IEC 60156 vessel. Manual and motorised variants. Cambridge Instruments & Engg. Co., Howrah, India.",
-    "images": null
-  },
-  {
-    "id": "cie-7120",
-    "categoryId": "oil-test-sets",
-    "model": "CIE/7120",
-    "name": "Transformer Oil BDV Tester \u2014 120 kV",
-    "tagline": "High-capacity transformer oil BDV tester up to 120 kV.",
-    "description": "The CIE/7120 is part of the CIE/7000 Series oil dielectric strength test set range, built for breakdown/withstand voltage testing of transformer and circuit breaker insulating oil per IS 6792:1992. The cast-resin H.V. transformer features graded insulation with the centre point of the H.V. winding grounded, specially designed to withstand frequent sparkover events. A continuously variable autotransformer raises output from zero; zero-start interlocking prevents energising the H.V. circuit unless the regulator is at zero; an interlocked H.T. door cutout means the set cannot be energised with the test chamber open. A memory device retains the breakdown voltage reading after automatic tripping. Metering is analog (96 mm\u00b2 moving-iron voltmeter, L.T. side, scaled in kV) \u2014 digital metering is available at extra cost. Test vessel (oil cell with two brass spheres, 12.5\u201313 mm diameter, 4 mm or 2.5 mm adjustable gap per IS 6792:1992) is supplied as standard. Available in manual and motorised (MOT) variants; motorised sets advance voltage at approx. 2 kV/second.",
-    "specs": [
-      {
-        "label": "Output Voltage",
-        "value": "0\u2013120 kV (continuously variable)"
-      },
-      {
-        "label": "Capacity",
-        "value": "1200 VA"
-      },
-      {
-        "label": "Input",
-        "value": "230 V \u00b110%, 50 Hz, 1 phase A.C."
-      },
-      {
-        "label": "Duty",
-        "value": "Intermittent"
-      },
-      {
-        "label": "H.V. Winding",
-        "value": "Cast-resin, graded insulation, centre point grounded"
-      },
-      {
-        "label": "Metering",
-        "value": "96 mm\u00b2 A.C. moving-iron voltmeter, L.T. side, scaled in kV (analog \u2014 not digital standard)"
-      },
-      {
-        "label": "Motorised Rate",
-        "value": "Approx. 2 kV/second (motorised variant)"
-      },
-      {
-        "label": "Test Vessel",
-        "value": "Non-absorbent insulating material; two brass spheres 12.5\u201313 mm dia.; gap 4 mm or 2.5 mm adjustable; per IS 6792:1992"
-      },
-      {
-        "label": "Warranty",
-        "value": "12 months against manufacturing defects"
-      }
-    ],
-    "applications": [
-      "Transformer oil dielectric strength testing before energisation",
-      "Routine oil quality monitoring for distribution and power transformers",
-      "Circuit breaker oil testing",
-      "Power utility and substation maintenance laboratories"
-    ],
-    "featured": false,
-    "datasheet": null,
-    "specTables": [
-      {
-        "heading": "CIE/7000 Series \u2014 Output Voltage & Capacity",
-        "note": "Input: 230 V, 50 Hz, single phase; intermittent duty.",
-        "columns": [
-          "Output Voltage",
-          "Capacity",
-          "Manual Model",
-          "Motorised Model"
-        ],
-        "rows": [
-          {
-            "col0": "0\u201350 kV",
-            "col1": "500 VA",
-            "col2": "CIE/7050",
-            "col3": "CIE/7050 MOT"
-          },
-          {
-            "col0": "0\u201360 kV",
-            "col1": "600 VA",
-            "col2": "CIE/7060",
-            "col3": "CIE/7060 MOT"
-          },
-          {
-            "col0": "0\u201370 kV",
-            "col1": "700 VA",
-            "col2": "CIE/7070",
-            "col3": "CIE/7070 MOT"
-          },
-          {
-            "col0": "0\u201375 kV",
-            "col1": "750 VA",
-            "col2": "CIE/7075",
-            "col3": "CIE/7075 MOT"
-          },
-          {
-            "col0": "0\u201380 kV",
-            "col1": "800 VA",
-            "col2": "CIE/7080",
-            "col3": "CIE/7080 MOT"
-          },
-          {
-            "col0": "0\u201390 kV",
-            "col1": "900 VA",
-            "col2": "CIE/7090",
-            "col3": "CIE/7090 MOT"
-          },
-          {
-            "col0": "0\u2013100 kV",
-            "col1": "1000 VA",
-            "col2": "CIE/7100",
-            "col3": "CIE/7100 MOT"
-          },
-          {
-            "col0": "0\u2013120 kV",
-            "col1": "1200 VA",
-            "col2": "CIE/7120",
-            "col3": "CIE/7120 MOT"
-          }
-        ]
-      }
-    ],
-    "includedWith": [
-      "Instruction manual with circuit diagram",
-      "Input supply cable, minimum 2 metres, 3-pin plug",
-      "Test vessel (oil cell) with electrode and gap-setting gauge"
-    ],
-    "options": [
-      "Tripping current set point other than standard \u2014 at extra cost",
-      "Digital metering (in place of standard analog) \u2014 at extra cost",
-      "2-unit housing \u2014 at extra cost",
-      "Magnetic stirrer \u2014 at extra cost"
-    ],
-    "metaTitle": "CIE/7120 Transformer Oil BDV Tester \u2014 120 kV | Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE/7120 transformer oil breakdown voltage tester \u2014 120 kV, highest voltage in the CIE/7000 series. IS 6792 / IEC 60156 vessel. Manual and motorised. Cambridge Instruments & Engg. Co., Howrah."
+    "metaTitle": "CIE/7000 Series Transformer Oil BDV Tester \u2014 50\u2013120 kV | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "CIE/7000 Series transformer oil breakdown voltage (BDV) testers \u2014 8 models from 50 kV to 120 kV, IS 6792 / IEC 60156 test vessel. Manual and motorised variants. Cambridge Instruments, Howrah."
   },
   {
     "id": "rts-5",

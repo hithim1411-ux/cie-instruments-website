@@ -10,6 +10,10 @@ export default defineConfig({
   output: 'static',
   adapter: vercel(),
   trailingSlash: 'always',
+  redirects: {
+    '/products/oil-test-sets/cie-7100/': '/products/oil-test-sets/cie-7050/',
+    '/products/oil-test-sets/cie-7120/': '/products/oil-test-sets/cie-7050/',
+  },
   build: {
     inlineStylesheets: 'always',
   },
