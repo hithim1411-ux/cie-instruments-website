@@ -66,7 +66,7 @@
     "featured": true,
     "datasheet": "cie-444.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard rated voltages and resistance ranges shown above — need a different combination? CIE can build it to order.",
+    "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
@@ -273,7 +273,7 @@
     "featured": true,
     "datasheet": "cie-666.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard rated voltages and resistance ranges shown above — need a different combination? CIE can build it to order.",
+    "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
@@ -468,7 +468,7 @@
     "featured": false,
     "datasheet": "cie-444-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard MR-1 to MR-4 series (metal body) shown above — need a different configuration? CIE can build it to order.",
+    "orderNote": "Any configuration apart from the standard MR-1 to MR-4 series (metal body) shown above can be built to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Range & Continuity",
@@ -554,7 +554,7 @@
     "featured": false,
     "datasheet": "cie-666-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard MR-1 to MR-8 series (wooden body) shown above — need a different configuration? CIE can build it to order.",
+    "orderNote": "Any configuration apart from the standard MR-1 to MR-8 series (wooden body) shown above can be built to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Range & Continuity",
@@ -669,7 +669,7 @@
     "featured": false,
     "datasheet": "cie-777.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard rated voltages and resistance ranges shown above — need a different combination? CIE can build it to order.",
+    "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
@@ -806,7 +806,7 @@
     "featured": false,
     "datasheet": "cie-777-hm.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard rated voltages and resistance ranges shown above — need a different combination? CIE can build it to order.",
+    "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
@@ -926,7 +926,7 @@
     "featured": false,
     "datasheet": "cie-777-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard MR series shown above — need a different configuration? CIE can build it to order.",
+    "orderNote": "Any configuration apart from the standard MR series shown above can be built to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Inner Scale & Outer Scale",
@@ -1064,7 +1064,7 @@
     "featured": false,
     "datasheet": "cie-777-hm-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard MR series shown above — need a different configuration? CIE can build it to order.",
+    "orderNote": "Any configuration apart from the standard MR series shown above can be built to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Inner Scale & Outer Scale",
@@ -1239,7 +1239,7 @@
     "featured": false,
     "datasheet": "cie-555.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard rated voltages and resistance ranges shown above — need a different combination? CIE can build it to order.",
+    "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Range \u2014 Ordering Combinations",
@@ -1380,7 +1380,7 @@
     "featured": true,
     "datasheet": "cie-222m.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard range configurations and terminal types (3-terminal or 4-terminal) shown above — need something different? CIE can build it to order.",
+    "orderNote": "Any configuration apart from the standard range configurations and terminal types (3-terminal or 4-terminal) shown above can be built to order.",
     "specTables": [
       {
         "heading": "Single Range Options",
@@ -1544,7 +1544,7 @@
     "featured": false,
     "datasheet": "dit-5005.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard test voltage and resistance range combinations shown above — need a different combination? CIE can build it to order.",
+    "orderNote": "Any combination apart from the standard test voltage and resistance range combinations shown above can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Range \u2014 Ordering Combinations",
@@ -1857,7 +1857,7 @@
       }
     ],
     "buildToOrder": true,
-    "orderNote": "Available in the standard dual and triple range configurations shown above — need something different? CIE can build it to order.",
+    "orderNote": "Any range apart from the standard dual and triple range configurations shown above can be built to order.",
     "includedWith": [
       "Carrying Case",
       "Charging Cord",
@@ -2407,7 +2407,7 @@
       }
     ],
     "buildToOrder": true,
-    "orderNote": "Available in the standard 3 kV or 5 kV output variant with 25 mA / 50 mA tripping current shown above — need a different tripping current setting? CIE can build it to order.",
+    "orderNote": "Any tripping current setting apart from the standard 25 mA / 50 mA shown above can be built to order.",
     "includedWith": [
       "One pair of H.V. probe with cable"
     ],
@@ -2591,7 +2591,7 @@
     "featured": false,
     "datasheet": "cie-7050.pdf",
     "buildToOrder": true,
-    "orderNote": "Available in the standard output-voltage tiers (CIE/7050 to CIE/7120) and manual or motorised drive shown above — need something different? CIE can build it to order.",
+    "orderNote": "Any requirement apart from the standard output-voltage tiers (CIE/7050 to CIE/7120) and manual or motorised drive shown above can be built to order.",
     "specTables": [
       {
         "heading": "CIE/7000 Series \u2014 Output Voltage & Capacity",
