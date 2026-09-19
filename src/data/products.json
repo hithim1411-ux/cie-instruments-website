@@ -66,11 +66,10 @@
     "featured": true,
     "datasheet": "cie-444.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Any requirement beyond the standard range can be built to order.",
+    "orderNote": "Available in the standard rated voltages and resistance ranges shown above — need a different combination? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
-        "note": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
         "columns": [
           "Rated Voltage",
           "Resistance Range"
@@ -274,11 +273,10 @@
     "featured": true,
     "datasheet": "cie-666.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Any requirement beyond the standard range can be built to order.",
+    "orderNote": "Available in the standard rated voltages and resistance ranges shown above — need a different combination? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
-        "note": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
         "columns": [
           "Rated Voltage",
           "Resistance Range"
@@ -470,11 +468,10 @@
     "featured": false,
     "datasheet": "cie-444-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required MR series when ordering (MR-1 to MR-4 available in metal body). Any configuration beyond the standard series can be built to order.",
+    "orderNote": "Available in the standard MR-1 to MR-4 series (metal body) shown above — need a different configuration? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Range & Continuity",
-        "note": "Specify the required series when ordering. Other combinations manufactured to specific requirement.",
         "columns": [
           "Series",
           "Voltage & Resistance Ranges",
@@ -557,11 +554,10 @@
     "featured": false,
     "datasheet": "cie-666-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required MR series when ordering (MR-1 to MR-8 available in wooden body). Any configuration beyond the standard series can be built to order.",
+    "orderNote": "Available in the standard MR-1 to MR-8 series (wooden body) shown above — need a different configuration? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Range & Continuity",
-        "note": "Specify the required series when ordering. Other combinations manufactured to specific requirement.",
         "columns": [
           "Series",
           "Voltage & Resistance Ranges",
@@ -673,11 +669,10 @@
     "featured": false,
     "datasheet": "cie-777.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Any requirement beyond the standard range can be built to order.",
+    "orderNote": "Available in the standard rated voltages and resistance ranges shown above — need a different combination? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
-        "note": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
         "columns": [
           "Rated Voltage",
           "Resistance Range"
@@ -811,11 +806,10 @@
     "featured": false,
     "datasheet": "cie-777-hm.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Any requirement beyond the standard range can be built to order.",
+    "orderNote": "Available in the standard rated voltages and resistance ranges shown above — need a different combination? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
-        "note": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
         "columns": [
           "Rated Voltage",
           "Resistance Range"
@@ -932,11 +926,11 @@
     "featured": false,
     "datasheet": "cie-777-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required MR series when ordering. Any configuration beyond the standard series can be built to order.",
+    "orderNote": "Available in the standard MR series shown above — need a different configuration? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Inner Scale & Outer Scale",
-        "note": "Specify the required series when ordering. Dual-scale analogue display \u2014 inner and outer resistance scales on same movement.",
+        "note": "Dual-scale analogue display \u2014 inner and outer resistance scales on same movement.",
         "columns": [
           "Series",
           "Voltage",
@@ -1070,11 +1064,11 @@
     "featured": false,
     "datasheet": "cie-777-hm-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required MR series when ordering. Any configuration beyond the standard series can be built to order.",
+    "orderNote": "Available in the standard MR series shown above — need a different configuration? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Inner Scale & Outer Scale",
-        "note": "Specify the required series when ordering. Dual-scale analogue display \u2014 inner and outer resistance scales on same movement.",
+        "note": "Dual-scale analogue display \u2014 inner and outer resistance scales on same movement.",
         "columns": [
           "Series",
           "Voltage",
@@ -1245,7 +1239,7 @@
     "featured": false,
     "datasheet": "cie-555.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Any requirement beyond the standard range can be built to order.",
+    "orderNote": "Available in the standard rated voltages and resistance ranges shown above — need a different combination? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Voltage & Range \u2014 Ordering Combinations",
@@ -1386,7 +1380,7 @@
     "featured": true,
     "datasheet": "cie-222m.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the range configuration and terminal type (3-terminal or 4-terminal) when ordering. Any requirement beyond the standard configuration can be built to order.",
+    "orderNote": "Available in the standard range configurations and terminal types (3-terminal or 4-terminal) shown above — need something different? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Single Range Options",
@@ -1550,7 +1544,7 @@
     "featured": false,
     "datasheet": "dit-5005.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required test voltage and resistance range combination when ordering. Any combination beyond the standard options can be built to order.",
+    "orderNote": "Available in the standard test voltage and resistance range combinations shown above — need a different combination? CIE can build it to order.",
     "specTables": [
       {
         "heading": "Voltage & Range \u2014 Ordering Combinations",
@@ -1769,7 +1763,7 @@
     "categoryId": "earth-tester",
     "model": "DET-2000",
     "name": "Digital Earth Resistance Tester",
-    "tagline": "Rugged ABS-bodied digital earth resistance tester \u2014 4-terminal, rechargeable Ni-Cd battery. Multiple dual-range configurations.",
+    "tagline": "Rugged ABS-bodied digital earth resistance tester \u2014 4-terminal, rechargeable Ni-Cd battery. Dual and triple range.",
     "description": "The DET-2000 is a digital earth resistance tester measuring earth resistance and soil resistivity, with results shown on a 3\u00bd-digit LCD display. Four terminals (E1, P1, P2, E2) allow 3-terminal earth-resistance testing or 4-terminal soil-resistivity measurement. Housed in a rugged ABS body, hand-held with facility to convert to bench-top use. Rechargeable Ni-Cd cells are charged via the supplied charging cord (230 V, 50 Hz). Lo-Bat indicator on display. Accuracy: \u00b13% for 0\u201310% and 90\u2013100% of range; \u00b11.5% for 10\u201390% of range (per IS: 9223/1979). Weight: 575 g. Dimensions: 172 \u00d7 98 \u00d7 38 mm. Note: the testing kit (spikes, wire, hammer) is an optional, separately priced accessory \u2014 it is not supplied standard.",
     "specs": [
       {
@@ -1825,25 +1819,45 @@
         ],
         "rows": [
           {
+            "col0": "0\u20135\u2013500 \u03a9"
+          },
+          {
+            "col0": "0\u201310\u2013100 \u03a9"
+          },
+          {
             "col0": "0\u201320\u2013200 \u03a9"
           },
           {
             "col0": "0\u201310\u20131000 \u03a9"
           },
           {
-            "col0": "0\u2013100\u20131000 \u03a9"
+            "col0": "0\u201320\u20132000 \u03a9"
           },
           {
-            "col0": "0\u20135\u2013500 \u03a9"
+            "col0": "0\u2013200\u20132000 \u03a9"
+          }
+        ]
+      },
+      {
+        "heading": "Triple Range Options",
+        "columns": [
+          "Range Configuration"
+        ],
+        "rows": [
+          {
+            "col0": "0\u20135\u201350\u2013500 \u03a9"
           },
           {
-            "col0": "0\u201310\u2013100 \u03a9"
+            "col0": "0\u201310\u2013100\u20131000 \u03a9"
+          },
+          {
+            "col0": "0\u201320\u2013200\u20132000 \u03a9"
           }
         ]
       }
     ],
     "buildToOrder": true,
-    "orderNote": "Specify the required range configuration when ordering. Any configuration beyond the standard options can be built to order.",
+    "orderNote": "Available in the standard dual and triple range configurations shown above — need something different? CIE can build it to order.",
     "includedWith": [
       "Carrying Case",
       "Charging Cord",
@@ -2393,7 +2407,7 @@
       }
     ],
     "buildToOrder": true,
-    "orderNote": "Specify the required output voltage variant (3 kV or 5 kV) when ordering. A tripping current setting other than the standard 25 mA / 50 mA can be built to order.",
+    "orderNote": "Available in the standard 3 kV or 5 kV output variant with 25 mA / 50 mA tripping current shown above — need a different tripping current setting? CIE can build it to order.",
     "includedWith": [
       "One pair of H.V. probe with cable"
     ],
@@ -2577,7 +2591,7 @@
     "featured": false,
     "datasheet": "cie-7050.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required output voltage tier (CIE/7050 to CIE/7120) and manual or motorised drive when ordering. Any requirement beyond the standard tiers can be built to order.",
+    "orderNote": "Available in the standard output-voltage tiers (CIE/7050 to CIE/7120) and manual or motorised drive shown above — need something different? CIE can build it to order.",
     "specTables": [
       {
         "heading": "CIE/7000 Series \u2014 Output Voltage & Capacity",
