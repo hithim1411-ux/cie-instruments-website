@@ -2493,6 +2493,10 @@
         "value": "15 VA at 500 V"
       },
       {
+        "label": "Important",
+        "value": "Not to be left in the circuit"
+      },
+      {
         "label": "Accessories",
         "value": "Carrying case and test leads (supplied)"
       },
