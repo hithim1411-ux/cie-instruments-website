@@ -1769,7 +1769,7 @@
     "categoryId": "earth-tester",
     "model": "DET-2000",
     "name": "Digital Earth Resistance Tester",
-    "tagline": "Rugged ABS-bodied digital earth resistance tester \u2014 4-terminal, rechargeable Ni-Cd battery. Dual and triple range.",
+    "tagline": "Rugged ABS-bodied digital earth resistance tester \u2014 4-terminal, rechargeable Ni-Cd battery. Multiple dual-range configurations.",
     "description": "The DET-2000 is a digital earth resistance tester measuring earth resistance and soil resistivity, with results shown on a 3\u00bd-digit LCD display. Four terminals (E1, P1, P2, E2) allow 3-terminal earth-resistance testing or 4-terminal soil-resistivity measurement. Housed in a rugged ABS body, hand-held with facility to convert to bench-top use. Rechargeable Ni-Cd cells are charged via the supplied charging cord (230 V, 50 Hz). Lo-Bat indicator on display. Accuracy: \u00b13% for 0\u201310% and 90\u2013100% of range; \u00b11.5% for 10\u201390% of range (per IS: 9223/1979). Weight: 575 g. Dimensions: 172 \u00d7 98 \u00d7 38 mm. Note: the testing kit (spikes, wire, hammer) is an optional, separately priced accessory \u2014 it is not supplied standard.",
     "specs": [
       {
@@ -1787,6 +1787,14 @@
       {
         "label": "Accuracy",
         "value": "0\u201310% of range: \u00b13%; 10\u201390%: \u00b11.5%; 90\u2013100%: \u00b13%"
+      },
+      {
+        "label": "High Voltage Test",
+        "value": "2 kV A.C. (r.m.s.) for 1 min, between electrical circuit and containing case"
+      },
+      {
+        "label": "Insulation Resistance Test",
+        "value": "More than 25 M\u03a9 at 500 V D.C. between electrical circuit and containing case"
       },
       {
         "label": "Dimensions (L\u00d7W\u00d7H)",
@@ -1817,39 +1825,19 @@
         ],
         "rows": [
           {
-            "col0": "0\u20135\u2013500 \u03a9"
-          },
-          {
-            "col0": "0\u201310\u2013100 \u03a9"
-          },
-          {
             "col0": "0\u201320\u2013200 \u03a9"
           },
           {
             "col0": "0\u201310\u20131000 \u03a9"
           },
           {
-            "col0": "0\u201320\u20132000 \u03a9"
+            "col0": "0\u2013100\u20131000 \u03a9"
           },
           {
-            "col0": "0\u2013200\u20132000 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Triple Range Options",
-        "columns": [
-          "Range Configuration"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20135\u201350\u2013500 \u03a9"
+            "col0": "0\u20135\u2013500 \u03a9"
           },
           {
-            "col0": "0\u201310\u2013100\u20131000 \u03a9"
-          },
-          {
-            "col0": "0\u201320\u2013200\u20132000 \u03a9"
+            "col0": "0\u201310\u2013100 \u03a9"
           }
         ]
       }
@@ -2405,13 +2393,12 @@
       }
     ],
     "buildToOrder": true,
-    "orderNote": "Specify the required output voltage range when ordering. Any range beyond the standard 3 kV / 5 kV variants can be built to order.",
+    "orderNote": "Specify the required output voltage variant (3 kV or 5 kV) when ordering. A tripping current setting other than the standard 25 mA / 50 mA can be built to order.",
     "includedWith": [
       "One pair of H.V. probe with cable"
     ],
     "options": [
-      "Tripping current set point other than standard 25 mA/50 mA \u2014 at extra cost",
-      "Digital metering in place of standard analog \u2014 at extra cost"
+      "Tripping current set point other than standard 25 mA/50 mA \u2014 at extra cost"
     ],
     "metaTitle": "CIE/5050A AC High Voltage Test Set \u2014 0\u20135 kV | Cambridge Instruments (CIE), Howrah",
     "metaDesc": "CIE/5050A AC HV test set: 0\u20135 kV continuously variable output, analog voltmeter, toggle trip. For HV cable and equipment insulation withstand (hipot) testing. Cambridge Instruments & Engg. Co., Howrah.",
@@ -2673,16 +2660,12 @@
     "categoryId": "relay-test-sets",
     "model": "RTS-5",
     "name": "Relay Test Set \u2014 Single Phase (Secondary Current Injection)",
-    "tagline": "Single-phase relay test set \u2014 0\u2013200 A AC current (14 V/4 V), 0\u2013240 V AC, built-in digital timer. Max 400 VA.",
-    "description": "The CIE/RTS-5 is a secondary current injection relay test set for testing protective, over-current, and earth fault relays. Provides continuously variable AC current from 0\u20131 A to 0\u2013200 A across eight ranges, at output voltages of 14 V (for lower current ranges) or 4 V (higher ranges). Alternatively, a 0\u2013240 V AC output at 1 A is available via a Volt/Current selection switch \u2014 current injection and 0\u2013240 V AC modes cannot be used simultaneously. Two fixed voltage outputs (50 V and 110 V AC at 1 A) are also provided. A built-in dual-range digital timer (0\u20139.999 sec at 1 ms resolution or 0\u201399.99 sec at 10 ms resolution) starts when the output circuit is energised and stops automatically when the relay under test actuates. Multi-range digital ammeter (0\u2013100% scaled) and AC voltmeter (0\u2013300 V) built in. NO/NC selector for relay auxiliary contacts. Input: 230 V, 1 phase, 50 Hz. Max burden: 400 VA. Intermittent duty: 5 min ON, 10 min OFF.",
+    "tagline": "Single-phase relay test set \u2014 0\u2013200 A AC current (14 V/4 V), 0\u2013240 V AC, built-in digital timer.",
+    "description": "The CIE/RTS-5 is a secondary current injection relay test set for testing protective, over-current, and earth fault relays. Provides continuously variable AC current from 0\u20131 A to 0\u2013200 A across eight ranges, at output voltages of 14 V (for lower current ranges) or 4 V (higher ranges). Alternatively, a 0\u2013240 V AC output at 1 A is available via a Volt/Current selection switch \u2014 current injection and 0\u2013240 V AC modes cannot be used simultaneously. Two fixed voltage outputs (50 V and 110 V AC at 1 A) are also provided. A built-in dual-range digital timer (0\u20139.999 sec at 1 ms resolution or 0\u201399.99 sec at 10 ms resolution) starts when the output circuit is energised and stops automatically when the relay under test actuates. Multi-range digital ammeter (0\u2013100% scaled) and AC voltmeter (0\u2013300 V) built in. NO/NC selector for relay auxiliary contacts. Input: 230 V, 1 phase, 50 Hz. Intermittent duty: 5 min ON, 10 min OFF.",
     "specs": [
       {
         "label": "Input",
         "value": "230 V, single phase, 50 Hz A.C."
-      },
-      {
-        "label": "Max Burden",
-        "value": "400 VA"
       },
       {
         "label": "Current Output",
@@ -2728,24 +2711,20 @@
     ],
     "featured": false,
     "datasheet": "rts-5.pdf",
-    "metaTitle": "RTS-5 Single-Phase Relay Test Set, 0\u2013200 A, 400 VA | Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "RTS-5 single-phase relay test set: 0\u2013200 A AC across ranges, digital timer (0\u201399.99 s), digital ammeter and voltmeter, 400 VA. For overcurrent and earth fault relays. Cambridge Instruments, Howrah."
+    "metaTitle": "RTS-5 Single-Phase Relay Test Set, 0\u2013200 A | Cambridge Instruments (CIE), Howrah",
+    "metaDesc": "RTS-5 single-phase relay test set: 0\u2013200 A AC across ranges, digital timer (0\u201399.99 s), digital ammeter and voltmeter. For overcurrent and earth fault relays. Cambridge Instruments, Howrah."
   },
   {
     "id": "rts-5a",
     "categoryId": "relay-test-sets",
     "model": "RTS-5A",
-    "name": "Relay Test Set \u2014 Single Phase, 1000 VA (Portable Trolley)",
-    "tagline": "Portable trolley-style single-phase relay test set \u2014 0\u2013200 A AC (6 V/50 V), AC or DC voltage output, dual-range timer. Max 1000 VA.",
-    "description": "The CIE/RTS-5A is a portable secondary current injection relay test set in a single trolley-style unit (top-hinged lid), for testing protective relays, earth fault relays, circuit breakers, and tripping coils in both laboratory and field. Current output is continuously variable across seven ranges (0\u20131 A to 0\u2013200 A) at 6 V or 50 V for lower ranges (0\u20131 A to 0\u201320 A), or 6 V for higher ranges (0\u201350 A to 0\u2013200 A), via a multi-ratio wound primary current transformer. An AC/DC changeover switch selects either a continuously variable AC voltage output (0\u2013230 V, 240 VA) or a DC voltage output (0\u2013240 V, 240 VA) \u2014 these are alternatives, not simultaneous. Digital timer (0\u20139.999 sec or 0\u201399.99 sec, accuracy \u00b11%) with NO/NC auxiliary contact selection and automatic tripping of current output on relay actuation or overload. Max burden: 1000 VA. Supplied with operation manual, schematic, test report, and guarantee certificate.",
+    "name": "Relay Test Set \u2014 Single Phase, 0\u2013200 A (Portable Trolley)",
+    "tagline": "Portable trolley-style single-phase relay test set \u2014 0\u2013200 A AC (6 V/50 V), AC or DC voltage output, dual-range timer.",
+    "description": "The CIE/RTS-5A is a portable secondary current injection relay test set in a single trolley-style unit (top-hinged lid), for testing protective relays, earth fault relays, circuit breakers, and tripping coils in both laboratory and field. Current output is continuously variable across seven ranges (0\u20131 A to 0\u2013200 A) at 6 V or 50 V for lower ranges (0\u20131 A to 0\u201320 A), or 6 V for higher ranges (0\u201350 A to 0\u2013200 A), via a multi-ratio wound primary current transformer. An AC/DC changeover switch selects either a continuously variable AC voltage output (0\u2013230 V, 240 VA) or a DC voltage output (0\u2013240 V, 240 VA) \u2014 these are alternatives, not simultaneous. Digital timer (0\u20139.999 sec or 0\u201399.99 sec, accuracy \u00b11%) with NO/NC auxiliary contact selection and automatic tripping of current output on relay actuation or overload. Supplied with operation manual, schematic, test report, and guarantee certificate.",
     "specs": [
       {
         "label": "Input",
         "value": "230 V, single phase, 50 Hz A.C."
-      },
-      {
-        "label": "Max Burden",
-        "value": "1000 VA"
       },
       {
         "label": "Current Output",
@@ -2801,8 +2780,8 @@
       "Schematic Circuit Diagram",
       "Works Test Report"
     ],
-    "metaTitle": "RTS-5A Single-Phase Relay Test Set, 1000 VA, Portable Trolley | Cambridge Instruments (CIE)",
-    "metaDesc": "RTS-5A single-phase relay test set on portable trolley: 1000 VA, 0\u2013200 A, digital timer, ammeter and voltmeter. Heavy-duty portable unit for site commissioning. Cambridge Instruments & Engg. Co., Howrah.",
+    "metaTitle": "RTS-5A Single-Phase Relay Test Set, 0\u2013200 A, Portable Trolley | Cambridge Instruments (CIE)",
+    "metaDesc": "RTS-5A single-phase relay test set on portable trolley: 0\u2013200 A output, digital timer, ammeter and voltmeter. Heavy-duty portable unit for site commissioning. Cambridge Instruments & Engg. Co., Howrah.",
     "images": null
   },
   {
