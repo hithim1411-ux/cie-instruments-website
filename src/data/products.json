@@ -2422,8 +2422,16 @@
         "value": "100\u2013500 V AC"
       },
       {
+        "label": "Frequency",
+        "value": "25\u201365 Hz"
+      },
+      {
+        "label": "Operating Position",
+        "value": "Horizontal only"
+      },
+      {
         "label": "Accessories",
-        "value": "R/Y/B test leads and carrying case (supplied)"
+        "value": "3 Nos. 1m testing leads (R/Y/B) with crocodile clips, and carrying case (supplied)"
       },
       {
         "label": "Warranty",
@@ -2439,7 +2447,7 @@
     "datasheet": null,
     "image": "psi-1.webp",
     "includedWith": [
-      "R/Y/B test leads",
+      "3 Nos. 1m testing leads (R/Y/B) with crocodile clips",
       "Carrying case"
     ],
     "metaTitle": "PSI-1 Phase Sequence Indicator \u2014 Disc Rotating Type | Cambridge Instruments (CIE), Howrah",
