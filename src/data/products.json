@@ -56,7 +56,7 @@
       "Locating intermittent shorts, defective connections, and developing insulation failures"
     ],
     "featured": true,
-    "datasheet": null,
+    "datasheet": "cie-444.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
     "specTables": [
@@ -256,7 +256,7 @@
       "Locating intermittent shorts, defective connections, and developing insulation failures"
     ],
     "featured": true,
-    "datasheet": null,
+    "datasheet": "cie-666.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
     "specTables": [
@@ -452,7 +452,7 @@
       "Substation and EPC commissioning"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "cie-444-mr.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required MR series when ordering. MR-1 to MR-4 available in metal body. Any other configuration manufactured to order.",
     "specTables": [
@@ -539,7 +539,7 @@
       "Maintenance teams needing both low- and high-voltage testing in one instrument"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "cie-666-mr.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required MR series when ordering. MR-1 to MR-8 available in wooden body. Any other configuration manufactured to order.",
     "specTables": [
@@ -655,7 +655,7 @@
       "Substation commissioning by EPC contractors"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "cie-777.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
     "specTables": [
@@ -793,7 +793,7 @@
       "HV transformer and cable insulation assessment"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "cie-777-hm.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
     "specTables": [
@@ -914,7 +914,7 @@
       "Industrial and utility insulation maintenance programs"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "cie-777-mr.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required MR series when ordering. Any other configuration manufactured to order.",
     "specTables": [
@@ -1052,7 +1052,7 @@
       "EPC contractors and utilities needing both motor and hand-drive flexibility"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "cie-777-hm-mr.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required MR series when ordering. Any other configuration manufactured to order.",
     "specTables": [
@@ -1227,7 +1227,7 @@
       "Locating intermittent shorts and defective electrical connections"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "cie-555.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required rated voltage and resistance range when ordering. Special resistance ranges manufactured to specification.",
     "specTables": [
@@ -1354,7 +1354,7 @@
       },
       {
         "label": "Insulation Resistance Test",
-        "value": "Better than 25 MΩ at 500 V D.C. between electrical circuit and containing case"
+        "value": "Better than 25 M\u03a9 at 500 V D.C. between electrical circuit and containing case"
       },
       {
         "label": "Warranty",
@@ -1368,7 +1368,7 @@
       "4-terminal type: soil resistivity surveys for civil engineering projects (tunnels, drainage, sewerage)"
     ],
     "featured": true,
-    "datasheet": null,
+    "datasheet": "cie-222m.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the range configuration and terminal type (3-terminal or 4-terminal) when ordering. Other ranges manufactured to specific requirement.",
     "specTables": [
@@ -1532,7 +1532,7 @@
       "Cables for communication networks"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "dit-5005.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required test voltage and resistance range combination when ordering.",
     "specTables": [
@@ -1655,7 +1655,7 @@
       "Switchgear, panel, and cable commissioning"
     ],
     "featured": true,
-    "datasheet": null,
+    "datasheet": "dit-2500.pdf",
     "specTables": [],
     "includedWith": [],
     "metaTitle": "DIT-2500 Digital Insulation Tester + Multimeter, 2500 V / 50 G\u03a9 | Cambridge Instruments (CIE)",
@@ -1736,7 +1736,7 @@
       "Utilities and large industrial plants requiring 5000 V class insulation testing"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "dit-5000.pdf",
     "specTables": [],
     "includedWith": [
       "Test Leads",
@@ -1792,7 +1792,7 @@
       "General non-inductive/non-capacitive resistance measurement"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "det-2000.pdf",
     "specTables": [
       {
         "heading": "Dual Range Options",
@@ -1908,7 +1908,7 @@
       "PCB track resistance testing and ammeter shunt calibration"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "mr-253a.pdf",
     "specTables": [
       {
         "heading": "Measurement Ranges",
@@ -2038,7 +2038,7 @@
       "Cable and circuit continuity and live-wire checks"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "dcm-2250-tr.pdf",
     "image": "dcm-2250-tr.webp",
     "includedWith": [
       "Test Leads",
@@ -2135,7 +2135,7 @@
       "Combined electrical and temperature diagnostics"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "dcm-5410-tr.pdf",
     "image": "dcm-5410-tr.webp",
     "includedWith": [
       "Test Leads",
@@ -2215,7 +2215,7 @@
       "Workshop and field use"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "dm-235.pdf",
     "includedWith": [
       "Test Leads",
       "User Manual",
@@ -2301,7 +2301,7 @@
       "Basic electronic troubleshooting including transistor and component testing"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "dm-321t.pdf",
     "includedWith": [
       "Test Leads",
       "User Manual",
@@ -2365,7 +2365,7 @@
       "HV withstand testing in production and site environments"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "cie-5050a.pdf",
     "specTables": [
       {
         "heading": "Available Variants",
@@ -2444,7 +2444,7 @@
       "Panel and switchboard testing"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "psi-1.pdf",
     "image": "psi-1.webp",
     "includedWith": [
       "3 Nos. 1m testing leads (R/Y/B) with crocodile clips",
@@ -2511,7 +2511,7 @@
       "Motor connection verification"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "psi-2.pdf",
     "image": "psi-2.webp",
     "includedWith": [
       "Carrying case",
@@ -2572,7 +2572,7 @@
       "Power utility and substation maintenance laboratories"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "cie-7050.pdf",
     "buildToOrder": true,
     "orderNote": "Specify the required output voltage tier (CIE/7050 to CIE/7120) and manual or motorised drive when ordering.",
     "specTables": [
@@ -2711,7 +2711,7 @@
       "Relay commissioning and maintenance in substations and panels"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "rts-5.pdf",
     "metaTitle": "RTS-5 Single-Phase Relay Test Set, 0\u2013200 A, 400 VA | Cambridge Instruments (CIE), Howrah",
     "metaDesc": "RTS-5 single-phase relay test set: 0\u2013200 A AC across ranges, digital timer (0\u201399.99 s), digital ammeter and voltmeter, 400 VA. For overcurrent and earth fault relays. Cambridge Instruments, Howrah."
   },
@@ -2779,7 +2779,7 @@
       "Field and laboratory relay calibration"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "rts-5a.pdf",
     "includedWith": [
       "Operation Manual",
       "Schematic Circuit Diagram",
@@ -2858,7 +2858,7 @@
       "Indian Railways traction protection relay testing"
     ],
     "featured": false,
-    "datasheet": null,
+    "datasheet": "rts-33.pdf",
     "includedWith": [
       "Operation Manual",
       "Schematic Circuit Diagram",
