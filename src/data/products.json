@@ -28,6 +28,14 @@
         "value": "160 r.p.m. or more"
       },
       {
+        "label": "High Voltage Test",
+        "value": "Withstands minimum 2000 V or (rated voltage + 1000) V A.C. (rms) between electrical circuit and handle, for 1 minute"
+      },
+      {
+        "label": "Insulation Resistance Test",
+        "value": "Better than 50 M\u03a9 at 500 V between electrical circuit and containing case"
+      },
+      {
         "label": "Response Time",
         "value": "3 seconds"
       },
@@ -58,7 +66,7 @@
     "featured": true,
     "datasheet": "cie-444.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Any requirement beyond the standard range can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
@@ -228,6 +236,14 @@
         "value": "160 r.p.m. or more"
       },
       {
+        "label": "High Voltage Test",
+        "value": "Withstands minimum 2000 V or (rated voltage + 1000) V A.C. (rms) between electrical circuit and handle, for 1 minute"
+      },
+      {
+        "label": "Insulation Resistance Test",
+        "value": "Better than 50 M\u03a9 at 500 V between electrical circuit and containing case"
+      },
+      {
         "label": "Response Time",
         "value": "3 seconds"
       },
@@ -258,7 +274,7 @@
     "featured": true,
     "datasheet": "cie-666.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Any requirement beyond the standard range can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
@@ -454,7 +470,7 @@
     "featured": false,
     "datasheet": "cie-444-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required MR series when ordering. MR-1 to MR-4 available in metal body. Any other configuration manufactured to order.",
+    "orderNote": "Specify the required MR series when ordering (MR-1 to MR-4 available in metal body). Any configuration beyond the standard series can be built to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Range & Continuity",
@@ -541,7 +557,7 @@
     "featured": false,
     "datasheet": "cie-666-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required MR series when ordering. MR-1 to MR-8 available in wooden body. Any other configuration manufactured to order.",
+    "orderNote": "Specify the required MR series when ordering (MR-1 to MR-8 available in wooden body). Any configuration beyond the standard series can be built to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Range & Continuity",
@@ -657,7 +673,7 @@
     "featured": false,
     "datasheet": "cie-777.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Any requirement beyond the standard range can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
@@ -795,7 +811,7 @@
     "featured": false,
     "datasheet": "cie-777-hm.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Other ranges manufactured to specific requirement.",
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Any requirement beyond the standard range can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
@@ -916,7 +932,7 @@
     "featured": false,
     "datasheet": "cie-777-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required MR series when ordering. Any other configuration manufactured to order.",
+    "orderNote": "Specify the required MR series when ordering. Any configuration beyond the standard series can be built to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Inner Scale & Outer Scale",
@@ -1054,7 +1070,7 @@
     "featured": false,
     "datasheet": "cie-777-hm-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required MR series when ordering. Any other configuration manufactured to order.",
+    "orderNote": "Specify the required MR series when ordering. Any configuration beyond the standard series can be built to order.",
     "specTables": [
       {
         "heading": "Available Series \u2014 Voltage, Inner Scale & Outer Scale",
@@ -1229,7 +1245,7 @@
     "featured": false,
     "datasheet": "cie-555.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required rated voltage and resistance range when ordering. Special resistance ranges manufactured to specification.",
+    "orderNote": "Specify the required rated voltage and resistance range when ordering. Any requirement beyond the standard range can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Range \u2014 Ordering Combinations",
@@ -1370,7 +1386,7 @@
     "featured": true,
     "datasheet": "cie-222m.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the range configuration and terminal type (3-terminal or 4-terminal) when ordering. Other ranges manufactured to specific requirement.",
+    "orderNote": "Specify the range configuration and terminal type (3-terminal or 4-terminal) when ordering. Any requirement beyond the standard configuration can be built to order.",
     "specTables": [
       {
         "heading": "Single Range Options",
@@ -1534,7 +1550,7 @@
     "featured": false,
     "datasheet": "dit-5005.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required test voltage and resistance range combination when ordering.",
+    "orderNote": "Specify the required test voltage and resistance range combination when ordering. Any combination beyond the standard options can be built to order.",
     "specTables": [
       {
         "heading": "Voltage & Range \u2014 Ordering Combinations",
@@ -1839,7 +1855,7 @@
       }
     ],
     "buildToOrder": true,
-    "orderNote": "Specify the required range configuration when ordering.",
+    "orderNote": "Specify the required range configuration when ordering. Any configuration beyond the standard options can be built to order.",
     "includedWith": [
       "Carrying Case",
       "Charging Cord",
@@ -2389,7 +2405,7 @@
       }
     ],
     "buildToOrder": true,
-    "orderNote": "Specify the required output voltage range when ordering.",
+    "orderNote": "Specify the required output voltage range when ordering. Any range beyond the standard 3 kV / 5 kV variants can be built to order.",
     "includedWith": [
       "One pair of H.V. probe with cable"
     ],
@@ -2574,7 +2590,7 @@
     "featured": false,
     "datasheet": "cie-7050.pdf",
     "buildToOrder": true,
-    "orderNote": "Specify the required output voltage tier (CIE/7050 to CIE/7120) and manual or motorised drive when ordering.",
+    "orderNote": "Specify the required output voltage tier (CIE/7050 to CIE/7120) and manual or motorised drive when ordering. Any requirement beyond the standard tiers can be built to order.",
     "specTables": [
       {
         "heading": "CIE/7000 Series \u2014 Output Voltage & Capacity",
