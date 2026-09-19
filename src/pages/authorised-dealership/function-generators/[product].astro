@@ -49,12 +49,6 @@ const productSchema = {
   description: product.description,
   brand: { '@type': 'Brand', name: 'Vartech' },
   model: product.model,
-  offers: {
-    '@type': 'Offer',
-    availability: 'https://schema.org/InStock',
-    url: schemaUrl,
-    seller: { '@type': 'Organization', name: 'Cambridge Instruments & Engg. Co.' },
-  },
   ...(product.specs && product.specs.length > 0 && {
     additionalProperty: product.specs.map((s: { label: string; value: string }) => ({
       '@type': 'PropertyValue', name: s.label, value: s.value,

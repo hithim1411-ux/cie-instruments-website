@@ -42,12 +42,6 @@ const productSchema = {
   image: `https://www.cieinstruments.in/images/vartech/multimeters/${product.images[0]}`,
   brand: { '@type': 'Brand', name: 'Vartech' },
   model: product.model,
-  offers: {
-    '@type': 'Offer',
-    availability: 'https://schema.org/InStock',
-    url: canonicalPath,
-    seller: { '@type': 'Organization', name: 'Cambridge Instruments & Engg. Co.' },
-  },
   ...(product.specs && product.specs.length > 0 && {
     additionalProperty: product.specs.map((s: { label: string; value: string }) => ({
       '@type': 'PropertyValue',

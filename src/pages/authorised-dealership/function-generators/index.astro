@@ -31,15 +31,8 @@ const productSchema = {
       '@type': 'Product',
       name: `${p.model} — ${p.name}`,
       description: p.description,
+      image: `https://www.cieinstruments.in/images/vartech/function-generators/${p.images[0]}`,
       brand: { '@type': 'Brand', name: 'Vartech' },
-      offers: {
-        '@type': 'Offer',
-        seller: { '@type': 'Organization', name: 'Cambridge Instruments & Engg. Co.' },
-        availability: 'https://schema.org/InStock',
-        priceCurrency: 'INR',
-        price: '0',
-        priceSpecification: { '@type': 'PriceSpecification', description: 'Contact for price' },
-      },
     },
   })),
 };

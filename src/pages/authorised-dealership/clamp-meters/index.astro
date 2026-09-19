@@ -33,14 +33,6 @@ const productSchema = {
       description: p.description,
       image: `https://www.cieinstruments.in/images/vartech/clamp-meters/${p.images[0]}`,
       brand: { '@type': 'Brand', name: 'Vartech' },
-      offers: {
-        '@type': 'Offer',
-        seller: { '@type': 'Organization', name: 'Cambridge Instruments & Engg. Co.' },
-        availability: 'https://schema.org/InStock',
-        priceCurrency: 'INR',
-        price: '0',
-        priceSpecification: { '@type': 'PriceSpecification', description: 'Contact for price' },
-      },
     },
   })),
 };

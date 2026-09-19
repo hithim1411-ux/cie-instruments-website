@@ -74,12 +74,6 @@ const productSchema = {
   },
   model: product.model,
   countryOfOrigin: 'IN',
-  offers: {
-    '@type': 'Offer',
-    availability: 'https://schema.org/InStock',
-    url: `https://www.cieinstruments.in/products/${product.categoryId}/${product.id}/`,
-    seller: { '@id': 'https://www.cieinstruments.in/#organization' },
-  },
   ...(product.specs && product.specs.length > 0 && {
     additionalProperty: product.specs.map((s: { label: string; value: string }) => ({
       '@type': 'PropertyValue',
