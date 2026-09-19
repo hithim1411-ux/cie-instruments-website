@@ -2461,7 +2461,7 @@
     "categoryId": "phase-sequence-indicators",
     "model": "PSI-2",
     "name": "Phase Sequence Indicator \u2014 ABS Moulded",
-    "tagline": "ABS moulded 96\u00d796 mm phase sequence indicator, 100\u2013500 V. Supplied with case and leads.",
+    "tagline": "ABS moulded 96\u00d796 mm phase sequence indicator, 50\u2013500 V AC (position\u2013dependent). Supplied with case and leads.",
     "description": "The PSI-2 is a phase sequence indicator in a compact ABS moulded enclosure (96\u00d796\u00d745 mm), suitable for panel mounting or handheld use. It verifies the phase rotation (RYB or RBY) of a 3-phase AC supply before motors, generators, or other rotating equipment are energised \u2014 incorrect phase sequence causes reverse motor rotation, which can damage connected machinery or create safety hazards. The PSI-2 is more compact than the disc-rotating PSI-1 and is preferred where a smaller form factor is needed. Used by commissioning engineers, electrical contractors, panel builders, and industrial maintenance teams across India.",
     "specs": [
       {
@@ -2470,11 +2470,27 @@
       },
       {
         "label": "Dimensions",
-        "value": "96 \u00d7 96 mm"
+        "value": "96 \u00d7 96 \u00d7 45 mm"
       },
       {
-        "label": "Operating Voltage",
+        "label": "Operating Voltage (Horizontal)",
+        "value": "50\u2013500 V AC"
+      },
+      {
+        "label": "Operating Voltage (Vertical)",
         "value": "100\u2013500 V AC"
+      },
+      {
+        "label": "Frequency",
+        "value": "25\u201360 Hz"
+      },
+      {
+        "label": "Rating",
+        "value": "30 seconds at 500 V"
+      },
+      {
+        "label": "Burden",
+        "value": "15 VA at 500 V"
       },
       {
         "label": "Accessories",
