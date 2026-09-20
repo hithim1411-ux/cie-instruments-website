@@ -3,7 +3,7 @@
     "slug": "power-utilities",
     "name": "Power Utilities",
     "icon": "zap",
-    "customers": "PGCIL, WBSETCL, NTPC, State Electricity Boards",
+    "customers": "State Electricity Boards, power generation and transmission utilities",
     "description": "Power utilities require insulation testing on HV cables, transformers, and switchgear at commissioning and during periodic maintenance. Earth resistance testing is mandatory at every substation. Transformer oil quality (BDV) testing is performed before energisation and at routine maintenance intervals. Protection relay testing is essential for grid security.",
     "productIds": ["cie-444", "cie-666", "cie-777", "cie-222m", "cie-7050", "rts-33", "dit-2500", "dit-5000"],
     "relatedCategoryIds": ["insulation-testers-hand", "earth-tester", "oil-test-sets", "relay-test-sets", "digital-insulation-testers"],

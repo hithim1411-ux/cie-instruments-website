@@ -7,7 +7,7 @@
     "description": "Rugged hand-driven generator type insulation testers in metal and wooden body variants, from 100 V to 10 kV test voltages. The original CIE design — built and calibrated in Howrah since 1963.",
     "icon": "⚡",
     "metaTitle": "Hand-Driven Insulation Testers India | CIE Megohmmeter Manufacturer — Howrah",
-    "metaDesc": "Buy CIE hand-driven insulation testers (meggers) — 100V to 10kV, metal & wooden body. Supplied to PGCIL, Indian Railways, WBSETCL. Manufacturer in Howrah. Pan-India supply.",
+    "metaDesc": "Buy CIE hand-driven insulation testers (meggers) — 100V to 10kV, metal & wooden body. Supplied to State Electricity Boards, Indian Railways, and industry. Manufacturer in Howrah. Pan-India supply.",
     "faq": [
       {
         "q": "What is a hand-driven insulation tester?",
@@ -67,11 +67,11 @@
     "description": "Motorised generator type insulation testers for sustained high-voltage testing up to 10 kV. Motor-cum-hand driven variants offer dual operation modes.",
     "icon": "⚙️",
     "metaTitle": "Motorised Insulation Testers | CIE/777 Series — Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE/777 motorised insulation testers — mains-driven, up to 10 kV. Motor-cum-hand driven variants. Used by PGCIL, Indian Railways, power utilities. Manufacturer in Howrah, India.",
+    "metaDesc": "CIE/777 motorised insulation testers — mains-driven, up to 10 kV. Motor-cum-hand driven variants. Used by State Electricity Boards, Indian Railways, power utilities. Manufacturer in Howrah, India.",
     "seoContent": [
       "CIE motorised insulation testers use a mains-powered electric motor to drive the AC generator, eliminating the need for manual cranking. This allows sustained, hands-free testing at consistent voltage — critical for long-duration insulation tests such as polarisation index (PI) and dielectric absorption ratio (DAR) measurements on large motors, generators, and power transformers. The CIE/777 series covers test voltages from 500 V to 10 kV.",
       "The CIE/777 HM (Motor-cum-Hand Driven) variant provides dual operation: the instrument can be used as a standard motorised tester when mains supply is available, and switched to hand-driven mode in the field. This versatility makes it preferred by commissioning engineers and power utility maintenance teams who work both in substations and in remote field locations.",
-      "Motorised insulation testers are used extensively by power transmission utilities (PGCIL, WBSETCL, state electricity boards), traction maintenance depots (Indian Railways), and commissioning engineers on EPC projects across India. CIE supplies the CIE/777 series to customers in Kolkata, Howrah, Bhubaneswar, Raipur, Ranchi, Patna, Lucknow, Delhi, and across all major power and industrial centres in India."
+      "Motorised insulation testers are used extensively by power transmission utilities and various State Electricity Boards, traction maintenance depots (Indian Railways), and commissioning engineers on EPC projects across India. CIE supplies the CIE/777 series to customers in Kolkata, Howrah, Bhubaneswar, Raipur, Ranchi, Patna, Lucknow, Delhi, and across all major power and industrial centres in India."
     ],
     "relatedArticles": [
       "insulation-resistance-testing-guide",
@@ -329,7 +329,7 @@
     "seoContent": [
       "Transformer oil dielectric strength testing (breakdown voltage or BDV testing) is a mandatory quality check performed on transformer oil before filling a new transformer, after filtering or processing used oil, and as part of routine transformer maintenance. The dielectric strength of the oil (measured in kV) indicates its ability to withstand electrical stress without breaking down — a critical parameter for transformer reliability and life.",
       "CIE manufactures the 7000 series of transformer oil BDV testers across eight output-voltage tiers, from CIE/7050 (50 kV) up to CIE/7120 (120 kV). Each instrument is supplied with a standard test vessel conforming to IS 6792 / IEC 60156, with centre-point grounded electrodes. Manual and motorised (automatic) variants are available for every tier — the motorised variants perform the full test cycle automatically and are preferred in laboratories processing large volumes of oil samples.",
-      "Transformer oil test sets are used by power utilities (PGCIL, WBSETCL, state transcos and discoms), transformer manufacturers, oil processing companies, testing laboratories, and large industrial consumers with HV transformers. CIE supplies oil BDV testers across India — Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, Raipur, Ranchi, and all locations where power and distribution transformers are installed and maintained."
+      "Transformer oil test sets are used by power utilities (various State Electricity Boards, transcos and discoms), transformer manufacturers, oil processing companies, testing laboratories, and large industrial consumers with HV transformers. CIE supplies oil BDV testers across India — Kolkata, Howrah, Bhubaneswar, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, Raipur, Ranchi, and all locations where power and distribution transformers are installed and maintained."
     ],
     "relatedArticles": [
       "transformer-oil-bdv-test",
@@ -358,7 +358,7 @@
     "seoContent": [
       "Protection relay testing is a critical activity in power system commissioning and maintenance — every relay protecting a transmission line, transformer, bus, or feeder must be tested to verify that it will operate correctly under fault conditions. CIE manufactures single-phase and three-phase relay test sets for secondary current injection testing of protection relays.",
       "The CIE RTS-5 and RTS-5A are single-phase relay test sets providing continuously variable AC current from 0 to 200 A across multiple ranges, with built-in digital timer (0–99.99 sec), digital ammeter, and AC voltmeter. They are used for testing over-current relays, earth fault relays, and other single-phase protection devices. The RTS-33 is a three-phase relay test set providing variable three-phase AC current, AC and DC voltage, and continuously variable phase angle (0–360°) — essential for testing distance relays, differential relays, and directional protection relays.",
-      "CIE relay test sets are used by protection engineers at power utilities, EPC commissioning companies, and testing laboratories. They are supplied to PGCIL, WBSETCL, state electricity boards, Indian Railways, and commissioning contractors across India — Kolkata, Howrah, Delhi, Bangalore, Mumbai, Chennai, Hyderabad, Bhubaneswar, Lucknow, Chandigarh, and all major power sector locations."
+      "CIE relay test sets are used by protection engineers at power utilities, EPC commissioning companies, and testing laboratories. They are supplied to various State Electricity Boards, Indian Railways, and commissioning contractors across India — Kolkata, Howrah, Delhi, Bangalore, Mumbai, Chennai, Hyderabad, Bhubaneswar, Lucknow, Chandigarh, and all major power sector locations."
     ],
     "relatedArticles": [
       "how-to-test-a-relay",

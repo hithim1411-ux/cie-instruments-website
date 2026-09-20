@@ -4,8 +4,8 @@
     "categoryId": "insulation-testers-hand",
     "model": "CIE/444",
     "name": "Insulation Tester \u2014 Metal Body, Hand-Driven",
-    "tagline": "Hand-cranked analog insulation tester in anti-magnetic aluminium body \u2014 no batteries required. 100 V to 5000 V.",
-    "description": "The CIE/444 is a hand-driven generator-type insulation tester for direct-reading insulation resistance measurement on electrical machines, rotating plant, switchgear, cables, transformers, and industrial installations. Power is generated entirely by the operator via a collapsible hand crank \u2014 no batteries or external power source are required. A centrifugal governor (clutch) holds output voltage constant regardless of crank speed. The instrument features a high-sensitivity cross-coil indicator, anti-parallax mirror scale, and anti-magnetic aluminium body. A guard terminal and externally accessible infinity adjuster are provided on instruments with insulation range 1000 megohms and above. Conforms to IS: 2992/1987. Quick response: 3 seconds.",
+    "tagline": "Hand-cranked analog insulation tester in anti-magnetic aluminium body \u2014 no batteries required. Available in single-range configurations from 100 V to 5000 V.",
+    "description": "The CIE/444 is a hand-driven generator-type insulation tester for direct-reading insulation resistance measurement on motors, generators and other rotating machinery, switchgear, cables, transformers, and industrial installations. Power is generated entirely by the operator via a collapsible hand crank \u2014 no batteries or external power source are required. A centrifugal governor (clutch) holds output voltage constant regardless of crank speed. The instrument features a high-sensitivity cross-coil indicator, anti-parallax mirror scale, and anti-magnetic aluminium body. A guard terminal and externally accessible infinity adjuster are provided on instruments with insulation range 1000 megohms and above. Conforms to IS: 2992/1987. Quick response: 3 seconds. Each unit is built for a single rated voltage and resistance range, specified at order.",
     "specs": [
       {
         "label": "Body",
@@ -53,7 +53,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V"
+        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V (single range per unit, specify at order)"
       },
       {
         "label": "Warranty",
@@ -61,7 +61,7 @@
       }
     ],
     "applications": [
-      "Electrical maintenance of rotating plant equipment and stationary apparatus",
+      "Motors, generators, and other rotating machinery",
       "Insulation control and switching equipment checks",
       "Distribution network and communication cable insulation testing",
       "Transformer and insulator testing; industrial installation checks",
@@ -215,8 +215,8 @@
     "categoryId": "insulation-testers-hand",
     "model": "CIE/666",
     "name": "Insulation Tester \u2014 Wooden Body, Hand-Driven",
-    "tagline": "Hand-cranked analog insulation tester in seasoned wooden body \u2014 up to 10,000 V. Wider range than metal-body CIE/444.",
-    "description": "The CIE/666 is a hand-driven generator-type insulation tester built into a seasoned wooden body with sunmica finish, offering a more traditional, robust enclosure. Available in a wider voltage range than the metal-body CIE/444 \u2014 from 100 V up to 10,000 V \u2014 making it suitable for higher-voltage insulation testing including HV switchgear and higher-class transformer windings. Like the CIE/444, it generates its own test voltage via a hand-cranked A.C. generator with centrifugal governor, eliminating any need for external power. A guard terminal and externally accessible infinity adjuster are provided on instruments with insulation range 1000 megohms and above. The wooden cabinet has a detachable lid, carrying handle, and lock. Scale length is 100 mm. Quick response: 3 seconds. Conforms to IS: 2992/1987.",
+    "tagline": "Hand-cranked analog insulation tester in seasoned wooden body \u2014 available in single-range configurations from 100 V to 10,000 V. Wider range than metal-body CIE/444.",
+    "description": "The CIE/666 is a hand-driven generator-type insulation tester built into a seasoned wooden body with sunmica finish, offering a more traditional, robust enclosure. Available in a wider voltage range than the metal-body CIE/444 \u2014 from 100 V up to 10,000 V \u2014 making it suitable for higher-voltage insulation testing including HV switchgear and higher-class transformer windings. Like the CIE/444, it generates its own test voltage via a hand-cranked A.C. generator with centrifugal governor, eliminating any need for external power. A guard terminal and externally accessible infinity adjuster are provided on instruments with insulation range 1000 megohms and above. The wooden cabinet has a detachable lid, carrying handle, and lock. Scale length is 100 mm. Quick response: 3 seconds. Conforms to IS: 2992/1987. Each unit is built for a single rated voltage and resistance range, specified at order.",
     "specs": [
       {
         "label": "Body",
@@ -264,7 +264,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V / 10000 V"
+        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit, specify at order)"
       },
       {
         "label": "Warranty",
@@ -272,7 +272,7 @@
       }
     ],
     "applications": [
-      "Electrical maintenance of rotating plant equipment and stationary apparatus",
+      "Motors, generators, and other rotating machinery",
       "Insulation control and switching equipment checks",
       "Distribution network and communication cable insulation testing",
       "HV switchgear and transformer insulation testing up to 10,000 V",
@@ -628,7 +628,7 @@
     "categoryId": "motor-operated-insulation",
     "model": "CIE/777",
     "name": "Motorised Insulation Tester",
-    "tagline": "Mains-motor-driven insulation tester for sustained PI and dielectric absorption testing. 500 V to 10,000 V.",
+    "tagline": "Mains-motor-driven insulation tester for sustained PI and dielectric absorption testing. Available in single-range configurations from 500 V to 10,000 V.",
     "description": "The CIE/777 is a universal, multi-purpose insulation tester for checking insulation and conductance under simulated operating conditions in high-tension electrical and electronic applications. Driven by a mains motor (230 V AC, 50 Hz), the CIE/777 applies test voltage continuously for as long as needed \u2014 enabling genuine polarization index (PI) and dielectric absorption testing that hand-cranked instruments cannot sustain. PI is calculated as resistance after 10 minutes \u00f7 resistance after 1 minute; better results are obtained with longer periods. Housed in a seasoned wooden cabinet with sunmica finish (detachable lid, handle, lock). Guard ring around the line terminal and guard terminal eliminate surface-leakage errors. Externally accessible infinity adjuster provided. Conforms to IS: 2992-1987.",
     "specs": [
       {
@@ -673,7 +673,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V"
+        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit, specify at order)"
       },
       {
         "label": "Warranty",
@@ -681,7 +681,7 @@
       }
     ],
     "applications": [
-      "Sustained insulation and polarization index (PI) testing on large rotating plant",
+      "Sustained insulation and polarization index (PI) testing on large motors and generators",
       "Power transformer insulation assessment including dielectric absorption ratio",
       "HV cable and switchgear insulation testing",
       "Substation commissioning by EPC contractors"
@@ -776,7 +776,7 @@
     "categoryId": "motor-operated-insulation",
     "model": "CIE/777 HM",
     "name": "Motor-cum-Hand Driven Insulation Tester",
-    "tagline": "Motor-cum-hand driven insulation tester \u2014 mains motor for PI testing, hand-crank backup for field use. 500 V to 10,000 V.",
+    "tagline": "Motor-cum-hand driven insulation tester \u2014 mains motor for PI testing, hand-crank backup for field use. Available in single-range configurations from 500 V to 10,000 V.",
     "description": "The CIE/777 HM combines mains-motor drive with a collapsible hand-crank backup in one instrument. It shares the same motor-driven sustained-voltage capability as the CIE/777 for polarization index (PI) and dielectric absorption testing, while the centrifugal governor (clutch) on the hand-driven circuit ensures constant output voltage when operating by hand crank where mains power is unavailable. The collapsible generator handle is specific to the 777 HM \u2014 it is not present on the plain CIE/777. Weight is 12 kg (including top cover), notably heavier than the 777's 9 kg due to the additional hand-drive mechanism. Housed in the same seasoned wooden cabinet with sunmica finish. Guard ring around the line terminal and guard terminal eliminate surface-leakage errors. Externally accessible infinity adjuster provided. Conforms to IS: 2992-1987.",
     "specs": [
       {
@@ -821,7 +821,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V"
+        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit, specify at order)"
       },
       {
         "label": "Warranty",
@@ -1200,8 +1200,8 @@
     "categoryId": "compact-insulation-testers",
     "model": "CIE/555",
     "name": "Insulation Tester (Hand Driven Generator Type, Bakelite Body)",
-    "tagline": "A compact, silent hand-driven insulation tester in a high-grade moulded bakelite body \u2014 built for direct insulation resistance testing up to 1000 V.",
-    "description": "The CIE/555 is a hand-driven generator-type insulation tester housed in a high-grade moulded bakelite body, offering a compact and economical option for direct-reading insulation resistance testing on electrical operating machines, rotating plant equipment, stationary apparatus, control and switching equipment, distribution networks, communication cables, insulators, transformers, and industrial installations.\n\nLike CIE's other hand-driven insulation testers, the CIE/555 uses a hand-driven clutch-type A.C. generator paired with a high-sensitivity cross-coil indicator, with generated A.C. voltage converted to D.C. via silicon diodes. The instrument is dust-free, with rubber shoes holding the surface and giving the unit stability during use, and a collapsible driven handle that folds flush into the casing when not in operation.\n\nThe CIE/555 is a versatile instrument for locating intermittent shorts, defective electrical connections, insulation failure, and conductor failure \u2014 helping prevent costly repairs and breakdowns. It is suited to testing up to 1000 V, making it well matched to lower-voltage panels, household and light industrial equipment, and general electrical maintenance work.",
+    "tagline": "A compact, silent hand-driven insulation tester in a high-grade moulded bakelite body \u2014 available in single-range configurations from 100 V to 1000 V.",
+    "description": "The CIE/555 is a hand-driven generator-type insulation tester housed in a high-grade moulded bakelite body, offering a compact and economical option for direct-reading insulation resistance testing on motors, generators and other rotating machinery, stationary apparatus, control and switching equipment, distribution networks, communication cables, insulators, transformers, and industrial installations.\n\nLike CIE's other hand-driven insulation testers, the CIE/555 uses a hand-driven clutch-type A.C. generator paired with a high-sensitivity cross-coil indicator, with generated A.C. voltage converted to D.C. via silicon diodes. The instrument is dust-free, with rubber shoes holding the surface and giving the unit stability during use, and a collapsible driven handle that folds flush into the casing when not in operation.\n\nThe CIE/555 is a versatile instrument for locating intermittent shorts, defective electrical connections, insulation failure, and conductor failure \u2014 helping prevent costly repairs and breakdowns. It is available in single-range configurations from 100 V to 1000 V, making it well matched to lower-voltage panels, household and light industrial equipment, and general electrical maintenance work. Each unit is built for a single rated voltage and resistance range, specified at order.",
     "specs": [
       {
         "label": "Body",
@@ -1241,7 +1241,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "100 V / 250 V / 500 V / 1000 V"
+        "value": "100 V / 250 V / 500 V / 1000 V (single range per unit, specify at order)"
       },
       {
         "label": "H.V. Test",
@@ -1258,7 +1258,7 @@
     ],
     "applications": [
       "Insulation testing of electrical operating machines",
-      "Rotating plant equipment and stationary apparatus checks",
+      "Motors, generators, and other rotating machinery",
       "Insulation control and switching equipment testing",
       "Distribution network testing",
       "Communication cable insulation testing",
