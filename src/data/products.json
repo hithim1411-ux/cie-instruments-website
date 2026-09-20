@@ -9,11 +9,11 @@
     "specs": [
       {
         "label": "Body",
-        "value": "Anti-magnetic aluminium (pressure die-cast)"
+        "value": "Anti-magnetic aluminium"
       },
       {
         "label": "Generator Type",
-        "value": "Hand-driven, silent A.C. generator with centrifugal governor (clutch)"
+        "value": "Hand-driven, silent generator with centrifugal governor (clutch)"
       },
       {
         "label": "Scale Length",
@@ -56,6 +56,10 @@
         "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V (single range per unit, specify at order)"
       },
       {
+        "label": "Resistance Range Available",
+        "value": "0\u201350,000 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+      },
+      {
         "label": "Warranty",
         "value": "12 months against manufacturing defects"
       }
@@ -71,125 +75,6 @@
     "datasheet": "cie-444.pdf",
     "buildToOrder": true,
     "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
-    "specTables": [
-      {
-        "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range"
-        ],
-        "rows": [
-          {
-            "col0": "100 V",
-            "col1": "0\u201320 M\u03a9"
-          },
-          {
-            "col0": "100 V",
-            "col1": "0\u201350 M\u03a9"
-          },
-          {
-            "col0": "100 V",
-            "col1": "0\u2013100 M\u03a9"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u201350 M\u03a9"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u2013100 M\u03a9"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u2013250 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013100 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013200 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013500 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u20131000 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u20132000 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013100 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013200 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013500 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u20131000 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u20132000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20131000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20132000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20132500 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20135000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "50\u201350000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u20135000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "50\u201350000 M\u03a9"
-          }
-        ]
-      }
-    ],
     "options": [
       "Carrying case (metal body, CIE/444) \u2014 at extra cost",
       "Testing leads, 1m (up to 1000 V) \u2014 at extra cost",
@@ -204,7 +89,7 @@
     ],
     "includedWith": [],
     "metaTitle": "CIE/444 Insulation Tester \u2014 Hand-Driven, Metal Body | Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE/444 hand-driven megger-type insulation tester in aluminium die-cast body. 100 V to 5000 V, battery-free, IS 2992-1987. 28 voltage/range combinations. Made by Cambridge Instruments & Engg. Co., Howrah.",
+    "metaDesc": "CIE/444 hand-driven megger-type insulation tester in aluminium body. Available in single-range configurations from 100 V to 5000 V. Battery-free, IS 2992-1987. Made by Cambridge Instruments & Engg. Co., Howrah.",
     "images": [
       "cie-444.webp",
       "cie-444-2.webp"
@@ -216,7 +101,7 @@
     "model": "CIE/666",
     "name": "Insulation Tester \u2014 Wooden Body, Hand-Driven",
     "tagline": "Hand-cranked analog insulation tester in seasoned wooden body \u2014 available in single-range configurations from 100 V to 10,000 V. Wider range than metal-body CIE/444.",
-    "description": "The CIE/666 is a hand-driven generator-type insulation tester built into a seasoned wooden body with sunmica finish, offering a more traditional, robust enclosure. Available in a wider voltage range than the metal-body CIE/444 \u2014 from 100 V up to 10,000 V \u2014 making it suitable for higher-voltage insulation testing including HV switchgear and higher-class transformer windings. Like the CIE/444, it generates its own test voltage via a hand-cranked A.C. generator with centrifugal governor, eliminating any need for external power. A guard terminal and externally accessible infinity adjuster are provided on instruments with insulation range 1000 megohms and above. The wooden cabinet has a detachable lid, carrying handle, and lock. Scale length is 100 mm. Quick response: 3 seconds. Conforms to IS: 2992/1987. Each unit is built for a single rated voltage and resistance range, specified at order.",
+    "description": "The CIE/666 is a hand-driven generator-type insulation tester built into a seasoned wooden body with sunmica finish, offering a more traditional, robust enclosure. Available in a wider voltage range than the metal-body CIE/444 \u2014 from 100 V up to 10,000 V \u2014 making it suitable for higher-voltage insulation testing including HV switchgear and higher-class transformer windings. Like the CIE/444, it generates its own test voltage via a hand-cranked generator with centrifugal governor, eliminating any need for external power. A guard terminal and externally accessible infinity adjuster are provided on instruments with insulation range 1000 megohms and above. The wooden cabinet has a detachable lid, carrying handle, and lock. Scale length is 100 mm. Quick response: 3 seconds. Conforms to IS: 2992/1987. Each unit is built for a single rated voltage and resistance range, specified at order.",
     "specs": [
       {
         "label": "Body",
@@ -224,7 +109,7 @@
       },
       {
         "label": "Generator Type",
-        "value": "Hand-driven, silent A.C. generator with centrifugal governor (clutch)"
+        "value": "Hand-driven, silent generator with centrifugal governor (clutch)"
       },
       {
         "label": "Scale Length",
@@ -267,6 +152,10 @@
         "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit, specify at order)"
       },
       {
+        "label": "Resistance Range Available",
+        "value": "0\u2013100,000 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+      },
+      {
         "label": "Warranty",
         "value": "12 months against manufacturing defects"
       }
@@ -282,145 +171,6 @@
     "datasheet": "cie-666.pdf",
     "buildToOrder": true,
     "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
-    "specTables": [
-      {
-        "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range"
-        ],
-        "rows": [
-          {
-            "col0": "100 V",
-            "col1": "0\u201320 M\u03a9"
-          },
-          {
-            "col0": "100 V",
-            "col1": "0\u201350 M\u03a9"
-          },
-          {
-            "col0": "100 V",
-            "col1": "0\u2013100 M\u03a9"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u201350 M\u03a9"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u2013100 M\u03a9"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u2013250 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013100 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013200 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013500 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u20131000 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u20132000 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013100 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013200 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013500 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u20131000 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u20132000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20131000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20132000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20132500 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20135000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "50\u201350000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u20135000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "50\u201350000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "100\u2013100000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "50\u201350000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "100\u2013100000 M\u03a9"
-          }
-        ]
-      }
-    ],
     "options": [
       "Carrying case (wooden body, CIE/666) \u2014 at extra cost",
       "Testing leads, 1m (up to 1000 V) \u2014 at extra cost",
@@ -448,7 +198,7 @@
     "specs": [
       {
         "label": "Body",
-        "value": "Anti-magnetic aluminium (pressure die-cast)"
+        "value": "Anti-magnetic aluminium"
       },
       {
         "label": "Generator Type",
@@ -676,6 +426,10 @@
         "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit, specify at order)"
       },
       {
+        "label": "Resistance Range Available",
+        "value": "0\u2013100,000 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+      },
+      {
         "label": "Warranty",
         "value": "12 months against manufacturing defects"
       }
@@ -690,73 +444,6 @@
     "datasheet": "cie-777.pdf",
     "buildToOrder": true,
     "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
-    "specTables": [
-      {
-        "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range"
-        ],
-        "rows": [
-          {
-            "col0": "500 V",
-            "col1": "0\u20131000 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u20132000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20135000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u20135000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "50\u201350000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "100\u2013100000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "50\u201350000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "100\u2013100000 M\u03a9"
-          }
-        ]
-      }
-    ],
     "includedWith": [
       "Mains cord, 2 metres",
       "1 pair of H.V. testing leads"
@@ -824,6 +511,10 @@
         "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit, specify at order)"
       },
       {
+        "label": "Resistance Range Available",
+        "value": "0\u2013100,000 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+      },
+      {
         "label": "Warranty",
         "value": "12 months against manufacturing defects"
       }
@@ -838,73 +529,6 @@
     "datasheet": "cie-777-hm.pdf",
     "buildToOrder": true,
     "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
-    "specTables": [
-      {
-        "heading": "Voltage & Resistance Range \u2014 Ordering Combinations",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range"
-        ],
-        "rows": [
-          {
-            "col0": "500 V",
-            "col1": "0\u20131000 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u20132000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20135000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u20135000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "50\u201350000 M\u03a9"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "100\u2013100000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "0\u201310000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "0\u201320000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "50\u201350000 M\u03a9"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "100\u2013100000 M\u03a9"
-          }
-        ]
-      }
-    ],
     "includedWith": [
       "Mains cord, 2 metres",
       "1 pair of H.V. testing leads"
@@ -1201,7 +825,7 @@
     "model": "CIE/555",
     "name": "Insulation Tester (Hand Driven Generator Type, Bakelite Body)",
     "tagline": "A compact, silent hand-driven insulation tester in a high-grade moulded bakelite body \u2014 available in single-range configurations from 100 V to 1000 V.",
-    "description": "The CIE/555 is a hand-driven generator-type insulation tester housed in a high-grade moulded bakelite body, offering a compact and economical option for direct-reading insulation resistance testing on motors, generators and other rotating machinery, stationary apparatus, control and switching equipment, distribution networks, communication cables, insulators, transformers, and industrial installations.\n\nLike CIE's other hand-driven insulation testers, the CIE/555 uses a hand-driven clutch-type A.C. generator paired with a high-sensitivity cross-coil indicator, with generated A.C. voltage converted to D.C. via silicon diodes. The instrument is dust-free, with rubber shoes holding the surface and giving the unit stability during use, and a collapsible driven handle that folds flush into the casing when not in operation.\n\nThe CIE/555 is a versatile instrument for locating intermittent shorts, defective electrical connections, insulation failure, and conductor failure \u2014 helping prevent costly repairs and breakdowns. It is available in single-range configurations from 100 V to 1000 V, making it well matched to lower-voltage panels, household and light industrial equipment, and general electrical maintenance work. Each unit is built for a single rated voltage and resistance range, specified at order.",
+    "description": "The CIE/555 is a hand-driven generator-type insulation tester housed in a high-grade moulded bakelite body, offering a compact and economical option for direct-reading insulation resistance testing on motors, generators and other rotating machinery, stationary apparatus, control and switching equipment, distribution networks, communication cables, insulators, transformers, and industrial installations.\n\nLike CIE's other hand-driven insulation testers, the CIE/555 uses a hand-driven clutch-type generator paired with a high-sensitivity cross-coil indicator, with generated A.C. voltage converted to D.C. via silicon diodes. The instrument is dust-free, with rubber shoes holding the surface and giving the unit stability during use, and a collapsible driven handle that folds flush into the casing when not in operation.\n\nThe CIE/555 is a versatile instrument for locating intermittent shorts, defective electrical connections, insulation failure, and conductor failure \u2014 helping prevent costly repairs and breakdowns. It is available in single-range configurations from 100 V to 1000 V, making it well matched to lower-voltage panels, household and light industrial equipment, and general electrical maintenance work. Each unit is built for a single rated voltage and resistance range, specified at order.",
     "specs": [
       {
         "label": "Body",
@@ -1209,7 +833,7 @@
       },
       {
         "label": "Generator Type",
-        "value": "Hand-driven, clutch-type A.C. generator"
+        "value": "Hand-driven, clutch-type generator"
       },
       {
         "label": "Indicator",
@@ -1244,6 +868,10 @@
         "value": "100 V / 250 V / 500 V / 1000 V (single range per unit, specify at order)"
       },
       {
+        "label": "Resistance Range Available",
+        "value": "0\u2013500 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+      },
+      {
         "label": "H.V. Test",
         "value": "Withstands minimum 2000 V or (Rated Voltage + 1000) V A.C. (rms) between electrical circuit and handle, for 1 minute"
       },
@@ -1270,61 +898,6 @@
     "datasheet": "cie-555.pdf",
     "buildToOrder": true,
     "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
-    "specTables": [
-      {
-        "heading": "Voltage & Range \u2014 Ordering Combinations",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range"
-        ],
-        "rows": [
-          {
-            "col0": "100 V",
-            "col1": "0\u201310 M\u03a9"
-          },
-          {
-            "col0": "100 V",
-            "col1": "0\u201320 M\u03a9"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u201320 M\u03a9"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u201350 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u201350 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013100 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013200 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013500 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013100 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013200 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013500 M\u03a9"
-          }
-        ]
-      }
-    ],
     "includedWith": [],
     "options": [
       "Carrying case (bakelite body) \u2014 at extra cost",
@@ -1358,7 +931,7 @@
       },
       {
         "label": "Generator Type",
-        "value": "Hand-driven A.C. generator with centrifugal governor"
+        "value": "Hand-driven generator with centrifugal governor"
       },
       {
         "label": "Terminal Types",
@@ -1386,7 +959,7 @@
       },
       {
         "label": "Range Configurations",
-        "value": "Single / Dual / Triple / Four / Five range"
+        "value": "Single / Dual / Triple / Four / Five range \u2014 0\u201310,000 \u03a9 overall span (any ONE configuration per unit, specify at order)"
       },
       {
         "label": "High Voltage Test",
@@ -1411,99 +984,6 @@
     "datasheet": "cie-222m.pdf",
     "buildToOrder": true,
     "orderNote": "Any configuration apart from the standard range configurations and terminal types (3-terminal or 4-terminal) shown above can be built to order.",
-    "specTables": [
-      {
-        "heading": "Single Range Options",
-        "columns": [
-          "Range"
-        ],
-        "rows": [
-          {
-            "col0": "Any range from 0\u20131 \u03a9 up to 0\u20135 \u03a9"
-          },
-          {
-            "col0": "0\u201310 \u03a9 up to 0\u2013100 \u03a9"
-          },
-          {
-            "col0": "0\u2013200 \u03a9 up to 0\u201310000 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Dual Range Options",
-        "columns": [
-          "Range"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20131 / 10 \u03a9"
-          },
-          {
-            "col0": "0\u20132 / 10 \u03a9"
-          },
-          {
-            "col0": "0\u20133 / 30 \u03a9"
-          },
-          {
-            "col0": "0\u201310 / 100 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Triple Range Options",
-        "columns": [
-          "Range"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20131 / 10 / 100 \u03a9"
-          },
-          {
-            "col0": "0\u20132 / 10 / 100 \u03a9"
-          },
-          {
-            "col0": "0\u20132 / 20 / 200 \u03a9"
-          },
-          {
-            "col0": "0\u20133 / 30 / 300 \u03a9"
-          },
-          {
-            "col0": "0\u201310 / 100 / 1000 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Four Range Options",
-        "columns": [
-          "Range"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20131 / 10 / 100 / 1000 \u03a9"
-          },
-          {
-            "col0": "0\u20132 / 10 / 100 / 1000 \u03a9"
-          },
-          {
-            "col0": "0\u201310 / 100 / 1000 / 10000 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Five Range Options",
-        "columns": [
-          "Range"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20131 / 10 / 100 / 1000 / 10000 \u03a9"
-          },
-          {
-            "col0": "0\u20132 / 10 / 100 / 1000 / 10000 \u03a9"
-          }
-        ]
-      }
-    ],
     "includedWith": [],
     "options": [
       "Testing kit \u2014 3-terminal: 2 M.S. spikes (45 cm), 3 flexible-wire spools (10/20/30 m), 1 hammer, carrying bag \u2014 at extra cost",
@@ -1556,6 +1036,14 @@
         "value": "More than 50 M\u03a9 at 500 V D.C. between electrical circuit and containing case"
       },
       {
+        "label": "Rated Voltages Available",
+        "value": "500 V / 1000 V (single range per unit, specify at order)"
+      },
+      {
+        "label": "Resistance Range Available",
+        "value": "0\u20132,000 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+      },
+      {
         "label": "Power",
         "value": "Ni-Cd rechargeable cells (charged via supplied cord)"
       },
@@ -1575,33 +1063,6 @@
     "datasheet": "dit-5005.pdf",
     "buildToOrder": true,
     "orderNote": "Any combination apart from the standard test voltage and resistance range combinations shown above can be built to order.",
-    "specTables": [
-      {
-        "heading": "Voltage & Range \u2014 Ordering Combinations",
-        "columns": [
-          "Rated Voltage (DC)",
-          "Resistance Range"
-        ],
-        "rows": [
-          {
-            "col0": "500 V",
-            "col1": "0\u2013200 M\u03a9"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u20131000 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013200 M\u03a9"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u20132000 M\u03a9"
-          }
-        ]
-      }
-    ],
     "includedWith": [
       "Carrying Case",
       "Charging Cord",
@@ -1821,6 +1282,10 @@
         "value": "More than 25 M\u03a9 at 500 V D.C. between electrical circuit and containing case"
       },
       {
+        "label": "Range Configurations",
+        "value": "Dual or triple range \u2014 0\u20132000 \u03a9 overall span (any ONE configuration per unit, specify at order)"
+      },
+      {
         "label": "Dimensions (L\u00d7W\u00d7H)",
         "value": "172 \u00d7 98 \u00d7 38 mm (approx.)"
       },
@@ -1841,51 +1306,6 @@
     ],
     "featured": false,
     "datasheet": "det-2000.pdf",
-    "specTables": [
-      {
-        "heading": "Dual Range Options",
-        "columns": [
-          "Range Configuration"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20135\u2013500 \u03a9"
-          },
-          {
-            "col0": "0\u201310\u2013100 \u03a9"
-          },
-          {
-            "col0": "0\u201320\u2013200 \u03a9"
-          },
-          {
-            "col0": "0\u201310\u20131000 \u03a9"
-          },
-          {
-            "col0": "0\u201320\u20132000 \u03a9"
-          },
-          {
-            "col0": "0\u2013200\u20132000 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Triple Range Options",
-        "columns": [
-          "Range Configuration"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20135\u201350\u2013500 \u03a9"
-          },
-          {
-            "col0": "0\u201310\u2013100\u20131000 \u03a9"
-          },
-          {
-            "col0": "0\u201320\u2013200\u20132000 \u03a9"
-          }
-        ]
-      }
-    ],
     "buildToOrder": true,
     "orderNote": "Any range apart from the standard dual and triple range configurations shown above can be built to order.",
     "includedWith": [
