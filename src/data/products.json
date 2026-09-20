@@ -36,6 +36,10 @@
         "value": "Better than 50 M\u03a9 at 500 V between electrical circuit and containing case"
       },
       {
+        "label": "Guard Terminal & Infinity Adjuster",
+        "value": "Provided on instruments with insulation range 1000 M\u03a9 and above"
+      },
+      {
         "label": "Response Time",
         "value": "3 seconds"
       },
@@ -212,7 +216,7 @@
     "model": "CIE/666",
     "name": "Insulation Tester \u2014 Wooden Body, Hand-Driven",
     "tagline": "Hand-cranked analog insulation tester in seasoned wooden body \u2014 up to 10,000 V. Wider range than metal-body CIE/444.",
-    "description": "The CIE/666 is a hand-driven generator-type insulation tester built into a seasoned wooden body with sunmica finish, offering a more traditional, robust enclosure. Available in a wider voltage range than the metal-body CIE/444 \u2014 from 100 V up to 10,000 V \u2014 making it suitable for higher-voltage insulation testing including HV switchgear and higher-class transformer windings. Like the CIE/444, it generates its own test voltage via a hand-cranked A.C. generator with centrifugal governor, eliminating any need for external power. The wooden cabinet has a detachable lid, carrying handle, and lock. Scale length is 100 mm. Quick response: 3 seconds. Conforms to IS: 2992/1987.",
+    "description": "The CIE/666 is a hand-driven generator-type insulation tester built into a seasoned wooden body with sunmica finish, offering a more traditional, robust enclosure. Available in a wider voltage range than the metal-body CIE/444 \u2014 from 100 V up to 10,000 V \u2014 making it suitable for higher-voltage insulation testing including HV switchgear and higher-class transformer windings. Like the CIE/444, it generates its own test voltage via a hand-cranked A.C. generator with centrifugal governor, eliminating any need for external power. A guard terminal and externally accessible infinity adjuster are provided on instruments with insulation range 1000 megohms and above. The wooden cabinet has a detachable lid, carrying handle, and lock. Scale length is 100 mm. Quick response: 3 seconds. Conforms to IS: 2992/1987.",
     "specs": [
       {
         "label": "Body",
@@ -241,6 +245,10 @@
       {
         "label": "Insulation Resistance Test",
         "value": "Better than 50 M\u03a9 at 500 V between electrical circuit and containing case"
+      },
+      {
+        "label": "Guard Terminal & Infinity Adjuster",
+        "value": "Provided on instruments with insulation range 1000 M\u03a9 and above"
       },
       {
         "label": "Response Time",
@@ -640,6 +648,18 @@
         "value": "As per IS: 2992-1987"
       },
       {
+        "label": "High Voltage Test",
+        "value": "Min. 2 kV or (rated voltage + 1) kV A.C. (r.m.s.), 1 min"
+      },
+      {
+        "label": "Insulation Resistance Test",
+        "value": "Better than 50 M\u03a9 at 500 V D.C."
+      },
+      {
+        "label": "Guard Terminal & Infinity Adjuster",
+        "value": "Guard ring and guard terminal eliminate surface-leakage errors; externally accessible infinity adjuster provided"
+      },
+      {
         "label": "Dimensions (incl. top cover, approx.)",
         "value": "14 \u00d7 10 \u00d7 10 inch"
       },
@@ -758,7 +778,7 @@
     "model": "CIE/777 HM",
     "name": "Motor-cum-Hand Driven Insulation Tester",
     "tagline": "Motor-cum-hand driven insulation tester \u2014 mains motor for PI testing, hand-crank backup for field use. 500 V to 10,000 V.",
-    "description": "The CIE/777 HM combines mains-motor drive with a collapsible hand-crank backup in one instrument. It shares the same motor-driven sustained-voltage capability as the CIE/777 for polarization index (PI) and dielectric absorption testing, while the centrifugal governor (clutch) on the hand-driven circuit ensures constant output voltage when operating by hand crank where mains power is unavailable. The collapsible generator handle is specific to the 777 HM \u2014 it is not present on the plain CIE/777. Weight is 12 kg (including top cover), notably heavier than the 777's 9 kg due to the additional hand-drive mechanism. Housed in the same seasoned wooden cabinet with sunmica finish. Conforms to IS: 2992-1987.",
+    "description": "The CIE/777 HM combines mains-motor drive with a collapsible hand-crank backup in one instrument. It shares the same motor-driven sustained-voltage capability as the CIE/777 for polarization index (PI) and dielectric absorption testing, while the centrifugal governor (clutch) on the hand-driven circuit ensures constant output voltage when operating by hand crank where mains power is unavailable. The collapsible generator handle is specific to the 777 HM \u2014 it is not present on the plain CIE/777. Weight is 12 kg (including top cover), notably heavier than the 777's 9 kg due to the additional hand-drive mechanism. Housed in the same seasoned wooden cabinet with sunmica finish. Guard ring around the line terminal and guard terminal eliminate surface-leakage errors. Externally accessible infinity adjuster provided. Conforms to IS: 2992-1987.",
     "specs": [
       {
         "label": "Drive",
@@ -775,6 +795,18 @@
       {
         "label": "Accuracy",
         "value": "As per IS: 2992-1987"
+      },
+      {
+        "label": "High Voltage Test",
+        "value": "Min. 2 kV or (rated voltage + 1) kV A.C. (r.m.s.), 1 min"
+      },
+      {
+        "label": "Insulation Resistance Test",
+        "value": "Better than 50 M\u03a9 at 500 V D.C."
+      },
+      {
+        "label": "Guard Terminal & Infinity Adjuster",
+        "value": "Guard ring and guard terminal eliminate surface-leakage errors; externally accessible infinity adjuster provided"
       },
       {
         "label": "Dimensions (incl. top cover, approx.)",
