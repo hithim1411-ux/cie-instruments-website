@@ -92,35 +92,35 @@
     ],
     "specTables": [
       {
-        "heading": "Voltage & Resistance Range",
+        "heading": "Resistance Range Options (single range per unit, specify at order)",
         "columns": [
           "Rated Voltage",
-          "Resistance Range"
+          "Resistance Range Options"
         ],
         "rows": [
           {
             "col0": "100 V",
-            "col1": "0\u2013100 M\u03a9"
+            "col1": "0\u201320 M\u03a9 / 0\u201350 M\u03a9 / 0\u2013100 M\u03a9"
           },
           {
             "col0": "250 V",
-            "col1": "0\u2013250 M\u03a9"
+            "col1": "0\u201350 M\u03a9 / 0\u2013100 M\u03a9 / 0\u2013250 M\u03a9"
           },
           {
             "col0": "500 V",
-            "col1": "0\u20132,000 M\u03a9"
+            "col1": "0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9 / 0\u20131000 M\u03a9 / 0\u20132000 M\u03a9"
           },
           {
             "col0": "1000 V",
-            "col1": "0\u20132,000 M\u03a9"
+            "col1": "0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9 / 0\u20131000 M\u03a9 / 0\u20132000 M\u03a9"
           },
           {
             "col0": "2500 V",
-            "col1": "0\u201350,000 M\u03a9"
+            "col1": "0\u20131000 M\u03a9 / 0\u20132000 M\u03a9 / 0\u20132500 M\u03a9 / 0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9"
           },
           {
             "col0": "5000 V",
-            "col1": "0\u201350,000 M\u03a9"
+            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9"
           }
         ]
       }
@@ -216,39 +216,39 @@
     "images": null,
     "specTables": [
       {
-        "heading": "Voltage & Resistance Range",
+        "heading": "Resistance Range Options (single range per unit, specify at order)",
         "columns": [
           "Rated Voltage",
-          "Resistance Range"
+          "Resistance Range Options"
         ],
         "rows": [
           {
             "col0": "100 V",
-            "col1": "0\u2013100 M\u03a9"
+            "col1": "0\u201320 M\u03a9 / 0\u201350 M\u03a9 / 0\u2013100 M\u03a9"
           },
           {
             "col0": "250 V",
-            "col1": "0\u2013250 M\u03a9"
+            "col1": "0\u201350 M\u03a9 / 0\u2013100 M\u03a9 / 0\u2013250 M\u03a9"
           },
           {
             "col0": "500 V",
-            "col1": "0\u20132,000 M\u03a9"
+            "col1": "0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9 / 0\u20131000 M\u03a9 / 0\u20132000 M\u03a9"
           },
           {
             "col0": "1000 V",
-            "col1": "0\u20132,000 M\u03a9"
+            "col1": "0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9 / 0\u20131000 M\u03a9 / 0\u20132000 M\u03a9"
           },
           {
             "col0": "2500 V",
-            "col1": "0\u201350,000 M\u03a9"
+            "col1": "0\u20131000 M\u03a9 / 0\u20132000 M\u03a9 / 0\u20132500 M\u03a9 / 0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9"
           },
           {
             "col0": "5000 V",
-            "col1": "0\u2013100,000 M\u03a9"
+            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9"
           },
           {
             "col0": "10000 V",
-            "col1": "0\u2013100,000 M\u03a9"
+            "col1": "0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9"
           }
         ]
       }
@@ -521,31 +521,31 @@
     "images": null,
     "specTables": [
       {
-        "heading": "Voltage & Resistance Range",
+        "heading": "Resistance Range Options (single range per unit, specify at order)",
         "columns": [
           "Rated Voltage",
-          "Resistance Range"
+          "Resistance Range Options"
         ],
         "rows": [
           {
             "col0": "500 V",
-            "col1": "0\u20131,000 M\u03a9"
+            "col1": "0\u20131000 M\u03a9"
           },
           {
             "col0": "1000 V",
-            "col1": "0\u20132,000 M\u03a9"
+            "col1": "0\u20132000 M\u03a9"
           },
           {
             "col0": "2500 V",
-            "col1": "0\u201320,000 M\u03a9"
+            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9"
           },
           {
             "col0": "5000 V",
-            "col1": "0\u2013100,000 M\u03a9"
+            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9"
           },
           {
             "col0": "10000 V",
-            "col1": "0\u2013100,000 M\u03a9"
+            "col1": "0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9"
           }
         ]
       }
@@ -633,31 +633,31 @@
     "images": null,
     "specTables": [
       {
-        "heading": "Voltage & Resistance Range",
+        "heading": "Resistance Range Options (single range per unit, specify at order)",
         "columns": [
           "Rated Voltage",
-          "Resistance Range"
+          "Resistance Range Options"
         ],
         "rows": [
           {
             "col0": "500 V",
-            "col1": "0\u20131,000 M\u03a9"
+            "col1": "0\u20131000 M\u03a9"
           },
           {
             "col0": "1000 V",
-            "col1": "0\u20132,000 M\u03a9"
+            "col1": "0\u20132000 M\u03a9"
           },
           {
             "col0": "2500 V",
-            "col1": "0\u201320,000 M\u03a9"
+            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9"
           },
           {
             "col0": "5000 V",
-            "col1": "0\u2013100,000 M\u03a9"
+            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9"
           },
           {
             "col0": "10000 V",
-            "col1": "0\u2013100,000 M\u03a9"
+            "col1": "0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9"
           }
         ]
       }
@@ -1034,27 +1034,27 @@
     "images": null,
     "specTables": [
       {
-        "heading": "Voltage & Resistance Range",
+        "heading": "Resistance Range Options (single range per unit, specify at order)",
         "columns": [
           "Rated Voltage",
-          "Resistance Range"
+          "Resistance Range Options"
         ],
         "rows": [
           {
             "col0": "100 V",
-            "col1": "0\u201320 M\u03a9"
+            "col1": "0\u201310 M\u03a9 / 0\u201320 M\u03a9"
           },
           {
             "col0": "250 V",
-            "col1": "0\u201350 M\u03a9"
+            "col1": "0\u201320 M\u03a9 / 0\u201350 M\u03a9"
           },
           {
             "col0": "500 V",
-            "col1": "0\u2013500 M\u03a9"
+            "col1": "0\u201350 M\u03a9 / 0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9"
           },
           {
             "col0": "1000 V",
-            "col1": "0\u2013500 M\u03a9"
+            "col1": "0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9"
           }
         ]
       }
@@ -1102,7 +1102,7 @@
       },
       {
         "label": "Range Configurations",
-        "value": "Single / Dual / Triple / Four / Five range (any ONE configuration per unit, specify at order)"
+        "value": "Single / Dual / Triple / Four / Five range (single configuration per unit, specify at order)"
       },
       {
         "label": "High Voltage Test",
@@ -1130,7 +1130,7 @@
     "includedWith": [],
     "options": [
       "Testing kit \u2014 3-terminal: 2 M.S. spikes (45 cm), 3 flexible-wire spools (10/20/30 m), 1 hammer, carrying bag \u2014 at extra cost",
-      "Testing kit \u2014 4-terminal: 4 M.S. spikes (45 cm), 4 flexible-wire spools (10/20/30 m), 1 hammer, carrying bag \u2014 at extra cost",
+      "Testing kit \u2014 4-terminal: 4 M.S. spikes (45 cm), 4 flexible-wire spools (10/20/20/30 m), 1 hammer, carrying bag \u2014 at extra cost",
       "Carrying case for earth tester \u2014 at extra cost",
       "Any other range \u2014 on request"
     ],
@@ -1139,31 +1139,93 @@
     "images": null,
     "specTables": [
       {
-        "heading": "Range Configuration \u2014 Resistance Span",
+        "heading": "Single Range Options",
         "columns": [
-          "Configuration",
-          "Resistance Range"
+          "Range"
         ],
         "rows": [
           {
-            "col0": "Single Range",
-            "col1": "0\u201310,000 \u03a9"
+            "col0": "Any range from 0\u20131 \u03a9 up to 0\u20135 \u03a9"
           },
           {
-            "col0": "Dual Range",
-            "col1": "0\u2013100 \u03a9"
+            "col0": "0\u201310 \u03a9 up to 0\u2013100 \u03a9"
           },
           {
-            "col0": "Triple Range",
-            "col1": "0\u20131,000 \u03a9"
+            "col0": "0\u2013200 \u03a9 up to 0\u201310000 \u03a9"
+          }
+        ]
+      },
+      {
+        "heading": "Dual Range Options",
+        "columns": [
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "0\u20131 / 10 \u03a9"
           },
           {
-            "col0": "Four Range",
-            "col1": "0\u201310,000 \u03a9"
+            "col0": "0\u20132 / 10 \u03a9"
           },
           {
-            "col0": "Five Range",
-            "col1": "0\u201310,000 \u03a9"
+            "col0": "0\u20133 / 30 \u03a9"
+          },
+          {
+            "col0": "0\u201310 / 100 \u03a9"
+          }
+        ]
+      },
+      {
+        "heading": "Triple Range Options",
+        "columns": [
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "0\u20131 / 10 / 100 \u03a9"
+          },
+          {
+            "col0": "0\u20132 / 10 / 100 \u03a9"
+          },
+          {
+            "col0": "0\u20132 / 20 / 200 \u03a9"
+          },
+          {
+            "col0": "0\u20133 / 30 / 300 \u03a9"
+          },
+          {
+            "col0": "0\u201310 / 100 / 1000 \u03a9"
+          }
+        ]
+      },
+      {
+        "heading": "Four Range Options",
+        "columns": [
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "0\u20131 / 10 / 100 / 1000 \u03a9"
+          },
+          {
+            "col0": "0\u20132 / 10 / 100 / 1000 \u03a9"
+          },
+          {
+            "col0": "0\u201310 / 100 / 1000 / 10000 \u03a9"
+          }
+        ]
+      },
+      {
+        "heading": "Five Range Options",
+        "columns": [
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "0\u20131 / 10 / 100 / 1000 / 10000 \u03a9"
+          },
+          {
+            "col0": "0\u20132 / 10 / 100 / 1000 / 10000 \u03a9"
           }
         ]
       }
@@ -1255,19 +1317,19 @@
     "images": null,
     "specTables": [
       {
-        "heading": "Voltage & Resistance Range",
+        "heading": "Resistance Range Options (single range per unit, specify at order)",
         "columns": [
           "Rated Voltage",
-          "Resistance Range"
+          "Resistance Range Options"
         ],
         "rows": [
           {
             "col0": "500 V",
-            "col1": "0\u20131,000 M\u03a9"
+            "col1": "0\u2013200 M\u03a9 / 0\u20131000 M\u03a9"
           },
           {
             "col0": "1000 V",
-            "col1": "0\u20132,000 M\u03a9"
+            "col1": "0\u2013200 M\u03a9 / 0\u20132000 M\u03a9"
           }
         ]
       }
@@ -1472,7 +1534,7 @@
       },
       {
         "label": "Range Configurations",
-        "value": "Dual or triple range (any ONE configuration per unit, specify at order)"
+        "value": "Dual or triple range (single configuration per unit, specify at order)"
       },
       {
         "label": "Dimensions (L\u00d7W\u00d7H)",
@@ -1510,19 +1572,45 @@
     "images": null,
     "specTables": [
       {
-        "heading": "Range Configuration \u2014 Resistance Span",
+        "heading": "Dual Range Options",
         "columns": [
-          "Configuration",
-          "Resistance Range"
+          "Range Configuration"
         ],
         "rows": [
           {
-            "col0": "Dual Range",
-            "col1": "0\u20132,000 \u03a9"
+            "col0": "0\u20135\u2013500 \u03a9"
           },
           {
-            "col0": "Triple Range",
-            "col1": "0\u20132,000 \u03a9"
+            "col0": "0\u201310\u2013100 \u03a9"
+          },
+          {
+            "col0": "0\u201320\u2013200 \u03a9"
+          },
+          {
+            "col0": "0\u201310\u20131000 \u03a9"
+          },
+          {
+            "col0": "0\u201320\u20132000 \u03a9"
+          },
+          {
+            "col0": "0\u2013200\u20132000 \u03a9"
+          }
+        ]
+      },
+      {
+        "heading": "Triple Range Options",
+        "columns": [
+          "Range Configuration"
+        ],
+        "rows": [
+          {
+            "col0": "0\u20135\u201350\u2013500 \u03a9"
+          },
+          {
+            "col0": "0\u201310\u2013100\u20131000 \u03a9"
+          },
+          {
+            "col0": "0\u201320\u2013200\u20132000 \u03a9"
           }
         ]
       }
