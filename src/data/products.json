@@ -53,11 +53,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V (single range per unit, specify at order)"
-      },
-      {
-        "label": "Resistance Range Available",
-        "value": "0\u201350,000 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V (single range per unit)"
       },
       {
         "label": "Warranty",
@@ -93,6 +89,41 @@
     "images": [
       "cie-444.webp",
       "cie-444-2.webp"
+    ],
+    "specTables": [
+      {
+        "heading": "Voltage & Resistance Range",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "100 V",
+            "col1": "0\u2013100 M\u03a9"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0\u2013250 M\u03a9"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0\u20132,000 M\u03a9"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0\u20132,000 M\u03a9"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0\u201350,000 M\u03a9"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0\u201350,000 M\u03a9"
+          }
+        ]
+      }
     ]
   },
   {
@@ -149,11 +180,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit, specify at order)"
-      },
-      {
-        "label": "Resistance Range Available",
-        "value": "0\u2013100,000 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit)"
       },
       {
         "label": "Warranty",
@@ -186,7 +213,46 @@
     "includedWith": [],
     "metaTitle": "CIE/666 Insulation Tester \u2014 Hand-Driven, Wooden Body, up to 10 kV | Cambridge Instruments (CIE)",
     "metaDesc": "CIE/666 hand-driven megger-type insulation tester in seasoned wooden body. 100 V to 10,000 V \u2014 widest hand-driven HV range. Battery-free. IS 2992-1987. Cambridge Instruments & Engg. Co., Howrah.",
-    "images": null
+    "images": null,
+    "specTables": [
+      {
+        "heading": "Voltage & Resistance Range",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "100 V",
+            "col1": "0\u2013100 M\u03a9"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0\u2013250 M\u03a9"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0\u20132,000 M\u03a9"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0\u20132,000 M\u03a9"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0\u201350,000 M\u03a9"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0\u2013100,000 M\u03a9"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "0\u2013100,000 M\u03a9"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "cie-444-mr",
@@ -423,11 +489,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit, specify at order)"
-      },
-      {
-        "label": "Resistance Range Available",
-        "value": "0\u2013100,000 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit)"
       },
       {
         "label": "Warranty",
@@ -456,7 +518,38 @@
       "Single voltage, dual insulation range option \u2014 at extra cost",
       "Any other range \u2014 on request"
     ],
-    "images": null
+    "images": null,
+    "specTables": [
+      {
+        "heading": "Voltage & Resistance Range",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "500 V",
+            "col1": "0\u20131,000 M\u03a9"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0\u20132,000 M\u03a9"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0\u201320,000 M\u03a9"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0\u2013100,000 M\u03a9"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "0\u2013100,000 M\u03a9"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "cie-777-hm",
@@ -508,11 +601,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit, specify at order)"
-      },
-      {
-        "label": "Resistance Range Available",
-        "value": "0\u2013100,000 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit)"
       },
       {
         "label": "Warranty",
@@ -541,7 +630,38 @@
       "Single voltage, dual insulation range option \u2014 at extra cost",
       "Any other range \u2014 on request"
     ],
-    "images": null
+    "images": null,
+    "specTables": [
+      {
+        "heading": "Voltage & Resistance Range",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "500 V",
+            "col1": "0\u20131,000 M\u03a9"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0\u20132,000 M\u03a9"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "0\u201320,000 M\u03a9"
+          },
+          {
+            "col0": "5000 V",
+            "col1": "0\u2013100,000 M\u03a9"
+          },
+          {
+            "col0": "10000 V",
+            "col1": "0\u2013100,000 M\u03a9"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "cie-777-mr",
@@ -865,11 +985,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "100 V / 250 V / 500 V / 1000 V (single range per unit, specify at order)"
-      },
-      {
-        "label": "Resistance Range Available",
-        "value": "0\u2013500 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+        "value": "100 V / 250 V / 500 V / 1000 V (single range per unit)"
       },
       {
         "label": "H.V. Test",
@@ -915,7 +1031,34 @@
       "Two push buttons for connection, designed to accommodate standard cable or 4 mm plug",
       "Conforms to IS: 2992/1987"
     ],
-    "images": null
+    "images": null,
+    "specTables": [
+      {
+        "heading": "Voltage & Resistance Range",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "100 V",
+            "col1": "0\u201320 M\u03a9"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0\u201350 M\u03a9"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0\u2013500 M\u03a9"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0\u2013500 M\u03a9"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "cie-222m",
@@ -959,7 +1102,7 @@
       },
       {
         "label": "Range Configurations",
-        "value": "Single / Dual / Triple / Four / Five range \u2014 0\u201310,000 \u03a9 overall span (any ONE configuration per unit, specify at order)"
+        "value": "Single / Dual / Triple / Four / Five range (any ONE configuration per unit, specify at order)"
       },
       {
         "label": "High Voltage Test",
@@ -993,7 +1136,38 @@
     ],
     "metaTitle": "CIE/222M Earth Tester \u2014 Analog, Hand-Driven, Metal Body | Cambridge Instruments (CIE), Howrah",
     "metaDesc": "CIE/222M analog earth resistance tester: 3-terminal (earth resistance) and 4-terminal (soil resistivity), \u00b15% per IS 9223. Complete kit with spikes and wire spools. Cambridge Instruments, Howrah.",
-    "images": null
+    "images": null,
+    "specTables": [
+      {
+        "heading": "Range Configuration \u2014 Resistance Span",
+        "columns": [
+          "Configuration",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "Single Range",
+            "col1": "0\u201310,000 \u03a9"
+          },
+          {
+            "col0": "Dual Range",
+            "col1": "0\u2013100 \u03a9"
+          },
+          {
+            "col0": "Triple Range",
+            "col1": "0\u20131,000 \u03a9"
+          },
+          {
+            "col0": "Four Range",
+            "col1": "0\u201310,000 \u03a9"
+          },
+          {
+            "col0": "Five Range",
+            "col1": "0\u201310,000 \u03a9"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "dit-5005",
@@ -1037,11 +1211,7 @@
       },
       {
         "label": "Rated Voltages Available",
-        "value": "500 V / 1000 V (single range per unit, specify at order)"
-      },
-      {
-        "label": "Resistance Range Available",
-        "value": "0\u20132,000 M\u03a9 (any one range per unit, paired with rated voltage \u2014 specify at order)"
+        "value": "500 V / 1000 V (single range per unit)"
       },
       {
         "label": "Power",
@@ -1082,7 +1252,26 @@
     "options": [],
     "metaTitle": "DIT-5005 Digital Insulation Tester \u2014 500 V / 1000 V, Rechargeable | Cambridge Instruments (CIE)",
     "metaDesc": "DIT-5005 digital insulation tester: 3\u00bd-digit LCD, 500 V / 1000 V / 2000 M\u03a9, rechargeable Ni-Cd, ABS body. Conforms to IS 10656-1983. Cambridge Instruments & Engg. Co., Howrah, India.",
-    "images": null
+    "images": null,
+    "specTables": [
+      {
+        "heading": "Voltage & Resistance Range",
+        "columns": [
+          "Rated Voltage",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "500 V",
+            "col1": "0\u20131,000 M\u03a9"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "0\u20132,000 M\u03a9"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "dit-2500",
@@ -1283,7 +1472,7 @@
       },
       {
         "label": "Range Configurations",
-        "value": "Dual or triple range \u2014 0\u20132000 \u03a9 overall span (any ONE configuration per unit, specify at order)"
+        "value": "Dual or triple range (any ONE configuration per unit, specify at order)"
       },
       {
         "label": "Dimensions (L\u00d7W\u00d7H)",
@@ -1318,7 +1507,26 @@
     ],
     "metaTitle": "DET-2000 Digital Earth Resistance Tester \u2014 4-Terminal | Cambridge Instruments (CIE), Howrah",
     "metaDesc": "DET-2000 digital earth tester: 3\u00bd-digit LCD, 4-terminal, earth resistance and soil resistivity, rechargeable Ni-Cd. \u00b11.5% accuracy per IS 9223. Cambridge Instruments & Engg. Co., Howrah.",
-    "images": null
+    "images": null,
+    "specTables": [
+      {
+        "heading": "Range Configuration \u2014 Resistance Span",
+        "columns": [
+          "Configuration",
+          "Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "Dual Range",
+            "col1": "0\u20132,000 \u03a9"
+          },
+          {
+            "col0": "Triple Range",
+            "col1": "0\u20132,000 \u03a9"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "mr-253a",
