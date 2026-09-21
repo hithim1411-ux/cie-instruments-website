@@ -52,8 +52,8 @@
         "value": "110 \u00d7 128 \u00d7 195 mm (approx.)"
       },
       {
-        "label": "Rated Voltages Available",
-        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V (single range per unit)"
+        "label": "Range Configuration",
+        "value": "Multiple range options available \u2014 specify at order"
       },
       {
         "label": "Warranty",
@@ -70,7 +70,7 @@
     "featured": true,
     "datasheet": "cie-444.pdf",
     "buildToOrder": true,
-    "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
+    "orderNote": "Custom ranges and configurations can also be built against specific requirements.",
     "options": [
       "Carrying case (metal body, CIE/444) \u2014 at extra cost",
       "Testing leads, 1m (up to 1000 V) \u2014 at extra cost",
@@ -90,41 +90,7 @@
       "cie-444.webp",
       "cie-444-2.webp"
     ],
-    "specTables": [
-      {
-        "heading": "Resistance Range Options (single range per unit, specify at order)",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range Options"
-        ],
-        "rows": [
-          {
-            "col0": "100 V",
-            "col1": "0\u201320 M\u03a9 / 0\u201350 M\u03a9 / 0\u2013100 M\u03a9 (select one)"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u201350 M\u03a9 / 0\u2013100 M\u03a9 / 0\u2013250 M\u03a9 (select one)"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9 / 0\u20131000 M\u03a9 / 0\u20132000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9 / 0\u20131000 M\u03a9 / 0\u20132000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20131000 M\u03a9 / 0\u20132000 M\u03a9 / 0\u20132500 M\u03a9 / 0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 (select one)"
-          }
-        ]
-      }
-    ]
+    "specTables": []
   },
   {
     "id": "cie-666",
@@ -179,8 +145,8 @@
         "value": "265 \u00d7 165 \u00d7 185 mm (approx.)"
       },
       {
-        "label": "Rated Voltages Available",
-        "value": "100 V / 250 V / 500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit)"
+        "label": "Range Configuration",
+        "value": "Multiple range options available \u2014 specify at order"
       },
       {
         "label": "Warranty",
@@ -197,7 +163,7 @@
     "featured": true,
     "datasheet": "cie-666.pdf",
     "buildToOrder": true,
-    "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
+    "orderNote": "Custom ranges and configurations can also be built against specific requirements.",
     "options": [
       "Carrying case (wooden body, CIE/666) \u2014 at extra cost",
       "Testing leads, 1m (up to 1000 V) \u2014 at extra cost",
@@ -214,45 +180,7 @@
     "metaTitle": "CIE/666 Insulation Tester \u2014 Hand-Driven, Wooden Body, up to 10 kV | Cambridge Instruments (CIE)",
     "metaDesc": "CIE/666 hand-driven megger-type insulation tester in seasoned wooden body. 100 V to 10,000 V \u2014 widest hand-driven HV range. Battery-free. IS 2992-1987. Cambridge Instruments & Engg. Co., Howrah.",
     "images": null,
-    "specTables": [
-      {
-        "heading": "Resistance Range Options (single range per unit, specify at order)",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range Options"
-        ],
-        "rows": [
-          {
-            "col0": "100 V",
-            "col1": "0\u201320 M\u03a9 / 0\u201350 M\u03a9 / 0\u2013100 M\u03a9 (select one)"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u201350 M\u03a9 / 0\u2013100 M\u03a9 / 0\u2013250 M\u03a9 (select one)"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9 / 0\u20131000 M\u03a9 / 0\u20132000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9 / 0\u20131000 M\u03a9 / 0\u20132000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20131000 M\u03a9 / 0\u20132000 M\u03a9 / 0\u20132500 M\u03a9 / 0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9 (select one)"
-          }
-        ]
-      }
-    ]
+    "specTables": []
   },
   {
     "id": "cie-444-mr",
@@ -488,8 +416,8 @@
         "value": "3 seconds"
       },
       {
-        "label": "Rated Voltages Available",
-        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit)"
+        "label": "Range Configuration",
+        "value": "Multiple range options available \u2014 specify at order"
       },
       {
         "label": "Warranty",
@@ -505,7 +433,7 @@
     "featured": false,
     "datasheet": "cie-777.pdf",
     "buildToOrder": true,
-    "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
+    "orderNote": "Custom ranges and configurations can also be built against specific requirements.",
     "includedWith": [
       "Mains cord, 2 metres",
       "1 pair of H.V. testing leads"
@@ -519,37 +447,7 @@
       "Any other range \u2014 on request"
     ],
     "images": null,
-    "specTables": [
-      {
-        "heading": "Resistance Range Options (single range per unit, specify at order)",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range Options"
-        ],
-        "rows": [
-          {
-            "col0": "500 V",
-            "col1": "0\u20131000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u20132000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9 (select one)"
-          }
-        ]
-      }
-    ]
+    "specTables": []
   },
   {
     "id": "cie-777-hm",
@@ -600,8 +498,8 @@
         "value": "3 seconds"
       },
       {
-        "label": "Rated Voltages Available",
-        "value": "500 V / 1000 V / 2500 V / 5000 V / 10000 V (single range per unit)"
+        "label": "Range Configuration",
+        "value": "Multiple range options available \u2014 specify at order"
       },
       {
         "label": "Warranty",
@@ -617,7 +515,7 @@
     "featured": false,
     "datasheet": "cie-777-hm.pdf",
     "buildToOrder": true,
-    "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
+    "orderNote": "Custom ranges and configurations can also be built against specific requirements.",
     "includedWith": [
       "Mains cord, 2 metres",
       "1 pair of H.V. testing leads"
@@ -631,37 +529,7 @@
       "Any other range \u2014 on request"
     ],
     "images": null,
-    "specTables": [
-      {
-        "heading": "Resistance Range Options (single range per unit, specify at order)",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range Options"
-        ],
-        "rows": [
-          {
-            "col0": "500 V",
-            "col1": "0\u20131000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u20132000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "2500 V",
-            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "5000 V",
-            "col1": "0\u20135000 M\u03a9 / 0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "10000 V",
-            "col1": "0\u201310000 M\u03a9 / 0\u201320000 M\u03a9 / 50\u201350000 M\u03a9 / 100\u2013100000 M\u03a9 (select one)"
-          }
-        ]
-      }
-    ]
+    "specTables": []
   },
   {
     "id": "cie-777-mr",
@@ -984,8 +852,8 @@
         "value": "155 \u00d7 104 \u00d7 70 mm (approx.)"
       },
       {
-        "label": "Rated Voltages Available",
-        "value": "100 V / 250 V / 500 V / 1000 V (single range per unit)"
+        "label": "Range Configuration",
+        "value": "Multiple range options available \u2014 specify at order"
       },
       {
         "label": "H.V. Test",
@@ -1013,7 +881,7 @@
     "featured": false,
     "datasheet": "cie-555.pdf",
     "buildToOrder": true,
-    "orderNote": "Any range apart from the standard rated voltages and resistance ranges shown above can be built to order.",
+    "orderNote": "Custom ranges and configurations can also be built against specific requirements.",
     "includedWith": [],
     "options": [
       "Carrying case (bakelite body) \u2014 at extra cost",
@@ -1032,33 +900,7 @@
       "Conforms to IS: 2992/1987"
     ],
     "images": null,
-    "specTables": [
-      {
-        "heading": "Resistance Range Options (single range per unit, specify at order)",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range Options"
-        ],
-        "rows": [
-          {
-            "col0": "100 V",
-            "col1": "0\u201310 M\u03a9 / 0\u201320 M\u03a9 (select one)"
-          },
-          {
-            "col0": "250 V",
-            "col1": "0\u201320 M\u03a9 / 0\u201350 M\u03a9 (select one)"
-          },
-          {
-            "col0": "500 V",
-            "col1": "0\u201350 M\u03a9 / 0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9 (select one)"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013100 M\u03a9 / 0\u2013200 M\u03a9 / 0\u2013500 M\u03a9 (select one)"
-          }
-        ]
-      }
-    ]
+    "specTables": []
   },
   {
     "id": "cie-222m",
@@ -1101,8 +943,8 @@
         "value": "110 \u00d7 128 \u00d7 190 mm (approx.)"
       },
       {
-        "label": "Range Configurations",
-        "value": "Single / Dual / Triple / Four / Five range (single configuration per unit, specify at order)"
+        "label": "Range Configuration",
+        "value": "Multiple range options available \u2014 specify at order"
       },
       {
         "label": "High Voltage Test",
@@ -1126,7 +968,7 @@
     "featured": true,
     "datasheet": "cie-222m.pdf",
     "buildToOrder": true,
-    "orderNote": "Any configuration apart from the standard range configurations and terminal types (3-terminal or 4-terminal) shown above can be built to order.",
+    "orderNote": "Custom ranges and configurations can also be built against specific requirements.",
     "includedWith": [],
     "options": [
       "Testing kit \u2014 3-terminal: 2 M.S. spikes (45 cm), 3 flexible-wire spools (10/20/30 m), 1 hammer, carrying bag \u2014 at extra cost",
@@ -1137,93 +979,7 @@
     "metaTitle": "CIE/222M Earth Tester \u2014 Analog, Hand-Driven, Metal Body | Cambridge Instruments (CIE), Howrah",
     "metaDesc": "CIE/222M analog earth resistance tester: 3-terminal (earth resistance) and 4-terminal (soil resistivity), \u00b15% per IS 9223. Complete kit with spikes and wire spools. Cambridge Instruments, Howrah.",
     "images": null,
-    "specTables": [
-      {
-        "heading": "Single Range Options",
-        "columns": [
-          "Range"
-        ],
-        "rows": [
-          {
-            "col0": "0\u201310000 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Dual Range Options",
-        "columns": [
-          "Range"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20131 / 10 \u03a9"
-          },
-          {
-            "col0": "0\u20132 / 10 \u03a9"
-          },
-          {
-            "col0": "0\u20133 / 30 \u03a9"
-          },
-          {
-            "col0": "0\u201310 / 100 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Triple Range Options",
-        "columns": [
-          "Range"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20131 / 10 / 100 \u03a9"
-          },
-          {
-            "col0": "0\u20132 / 10 / 100 \u03a9"
-          },
-          {
-            "col0": "0\u20132 / 20 / 200 \u03a9"
-          },
-          {
-            "col0": "0\u20133 / 30 / 300 \u03a9"
-          },
-          {
-            "col0": "0\u201310 / 100 / 1000 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Four Range Options",
-        "columns": [
-          "Range"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20131 / 10 / 100 / 1000 \u03a9"
-          },
-          {
-            "col0": "0\u20132 / 10 / 100 / 1000 \u03a9"
-          },
-          {
-            "col0": "0\u201310 / 100 / 1000 / 10000 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Five Range Options",
-        "columns": [
-          "Range"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20131 / 10 / 100 / 1000 / 10000 \u03a9"
-          },
-          {
-            "col0": "0\u20132 / 10 / 100 / 1000 / 10000 \u03a9"
-          }
-        ]
-      }
-    ]
+    "specTables": []
   },
   {
     "id": "dit-5005",
@@ -1266,8 +1022,8 @@
         "value": "More than 50 M\u03a9 at 500 V D.C. between electrical circuit and containing case"
       },
       {
-        "label": "Rated Voltages Available",
-        "value": "500 V / 1000 V (single range per unit)"
+        "label": "Range Configuration",
+        "value": "Multiple range options available \u2014 specify at order"
       },
       {
         "label": "Power",
@@ -1288,7 +1044,7 @@
     "featured": false,
     "datasheet": "dit-5005.pdf",
     "buildToOrder": true,
-    "orderNote": "Any combination apart from the standard test voltage and resistance range combinations shown above can be built to order.",
+    "orderNote": "Custom ranges and configurations can also be built against specific requirements.",
     "includedWith": [
       "Carrying Case",
       "Charging Cord",
@@ -1309,25 +1065,7 @@
     "metaTitle": "DIT-5005 Digital Insulation Tester \u2014 500 V / 1000 V, Rechargeable | Cambridge Instruments (CIE)",
     "metaDesc": "DIT-5005 digital insulation tester: 3\u00bd-digit LCD, 500 V / 1000 V / 2000 M\u03a9, rechargeable Ni-Cd, ABS body. Conforms to IS 10656-1983. Cambridge Instruments & Engg. Co., Howrah, India.",
     "images": null,
-    "specTables": [
-      {
-        "heading": "Resistance Range Options (single range per unit, specify at order)",
-        "columns": [
-          "Rated Voltage",
-          "Resistance Range Options"
-        ],
-        "rows": [
-          {
-            "col0": "500 V",
-            "col1": "0\u2013200 M\u03a9 / 0\u20131000 M\u03a9 (select one)"
-          },
-          {
-            "col0": "1000 V",
-            "col1": "0\u2013200 M\u03a9 / 0\u20132000 M\u03a9 (select one)"
-          }
-        ]
-      }
-    ]
+    "specTables": []
   },
   {
     "id": "dit-2500",
@@ -1527,8 +1265,8 @@
         "value": "More than 25 M\u03a9 at 500 V D.C. between electrical circuit and containing case"
       },
       {
-        "label": "Range Configurations",
-        "value": "Dual or triple range (single configuration per unit, specify at order)"
+        "label": "Range Configuration",
+        "value": "Multiple range options available \u2014 specify at order"
       },
       {
         "label": "Dimensions (L\u00d7W\u00d7H)",
@@ -1552,7 +1290,7 @@
     "featured": false,
     "datasheet": "det-2000.pdf",
     "buildToOrder": true,
-    "orderNote": "Any range apart from the standard dual and triple range configurations shown above can be built to order.",
+    "orderNote": "Custom ranges and configurations can also be built against specific requirements.",
     "includedWith": [
       "Carrying Case",
       "Charging Cord",
@@ -1564,51 +1302,7 @@
     "metaTitle": "DET-2000 Digital Earth Resistance Tester \u2014 4-Terminal | Cambridge Instruments (CIE), Howrah",
     "metaDesc": "DET-2000 digital earth tester: 3\u00bd-digit LCD, 4-terminal, earth resistance and soil resistivity, rechargeable Ni-Cd. \u00b11.5% accuracy per IS 9223. Cambridge Instruments & Engg. Co., Howrah.",
     "images": null,
-    "specTables": [
-      {
-        "heading": "Dual Range Options",
-        "columns": [
-          "Range Configuration"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20135\u2013500 \u03a9"
-          },
-          {
-            "col0": "0\u201310\u2013100 \u03a9"
-          },
-          {
-            "col0": "0\u201320\u2013200 \u03a9"
-          },
-          {
-            "col0": "0\u201310\u20131000 \u03a9"
-          },
-          {
-            "col0": "0\u201320\u20132000 \u03a9"
-          },
-          {
-            "col0": "0\u2013200\u20132000 \u03a9"
-          }
-        ]
-      },
-      {
-        "heading": "Triple Range Options",
-        "columns": [
-          "Range Configuration"
-        ],
-        "rows": [
-          {
-            "col0": "0\u20135\u201350\u2013500 \u03a9"
-          },
-          {
-            "col0": "0\u201310\u2013100\u20131000 \u03a9"
-          },
-          {
-            "col0": "0\u201320\u2013200\u20132000 \u03a9"
-          }
-        ]
-      }
-    ]
+    "specTables": []
   },
   {
     "id": "mr-253a",
