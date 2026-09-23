@@ -528,7 +528,10 @@
       "Single voltage, dual insulation range option - at extra cost",
       "Any other range - on request"
     ],
-    "images": null,
+    "images": [
+      "cie-777-hm.webp",
+      "cie-777-hm-2.webp"
+    ],
     "specTables": []
   },
   {
@@ -899,7 +902,10 @@
       "Two push buttons for connection, designed to accommodate standard cable or 4 mm plug",
       "Conforms to IS: 2992/1987"
     ],
-    "images": null,
+    "images": [
+      "cie-777-hm-mr.webp",
+      "cie-777-hm-2.webp"
+    ],
     "specTables": []
   },
   {
