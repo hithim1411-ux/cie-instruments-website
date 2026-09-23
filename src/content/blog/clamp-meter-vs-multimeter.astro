@@ -4,7 +4,7 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  Both clamp meters and multimeters measure electrical quantities — but they work on fundamentally different principles, suit different situations, and are not interchangeable. Understanding the difference will save you money, time, and potentially a blown fuse.
+  Both clamp meters and multimeters measure electrical quantities - but they work on fundamentally different principles, suit different situations, and are not interchangeable. Understanding the difference will save you money, time, and potentially a blown fuse.
 </p>
 
 <!-- ── CORE DIFFERENCE ── -->
@@ -75,7 +75,7 @@ import Callout from '../../components/blog/Callout.astro';
           <text x="100" y="133" text-anchor="middle" font-size="11" fill="#22C55E" font-family="sans-serif">No circuit break needed</text>
         </svg>
       </div>
-      <p class="text-sm text-gray-600 leading-relaxed">The clamp jaw wraps around the conductor and detects current <strong>magnetically</strong> — zero contact with the live conductor. The circuit stays intact throughout.</p>
+      <p class="text-sm text-gray-600 leading-relaxed">The clamp jaw wraps around the conductor and detects current <strong>magnetically</strong> - zero contact with the live conductor. The circuit stays intact throughout.</p>
     </div>
   </div>
 </div>
@@ -94,17 +94,17 @@ import Callout from '../../components/blog/Callout.astro';
     </thead>
     <tbody>
       {[
-        { feature:'Current measurement', dmm:'In-series via shunt resistor', clamp:'Non-contact via jaw (induction / Hall)', winner:'—' },
+        { feature:'Current measurement', dmm:'In-series via shunt resistor', clamp:'Non-contact via jaw (induction / Hall)', winner:'tie' },
         { feature:'Circuit break required for current', dmm:'Yes ✕', clamp:'No ✓', winner:'clamp' },
         { feature:'Max current range (typical)', dmm:'10–20 A', clamp:'400–1000 A or more', winner:'clamp' },
-        { feature:'Low current accuracy (< 1 A)', dmm:'Excellent (mA resolution)', clamp:'Poor — field too weak to read', winner:'dmm' },
-        { feature:'Voltage measurement', dmm:'Excellent — primary function', clamp:'Available via probes, secondary', winner:'dmm' },
+        { feature:'Low current accuracy (< 1 A)', dmm:'Excellent (mA resolution)', clamp:'Poor - field too weak to read', winner:'dmm' },
+        { feature:'Voltage measurement', dmm:'Excellent - primary function', clamp:'Available via probes, secondary', winner:'dmm' },
         { feature:'Resistance / continuity', dmm:'Excellent, 0.1% accuracy', clamp:'Available, coarser (~1%)', winner:'dmm' },
         { feature:'Component testing (diode, cap)', dmm:'Yes ✓', clamp:'Rarely ✕', winner:'dmm' },
         { feature:'Safety around live conductors', dmm:'Higher risk (probes touch conductor)', clamp:'Lower risk (jaw around insulation)', winner:'clamp' },
-        { feature:'Inrush / peak current capture', dmm:'No ✕', clamp:'Yes — dedicated function ✓', winner:'clamp' },
+        { feature:'Inrush / peak current capture', dmm:'No ✕', clamp:'Yes - dedicated function ✓', winner:'clamp' },
         { feature:'DC current measurement', dmm:'Yes ✓', clamp:'Only Hall Effect models', winner:'dmm' },
-        { feature:'Form factor', dmm:'Compact, pocket-sized', clamp:'Larger — jaw adds bulk', winner:'dmm' },
+        { feature:'Form factor', dmm:'Compact, pocket-sized', clamp:'Larger - jaw adds bulk', winner:'dmm' },
       ].map((row, i) => (
         <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
           <td class="px-5 py-3 text-[#0D1B2A] font-medium border-b border-gray-100 text-xs">{row.feature}</td>
@@ -127,8 +127,8 @@ import Callout from '../../components/blog/Callout.astro';
   {[
     { icon:'🔬', use:'Diagnosing electronic circuits', why:'The mA current range and component test functions (diode, capacitance, temperature) are things a clamp meter simply cannot do.' },
     { icon:'〰️', use:'Low current measurements (< 1 A)', why:'Magnetic fields below 1 A are too weak for most clamp jaws to read accurately. A multimeter in series handles this comfortably.' },
-    { icon:'🔍', use:'Resistance and continuity checks', why:'Testing fuses, wiring runs, motor windings, and individual components — the multimeter\'s primary strength.' },
-    { icon:'📐', use:'Precise voltage across components', why:'Voltage across a specific resistor, diode forward drop, or supply rail — requires probes that a clamp can\'t place accurately.' },
+    { icon:'🔍', use:'Resistance and continuity checks', why:'Testing fuses, wiring runs, motor windings, and individual components - the multimeter\'s primary strength.' },
+    { icon:'📐', use:'Precise voltage across components', why:'Voltage across a specific resistor, diode forward drop, or supply rail - requires probes that a clamp can\'t place accurately.' },
     { icon:'📦', use:'Compact field kit', why:'Pocket-sized body makes the DMM ideal for control panels, PLCs, and instrumentation racks where space is limited.' },
   ].map(u => (
     <div class="flex gap-3 p-4 bg-blue-50 border border-blue-200 rounded-xl">
@@ -146,10 +146,10 @@ import Callout from '../../components/blog/Callout.astro';
 
 <div class="my-6 space-y-2">
   {[
-    { icon:'⚡', use:'Live circuit load current', why:'No need to break the circuit or disconnect load. Clamp around one conductor and read instantly — the safest and fastest method.' },
+    { icon:'⚡', use:'Live circuit load current', why:'No need to break the circuit or disconnect load. Clamp around one conductor and read instantly - the safest and fastest method.' },
     { icon:'🏭', use:'High current (> 20 A) applications', why:'Most multimeters max at 10–20 A. A clamp meter handles 400 A, 600 A, or 1000 A without modification or safety risk.' },
     { icon:'🔧', use:'Motor current measurement', why:'Check running current against nameplate rating; capture motor inrush/startup current with the peak hold function.' },
-    { icon:'⚖️', use:'Three-phase load balancing', why:'Clamp each phase in turn to verify balance — without any circuit interruption or downtime.' },
+    { icon:'⚖️', use:'Three-phase load balancing', why:'Clamp each phase in turn to verify balance - without any circuit interruption or downtime.' },
     { icon:'🔎', use:'Electrical inspection / commissioning', why:'Rapidly survey current on every circuit in a distribution board or panel without any load interruption.' },
   ].map(u => (
     <div class="flex gap-3 p-4 bg-red-50 border border-red-200 rounded-xl">
@@ -165,7 +165,7 @@ import Callout from '../../components/blog/Callout.astro';
 <!-- ── CAN CLAMP REPLACE DMM ── -->
 <h2 id="can-clamp-replace">Can a Clamp Meter Replace a Multimeter?</h2>
 
-<p>Partially — but not completely. Most modern clamp meters include probe terminals and can measure voltage and resistance. However:</p>
+<p>Partially - but not completely. Most modern clamp meters include probe terminals and can measure voltage and resistance. However:</p>
 
 <Callout type="warning" title="What a clamp meter can't do as well">
   <p>Low current below 1 A is unreliable. Resistance accuracy is typically 1% vs 0.1% on a quality DMM. Component testing (capacitance, diode, temperature) is absent on most clamp meters. CAT safety ratings on voltage inputs are sometimes lower than a dedicated DMM.</p>
@@ -181,7 +181,7 @@ import Callout from '../../components/blog/Callout.astro';
       <div class="text-blue-200 text-xs mt-1.5 leading-snug">If you're an electronics or<br/>instrumentation engineer</div>
     </div>
     <div class="p-5 bg-[#EFF6FF] space-y-2.5">
-      {['Work primarily on control circuits and low-power equipment','Need precise voltage and resistance measurements','Test electronic components — diodes, capacitors, temperature','Low current (mA range) measurements are common'].map(r => (
+      {['Work primarily on control circuits and low-power equipment','Need precise voltage and resistance measurements','Test electronic components - diodes, capacitors, temperature','Low current (mA range) measurements are common'].map(r => (
         <div class="flex gap-2 items-start text-sm text-[#1e3a5f]">
           <span class="text-blue-500 font-bold shrink-0 mt-0.5">✓</span>
           <span>{r}</span>
@@ -207,5 +207,5 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <Callout type="tip" title="The ideal toolkit: both">
-  <p>A professional electrician or electrical engineer benefits from both. Use the multimeter for precision component and voltage work; use the clamp meter for non-invasive current measurement in live systems. CIE manufactures both — explore our <a href={u('/products/')}>complete product range</a> or <a href={u('/contact/')}>get in touch</a> and our team will recommend the right combination for your application.</p>
+  <p>A professional electrician or electrical engineer benefits from both. Use the multimeter for precision component and voltage work; use the clamp meter for non-invasive current measurement in live systems. CIE manufactures both - explore our <a href={u('/products/')}>complete product range</a> or <a href={u('/contact/')}>get in touch</a> and our team will recommend the right combination for your application.</p>
 </Callout>

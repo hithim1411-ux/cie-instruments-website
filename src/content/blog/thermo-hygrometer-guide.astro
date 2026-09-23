@@ -4,47 +4,47 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  Temperature alone doesn't tell you whether a store room is about to grow mould, whether an electronics workshop is safe from static discharge, or whether a warehouse of hygroscopic material is at risk of moisture damage. For all of those, you need humidity too — and a thermo-hygrometer measures both temperature and relative humidity in a single reading.
+  Temperature alone doesn't tell you whether a store room is about to grow mould, whether an electronics workshop is safe from static discharge, or whether a warehouse of hygroscopic material is at risk of moisture damage. For all of those, you need humidity too - and a thermo-hygrometer measures both temperature and relative humidity in a single reading.
 </p>
 
 <h2 id="what-it-measures">What a Thermo-Hygrometer Measures</h2>
 
 <p>
-  A thermo-hygrometer combines two sensors in one instrument: a temperature sensor (typically a thermistor, or a K-type thermocouple input on models that accept an external probe) and a humidity sensor, almost always a capacitive polymer element whose capacitance changes measurably as it absorbs or releases moisture from the surrounding air. The instrument converts that capacitance change into a <strong>%RH (relative humidity)</strong> reading — the amount of moisture in the air as a percentage of the maximum it could hold at that temperature.
+  A thermo-hygrometer combines two sensors in one instrument: a temperature sensor (typically a thermistor, or a K-type thermocouple input on models that accept an external probe) and a humidity sensor, almost always a capacitive polymer element whose capacitance changes measurably as it absorbs or releases moisture from the surrounding air. The instrument converts that capacitance change into a <strong>%RH (relative humidity)</strong> reading - the amount of moisture in the air as a percentage of the maximum it could hold at that temperature.
 </p>
 
 <Callout type="info" title="Relative humidity is temperature-dependent">
-  The same absolute amount of moisture in the air reads as a higher %RH when the air is cooler and a lower %RH when it's warmer — warm air can hold more water vapour before reaching saturation. This is exactly why the two measurements are made together: %RH only means something alongside the temperature it was measured at.
+  The same absolute amount of moisture in the air reads as a higher %RH when the air is cooler and a lower %RH when it's warmer - warm air can hold more water vapour before reaching saturation. This is exactly why the two measurements are made together: %RH only means something alongside the temperature it was measured at.
 </Callout>
 
-<h2 id="dew-point">Dew Point — Why It's Often Shown Alongside %RH</h2>
+<h2 id="dew-point">Dew Point - Why It's Often Shown Alongside %RH</h2>
 
 <p>
-  Many thermo-hygrometers also calculate and display <strong>dew point</strong> — the temperature at which the air's current moisture content would cause condensation. If a room's air temperature is close to its dew point, condensation risk is high; if there's a wide margin between them, the air is relatively dry. Dew point is a more direct way to judge condensation risk on cold surfaces (pipework, panels, glass) than %RH alone, since two rooms at the same %RH but different temperatures can have very different actual condensation risk.
+  Many thermo-hygrometers also calculate and display <strong>dew point</strong> - the temperature at which the air's current moisture content would cause condensation. If a room's air temperature is close to its dew point, condensation risk is high; if there's a wide margin between them, the air is relatively dry. Dew point is a more direct way to judge condensation risk on cold surfaces (pipework, panels, glass) than %RH alone, since two rooms at the same %RH but different temperatures can have very different actual condensation risk.
 </p>
 
 <h2 id="why-it-matters">Why Humidity Monitoring Matters</h2>
 
 <ul>
-  <li><strong>Electronics and ESD-sensitive work</strong> — very low humidity increases static charge build-up and ESD risk to sensitive components; most ESD-controlled areas specify a minimum %RH.</li>
-  <li><strong>Corrosion and condensation</strong> — high humidity accelerates corrosion on exposed metal, terminals, and switchgear, and can cause condensation inside enclosures that leads to insulation failure or short circuits.</li>
-  <li><strong>Calibration and test laboratories</strong> — many calibration procedures specify an allowable humidity range for the test environment, since humidity can affect the accuracy of the instrument under test.</li>
-  <li><strong>Storage of hygroscopic materials</strong> — paper, certain chemicals, packaging, and some electrical insulation materials absorb moisture and degrade if stored outside a specified humidity range.</li>
-  <li><strong>HVAC and building comfort</strong> — comfortable indoor environments are typically specified as a combined temperature and %RH range, not temperature alone.</li>
+  <li><strong>Electronics and ESD-sensitive work</strong> - very low humidity increases static charge build-up and ESD risk to sensitive components; most ESD-controlled areas specify a minimum %RH.</li>
+  <li><strong>Corrosion and condensation</strong> - high humidity accelerates corrosion on exposed metal, terminals, and switchgear, and can cause condensation inside enclosures that leads to insulation failure or short circuits.</li>
+  <li><strong>Calibration and test laboratories</strong> - many calibration procedures specify an allowable humidity range for the test environment, since humidity can affect the accuracy of the instrument under test.</li>
+  <li><strong>Storage of hygroscopic materials</strong> - paper, certain chemicals, packaging, and some electrical insulation materials absorb moisture and degrade if stored outside a specified humidity range.</li>
+  <li><strong>HVAC and building comfort</strong> - comfortable indoor environments are typically specified as a combined temperature and %RH range, not temperature alone.</li>
 </ul>
 
 <h2 id="what-to-look-for">What to Look for When Choosing One</h2>
 
 <ol>
-  <li><strong>Humidity range and accuracy</strong> — most general-purpose instruments cover roughly 10-95% RH with accuracy in the ±2-3% RH range; check the specification against how tight your application's tolerance needs to be.</li>
-  <li><strong>Temperature range and probe type</strong> — a built-in sensor is convenient for ambient readings; a K-type thermocouple input (available on some combined instruments) lets the same instrument also take contact or immersion temperature readings elsewhere.</li>
-  <li><strong>Response time</strong> — humidity sensors are typically slower to settle than temperature sensors; if you're moving between locations frequently, a faster-responding sensor saves time.</li>
-  <li><strong>Data logging and clock</strong> — for unattended monitoring (a store room over a weekend, a lab overnight), a built-in clock and logging capability lets you review a full humidity history rather than just a snapshot reading.</li>
-  <li><strong>Min/max/hold functions</strong> — useful for capturing the worst-case humidity or temperature excursion over a shift or a day without needing to watch the display continuously.</li>
+  <li><strong>Humidity range and accuracy</strong> - most general-purpose instruments cover roughly 10-95% RH with accuracy in the ±2-3% RH range; check the specification against how tight your application's tolerance needs to be.</li>
+  <li><strong>Temperature range and probe type</strong> - a built-in sensor is convenient for ambient readings; a K-type thermocouple input (available on some combined instruments) lets the same instrument also take contact or immersion temperature readings elsewhere.</li>
+  <li><strong>Response time</strong> - humidity sensors are typically slower to settle than temperature sensors; if you're moving between locations frequently, a faster-responding sensor saves time.</li>
+  <li><strong>Data logging and clock</strong> - for unattended monitoring (a store room over a weekend, a lab overnight), a built-in clock and logging capability lets you review a full humidity history rather than just a snapshot reading.</li>
+  <li><strong>Min/max/hold functions</strong> - useful for capturing the worst-case humidity or temperature excursion over a shift or a day without needing to watch the display continuously.</li>
 </ol>
 
 <h2 id="cie-instruments">Instruments for This</h2>
 
 <p>
-  CIE supplies the Vartech <a href={u('/authorised-dealership/thermometers/')}>V 6500 digital thermometer</a> and the <a href={u('/authorised-dealership/thermometers/thm-s1/')}>THM S1</a> — a combined thermometer/hygrometer with clock, suited to store rooms, panels, and general environmental monitoring alongside routine electrical testing. See our related guide on <a href={u('/blog/thermocouple-types-explained/')}>thermocouple types</a> if you also need contact or immersion temperature measurement. <a href={u('/contact/')}>Contact us</a> for a recommendation.
+  CIE supplies the Vartech <a href={u('/authorised-dealership/thermometers/')}>V 6500 digital thermometer</a> and the <a href={u('/authorised-dealership/thermometers/thm-s1/')}>THM S1</a> - a combined thermometer/hygrometer with clock, suited to store rooms, panels, and general environmental monitoring alongside routine electrical testing. See our related guide on <a href={u('/blog/thermocouple-types-explained/')}>thermocouple types</a> if you also need contact or immersion temperature measurement. <a href={u('/contact/')}>Contact us</a> for a recommendation.
 </p>

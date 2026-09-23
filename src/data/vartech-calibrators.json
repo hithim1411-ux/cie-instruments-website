@@ -3,13 +3,13 @@
     "id": "v-7220-r",
     "model": "V 7220 R",
     "name": "Temperature & Process Calibrator",
-    "tagline": "5-digit source & measure calibrator for DCV, Resistance, Thermocouple (multiple T/C types) and RTD (2W/3W/4W) — with torch and backlight.",
-    "description": "The Vartech V 7220 R is a professional source-and-measure temperature and process calibrator. It can both source (output) and measure DCV, Resistance (Ohms), Thermocouple signals (multiple T/C types) and RTD signals (various RTD types — 2-wire, 3-wire and 4-wire configurations). A clear 5-digit display with backlight makes field use easy. Additional features include Auto Power Off, On/Off detection and a built-in torch for working in low-light environments. The V 7220 R is designed for calibrating temperature transmitters, RTD sensors and thermocouple-based instruments in industrial and laboratory settings. Full specifications are available in the product catalogue.",
+    "tagline": "5-digit source & measure calibrator for DCV, Resistance, Thermocouple (multiple T/C types) and RTD (2W/3W/4W) - with torch and backlight.",
+    "description": "The Vartech V 7220 R is a professional source-and-measure temperature and process calibrator. It can both source (output) and measure DCV, Resistance (Ohms), Thermocouple signals (multiple T/C types) and RTD signals (various RTD types - 2-wire, 3-wire and 4-wire configurations). A clear 5-digit display with backlight makes field use easy. Additional features include Auto Power Off, On/Off detection and a built-in torch for working in low-light environments. The V 7220 R is designed for calibrating temperature transmitters, RTD sensors and thermocouple-based instruments in industrial and laboratory settings. Full specifications are available in the product catalogue.",
     "features": [
       "Source & Measure: DCV, Resistance (Ohms), Thermocouple (various types), RTD (2W / 3W / 4W)",
       "5-digit display with backlight",
-      "Thermocouple support — multiple T/C types",
-      "RTD support — 2-wire, 3-wire and 4-wire configurations",
+      "Thermocouple support - multiple T/C types",
+      "RTD support - 2-wire, 3-wire and 4-wire configurations",
       "On/Off detection",
       "Torch function for low-light environments",
       "Auto Power Off"
@@ -29,7 +29,7 @@
     "id": "v-7221-b",
     "model": "V 7221 B",
     "name": "Loop Calibrator",
-    "tagline": "5-digit source & measure loop calibrator — source 0–30 mA DC, measure ±35 mA / ±35 V DC, with Sawtooth/Triangle wave, torch and backlight.",
+    "tagline": "5-digit source & measure loop calibrator - source 0–30 mA DC, measure ±35 mA / ±35 V DC, with Sawtooth/Triangle wave, torch and backlight.",
     "description": "The Vartech V 7221 B is a professional 5-digit source-and-measure loop calibrator for 4–20 mA process control loops. It sources DC current from 0 to 30 mA and simultaneously measures DC mA (±35 mA) and DCV (±35 V). In addition to DC step output, the instrument generates Sawtooth and Triangle wave signals useful for valve stroke testing and transmitter simulation. On/Off detection, Span mode, torch and backlight functions make it well suited for field commissioning and calibration work. Built-in input protection includes a 100 mA / 250 V fast fuse. Input common-mode rejection is better than 120 dB (50/60 Hz) and serial-mode rejection better than 60 dB.",
     "features": [
       "Source DC Current: 0–30 mA",
@@ -66,15 +66,15 @@
     "id": "ms-7221",
     "model": "MS 7221",
     "name": "V/mA Process Signal Calibrator",
-    "tagline": "4½-digit V/mA calibrator — source and measure 0–24 mA DC loop current and 0–10 V DC, with 0.015% mA accuracy and 24 V loop supply.",
-    "description": "The Vartech MS 7221 is a high-accuracy 4½-digit V/mA process signal calibrator designed for calibrating and testing 4–20 mA current loop transmitters, PLCs and process control equipment. It sources and measures DC loop current from 0 to 24 mA with a very high accuracy of ±(0.015% + 4 digits) and 1 µA resolution, and handles DC voltage from 0 to 100 mV or 0 to 10 V with ±(0.02% + 2 digits) accuracy. The built-in 24 V loop supply enables simultaneous powering and current measurement of 2-wire transmitters — eliminating the need for an external power source during calibration. The MS 7221 provides exceptional stability and is suitable for instrumentation workshops, field calibration and process plant maintenance.",
+    "tagline": "4½-digit V/mA calibrator - source and measure 0–24 mA DC loop current and 0–10 V DC, with 0.015% mA accuracy and 24 V loop supply.",
+    "description": "The Vartech MS 7221 is a high-accuracy 4½-digit V/mA process signal calibrator designed for calibrating and testing 4–20 mA current loop transmitters, PLCs and process control equipment. It sources and measures DC loop current from 0 to 24 mA with a very high accuracy of ±(0.015% + 4 digits) and 1 µA resolution, and handles DC voltage from 0 to 100 mV or 0 to 10 V with ±(0.02% + 2 digits) accuracy. The built-in 24 V loop supply enables simultaneous powering and current measurement of 2-wire transmitters - eliminating the need for an external power source during calibration. The MS 7221 provides exceptional stability and is suitable for instrumentation workshops, field calibration and process plant maintenance.",
     "features": [
       "Source & Measure DC loop current: 0–24 mA  |  Accuracy: ±(0.015% + 4 digits)  |  Resolution: 1 µA",
       "Source & Measure DCV: 0–100 mV and 0–10 V  |  Accuracy: ±(0.02% + 2 digits)",
-      "24 V built-in loop supply — power 2-wire transmitters while measuring loop current",
+      "24 V built-in loop supply - power 2-wire transmitters while measuring loop current",
       "4½-digit display",
       "Measures voltage output signals from PLCs and transmitters",
-      "High stability and accuracy — Superior quality calibrator"
+      "High stability and accuracy - Superior quality calibrator"
     ],
     "specs": [
       { "label": "DCV Measure", "value": "0–100 mV  |  0–10 V  |  Accuracy: ±(0.02% + 2 digits)" },

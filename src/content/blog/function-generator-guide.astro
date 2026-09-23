@@ -4,7 +4,7 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  A function generator produces electrical waveforms — sine, square, triangle, sawtooth, and pulse — at precisely controlled frequencies and amplitudes. It is the electronic engineer's equivalent of a signal source: you use it to inject known, repeatable test signals into a circuit and then observe what the circuit does with them on an oscilloscope. Without a function generator, testing amplifiers, filters, controllers, and communication circuits becomes guesswork. With one, it becomes science.
+  A function generator produces electrical waveforms - sine, square, triangle, sawtooth, and pulse - at precisely controlled frequencies and amplitudes. It is the electronic engineer's equivalent of a signal source: you use it to inject known, repeatable test signals into a circuit and then observe what the circuit does with them on an oscilloscope. Without a function generator, testing amplifiers, filters, controllers, and communication circuits becomes guesswork. With one, it becomes science.
 </p>
 
 <h2 id="what-it-produces">What Waveforms It Produces</h2>
@@ -42,19 +42,19 @@ import Callout from '../../components/blog/Callout.astro';
 
 <h2 id="key-specs">Key Specifications Explained</h2>
 
-<p><strong>Frequency range</strong>: The minimum and maximum frequencies the generator can produce. A basic bench unit might cover 0.1 Hz to 1 MHz; a higher-end instrument may reach 30 MHz, 80 MHz, or beyond. Match the range to your circuit's operating frequency — you need to test above the highest frequency of interest.</p>
+<p><strong>Frequency range</strong>: The minimum and maximum frequencies the generator can produce. A basic bench unit might cover 0.1 Hz to 1 MHz; a higher-end instrument may reach 30 MHz, 80 MHz, or beyond. Match the range to your circuit's operating frequency - you need to test above the highest frequency of interest.</p>
 
-<p><strong>Frequency accuracy and stability</strong>: How accurately the displayed frequency matches the actual output, and how stable it remains over time and temperature. Crystal-controlled generators are far more stable than RC-based designs. For audio work ±1% is acceptable; for communication testing or precise filtering measurements, you need ±0.01% or better — specified as ppm (parts per million).</p>
+<p><strong>Frequency accuracy and stability</strong>: How accurately the displayed frequency matches the actual output, and how stable it remains over time and temperature. Crystal-controlled generators are far more stable than RC-based designs. For audio work ±1% is acceptable; for communication testing or precise filtering measurements, you need ±0.01% or better - specified as ppm (parts per million).</p>
 
-<p><strong>Amplitude range</strong>: The output voltage from the minimum (often a few millivolts) to the maximum (often 10–20 V peak-to-peak into an open circuit). Note that most generators specify amplitude into 50 Ω or high impedance — see the impedance section below.</p>
+<p><strong>Amplitude range</strong>: The output voltage from the minimum (often a few millivolts) to the maximum (often 10–20 V peak-to-peak into an open circuit). Note that most generators specify amplitude into 50 Ω or high impedance - see the impedance section below.</p>
 
-<p><strong>DC offset</strong>: The ability to add a DC voltage to the AC waveform. A ±5 V DC offset lets you, for example, produce a 1 V peak-to-peak sine wave centred at +2.5 V rather than at 0 V — essential for testing circuits that require a bias voltage.</p>
+<p><strong>DC offset</strong>: The ability to add a DC voltage to the AC waveform. A ±5 V DC offset lets you, for example, produce a 1 V peak-to-peak sine wave centred at +2.5 V rather than at 0 V - essential for testing circuits that require a bias voltage.</p>
 
-<p><strong>Output impedance</strong>: Almost all laboratory function generators have a 50 Ω output impedance. This is designed to drive 50 Ω coaxial systems and transmission lines at RF. When you connect a 50 Ω generator to a high-impedance input (like an oscilloscope probe at 1 MΩ), the voltage at the output is approximately what the generator displays. When you connect it to an actual 50 Ω load, the voltage at the load is half the open-circuit value — the generator and load form a voltage divider. This catches out many beginners.</p>
+<p><strong>Output impedance</strong>: Almost all laboratory function generators have a 50 Ω output impedance. This is designed to drive 50 Ω coaxial systems and transmission lines at RF. When you connect a 50 Ω generator to a high-impedance input (like an oscilloscope probe at 1 MΩ), the voltage at the output is approximately what the generator displays. When you connect it to an actual 50 Ω load, the voltage at the load is half the open-circuit value - the generator and load form a voltage divider. This catches out many beginners.</p>
 
 <p><strong>Rise time</strong>: For square waves, the time taken for the output to go from 10% to 90% of its final value. A fast rise time is essential when testing digital circuit timing and transient response. A 1 MHz bandwidth circuit requires rise times below about 350 ns; a 10 MHz circuit needs below 35 ns.</p>
 
-<p><strong>THD (Total Harmonic Distortion)</strong>: For sine wave output, how much harmonic content is present in addition to the fundamental. A high-quality generator has THD below 0.1% — its sine wave is clean enough to test audio and signal processing circuits. A cheap generator with 3–5% THD will corrupt measurements where signal purity matters.</p>
+<p><strong>THD (Total Harmonic Distortion)</strong>: For sine wave output, how much harmonic content is present in addition to the fundamental. A high-quality generator has THD below 0.1% - its sine wave is clean enough to test audio and signal processing circuits. A cheap generator with 3–5% THD will corrupt measurements where signal purity matters.</p>
 
 <h2 id="how-to-use">How to Use a Function Generator</h2>
 
@@ -75,7 +75,7 @@ import Callout from '../../components/blog/Callout.astro';
     <strong>Connect to the circuit</strong>: Use a BNC-to-probe cable or BNC-to-BNC with an appropriate adapter. The generator output is typically a BNC socket.
   </li>
   <li>
-    <strong>Enable the output</strong>: On many generators the output is disabled by default — press the OUTPUT button.
+    <strong>Enable the output</strong>: On many generators the output is disabled by default - press the OUTPUT button.
   </li>
   <li>
     <strong>Monitor on an oscilloscope</strong>: Always verify the actual output waveform on an oscilloscope before trusting the generator's display. The displayed values are what the generator is attempting to produce; what arrives at the circuit depends on cable losses, loading, and impedance matching.
@@ -88,7 +88,7 @@ import Callout from '../../components/blog/Callout.astro';
 
 <h2 id="frequency-sweep">Frequency Sweep Mode</h2>
 
-<p>Advanced function generators (and DDS — Direct Digital Synthesis — instruments) include a sweep mode that automatically varies the frequency over a specified range, either linearly or logarithmically, over a programmable sweep time. This is invaluable for:</p>
+<p>Advanced function generators (and DDS - Direct Digital Synthesis - instruments) include a sweep mode that automatically varies the frequency over a specified range, either linearly or logarithmically, over a programmable sweep time. This is invaluable for:</p>
 
 <ul>
   <li>Plotting the frequency response of an amplifier or filter on an oscilloscope without manually stepping through frequencies</li>
@@ -97,7 +97,7 @@ import Callout from '../../components/blog/Callout.astro';
   <li>Generating a swept-frequency audio signal for speaker and microphone testing</li>
 </ul>
 
-<p>Connect the generator's sweep output to the oscilloscope's X input (external horizontal) and the circuit output to the Y input, and you get an analogue Bode plot on the oscilloscope screen — amplitude versus frequency.</p>
+<p>Connect the generator's sweep output to the oscilloscope's X input (external horizontal) and the circuit output to the Y input, and you get an analogue Bode plot on the oscilloscope screen - amplitude versus frequency.</p>
 
 <h2 id="modulation">AM and FM Modulation</h2>
 
@@ -130,11 +130,11 @@ import Callout from '../../components/blog/Callout.astro';
 
 <p><strong>Amplifier bandwidth test</strong>: Feed a sine wave into the amplifier input. Increase frequency gradually while monitoring the output amplitude. The −3 dB frequency (where amplitude drops to 70.7% of its low-frequency value) is the bandwidth. A 10 MHz DDS generator and a 100 MHz oscilloscope can characterise most audio and instrumentation amplifiers completely.</p>
 
-<p><strong>Filter characterisation</strong>: Same method as above — the output amplitude vs. frequency plot is the filter's frequency response. Use the sweep mode for a continuous plot.</p>
+<p><strong>Filter characterisation</strong>: Same method as above - the output amplitude vs. frequency plot is the filter's frequency response. Use the sweep mode for a continuous plot.</p>
 
 <p><strong>Rise time measurement</strong>: Apply a square wave at a frequency low enough that the circuit responds completely between edges (start at 1/100 of the expected bandwidth). Measure the 10%–90% rise time of the output waveform on the oscilloscope.</p>
 
-<p><strong>Crystal oscillator testing</strong>: Drive the crystal with a sine wave sweep and look for the series resonant frequency on the oscilloscope — the frequency at which the impedance is minimum and the output is maximum.</p>
+<p><strong>Crystal oscillator testing</strong>: Drive the crystal with a sine wave sweep and look for the series resonant frequency on the oscilloscope - the frequency at which the impedance is minimum and the output is maximum.</p>
 
 <p>
   CIE supplies <a href={u('/products/vartech-function-generators/')}>Vartech function and signal generators</a>. See our guide on <a href={u('/blog/how-to-choose-a-function-generator/')}>how to choose a function generator</a>, or <a href={u('/contact/')}>contact us</a> for a recommendation matched to your bench.

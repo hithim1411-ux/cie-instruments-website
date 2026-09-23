@@ -4,19 +4,19 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  The oscilloscope screen is a graph — voltage on the vertical axis, time on the horizontal. Once you know what the axes mean and what each waveform type looks like, every signal tells a story: whether a power supply has ripple, whether a square wave has timing problems, whether an audio signal is clipping. This guide teaches you to read that graph.
+  The oscilloscope screen is a graph - voltage on the vertical axis, time on the horizontal. Once you know what the axes mean and what each waveform type looks like, every signal tells a story: whether a power supply has ripple, whether a square wave has timing problems, whether an audio signal is clipping. This guide teaches you to read that graph.
 </p>
 
 <h2 id="the-axes">Understanding the Two Axes</h2>
 
 <div class="my-8 grid sm:grid-cols-2 gap-5">
   <div class="p-5 rounded-xl border-l-4 border-[#E0252E] bg-red-50">
-    <div class="font-bold text-[#0D1B2A] mb-2">Vertical Axis — Voltage</div>
-    <p class="text-sm text-gray-700 leading-relaxed">Each vertical division (grid square) represents a set voltage — the <strong>V/div setting</strong>. A waveform 4 squares tall at 2 V/div has a peak-to-peak voltage of 8 V. Moving the V/div knob zooms in or out on the signal amplitude.</p>
+    <div class="font-bold text-[#0D1B2A] mb-2">Vertical Axis - Voltage</div>
+    <p class="text-sm text-gray-700 leading-relaxed">Each vertical division (grid square) represents a set voltage - the <strong>V/div setting</strong>. A waveform 4 squares tall at 2 V/div has a peak-to-peak voltage of 8 V. Moving the V/div knob zooms in or out on the signal amplitude.</p>
   </div>
   <div class="p-5 rounded-xl border-l-4 border-blue-500 bg-blue-50">
-    <div class="font-bold text-[#0D1B2A] mb-2">Horizontal Axis — Time</div>
-    <p class="text-sm text-gray-700 leading-relaxed">Each horizontal division represents a set duration — the <strong>time/div setting</strong>. A waveform that completes one full cycle in 5 squares at 1 ms/div has a period of 5 ms, meaning a frequency of 200 Hz. Turning the time/div knob zooms in or out in time.</p>
+    <div class="font-bold text-[#0D1B2A] mb-2">Horizontal Axis - Time</div>
+    <p class="text-sm text-gray-700 leading-relaxed">Each horizontal division represents a set duration - the <strong>time/div setting</strong>. A waveform that completes one full cycle in 5 squares at 1 ms/div has a period of 5 ms, meaning a frequency of 200 Hz. Turning the time/div knob zooms in or out in time.</p>
   </div>
 </div>
 
@@ -44,7 +44,7 @@ import Callout from '../../components/blog/Callout.astro';
       <text x="5" y="238" font-size="9" fill="#94a3b8" font-family="sans-serif">−V</text>
     </svg>
   </div>
-  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure — Sine, square, and triangle waveforms on oscilloscope grid</p>
+  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure - Sine, square, and triangle waveforms on oscilloscope grid</p>
 </div>
 
 <div class="my-8 space-y-3">
@@ -64,7 +64,7 @@ import Callout from '../../components/blog/Callout.astro';
   ))}
 </div>
 
-<h2 id="measurements">Making Measurements — Step by Step</h2>
+<h2 id="measurements">Making Measurements - Step by Step</h2>
 
 <h3 id="measure-vpp">Measuring Peak-to-Peak Voltage (Vpp)</h3>
 <div class="my-4 p-5 bg-gray-50 rounded-xl border border-gray-200">
@@ -89,7 +89,7 @@ import Callout from '../../components/blog/Callout.astro';
 
 <div class="my-8 grid sm:grid-cols-2 gap-4">
   {[
-    { sign:'Clipping (flat tops/bottoms)', meaning:'Amplifier or supply is saturated — signal is being cut. Reduce input level or increase supply voltage.' },
+    { sign:'Clipping (flat tops/bottoms)', meaning:'Amplifier or supply is saturated - signal is being cut. Reduce input level or increase supply voltage.' },
     { sign:'Ringing on square wave edges', meaning:'Resonance between inductance and capacitance. Add series damping resistor or improve PCB layout.' },
     { sign:'Noise on DC rail (ripple)', meaning:'Power supply filter is inadequate. Measure ripple in AC coupling mode. > 100 mVpp on 5V rail is poor.' },
     { sign:'Asymmetric waveform', meaning:'Even harmonics in the signal. In power systems, this suggests half-wave rectification or DC offset.' },
@@ -105,8 +105,8 @@ import Callout from '../../components/blog/Callout.astro';
   ))}
 </div>
 
-<Callout type="tip" title="Use cursors for precision — don't count grid squares">
-  <p>Modern digital oscilloscopes have cursor measurement functions (vertical cursors for time, horizontal cursors for voltage). Place the cursors and the scope calculates the difference automatically — far more accurate than counting grid squares by eye. Access via the CURSOR or MEASURE menu.</p>
+<Callout type="tip" title="Use cursors for precision - don't count grid squares">
+  <p>Modern digital oscilloscopes have cursor measurement functions (vertical cursors for time, horizontal cursors for voltage). Place the cursors and the scope calculates the difference automatically - far more accurate than counting grid squares by eye. Access via the CURSOR or MEASURE menu.</p>
 </Callout>
 
 <p>

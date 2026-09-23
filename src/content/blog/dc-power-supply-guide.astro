@@ -4,10 +4,10 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  A DC power supply is the foundation of any electronics lab, test bench, or manufacturing line. It converts mains AC into a controllable, stable DC voltage — letting you power circuits, test components, and simulate battery conditions with precision. This guide explains every type, what the specs actually mean, and how to choose the right one.
+  A DC power supply is the foundation of any electronics lab, test bench, or manufacturing line. It converts mains AC into a controllable, stable DC voltage - letting you power circuits, test components, and simulate battery conditions with precision. This guide explains every type, what the specs actually mean, and how to choose the right one.
 </p>
 
-<h2 id="types">Linear vs Switching — The Core Choice</h2>
+<h2 id="types">Linear vs Switching - The Core Choice</h2>
 
 <div class="my-8 grid sm:grid-cols-2 gap-5">
   <div class="rounded-xl overflow-hidden border-2 border-[#1B3A5B]">
@@ -16,7 +16,7 @@ import Callout from '../../components/blog/Callout.astro';
       <div class="text-blue-200 text-xs mt-1">Low noise · Simple · Heavy</div>
     </div>
     <div class="p-5 bg-[#EFF6FF] space-y-2">
-      {['Regulates by dissipating excess voltage as heat in a pass transistor','Extremely low output noise — ideal for audio, RF, and sensitive analogue circuits','Large transformer = heavy and bulky','Efficiency typically 30–50%','Output voltage limited (usually < 50 V)'].map(r => (
+      {['Regulates by dissipating excess voltage as heat in a pass transistor','Extremely low output noise - ideal for audio, RF, and sensitive analogue circuits','Large transformer = heavy and bulky','Efficiency typically 30–50%','Output voltage limited (usually < 50 V)'].map(r => (
         <div class="flex gap-2 items-start text-sm text-[#1e3a5f]">
           <span class="text-blue-500 font-bold shrink-0 mt-0.5">✓</span>
           <span>{r}</span>
@@ -30,7 +30,7 @@ import Callout from '../../components/blog/Callout.astro';
       <div class="text-red-100 text-xs mt-1">Efficient · Compact · Some ripple</div>
     </div>
     <div class="p-5 bg-[#FEF2F2] space-y-2">
-      {['Regulates by rapidly switching transistors on/off (50–500 kHz)','Efficiency 80–95% — stays cool even at high power','Compact and lightweight — same power in a much smaller box','Higher output ripple / noise than linear','Can output high voltages and currents in small form factors'].map(r => (
+      {['Regulates by rapidly switching transistors on/off (50–500 kHz)','Efficiency 80–95% - stays cool even at high power','Compact and lightweight - same power in a much smaller box','Higher output ripple / noise than linear','Can output high voltages and currents in small form factors'].map(r => (
         <div class="flex gap-2 items-start text-sm text-[#7f1d1d]">
           <span class="text-[#E0252E] font-bold shrink-0 mt-0.5">✓</span>
           <span>{r}</span>
@@ -48,8 +48,8 @@ import Callout from '../../components/blog/Callout.astro';
     { spec:'Output Current Rating', detail:'The maximum current the supply can deliver. Size this at least 20% above your circuit\'s peak demand. A 5 A supply running at 5 A continuously will run hot.', icon:'⚡' },
     { spec:'Voltage Regulation (Load Reg.)', detail:'How much the output voltage changes when the load current changes. Expressed as a percentage or mV. Better supplies maintain output within ±0.01% from no load to full load.', icon:'📐' },
     { spec:'Ripple & Noise', detail:'The AC component remaining on the DC output. Measured in mV peak-to-peak or mV RMS. Critical for sensitive analogue, RF, and audio circuits. Linear supplies typically < 1 mV; switching supplies 10–50 mV.', icon:'〜' },
-    { spec:'CC / CV Modes', detail:'Constant Voltage (CV) maintains set voltage regardless of load. Constant Current (CC) limits current to a set value — essential for battery charging, LED testing, and protecting DUT under fault conditions.', icon:'🔒' },
-    { spec:'OVP / OCP / OTP', detail:'Over-Voltage Protection, Over-Current Protection, Over-Temperature Protection. A quality bench supply should have all three — they prevent damage to both supply and device under test.', icon:'🛡️' },
+    { spec:'CC / CV Modes', detail:'Constant Voltage (CV) maintains set voltage regardless of load. Constant Current (CC) limits current to a set value - essential for battery charging, LED testing, and protecting DUT under fault conditions.', icon:'🔒' },
+    { spec:'OVP / OCP / OTP', detail:'Over-Voltage Protection, Over-Current Protection, Over-Temperature Protection. A quality bench supply should have all three - they prevent damage to both supply and device under test.', icon:'🛡️' },
   ].map(s => (
     <div class="flex gap-4 p-4 rounded-xl border border-gray-200 bg-white">
       <span class="text-2xl shrink-0">{s.icon}</span>
@@ -98,7 +98,7 @@ import Callout from '../../components/blog/Callout.astro';
     { n:1, t:'Set voltage with no load connected', b:'Turn the voltage dial to your target before connecting the circuit. This prevents a surge on connection.' },
     { n:2, t:'Set the current limit', b:'Set the current limit just above your circuit\'s expected maximum draw. This protects the DUT if there\'s a short. In CC mode, the supply limits current and drops voltage accordingly.' },
     { n:3, t:'Enable OVP', b:'Set the over-voltage protection threshold about 10–15% above your set voltage. This protects the circuit if the supply malfunctions.' },
-    { n:4, t:'Connect load — observe mode indicator', b:'A supply in CV mode shows set voltage; moving to CC mode means the load is drawing more current than the set limit — investigate.' },
+    { n:4, t:'Connect load - observe mode indicator', b:'A supply in CV mode shows set voltage; moving to CC mode means the load is drawing more current than the set limit - investigate.' },
     { n:5, t:'Use remote sense for long leads', b:'On quality supplies, the remote sense terminals connect to the load terminals directly, compensating for voltage drop in long connecting cables.' },
   ].map((s, i, arr) => (
     <div class="flex gap-4 relative">

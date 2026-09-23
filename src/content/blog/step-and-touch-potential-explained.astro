@@ -4,50 +4,50 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  When a fault sends current into the earth — a broken conductor, a lightning strike, a switchgear fault — that current doesn't vanish the instant it reaches the ground. It spreads outward through the soil, and as it does, the earth itself develops a voltage gradient around the point where it entered. Anyone standing in that gradient, or touching something connected to it, can become part of the circuit. Step and touch potential are the two ways that happens.
+  When a fault sends current into the earth - a broken conductor, a lightning strike, a switchgear fault - that current doesn't vanish the instant it reaches the ground. It spreads outward through the soil, and as it does, the earth itself develops a voltage gradient around the point where it entered. Anyone standing in that gradient, or touching something connected to it, can become part of the circuit. Step and touch potential are the two ways that happens.
 </p>
 
 <h2 id="voltage-gradient">The Voltage Gradient Around an Earth Electrode</h2>
 
 <p>
-  Soil has resistance, so as fault current flows outward from an earthing electrode into the surrounding ground, it creates a voltage drop that's highest right at the electrode and falls off with distance — steeply at first, then more gradually, until it reaches "true earth" (remote earth) potential a few metres away, where the gradient effectively flattens to zero. This is the same principle used deliberately in <a href={u('/blog/earth-resistance-testing-guide/')}>3-terminal earth resistance testing</a> — a probe placed in the flat, unaffected region gives the reference for "true earth."
+  Soil has resistance, so as fault current flows outward from an earthing electrode into the surrounding ground, it creates a voltage drop that's highest right at the electrode and falls off with distance - steeply at first, then more gradually, until it reaches "true earth" (remote earth) potential a few metres away, where the gradient effectively flattens to zero. This is the same principle used deliberately in <a href={u('/blog/earth-resistance-testing-guide/')}>3-terminal earth resistance testing</a> - a probe placed in the flat, unaffected region gives the reference for "true earth."
 </p>
 
 <h2 id="touch-potential">Touch Potential</h2>
 
 <p>
-  <strong>Touch potential</strong> is the voltage difference between an energised metal structure (a fault-affected earthed enclosure, a tower leg, a switchgear frame) and the ground at the point where a person is standing while touching it — effectively the voltage that would appear across a person's body from hand to feet. Because the structure itself is at a raised potential during the fault, and the person's feet are standing on ground at a lower potential further from the electrode, a voltage difference — and a potential shock current path through the body — exists for as long as the fault persists.
+  <strong>Touch potential</strong> is the voltage difference between an energised metal structure (a fault-affected earthed enclosure, a tower leg, a switchgear frame) and the ground at the point where a person is standing while touching it - effectively the voltage that would appear across a person's body from hand to feet. Because the structure itself is at a raised potential during the fault, and the person's feet are standing on ground at a lower potential further from the electrode, a voltage difference - and a potential shock current path through the body - exists for as long as the fault persists.
 </p>
 
 <h2 id="step-potential">Step Potential</h2>
 
 <p>
-  <strong>Step potential</strong> is the voltage difference between two points on the ground roughly one stride apart (conventionally taken as about 1 metre), both within the voltage gradient around a fault. A person walking through the gradient — even without touching anything — has one foot at a higher-potential point and one foot at a lower-potential point, and the voltage difference between them drives current through the lower body, from foot to foot.
+  <strong>Step potential</strong> is the voltage difference between two points on the ground roughly one stride apart (conventionally taken as about 1 metre), both within the voltage gradient around a fault. A person walking through the gradient - even without touching anything - has one foot at a higher-potential point and one foot at a lower-potential point, and the voltage difference between them drives current through the lower body, from foot to foot.
 </p>
 
 <Callout type="warning" title="Step potential is highest close to the fault, not further away">
-  Because the voltage gradient is steepest near the earthing point, step potential is most dangerous close to the fault location or electrode — the common safety advice after a suspected fault (a fallen line, a faulted tower) is to shuffle away with feet together rather than taking normal strides, which minimises the voltage difference between the two feet at any moment.
+  Because the voltage gradient is steepest near the earthing point, step potential is most dangerous close to the fault location or electrode - the common safety advice after a suspected fault (a fallen line, a faulted tower) is to shuffle away with feet together rather than taking normal strides, which minimises the voltage difference between the two feet at any moment.
 </Callout>
 
 <h2 id="why-earth-grid-design-matters">Why This Drives Earth Grid Design</h2>
 
 <p>
-  Substations and large installations don't rely on a single earth electrode precisely because a single point produces a steep, dangerous voltage gradient around it. A properly designed <strong>earth grid</strong> — a mesh of interconnected conductors buried across the site — spreads the fault current over a much larger area, flattening the voltage gradient so that step and touch potentials at any accessible point stay within safe limits. Designing that grid correctly depends on knowing the site's soil resistivity, which is exactly what <strong>4-terminal Wenner method testing</strong> measures.
+  Substations and large installations don't rely on a single earth electrode precisely because a single point produces a steep, dangerous voltage gradient around it. A properly designed <strong>earth grid</strong> - a mesh of interconnected conductors buried across the site - spreads the fault current over a much larger area, flattening the voltage gradient so that step and touch potentials at any accessible point stay within safe limits. Designing that grid correctly depends on knowing the site's soil resistivity, which is exactly what <strong>4-terminal Wenner method testing</strong> measures.
 </p>
 
 <p>
-  This is the practical link between earth testing and personnel safety: an earth tester capable of 4-terminal soil resistivity measurement — like the CIE/222M — gives the resistivity data an engineer needs to design an earth grid with acceptably low step and touch potentials, not just a single-point resistance reading.
+  This is the practical link between earth testing and personnel safety: an earth tester capable of 4-terminal soil resistivity measurement - like the CIE/222M - gives the resistivity data an engineer needs to design an earth grid with acceptably low step and touch potentials, not just a single-point resistance reading.
 </p>
 
 <h2 id="staying-safe">General Safety Practice Around a Suspected Fault</h2>
 
 <ul>
-  <li><strong>Keep well clear</strong> of any fallen conductor, faulted structure, or earth electrode area until it's confirmed de-energised — step and touch potentials from a live fault can be lethal even metres from the visible point of contact.</li>
-  <li><strong>If caught within the gradient</strong>, standard guidance is to keep feet together and shuffle away in small steps, or hop, rather than taking a normal stride — this minimises the voltage difference the body is exposed to at any instant.</li>
-  <li><strong>Earthing and bonding design</strong> — proper equipotential bonding of accessible metalwork reduces touch potential by keeping nearby conductive surfaces at closer to the same potential; see our guide on <a href={u('/blog/earthing-vs-bonding/')}>earthing vs bonding</a> for how the two concepts differ and work together.</li>
+  <li><strong>Keep well clear</strong> of any fallen conductor, faulted structure, or earth electrode area until it's confirmed de-energised - step and touch potentials from a live fault can be lethal even metres from the visible point of contact.</li>
+  <li><strong>If caught within the gradient</strong>, standard guidance is to keep feet together and shuffle away in small steps, or hop, rather than taking a normal stride - this minimises the voltage difference the body is exposed to at any instant.</li>
+  <li><strong>Earthing and bonding design</strong> - proper equipotential bonding of accessible metalwork reduces touch potential by keeping nearby conductive surfaces at closer to the same potential; see our guide on <a href={u('/blog/earthing-vs-bonding/')}>earthing vs bonding</a> for how the two concepts differ and work together.</li>
   <li><strong>Periodic testing</strong> of earth resistance and, where a grid exists, soil resistivity, confirms the installation still performs as designed as ground conditions change with moisture and season.</li>
 </ul>
 
 <p>
-  CIE manufactures <a href={u('/products/earth-tester/')}>earth resistance testers</a> — the analog CIE/222M (supplied as a complete kit for both 3-terminal earth resistance and 4-terminal soil resistivity testing) and the digital DET-2000 — used by substation commissioning engineers and utilities across India for exactly this work. <a href={u('/contact/')}>Contact us</a> for guidance on the right instrument for your site.
+  CIE manufactures <a href={u('/products/earth-tester/')}>earth resistance testers</a> - the analog CIE/222M (supplied as a complete kit for both 3-terminal earth resistance and 4-terminal soil resistivity testing) and the digital DET-2000 - used by substation commissioning engineers and utilities across India for exactly this work. <a href={u('/contact/')}>Contact us</a> for guidance on the right instrument for your site.
 </p>

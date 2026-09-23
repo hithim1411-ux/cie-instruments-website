@@ -61,14 +61,14 @@ const newVartechFeatured = [
   { ...vartechDcPowerSupplies.find(p => p.id === 'pps-3005-s')!,    slug: 'dc-power-supplies'},
 ];
 
-// Hero product grid — two curated groups of 4 that cross-fade every ~5s.
+// Hero product grid - two curated groups of 4 that cross-fade every ~5s.
 // Group 1 is the active-sale priority lines (Vartech trading, oil test sets,
 // relay test sets, HV/breakdown testing); group 2 shows catalogue breadth.
-// Grouped strictly by product line — CIE-manufactured slides first (the
+// Grouped strictly by product line - CIE-manufactured slides first (the
 // brand's own manufacturing identity), Vartech trading-line slides after.
 // Never mixed within a single slide. Line is determined by the img/href
 // path prefix ('products/' + /products/... = CIE, 'vartech/' +
-// /authorised-dealership/... = Vartech) — the same distinction ProductCard
+// /authorised-dealership/... = Vartech) - the same distinction ProductCard
 // already uses sitewide, not a guess.
 const heroGroups: { img: string; model: string; name: string; href: string }[][] = [
   // ── CIE-manufactured (4 slides / 16 products) ──
@@ -81,7 +81,7 @@ const heroGroups: { img: string; model: string; name: string; href: string }[][]
   [
     { img: 'products/dit-2500.webp', model: 'DIT-2500', name: 'Digital Insulation Tester',                href: '/products/digital-insulation-testers/dit-2500/' },
     { img: 'products/cie-222m.webp', model: 'CIE/222M', name: 'Analog Earth Tester',                       href: '/products/earth-tester/cie-222m/' },
-    { img: 'products/dit-5000.webp', model: 'DIT-5000', name: 'Digital Insulation Tester — up to 5000 V',  href: '/products/digital-insulation-testers/dit-5000/' },
+    { img: 'products/dit-5000.webp', model: 'DIT-5000', name: 'Digital Insulation Tester - up to 5000 V',  href: '/products/digital-insulation-testers/dit-5000/' },
     { img: 'products/dm-235.webp',   model: 'DM-235',    name: 'Digital Multimeter',                       href: '/products/multimeters/dm-235/' },
   ],
   [
@@ -123,8 +123,8 @@ const heroGroups: { img: string; model: string; name: string; href: string }[][]
   ],
 ];
 
-const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
-const rts33Mailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — RTS-33')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: RTS-33 — Three-Phase Relay Test Set.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
+const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request - CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
+const rts33Mailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request - RTS-33')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: RTS-33 - Three-Phase Relay Test Set.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 
 const trustPoints: { icon: IconName; label: string; body: string }[] = [
   { icon: 'calendar',     label: '60+ Years of Service',     body: "Established 1963. Generations of engineers at India's utilities and railways have relied on the CIE® mark." },
@@ -148,12 +148,12 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
 <Base
   title="Home"
-  description="CIE (Cambridge Instruments & Engg. Co.) — manufacturer of test and measuring instruments in India since 1963. Insulation testers, earth testers, relay test sets, oil BDV testers, clamp meters, HV test sets. Howrah, Kolkata, West Bengal. Trusted by various State Electricity Boards, Indian Railways, and cement and metal industries."
+  description="CIE (Cambridge Instruments & Engg. Co.) - manufacturer of test and measuring instruments in India since 1963. Insulation testers, earth testers, relay test sets, oil BDV testers, clamp meters, HV test sets. Howrah, Kolkata, West Bengal. Trusted by various State Electricity Boards, Indian Railways, and cement and metal industries."
   preloadImage={u('/images/products/rts-33.webp')}
   keywords="test and measurement instruments India, electrical test instruments supplier Kolkata, insulation tester manufacturer India, digital multimeters India, oscilloscopes India, clamp meters India, vartech authorised dealer India, cambridge instruments insulation tester, CIE instruments Howrah, megger supplier India"
   transparentHero
 >
-  <!-- ── HERO — full viewport, scroll-driven ─────────────────────────────────
+  <!-- ── HERO - full viewport, scroll-driven ─────────────────────────────────
        Header floats transparent over this section (transparentHero on Base)
        and only turns solid once scrolled. Hero content itself fades/scales
        out as the user scrolls past (see script below), and the product
@@ -175,7 +175,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
             <span class="text-[11px] font-mono text-muted-dark tracking-widest uppercase">CIE® · Instruments for Accuracy and Reliability</span>
           </div>
 
-          <!-- Headline — each line stages in on its own delay -->
+          <!-- Headline - each line stages in on its own delay -->
           <h1 class="text-[length:var(--text-hero)] font-extrabold leading-[1.02] tracking-tight mb-6 text-white">
             <span data-hero-anim style="--d: 80ms" class="block text-lg lg:text-xl font-medium text-muted-dark tracking-normal mb-3">Cambridge Instruments &amp; Engg. Co.</span>
             <span data-hero-anim style="--d: 160ms" class="block">Precision instruments,</span>
@@ -184,7 +184,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
           <!-- Subhead -->
           <p data-hero-anim style="--d: 360ms" class="text-lg text-muted-dark mb-10 leading-[1.6] max-w-lg">
-            A leading manufacturer of test and measuring instruments in India —
+            A leading manufacturer of test and measuring instruments in India -
             insulation testers, earth testers, relay test sets, and oil test
             equipment for utilities, railways, and industry.
           </p>
@@ -217,10 +217,10 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           </div>
         </div>
 
-        <!-- ── Right: hero product grid — desktop/tablet only (md+), parallaxes
+        <!-- ── Right: hero product grid - desktop/tablet only (md+), parallaxes
              on scroll. 7 curated groups of 4 products cross-fade every ~5s,
              with prev/next arrows flanking the grid for manual control. Each
-             product gets its own card (nameplate treatment) — the grey
+             product gets its own card (nameplate treatment) - the grey
              studio-photo backdrop stays contained inside its own tile
              instead of floating loose in the dark hero. ── -->
         <div id="hero-image" data-hero-fade style="--d: 200ms" class="hidden md:flex items-center justify-center gap-2 lg:gap-3 will-change-transform mt-4 lg:mt-0">
@@ -258,7 +258,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
                       <div class="relative aspect-square bg-cloud flex items-center justify-center overflow-hidden">
                         <img
                           src={u(`/images/${p.img}`)}
-                          alt={`${p.model} — ${p.name}`}
+                          alt={`${p.model} - ${p.name}`}
                           width="300"
                           height="300"
                           class="relative z-[1] max-h-[86%] max-w-[86%] object-contain [filter:grayscale(0.12)_contrast(1.04)_brightness(0.98)]"
@@ -280,7 +280,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
               ))}
             </div>
 
-            <!-- Group indicators — reflect the active GROUP of 4, not individual photos -->
+            <!-- Group indicators - reflect the active GROUP of 4, not individual photos -->
             {heroGroups.length > 1 && (
               <div class="flex justify-center gap-1.5 mt-5" aria-hidden="true">
                 {heroGroups.map((_, gi) => (
@@ -379,7 +379,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           <EyebrowLabel text="Product Catalogue" class="mb-3" />
           <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Test &amp; Measurement Instruments</h2>
           <p class="mt-3 text-muted max-w-2xl text-lg leading-relaxed">
-            CIE manufactured instruments from Howrah, plus the full Vartech range — backed by direct after-sales support.
+            CIE manufactured instruments from Howrah, plus the full Vartech range - backed by direct after-sales support.
           </p>
         </div>
         <!-- Slider arrows -->
@@ -524,7 +524,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
             <div class="bg-cloud h-56 flex items-center justify-center relative overflow-hidden">
               <img
                 src={u(`/images/vartech/${p.slug}/${p.images[0]}`)}
-                alt={`Vartech ${p.model} — ${p.name}`}
+                alt={`Vartech ${p.model} - ${p.name}`}
                 width="300" height="300"
                 class="object-contain h-44 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105"
                 loading="lazy"
@@ -540,7 +540,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
                 <a href={u(`/authorised-dealership/${p.slug}/${p.id}/`)} class="btn-primary btn-primary--sm">
                   View Specifications
                 </a>
-                <a href={`https://wa.me/919831086649?text=${encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} — ${p.name}`)}`}
+                <a href={`https://wa.me/919831086649?text=${encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} - ${p.name}`)}`}
                   target="_blank" rel="noopener noreferrer"
                   class="btn-secondary btn-secondary--sm text-ink">
                   <Icon name="message-circle" class="w-4 h-4 shrink-0" />
@@ -580,7 +580,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         <EyebrowLabel text="Industries Served" class="mb-3" />
         <h2 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight">Trusted across India's<br />critical infrastructure.</h2>
         <p class="mt-4 text-muted-dark max-w-xl text-lg leading-relaxed">
-          From grid substations to rolling stock depots — CIE instruments are specified by engineers who need measurements they can stake their signature on.
+          From grid substations to rolling stock depots - CIE instruments are specified by engineers who need measurements they can stake their signature on.
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-reveal-stagger>
@@ -672,7 +672,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         <div class="order-1 lg:order-2 bg-cloud rounded-3xl flex items-center justify-center overflow-hidden aspect-square" data-reveal>
           <img
             src={u('/images/products/rts-33.webp')}
-            alt="RTS-33 — Three-Phase Relay Test Set"
+            alt="RTS-33 - Three-Phase Relay Test Set"
             width="1179"
             height="1384"
             class="object-contain max-h-[85%] max-w-[85%]"
@@ -696,10 +696,10 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           </h2>
           <div class="space-y-4 text-muted leading-relaxed text-sm sm:text-base">
             <p>
-              Cambridge Instruments &amp; Engg. Co. (CIE) is a leading <strong class="text-ink">test and measurement instruments supplier</strong> based in Howrah, West Bengal — serving customers across Kolkata, West Bengal, and throughout India since 1963.
+              Cambridge Instruments &amp; Engg. Co. (CIE) is a leading <strong class="text-ink">test and measurement instruments supplier</strong> based in Howrah, West Bengal - serving customers across Kolkata, West Bengal, and throughout India since 1963.
             </p>
             <p>
-              We supply <strong class="text-ink">insulation testers</strong> (meggers / megohmmeters), <strong class="text-ink">earth resistance testers</strong>, <strong class="text-ink">relay test sets</strong>, <strong class="text-ink">transformer oil BDV test sets</strong>, <strong class="text-ink">HV test sets</strong>, <strong class="text-ink">clamp meters</strong>, <strong class="text-ink">digital multimeters</strong>, and <strong class="text-ink">micro-ohm meters</strong> directly from our manufacturing works in Howrah — with pan-India delivery.
+              We supply <strong class="text-ink">insulation testers</strong> (meggers / megohmmeters), <strong class="text-ink">earth resistance testers</strong>, <strong class="text-ink">relay test sets</strong>, <strong class="text-ink">transformer oil BDV test sets</strong>, <strong class="text-ink">HV test sets</strong>, <strong class="text-ink">clamp meters</strong>, <strong class="text-ink">digital multimeters</strong>, and <strong class="text-ink">micro-ohm meters</strong> directly from our manufacturing works in Howrah - with pan-India delivery.
             </p>
             <p>
               As an <strong class="text-ink">electrical equipment supplier</strong> and <strong class="text-ink">industrial test equipment supplier</strong> with 60+ years of experience, CIE provides instruments to power utilities, EPC contractors, Indian Railways, NABL-accredited laboratories, government departments, and industrial companies across all of India.
@@ -768,7 +768,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
   // the incoming group into flow and fade it IN. The old version toggled both
   // groups' opacity in the same tick, so for the whole 700ms transition both
   // sets of product photos (and their labels) sat opacity-0..1 stacked in the
-  // exact same spot — a literal double exposure. Guarding with isTransitioning
+  // exact same spot - a literal double exposure. Guarding with isTransitioning
   // also stops rapid clicks/auto-timer overlap from starting a second
   // transition before the first one has fully settled.
   function goTo(idx: number) {
@@ -778,14 +778,14 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
     const outgoing = groups[current];
     const incoming = groups[idx];
 
-    // Phase 1 — fade OUT only. Incoming stays opacity-0/absolute/inert the
+    // Phase 1 - fade OUT only. Incoming stays opacity-0/absolute/inert the
     // whole time, so nothing from the next slide is visible yet.
     outgoing.classList.replace('opacity-100', 'opacity-0');
     outgoing.querySelectorAll('a').forEach(a => (a as HTMLAnchorElement).tabIndex = -1);
     dots[current].className = 'hero-group-dot transition-all rounded-full w-1.5 h-1.5 bg-white/20';
 
     window.setTimeout(() => {
-      // Outgoing has now fully reached opacity 0 — safe to pull it out of
+      // Outgoing has now fully reached opacity 0 - safe to pull it out of
       // flow before the incoming group takes that layout space.
       outgoing.classList.replace('relative', 'absolute');
       outgoing.classList.add('inset-0', 'pointer-events-none');
@@ -795,11 +795,11 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
       incoming.classList.replace('absolute', 'relative');
       incoming.classList.remove('inset-0', 'pointer-events-none');
       // Force a reflow so the browser commits the opacity-0/relative state
-      // before we flip to opacity-100 — otherwise both class changes can
+      // before we flip to opacity-100 - otherwise both class changes can
       // land in the same frame and the fade-in transition gets skipped.
       void incoming.offsetWidth;
 
-      // Phase 2 — fade IN. Outgoing is now fully hidden, so only one set of
+      // Phase 2 - fade IN. Outgoing is now fully hidden, so only one set of
       // photos/labels is ever above 0 opacity at any instant.
       incoming.classList.replace('opacity-0', 'opacity-100');
       incoming.querySelectorAll('a').forEach(a => (a as HTMLAnchorElement).tabIndex = 0);

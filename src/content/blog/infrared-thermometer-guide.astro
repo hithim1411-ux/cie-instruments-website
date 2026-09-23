@@ -10,13 +10,13 @@ import Callout from '../../components/blog/Callout.astro';
 <h2 id="how-it-works">How Non-Contact Temperature Measurement Works</h2>
 
 <p>
-  Every object above absolute zero radiates infrared energy, and the intensity of that radiation increases predictably with temperature. An IR thermometer's optics focus the infrared radiation from a target spot onto a detector (a thermopile or similar sensor), which converts the radiation intensity into an electrical signal and, after correcting for the object's emissivity, displays it as a temperature. No contact with the surface is needed — the measurement happens at the speed of light.
+  Every object above absolute zero radiates infrared energy, and the intensity of that radiation increases predictably with temperature. An IR thermometer's optics focus the infrared radiation from a target spot onto a detector (a thermopile or similar sensor), which converts the radiation intensity into an electrical signal and, after correcting for the object's emissivity, displays it as a temperature. No contact with the surface is needed - the measurement happens at the speed of light.
 </p>
 
-<h2 id="emissivity">Emissivity — The Number That Makes or Breaks Accuracy</h2>
+<h2 id="emissivity">Emissivity - The Number That Makes or Breaks Accuracy</h2>
 
 <p>
-  Not every surface radiates infrared energy with the same efficiency at a given temperature. <strong>Emissivity</strong> is a 0-to-1 factor describing how effectively a surface radiates compared to a theoretical "perfect radiator" (emissivity = 1.0). Most IR thermometers assume a default emissivity — commonly 0.95, which suits most painted, oxidised, or organic surfaces — and this default is exactly where accuracy problems come from.
+  Not every surface radiates infrared energy with the same efficiency at a given temperature. <strong>Emissivity</strong> is a 0-to-1 factor describing how effectively a surface radiates compared to a theoretical "perfect radiator" (emissivity = 1.0). Most IR thermometers assume a default emissivity - commonly 0.95, which suits most painted, oxidised, or organic surfaces - and this default is exactly where accuracy problems come from.
 </p>
 
 <div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
@@ -38,27 +38,27 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <Callout type="warning" title="Shiny metal is where IR thermometers lie the most">
-  A bare, polished metal surface has very low emissivity — it reflects far more infrared energy from its surroundings than it emits from its own temperature. Pointing an IR thermometer set to 0.95 emissivity at a shiny bus bar or stainless panel can read dramatically low, or pick up a hot object reflected in the surface instead of the panel's own temperature. Either apply a matte tape/paint patch with known emissivity to the surface, or use a contact probe for shiny metal.
+  A bare, polished metal surface has very low emissivity - it reflects far more infrared energy from its surroundings than it emits from its own temperature. Pointing an IR thermometer set to 0.95 emissivity at a shiny bus bar or stainless panel can read dramatically low, or pick up a hot object reflected in the surface instead of the panel's own temperature. Either apply a matte tape/paint patch with known emissivity to the surface, or use a contact probe for shiny metal.
 </Callout>
 
 <h2 id="d-s-ratio">Distance-to-Spot Ratio</h2>
 
 <p>
-  The measurement spot grows larger the farther the thermometer is from the target, and the <strong>distance-to-spot (D:S) ratio</strong> tells you exactly how much. A 12:1 ratio means that at 12 units of distance, the measurement spot is 1 unit in diameter — so at 1.2 m, the meter is averaging the temperature over a 10 cm circle. If that circle covers more than just the target (a small terminal, a narrow pipe), the reading blends in the temperature of the background as well, and will not represent the target accurately. Get closer, or use an instrument with a higher D:S ratio for long-distance spot checks.
+  The measurement spot grows larger the farther the thermometer is from the target, and the <strong>distance-to-spot (D:S) ratio</strong> tells you exactly how much. A 12:1 ratio means that at 12 units of distance, the measurement spot is 1 unit in diameter - so at 1.2 m, the meter is averaging the temperature over a 10 cm circle. If that circle covers more than just the target (a small terminal, a narrow pipe), the reading blends in the temperature of the background as well, and will not represent the target accurately. Get closer, or use an instrument with a higher D:S ratio for long-distance spot checks.
 </p>
 
 <h2 id="what-it-cant-do">What Infrared Thermometers Cannot Do</h2>
 
 <ul>
-  <li><strong>See through surfaces</strong>: An IR thermometer reads only the surface temperature of what it's pointed at — it cannot read the internal temperature of a sealed enclosure, a liquid inside a tank, or a wire inside insulation.</li>
-  <li><strong>See through glass or clear plastic</strong>: Most glass and many clear plastics are largely opaque to the infrared wavelengths these instruments use — pointing one at an oven window or glass barrier will read the glass surface, not what's behind it.</li>
+  <li><strong>See through surfaces</strong>: An IR thermometer reads only the surface temperature of what it's pointed at - it cannot read the internal temperature of a sealed enclosure, a liquid inside a tank, or a wire inside insulation.</li>
+  <li><strong>See through glass or clear plastic</strong>: Most glass and many clear plastics are largely opaque to the infrared wavelengths these instruments use - pointing one at an oven window or glass barrier will read the glass surface, not what's behind it.</li>
   <li><strong>Measure steam or transparent gases</strong>: There is no solid surface to radiate from a specific point, so readings through steam or open flame are unreliable.</li>
 </ul>
 
 <h2 id="applications">Common Applications</h2>
 
 <ul>
-  <li><strong>Electrical panel and connection hotspot checks</strong>: Scanning busbars, terminals, and breakers for abnormal heating without touching live equipment — often the first screening step before a full thermal imaging survey.</li>
+  <li><strong>Electrical panel and connection hotspot checks</strong>: Scanning busbars, terminals, and breakers for abnormal heating without touching live equipment - often the first screening step before a full thermal imaging survey.</li>
   <li><strong>HVAC and refrigeration diagnostics</strong>: Checking supply/return air temperatures, coil surface temperatures, and duct hot/cold spots.</li>
   <li><strong>Motor and bearing condition monitoring</strong>: Spot-checking motor casing and bearing housing temperature as an early warning of developing faults.</li>
   <li><strong>Food safety and cold chain</strong>: Fast surface temperature checks on food and cold storage without contamination risk from a contact probe.</li>

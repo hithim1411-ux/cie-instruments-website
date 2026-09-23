@@ -63,9 +63,9 @@ const searchIndex: Entry[] = [
 
 const suggestions = [
   "Insulation tester for 415V motor",
-  "PI test / DAR test — which tester?",
+  "PI test / DAR test - which tester?",
   "Best clamp meter for solar DC current",
-  "Earth tester for site — hand-driven or digital?",
+  "Earth tester for site - hand-driven or digital?",
   "True-RMS multimeter for VFD panels",
   "Megger for HV transformer above 11kV",
   "Micro-ohm meter for winding resistance",
@@ -126,7 +126,7 @@ const suggestions = [
         </div>
         <div id="catalog-results">
           <div class="px-4 py-4">
-            <p class="text-xs text-muted mb-3">Popular questions — click to ask instantly</p>
+            <p class="text-xs text-muted mb-3">Popular questions - click to ask instantly</p>
             <div class="grid grid-cols-2 gap-2">
               {suggestions.map(s => (
                 <button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#0A0E14] hover:text-[#0A0E14] hover:bg-[#F0F4FF] transition-all leading-snug" data-query={s}>{s}</button>
@@ -166,7 +166,7 @@ const suggestions = [
       </button>
     </div>
 
-    <!-- Mobile AI answer — collapsible -->
+    <!-- Mobile AI answer - collapsible -->
     <div id="mobile-ai-panel" class="hidden border-b border-border shrink-0" style="max-height:40vh; overflow-y:auto; -webkit-overflow-scrolling:touch;">
       <button id="mobile-ai-toggle" class="w-full flex items-center gap-2 px-4 py-2.5 bg-[#F0F4FF] active:bg-[#E8EFFE]">
         <div class="w-4 h-4 rounded bg-gradient-to-br from-[#0A0E14] to-[#E0252E] flex items-center justify-center shrink-0">
@@ -187,11 +187,11 @@ const suggestions = [
       </div>
     </div>
 
-    <!-- Mobile results — fills all remaining space, scrolls -->
+    <!-- Mobile results - fills all remaining space, scrolls -->
     <div id="mobile-catalog-results" class="flex-1 overflow-y-auto min-h-0" style="-webkit-overflow-scrolling:touch; overscroll-behavior:contain;">
       <!-- welcome -->
       <div id="mobile-welcome" class="px-4 pt-5 pb-4">
-        <p class="text-sm text-muted mb-4">Popular questions — tap to ask instantly</p>
+        <p class="text-sm text-muted mb-4">Popular questions - tap to ask instantly</p>
         <div class="flex flex-col gap-3">
           {suggestions.map(s => (
             <button class="suggestion-chip text-left text-[15px] font-medium px-4 py-3.5 rounded-2xl border-2 border-border text-[#334155] active:bg-[#EEF2FF] active:border-[#0A0E14] leading-snug" data-query={s}>{s}</button>
@@ -474,7 +474,7 @@ async function askAI(q: string) {
       if (history.length > 12) history = history.slice(-12);
     }
   } catch {
-    renderMD(cont, '_Connection error — please try again._');
+    renderMD(cont, '_Connection error - please try again._');
   }
   isStreaming = false;
 
@@ -494,12 +494,12 @@ async function askAI(q: string) {
     });
 
     if (aiMentionedProducts.length) {
-      // Show exactly the products AI mentioned — not their whole category
+      // Show exactly the products AI mentioned - not their whole category
       const cie = aiMentionedProducts.filter(p => p.brand === 'cie');
       const vt  = aiMentionedProducts.filter(p => p.brand === 'vartech');
       let html = '';
-      if (cie.length) html += section('CIE — Manufactured', 'text-red', cie, q, false);
-      if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
+      if (cie.length) html += section('CIE - Manufactured', 'text-red', cie, q, false);
+      if (vt.length)  html += section('Vartech - Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
       if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; return; }
     }
 
@@ -510,8 +510,8 @@ async function askAI(q: string) {
       const cie = items.filter(p => p.brand === 'cie');
       const vt  = items.filter(p => p.brand === 'vartech');
       let html = '';
-      if (cie.length) html += section('CIE — Manufactured', 'text-red', cie, q, false);
-      if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
+      if (cie.length) html += section('CIE - Manufactured', 'text-red', cie, q, false);
+      if (vt.length)  html += section('Vartech - Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
       if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; }
     }
   }
@@ -561,9 +561,9 @@ function hideAI() {
 // ── Catalog ───────────────────────────────────────────────────────────────
 const CHIPS = [
   'Insulation tester for 415V motor',
-  'PI test / DAR test — which tester?',
+  'PI test / DAR test - which tester?',
   'Best clamp meter for solar DC current',
-  'Earth tester for site — hand-driven or digital?',
+  'Earth tester for site - hand-driven or digital?',
   'True-RMS multimeter for VFD panels',
   'Megger for HV transformer above 11kV',
   'Micro-ohm meter for winding resistance',
@@ -573,11 +573,11 @@ const CHIPS = [
 function showWelcome() {
   hideAI();
   const desktopWelcome = `<div class="px-4 py-4">
-    <p class="text-xs text-muted mb-3">Popular questions — click to ask instantly</p>
+    <p class="text-xs text-muted mb-3">Popular questions - click to ask instantly</p>
     <div class="grid grid-cols-2 gap-2">${CHIPS.map(s => `<button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#0A0E14] hover:text-[#0A0E14] hover:bg-[#F0F4FF] transition-all leading-snug" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
   </div>`;
   const mobileWelcome = `<div class="px-4 pt-5 pb-4">
-    <p class="text-sm text-muted mb-4">Popular questions — tap to ask instantly</p>
+    <p class="text-sm text-muted mb-4">Popular questions - tap to ask instantly</p>
     <div class="flex flex-col gap-3">${CHIPS.map(s => `<button class="suggestion-chip text-left text-[15px] font-medium px-4 py-3.5 rounded-2xl border-2 border-border text-[#334155] active:bg-[#EEF2FF] active:border-[#0A0E14] leading-snug" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
   </div>`;
   catalogDiv.innerHTML = desktopWelcome;
@@ -604,9 +604,9 @@ function smartSearch(q: string): Entry[] {
   // Literal filter: at least one keyword appears in product text
   const filtered = words.length
     ? candidates.filter(item => {
-        // Only match name/model/category — not tagline (too many false positives)
+        // Only match name/model/category - not tagline (too many false positives)
         const text = `${item.name} ${item.model} ${item.category}`.toLowerCase();
-        // Use prefix match (\bword) — no trailing boundary — so "insu" matches "insulation"
+        // Use prefix match (\bword) - no trailing boundary - so "insu" matches "insulation"
         return words.some(w => new RegExp(`\\b${w}`).test(text));
       })
     : candidates;
@@ -614,7 +614,7 @@ function smartSearch(q: string): Entry[] {
   if (filtered.length) return filtered.slice(0, 40);
 
   // Literal filter found nothing (likely typos/vague query).
-  // Don't guess — return empty so the no-match message shows and AI answer is visible.
+  // Don't guess - return empty so the no-match message shows and AI answer is visible.
   return [];
 }
 
@@ -630,8 +630,8 @@ function renderCatalog(q: string) {
   const cie = items.filter(i => i.brand === 'cie');
   const vt  = items.filter(i => i.brand === 'vartech');
   let html = '';
-  if (cie.length) html += section('CIE — Manufactured', 'text-red', cie, q, false);
-  if (vt.length)  html += section('Vartech — Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
+  if (cie.length) html += section('CIE - Manufactured', 'text-red', cie, q, false);
+  if (vt.length)  html += section('Vartech - Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
 
   catalogDiv.innerHTML   = html;
   mobileCatalog.innerHTML = html;

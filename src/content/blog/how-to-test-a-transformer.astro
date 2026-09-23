@@ -4,7 +4,7 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  A transformer appears to be one of the simplest electrical devices — two coils of wire on a shared core — but it fails in at least five distinct ways, and each failure mode requires a different test to detect it. This guide covers every test from a basic multimeter winding resistance check to insulation resistance testing, polarity testing, and turns ratio measurement — the complete electrical commissioning and maintenance test sequence for transformers from small signal types up to large distribution units.
+  A transformer appears to be one of the simplest electrical devices - two coils of wire on a shared core - but it fails in at least five distinct ways, and each failure mode requires a different test to detect it. This guide covers every test from a basic multimeter winding resistance check to insulation resistance testing, polarity testing, and turns ratio measurement - the complete electrical commissioning and maintenance test sequence for transformers from small signal types up to large distribution units.
 </p>
 
 <h2 id="failure-modes">How Transformers Fail</h2>
@@ -12,10 +12,10 @@ import Callout from '../../components/blog/Callout.astro';
 <p>Understanding the failure modes shapes the test sequence. The five main failure mechanisms are:</p>
 
 <ul>
-  <li><strong>Winding open circuit</strong>: A conductor break inside the winding — usually from a surge current or mechanical failure. The affected winding shows infinite resistance. Symptoms: no output voltage from the affected winding.</li>
+  <li><strong>Winding open circuit</strong>: A conductor break inside the winding - usually from a surge current or mechanical failure. The affected winding shows infinite resistance. Symptoms: no output voltage from the affected winding.</li>
   <li><strong>Winding short circuit (inter-turn fault)</strong>: Two adjacent turns of wire make contact, creating a shorted loop. This reduces the effective turns count, increases current, and causes localised overheating. Difficult to detect without an LCR meter or turns ratio tester.</li>
-  <li><strong>Winding-to-core insulation breakdown</strong>: The insulation between the winding and the iron core fails — creating a ground fault. Detected by insulation resistance (megger) test.</li>
-  <li><strong>Winding-to-winding insulation breakdown</strong>: Insulation between primary and secondary fails — creates a direct electrical path between them. Also detected by megger test. Particularly dangerous in isolating transformers where this destroys the safety isolation.</li>
+  <li><strong>Winding-to-core insulation breakdown</strong>: The insulation between the winding and the iron core fails - creating a ground fault. Detected by insulation resistance (megger) test.</li>
+  <li><strong>Winding-to-winding insulation breakdown</strong>: Insulation between primary and secondary fails - creates a direct electrical path between them. Also detected by megger test. Particularly dangerous in isolating transformers where this destroys the safety isolation.</li>
   <li><strong>Core saturation / wrong turns ratio</strong>: Core damage, rewind errors, or connection errors cause abnormal turns ratio and may result in saturation under load. Detected by turns ratio test.</li>
 </ul>
 
@@ -28,7 +28,7 @@ import Callout from '../../components/blog/Callout.astro';
 <ol>
   <li>Disconnect all external connections from the transformer.</li>
   <li>Measure the resistance between each pair of winding terminals. For a centre-tapped secondary, measure each half separately and the full winding.</li>
-  <li>Compare readings between phases on three-phase transformers — they should be within ±2% of each other. Larger differences indicate a problem.</li>
+  <li>Compare readings between phases on three-phase transformers - they should be within ±2% of each other. Larger differences indicate a problem.</li>
   <li>Compare to the nameplate or design specification if available.</li>
 </ol>
 
@@ -37,7 +37,7 @@ import Callout from '../../components/blog/Callout.astro';
 </Callout>
 
 <div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Winding resistance test results — interpretation</div>
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Winding resistance test results - interpretation</div>
   <table class="w-full text-sm border-collapse">
     <thead>
       <tr class="bg-[#1B3A5B]">
@@ -120,17 +120,17 @@ import Callout from '../../components/blog/Callout.astro';
 <p>The no-load test measures the core losses (iron losses) and the magnetising current. It is performed by applying rated voltage at rated frequency to the primary with the secondary open-circuited:</p>
 
 <ul>
-  <li>Measure input power (using a wattmeter or power analyser) — this equals the core loss in watts</li>
-  <li>Measure input current — this is the magnetising current, typically 0.5–3% of full-load current</li>
+  <li>Measure input power (using a wattmeter or power analyser) - this equals the core loss in watts</li>
+  <li>Measure input current - this is the magnetising current, typically 0.5–3% of full-load current</li>
   <li>An abnormally high no-load current indicates core damage, incorrect core material, or core saturation</li>
 </ul>
 
 <h2 id="load-test">Test 6: Load Test (Short-Circuit Test)</h2>
 
-<p>The short-circuit test determines winding impedance (copper losses) by applying a reduced voltage to the primary while the secondary is short-circuited through a current-limiting impedance. This test is typically done at a manufacturing facility with proper equipment, not in the field — it requires precise control to avoid dangerous currents. It determines:</p>
+<p>The short-circuit test determines winding impedance (copper losses) by applying a reduced voltage to the primary while the secondary is short-circuited through a current-limiting impedance. This test is typically done at a manufacturing facility with proper equipment, not in the field - it requires precise control to avoid dangerous currents. It determines:</p>
 
 <ul>
-  <li>Percentage impedance voltage (% Z) — important for fault current calculation</li>
+  <li>Percentage impedance voltage (% Z) - important for fault current calculation</li>
   <li>Copper losses at full load</li>
   <li>Leakage inductance</li>
 </ul>
@@ -142,8 +142,8 @@ import Callout from '../../components/blog/Callout.astro';
 <p>Large oil-filled power transformers require additional testing beyond the electrical tests above:</p>
 
 <ul>
-  <li><strong>BDV (Breakdown Voltage) test</strong>: Tests the dielectric strength of the transformer oil — the oil must withstand a high AC voltage across a standard gap before arcing. See our dedicated guide on the transformer oil BDV test.</li>
-  <li><strong>Dissolved Gas Analysis (DGA)</strong>: Laboratory analysis of gases dissolved in the oil — specific gas signatures indicate specific fault types (overheating, arcing, partial discharge) before they become visible failures.</li>
+  <li><strong>BDV (Breakdown Voltage) test</strong>: Tests the dielectric strength of the transformer oil - the oil must withstand a high AC voltage across a standard gap before arcing. See our dedicated guide on the transformer oil BDV test.</li>
+  <li><strong>Dissolved Gas Analysis (DGA)</strong>: Laboratory analysis of gases dissolved in the oil - specific gas signatures indicate specific fault types (overheating, arcing, partial discharge) before they become visible failures.</li>
   <li><strong>Moisture content</strong>: Water in transformer oil dramatically reduces its dielectric strength. Karl Fischer titration or capacitive moisture sensors measure oil water content in ppm.</li>
 </ul>
 

@@ -4,7 +4,7 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  Electrical earthing (grounding in North American terminology) is the practice of intentionally connecting the non-current-carrying metallic parts of an electrical installation — enclosures, frames, conduit, equipment cases — to the general mass of earth. It is one of the oldest and most fundamental safety provisions in electrical engineering, and it remains one of the most commonly misunderstood. Understanding why earthing exists, the different earthing system arrangements used in Indian practice, and how to test that earthing is effective are core competencies for any electrical professional.
+  Electrical earthing (grounding in North American terminology) is the practice of intentionally connecting the non-current-carrying metallic parts of an electrical installation - enclosures, frames, conduit, equipment cases - to the general mass of earth. It is one of the oldest and most fundamental safety provisions in electrical engineering, and it remains one of the most commonly misunderstood. Understanding why earthing exists, the different earthing system arrangements used in Indian practice, and how to test that earthing is effective are core competencies for any electrical professional.
 </p>
 
 <h2 id="why-earthing">Why Earthing Matters</h2>
@@ -65,7 +65,7 @@ import Callout from '../../components/blog/Callout.astro';
         ['TN-C', 'Earthed at source', 'Combined PEN conductor', 'Older industrial installations (being phased out)', 'Cannot use RCD'],
         ['TN-C-S', 'Earthed at source', 'PEN then split to PE + N at main DB', 'Most common in Indian commercial buildings', 'After split point'],
         ['TT', 'Earthed at source', 'Local earth electrode at installation', 'Rural areas, portable buildings, where TN not available', 'Mandatory'],
-        ['IT', 'Isolated or high-Z to earth', 'Local earth electrodes', 'Operating theatres, mines, offshore — critical uptime', 'Insulation monitor required'],
+        ['IT', 'Isolated or high-Z to earth', 'Local earth electrodes', 'Operating theatres, mines, offshore - critical uptime', 'Insulation monitor required'],
       ].map((row, i) => (
         <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
           <td class="px-5 py-3 font-bold text-[#E0252E] border-b border-gray-100 text-xs font-mono">{row[0]}</td>
@@ -81,12 +81,12 @@ import Callout from '../../components/blog/Callout.astro';
 
 <h2 id="tt-system">TT Systems and Rural Indian Installations</h2>
 
-<p>The TT (Terra-Terra) system is used where the supply neutral is not available as a PE conductor at the installation — common in rural India where long overhead LT lines make a reliable TN-S earth return impractical. Each installation in a TT system has its own local earth electrode (an earth pit, driven rods, or plate electrodes). The protective earth at the installation is connected to this local electrode, not back to the substation neutral.</p>
+<p>The TT (Terra-Terra) system is used where the supply neutral is not available as a PE conductor at the installation - common in rural India where long overhead LT lines make a reliable TN-S earth return impractical. Each installation in a TT system has its own local earth electrode (an earth pit, driven rods, or plate electrodes). The protective earth at the installation is connected to this local electrode, not back to the substation neutral.</p>
 
-<p>The critical implication is that fault current in a TT system must flow through two earth electrodes in series — the installation's earth electrode and the substation earth electrode. The fault current may be too low to trip a fuse or MCB reliably. This is why RCDs (Residual Current Devices — also called ELCBs in older Indian terminology) are mandatory in TT systems. An RCD detects the fault current by current imbalance between phase and neutral, and can trip on currents as low as 30 mA — far below the level needed to operate an MCB.</p>
+<p>The critical implication is that fault current in a TT system must flow through two earth electrodes in series - the installation's earth electrode and the substation earth electrode. The fault current may be too low to trip a fuse or MCB reliably. This is why RCDs (Residual Current Devices - also called ELCBs in older Indian terminology) are mandatory in TT systems. An RCD detects the fault current by current imbalance between phase and neutral, and can trip on currents as low as 30 mA - far below the level needed to operate an MCB.</p>
 
-<Callout type="warning" title="Earth electrode resistance limits — IS 3043">
-  IS 3043 (Code of Practice for Earthing) specifies maximum earth electrode resistance values: typically 1 Ω for generating stations, 2 Ω for large substations, and 5 Ω for distribution systems. For installations with RCD protection, higher electrode resistance may be acceptable — but must be verified against the RCD trip current and the maximum voltage that can appear on exposed metalwork during a fault. Earth electrode resistance must be tested with a dedicated earth resistance tester (earth tester), not a multimeter.
+<Callout type="warning" title="Earth electrode resistance limits - IS 3043">
+  IS 3043 (Code of Practice for Earthing) specifies maximum earth electrode resistance values: typically 1 Ω for generating stations, 2 Ω for large substations, and 5 Ω for distribution systems. For installations with RCD protection, higher electrode resistance may be acceptable - but must be verified against the RCD trip current and the maximum voltage that can appear on exposed metalwork during a fault. Earth electrode resistance must be tested with a dedicated earth resistance tester (earth tester), not a multimeter.
 </Callout>
 
 <h2 id="how-tested">How Earthing Is Tested</h2>
@@ -95,9 +95,9 @@ import Callout from '../../components/blog/Callout.astro';
   {[
     { step: 'Earth electrode resistance (earth tester)', detail: 'Uses a 4-terminal or 3-terminal Wenner method to inject AC current via auxiliary electrodes and measure the true resistance of the earth electrode. A standard multimeter cannot perform this test.' },
     { step: 'Earth loop impedance (loop tester)', detail: 'Measures the impedance of the complete earth fault loop: source → live conductor → fault → PE conductor → back to source. Determines whether fault current will be sufficient to operate the protective device within the required time.' },
-    { step: 'Continuity of protective conductors', detail: 'Tests that every exposed conductive part is actually connected to the PE system. Done with a low-resistance ohmmeter — measure from main earth terminal to each equipment frame and bonded service pipe.' },
+    { step: 'Continuity of protective conductors', detail: 'Tests that every exposed conductive part is actually connected to the PE system. Done with a low-resistance ohmmeter - measure from main earth terminal to each equipment frame and bonded service pipe.' },
     { step: 'RCD operation test', detail: 'Tests the RCD trips within the specified time (typically 300 ms for 30 mA, 40 ms for 100 mA) and at the correct current threshold. A dedicated RCD tester applies test currents at multiple angles of the AC waveform.' },
-    { step: 'Insulation resistance to earth', detail: 'Verifies that live conductors are properly insulated from earth — the complement of confirming that earth connections are intact.' },
+    { step: 'Insulation resistance to earth', detail: 'Verifies that live conductors are properly insulated from earth - the complement of confirming that earth connections are intact.' },
   ].map((s, i) => (
     <div class="flex gap-4 items-start">
       <div class="shrink-0 w-7 h-7 rounded-full bg-[#E0252E] flex items-center justify-center text-white font-bold text-xs mt-0.5">{i + 1}</div>
@@ -110,7 +110,7 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <Callout type="tip" title="Earth resistance testing frequency">
-  IS 3043 recommends testing earth electrode resistance annually in corrosive soil conditions (coastal areas, industrial sites with chemical contamination) and every three years in normal conditions. The monsoon season — when soil moisture is highest — gives optimistically low readings; test in the dry season for the worst-case value that governs safety.
+  IS 3043 recommends testing earth electrode resistance annually in corrosive soil conditions (coastal areas, industrial sites with chemical contamination) and every three years in normal conditions. The monsoon season - when soil moisture is highest - gives optimistically low readings; test in the dry season for the worst-case value that governs safety.
 </Callout>
 
 <p>

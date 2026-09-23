@@ -4,13 +4,13 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  A <strong>sound level meter</strong> is an instrument that measures acoustic sound pressure and converts it into a decibel (dB) reading — a number that reflects how loud a sound is to the human ear. It is the standard tool for workplace noise assessment, environmental noise compliance, HVAC commissioning, and product noise testing. This guide covers how sound level meters work, what the readings actually mean, and how to pick the right instrument for your application.
+  A <strong>sound level meter</strong> is an instrument that measures acoustic sound pressure and converts it into a decibel (dB) reading - a number that reflects how loud a sound is to the human ear. It is the standard tool for workplace noise assessment, environmental noise compliance, HVAC commissioning, and product noise testing. This guide covers how sound level meters work, what the readings actually mean, and how to pick the right instrument for your application.
 </p>
 
 <h2 id="how-it-works">How a Sound Level Meter Works</h2>
 
 <p>
-  Sound arrives at the meter's microphone as a pressure wave, which the microphone converts into an electrical signal proportional to the instantaneous sound pressure. Because the human ear can detect a pressure range spanning roughly a millionfold, sound level meters compress this into a logarithmic decibel scale referenced to 20 micropascals (μPa) — the threshold of human hearing at 1 kHz. A doubling of perceived loudness corresponds to roughly a 10 dB increase, not a doubling of the number.
+  Sound arrives at the meter's microphone as a pressure wave, which the microphone converts into an electrical signal proportional to the instantaneous sound pressure. Because the human ear can detect a pressure range spanning roughly a millionfold, sound level meters compress this into a logarithmic decibel scale referenced to 20 micropascals (μPa) - the threshold of human hearing at 1 kHz. A doubling of perceived loudness corresponds to roughly a 10 dB increase, not a doubling of the number.
 </p>
 
 <p>
@@ -19,25 +19,25 @@ import Callout from '../../components/blog/Callout.astro';
 
 <h2 id="weighting">A-Weighting, C-Weighting, and Why It Matters</h2>
 
-<p>The human ear is not equally sensitive at all frequencies — it is far less sensitive to very low and very high frequencies than to the 1–4 kHz range where speech sits. Weighting filters correct the meter's reading to match this.</p>
+<p>The human ear is not equally sensitive at all frequencies - it is far less sensitive to very low and very high frequencies than to the 1–4 kHz range where speech sits. Weighting filters correct the meter's reading to match this.</p>
 
 <ul>
   <li><strong>A-weighting (dBA)</strong>: Rolls off low and high frequencies to mimic human hearing at moderate volumes. This is the standard weighting for occupational noise exposure, environmental noise limits, and almost every regulatory noise standard.</li>
   <li><strong>C-weighting (dBC)</strong>: Nearly flat across the audible range, used for peak/impulse noise measurement (gunfire, impact machinery, explosions) where low-frequency energy matters and A-weighting would understate it.</li>
-  <li><strong>Z-weighting (dBZ)</strong>: No weighting at all — a flat, unfiltered reading used for acoustic engineering and lab work where the true pressure spectrum is needed.</li>
+  <li><strong>Z-weighting (dBZ)</strong>: No weighting at all - a flat, unfiltered reading used for acoustic engineering and lab work where the true pressure spectrum is needed.</li>
 </ul>
 
 <Callout type="info" title="If your datasheet just says 'dB', it's almost certainly dBA">
-  Workplace noise regulations worldwide (India's Factories Act noise limits included) are written in dBA. When comparing a machine's rated noise output against a legal limit, confirm both figures use the same weighting — comparing a dBC spec against a dBA limit produces a meaningless number.
+  Workplace noise regulations worldwide (India's Factories Act noise limits included) are written in dBA. When comparing a machine's rated noise output against a legal limit, confirm both figures use the same weighting - comparing a dBC spec against a dBA limit produces a meaningless number.
 </Callout>
 
-<h2 id="time-weighting">Time Weighting — Fast, Slow, and Impulse</h2>
+<h2 id="time-weighting">Time Weighting - Fast, Slow, and Impulse</h2>
 
 <p>
-  Sound level fluctuates constantly, so the meter must average it over some time window before displaying a number. <strong>Fast</strong> (125 ms time constant) tracks quickly changing sound and is the default for general noise surveys. <strong>Slow</strong> (1 s) smooths out fluctuations for a more stable, readable display in variable environments. <strong>Impulse</strong> (35 ms rise, 1.5 s decay) is designed to capture short, sharp transients — hammer blows, punch presses, gunshots — that Fast weighting would understate.
+  Sound level fluctuates constantly, so the meter must average it over some time window before displaying a number. <strong>Fast</strong> (125 ms time constant) tracks quickly changing sound and is the default for general noise surveys. <strong>Slow</strong> (1 s) smooths out fluctuations for a more stable, readable display in variable environments. <strong>Impulse</strong> (35 ms rise, 1.5 s decay) is designed to capture short, sharp transients - hammer blows, punch presses, gunshots - that Fast weighting would understate.
 </p>
 
-<h2 id="accuracy-class">Accuracy Class — Type 1 vs. Type 2</h2>
+<h2 id="accuracy-class">Accuracy Class - Type 1 vs. Type 2</h2>
 
 <p>
   IEC 61672 defines two accuracy classes for sound level meters, and the class you need depends on why you're measuring.
@@ -73,7 +73,7 @@ import Callout from '../../components/blog/Callout.astro';
 <h2 id="calibration">Field Calibration</h2>
 
 <p>
-  Every measurement session should start with a field calibration check using an acoustic calibrator — a small device that clamps over the microphone and produces a known, fixed sound pressure level (typically 94 dB or 114 dB at 1 kHz). If the meter's reading doesn't match the calibrator's rated output within tolerance, the meter needs servicing before the readings can be trusted. This takes under a minute and is standard practice before any recorded measurement.
+  Every measurement session should start with a field calibration check using an acoustic calibrator - a small device that clamps over the microphone and produces a known, fixed sound pressure level (typically 94 dB or 114 dB at 1 kHz). If the meter's reading doesn't match the calibrator's rated output within tolerance, the meter needs servicing before the readings can be trusted. This takes under a minute and is standard practice before any recorded measurement.
 </p>
 
 <h2 id="applications">Common Applications</h2>

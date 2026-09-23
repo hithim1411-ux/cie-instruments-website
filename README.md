@@ -1,6 +1,6 @@
 # CIE Instruments Website
 
-Marketing and product-catalogue website for **Cambridge Instruments & Engg. Co. (CIE)**, Howrah — built with Astro + Tailwind CSS v4.
+Marketing and product-catalogue website for **Cambridge Instruments & Engg. Co. (CIE)**, Howrah - built with Astro + Tailwind CSS v4.
 
 ---
 
@@ -30,7 +30,7 @@ All product and category information lives in `src/data/`:
 1. Open `src/data/products.json`.
 2. Copy an existing product object and add it to the array.
 3. Set `categoryId` to the matching `id` from `categories.json`.
-4. The URL will be `/products/<categoryId>/<id>` — make sure `id` is URL-safe (lowercase, hyphens only).
+4. The URL will be `/products/<categoryId>/<id>` - make sure `id` is URL-safe (lowercase, hyphens only).
 5. Run `npm run build` and the page is generated automatically.
 
 ### Editing specs
@@ -53,7 +53,7 @@ The form in `src/components/EnquiryForm.astro` submits to the endpoint in `src/d
 
 **Steps to wire it up:**
 1. Create a free account at [formspree.io](https://formspree.io).
-2. Create a new form — use `cieinstruments@gmail.com` as the recipient.
+2. Create a new form - use `cieinstruments@gmail.com` as the recipient.
 3. Copy the form endpoint (looks like `https://formspree.io/f/abcdefgh`).
 4. Paste it as the value of `formEndpoint` in `src/data/site.json`.
 
@@ -88,7 +88,7 @@ If the image fails to load, the header automatically falls back to a text logo (
 
 ## Adding product photos
 
-Place product images in `public/images/products/` named `<product-id>.jpg` — e.g. `cie-444.jpg`, `rts-33.jpg`.
+Place product images in `public/images/products/` named `<product-id>.jpg` - e.g. `cie-444.jpg`, `rts-33.jpg`.
 
 The product ID matches the `id` field in `products.json`. If no image is found, a "Image coming soon" placeholder is shown automatically.
 
@@ -126,8 +126,8 @@ The product ID matches the `id` field in `products.json`. If no image is found, 
 Colours and fonts are defined as Tailwind v4 theme tokens in `src/styles/global.css` under the `@theme {}` block. Change them in one place and they propagate everywhere.
 
 Key CSS utility classes (also in `global.css`):
-- `.eyebrow` — red, monospace, uppercase, letter-spaced section labels
-- `.red-stripe` — left red border accent for feature panels
-- `.blueprint-bg` — navy background with subtle grid texture
-- `.spec-table` — styled specification table
-- `.model-code` — monospace model number style
+- `.eyebrow` - red, monospace, uppercase, letter-spaced section labels
+- `.red-stripe` - left red border accent for feature panels
+- `.blueprint-bg` - navy background with subtle grid texture
+- `.spec-table` - styled specification table
+- `.model-code` - monospace model number style

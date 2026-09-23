@@ -4,23 +4,23 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  A megger reading of 80 MΩ on Monday and 30 MΩ on Friday looks like a winding going bad — until you notice Monday's test was done on a cold motor at 15°C and Friday's on a motor that had been running for two hours at 45°C. Insulation resistance falls sharply as temperature rises, and without correcting for it, you're comparing two different measurements and calling the difference a trend.
+  A megger reading of 80 MΩ on Monday and 30 MΩ on Friday looks like a winding going bad - until you notice Monday's test was done on a cold motor at 15°C and Friday's on a motor that had been running for two hours at 45°C. Insulation resistance falls sharply as temperature rises, and without correcting for it, you're comparing two different measurements and calling the difference a trend.
 </p>
 
 <h2 id="why-ir-falls-with-temperature">Why Insulation Resistance Falls as Temperature Rises</h2>
 
 <p>
-  Insulation resistance isn't a fixed property of a material — it's the resistance of a leakage current path through the insulation, and that path conducts more easily as temperature increases. Heat increases molecular activity in the insulating material, which increases ionic conduction and lowers the effective resistance. For most organic and mineral insulation used in motor windings, cables, and transformers, this relationship is roughly exponential: <strong>IR approximately halves for every 10°C rise</strong> in winding temperature, and roughly doubles for every 10°C fall.
+  Insulation resistance isn't a fixed property of a material - it's the resistance of a leakage current path through the insulation, and that path conducts more easily as temperature increases. Heat increases molecular activity in the insulating material, which increases ionic conduction and lowers the effective resistance. For most organic and mineral insulation used in motor windings, cables, and transformers, this relationship is roughly exponential: <strong>IR approximately halves for every 10°C rise</strong> in winding temperature, and roughly doubles for every 10°C fall.
 </p>
 
 <Callout type="info" title="This is a real physical effect, not instrument drift">
-  The instrument reading 30 MΩ on a hot motor and 80 MΩ on the same motor cold isn't malfunctioning or losing accuracy — the insulation's actual resistance really has changed with temperature. The fix is procedural (measure temperature, apply a correction), not instrumental.
+  The instrument reading 30 MΩ on a hot motor and 80 MΩ on the same motor cold isn't malfunctioning or losing accuracy - the insulation's actual resistance really has changed with temperature. The fix is procedural (measure temperature, apply a correction), not instrumental.
 </Callout>
 
 <h2 id="reference-temperature">Correcting to a Reference Temperature</h2>
 
 <p>
-  To compare readings taken on different days, seasons, or duty cycles, every measurement needs to be normalised to a common reference temperature — conventionally <strong>20°C</strong> for most industry trending, though some plants standardise on 40°C for hot-running rotating machinery. The correction multiplies the measured reading by a factor that depends on how far the actual winding temperature was from that reference.
+  To compare readings taken on different days, seasons, or duty cycles, every measurement needs to be normalised to a common reference temperature - conventionally <strong>20°C</strong> for most industry trending, though some plants standardise on 40°C for hot-running rotating machinery. The correction multiplies the measured reading by a factor that depends on how far the actual winding temperature was from that reference.
 </p>
 
 <div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
@@ -52,7 +52,7 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <p>
-  This table is the widely used simplified "doubling rule" (IR roughly doubles per 10°C fall, halves per 10°C rise) referenced in IEEE 43 and standard field practice. It's an approximation — the exact factor varies somewhat by insulation class and moisture content — but it's accurate enough for maintenance trending, and far better than comparing uncorrected readings across different temperatures.
+  This table is the widely used simplified "doubling rule" (IR roughly doubles per 10°C fall, halves per 10°C rise) referenced in IEEE 43 and standard field practice. It's an approximation - the exact factor varies somewhat by insulation class and moisture content - but it's accurate enough for maintenance trending, and far better than comparing uncorrected readings across different temperatures.
 </p>
 
 <h2 id="worked-example">Worked Example</h2>
@@ -66,22 +66,22 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <p>
-  That 100 MΩ corrected value is what should be logged and compared against previous tests — not the raw 25 MΩ, which would look like a dramatic and alarming drop if compared directly against an earlier reading taken at 20°C.
+  That 100 MΩ corrected value is what should be logged and compared against previous tests - not the raw 25 MΩ, which would look like a dramatic and alarming drop if compared directly against an earlier reading taken at 20°C.
 </p>
 
 <h2 id="practical-notes">Practical Notes for Field Testing</h2>
 
 <ul>
-  <li><strong>Measure and record the actual winding temperature</strong> with every insulation resistance test — a surface thermometer or infrared thermometer reading on the motor frame is a reasonable proxy when the winding itself isn't accessible.</li>
-  <li><strong>Be consistent about reference temperature</strong> across a plant's maintenance records — 20°C is the most common convention, but whichever is chosen, use it every time so historical trends stay comparable.</li>
-  <li><strong>Correction matters most for trending, less for a single pass/fail check</strong> against a minimum acceptable value — but even a pass/fail threshold should account for temperature if tests are run at very different ambient conditions across seasons.</li>
-  <li><strong>This is separate from Polarisation Index (PI)</strong> — PI is a ratio of two readings taken minutes apart on the <em>same</em> test at the <em>same</em> temperature, so temperature cancels out. Temperature correction applies when comparing tests across different occasions. See <a href={u('/blog/what-is-a-megger/')}>our guide to PI and DAR interpretation</a> for that separate technique.</li>
+  <li><strong>Measure and record the actual winding temperature</strong> with every insulation resistance test - a surface thermometer or infrared thermometer reading on the motor frame is a reasonable proxy when the winding itself isn't accessible.</li>
+  <li><strong>Be consistent about reference temperature</strong> across a plant's maintenance records - 20°C is the most common convention, but whichever is chosen, use it every time so historical trends stay comparable.</li>
+  <li><strong>Correction matters most for trending, less for a single pass/fail check</strong> against a minimum acceptable value - but even a pass/fail threshold should account for temperature if tests are run at very different ambient conditions across seasons.</li>
+  <li><strong>This is separate from Polarisation Index (PI)</strong> - PI is a ratio of two readings taken minutes apart on the <em>same</em> test at the <em>same</em> temperature, so temperature cancels out. Temperature correction applies when comparing tests across different occasions. See <a href={u('/blog/what-is-a-megger/')}>our guide to PI and DAR interpretation</a> for that separate technique.</li>
 </ul>
 
 <h2 id="where-this-fits">Where This Fits in a Maintenance Programme</h2>
 
 <p>
-  Temperature correction is what turns a series of insulation resistance readings into a genuine trend line instead of noise. Combined with a consistent testing interval — see our <a href={u('/blog/motor-insulation-testing-schedule/')}>motor insulation testing schedule guide</a> — it lets you catch insulation degrading gradually over months or years, well before it fails outright.
+  Temperature correction is what turns a series of insulation resistance readings into a genuine trend line instead of noise. Combined with a consistent testing interval - see our <a href={u('/blog/motor-insulation-testing-schedule/')}>motor insulation testing schedule guide</a> - it lets you catch insulation degrading gradually over months or years, well before it fails outright.
 </p>
 
 <p>

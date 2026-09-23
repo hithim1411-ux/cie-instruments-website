@@ -10,23 +10,23 @@ import Callout from '../../components/blog/Callout.astro';
 <h2 id="earthing">What Earthing Does</h2>
 
 <p>
-  Earthing connects an installation — specifically, the exposed metal parts of electrical equipment that aren't meant to carry current in normal operation — to the general mass of the earth via an earth electrode. Its job is to give fault current somewhere safe to go: if a live conductor comes into contact with equipment casing, earthing provides a low-resistance path back to the source, allowing enough current to flow to trip the protective device quickly, rather than leaving the casing permanently live at a dangerous voltage.
+  Earthing connects an installation - specifically, the exposed metal parts of electrical equipment that aren't meant to carry current in normal operation - to the general mass of the earth via an earth electrode. Its job is to give fault current somewhere safe to go: if a live conductor comes into contact with equipment casing, earthing provides a low-resistance path back to the source, allowing enough current to flow to trip the protective device quickly, rather than leaving the casing permanently live at a dangerous voltage.
 </p>
 
 <h2 id="bonding">What Bonding Does</h2>
 
 <p>
-  Bonding connects separate metal parts — pipework, structural steel, cable trays, equipment enclosures — to each other electrically, so that they are all held at (approximately) the same electrical potential. Bonding does not necessarily connect anything to earth at all; its purpose is to eliminate <em>potential difference</em> between metal parts that a person could simultaneously touch. If two metal objects a person could touch are bonded together, even if a fault raises both their potentials, there's no dangerous voltage <em>between</em> them — which is what actually causes a shock through the body.
+  Bonding connects separate metal parts - pipework, structural steel, cable trays, equipment enclosures - to each other electrically, so that they are all held at (approximately) the same electrical potential. Bonding does not necessarily connect anything to earth at all; its purpose is to eliminate <em>potential difference</em> between metal parts that a person could simultaneously touch. If two metal objects a person could touch are bonded together, even if a fault raises both their potentials, there's no dangerous voltage <em>between</em> them - which is what actually causes a shock through the body.
 </p>
 
 <Callout type="info" title="A simple way to hold the distinction">
-  Earthing gives fault current a path <strong>to earth</strong>. Bonding gives dangerous potential difference nowhere <strong>to exist between two touchable parts</strong> in the first place. A well-designed installation needs both working together — bonding without earthing doesn't clear a fault, and earthing without bonding can still leave separate metal parts at different potentials during a fault.
+  Earthing gives fault current a path <strong>to earth</strong>. Bonding gives dangerous potential difference nowhere <strong>to exist between two touchable parts</strong> in the first place. A well-designed installation needs both working together - bonding without earthing doesn't clear a fault, and earthing without bonding can still leave separate metal parts at different potentials during a fault.
 </Callout>
 
 <h2 id="why-both">Why an Installation Needs Both</h2>
 
 <div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Earthing vs bonding — side by side</div>
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Earthing vs bonding - side by side</div>
   <table class="w-full text-sm border-collapse">
     <thead>
       <tr class="bg-[#1B3A5B]">
@@ -39,7 +39,7 @@ import Callout from '../../components/blog/Callout.astro';
       {[
         ['Connects', 'Equipment/system to the general mass of earth', 'Separate metal parts to each other'],
         ['Primary purpose', 'Provide a return path for fault current, enabling protective devices to operate', 'Eliminate touch-voltage between simultaneously accessible metal parts'],
-        ['Tested with', 'An earth resistance tester (fall-of-potential or clamp-on method)', 'Continuity test between bonded points — very low resistance expected'],
+        ['Tested with', 'An earth resistance tester (fall-of-potential or clamp-on method)', 'Continuity test between bonded points - very low resistance expected'],
         ['Typical scope', 'Main earth electrode, sub-mains, individual circuit protective conductors', 'Water pipes, gas pipes, structural steel, extraneous conductive parts, equipment enclosures'],
       ].map(([label, earth, bond], i) => (
         <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
@@ -55,7 +55,7 @@ import Callout from '../../components/blog/Callout.astro';
 <h2 id="testing">How Each Is Verified in the Field</h2>
 
 <p>
-  Earthing is verified with an earth resistance test — measuring the actual resistance from the earth electrode to true earth, using the 3-point fall-of-potential method or a clamp-on tester, and comparing against the accepted limit for the installation type. Bonding is verified differently: as a continuity check between the bonded points, confirming a very low resistance connection exists — the concern isn't "how many ohms to earth" but simply "is this connection solid and unbroken." See our <a href={u('/blog/earth-resistance-testing-guide/')}>earth resistance testing guide</a> for the earthing test procedure in detail.
+  Earthing is verified with an earth resistance test - measuring the actual resistance from the earth electrode to true earth, using the 3-point fall-of-potential method or a clamp-on tester, and comparing against the accepted limit for the installation type. Bonding is verified differently: as a continuity check between the bonded points, confirming a very low resistance connection exists - the concern isn't "how many ohms to earth" but simply "is this connection solid and unbroken." See our <a href={u('/blog/earth-resistance-testing-guide/')}>earth resistance testing guide</a> for the earthing test procedure in detail.
 </p>
 
 <p>

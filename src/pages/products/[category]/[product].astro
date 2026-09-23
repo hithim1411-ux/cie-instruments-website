@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 
 const { product, category } = Astro.props;
 
-const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${product.model} — ${product.name}. Please send me a quote.`);
+const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${product.model} - ${product.name}. Please send me a quote.`);
 
 const isVartech = (product as any).brand === 'vartech';
 
@@ -51,8 +51,8 @@ const productImages: string[] = (() => {
 const productImageSrc = productImages[0];
 
 // Build product-specific mailto
-const quoteSubject = `Quote Request — ${product.model}`;
-const quoteBody    = `Hello CIE team,\n\nI would like to request a quote for: ${product.model} — ${product.name}.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.`;
+const quoteSubject = `Quote Request - ${product.model}`;
+const quoteBody    = `Hello CIE team,\n\nI would like to request a quote for: ${product.model} - ${product.name}.\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.`;
 const quoteMailto  = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent(quoteSubject)}&body=${encodeURIComponent(quoteBody)}`;
 
 // Product structured data for Google
@@ -60,7 +60,7 @@ const productImageAbsolute = `https://www.cieinstruments.in/images/products/${pr
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
-  name: `${product.model} — ${product.name}`,
+  name: `${product.model} - ${product.name}`,
   description: product.tagline,
   image: productImageAbsolute,
   brand: {
@@ -83,8 +83,8 @@ const productSchema = {
   }),
 };
 
-const autoTitle = `${product.model} — ${product.name}`;
-const autoDesc  = `${product.model} ${product.name} — ${product.tagline} Manufactured by Cambridge Instruments & Engg. Co., Howrah, India. 12-month warranty.`;
+const autoTitle = `${product.model} - ${product.name}`;
+const autoDesc  = `${product.model} ${product.name} - ${product.tagline} Manufactured by Cambridge Instruments & Engg. Co., Howrah, India. 12-month warranty.`;
 const pageTitle       = (product as any).metaTitle ?? autoTitle;
 const pageDescription = (product as any).metaDesc  ?? autoDesc;
 const useRawTitle     = !!(product as any).metaTitle;
@@ -145,7 +145,7 @@ const relatedProducts = [
               <img
                 id="gallery-main"
                 src={productImageSrc}
-                alt={`${product.model} — ${product.name}`}
+                alt={`${product.model} - ${product.name}`}
                 width="600"
                 height="600"
                 class="w-full object-contain h-64 lg:h-72 p-4"
@@ -159,7 +159,7 @@ const relatedProducts = [
                   <button
                     type="button"
                     data-src={src}
-                    data-alt={`${product.model} — image ${i + 1}`}
+                    data-alt={`${product.model} - image ${i + 1}`}
                     class:list={['gallery-thumb w-16 h-16 rounded-lg border-2 overflow-hidden bg-cloud transition-all', i === 0 ? 'border-ink' : 'border-border hover:border-ink/50']}
                     aria-label={`View image ${i + 1}`}
                   >
@@ -337,7 +337,7 @@ const relatedProducts = [
           <p class="text-sm text-ink font-semibold mb-1">12-Month Warranty · Direct After-Sales Support</p>
           <p class="text-sm text-muted">
             Every CIE® instrument carries a 12-month warranty against manufacturing defects.
-            After-sales support is handled directly by CIE — not a distributor network.
+            After-sales support is handled directly by CIE - not a distributor network.
             Non-standard ranges or custom specifications can be manufactured to your requirement.
           </p>
         </div>
@@ -382,7 +382,7 @@ const relatedProducts = [
 
   <CTABand
     heading={`Interested in the ${product.model}? Get a quote by email.`}
-    body="Email us with your model, quantity, and specification — we respond within one business day."
+    body="Email us with your model, quantity, and specification - we respond within one business day."
     primaryLabel="Request a Quote"
     primaryHref={quoteMailto}
     secondaryLabel="Back to Products"

@@ -4,7 +4,7 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  Walk into any electrical wholesale counter in India and ask for a multimeter. The salesperson will quote you a price. Ask whether it is True RMS and the answer you get will tell you a great deal about whether the advice is trustworthy. True RMS is not a marketing feature — it is a fundamental measurement method that determines whether your meter gives you correct readings on modern electrical systems or quietly misleads you. Understanding the difference is essential for anyone working with inverters, variable speed drives, UPS systems, or non-linear loads.
+  Walk into any electrical wholesale counter in India and ask for a multimeter. The salesperson will quote you a price. Ask whether it is True RMS and the answer you get will tell you a great deal about whether the advice is trustworthy. True RMS is not a marketing feature - it is a fundamental measurement method that determines whether your meter gives you correct readings on modern electrical systems or quietly misleads you. Understanding the difference is essential for anyone working with inverters, variable speed drives, UPS systems, or non-linear loads.
 </p>
 
 <h2 id="how-rms-works">What RMS Actually Means</h2>
@@ -13,7 +13,7 @@ import Callout from '../../components/blog/Callout.astro';
 
 <p>Mathematically, RMS is calculated by: squaring the instantaneous values of the waveform, finding the mean (average) of those squared values over a complete cycle, then taking the square root of that mean. This is why it is called root-mean-square.</p>
 
-<p>For a pure, undistorted sine wave — the waveform produced by an ideal generator or the ideal mains supply — there is a fixed mathematical relationship between the peak value and the RMS value:</p>
+<p>For a pure, undistorted sine wave - the waveform produced by an ideal generator or the ideal mains supply - there is a fixed mathematical relationship between the peak value and the RMS value:</p>
 
 <div class="my-6 rounded-xl bg-[#0D1B2A] p-5 font-mono text-sm">
   <div class="text-[#94a3b8] text-xs uppercase tracking-widest mb-3">Sine wave peak-to-RMS relationship</div>
@@ -24,15 +24,15 @@ import Callout from '../../components/blog/Callout.astro';
 
 <h2 id="average-responding">Average-Responding Meters</h2>
 
-<p>The majority of low-cost digital multimeters on the Indian market are average-responding instruments. Internally, they rectify the AC waveform (flip the negative half to positive) and measure the average of the rectified waveform. They then multiply that average by the correction factor 1.1107 — which is precisely the ratio of RMS to average for a pure sine wave.</p>
+<p>The majority of low-cost digital multimeters on the Indian market are average-responding instruments. Internally, they rectify the AC waveform (flip the negative half to positive) and measure the average of the rectified waveform. They then multiply that average by the correction factor 1.1107 - which is precisely the ratio of RMS to average for a pure sine wave.</p>
 
-<p>This works perfectly when measuring a clean sine wave from a transformer, generator, or the mains supply (assuming low distortion). The correction factor converts the average measurement into a correct RMS display. The meter reads 230.0 V on a 230 V sine wave supply — all is well.</p>
+<p>This works perfectly when measuring a clean sine wave from a transformer, generator, or the mains supply (assuming low distortion). The correction factor converts the average measurement into a correct RMS display. The meter reads 230.0 V on a 230 V sine wave supply - all is well.</p>
 
-<p>The problem arises when the waveform is not a sine wave. The correction factor 1.1107 is only valid for sine waves. Apply it to a square wave, a PWM waveform, a clipped sine, or any other non-sinusoidal shape and the result will be wrong — sometimes significantly wrong.</p>
+<p>The problem arises when the waveform is not a sine wave. The correction factor 1.1107 is only valid for sine waves. Apply it to a square wave, a PWM waveform, a clipped sine, or any other non-sinusoidal shape and the result will be wrong - sometimes significantly wrong.</p>
 
 <h2 id="true-rms">True RMS Meters</h2>
 
-<p>A True RMS meter calculates the actual RMS value of the waveform — regardless of its shape. It does this using one of two methods: an analogue thermal conversion circuit (historically used in precision instruments) or a digital sampling and computation approach (used in modern True RMS multimeters). The digital method samples the waveform at high speed, squares each sample, averages the squared values, and takes the square root — exactly implementing the mathematical definition of RMS.</p>
+<p>A True RMS meter calculates the actual RMS value of the waveform - regardless of its shape. It does this using one of two methods: an analogue thermal conversion circuit (historically used in precision instruments) or a digital sampling and computation approach (used in modern True RMS multimeters). The digital method samples the waveform at high speed, squares each sample, averages the squared values, and takes the square root - exactly implementing the mathematical definition of RMS.</p>
 
 <p>The result is a measurement that is always correct, whether the waveform is a pure sine, a chopped PWM signal, a distorted mains with harmonics, or a complex waveform from a VFD output.</p>
 
@@ -73,7 +73,7 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <Callout type="warning" title="VFD current measurement with average-responding meters">
-  A variable frequency drive (inverter) draws current from the mains with a highly peaked, non-sinusoidal waveform — crest factors of 3 to 5 are common. An average-responding clamp meter or multimeter will read the input current of a VFD as 30–60% lower than the true RMS current. This causes seriously undersized cable and fuse selection. Always use a True RMS instrument for measurements on VFD-fed or inverter systems.
+  A variable frequency drive (inverter) draws current from the mains with a highly peaked, non-sinusoidal waveform - crest factors of 3 to 5 are common. An average-responding clamp meter or multimeter will read the input current of a VFD as 30–60% lower than the true RMS current. This causes seriously undersized cable and fuse selection. Always use a True RMS instrument for measurements on VFD-fed or inverter systems.
 </Callout>
 
 <p>The practical situations where True RMS measurement is essential include: current measurement on VFD/inverter inputs; voltage measurement on UPS output (often a modified sine wave); power quality analysis; harmonic current measurement; current measurement in data centres and commercial buildings with large switched-mode power supply loads; and any measurement where you need to verify whether a protection device (fuse, MCB) is correctly rated.</p>
@@ -82,7 +82,7 @@ import Callout from '../../components/blog/Callout.astro';
 
 <div class="my-6 grid sm:grid-cols-2 gap-4">
   <div class="rounded-xl border border-gray-200 bg-white overflow-hidden">
-    <div class="bg-gray-100 px-4 py-3 font-bold text-[#0D1B2A] text-sm border-b border-gray-200">Average-responding — acceptable when:</div>
+    <div class="bg-gray-100 px-4 py-3 font-bold text-[#0D1B2A] text-sm border-b border-gray-200">Average-responding - acceptable when:</div>
     <div class="p-4 space-y-2">
       {[
         'Measuring clean mains supply voltage only',
@@ -98,7 +98,7 @@ import Callout from '../../components/blog/Callout.astro';
     </div>
   </div>
   <div class="rounded-xl border border-[#E0252E] bg-red-50 overflow-hidden">
-    <div class="bg-[#E0252E] px-4 py-3 font-bold text-white text-sm">True RMS — buy this if you:</div>
+    <div class="bg-[#E0252E] px-4 py-3 font-bold text-white text-sm">True RMS - buy this if you:</div>
     <div class="p-4 space-y-2">
       {[
         'Work on any inverter, VFD, or UPS system',
@@ -117,7 +117,7 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <Callout type="tip" title="True RMS costs less than you think">
-  The price premium for True RMS over average-responding has narrowed dramatically. A professional True RMS multimeter from a reputable manufacturer is now available at a price that is justified by just one prevented misdiagnosis or one correctly sized cable run. For any engineer or electrician working on modern electrical systems, True RMS is simply the baseline requirement — not an upgrade.
+  The price premium for True RMS over average-responding has narrowed dramatically. A professional True RMS multimeter from a reputable manufacturer is now available at a price that is justified by just one prevented misdiagnosis or one correctly sized cable run. For any engineer or electrician working on modern electrical systems, True RMS is simply the baseline requirement - not an upgrade.
 </Callout>
 
 <p>

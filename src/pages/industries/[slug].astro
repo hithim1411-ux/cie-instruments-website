@@ -24,7 +24,7 @@ const industryProducts = industry.productIds
   .map(id => products.find(p => p.id === id))
   .filter((p): p is NonNullable<typeof p> => !!p);
 
-// "Why these instruments" — built from each product's own real applications[]
+// "Why these instruments" - built from each product's own real applications[]
 // data, not invented per-industry copy.
 const applicationHighlights = industryProducts
   .flatMap(p => (p.applications ?? []).slice(0, 1).map(app => ({ model: p.model, app })))
@@ -45,7 +45,7 @@ const itemListSchema = {
     '@type': 'ListItem',
     position: i + 1,
     url: `https://www.cieinstruments.in/products/${p.categoryId}/${p.id}/`,
-    name: `${p.model} — ${p.name}`,
+    name: `${p.model} - ${p.name}`,
   })),
 };
 ---
@@ -119,7 +119,7 @@ const itemListSchema = {
   )}
 
   <CTABand
-    heading={`Tell us your ${industry.name.toLowerCase()} requirement — we'll recommend the right instrument.`}
+    heading={`Tell us your ${industry.name.toLowerCase()} requirement - we'll recommend the right instrument.`}
     body="Our team has been serving this sector for over 60 years. We know which instrument fits your application."
   />
 </Base>

@@ -14,8 +14,8 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props;
 const relatedProducts = (products as any[]).filter(p => p.id !== product.id).slice(0, 3);
-const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${product.model} — ${product.name}. Please send me details and pricing.`);
-const quoteMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent(`Quote Request — Vartech ${product.model}`)}&body=${encodeURIComponent(`Hello CIE team,\n\nI would like to request a quote for:\nBrand: Vartech\nModel: ${product.model} — ${product.name}\n\nQuantity:\nApplication:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.`)}`;
+const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${product.model} - ${product.name}. Please send me details and pricing.`);
+const quoteMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent(`Quote Request - Vartech ${product.model}`)}&body=${encodeURIComponent(`Hello CIE team,\n\nI would like to request a quote for:\nBrand: Vartech\nModel: ${product.model} - ${product.name}\n\nQuantity:\nApplication:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.`)}`;
 const canonicalPath = `https://www.cieinstruments.in/authorised-dealership/sound-level-meters/${product.id}/`;
 
 const breadcrumbSchema = {
@@ -32,7 +32,7 @@ const breadcrumbSchema = {
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
-  name: `Vartech ${product.model} — ${product.name}`,
+  name: `Vartech ${product.model} - ${product.name}`,
   description: product.description,
   brand: { '@type': 'Brand', name: 'Vartech' },
   model: product.model,
@@ -45,8 +45,8 @@ const productSchema = {
 ---
 
 <Base
-  title={`Vartech ${product.model} — ${product.name} `}
-  description={`${product.model} ${product.name} — ${product.tagline} Available from CIE Instruments, authorised Vartech dealer in India.`}
+  title={`Vartech ${product.model} - ${product.name} `}
+  description={`${product.model} ${product.name} - ${product.tagline} Available from CIE Instruments, authorised Vartech dealer in India.`}
   rawTitle
 >
   <Fragment slot="head">
@@ -61,7 +61,7 @@ const productSchema = {
         { label: 'Vartech Digital Sound Level Meters', href: u('/authorised-dealership/sound-level-meters/') },
         { label: product.model },
       ]} />
-      <p class="eyebrow mt-4 mb-3">— Vartech® Digital Sound Level Meters</p>
+      <p class="eyebrow mt-4 mb-3">Vartech® Digital Sound Level Meters</p>
       <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">
         <span class="model-code text-xl block mb-1">{product.model}</span>
         {product.name}
@@ -77,7 +77,7 @@ const productSchema = {
         <div class="bg-cloud border border-border rounded-xl overflow-hidden mb-3">
           <img id="gallery-main"
             src={u(`/images/vartech/sound-level-meters/${product.images[0]}`)}
-            alt={`Vartech ${product.model} — ${product.name}`}
+            alt={`Vartech ${product.model} - ${product.name}`}
             width="600" height="600"
             class="w-full object-contain h-64 lg:h-72 p-4"
             loading="eager" onerror="this.style.opacity='0.2'" />
@@ -88,7 +88,7 @@ const productSchema = {
             {product.images.map((img: string, i: number) => (
               <button type="button"
                 data-src={u(`/images/vartech/sound-level-meters/${img}`)}
-                data-alt={`Vartech ${product.model} — image ${i + 1}`}
+                data-alt={`Vartech ${product.model} - image ${i + 1}`}
                 class:list={['gallery-thumb w-16 h-16 rounded-lg border-2 overflow-hidden bg-cloud transition-all', i === 0 ? 'border-ink' : 'border-border hover:border-ink/50']}
                 aria-label={`View image ${i + 1}`}>
                 <img src={u(`/images/vartech/sound-level-meters/${img}`)} alt="" aria-hidden="true" width="64" height="64" class="w-full h-full object-contain p-1" loading="lazy" />
@@ -195,7 +195,7 @@ const productSchema = {
 
   <CTABand
     heading={`Interested in the Vartech ${product.model}? Get a quote today.`}
-    body="Email us with your model, quantity and application — we respond within one business day."
+    body="Email us with your model, quantity and application - we respond within one business day."
     primaryLabel="Request a Quote"
     primaryHref={quoteMailto}
     secondaryLabel="← All Vartech Sound Level Meters"

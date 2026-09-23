@@ -4,7 +4,7 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  Every reading on a multimeter, clamp meter, insulation tester, or LCR meter traces back to one equation. If you truly understand Ohm's Law, you understand <em>what every electrical tester is actually doing</em> — and why each instrument exists.
+  Every reading on a multimeter, clamp meter, insulation tester, or LCR meter traces back to one equation. If you truly understand Ohm's Law, you understand <em>what every electrical tester is actually doing</em> - and why each instrument exists.
 </p>
 
 <h2 id="what-is">What Is Ohm's Law?</h2>
@@ -13,7 +13,7 @@ import Callout from '../../components/blog/Callout.astro';
   Stated simply: <strong>the current through a conductor is directly proportional to the voltage across it, and inversely proportional to its resistance</strong>. It was established by German physicist Georg Simon Ohm in 1827 and became one of the bedrock laws of electrical engineering.
 </p>
 
-<!-- Formula hero — no dark banner, just the equation centred -->
+<!-- Formula hero - no dark banner, just the equation centred -->
 <div class="my-10 border border-gray-200 rounded-xl bg-[#0D1B2A] text-white overflow-hidden">
   <div class="px-8 py-10 text-center">
     <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-[#E0252E] mb-5">The Core Equation</div>
@@ -37,13 +37,13 @@ import Callout from '../../components/blog/Callout.astro';
   </div>
 </div>
 
-<h2 id="triangle">The OHM Triangle — Rearranging in Seconds</h2>
+<h2 id="triangle">The OHM Triangle - Rearranging in Seconds</h2>
 
 <p>
-  Engineers use a visual triangle to rearrange Ohm's Law on the fly. Cover the quantity you want to find — the remaining two show the calculation.
+  Engineers use a visual triangle to rearrange Ohm's Law on the fly. Cover the quantity you want to find - the remaining two show the calculation.
 </p>
 
-<!-- Triangle infographic — light bg, no dark banner -->
+<!-- Triangle infographic - light bg, no dark banner -->
 <div class="my-8 border border-gray-200 rounded-xl bg-white overflow-hidden">
   <div class="p-6 flex flex-col md:flex-row gap-8 items-center justify-center">
     <!-- Triangle SVG -->
@@ -55,12 +55,12 @@ import Callout from '../../components/blog/Callout.astro';
       <text x="100" y="148" text-anchor="middle" font-size="14" fill="#94a3b8" font-family="sans-serif">×</text>
       <text x="138" y="150" text-anchor="middle" font-size="28" font-weight="900" fill="#34D399" font-family="monospace">R</text>
     </svg>
-    <!-- Three formula cards — light bg, dark text, no CSS conflict -->
+    <!-- Three formula cards - light bg, dark text, no CSS conflict -->
     <div class="flex-1 grid gap-3">
       {[
-        { cover:'V', result:'V = I × R', desc:'Cover V — multiply current by resistance to find voltage.', border:'border-[#E0252E]', chip:'bg-red-50 text-[#E0252E] border-[#E0252E]' },
-        { cover:'I', result:'I = V ÷ R', desc:'Cover I — divide voltage by resistance to find current.', border:'border-blue-400', chip:'bg-blue-50 text-blue-600 border-blue-400' },
-        { cover:'R', result:'R = V ÷ I', desc:'Cover R — divide voltage by current to find resistance.', border:'border-emerald-500', chip:'bg-emerald-50 text-emerald-700 border-emerald-500' },
+        { cover:'V', result:'V = I × R', desc:'Cover V - multiply current by resistance to find voltage.', border:'border-[#E0252E]', chip:'bg-red-50 text-[#E0252E] border-[#E0252E]' },
+        { cover:'I', result:'I = V ÷ R', desc:'Cover I - divide voltage by resistance to find current.', border:'border-blue-400', chip:'bg-blue-50 text-blue-600 border-blue-400' },
+        { cover:'R', result:'R = V ÷ I', desc:'Cover R - divide voltage by current to find resistance.', border:'border-emerald-500', chip:'bg-emerald-50 text-emerald-700 border-emerald-500' },
       ].map(f => (
         <div class={`flex items-center gap-4 p-4 rounded-xl border-2 bg-white ${f.border}`}>
           <div class={`shrink-0 w-10 h-10 rounded-full border-2 flex items-center justify-center text-lg font-bold font-mono ${f.chip}`}>{f.cover}</div>
@@ -72,27 +72,27 @@ import Callout from '../../components/blog/Callout.astro';
       ))}
     </div>
   </div>
-  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure — Ohm's Law triangle and rearrangements</p>
+  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure - Ohm's Law triangle and rearrangements</p>
 </div>
 
 <h2 id="physics">The Physics Behind the Law</h2>
 
 <p>
-  At the atomic level, <strong>voltage</strong> is the work done per unit charge to move electrons through a material. <strong>Resistance</strong> is the opposition to that movement — caused by collisions between electrons and the atoms of the conductor. The relationship is linear for <strong>ohmic materials</strong> (most metals at constant temperature): double the voltage, and the current doubles proportionally.
+  At the atomic level, <strong>voltage</strong> is the work done per unit charge to move electrons through a material. <strong>Resistance</strong> is the opposition to that movement - caused by collisions between electrons and the atoms of the conductor. The relationship is linear for <strong>ohmic materials</strong> (most metals at constant temperature): double the voltage, and the current doubles proportionally.
 </p>
 
 <Callout type="info" title="Ohmic vs non-ohmic devices">
-  <p>Diodes, transistors, and lightbulb filaments do <strong>not</strong> obey a straight-line V-I relationship — their resistance changes with temperature, current, or direction. This is why multimeters have a dedicated diode test mode that applies a controlled current rather than assuming fixed resistance.</p>
+  <p>Diodes, transistors, and lightbulb filaments do <strong>not</strong> obey a straight-line V-I relationship - their resistance changes with temperature, current, or direction. This is why multimeters have a dedicated diode test mode that applies a controlled current rather than assuming fixed resistance.</p>
 </Callout>
 
 <h2 id="testers">How Ohm's Law Powers Every Electrical Tester</h2>
 
 <div class="my-8 space-y-3">
   {[
-    { icon:'🔢', name:'Multimeter — Resistance Mode', how:"Applies a known test current (I) through the probes, measures the voltage drop (V), then calculates R = V ÷ I and displays it in ohms.", tag:'R = V ÷ I', tagClass:'bg-violet-50 text-violet-700 border-violet-200' },
-    { icon:'🔢', name:'Multimeter — Current Mode', how:"Places a precision shunt resistor (R_shunt) in-series. Measures the tiny voltage across it, then I = V ÷ R_shunt.", tag:'I = V ÷ R', tagClass:'bg-blue-50 text-blue-700 border-blue-200' },
-    { icon:'🗜️', name:'Clamp Meter', how:"The jaw acts as a current transformer. Secondary voltage is proportional to primary current via the turns ratio — Ohm's Law applied through electromagnetic coupling.", tag:'V ∝ I (transformer)', tagClass:'bg-amber-50 text-amber-700 border-amber-200' },
-    { icon:'🛡️', name:'Insulation Tester (Megohmmeter)', how:'Applies a high DC test voltage (500–2500 V), measures the tiny leakage current, then R = V ÷ I — in megohms.', tag:'R = V ÷ I (HV)', tagClass:'bg-emerald-50 text-emerald-700 border-emerald-200' },
+    { icon:'🔢', name:'Multimeter - Resistance Mode', how:"Applies a known test current (I) through the probes, measures the voltage drop (V), then calculates R = V ÷ I and displays it in ohms.", tag:'R = V ÷ I', tagClass:'bg-violet-50 text-violet-700 border-violet-200' },
+    { icon:'🔢', name:'Multimeter - Current Mode', how:"Places a precision shunt resistor (R_shunt) in-series. Measures the tiny voltage across it, then I = V ÷ R_shunt.", tag:'I = V ÷ R', tagClass:'bg-blue-50 text-blue-700 border-blue-200' },
+    { icon:'🗜️', name:'Clamp Meter', how:"The jaw acts as a current transformer. Secondary voltage is proportional to primary current via the turns ratio - Ohm's Law applied through electromagnetic coupling.", tag:'V ∝ I (transformer)', tagClass:'bg-amber-50 text-amber-700 border-amber-200' },
+    { icon:'🛡️', name:'Insulation Tester (Megohmmeter)', how:'Applies a high DC test voltage (500–2500 V), measures the tiny leakage current, then R = V ÷ I - in megohms.', tag:'R = V ÷ I (HV)', tagClass:'bg-emerald-50 text-emerald-700 border-emerald-200' },
   ].map(t => (
     <div class="flex gap-4 p-5 rounded-xl border border-gray-200 bg-white items-start">
       <span class="text-2xl shrink-0 mt-0.5">{t.icon}</span>
@@ -107,13 +107,13 @@ import Callout from '../../components/blog/Callout.astro';
   ))}
 </div>
 
-<h2 id="power">Power and Ohm's Law — Watt's Law</h2>
+<h2 id="power">Power and Ohm's Law - Watt's Law</h2>
 
 <p>
-  Combine Ohm's Law with the definition of power (P = V × I) and you get three equivalent power formulas — together called <strong>Watt's Law</strong>:
+  Combine Ohm's Law with the definition of power (P = V × I) and you get three equivalent power formulas - together called <strong>Watt's Law</strong>:
 </p>
 
-<!-- Watt's Law cards — light backgrounds, dark text, fully readable -->
+<!-- Watt's Law cards - light backgrounds, dark text, fully readable -->
 <div class="my-8 grid grid-cols-3 gap-3">
   {[
     { formula:'P = V × I',   derived:'Basic definition',  border:'border-l-[#E0252E]' },
@@ -161,13 +161,13 @@ import Callout from '../../components/blog/Callout.astro';
       <p class="font-bold text-[#0D1B2A] text-sm">Diagnosing a voltage drop in a cable</p>
     </div>
     <div class="p-5">
-      <p class="text-sm text-gray-600 mb-4">Panel shows 230 V, motor terminals show 218 V — a 12 V drop at 20 A load. What is the cable resistance?</p>
+      <p class="text-sm text-gray-600 mb-4">Panel shows 230 V, motor terminals show 218 V - a 12 V drop at 20 A load. What is the cable resistance?</p>
       <div class="bg-amber-50 border border-amber-100 rounded-lg p-3 font-mono text-sm text-[#0D1B2A] mb-3">
         R = V_drop ÷ I<br/>
         R = 12 ÷ 20<br/>
         <strong>R = 0.6 Ω</strong>
       </div>
-      <p class="text-xs text-gray-500">Extra resistance above spec points to a loose connection or corroded joint — exactly what a milli-ohmmeter or multimeter can pinpoint.</p>
+      <p class="text-xs text-gray-500">Extra resistance above spec points to a loose connection or corroded joint - exactly what a milli-ohmmeter or multimeter can pinpoint.</p>
     </div>
   </div>
 </div>
@@ -175,9 +175,9 @@ import Callout from '../../components/blog/Callout.astro';
 <h2 id="limits">The Limits of Ohm's Law</h2>
 
 <Callout type="warning" title="When Ohm's Law doesn't apply">
-  <p>Ohm's Law assumes constant temperature, a linear (ohmic) conductor, and DC or quasi-static AC. At high frequencies, inductance and capacitance introduce <strong>reactance</strong> (X) — you need complex impedance <strong>Z = R + jX</strong>, measured by an LCR meter rather than a simple multimeter.</p>
+  <p>Ohm's Law assumes constant temperature, a linear (ohmic) conductor, and DC or quasi-static AC. At high frequencies, inductance and capacitance introduce <strong>reactance</strong> (X) - you need complex impedance <strong>Z = R + jX</strong>, measured by an LCR meter rather than a simple multimeter.</p>
 </Callout>
 
 <p>
-  Understanding which regime your circuit falls into tells you which instrument to reach for. CIE manufactures multimeters, insulation testers, LCR meters, and clamp meters — browse our <a href={u('/products/')}>full product range</a> or <a href={u('/contact/')}>contact our team</a> to find the right instrument.
+  Understanding which regime your circuit falls into tells you which instrument to reach for. CIE manufactures multimeters, insulation testers, LCR meters, and clamp meters - browse our <a href={u('/products/')}>full product range</a> or <a href={u('/contact/')}>contact our team</a> to find the right instrument.
 </p>

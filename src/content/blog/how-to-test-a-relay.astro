@@ -4,10 +4,10 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  Relays are among the most widely used switching devices in electrical and electronics systems — from a simple 12 V automotive relay to the protection relays guarding transformers and feeders in a 33 kV substation. When a relay fails, the symptom is often a circuit that will not operate, a motor that will not start, or — more dangerously — a protective relay that fails to trip during a fault. Testing a relay systematically with a multimeter (and, for protection relays, a dedicated relay test set) is a skill every electrical technician should have.
+  Relays are among the most widely used switching devices in electrical and electronics systems - from a simple 12 V automotive relay to the protection relays guarding transformers and feeders in a 33 kV substation. When a relay fails, the symptom is often a circuit that will not operate, a motor that will not start, or - more dangerously - a protective relay that fails to trip during a fault. Testing a relay systematically with a multimeter (and, for protection relays, a dedicated relay test set) is a skill every electrical technician should have.
 </p>
 
-<h2 id="relay-basics">Relay Basics — What You Are Testing</h2>
+<h2 id="relay-basics">Relay Basics - What You Are Testing</h2>
 
 <!-- Relay schematic SVG -->
 <div class="my-8 rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm">
@@ -55,9 +55,9 @@ import Callout from '../../components/blog/Callout.astro';
   </div>
 </div>
 
-<p>Every electromechanical relay has two electrically isolated circuits: the <strong>coil</strong> (the electromagnet that does the switching) and one or more sets of <strong>contacts</strong> (the actual switching elements). The coil has terminals A1 and A2; applying rated voltage across them energises the relay. The contacts are described as Normally Open (NO — open when coil is de-energised), Normally Closed (NC — closed when de-energised), and Common (COM — the pivot terminal shared between NO and NC).</p>
+<p>Every electromechanical relay has two electrically isolated circuits: the <strong>coil</strong> (the electromagnet that does the switching) and one or more sets of <strong>contacts</strong> (the actual switching elements). The coil has terminals A1 and A2; applying rated voltage across them energises the relay. The contacts are described as Normally Open (NO - open when coil is de-energised), Normally Closed (NC - closed when de-energised), and Common (COM - the pivot terminal shared between NO and NC).</p>
 
-<h2 id="coil-test">Test 1 — Coil Resistance</h2>
+<h2 id="coil-test">Test 1 - Coil Resistance</h2>
 
 <p>Set your multimeter to the resistance (Ω) function. Place probes across the coil terminals (A1 and A2). A healthy coil shows a specific resistance that you can compare against the datasheet. An open coil shows infinite resistance (OL). A shorted coil shows near-zero resistance.</p>
 
@@ -94,16 +94,16 @@ import Callout from '../../components/blog/Callout.astro';
   Always ensure the relay coil is completely de-energised (supply disconnected) before measuring coil resistance. Applying a live AC or DC voltage to the resistance measurement terminals of a multimeter will damage the meter and may cause injury. Verify zero voltage across the coil terminals before connecting your probes.
 </Callout>
 
-<h2 id="contact-test">Test 2 — Contact Continuity (NO and NC)</h2>
+<h2 id="contact-test">Test 2 - Contact Continuity (NO and NC)</h2>
 
 <p>With the relay de-energised (coil not powered), test the contacts using the continuity or resistance function:</p>
 
 <div class="my-6 space-y-2">
   {[
-    { step: 'Test COM to NC (de-energised)', detail: 'Should show continuity (beep) or very low resistance (< 1 Ω). This is the normally closed path — it must be intact at rest.' },
+    { step: 'Test COM to NC (de-energised)', detail: 'Should show continuity (beep) or very low resistance (< 1 Ω). This is the normally closed path - it must be intact at rest.' },
     { step: 'Test COM to NO (de-energised)', detail: 'Should show open circuit (OL / no beep). The normally open contact must be open at rest.' },
     { step: 'Energise the coil', detail: 'Apply rated voltage to A1 and A2. You should hear a distinct click as the armature pulls in.' },
-    { step: 'Test COM to NO (energised)', detail: 'Should now show continuity. The relay has switched — the NO contact is now closed.' },
+    { step: 'Test COM to NO (energised)', detail: 'Should now show continuity. The relay has switched - the NO contact is now closed.' },
     { step: 'Test COM to NC (energised)', detail: 'Should now show open circuit. The NC contact has opened as expected.' },
     { step: 'De-energise and retest', detail: 'Remove coil voltage. Contacts should return to their original (rest) state. If they do not, the relay is mechanically stuck.' },
   ].map((s, i) => (
@@ -117,14 +117,14 @@ import Callout from '../../components/blog/Callout.astro';
   ))}
 </div>
 
-<h2 id="operate-voltage">Test 3 — Pick-up and Drop-out Voltage</h2>
+<h2 id="operate-voltage">Test 3 - Pick-up and Drop-out Voltage</h2>
 
-<p>The operate (pick-up) voltage is the minimum coil voltage at which the relay reliably pulls in. The drop-out voltage is the maximum voltage at which the relay releases. These tests verify that the relay will operate correctly across its full specified voltage range — important in battery-backed systems where supply voltage varies.</p>
+<p>The operate (pick-up) voltage is the minimum coil voltage at which the relay reliably pulls in. The drop-out voltage is the maximum voltage at which the relay releases. These tests verify that the relay will operate correctly across its full specified voltage range - important in battery-backed systems where supply voltage varies.</p>
 
-<p>Use a variable DC power supply (or a variac for AC relay coils) and slowly increase voltage from zero while monitoring with a multimeter. Record the voltage at which you hear the relay click. This is the pick-up voltage — it should be no more than 75–85% of rated coil voltage per most relay specifications. Then reduce voltage slowly and record the drop-out voltage.</p>
+<p>Use a variable DC power supply (or a variac for AC relay coils) and slowly increase voltage from zero while monitoring with a multimeter. Record the voltage at which you hear the relay click. This is the pick-up voltage - it should be no more than 75–85% of rated coil voltage per most relay specifications. Then reduce voltage slowly and record the drop-out voltage.</p>
 
 <Callout type="info" title="Protection relay testing requires a dedicated relay test set">
-  The multimeter tests above are appropriate for auxiliary relays, contactors, and simple electromechanical relays. Testing protection relays — overcurrent, differential, distance, earth fault relays — requires a dedicated relay test set capable of injecting precise current and voltage quantities and measuring operate times to millisecond accuracy. CIE manufactures relay test sets specifically for this purpose.
+  The multimeter tests above are appropriate for auxiliary relays, contactors, and simple electromechanical relays. Testing protection relays - overcurrent, differential, distance, earth fault relays - requires a dedicated relay test set capable of injecting precise current and voltage quantities and measuring operate times to millisecond accuracy. CIE manufactures relay test sets specifically for this purpose.
 </Callout>
 
 <h2 id="interpreting">Interpreting Failures</h2>
@@ -140,11 +140,11 @@ import Callout from '../../components/blog/Callout.astro';
     </thead>
     <tbody>
       {[
-        ['Coil OL — no resistance reading', 'Open coil winding', 'Replace relay'],
+        ['Coil OL - no resistance reading', 'Open coil winding', 'Replace relay'],
         ['Coil near-zero resistance', 'Shorted coil', 'Replace relay'],
         ['Correct coil R but relay does not click', 'Mechanical seizure or wrong voltage', 'Check supply voltage; replace relay'],
         ['NC shows OL when de-energised', 'Burnt or welded NC contact (open)', 'Replace relay'],
-        ['NO shows continuity when de-energised', 'Welded NO contact (stuck closed)', 'Replace relay — do not use'],
+        ['NO shows continuity when de-energised', 'Welded NO contact (stuck closed)', 'Replace relay - do not use'],
         ['High contact resistance (> 5 Ω)', 'Corroded or eroded contacts', 'Clean or replace; check load current'],
         ['Relay picks up but contacts chatter', 'Low supply voltage or coil failing', 'Check supply; replace relay'],
       ].map((row, i) => (
@@ -159,5 +159,5 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <p>
-  For testing protection relays in substations and switchgear — where accuracy and logged test records are essential — CIE's relay test sets provide the precision current and voltage injection capability required. Visit our <a href={u('/products/')}>relay test equipment range</a> or <a href={u('/contact/')}>contact our application engineers</a> to discuss your protection testing requirements.
+  For testing protection relays in substations and switchgear - where accuracy and logged test records are essential - CIE's relay test sets provide the precision current and voltage injection capability required. Visit our <a href={u('/products/')}>relay test equipment range</a> or <a href={u('/contact/')}>contact our application engineers</a> to discuss your protection testing requirements.
 </p>

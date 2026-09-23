@@ -5,7 +5,7 @@ import Callout from '../../components/blog/Callout.astro';
 
 <!-- ── LEAD ── -->
 <p>
-  A <strong>multimeter</strong> — also called a digital multimeter (DMM) or volt-ohm meter (VOM) — is a hand-held instrument that measures three fundamental electrical quantities: <strong>voltage, current, and resistance</strong>. For any electrician, technician, or electronics engineer, it is the single most indispensable tool in the field.
+  A <strong>multimeter</strong> - also called a digital multimeter (DMM) or volt-ohm meter (VOM) - is a hand-held instrument that measures three fundamental electrical quantities: <strong>voltage, current, and resistance</strong>. For any electrician, technician, or electronics engineer, it is the single most indispensable tool in the field.
 </p>
 
 <!-- ── What a Multimeter Measures ── -->
@@ -59,10 +59,10 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <!-- ── HOW IT WORKS ── -->
-<h2 id="how-it-works">How a Digital Multimeter Works — Inside the Box</h2>
+<h2 id="how-it-works">How a Digital Multimeter Works - Inside the Box</h2>
 
 <p>
-  Modern digital multimeters are built around four key blocks. Understanding them explains <em>why</em> a good meter reads more accurately than a cheap one — and what you're paying for when you buy quality.
+  Modern digital multimeters are built around four key blocks. Understanding them explains <em>why</em> a good meter reads more accurately than a cheap one - and what you're paying for when you buy quality.
 </p>
 
 <!-- Architecture diagram -->
@@ -112,7 +112,7 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <Callout type="info" title="Why dual-slope ADC matters">
-  <p>The dual-slope technique integrates the input signal for a fixed period, then integrates a reference back to zero — so any noise that affects both phases cancels out. This gives a DMM far better noise rejection than an oscilloscope for steady-state readings.</p>
+  <p>The dual-slope technique integrates the input signal for a fixed period, then integrates a reference back to zero - so any noise that affects both phases cancels out. This gives a DMM far better noise rejection than an oscilloscope for steady-state readings.</p>
 </Callout>
 
 <!-- ── PARTS ── -->
@@ -162,10 +162,10 @@ import Callout from '../../components/blog/Callout.astro';
       {[
         { label: 'Display', desc: '3½–6½ digit LCD showing reading + unit', color: 'bg-emerald-100 text-emerald-700' },
         { label: 'Function Dial', desc: 'Switches between DCV, ACV, Ω, A, continuity, diode…', color: 'bg-blue-100 text-blue-700' },
-        { label: 'HOLD Button', desc: 'Freezes the reading — useful in tight spaces', color: 'bg-amber-100 text-amber-700' },
-        { label: 'COM Terminal', desc: 'Black probe — always connected, common reference', color: 'bg-gray-200 text-gray-700' },
+        { label: 'HOLD Button', desc: 'Freezes the reading - useful in tight spaces', color: 'bg-amber-100 text-amber-700' },
+        { label: 'COM Terminal', desc: 'Black probe - always connected, common reference', color: 'bg-gray-200 text-gray-700' },
         { label: 'VΩ Terminal', desc: 'Red probe for voltage and resistance measurements', color: 'bg-orange-100 text-orange-700' },
-        { label: 'A Terminal', desc: 'Current input — has a fuse inside', color: 'bg-red-100 text-red-700' },
+        { label: 'A Terminal', desc: 'Current input - has a fuse inside', color: 'bg-red-100 text-red-700' },
       ].map(item => (
         <div class="flex items-start gap-3">
           <span class={`text-xs font-bold px-2 py-0.5 rounded shrink-0 mt-0.5 ${item.color}`}>{item.label}</span>
@@ -183,7 +183,7 @@ import Callout from '../../components/blog/Callout.astro';
 
 <div class="my-8 grid sm:grid-cols-2 gap-4">
   {[
-    { icon: '🔊', name: 'Continuity', desc: 'Beeps when resistance is below ~50 Ω — instantly confirms an unbroken wire without looking at the display.' },
+    { icon: '🔊', name: 'Continuity', desc: 'Beeps when resistance is below ~50 Ω - instantly confirms an unbroken wire without looking at the display.' },
     { icon: '⚡', name: 'Diode Test', desc: 'Applies a controlled current and shows forward voltage drop (silicon diode ≈ 0.6–0.7 V). Open = faulty.' },
     { icon: '🔵', name: 'Capacitance', desc: 'Charges and times the capacitor to calculate capacitance in pF, nF, or µF.' },
     { icon: '〜', name: 'Frequency (Hz)', desc: 'Counts zero-crossings per second to show signal frequency. Essential for VFD and inverter checks.' },
@@ -231,7 +231,7 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <!-- ── HOW TO USE ── -->
-<h2 id="how-to-use">How to Use a Multimeter — Step by Step</h2>
+<h2 id="how-to-use">How to Use a Multimeter - Step by Step</h2>
 
 <h3>Measuring DC Voltage</h3>
 <div class="my-6 space-y-0">
@@ -255,7 +255,7 @@ import Callout from '../../components/blog/Callout.astro';
 <h3>Measuring Resistance</h3>
 
 <Callout type="warning" title="De-energise before measuring resistance">
-  <p>Always switch off and isolate the circuit before measuring resistance. The meter applies its own small test voltage — mixing it with mains supply will damage the meter and is a shock hazard.</p>
+  <p>Always switch off and isolate the circuit before measuring resistance. The meter applies its own small test voltage - mixing it with mains supply will damage the meter and is a shock hazard.</p>
 </Callout>
 
 <div class="my-6 space-y-0">
@@ -277,16 +277,16 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <!-- ── SAFETY ── -->
-<h2 id="safety">Multimeter Safety — Key Rules</h2>
+<h2 id="safety">Multimeter Safety - Key Rules</h2>
 
 <div class="my-8 space-y-3">
   {[
-    { ok: false, text: 'Never connect current inputs across a voltage source — the low internal resistance creates a short circuit.' },
+    { ok: false, text: 'Never connect current inputs across a voltage source - the low internal resistance creates a short circuit.' },
     { ok: false, text: 'Never measure resistance on a live circuit.' },
-    { ok: true,  text: 'Always check probe condition before use — cracked or damaged insulation is a shock hazard.' },
+    { ok: true,  text: 'Always check probe condition before use - cracked or damaged insulation is a shock hazard.' },
     { ok: true,  text: 'Use the correct CAT rating for your work environment. CAT III or CAT IV for mains and panel work.' },
     { ok: true,  text: 'When in doubt, start on the highest range and work down to avoid overloading.' },
-    { ok: true,  text: 'Check the fuse rating in the current input — a blown fuse gives a zero reading, not an error.' },
+    { ok: true,  text: 'Check the fuse rating in the current input - a blown fuse gives a zero reading, not an error.' },
   ].map(rule => (
     <div class={`flex gap-3 items-start p-4 rounded-xl ${rule.ok ? 'bg-emerald-50 border border-emerald-200' : 'bg-red-50 border border-red-200'}`}>
       <span class={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold mt-0.5 ${rule.ok ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white'}`}>

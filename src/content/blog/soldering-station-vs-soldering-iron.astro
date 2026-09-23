@@ -4,7 +4,7 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  Both heat up and melt solder — but the similarity ends there. A basic soldering iron and a temperature-controlled soldering station operate on fundamentally different principles, produce very different results, and suit completely different work. Here's a clear breakdown of when each one is right.
+  Both heat up and melt solder - but the similarity ends there. A basic soldering iron and a temperature-controlled soldering station operate on fundamentally different principles, produce very different results, and suit completely different work. Here's a clear breakdown of when each one is right.
 </p>
 
 <h2 id="core-difference">The Core Difference</h2>
@@ -16,7 +16,7 @@ import Callout from '../../components/blog/Callout.astro';
       <div class="text-gray-300 text-xs mt-1">Fixed power · No temperature control</div>
     </div>
     <div class="p-5 bg-gray-50 space-y-2">
-      {['Heating element at fixed power (e.g. 25 W, 40 W)','Temperature drifts with ambient and tip mass','Temperature can overshoot 400–500 °C on light joints','No feedback — no way to know actual tip temperature','Better for plumbing, heavy electrical cable joints','Much cheaper to buy'].map(r => (
+      {['Heating element at fixed power (e.g. 25 W, 40 W)','Temperature drifts with ambient and tip mass','Temperature can overshoot 400–500 °C on light joints','No feedback - no way to know actual tip temperature','Better for plumbing, heavy electrical cable joints','Much cheaper to buy'].map(r => (
         <div class="flex gap-2 items-start text-sm text-gray-700">
           <span class="text-gray-500 font-bold shrink-0 mt-0.5">·</span>
           <span>{r}</span>
@@ -30,7 +30,7 @@ import Callout from '../../components/blog/Callout.astro';
       <div class="text-red-100 text-xs mt-1">Closed-loop control · Stable temperature</div>
     </div>
     <div class="p-5 bg-[#FEF2F2] space-y-2">
-      {['Temperature sensor (thermocouple / sensor) in the tip','PID controller adjusts power to maintain set temperature','Holds ±2–5 °C of target — no overshoot','Digital display shows actual tip temperature','Interchangeable tips (chisel, conical, hoof, etc.)','ESD-safe design protects CMOS components'].map(r => (
+      {['Temperature sensor (thermocouple / sensor) in the tip','PID controller adjusts power to maintain set temperature','Holds ±2–5 °C of target - no overshoot','Digital display shows actual tip temperature','Interchangeable tips (chisel, conical, hoof, etc.)','ESD-safe design protects CMOS components'].map(r => (
         <div class="flex gap-2 items-start text-sm text-[#7f1d1d]">
           <span class="text-[#E0252E] font-bold shrink-0 mt-0.5">✓</span>
           <span>{r}</span>
@@ -52,12 +52,12 @@ import Callout from '../../components/blog/Callout.astro';
     </thead>
     <tbody>
       {[
-        ['< 180 °C', 'Solder doesn\'t flow properly — cold joints, dull finish, poor mechanical strength'],
-        ['183–200 °C', 'Sn63/Pb37 eutectic solder melts — minimum working temperature'],
+        ['< 180 °C', 'Solder doesn\'t flow properly - cold joints, dull finish, poor mechanical strength'],
+        ['183–200 °C', 'Sn63/Pb37 eutectic solder melts - minimum working temperature'],
         ['220–260 °C', 'Ideal range for most lead-free (SAC305) PCB work'],
-        ['260–330 °C', 'Heavy joints, thick tracks, ground planes — higher thermal mass needs more heat'],
+        ['260–330 °C', 'Heavy joints, thick tracks, ground planes - higher thermal mass needs more heat'],
         ['> 350 °C', 'PCB pads lift, IC packages crack, flux burns too fast, tip oxidises rapidly'],
-        ['> 400 °C (uncontrolled iron)', 'Component damage zone — SMD ICs, MOSFET gate oxides vulnerable'],
+        ['> 400 °C (uncontrolled iron)', 'Component damage zone - SMD ICs, MOSFET gate oxides vulnerable'],
       ].map(([temp, what], i) => (
         <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
           <td class="px-5 py-3 font-mono font-bold text-[#E0252E] border-b border-gray-100 text-xs">{temp}</td>
@@ -73,7 +73,7 @@ import Callout from '../../components/blog/Callout.astro';
 <div class="my-8 grid sm:grid-cols-3 gap-4">
   {[
     { tip:'Conical', use:'Fine SMD work, through-hole components', best:'1–2 mm fine point' },
-    { tip:'Chisel', use:'General PCB work, drag soldering, pads', best:'Most versatile — start here' },
+    { tip:'Chisel', use:'General PCB work, drag soldering, pads', best:'Most versatile - start here' },
     { tip:'Bevel / Hoof', use:'QFP/SOIC drag soldering, large pads', best:'Holds solder on flat face' },
     { tip:'Knife / Blade', use:'SMD rework, desoldering bridges', best:'Precision SMD repair' },
     { tip:'Micro / Needle', use:'0402 / 0201 passive components, fine pitch', best:'< 0.5 mm tip diameter' },
@@ -92,7 +92,7 @@ import Callout from '../../components/blog/Callout.astro';
 <div class="my-8 space-y-3">
   {[
     { situation:'PCB assembly, component repair, electronics prototyping', verdict:'Station', reason:'You need temperature control. An uncontrolled iron will damage SMD components and lift pads.' },
-    { situation:'Joining heavy electrical cables, plumbing copper, sheet metal', verdict:'Iron', reason:'A 100 W iron or gas torch is better here — the high thermal mass needs sustained raw heat, not precision.' },
+    { situation:'Joining heavy electrical cables, plumbing copper, sheet metal', verdict:'Iron', reason:'A 100 W iron or gas torch is better here - the high thermal mass needs sustained raw heat, not precision.' },
     { situation:'Hobbyist through-hole kits (Raspberry Pi HATs, Arduino shields)', verdict:'Station (budget OK)', reason:'A basic station (₹1,500–3,000) gives enough control for through-hole work and grows with your skills.' },
     { situation:'Professional electronics service workshop', verdict:'Station (quality)', reason:'Invest in a Hakko or equivalent with fast thermal recovery, ESD safety, calibration support, and tip availability.' },
     { situation:'One-off repair (single job, never solder again)', verdict:'Iron', reason:'A 25–40 W iron is adequate for a single through-hole joint. Don\'t over-invest.' },
@@ -110,7 +110,7 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <Callout type="tip" title="Temperature settings for common solder types">
-  <p><strong>Sn63/Pb37 (leaded):</strong> 300–340 °C for general PCB work. <strong>SAC305 lead-free:</strong> 340–380 °C — higher melting point needs more heat. <strong>Chip Quik low-melt:</strong> 180–220 °C — use for desoldering SMD parts without damage. Always tin the tip before and after use.</p>
+  <p><strong>Sn63/Pb37 (leaded):</strong> 300–340 °C for general PCB work. <strong>SAC305 lead-free:</strong> 340–380 °C - higher melting point needs more heat. <strong>Chip Quik low-melt:</strong> 180–220 °C - use for desoldering SMD parts without damage. Always tin the tip before and after use.</p>
 </Callout>
 
 <p>

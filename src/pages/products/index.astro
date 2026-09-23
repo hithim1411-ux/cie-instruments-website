@@ -32,14 +32,14 @@ const vartechCategories = [
     href: u('/authorised-dealership/multimeters/'),
     iconId: 'vartech-multimeters',
     count: vartechMultimeters.length,
-    description: 'True RMS digital multimeters — pocket-friendly to bench-top, 2000 to 30000 counts.',
+    description: 'True RMS digital multimeters - pocket-friendly to bench-top, 2000 to 30000 counts.',
   },
   {
     label: 'Clamp Meters',
     href: u('/authorised-dealership/clamp-meters/'),
     iconId: 'vartech-clamp-meters',
     count: vartechClampMeters.length,
-    description: 'Digital clamp meters — 1000 A AC, True RMS, mA leakage testers and smart compact models.',
+    description: 'Digital clamp meters - 1000 A AC, True RMS, mA leakage testers and smart compact models.',
   },
   {
     label: 'Oscilloscopes',
@@ -53,7 +53,7 @@ const vartechCategories = [
     href: u('/authorised-dealership/function-generators/'),
     iconId: 'vartech-function-generators',
     count: vartechFunctionGenerators.length,
-    description: 'DDS function generators — 6 MHz to 80 MHz, dual channel, arbitrary waveforms, USB.',
+    description: 'DDS function generators - 6 MHz to 80 MHz, dual channel, arbitrary waveforms, USB.',
   },
   {
     label: 'LCR & Cap Meters',
@@ -74,28 +74,28 @@ const vartechCategories = [
     href: u('/authorised-dealership/sound-level-meters/'),
     iconId: 'vartech-sound-level-meters',
     count: vartechSoundLevelMeters.length,
-    description: '30–130 dBA digital sound level meters — A-weighting, 1/2-inch condenser microphone, Fast/Slow.',
+    description: '30–130 dBA digital sound level meters - A-weighting, 1/2-inch condenser microphone, Fast/Slow.',
   },
   {
     label: 'Anemometers',
     href: u('/authorised-dealership/anemometers/'),
     iconId: 'vartech-anemometers',
     count: vartechAnemometers.length,
-    description: 'Digital anemometers — 0–45 m/s air speed with temperature, wind chill and bar graph.',
+    description: 'Digital anemometers - 0–45 m/s air speed with temperature, wind chill and bar graph.',
   },
   {
     label: 'Calibrators',
     href: u('/authorised-dealership/calibrators/'),
     iconId: 'vartech-calibrators',
     count: vartechCalibrators.length,
-    description: 'mV, mA, temperature and process calibrators — source & measure T/C, RTD and loop current.',
+    description: 'mV, mA, temperature and process calibrators - source & measure T/C, RTD and loop current.',
   },
   {
     label: 'Lux Meters',
     href: u('/authorised-dealership/lux-meters/'),
     iconId: 'vartech-lux-meters',
     count: vartechLuxMeters.length,
-    description: 'Digital lux meters — 0.1 to 200,000 Lux, flexible sensor, Lux/FC select.',
+    description: 'Digital lux meters - 0.1 to 200,000 Lux, flexible sensor, Lux/FC select.',
   },
   {
     label: 'Thermometers',
@@ -109,7 +109,7 @@ const vartechCategories = [
     href: u('/authorised-dealership/dc-power-supplies/'),
     iconId: 'vartech-dc-power-supplies',
     count: vartechDcPowerSupplies.length,
-    description: 'Linear, SMPS and programmable DC supplies — 30 V to 200 V, up to 40 A, with PC interface.',
+    description: 'Linear, SMPS and programmable DC supplies - 30 V to 200 V, up to 40 A, with PC interface.',
   },
 ];
 
@@ -117,8 +117,8 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
 ---
 
 <Base
-  title="Test & Measuring Instruments Manufacturer — Insulation Testers, Earth Testers & More"
-  description="CIE — manufacturer of test and measuring instruments in India since 1963: insulation testers, earth testers, relay test sets, oil BDV testers. Plus Vartech authorised dealership (oscilloscopes, multimeters, function generators, LCR meters, DC loads). Howrah, Kolkata, India."
+  title="Test & Measuring Instruments Manufacturer - Insulation Testers, Earth Testers & More"
+  description="CIE - manufacturer of test and measuring instruments in India since 1963: insulation testers, earth testers, relay test sets, oil BDV testers. Plus Vartech authorised dealership (oscilloscopes, multimeters, function generators, LCR meters, DC loads). Howrah, Kolkata, India."
   keywords="test and measuring instruments manufacturers in India, insulation tester manufacturers in India, earth testers, CIE instruments catalogue, vartech instruments India, digital multimeters India, oscilloscopes India, clamp meters India, electrical test instruments supplier"
 >
   <!-- Page header -->
@@ -127,7 +127,7 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
       <Breadcrumbs crumbs={[{ label: 'Products' }]} />
       <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight mt-4">Products</h1>
       <p class="mt-2 text-muted max-w-2xl">
-        Manufacturer of test and measuring instruments in India since 1963 — insulation testers, earth testers, and more — plus the complete Vartech range as authorised dealer. Contact us for pricing and availability.
+        Manufacturer of test and measuring instruments in India since 1963 - insulation testers, earth testers, and more - plus the complete Vartech range as authorised dealer. Contact us for pricing and availability.
       </p>
     </div>
   </div>
@@ -187,7 +187,7 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
       <!-- CIE product grid -->
       <div class="product-slider product-slider--desktop-scroll gap-5 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8" id="cie-product-grid">
         {cieProducts.map((p: any) => {
-          const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${p.model} — ${p.name}`);
+          const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${p.model} - ${p.name}`);
           return (
             <article
               data-category={p.categoryId}
@@ -197,7 +197,7 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
               <div class="bg-cloud h-52 flex items-center justify-center relative overflow-hidden">
                 <img
                   src={u(`/images/products/${p.id}.webp`)}
-                  alt={`${p.model} — ${p.name}`}
+                  alt={`${p.model} - ${p.name}`}
                   width="300"
                   height="300"
                   class="object-contain h-40 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105"
@@ -264,7 +264,7 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
         </div>
       </div>
 
-      <!-- Vartech category grid — all categories, linking to authorised dealership pages -->
+      <!-- Vartech category grid - all categories, linking to authorised dealership pages -->
       <div class="product-slider gap-5 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 mb-4">
         {vartechCategories.map(cat => (
           <a href={cat.href} class="card card-interactive group flex flex-col p-6">

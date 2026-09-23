@@ -2,7 +2,7 @@
   {
     "id": "v-6610-b",
     "model": "V 6610 B",
-    "name": "Digital Lux Meter — 0–199999 Lux",
+    "name": "Digital Lux Meter - 0–199999 Lux",
     "tagline": "0–199999 Lux / 0–19999 FC digital lux meter with 4-digit backlit display, Auto/Manual ranging, Min/Max hold, data recording and 9 V battery.",
     "description": "The Vartech V 6610 B is an economical, high-quality digital lux meter with a wide 0–199999 Lux (0–19999 FC) measurement range and a 4-digit backlit LCD display. It features Auto and Manual ranging, Data Hold, Min/Max memory and a data recording facility. The instrument achieves ±4% accuracy when calibrated with a standard tungsten flat lamp at 2856 K colour temperature, and ±6% + 5 Lux for other visible light sources. Resolution steps from 0.1 Lux below 200 Lux to 1 Lux above 200 Lux, providing fine sensitivity at low light levels. A silicon photocell sensor covers the spectral range 320–730 nm with a cosine deviation of ±2% at 30°, ±6% at 60° and ±25% at 80°. Powered by a 9 V battery.",
     "features": [
@@ -36,15 +36,15 @@
   {
     "id": "v-6610-plus",
     "model": "V 6610+",
-    "name": "Digital Lux Meter — 0.1 to 200,000 Lux",
-    "tagline": "3½-digit auto-ranging lux meter — 0.1 to 200,000 Lux with flexible detachable sensor, Lux/FC select, data hold, Min/Max and backlight.",
+    "name": "Digital Lux Meter - 0.1 to 200,000 Lux",
+    "tagline": "3½-digit auto-ranging lux meter - 0.1 to 200,000 Lux with flexible detachable sensor, Lux/FC select, data hold, Min/Max and backlight.",
     "description": "The Vartech V 6610+ is a 3½-digit (2000 counts) auto-ranging digital lux meter covering 0.1 to 200,000 Lux with a 0.1 Lux minimum resolution. It features a detachable, flexible sensor head on an approximately 15 cm coiled lead that allows positioning the sensor independently of the meter body for accurate readings in confined or awkward locations. Lux/FC selection lets users switch between SI and imperial illuminance units. Auto data recording, Data Hold, and Min./Max. hold are provided. A backlit display aids reading in dimly lit environments. The instrument is supplied in a protective holster.",
     "features": [
-      "3½ digits, 2000 counts — Auto Ranging",
+      "3½ digits, 2000 counts - Auto Ranging",
       "0.1 to 200,000 Lux range  |  0.1 Lux minimum resolution",
-      "Detachable, flexible sensor — approx. 15 cm coiled lead",
+      "Detachable, flexible sensor - approx. 15 cm coiled lead",
       "Lux / FC unit selection",
-      "Accuracy: < 10,000 Lux — 0.1 res: ±(3%+10 d);  1 res: ±(4%+10 d)  |  ≥ 10,000 Lux — 0.1 res: ±(4%+10 d);  1 res: ±(5%+10 d)",
+      "Accuracy: < 10,000 Lux - 0.1 res: ±(3%+10 d);  1 res: ±(4%+10 d)  |  ≥ 10,000 Lux - 0.1 res: ±(4%+10 d);  1 res: ±(5%+10 d)",
       "Auto data recording  |  Data Hold  |  Min./Max. hold",
       "Backlit display  |  REL function  |  Holster included",
       "Power: 2 × AAA batteries"

@@ -8,12 +8,12 @@
     "features": [
       "30–130 dBA wide measuring range",
       "±1.5 dB accuracy (referenced to 94 dB @ 1 kHz)",
-      "1/2 inch condenser microphone — A-frequency weighting",
-      "5-digit backlit display — 0.1 dB resolution, 2 samples/s",
+      "1/2 inch condenser microphone - A-frequency weighting",
+      "5-digit backlit display - 0.1 dB resolution, 2 samples/s",
       "Fast / Slow dynamic response modes",
       "Maximum hold (MAX)",
       "Over / Under range warning",
-      "Auto Power Off — 9 V battery operation"
+      "Auto Power Off - 9 V battery operation"
     ],
     "specs": [
       { "label": "Measuring Range", "value": "30–130 dBA" },

@@ -4,7 +4,7 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  A poor earth connection is the most invisible and potentially most dangerous electrical fault in any installation. You cannot see or smell it — but in a fault condition, it determines whether a person lives or dies. This guide explains what earth resistance is, why it must be measured, the correct test method, and how to interpret your results.
+  A poor earth connection is the most invisible and potentially most dangerous electrical fault in any installation. You cannot see or smell it - but in a fault condition, it determines whether a person lives or dies. This guide explains what earth resistance is, why it must be measured, the correct test method, and how to interpret your results.
 </p>
 
 <h2 id="what-is">What Is Earth Resistance and Why Does It Matter?</h2>
@@ -15,8 +15,8 @@ import Callout from '../../components/blog/Callout.astro';
 
 <div class="my-6 grid sm:grid-cols-3 gap-4">
   {[
-    { icon:'⚡', heading:'Fault current flows', body:'If a live conductor touches exposed metalwork, fault current flows freely to earth — tripping the breaker or fuse before anyone is harmed.' },
-    { icon:'🛡️', heading:'Touch voltage is limited', body:'High earth resistance means fault current is small, so protective devices don\'t trip quickly — leaving dangerous voltage on exposed surfaces for longer.' },
+    { icon:'⚡', heading:'Fault current flows', body:'If a live conductor touches exposed metalwork, fault current flows freely to earth - tripping the breaker or fuse before anyone is harmed.' },
+    { icon:'🛡️', heading:'Touch voltage is limited', body:'High earth resistance means fault current is small, so protective devices don\'t trip quickly - leaving dangerous voltage on exposed surfaces for longer.' },
     { icon:'📡', heading:'Lightning protection works', body:'Lightning protection systems must discharge massive surge currents to earth. High resistance means the surge energy stays in the structure.' },
   ].map(f => (
     <div class="p-4 rounded-xl border border-gray-200 bg-white text-center">
@@ -95,19 +95,19 @@ import Callout from '../../components/blog/Callout.astro';
       <text x="267" y="215" text-anchor="middle" font-size="9" fill="#94a3b8" font-family="sans-serif">Distance D (10× electrode depth)</text>
     </svg>
   </div>
-  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure — 3-point fall-of-potential method: P probe at 62% of E-to-C distance</p>
+  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure - 3-point fall-of-potential method: P probe at 62% of E-to-C distance</p>
 </div>
 
 <h2 id="procedure">Step-by-Step Test Procedure</h2>
 
 <div class="my-6 space-y-0">
   {[
-    { n:1, t:'Disconnect the earth electrode from the system', b:'Temporarily disconnect the earth conductor. Testing with the earth connected gives a parallel reading that is always too low — giving a false pass.' },
-    { n:2, t:'Drive the current probe (C)', b:'Drive a temporary test stake at a distance of at least 10× the depth of the electrode under test — typically 20–40 m for a 2 m rod. Direction: away from buried pipes and cables.' },
+    { n:1, t:'Disconnect the earth electrode from the system', b:'Temporarily disconnect the earth conductor. Testing with the earth connected gives a parallel reading that is always too low - giving a false pass.' },
+    { n:2, t:'Drive the current probe (C)', b:'Drive a temporary test stake at a distance of at least 10× the depth of the electrode under test - typically 20–40 m for a 2 m rod. Direction: away from buried pipes and cables.' },
     { n:3, t:'Place the potential probe (P) at 62% of the E-to-C distance', b:'This is the theoretical null point where the potential reference is unaffected by either electrode. For 30 m separation, P goes at 18.6 m from E.' },
     { n:4, t:'Connect earth tester terminals', b:'E terminal → earth electrode under test. P terminal → potential probe stake. C terminal → current probe stake.' },
     { n:5, t:'Press TEST and record reading', b:'The earth tester injects AC test current (typically 128 Hz or 820 Hz) and measures the resulting potential difference. The ratio gives resistance in ohms.' },
-    { n:6, t:'Repeat at 52% and 72% of D — check for consistency', b:'If all three readings are within ±2% of each other, the 62% result is valid. Large variation indicates a buried conductor is affecting the measurement — reposition C.' },
+    { n:6, t:'Repeat at 52% and 72% of D - check for consistency', b:'If all three readings are within ±2% of each other, the 62% result is valid. Large variation indicates a buried conductor is affecting the measurement - reposition C.' },
   ].map((s, i, arr) => (
     <div class="flex gap-4 relative">
       {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
@@ -120,7 +120,7 @@ import Callout from '../../components/blog/Callout.astro';
   ))}
 </div>
 
-<Callout type="info" title="Clamp-on earth testers — no disconnection needed">
+<Callout type="info" title="Clamp-on earth testers - no disconnection needed">
   <p>Clamp-on earth testers (like the CIE DET-2000) can measure earth resistance in multi-electrode systems <em>without disconnecting the electrode</em>. They inject a test signal via induction and measure the return current through the complete earth loop. Ideal for quick audits of live systems.</p>
 </Callout>
 
@@ -129,7 +129,7 @@ import Callout from '../../components/blog/Callout.astro';
 <div class="my-6 space-y-2">
   {[
     { action:'Drive additional rods in parallel', detail:'Each additional electrode in parallel halves the total resistance (approximately). Space them at > 2× rod depth apart.' },
-    { action:'Use chemical earthing compounds', detail:'Backfill around the electrode with conductive bentonite or graphite compound — lowers soil resistivity immediately around the electrode.' },
+    { action:'Use chemical earthing compounds', detail:'Backfill around the electrode with conductive bentonite or graphite compound - lowers soil resistivity immediately around the electrode.' },
     { action:'Increase electrode depth', detail:'Deeper burial reaches moister, lower-resistivity soil. Soil resistivity drops significantly below the frost/dry line.' },
     { action:'Water the electrode', detail:'In dry soils, regular watering around the electrode keeps soil resistivity low. Not a permanent solution but useful for audit.' },
   ].map(a => (

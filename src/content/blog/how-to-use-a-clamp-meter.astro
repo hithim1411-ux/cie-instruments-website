@@ -4,7 +4,7 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  A <strong>clamp meter</strong> lets you measure current flowing through a conductor <em>without touching it or breaking the circuit</em> — simply by clamping its jaw around the wire. This makes it the fastest and safest tool for checking load current in live panels, motor control centres, and distribution boards.
+  A <strong>clamp meter</strong> lets you measure current flowing through a conductor <em>without touching it or breaking the circuit</em> - simply by clamping its jaw around the wire. This makes it the fastest and safest tool for checking load current in live panels, motor control centres, and distribution boards.
 </p>
 
 <!-- ── HOW IT WORKS ── -->
@@ -43,7 +43,7 @@ import Callout from '../../components/blog/Callout.astro';
         <div class="w-7 h-7 rounded-full bg-[#E0252E] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</div>
         <div>
           <p class="font-bold text-[#0D1B2A] text-sm">AC current creates a magnetic field</p>
-          <p class="text-xs text-gray-600 mt-0.5">Alternating current in the conductor generates a changing magnetic field (B-field) around the wire — described by Faraday's Law.</p>
+          <p class="text-xs text-gray-600 mt-0.5">Alternating current in the conductor generates a changing magnetic field (B-field) around the wire - described by Faraday's Law.</p>
         </div>
       </div>
       <div class="flex gap-3">
@@ -69,18 +69,18 @@ import Callout from '../../components/blog/Callout.astro';
 </Callout>
 
 <!-- ── PARTS ── -->
-<h2 id="parts">Parts of a Clamp Meter — Explained</h2>
+<h2 id="parts">Parts of a Clamp Meter - Explained</h2>
 
 <div class="my-8 grid sm:grid-cols-2 gap-3">
   {[
     { part: 'Jaws / Clamp', icon: '🗜️', desc: 'The split ferrite core that encircles the conductor. Must close completely for accurate readings.' },
-    { part: 'Jaw Trigger', icon: '🤙', desc: 'Press to open the jaws — release to clamp around the conductor. Handle carefully on live conductors.' },
+    { part: 'Jaw Trigger', icon: '🤙', desc: 'Press to open the jaws - release to clamp around the conductor. Handle carefully on live conductors.' },
     { part: 'LCD Display', icon: '📟', desc: 'Shows the measured value with unit prefix (A, mA, V, Ω). Backlit on most modern meters.' },
     { part: 'Function Selector', icon: '🔄', desc: 'Switches between AC current, DC current, AC/DC voltage, resistance, continuity, Hz, and more.' },
-    { part: 'HOLD Button', icon: '⏸️', desc: 'Freezes the display reading — invaluable in tight or overhead panel work where you can\'t see the meter.' },
-    { part: 'INRUSH / PEAK', icon: '⚡', desc: 'Captures motor start-up inrush current spikes that last only milliseconds — invisible to normal mode.' },
-    { part: 'COM Terminal', icon: '⚫', desc: 'Black probe connection — the common/negative reference for all probe-based measurements.' },
-    { part: 'VΩ Terminal', icon: '🔴', desc: 'Red probe for voltage and resistance — plug in only when using the meter in multimeter mode.' },
+    { part: 'HOLD Button', icon: '⏸️', desc: 'Freezes the display reading - invaluable in tight or overhead panel work where you can\'t see the meter.' },
+    { part: 'INRUSH / PEAK', icon: '⚡', desc: 'Captures motor start-up inrush current spikes that last only milliseconds - invisible to normal mode.' },
+    { part: 'COM Terminal', icon: '⚫', desc: 'Black probe connection - the common/negative reference for all probe-based measurements.' },
+    { part: 'VΩ Terminal', icon: '🔴', desc: 'Red probe for voltage and resistance - plug in only when using the meter in multimeter mode.' },
   ].map(p => (
     <div class="flex gap-3 p-4 bg-gray-50 border border-gray-200 rounded-xl items-start">
       <span class="text-xl shrink-0">{p.icon}</span>
@@ -98,8 +98,8 @@ import Callout from '../../components/blog/Callout.astro';
 <div class="my-6 space-y-0">
   {[
     { n:1, title:'Select AC Current (A~)', body:'Turn the dial to AC current mode. Choose a range higher than expected, or use auto-range.' },
-    { n:2, title:'Open the jaws fully', body:'Press the trigger and open the clamp to its maximum — wide enough to fit around the conductor.' },
-    { n:3, title:'Clamp around ONE conductor only', body:'This is the most common mistake — clamping both live and neutral cancels the magnetic fields and gives a zero reading. One wire at a time.' },
+    { n:2, title:'Open the jaws fully', body:'Press the trigger and open the clamp to its maximum - wide enough to fit around the conductor.' },
+    { n:3, title:'Clamp around ONE conductor only', body:'This is the most common mistake - clamping both live and neutral cancels the magnetic fields and gives a zero reading. One wire at a time.' },
     { n:4, title:'Centre the conductor in the jaw', body:'Position the wire in the middle of the jaw opening, not at the edge. The magnetic circuit is most linear at the centre.' },
     { n:5, title:'Close the jaws completely', body:'Any gap in the jaw introduces air into the magnetic circuit, significantly reducing accuracy. Listen for the click.' },
     { n:6, title:'Read and hold', body:'Press HOLD to freeze the reading if the cable is in a confined or overhead location.' },
@@ -120,7 +120,7 @@ import Callout from '../../components/blog/Callout.astro';
 
 <div class="my-6 space-y-0">
   {[
-    { n:1, title:'Select DC Current (A⎓)', body:'Ensure your meter has Hall Effect DC measurement — not all clamp meters do.' },
+    { n:1, title:'Select DC Current (A⎓)', body:'Ensure your meter has Hall Effect DC measurement - not all clamp meters do.' },
     { n:2, title:'Zero the reading', body:'With jaws open and away from conductors, press ZERO / REL to null out residual magnetic field offset. This step is critical for DC accuracy.' },
     { n:3, title:'Clamp around one conductor', body:'Clamp around the positive or negative conductor only.' },
     { n:4, title:'Check the sign', body:'A negative reading means current direction is opposite. Flip the jaw orientation to get a positive reading.' },
@@ -160,7 +160,7 @@ import Callout from '../../components/blog/Callout.astro';
 <h2 id="inrush">Measuring Motor Inrush Current</h2>
 
 <p>
-  When a motor starts, it draws a brief but large <strong>inrush current</strong> — typically 6–10× the normal running current — lasting only milliseconds. Standard mode misses this entirely. Use INRUSH or PEAK HOLD:
+  When a motor starts, it draws a brief but large <strong>inrush current</strong> - typically 6–10× the normal running current - lasting only milliseconds. Standard mode misses this entirely. Use INRUSH or PEAK HOLD:
 </p>
 
 <div class="my-6 p-5 bg-amber-50 border border-amber-200 rounded-xl">
@@ -169,7 +169,7 @@ import Callout from '../../components/blog/Callout.astro';
     <p class="font-bold text-amber-900">Inrush Measurement Procedure</p>
   </div>
   <div class="space-y-2">
-    {['Clamp the meter around the motor supply conductor.','Press and hold the INRUSH or PEAK HOLD button.','Start the motor.','Release the button — the peak reading is captured and held on the display.','Compare to nameplate inrush rating. Unusually high inrush may indicate a fault.'].map((step, i) => (
+    {['Clamp the meter around the motor supply conductor.','Press and hold the INRUSH or PEAK HOLD button.','Start the motor.','Release the button - the peak reading is captured and held on the display.','Compare to nameplate inrush rating. Unusually high inrush may indicate a fault.'].map((step, i) => (
       <div class="flex gap-2 items-start">
         <span class="w-5 h-5 rounded-full bg-amber-500 text-white text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">{i+1}</span>
         <p class="text-sm text-amber-900">{step}</p>
@@ -179,15 +179,15 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <!-- ── MISTAKES ── -->
-<h2 id="mistakes">Common Mistakes — and How to Avoid Them</h2>
+<h2 id="mistakes">Common Mistakes - and How to Avoid Them</h2>
 
 <div class="my-8 space-y-3">
   {[
-    { mistake:'Clamping around two conductors', fix:'The magnetic fields of live and neutral cancel out — the meter reads zero or near-zero regardless of load. Always clamp ONE conductor.', severity:'high' },
+    { mistake:'Clamping around two conductors', fix:'The magnetic fields of live and neutral cancel out - the meter reads zero or near-zero regardless of load. Always clamp ONE conductor.', severity:'high' },
     { mistake:'Not zeroing before DC measurement', fix:'Residual magnetism in the jaw core gives a false offset on DC readings. Always press ZERO with jaws open before clamping for DC.', severity:'high' },
     { mistake:'Partially open jaws', fix:'The air gap dramatically increases the magnetic circuit reluctance. Close until you hear/feel the click.', severity:'medium' },
     { mistake:'Conductor at the jaw edge', fix:'The magnetic circuit is non-uniform at the edges. Centre the wire in the jaw opening for the most linear response.', severity:'medium' },
-    { mistake:'Using an AC-only clamp for DC', fix:'An AC clamp transformer gives zero output on DC. Check the spec sheet — you need Hall Effect for DC current.', severity:'high' },
+    { mistake:'Using an AC-only clamp for DC', fix:'An AC clamp transformer gives zero output on DC. Check the spec sheet - you need Hall Effect for DC current.', severity:'high' },
   ].map(m => (
     <div class={`rounded-xl overflow-hidden border ${m.severity === 'high' ? 'border-red-200' : 'border-amber-200'}`}>
       <div class={`flex items-center gap-2 px-4 py-2 ${m.severity === 'high' ? 'bg-red-100' : 'bg-amber-100'}`}>

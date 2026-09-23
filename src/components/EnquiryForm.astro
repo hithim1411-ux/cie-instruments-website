@@ -67,7 +67,7 @@ const waMsg = productName
           id="qf-category"
           class="w-full px-3 py-2.5 border border-border rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors text-ink"
         >
-          <option value="">— Select a category —</option>
+          <option value="">Select a category</option>
           {categories.map(cat => (
             <option value={cat.id}>{cat.name}</option>
           ))}
@@ -83,7 +83,7 @@ const waMsg = productName
           disabled
           class="w-full px-3 py-2.5 border border-border rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors text-ink disabled:bg-cloud disabled:text-muted disabled:cursor-not-allowed"
         >
-          <option value="">— Select category first —</option>
+          <option value="">Select category first</option>
         </select>
       </div>
     </div>
@@ -97,7 +97,7 @@ const waMsg = productName
         type="text"
         id="qf-spec"
         name="spec"
-        placeholder="e.g. 500 V / 0–1000 MΩ — leave blank if unsure, we'll advise"
+        placeholder="e.g. 500 V / 0–1000 MΩ - leave blank if unsure, we'll advise"
         class="w-full px-3 py-2.5 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors"
       />
       <p id="qf-spec-hint" class="mt-1 text-xs text-muted hidden"></p>
@@ -168,7 +168,7 @@ const waMsg = productName
 
     <!-- ── Preview of email body ── -->
     <div id="qf-preview-wrap" class="hidden">
-      <p class="text-xs font-mono font-bold text-muted uppercase tracking-widest mb-2">Preview — email that will open</p>
+      <p class="text-xs font-mono font-bold text-muted uppercase tracking-widest mb-2">Preview - email that will open</p>
       <pre
         id="qf-preview"
         class="bg-cloud border border-border rounded-lg px-4 py-3 text-xs text-ink leading-relaxed whitespace-pre-wrap break-words font-mono max-h-52 overflow-y-auto"
@@ -217,9 +217,9 @@ const previewEl   = document.getElementById('qf-preview');
 // Spec hints per category
 const specHints = {
   'insulation-testers-hand':         'Specify rated voltage (e.g. 500 V) and resistance range (e.g. 0–1000 MΩ)',
-  'multirange-insulation-hand':      'Specify series — MR-1, MR-2, MR-3, or MR-4 (CIE/444/MR) or up to MR-8 (CIE/666/MR)',
+  'multirange-insulation-hand':      'Specify series - MR-1, MR-2, MR-3, or MR-4 (CIE/444/MR) or up to MR-8 (CIE/666/MR)',
   'motor-operated-insulation':       'Specify rated voltage (e.g. 2500 V) and resistance range (e.g. 0–10000 MΩ)',
-  'multirange-motorised-insulation': 'Specify series — MR-A, MR-B, MR-C, MR-D, or MR-E',
+  'multirange-motorised-insulation': 'Specify series - MR-A, MR-B, MR-C, MR-D, or MR-E',
   'compact-insulation-testers':      'Specify rated voltage (e.g. 500 V) and resistance range',
   'earth-tester':                    'Specify number of terminals (3-terminal or 4-terminal) if known',
   'digital-insulation-testers':      'Specify rated voltage range if known (e.g. up to 5000 V)',
@@ -239,7 +239,7 @@ catSel.addEventListener('change', () => {
   // Reset product dropdown
   prodSel.innerHTML = '';
   if (!cat) {
-    prodSel.innerHTML = '<option value="">— Select category first —</option>';
+    prodSel.innerHTML = '<option value="">Select category first</option>';
     prodSel.disabled = true;
     specHint.classList.add('hidden');
     specHint.textContent = '';
@@ -249,13 +249,13 @@ catSel.addEventListener('change', () => {
 
   const placeholder = document.createElement('option');
   placeholder.value = '';
-  placeholder.textContent = '— Select a model —';
+  placeholder.textContent = 'Select a model';
   prodSel.appendChild(placeholder);
 
   cat.products.forEach(p => {
     const opt = document.createElement('option');
     opt.value = p.model;
-    opt.textContent = `${p.model} — ${p.name}`;
+    opt.textContent = `${p.model} - ${p.name}`;
     prodSel.appendChild(opt);
   });
 
@@ -287,10 +287,10 @@ function buildBody() {
   const msg      = msgInput.value.trim();
 
   const subject = model
-    ? `Quote Request — ${model}`
+    ? `Quote Request - ${model}`
     : catName
-      ? `Quote Request — ${catName}`
-      : 'Quote Request — CIE Instruments';
+      ? `Quote Request - ${catName}`
+      : 'Quote Request - CIE Instruments';
 
   const lines = [
     'Hello CIE team,',

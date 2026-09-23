@@ -4,7 +4,7 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  An oscilloscope turns invisible electrical signals into visible waveforms you can measure. It shows you <strong>how voltage changes over time</strong> — making it indispensable for electronics design, circuit debugging, and signal analysis. This guide takes you from unpacking the instrument to making your first real measurement.
+  An oscilloscope turns invisible electrical signals into visible waveforms you can measure. It shows you <strong>how voltage changes over time</strong> - making it indispensable for electronics design, circuit debugging, and signal analysis. This guide takes you from unpacking the instrument to making your first real measurement.
 </p>
 
 <h2 id="what-it-shows">What an Oscilloscope Actually Shows You</h2>
@@ -54,7 +54,7 @@ import Callout from '../../components/blog/Callout.astro';
       <text x="420" y="262" font-size="10" fill="#60A5FA" font-family="sans-serif">→ move trace</text>
     </svg>
   </div>
-  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure — Oscilloscope screen: sine wave with amplitude and period marked</p>
+  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure - Oscilloscope screen: sine wave with amplitude and period marked</p>
 </div>
 
 <p>The screen is a <strong>graph of voltage (Y-axis) vs time (X-axis)</strong>. Two knobs control the scale of each axis, letting you zoom in or out on any signal.</p>
@@ -75,7 +75,7 @@ import Callout from '../../components/blog/Callout.astro';
   ))}
 </div>
 
-<h2 id="connect-probe">Step 1 — Connect the Probe Correctly</h2>
+<h2 id="connect-probe">Step 1 - Connect the Probe Correctly</h2>
 
 <Callout type="warning" title="Probe ground is a hard connection">
   <p>The probe's ground clip connects to the instrument's earth. Clipping it to the wrong point creates a short circuit through your scope. Always connect ground first, signal tip second.</p>
@@ -84,9 +84,9 @@ import Callout from '../../components/blog/Callout.astro';
 <div class="my-6 space-y-0">
   {[
     { n:1, t:'Set probe attenuation', b:'Most probes have a 1x/10x switch. Use 10x for most measurements (less loading on the circuit). Match the scope\'s channel setting to the probe switch.' },
-    { n:2, t:'Compensate the probe', b:'Attach the probe tip to the square-wave calibration output on the scope front panel. Adjust the small trimmer screw on the probe until the waveform has perfectly flat tops — not rounded or spiked.' },
+    { n:2, t:'Compensate the probe', b:'Attach the probe tip to the square-wave calibration output on the scope front panel. Adjust the small trimmer screw on the probe until the waveform has perfectly flat tops - not rounded or spiked.' },
     { n:3, t:'Connect ground clip', b:'Clip the probe\'s ground lead to the circuit ground (or chassis). Keep this lead as short as possible to avoid noise pickup.' },
-    { n:4, t:'Touch probe tip to test point', b:'Gently touch the probe tip to the signal you want to measure. Don\'t push hard — the probe spring clip is enough.' },
+    { n:4, t:'Touch probe tip to test point', b:'Gently touch the probe tip to the signal you want to measure. Don\'t push hard - the probe spring clip is enough.' },
   ].map((s, i, arr) => (
     <div class="flex gap-4 relative">
       {i < arr.length - 1 && <div class="absolute left-5 top-10 bottom-0 w-0.5 bg-[#E0252E]/20"></div>}
@@ -99,7 +99,7 @@ import Callout from '../../components/blog/Callout.astro';
   ))}
 </div>
 
-<h2 id="first-measurement">Step 2 — Get a Stable Waveform</h2>
+<h2 id="first-measurement">Step 2 - Get a Stable Waveform</h2>
 
 <div class="my-6 space-y-0">
   {[
@@ -119,7 +119,7 @@ import Callout from '../../components/blog/Callout.astro';
   ))}
 </div>
 
-<h2 id="measurements">Step 3 — Make Your Measurements</h2>
+<h2 id="measurements">Step 3 - Make Your Measurements</h2>
 
 <div class="my-8 rounded-xl border border-gray-200 overflow-hidden">
   <table class="w-full text-sm border-collapse">
@@ -148,16 +148,16 @@ import Callout from '../../components/blog/Callout.astro';
   </table>
 </div>
 
-<h2 id="coupling">AC vs DC Coupling — Which to Use?</h2>
+<h2 id="coupling">AC vs DC Coupling - Which to Use?</h2>
 
 <div class="my-6 grid sm:grid-cols-2 gap-4">
   <div class="p-5 rounded-xl border border-gray-200 bg-white">
     <div class="font-bold text-[#0D1B2A] mb-2">DC Coupling</div>
-    <p class="text-sm text-gray-600 leading-relaxed">Shows the complete signal — AC waveform <em>plus</em> any DC offset. Use for: DC power supply rails, mixed AC+DC signals, battery measurements.</p>
+    <p class="text-sm text-gray-600 leading-relaxed">Shows the complete signal - AC waveform <em>plus</em> any DC offset. Use for: DC power supply rails, mixed AC+DC signals, battery measurements.</p>
   </div>
   <div class="p-5 rounded-xl border border-gray-200 bg-white">
     <div class="font-bold text-[#0D1B2A] mb-2">AC Coupling</div>
-    <p class="text-sm text-gray-600 leading-relaxed">Strips out the DC component — shows only the AC variation. Use for: viewing ripple on a power supply, audio signals, any AC signal sitting on a DC level.</p>
+    <p class="text-sm text-gray-600 leading-relaxed">Strips out the DC component - shows only the AC variation. Use for: viewing ripple on a power supply, audio signals, any AC signal sitting on a DC level.</p>
   </div>
 </div>
 
@@ -165,7 +165,7 @@ import Callout from '../../components/blog/Callout.astro';
 
 <div class="my-6 space-y-3">
   {[
-    { m:'Ground clip connected to wrong point', f:'Creates a short — can destroy the circuit. Always verify ground before touching the probe tip to any signal.' },
+    { m:'Ground clip connected to wrong point', f:'Creates a short - can destroy the circuit. Always verify ground before touching the probe tip to any signal.' },
     { m:'V/div set too high', f:'Waveform appears as a flat line near the centre. Turn V/div down until the wave fills the screen.' },
     { m:'Trigger not set', f:'Waveform scrolls across the screen continuously. Set edge trigger to the rising edge at mid-amplitude.' },
     { m:'Probe compensation not done', f:'Readings are inaccurate. The calibration step takes 30 seconds and must be done each time you change probes.' },

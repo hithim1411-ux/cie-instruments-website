@@ -60,13 +60,13 @@ const vartechSections = (vartechEquivalents ?? []).map(eq => ({
   items: vartechDataMap[eq.categoryId] ?? [],
 }));
 
-// For pure Vartech brand pages (oscilloscopes, function-generators, etc.) — load products directly
+// For pure Vartech brand pages (oscilloscopes, function-generators, etc.) - load products directly
 const isVartechBrand  = (category as any).brand === 'vartech';
 const brandSlug       = category.id.replace('vartech-', '');
 const vartechItems    = isVartechBrand ? (vartechDataMap[category.id] ?? []) : [];
 
 const pageTitle       = (category as any).metaTitle  ?? `${category.name} | CIE Instruments`;
-const pageDescription = (category as any).metaDesc   ?? `${category.name} — ${category.description} CIE instruments, manufactured in Howrah since 1963.`;
+const pageDescription = (category as any).metaDesc   ?? `${category.name} - ${category.description} CIE instruments, manufactured in Howrah since 1963.`;
 const seoContent      = (category as any).seoContent as string[] | undefined;
 const isCombined      = vartechSections.length > 0;
 
@@ -86,7 +86,7 @@ const itemListSchema = {
       '@type': 'ListItem',
       position: i + 1,
       url: `https://www.cieinstruments.in/products/${p.categoryId}/${p.id}/`,
-      name: `${p.model} — ${p.name}`,
+      name: `${p.model} - ${p.name}`,
     })) : []),
     ...(isCombined
       ? vartechSections.flatMap((sec: any, si: number) =>
@@ -94,7 +94,7 @@ const itemListSchema = {
             '@type': 'ListItem',
             position: catProducts.length + (si * 100) + pi + 1,
             url: `https://www.cieinstruments.in/authorised-dealership/${sec.slug}/${p.id}/`,
-            name: `Vartech ${p.model} — ${p.name}`,
+            name: `Vartech ${p.model} - ${p.name}`,
           }))
         )
       : isVartechBrand
@@ -102,7 +102,7 @@ const itemListSchema = {
             '@type': 'ListItem',
             position: i + 1,
             url: `https://www.cieinstruments.in/authorised-dealership/${brandSlug}/${p.id}/`,
-            name: `Vartech ${p.model} — ${p.name}`,
+            name: `Vartech ${p.model} - ${p.name}`,
           }))
         : []),
   ],
@@ -151,10 +151,10 @@ const relatedArticles = (relatedArticleSlugs ?? [])
         <div class="mt-4 flex items-center gap-2 flex-wrap">
           <span class="text-xs text-muted">Available from:</span>
           <Badge variant="dark">
-            <img src={u('/logo/cie-logo-transparent.webp')} alt="CIE" width="800" height="502" class="h-3 w-auto" /> CIE — Manufactured
+            <img src={u('/logo/cie-logo-transparent.webp')} alt="CIE" width="800" height="502" class="h-3 w-auto" /> CIE - Manufactured
           </Badge>
           <Badge variant="emerald">
-            <img src={u('/images/vartech/vartech-logo.avif')} alt="Vartech" class="h-3 w-auto" /> Vartech — Authorised Dealer
+            <img src={u('/images/vartech/vartech-logo.avif')} alt="Vartech" class="h-3 w-auto" /> Vartech - Authorised Dealer
           </Badge>
         </div>
       )}
@@ -171,7 +171,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
             <img src={u('/logo/cie-logo-transparent.webp')} alt="CIE®" width="800" height="502" class="h-8 w-auto object-contain" />
             <div>
               <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-red mb-0.5">Cambridge Instruments & Engg. Co.</div>
-              <h2 class="text-lg font-bold text-ink">CIE Manufactured — {catProducts.length} {catProducts.length === 1 ? 'instrument' : 'instruments'}</h2>
+              <h2 class="text-lg font-bold text-ink">CIE Manufactured - {catProducts.length} {catProducts.length === 1 ? 'instrument' : 'instruments'}</h2>
             </div>
           </div>
           <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 sm:overflow-visible sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-5"
@@ -198,7 +198,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
                   <img src={u('/images/vartech/vartech-logo.avif')} alt="Vartech®" width="90" height="32" class="object-contain" />
                   <div>
                     <div class="text-[10px] font-mono uppercase tracking-[0.18em] text-emerald-600 mb-0.5">Authorised Dealer</div>
-                    <h2 class="text-lg font-bold text-ink">Vartech {sec.label} — {sec.items.length} models</h2>
+                    <h2 class="text-lg font-bold text-ink">Vartech {sec.label} - {sec.items.length} models</h2>
                   </div>
                 </div>
                 <ArrowLink href={`/authorised-dealership/${sec.slug}/`} class="text-xs text-emerald-600 hover:text-emerald-800 shrink-0">
@@ -209,7 +209,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
               <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:pb-0 sm:overflow-visible sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-5"
                 style="scrollbar-width:none; -ms-overflow-style:none;">
                 {sec.items.map((p: any) => {
-                  const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} — ${p.name}`);
+                  const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} - ${p.name}`);
                   const imgSlug = p.images?.[0] ?? `${p.id}.webp`;
                   return (
                     <div class="shrink-0 snap-start w-[75vw] sm:w-auto">
@@ -217,7 +217,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
                         <div class="bg-cloud h-52 flex items-center justify-center relative overflow-hidden">
                           <img
                             src={u(`/images/vartech/${sec.slug}/${imgSlug}`)}
-                            alt={`${p.model} — ${p.name}`}
+                            alt={`${p.model} - ${p.name}`}
                             width="300" height="300"
                             class="object-contain h-40 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105"
                             loading="lazy"
@@ -233,7 +233,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
                             <a href={u(`/authorised-dealership/${sec.slug}/${p.id}/`)} class="btn-primary btn-primary--sm">
                               View Specifications
                             </a>
-                            <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} — ${p.name}`)}`}
+                            <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} - ${p.name}`)}`}
                               target="_blank" rel="noopener noreferrer"
                               class="btn-secondary btn-secondary--sm text-ink">
                               <Icon name="message-circle" class="w-4 h-4 shrink-0" />
@@ -280,7 +280,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
                   <article class="card card-interactive group overflow-hidden flex flex-col">
                     <div class="bg-cloud border-b border-emerald-100 h-44 flex items-center justify-center relative">
                       <img src={u(`/images/vartech/${brandSlug}/${imgFile}`)}
-                        alt={`${p.model} — ${p.name}`} width="300" height="300"
+                        alt={`${p.model} - ${p.name}`} width="300" height="300"
                         class="object-contain h-40 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105" loading="lazy"
                         onerror="this.style.display='none'" />
                       <Badge variant="emerald" class="absolute top-3 left-3">Vartech®</Badge>
@@ -293,7 +293,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
                         <a href={u(`/authorised-dealership/${brandSlug}/${p.id}/`)} class="btn-primary btn-primary--sm">
                           View Specifications
                         </a>
-                        <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} — ${p.name}`)}`}
+                        <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} - ${p.name}`)}`}
                           target="_blank" rel="noopener noreferrer"
                           class="btn-secondary btn-secondary--sm text-ink">
                           <Icon name="message-circle" class="w-4 h-4 shrink-0" />
@@ -374,7 +374,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
         </div>
         <div class="mt-8 pt-6 border-t border-border">
           <p class="text-xs text-muted">
-            Cambridge Instruments &amp; Engg. Co. (CIE) — manufacturer of precision electrical test and measurement instruments in Howrah, West Bengal, India, established 1963.
+            Cambridge Instruments &amp; Engg. Co. (CIE) - manufacturer of precision electrical test and measurement instruments in Howrah, West Bengal, India, established 1963.
             Pan-India supply: Kolkata · Howrah · Bhubaneswar · Cuttack · Bangalore · Chennai · Hyderabad · Mumbai · Pune · Delhi · Ahmedabad · Lucknow · Chandigarh · Ranchi · Raipur · Visakhapatnam · Nagpur.
           </p>
         </div>

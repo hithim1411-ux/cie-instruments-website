@@ -14,7 +14,7 @@ import site from '../data/site.json';
 import { u } from '../utils/url';
 import Badge from './Badge.astro';
 import Icon from './Icon.astro';
-const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${model} — ${name}`);
+const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${model} - ${name}`);
 // Vartech images live at /images/vartech/... not /images/products/vartech/...
 const imgSrc = image
   ? (image.startsWith('vartech/') ? u(`/images/${image}`) : u(`/images/products/${image}`))
@@ -22,7 +22,7 @@ const imgSrc = image
 // Vartech products live under /authorised-dealership/{slug}/, not /products/{categoryId}/
 // categoryId pattern: "vartech-oscilloscopes" → dealer slug: "oscilloscopes"
 // A couple of SKUs use a different product id on the /products/ side than on the
-// /authorised-dealership/ side — map those here so the link always resolves.
+// /authorised-dealership/ side - map those here so the link always resolves.
 const dealerIdOverrides: Record<string, string> = {
   'v-8222h-lcr': 'v-8222h',
   'ss-5150ds1bfg': 'ss-5150ds1b-fg',
@@ -39,7 +39,7 @@ const isVartech = categoryId.startsWith('vartech-');
     <div class="bg-cloud h-56 flex items-center justify-center relative overflow-hidden">
       <img
         src={imgSrc}
-        alt={`${model} — ${name}`}
+        alt={`${model} - ${name}`}
         width="600"
         height="600"
         class="object-contain h-44 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105"

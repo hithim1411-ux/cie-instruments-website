@@ -294,6 +294,16 @@ p { line-height: 1.65; }
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-red);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 2px;
+  background: currentColor;
 }
 
 .red-stripe {

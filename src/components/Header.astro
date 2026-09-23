@@ -28,7 +28,7 @@ const onProducts  = currentPath.startsWith(u('/products'));
 const onInsights  = currentPath.startsWith(u('/blog'));
 
 // Generic mailto for header button
-const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request — CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
+const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURIComponent('Quote Request - CIE Instruments')}&body=${encodeURIComponent('Hello CIE team,\n\nI would like to request a quote for: [PRODUCT / MODEL].\n\nRequired rated voltage / resistance range:\nQuantity:\n\nName:\nCompany:\nPhone:\nCity / State:\n\nThank you.')}`;
 ---
 
 
@@ -41,7 +41,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
     <div id="site-header-bar" class="flex items-center justify-between h-16 lg:h-20 transition-[height] duration-300 [transition-timing-function:var(--ease-premium)]">
 
       <!-- Logo + wordmark -->
-      <a href={u('/')} id="site-logo" class="flex items-center gap-2.5 shrink-0 min-w-0 origin-left transition-transform duration-300 [transition-timing-function:var(--ease-premium)]" aria-label="CIE Instruments — Home">
+      <a href={u('/')} id="site-logo" class="flex items-center gap-2.5 shrink-0 min-w-0 origin-left transition-transform duration-300 [transition-timing-function:var(--ease-premium)]" aria-label="CIE Instruments - Home">
         <img
           src={u('/logo/cie-logo-transparent.webp')}
           alt="CIE® logo"
@@ -86,7 +86,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
             </button>
           </div>
 
-          <!-- Dropdown panel — quiet, typographic, Apple-style. No imagery, no badges. -->
+          <!-- Dropdown panel - quiet, typographic, Apple-style. No imagery, no badges. -->
           <div
             id="products-dropdown"
             role="region"
@@ -100,7 +100,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
                 <!-- ── CIE column ── -->
                 <div>
-                  <span class="block text-[11px] font-mono text-muted-dark uppercase tracking-widest mb-4">CIE — Manufactured in India</span>
+                  <span class="block text-[11px] font-mono text-muted-dark uppercase tracking-widest mb-4">CIE - Manufactured in India</span>
                   <ul class="space-y-1.5" role="menu">
                     {cieCategories.map((cat) => (
                       <li role="none">
@@ -119,7 +119,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
                 <!-- ── Vartech column ── -->
                 <div>
-                  <span class="block text-[11px] font-mono text-muted-dark uppercase tracking-widest mb-4">Vartech — Authorised Dealer</span>
+                  <span class="block text-[11px] font-mono text-muted-dark uppercase tracking-widest mb-4">Vartech - Authorised Dealer</span>
                   <ul class="space-y-1.5" role="menu">
                     {vartechCategories.map((cat) => (
                       <li role="none">
@@ -224,7 +224,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
         <!-- Category accordion panel -->
         <div id="mobile-products-dropdown" class="hidden ml-3 border-l border-white/10 pl-3 py-1 mt-0.5">
-          <p class="px-2 pt-1 pb-0.5 text-[10px] font-mono text-muted uppercase tracking-widest">CIE — Manufactured</p>
+          <p class="px-2 pt-1 pb-0.5 text-[10px] font-mono text-muted uppercase tracking-widest">CIE - Manufactured</p>
           {cieCategories.map(cat => (
             <a href={u(`/products/${cat.id}/`)}
                class="flex items-center gap-2.5 px-2 py-2 text-xs text-muted-dark hover:text-muted-dark hover:bg-white/5 rounded transition-colors">
@@ -232,7 +232,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
               {cat.shortName}
             </a>
           ))}
-          <p class="px-2 pt-3 pb-0.5 text-[10px] font-mono text-emerald-500 uppercase tracking-widest border-t border-white/10 mt-1">Vartech® — Authorised Dealer</p>
+          <p class="px-2 pt-3 pb-0.5 text-[10px] font-mono text-emerald-500 uppercase tracking-widest border-t border-white/10 mt-1">Vartech® - Authorised Dealer</p>
           {vartechCategories.map(cat => (
             <a href={u(`/products/${cat.id}/`)}
                class="flex items-center gap-2.5 px-2 py-2 text-xs text-emerald-400/80 hover:text-emerald-300 hover:bg-white/5 rounded transition-colors">
@@ -243,7 +243,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
           <a href={u('/authorised-dealership/')}
              class="flex items-center gap-2.5 px-2 py-2 text-xs text-emerald-400 hover:text-emerald-300 hover:bg-white/5 rounded transition-colors mt-1 border-t border-white/10 pt-2">
             <Icon name="store" class="w-3.5 h-3.5 shrink-0" />
-            All Vartech — Authorised Dealership
+            All Vartech - Authorised Dealership
           </a>
         </div>
       </div>

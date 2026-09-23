@@ -4,13 +4,13 @@ import Callout from '../../components/blog/Callout.astro';
 ---
 
 <p>
-  Transformer oil is not just a coolant — it is the primary electrical insulation between the HV and LV windings. When that oil degrades, the transformer is at risk of internal flashover and catastrophic failure. The <strong>Breakdown Voltage (BDV) test</strong> is the primary health check for transformer oil, and it is mandatory under Indian and international standards. This guide explains the test, the procedure, and how to interpret results.
+  Transformer oil is not just a coolant - it is the primary electrical insulation between the HV and LV windings. When that oil degrades, the transformer is at risk of internal flashover and catastrophic failure. The <strong>Breakdown Voltage (BDV) test</strong> is the primary health check for transformer oil, and it is mandatory under Indian and international standards. This guide explains the test, the procedure, and how to interpret results.
 </p>
 
 <h2 id="what-it-measures">What the BDV Test Measures</h2>
 
 <p>
-  The BDV test measures the <strong>dielectric strength</strong> of transformer oil — the maximum voltage the oil can withstand across a fixed gap before it breaks down (arcs over). Oil with high moisture content, particulate contamination, or chemical degradation will arc at a much lower voltage than clean, dry oil.
+  The BDV test measures the <strong>dielectric strength</strong> of transformer oil - the maximum voltage the oil can withstand across a fixed gap before it breaks down (arcs over). Oil with high moisture content, particulate contamination, or chemical degradation will arc at a much lower voltage than clean, dry oil.
 </p>
 
 <div class="my-8 grid sm:grid-cols-3 gap-4">
@@ -61,12 +61,12 @@ import Callout from '../../components/blog/Callout.astro';
       <line x1="80" y1="88" x2="120" y2="97" stroke="#64748B" stroke-width="1.5"/>
     </svg>
   </div>
-  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure — BDV test cell: 2.5 mm electrode gap, voltage raised until arc-over</p>
+  <p class="text-[10px] font-mono uppercase tracking-widest text-gray-400 px-6 pb-4">Figure - BDV test cell: 2.5 mm electrode gap, voltage raised until arc-over</p>
 </div>
 
 <h2 id="procedure">Test Procedure (IS 6792)</h2>
 
-<Callout type="warning" title="HV safety — do not touch test cell during test">
+<Callout type="warning" title="HV safety - do not touch test cell during test">
   <p>The BDV test applies up to 80–100 kV AC. Never open or touch the test cell enclosure during the test. All CIE oil test sets have an interlocked door that cuts power if opened.</p>
 </Callout>
 
@@ -103,10 +103,10 @@ import Callout from '../../components/blog/Callout.astro';
     </thead>
     <tbody>
       {[
-        ['> 70 kV', 'Excellent — new oil condition', 'No action required'],
-        ['50–70 kV', 'Good — acceptable for service', 'Continue normal monitoring schedule'],
-        ['30–50 kV', 'Marginal — investigate', 'Filter / dry the oil. Increase monitoring frequency.'],
-        ['< 30 kV', 'Poor — immediate action required', 'Do not energise. Filter and retest, or replace oil.'],
+        ['> 70 kV', 'Excellent - new oil condition', 'No action required'],
+        ['50–70 kV', 'Good - acceptable for service', 'Continue normal monitoring schedule'],
+        ['30–50 kV', 'Marginal - investigate', 'Filter / dry the oil. Increase monitoring frequency.'],
+        ['< 30 kV', 'Poor - immediate action required', 'Do not energise. Filter and retest, or replace oil.'],
         ['< 10 kV', 'Critical / severely contaminated', 'Replace oil immediately. Inspect for internal fault.'],
       ].map(([bdv, cond, action], i) => (
         <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
@@ -120,9 +120,9 @@ import Callout from '../../components/blog/Callout.astro';
 </div>
 
 <Callout type="info" title="BDV is one of several oil tests">
-  <p>BDV alone does not give a complete picture of oil condition. A full oil analysis (DGA — Dissolved Gas Analysis, moisture content, acidity, interfacial tension) is needed for major transformer maintenance decisions. BDV is the routine screening test; DGA is the diagnostic test.</p>
+  <p>BDV alone does not give a complete picture of oil condition. A full oil analysis (DGA - Dissolved Gas Analysis, moisture content, acidity, interfacial tension) is needed for major transformer maintenance decisions. BDV is the routine screening test; DGA is the diagnostic test.</p>
 </Callout>
 
 <p>
-  CIE manufactures the <a href={u('/products/')}>CIE/7000 Series oil BDV test sets</a> — eight output-voltage tiers from CIE/7050 to CIE/7120, with IS 6792 compliant test procedures, a memory device that retains the breakdown voltage reading, and full safety interlocking. <a href={u('/contact/')}>Contact us</a> for a demonstration.
+  CIE manufactures the <a href={u('/products/')}>CIE/7000 Series oil BDV test sets</a> - eight output-voltage tiers from CIE/7050 to CIE/7120, with IS 6792 compliant test procedures, a memory device that retains the breakdown voltage reading, and full safety interlocking. <a href={u('/contact/')}>Contact us</a> for a demonstration.
 </p>

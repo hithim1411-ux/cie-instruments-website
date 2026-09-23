@@ -2,11 +2,11 @@
   {
     "slug": "what-is-a-multimeter",
     "title": "What Is a Multimeter? A Complete Guide to How It Works",
-    "description": "Learn what a multimeter is, how it works, and what it measures — voltage, current, and resistance — in this beginner-to-advanced guide for engineers and electricians.",
+    "description": "Learn what a multimeter is, how it works, and what it measures - voltage, current, and resistance - in this beginner-to-advanced guide for engineers and electricians.",
     "publishDate": "2026-03-17",
     "readTime": "8 min read",
     "category": "Guides",
-    "excerpt": "A multimeter is the most essential instrument in any electrician's or engineer's toolkit. This guide breaks down exactly how it works — from basic physics to practical usage.",
+    "excerpt": "A multimeter is the most essential instrument in any electrician's or engineer's toolkit. This guide breaks down exactly how it works - from basic physics to practical usage.",
     "seoTitle": "What Is a Multimeter? How It Works"
   },
   {
@@ -16,13 +16,13 @@
     "publishDate": "2026-03-24",
     "readTime": "7 min read",
     "category": "How-To",
-    "excerpt": "Clamp meters let you measure current safely without cutting a wire. Here's everything you need to know — from jaw placement to reading AC vs DC current.",
+    "excerpt": "Clamp meters let you measure current safely without cutting a wire. Here's everything you need to know - from jaw placement to reading AC vs DC current.",
     "seoTitle": "How to Use a Clamp Meter: Step-by-Step Guide"
   },
   {
     "slug": "ohms-law-explained",
     "title": "Ohm's Law Explained: The Physics Behind Every Electrical Tester",
-    "description": "Understand Ohm's Law — V = IR — and how it underpins every measurement made by multimeters, clamp meters, and insulation testers used by engineers worldwide.",
+    "description": "Understand Ohm's Law - V = IR - and how it underpins every measurement made by multimeters, clamp meters, and insulation testers used by engineers worldwide.",
     "publishDate": "2026-03-28",
     "readTime": "6 min read",
     "category": "Physics",
@@ -42,17 +42,17 @@
   {
     "slug": "clamp-meter-vs-multimeter",
     "title": "Clamp Meter vs Multimeter: Which Tester Do You Actually Need?",
-    "description": "Compare clamp meters and multimeters side by side — find out which instrument to use for current measurement, voltage testing, resistance checks, and field electrical work.",
+    "description": "Compare clamp meters and multimeters side by side - find out which instrument to use for current measurement, voltage testing, resistance checks, and field electrical work.",
     "publishDate": "2026-04-05",
     "readTime": "7 min read",
     "category": "Buying Guide",
-    "excerpt": "Both measure electrical quantities — but they work very differently. Here's a practical breakdown of when to reach for a clamp meter versus a multimeter.",
+    "excerpt": "Both measure electrical quantities - but they work very differently. Here's a practical breakdown of when to reach for a clamp meter versus a multimeter.",
     "seoTitle": "Clamp Meter vs Multimeter: Which Do You Need?"
   },
   {
     "slug": "how-to-use-an-oscilloscope",
     "title": "How to Use an Oscilloscope: A Complete Beginner's Guide",
-    "description": "Learn how to use an oscilloscope step by step — how to connect probes, set voltage and time scales, read waveforms, and measure frequency, period, and amplitude.",
+    "description": "Learn how to use an oscilloscope step by step - how to connect probes, set voltage and time scales, read waveforms, and measure frequency, period, and amplitude.",
     "publishDate": "2026-04-16",
     "readTime": "10 min read",
     "category": "Guides",
@@ -62,7 +62,7 @@
   {
     "slug": "insulation-resistance-testing-guide",
     "title": "Insulation Resistance Testing: What It Is and How to Do It",
-    "description": "A complete guide to insulation resistance testing — what it measures, how a megohmmeter works, correct test voltages for cables and motors, and how to interpret results.",
+    "description": "A complete guide to insulation resistance testing - what it measures, how a megohmmeter works, correct test voltages for cables and motors, and how to interpret results.",
     "publishDate": "2026-04-20",
     "readTime": "9 min read",
     "category": "How-To",
@@ -72,7 +72,7 @@
   {
     "slug": "dc-power-supply-guide",
     "title": "DC Power Supply Explained: Types, Uses, and How to Choose One",
-    "description": "Everything you need to know about DC power supplies — linear vs switching, regulated vs unregulated, constant current vs constant voltage, and how to select one for your bench.",
+    "description": "Everything you need to know about DC power supplies - linear vs switching, regulated vs unregulated, constant current vs constant voltage, and how to select one for your bench.",
     "publishDate": "2026-04-23",
     "readTime": "8 min read",
     "category": "Guides",
@@ -96,7 +96,7 @@
     "publishDate": "2026-04-30",
     "readTime": "7 min read",
     "category": "Buying Guide",
-    "excerpt": "Both heat up and melt solder — but the similarity ends there. Here's a clear breakdown of when a basic iron is enough and when you need a proper soldering station.",
+    "excerpt": "Both heat up and melt solder - but the similarity ends there. Here's a clear breakdown of when a basic iron is enough and when you need a proper soldering station.",
     "seoTitle": "Soldering Station vs Soldering Iron"
   },
   {
@@ -106,7 +106,7 @@
     "publishDate": "2026-05-03",
     "readTime": "7 min read",
     "category": "Guides",
-    "excerpt": "Lux is the unit of illuminance — and measuring it correctly requires more than just pointing a sensor at a light. Here's everything you need to know about lux meters.",
+    "excerpt": "Lux is the unit of illuminance - and measuring it correctly requires more than just pointing a sensor at a light. Here's everything you need to know about lux meters.",
     "seoTitle": "What Is a Lux Meter? Measuring Light Intensity"
   },
   {
@@ -116,33 +116,33 @@
     "publishDate": "2026-05-07",
     "readTime": "8 min read",
     "category": "How-To",
-    "excerpt": "The BDV test is the primary health check for transformer oil — and a failing result is an early warning of catastrophic failure. Here's exactly how to run and read the test.",
+    "excerpt": "The BDV test is the primary health check for transformer oil - and a failing result is an early warning of catastrophic failure. Here's exactly how to run and read the test.",
     "seoTitle": "Transformer Oil BDV Test Explained"
   },
   {
     "slug": "oscilloscope-waveform-guide",
     "title": "How to Read an Oscilloscope Waveform: Voltage, Time, Frequency",
-    "description": "Learn how to read an oscilloscope screen — measure amplitude, period, frequency, duty cycle, and understand common waveform types with practical examples.",
+    "description": "Learn how to read an oscilloscope screen - measure amplitude, period, frequency, duty cycle, and understand common waveform types with practical examples.",
     "publishDate": "2026-05-10",
     "readTime": "9 min read",
     "category": "Physics",
-    "excerpt": "The oscilloscope screen is a graph — once you know what the axes mean and what each waveform type looks like, every signal tells a story. Here's how to read it.",
+    "excerpt": "The oscilloscope screen is a graph - once you know what the axes mean and what each waveform type looks like, every signal tells a story. Here's how to read it.",
     "seoTitle": "How to Read an Oscilloscope Waveform"
   },
   {
     "slug": "ac-vs-dc-electricity",
     "title": "AC vs DC Electricity: What's the Difference and Which Is Dangerous?",
-    "description": "Understand the fundamental difference between alternating current (AC) and direct current (DC) — how each is generated, measured, used, and why both matter for electrical safety.",
+    "description": "Understand the fundamental difference between alternating current (AC) and direct current (DC) - how each is generated, measured, used, and why both matter for electrical safety.",
     "publishDate": "2026-05-17",
     "readTime": "7 min read",
     "category": "Physics",
-    "excerpt": "AC powers your home, DC powers your phone — but the difference goes much deeper than that. Here's the physics, the history, and why every electrician must understand both.",
+    "excerpt": "AC powers your home, DC powers your phone - but the difference goes much deeper than that. Here's the physics, the history, and why every electrician must understand both.",
     "seoTitle": "AC vs DC Electricity: What's the Difference?"
   },
   {
     "slug": "how-to-test-motor-windings",
     "title": "How to Test Motor Windings: Insulation, Resistance, and Continuity",
-    "description": "Learn how to test electric motor windings using a multimeter and insulation tester — checking continuity, winding resistance balance, and insulation resistance to earth.",
+    "description": "Learn how to test electric motor windings using a multimeter and insulation tester - checking continuity, winding resistance balance, and insulation resistance to earth.",
     "publishDate": "2026-05-21",
     "readTime": "8 min read",
     "category": "How-To",
@@ -166,13 +166,13 @@
     "publishDate": "2026-05-28",
     "readTime": "6 min read",
     "category": "Guides",
-    "excerpt": "Most cheap multimeters assume a perfect sine wave. Modern loads — VFDs, inverters, switch-mode supplies — are not sine waves. Here's why True RMS matters.",
+    "excerpt": "Most cheap multimeters assume a perfect sine wave. Modern loads - VFDs, inverters, switch-mode supplies - are not sine waves. Here's why True RMS matters.",
     "seoTitle": "True RMS vs Average RMS Multimeter"
   },
   {
     "slug": "how-to-test-a-relay",
     "title": "How to Test a Relay: Continuity, Coil Resistance, and Operate Voltage",
-    "description": "Learn how to test an electromechanical relay with a multimeter — checking coil resistance, normally open and normally closed contact continuity, and pull-in voltage.",
+    "description": "Learn how to test an electromechanical relay with a multimeter - checking coil resistance, normally open and normally closed contact continuity, and pull-in voltage.",
     "publishDate": "2026-05-31",
     "readTime": "7 min read",
     "category": "How-To",
@@ -182,7 +182,7 @@
   {
     "slug": "power-factor-explained",
     "title": "Power Factor Explained: What It Is, Why It Drops, and How to Correct It",
-    "description": "Understand power factor — the ratio of real to apparent power — why it drops in industrial installations, the financial penalties, and how capacitor banks correct it.",
+    "description": "Understand power factor - the ratio of real to apparent power - why it drops in industrial installations, the financial penalties, and how capacitor banks correct it.",
     "publishDate": "2026-06-04",
     "readTime": "8 min read",
     "category": "Physics",
@@ -196,17 +196,17 @@
     "publishDate": "2026-06-07",
     "readTime": "6 min read",
     "category": "How-To",
-    "excerpt": "Connect three-phase power in the wrong sequence and the motor runs backwards — or worse. Here's why phase sequence matters and how to check it in 30 seconds.",
+    "excerpt": "Connect three-phase power in the wrong sequence and the motor runs backwards - or worse. Here's why phase sequence matters and how to check it in 30 seconds.",
     "seoTitle": "Phase Sequence Testing for 3-Phase Motors"
   },
   {
     "slug": "how-to-choose-a-multimeter",
     "title": "How to Choose a Multimeter: Complete Buying Guide for 2026",
-    "description": "A practical buying guide to choosing the right multimeter — covering CAT safety ratings, auto-ranging, True RMS, resolution, and what to look for at every price point.",
+    "description": "A practical buying guide to choosing the right multimeter - covering CAT safety ratings, auto-ranging, True RMS, resolution, and what to look for at every price point.",
     "publishDate": "2026-06-11",
     "readTime": "8 min read",
     "category": "Buying Guide",
-    "excerpt": "There are hundreds of multimeters on the market. This guide cuts through the noise — CAT ratings, True RMS, resolution, and what actually matters for your type of work.",
+    "excerpt": "There are hundreds of multimeters on the market. This guide cuts through the noise - CAT ratings, True RMS, resolution, and what actually matters for your type of work.",
     "seoTitle": "How to Choose a Multimeter: Buying Guide"
   },
   {
@@ -216,13 +216,13 @@
     "publishDate": "2026-06-14",
     "readTime": "8 min read",
     "category": "Physics",
-    "excerpt": "Earthing is not optional — it is the last line of defence between a fault and a fatal shock. Here's how every earthing system works and why testing it matters.",
+    "excerpt": "Earthing is not optional - it is the last line of defence between a fault and a fatal shock. Here's how every earthing system works and why testing it matters.",
     "seoTitle": "What Is Electrical Earthing? Types & Methods"
   },
   {
     "slug": "desoldering-guide",
-    "title": "Desoldering Guide: Wick, Pump, and Station — How to Remove Solder Cleanly",
-    "description": "Learn the three desoldering methods — solder wick, solder sucker, and desoldering station — with step-by-step technique for PCB components and through-hole parts.",
+    "title": "Desoldering Guide: Wick, Pump, and Station - How to Remove Solder Cleanly",
+    "description": "Learn the three desoldering methods - solder wick, solder sucker, and desoldering station - with step-by-step technique for PCB components and through-hole parts.",
     "publishDate": "2026-06-18",
     "readTime": "7 min read",
     "category": "How-To",
@@ -232,21 +232,21 @@
   {
     "slug": "short-circuit-open-circuit-ground-fault",
     "title": "Short Circuit vs Open Circuit vs Ground Fault: What's the Difference?",
-    "description": "Understand the three fundamental electrical faults — short circuit, open circuit, and ground fault — how each occurs, what damage it causes, and how to identify it.",
+    "description": "Understand the three fundamental electrical faults - short circuit, open circuit, and ground fault - how each occurs, what damage it causes, and how to identify it.",
     "publishDate": "2026-06-21",
     "readTime": "7 min read",
     "category": "Physics",
-    "excerpt": "Three faults. Three completely different failure modes. Three different ways to find them. Every electrician needs to know the difference — and how to test for each.",
+    "excerpt": "Three faults. Three completely different failure modes. Three different ways to find them. Every electrician needs to know the difference - and how to test for each.",
     "seoTitle": "Short Circuit vs Open Circuit vs Ground Fault"
   },
   {
     "slug": "digital-vs-analogue-multimeter",
     "title": "Digital vs Analogue Multimeter: Which Is Better for Your Work?",
-    "description": "Compare digital (DMM) and analogue (AVM) multimeters — accuracy, response time, reading live signals, resistance measurement, and which type suits which application.",
+    "description": "Compare digital (DMM) and analogue (AVM) multimeters - accuracy, response time, reading live signals, resistance measurement, and which type suits which application.",
     "publishDate": "2026-06-25",
     "readTime": "6 min read",
     "category": "Buying Guide",
-    "excerpt": "Analogue multimeters were the standard for decades. Digital took over — but analogue still has real advantages in specific situations. Here's an honest comparison.",
+    "excerpt": "Analogue multimeters were the standard for decades. Digital took over - but analogue still has real advantages in specific situations. Here's an honest comparison.",
     "seoTitle": "Digital vs Analogue Multimeter: Compared"
   },
   {
@@ -256,17 +256,17 @@
     "publishDate": "2026-06-26",
     "readTime": "6 min read",
     "category": "Physics",
-    "excerpt": "Bandwidth isn't just about sine waves — it determines how sharp an edge your scope can show at all, and no amount of sample rate can make up for a shortfall.",
+    "excerpt": "Bandwidth isn't just about sine waves - it determines how sharp an edge your scope can show at all, and no amount of sample rate can make up for a shortfall.",
     "seoTitle": "Oscilloscope Bandwidth Explained"
   },
   {
     "slug": "lcr-meter-guide",
     "title": "LCR Meter Guide: How to Measure Inductance, Capacitance, and Resistance",
-    "description": "A complete guide to LCR meters — what they measure, why test frequency matters, how to measure capacitors and inductors correctly, 4-wire Kelvin connection, and open/short compensation.",
+    "description": "A complete guide to LCR meters - what they measure, why test frequency matters, how to measure capacitors and inductors correctly, 4-wire Kelvin connection, and open/short compensation.",
     "publishDate": "2026-06-29",
     "readTime": "10 min read",
     "category": "Guides",
-    "excerpt": "An LCR meter reveals what a multimeter cannot — the true impedance parameters of any passive component at the frequency it actually operates at. Here's how to use one correctly.",
+    "excerpt": "An LCR meter reveals what a multimeter cannot - the true impedance parameters of any passive component at the frequency it actually operates at. Here's how to use one correctly.",
     "seoTitle": "LCR Meter Guide: L, C & R Measurement"
   },
   {
@@ -276,16 +276,16 @@
     "publishDate": "2026-06-30",
     "readTime": "6 min read",
     "category": "How-To",
-    "excerpt": "Testing a fuse takes seconds — but replacing one without finding out why it blew is how the same fault takes out the next fuse too."
+    "excerpt": "Testing a fuse takes seconds - but replacing one without finding out why it blew is how the same fault takes out the next fuse too."
   },
   {
     "slug": "how-to-test-a-capacitor",
     "title": "How to Test a Capacitor: Multimeter, ESR Meter, and LCR Meter Methods",
-    "description": "Learn how to test a capacitor correctly — visual inspection, multimeter capacitance mode, resistance leakage check, ESR testing for electrolytics, and LCR meter analysis.",
+    "description": "Learn how to test a capacitor correctly - visual inspection, multimeter capacitance mode, resistance leakage check, ESR testing for electrolytics, and LCR meter analysis.",
     "publishDate": "2026-07-03",
     "readTime": "9 min read",
     "category": "How-To",
-    "excerpt": "A capacitor that reads the right value on a multimeter can still be completely failed — if its ESR is too high. Here's every method for testing capacitors properly.",
+    "excerpt": "A capacitor that reads the right value on a multimeter can still be completely failed - if its ESR is too high. Here's every method for testing capacitors properly.",
     "seoTitle": "How to Test a Capacitor: 3 Methods"
   },
   {
@@ -304,7 +304,7 @@
     "publishDate": "2026-07-07",
     "readTime": "9 min read",
     "category": "How-To",
-    "excerpt": "A megger tests the one thing a regular multimeter can't — whether your cable or motor insulation will survive operating voltage without breaking down.",
+    "excerpt": "A megger tests the one thing a regular multimeter can't - whether your cable or motor insulation will survive operating voltage without breaking down.",
     "seoTitle": "What Is a Megger? Using a Megohmmeter"
   },
   {
@@ -314,13 +314,13 @@
     "publishDate": "2026-07-08",
     "readTime": "6 min read",
     "category": "Guides",
-    "excerpt": "CAT ratings classify measurement locations by transient overvoltage risk — and a higher voltage number doesn't mean a safer instrument.",
+    "excerpt": "CAT ratings classify measurement locations by transient overvoltage risk - and a higher voltage number doesn't mean a safer instrument.",
     "seoTitle": "What Is a CAT Rating? IEC 61010 Explained"
   },
   {
     "slug": "function-generator-guide",
     "title": "Function Generator Guide: What It Does and How to Use One",
-    "description": "A complete guide to function generators — waveform types, key specifications, how to set frequency and amplitude correctly, frequency sweep, DDS vs analogue, and practical bench tests.",
+    "description": "A complete guide to function generators - waveform types, key specifications, how to set frequency and amplitude correctly, frequency sweep, DDS vs analogue, and practical bench tests.",
     "publishDate": "2026-07-11",
     "readTime": "9 min read",
     "category": "Guides",
@@ -330,7 +330,7 @@
   {
     "slug": "how-to-choose-an-lcr-meter",
     "title": "How to Choose an LCR Meter: A Buying Guide",
-    "description": "A buying guide to LCR meter test frequency, ESR/D/Q secondary parameters, and 4-terminal measurement — and when you actually need precision over basic.",
+    "description": "A buying guide to LCR meter test frequency, ESR/D/Q secondary parameters, and 4-terminal measurement - and when you actually need precision over basic.",
     "publishDate": "2026-07-12",
     "readTime": "7 min read",
     "category": "Buying Guide",
@@ -339,7 +339,7 @@
   {
     "slug": "how-to-test-a-transformer",
     "title": "How to Test a Transformer: Winding Resistance, Insulation, and Turns Ratio",
-    "description": "A complete guide to transformer testing — winding resistance (open circuit and short circuit detection), insulation resistance, turns ratio test, polarity test, and no-load test.",
+    "description": "A complete guide to transformer testing - winding resistance (open circuit and short circuit detection), insulation resistance, turns ratio test, polarity test, and no-load test.",
     "publishDate": "2026-07-15",
     "readTime": "10 min read",
     "category": "How-To",
@@ -359,7 +359,7 @@
   {
     "slug": "battery-testing-guide",
     "title": "How to Test a Battery: Load Test, Internal Resistance, and State of Charge",
-    "description": "Learn how to test batteries correctly — why open-circuit voltage misleads, how to load test, how to measure internal resistance, and how to assess lead-acid and lithium-ion batteries.",
+    "description": "Learn how to test batteries correctly - why open-circuit voltage misleads, how to load test, how to measure internal resistance, and how to assess lead-acid and lithium-ion batteries.",
     "publishDate": "2026-07-19",
     "readTime": "9 min read",
     "category": "How-To",
@@ -369,7 +369,7 @@
   {
     "slug": "how-to-choose-an-oscilloscope",
     "title": "How to Choose an Oscilloscope: A Buying Guide",
-    "description": "A practical buying guide to oscilloscope bandwidth, sample rate, channel count, and memory depth — matched to real use cases.",
+    "description": "A practical buying guide to oscilloscope bandwidth, sample rate, channel count, and memory depth - matched to real use cases.",
     "publishDate": "2026-07-20",
     "readTime": "8 min read",
     "category": "Buying Guide",
@@ -378,7 +378,7 @@
   {
     "slug": "harmonic-distortion-explained",
     "title": "Harmonic Distortion Explained: What THD Is and Why It Damages Your Electrical System",
-    "description": "Understand harmonic distortion — what harmonics are, why VFDs and switch-mode supplies generate them, how they damage capacitors, transformers and motors, how to measure THD, and how to mitigate it.",
+    "description": "Understand harmonic distortion - what harmonics are, why VFDs and switch-mode supplies generate them, how they damage capacitors, transformers and motors, how to measure THD, and how to mitigate it.",
     "publishDate": "2026-07-23",
     "readTime": "10 min read",
     "category": "Physics",
@@ -392,12 +392,12 @@
     "publishDate": "2026-07-24",
     "readTime": "7 min read",
     "category": "Guides",
-    "excerpt": "A DC electronic load replaces a bank of resistors with a precisely controllable current sink — essential for battery capacity and power supply testing."
+    "excerpt": "A DC electronic load replaces a bank of resistors with a precisely controllable current sink - essential for battery capacity and power supply testing."
   },
   {
     "slug": "how-to-measure-frequency",
     "title": "How to Measure Frequency: Multimeter, Oscilloscope, and Frequency Counter Methods",
-    "description": "Learn how to measure electrical frequency correctly — using a multimeter's Hz mode, an oscilloscope, a frequency counter, or a clamp meter — with guidance on VFD verification and generator testing.",
+    "description": "Learn how to measure electrical frequency correctly - using a multimeter's Hz mode, an oscilloscope, a frequency counter, or a clamp meter - with guidance on VFD verification and generator testing.",
     "publishDate": "2026-07-27",
     "readTime": "7 min read",
     "category": "How-To",
@@ -411,17 +411,17 @@
     "publishDate": "2026-07-28",
     "readTime": "7 min read",
     "category": "Guides",
-    "excerpt": "IR thermometers read surface temperature instantly without contact — but emissivity and distance-to-spot ratio can silently distort the reading if ignored.",
+    "excerpt": "IR thermometers read surface temperature instantly without contact - but emissivity and distance-to-spot ratio can silently distort the reading if ignored.",
     "seoTitle": "How Infrared Thermometers Work"
   },
   {
     "slug": "how-to-choose-a-clamp-meter",
     "title": "How to Choose a Clamp Meter: Complete Buying Guide for 2026",
-    "description": "A practical buying guide to choosing a clamp meter — True RMS vs average-responding, jaw size, AC/DC capability, frequency response, CAT safety ratings, in-rush measurement, and use-case recommendations.",
+    "description": "A practical buying guide to choosing a clamp meter - True RMS vs average-responding, jaw size, AC/DC capability, frequency response, CAT safety ratings, in-rush measurement, and use-case recommendations.",
     "publishDate": "2026-07-31",
     "readTime": "9 min read",
     "category": "Buying Guide",
-    "excerpt": "There are clamp meters at every price point — but the one that reads 30% low on your VFD loads is not saving you money, it's costing you accuracy. Here's what actually matters.",
+    "excerpt": "There are clamp meters at every price point - but the one that reads 30% low on your VFD loads is not saving you money, it's costing you accuracy. Here's what actually matters.",
     "seoTitle": "How to Choose a Clamp Meter: Buying Guide"
   },
   {
@@ -436,7 +436,7 @@
   {
     "slug": "electrical-panel-testing",
     "title": "Electrical Panel Testing: How to Inspect and Test a Distribution Board",
-    "description": "A complete guide to testing electrical distribution boards — visual inspection, voltage testing, load current measurement, insulation resistance testing, RCD testing, and thermal imaging.",
+    "description": "A complete guide to testing electrical distribution boards - visual inspection, voltage testing, load current measurement, insulation resistance testing, RCD testing, and thermal imaging.",
     "publishDate": "2026-08-04",
     "readTime": "10 min read",
     "category": "How-To",
@@ -446,7 +446,7 @@
   {
     "slug": "anemometer-guide",
     "title": "What Is an Anemometer? Measuring Air Velocity and Airflow",
-    "description": "A guide to vane and hot-wire anemometers — how they work, how to measure duct airflow correctly, and how to choose the right sensor for HVAC work.",
+    "description": "A guide to vane and hot-wire anemometers - how they work, how to measure duct airflow correctly, and how to choose the right sensor for HVAC work.",
     "publishDate": "2026-08-05",
     "readTime": "7 min read",
     "category": "Guides",
@@ -469,7 +469,7 @@
     "publishDate": "2026-08-13",
     "readTime": "6 min read",
     "category": "Guides",
-    "excerpt": "Breaker contacts, winding resistance, and busbar joints all live in the micro-ohm range — far below what a multimeter can resolve. Here's how a 4-terminal Kelvin instrument measures it properly.",
+    "excerpt": "Breaker contacts, winding resistance, and busbar joints all live in the micro-ohm range - far below what a multimeter can resolve. Here's how a 4-terminal Kelvin instrument measures it properly.",
     "seoTitle": "Micro-Ohm Meter Guide: What It Measures"
   },
   {
@@ -479,7 +479,7 @@
     "publishDate": "2026-08-13",
     "readTime": "6 min read",
     "category": "Guides",
-    "excerpt": "An IR test measures a resistance value. A withstand test is pass/fail at a much higher voltage. Confusing the two — or skipping the IR test first — is a common and risky mistake.",
+    "excerpt": "An IR test measures a resistance value. A withstand test is pass/fail at a much higher voltage. Confusing the two - or skipping the IR test first - is a common and risky mistake.",
     "seoTitle": "Dielectric Withstand (HV) Testing Explained"
   },
   {
@@ -489,17 +489,17 @@
     "publishDate": "2026-08-23",
     "readTime": "6 min read",
     "category": "Buying Guide",
-    "excerpt": "Overcurrent and earth fault relays only need single-phase injection. Directional and distance relays need three-phase current, voltage, and precise phase angle control — get this wrong and you can't test the relay correctly at all.",
+    "excerpt": "Overcurrent and earth fault relays only need single-phase injection. Directional and distance relays need three-phase current, voltage, and precise phase angle control - get this wrong and you can't test the relay correctly at all.",
     "seoTitle": "How to Choose a Relay Test Set"
   },
   {
     "slug": "calibration-interval-guide",
     "title": "How Often Should You Calibrate Your Test Instruments?",
-    "description": "How to set a sensible calibration interval for electrical test instruments — the 12-month default, what shortens or lengthens it, and the difference between calibration and verification.",
+    "description": "How to set a sensible calibration interval for electrical test instruments - the 12-month default, what shortens or lengthens it, and the difference between calibration and verification.",
     "publishDate": "2026-08-23",
     "readTime": "5 min read",
     "category": "Guides",
-    "excerpt": "An out-of-calibration instrument doesn't fail loudly — it just quietly gives wrong readings. Here's how to actually set a calibration interval instead of guessing.",
+    "excerpt": "An out-of-calibration instrument doesn't fail loudly - it just quietly gives wrong readings. Here's how to actually set a calibration interval instead of guessing.",
     "seoTitle": "How Often to Calibrate Test Instruments"
   },
   {
@@ -509,13 +509,13 @@
     "publishDate": "2026-08-23",
     "readTime": "5 min read",
     "category": "Guides",
-    "excerpt": "IP65, IP67, IPX4 — the two-digit ingress protection code tells you exactly how an instrument handles dust and water. Here's how to read it and match it to where you actually work.",
+    "excerpt": "IP65, IP67, IPX4 - the two-digit ingress protection code tells you exactly how an instrument handles dust and water. Here's how to read it and match it to where you actually work.",
     "seoTitle": "IP Rating Explained: IP65, IP66, IP67"
   },
   {
     "slug": "continuity-vs-insulation-vs-contact-resistance",
-    "title": "Continuity vs Insulation vs Contact Resistance — Which Test Do You Need?",
-    "description": "A quick decision guide to the three resistance-style tests every electrician confuses: continuity, insulation resistance, and contact/micro-ohm resistance — what each one actually answers.",
+    "title": "Continuity vs Insulation vs Contact Resistance - Which Test Do You Need?",
+    "description": "A quick decision guide to the three resistance-style tests every electrician confuses: continuity, insulation resistance, and contact/micro-ohm resistance - what each one actually answers.",
     "publishDate": "2026-08-23",
     "readTime": "5 min read",
     "category": "Guides",
@@ -525,7 +525,7 @@
   {
     "slug": "digital-vs-analog-earth-tester",
     "title": "Digital vs Analog Earth Tester: Which Should You Choose?",
-    "description": "Comparing hand-driven analog and digital earth resistance testers — power source, field readiness, and which one fits your working conditions.",
+    "description": "Comparing hand-driven analog and digital earth resistance testers - power source, field readiness, and which one fits your working conditions.",
     "publishDate": "2026-08-23",
     "readTime": "5 min read",
     "category": "Buying Guide",
@@ -535,11 +535,11 @@
   {
     "slug": "motor-insulation-testing-schedule",
     "title": "How Often Should You Test Motor Insulation? A Maintenance Schedule",
-    "description": "How to build a periodic motor insulation testing schedule — the factors that shorten or lengthen the interval, and typical industry practice for spot IR and PI testing.",
+    "description": "How to build a periodic motor insulation testing schedule - the factors that shorten or lengthen the interval, and typical industry practice for spot IR and PI testing.",
     "publishDate": "2026-08-23",
     "readTime": "5 min read",
     "category": "Guides",
-    "excerpt": "A single insulation reading tells you today's condition. A periodic testing schedule tells you the trend — and the trend is what actually predicts failure.",
+    "excerpt": "A single insulation reading tells you today's condition. A periodic testing schedule tells you the trend - and the trend is what actually predicts failure.",
     "seoTitle": "How Often to Test Motor Insulation"
   },
   {
@@ -568,7 +568,7 @@
     "publishDate": "2026-08-23",
     "readTime": "5 min read",
     "category": "Guides",
-    "excerpt": "A fixed-voltage tester does one job reliably. A multirange tester covers a whole voltage span from one instrument — here's when that flexibility actually pays off.",
+    "excerpt": "A fixed-voltage tester does one job reliably. A multirange tester covers a whole voltage span from one instrument - here's when that flexibility actually pays off.",
     "seoTitle": "Multirange Insulation Testers Explained"
   },
   {
@@ -578,7 +578,7 @@
     "publishDate": "2026-08-23",
     "readTime": "5 min read",
     "category": "Guides",
-    "excerpt": "This is a different 'duty cycle' than the one on a waveform — it's a thermal rating on the equipment itself, and ignoring it doesn't trip a warning, it damages the instrument.",
+    "excerpt": "This is a different 'duty cycle' than the one on a waveform - it's a thermal rating on the equipment itself, and ignoring it doesn't trip a warning, it damages the instrument.",
     "seoTitle": "Duty Cycle Ratings on HV & Relay Test Sets"
   },
   {
@@ -588,17 +588,17 @@
     "publishDate": "2026-08-23",
     "readTime": "4 min read",
     "category": "Guides",
-    "excerpt": "A multimeter measuring current inserts a small resistor into your circuit and reads the voltage across it. Usually that's negligible — but on a marginal circuit, it can be the reason the reading looks wrong.",
+    "excerpt": "A multimeter measuring current inserts a small resistor into your circuit and reads the voltage across it. Usually that's negligible - but on a marginal circuit, it can be the reason the reading looks wrong.",
     "seoTitle": "What Is Burden Voltage?"
   },
   {
     "slug": "accuracy-vs-resolution-vs-precision",
     "title": "Accuracy vs Resolution vs Precision: What's the Difference?",
-    "description": "Three separate instrument specifications that get confused constantly — what each one actually measures, and why more display digits doesn't mean a better reading.",
+    "description": "Three separate instrument specifications that get confused constantly - what each one actually measures, and why more display digits doesn't mean a better reading.",
     "publishDate": "2026-08-23",
     "readTime": "4 min read",
     "category": "Guides",
-    "excerpt": "A meter can display 4 digits of resolution while only guaranteeing 2% accuracy — the display looks precise, the measurement isn't. Here's what each term actually means.",
+    "excerpt": "A meter can display 4 digits of resolution while only guaranteeing 2% accuracy - the display looks precise, the measurement isn't. Here's what each term actually means.",
     "seoTitle": "Accuracy vs Resolution vs Precision"
   },
   {
@@ -608,7 +608,7 @@
     "publishDate": "2026-08-23",
     "readTime": "5 min read",
     "category": "Guides",
-    "excerpt": "A small voltage imbalance produces a current imbalance 6 to 10 times larger inside a running motor — and the motor can look completely normal while one winding quietly overheats.",
+    "excerpt": "A small voltage imbalance produces a current imbalance 6 to 10 times larger inside a running motor - and the motor can look completely normal while one winding quietly overheats.",
     "seoTitle": "Checking Three-Phase Voltage & Current Imbalance"
   },
   {
@@ -628,7 +628,7 @@
     "publishDate": "2026-09-07",
     "readTime": "5 min read",
     "category": "Guides",
-    "excerpt": "A megger reading of 80 MΩ one day and 30 MΩ the next isn't necessarily a winding going bad — it might just be a colder motor versus a hot one.",
+    "excerpt": "A megger reading of 80 MΩ one day and 30 MΩ the next isn't necessarily a winding going bad - it might just be a colder motor versus a hot one.",
     "seoTitle": "Insulation Resistance Temperature Correction"
   },
   {
@@ -638,7 +638,7 @@
     "publishDate": "2026-09-07",
     "readTime": "4 min read",
     "category": "Guides",
-    "excerpt": "Temperature alone won't tell you whether a store room is about to grow mould or a workshop is at risk of static discharge — you need humidity too.",
+    "excerpt": "Temperature alone won't tell you whether a store room is about to grow mould or a workshop is at risk of static discharge - you need humidity too.",
     "seoTitle": "Thermo-Hygrometer Guide: Temp & Humidity"
   },
   {
@@ -648,13 +648,13 @@
     "publishDate": "2026-09-07",
     "readTime": "5 min read",
     "category": "Physics",
-    "excerpt": "When fault current enters the earth, it creates a voltage gradient around the point of contact — and anyone standing in it can become part of the circuit.",
+    "excerpt": "When fault current enters the earth, it creates a voltage gradient around the point of contact - and anyone standing in it can become part of the circuit.",
     "seoTitle": "Step and Touch Potential Explained"
   },
   {
     "slug": "how-to-choose-an-insulation-tester",
     "title": "How to Choose an Insulation Tester: A Complete Buying Guide",
-    "description": "Hand-driven vs motorised, metal vs wood vs bakelite body, single-range vs multirange, analog vs digital — a decision guide to CIE's full insulation tester range.",
+    "description": "Hand-driven vs motorised, metal vs wood vs bakelite body, single-range vs multirange, analog vs digital - a decision guide to CIE's full insulation tester range.",
     "publishDate": "2026-09-07",
     "readTime": "6 min read",
     "category": "Buying Guide",
