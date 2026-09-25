@@ -1,0 +1,49 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Vartech's function generator range runs from a 6 MHz entry-level DDS unit to an 80 MHz fully programmable dual-channel arbitrary waveform generator, five models on the same basic DDS (Direct Digital Synthesis) architecture at increasing frequency, sample rate, and control sophistication. Specifying the right one is mostly a question of how much bandwidth your stimulus signal needs and how much automation your test setup requires.
+</p>
+
+<h2 id="frequency-ladder">The Frequency Ladder: 6 MHz to 80 MHz</h2>
+
+<p>
+  The range steps up in a clear progression - SGD-6M (6 MHz) → SGDA-15M (15 MHz) → SGDA-30M (30 MHz) → SGDA-60M (60 MHz) → SGDA-80M (80 MHz) - all dual-channel DDS generators. As with any signal source, specify frequency based on the actual stimulus signal you need to generate, not the frequency of the circuit under test - if you're characterising a circuit's response across a range of frequencies (a filter's cutoff, for instance), the generator needs to comfortably sweep past the highest frequency of interest.
+</p>
+
+<h2 id="sample-rate">Sample Rate and Waveform Fidelity</h2>
+
+<p>
+  Sample rate determines how cleanly the generator can reproduce a waveform, particularly for arbitrary (non-standard) shapes. The SGD-6M offers 200 MSa/s, the SGDA-15M and SGDA-30M step up to 266 MSa/s, the SGDA-60M reaches 275 MSa/s, and the SGDA-80M tops the range at 300 MSa/s. Higher sample rate matters most when generating arbitrary waveforms or complex modulated signals - for simple sine/square/triangle output at moderate frequencies, the entry-level models are entirely adequate.
+</p>
+
+<h2 id="arbitrary-waveforms">Arbitrary Waveform Capability</h2>
+
+<p>
+  The SGDA-15M and SGDA-30M offer 60 built-in arbitrary waveforms on a 2.4-inch TFT display - useful for simulating non-standard signal shapes without programming a custom waveform. The SGDA-60M and SGDA-80M go further, supporting full custom arbitrary waveform generation with larger colour displays (2.8-inch and 3.5-inch TFT respectively) and a complete modulation suite, positioning them for genuine signal-simulation work rather than just basic sine/square/triangle output.
+</p>
+
+<Callout type="tip" title="Built-in frequency counter">
+  Every model except the SGDA-80M includes a built-in frequency counter (up to 100 MHz on the SGDA-30M/15M, 60 MHz on the SGD-6M) - a genuinely useful bench convenience that removes the need for a separate counter when you're characterising an unknown signal alongside generating your own.
+</Callout>
+
+<h2 id="programmable-automation">Automated Test - The SGDA-80M</h2>
+
+<p>
+  The range-topping SGDA-80M is built for automated and programmable test work - full modulation suite, USB interface, and dual-channel 300 MSa/s output designed for integration into an automated test sequence rather than purely manual bench use. If your application is a one-off bench stimulus signal, the mid-range models cover it; if you're building a repeatable, PC-controlled test setup, the SGDA-80M's programmability is the deciding factor.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>Basic bench signal generation, education</strong>: SGD-6M, 6 MHz entry-level DDS.</li>
+  <li><strong>General electronics bench, moderate frequency work</strong>: SGDA-15M or SGDA-30M.</li>
+  <li><strong>Higher-frequency work, richer arbitrary waveforms</strong>: SGDA-60M.</li>
+  <li><strong>Automated / programmable test sequences, high-frequency stimulus</strong>: SGDA-80M.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-function-generators/')}>full Vartech function generator range</a>. See our general guide on <a href={u('/blog/how-to-choose-a-function-generator/')}>how to choose a function generator</a> for the underlying specifications, or <a href={u('/contact/')}>contact us</a> for a model recommendation matched to your bench.
+</p>

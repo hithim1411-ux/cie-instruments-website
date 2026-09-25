@@ -72,6 +72,10 @@ import ChooseInsulationTesterGuide from '../../content/blog/how-to-choose-an-ins
 import ChooseVartechDcPowerSupplyGuide from '../../content/blog/how-to-choose-a-vartech-dc-power-supply.astro';
 import VartechOscilloscopeRangeGuide from '../../content/blog/vartech-oscilloscope-range-guide.astro';
 import ChooseVartechMultimeterGuide from '../../content/blog/how-to-choose-a-vartech-multimeter.astro';
+import ChooseVartechClampMeterGuide from '../../content/blog/how-to-choose-a-vartech-clamp-meter.astro';
+import ChooseVartechFunctionGeneratorGuide from '../../content/blog/how-to-choose-a-vartech-function-generator.astro';
+import ChooseVartechLcrMeterGuide from '../../content/blog/how-to-choose-a-vartech-lcr-meter.astro';
+import ChooseVartechCalibratorGuide from '../../content/blog/how-to-choose-a-vartech-calibrator.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -151,6 +155,10 @@ const contentMap: Record<string, any> = {
   'how-to-choose-a-vartech-dc-power-supply': ChooseVartechDcPowerSupplyGuide,
   'vartech-oscilloscope-range-guide': VartechOscilloscopeRangeGuide,
   'how-to-choose-a-vartech-multimeter': ChooseVartechMultimeterGuide,
+  'how-to-choose-a-vartech-clamp-meter': ChooseVartechClampMeterGuide,
+  'how-to-choose-a-vartech-function-generator': ChooseVartechFunctionGeneratorGuide,
+  'how-to-choose-a-vartech-lcr-meter': ChooseVartechLcrMeterGuide,
+  'how-to-choose-a-vartech-calibrator': ChooseVartechCalibratorGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -658,6 +666,33 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'cat-rating', label: 'CAT Rating - What You Need' },
     { id: 'when-to-step-up', label: 'When to Step Up' },
     { id: 'multimeter-plus-lcr', label: 'Multimeter Plus LCR' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'how-to-choose-a-vartech-clamp-meter': [
+    { id: 'everyday-vs-smart', label: 'Everyday or Smart Compact?' },
+    { id: 'ac-dc-true-rms', label: 'AC-Only or True RMS AC/DC?' },
+    { id: 'leakage-testing', label: 'Dedicated mA Leakage Testing' },
+    { id: 'jaw-size-range', label: 'Jaw Size & Current Range' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'how-to-choose-a-vartech-function-generator': [
+    { id: 'frequency-ladder', label: 'The Frequency Ladder' },
+    { id: 'sample-rate', label: 'Sample Rate & Fidelity' },
+    { id: 'arbitrary-waveforms', label: 'Arbitrary Waveform Capability' },
+    { id: 'programmable-automation', label: 'Automated Test' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'how-to-choose-a-vartech-lcr-meter': [
+    { id: 'portable-vs-bench', label: 'Portable or Bench-Top?' },
+    { id: 'multimeter-plus-lcr', label: 'Multimeter Plus LCR' },
+    { id: 'test-frequency', label: 'Test Frequency Explained' },
+    { id: 'auto-identification', label: 'Auto Component ID & Sorting' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'how-to-choose-a-vartech-calibrator': [
+    { id: 'full-process-vs-loop', label: 'Full Process or Loop Calibrator?' },
+    { id: 'v-ma-calibrator', label: 'Precision V/mA Calibration' },
+    { id: 'portability', label: 'Portability for Field Work' },
     { id: 'quick-reference', label: 'Quick Reference by Use Case' },
   ],
 };

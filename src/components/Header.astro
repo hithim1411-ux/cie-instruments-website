@@ -162,7 +162,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
                     <ul class="space-y-1.5" role="menu">
                       {col.map((cat) => (
                         <li role="none">
-                          <a href={u(`/authorised-dealership/${cat.id.replace('vartech-', '')}/`)} role="menuitem" data-dropdown-item tabindex="-1"
+                          <a href={u(`/products/${cat.id}/`)} role="menuitem" data-dropdown-item tabindex="-1"
                             class="block text-[12.5px] font-medium text-muted-dark hover:text-white leading-tight transition-colors">
                             {cat.shortName}
                           </a>
@@ -292,7 +292,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
         <div data-mobile-accordion-panel class="hidden ml-3 border-l border-white/10 pl-3 py-1 mt-0.5">
           {vartechCategories.map(cat => (
-            <a href={u(`/authorised-dealership/${cat.id.replace('vartech-', '')}/`)}
+            <a href={u(`/products/${cat.id}/`)}
                class="flex items-center gap-2.5 px-2 py-2 text-xs text-emerald-400/80 hover:text-emerald-300 hover:bg-white/5 rounded transition-colors">
               <Icon name={categoryIcon(cat.id)} class="w-3.5 h-3.5 shrink-0 text-emerald-500/70" />
               {cat.shortName}

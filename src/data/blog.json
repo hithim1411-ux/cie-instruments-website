@@ -690,5 +690,45 @@
     "category": "Buying Guide",
     "excerpt": "Vartech's twelve-model multimeter range spans pocket meters to a 30000-count bench-top instrument. Here's how to choose the right one for your work.",
     "seoTitle": "How to Choose a Vartech Multimeter"
+  },
+  {
+    "slug": "how-to-choose-a-vartech-clamp-meter",
+    "title": "How to Choose a Vartech Clamp Meter",
+    "description": "Everyday vs smart compact meters, AC-only vs True RMS AC/DC, and dedicated mA leakage testing - a buying guide to Vartech's six-model clamp meter range, supplied by CIE as authorised dealer.",
+    "publishDate": "2026-09-25",
+    "readTime": "4 min read",
+    "category": "Buying Guide",
+    "excerpt": "Vartech's clamp meter range spans a best-selling everyday model to a dedicated mA leakage tester. Here's how to choose between them.",
+    "seoTitle": "How to Choose a Vartech Clamp Meter"
+  },
+  {
+    "slug": "how-to-choose-a-vartech-function-generator",
+    "title": "How to Choose a Vartech Function Generator",
+    "description": "The 6-80 MHz frequency ladder, sample rate, arbitrary waveform capability, and when you need PC-programmable automation - a buying guide to Vartech's function generator range, supplied by CIE as authorised dealer.",
+    "publishDate": "2026-09-25",
+    "readTime": "4 min read",
+    "category": "Buying Guide",
+    "excerpt": "Vartech's five function generator models share one DDS architecture at increasing frequency and control sophistication. Here's how to pick between them.",
+    "seoTitle": "How to Choose a Vartech Function Generator"
+  },
+  {
+    "slug": "how-to-choose-a-vartech-lcr-meter",
+    "title": "How to Choose a Vartech LCR Meter",
+    "description": "Portable vs bench-top, multimeter-plus-LCR combos, and continuously variable vs fixed test frequency - a buying guide to Vartech's LCR meter range, supplied by CIE as authorised dealer.",
+    "publishDate": "2026-09-25",
+    "readTime": "4 min read",
+    "category": "Buying Guide",
+    "excerpt": "Vartech's LCR meter range spans a portable field unit to precision bench instruments. Here's how to choose the right one for your work.",
+    "seoTitle": "How to Choose a Vartech LCR Meter"
+  },
+  {
+    "slug": "how-to-choose-a-vartech-calibrator",
+    "title": "How to Choose a Vartech Process Calibrator",
+    "description": "Full process calibrator vs dedicated loop calibrator vs precision V/mA calibration, and why calibrator accuracy needs margin over the device under test - a buying guide to Vartech's calibrator range.",
+    "publishDate": "2026-09-25",
+    "readTime": "4 min read",
+    "category": "Buying Guide",
+    "excerpt": "Vartech's three process calibrators each target a different part of instrumentation maintenance work. Here's how to choose between them.",
+    "seoTitle": "How to Choose a Vartech Process Calibrator"
   }
 ]

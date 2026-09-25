@@ -1,0 +1,42 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Vartech's process calibrator range covers three instruments - a full temperature and process calibrator, a dedicated loop calibrator, and a precision V/mA signal calibrator - each aimed at a different part of instrumentation maintenance work. Choosing the right one comes down to what signal types you actually need to source and measure.
+</p>
+
+<h2 id="full-process-vs-loop">Full Process Calibrator or Dedicated Loop Calibrator?</h2>
+
+<p>
+  The V 7220 R is the broadest instrument in the range - a 5-digit source-and-measure calibrator covering DC voltage, resistance, and thermocouple (multiple T/C types) and RTD (2-wire/3-wire/4-wire) simulation. This is the right instrument when your maintenance work spans multiple sensor types - temperature transmitters, RTDs, thermocouples and general process signals - from a single calibrator. The V 7221 B is more specialised: a dedicated 5-digit loop calibrator that sources 0-30 mA DC and measures ±35 mA / ±35 V DC, with sawtooth and triangle wave output for testing a loop's dynamic response - the right choice when your work is specifically 4-20 mA current loop calibration and verification rather than broader temperature sensor work.
+</p>
+
+<h2 id="v-ma-calibrator">Precision V/mA Calibration - The MS 7221</h2>
+
+<p>
+  The MS 7221 is a 4½-digit V/mA process signal calibrator purpose-built for 4-20 mA loop work - sourcing and measuring 0-24 mA DC loop current and 0-10 V DC, with 0.015% mA accuracy and a built-in 24 V loop supply. That accuracy figure matters directly: when you're calibrating a transmitter or verifying a control loop's accuracy against a specification, the calibrator's own accuracy needs enough margin over the device under test that the measurement itself isn't the limiting factor. The built-in 24 V loop supply is a practical convenience - it means the calibrator can power a 2-wire transmitter loop directly during a bench check, without a separate loop power supply.
+</p>
+
+<Callout type="tip" title="Calibrator accuracy vs. device-under-test accuracy">
+  A calibrator should generally be at least 4 times more accurate than the device it's calibrating (a 4:1 test uncertainty ratio is the common industry guideline). Check the accuracy specification of the transmitter or instrument you're calibrating against, not just the calibrator's own headline number, before assuming a given calibrator is suitable for a specific calibration task.
+</Callout>
+
+<h2 id="portability">Portability for Field Calibration</h2>
+
+<p>
+  All three Vartech calibrators are handheld, battery-powered instruments with torch and backlight - built for field calibration work (checking a transmitter in situ on a process line) rather than requiring a bench setup. This matters for instrumentation technicians who need to walk a plant's transmitter population and calibrate or verify each one in place, rather than removing instruments to a lab bench.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>Multi-sensor-type calibration work (T/C, RTD, DCV, resistance)</strong>: V 7220 R.</li>
+  <li><strong>Dedicated 4-20 mA loop calibration with dynamic waveform testing</strong>: V 7221 B.</li>
+  <li><strong>Precision V/mA calibration with built-in loop supply</strong>: MS 7221.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-calibrators/')}>full Vartech process calibrator range</a>. See our general guide on <a href={u('/blog/process-calibrator-guide/')}>process calibrators</a>, or <a href={u('/contact/')}>contact us</a> to match a calibrator to your loop and sensor types.
+</p>

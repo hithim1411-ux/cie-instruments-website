@@ -1,0 +1,49 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Vartech's LCR meter range covers four instruments across two very different formats - a portable handheld unit, a combined multimeter-LCR meter, and two bench-top precision instruments. The right choice depends on where the measurement happens (field or bench) and how much precision and test-frequency flexibility the work actually requires.
+</p>
+
+<h2 id="portable-vs-bench">Portable or Bench-Top?</h2>
+
+<p>
+  The LCM-1 is a portable digital LC meter with a wide measurement range - from 1 pF/1 µH up to 100 mF/100 H across two range modes - suited to field and workshop verification of an unknown or unmarked component. The LCR-1B and LCR-2A are bench-top instruments with a 5-digit display and continuously variable or stepped test frequencies, built for characterising components properly rather than just a quick field check - the practical choice for an R&D bench, incoming inspection, or production test station.
+</p>
+
+<h2 id="multimeter-plus-lcr">Multimeter Plus LCR - The V 8222 H</h2>
+
+<p>
+  The V 8222 H combines a full-function True RMS multimeter (1000 V DC / 750 V AC, 20 A) with a handheld LCR meter in one CAT-rated instrument - inductance, capacitance, resistance, frequency and temperature alongside standard multimeter functions. This is the right instrument when you need occasional component verification (checking a capacitor's actual value, for instance) without carrying a dedicated LCR meter alongside your regular multimeter.
+</p>
+
+<h2 id="test-frequency">Test Frequency - LCR-1B vs LCR-2A</h2>
+
+<p>
+  Both bench models measure L, C, R, D, Q and ESR at 0.1% basic accuracy with USB/RS232 interface, but differ in how test frequency is selected. The LCR-1B offers continuously variable test frequency from 10 Hz to 10 kHz - useful when you need to sweep frequency and observe how a component's measured value changes (revealing frequency-dependent behaviour in real components). The LCR-2A instead offers 10 fixed, discrete test frequencies across the same 100 Hz-10 kHz band with a wider measurement range - the more practical choice when you're testing against a known standard frequency (a component's rated test frequency per its datasheet) rather than exploring frequency response.
+</p>
+
+<Callout type="info" title="Why test frequency matters for LCR measurement">
+  A capacitor or inductor's measured value can shift meaningfully with test frequency due to internal parasitic effects (ESR, dielectric absorption, core losses). Always measure at - or state - the same test frequency a component's datasheet value was specified at, or a bench-to-bench or bench-to-datasheet comparison won't be apples-to-apples.
+</Callout>
+
+<h2 id="auto-identification">Auto Component Identification and Bin Sorting</h2>
+
+<p>
+  Both LCR-1B and LCR-2A include auto component identification, automatically detecting whether the connected component is primarily inductive, capacitive or resistive rather than requiring the operator to pre-select a mode - a genuine time-saver when testing a batch of mixed, unmarked components. For production environments, this pairs with USB/RS232 interfacing to log results directly rather than transcribing readings by hand.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>Field/workshop component verification</strong>: LCM-1, portable LC meter.</li>
+  <li><strong>Occasional LCR checks alongside routine multimeter work</strong>: V 8222 H.</li>
+  <li><strong>Bench characterisation, frequency-response investigation</strong>: LCR-1B, continuously variable test frequency.</li>
+  <li><strong>Bench characterisation against a standard test frequency, wider range</strong>: LCR-2A.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-lcr-meters/')}>full Vartech LCR and capacitance meter range</a>. See our general guide on <a href={u('/blog/how-to-choose-an-lcr-meter/')}>how to choose an LCR meter</a>, or <a href={u('/contact/')}>contact us</a> for a recommendation matched to your component types and test-frequency requirements.
+</p>

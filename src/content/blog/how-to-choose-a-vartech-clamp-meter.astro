@@ -1,0 +1,51 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Vartech's clamp meter range covers six models from a best-selling everyday 1000 A unit to a dedicated mA leakage tester, all built around the same core advantage a clamp meter has over a standard multimeter - measuring current without breaking the circuit. Choosing between them comes down to three questions: how much current, what extra functions you need, and whether you specifically need leakage testing.
+</p>
+
+<h2 id="everyday-vs-smart">Everyday Clamp Meter or Ultra-Compact Smart Meter?</h2>
+
+<p>
+  The V 266, V 266+ and V 266 C form Vartech's mainstream clamp meter line - the V 266 is described as India's best-selling digital clamp multimeter, a proven, no-frills 1000 A AC / 1000 V DC instrument. The V 266+ steps up to 4000 counts with NCV (non-contact voltage detection) and torch, while the V 266 C adds capacitance, frequency and temperature measurement with a backlit display - the most capable of the three. The V 2001+ and V 2002+ take a different form factor entirely: an ultra-compact 150 g "Smart Clamp Meter" body with Type-C rechargeable battery, aimed at technicians who want a lighter, more pocketable instrument for routine current checks rather than a full-size meter.
+</p>
+
+<h2 id="ac-dc-true-rms">AC-Only or True RMS AC/DC?</h2>
+
+<p>
+  The V 266 series and V 2001+ measure AC current only, which covers the majority of routine mains-frequency electrical work. The M 2101 is a professional True RMS clamp meter that measures both AC and DC current from 600 µA up to 1000 A, with frequency measurement to 20 MHz - the right choice when your work involves DC circuits (battery systems, DC motor drives, solar/inverter installations) alongside AC, or when non-sinusoidal loads (VFDs, switch-mode supplies) make True RMS measurement necessary for an accurate reading.
+</p>
+
+<Callout type="warning" title="Why True RMS matters on modern loads">
+  A non-True RMS meter reads incorrectly on any non-sinusoidal waveform - which today includes almost anything downstream of a VFD, UPS, or switch-mode supply. If your panels have variable frequency drives or significant electronic loads, a True RMS instrument (M 2101, V 266+, V 266 C) isn't optional.
+</Callout>
+
+<h2 id="leakage-testing">Dedicated mA Leakage Testing - The V 2002+</h2>
+
+<p>
+  Standard clamp meters measure load current, not the small leakage current that indicates a developing insulation fault or nuisance-tripping RCD/ELCB issue. The V 2002+ is purpose-built as a mA leakage tester, measuring earth leakage current from as low as 600 µA alongside standard DC current and frequency to 10 MHz - the right tool when you're specifically chasing an RCD nuisance trip or verifying leakage current on sensitive equipment, rather than just checking load current.
+</p>
+
+<h2 id="jaw-size-range">Jaw Size and Current Range</h2>
+
+<p>
+  The V 266 series clamps a 50 mm jaw opening, sized for standard cable and small bus bar diameters found in typical DB and panel work. When specifying a clamp meter, match the jaw opening to the largest conductor or bus bar you'll realistically need to clamp around - a jaw too small for the job means the meter simply can't be used, regardless of its other specifications.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>General everyday clamp meter, proven and economical</strong>: V 266.</li>
+  <li><strong>Everyday use with NCV and safer operation</strong>: V 266+.</li>
+  <li><strong>Most capable of the mainstream line - capacitance, frequency, temperature</strong>: V 266 C.</li>
+  <li><strong>Lightweight, pocketable, rechargeable</strong>: V 2001+.</li>
+  <li><strong>AC/DC work, non-sinusoidal loads, professional field use</strong>: M 2101 (True RMS).</li>
+  <li><strong>RCD nuisance trips, earth leakage investigation</strong>: V 2002+.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-clamp-meters/')}>full Vartech clamp meter range</a>. <a href={u('/contact/')}>Contact us</a> to match a model to your current range, AC/DC requirements, and application.
+</p>
