@@ -660,5 +660,35 @@
     "category": "Buying Guide",
     "excerpt": "\"Insulation tester\" covers a wider range of instruments than most buyers expect. Picking the right one comes down to four questions.",
     "seoTitle": "How to Choose an Insulation Tester"
+  },
+  {
+    "slug": "how-to-choose-a-vartech-dc-power-supply",
+    "title": "How to Choose a Vartech DC Regulated Power Supply",
+    "description": "Linear vs SMPS, single vs multi-output, voltage/current tiers, and when you need PC interfacing - a buying guide to Vartech's 37-model DC power supply range, supplied by CIE as authorised dealer.",
+    "publishDate": "2026-09-25",
+    "readTime": "6 min read",
+    "category": "Buying Guide",
+    "excerpt": "Vartech's DC power supply range spans linear and SMPS topologies, single to quad output, and fixed-panel to fully programmable control. Picking the right one comes down to four questions.",
+    "seoTitle": "How to Choose a Vartech DC Power Supply"
+  },
+  {
+    "slug": "vartech-oscilloscope-range-guide",
+    "title": "Vartech Oscilloscope Range: Choosing Between CRO and DSO Models",
+    "description": "Analog CRO vs digital storage oscilloscope, the 20-150 MHz bandwidth ladder, and 2-channel vs 4-channel - a buying guide to the full Vartech oscilloscope range, supplied by CIE as authorised dealer.",
+    "publishDate": "2026-09-25",
+    "readTime": "5 min read",
+    "category": "Buying Guide",
+    "excerpt": "Vartech's six oscilloscope models span analog CROs to a 150 MHz DSO with built-in waveform generator. Here's how to pick between them.",
+    "seoTitle": "Vartech Oscilloscope Buying Guide"
+  },
+  {
+    "slug": "how-to-choose-a-vartech-multimeter",
+    "title": "How to Choose a Vartech Multimeter",
+    "description": "Pocket vs handheld vs bench-top, count resolution, CAT ratings, and when to step up to the flagship V 68 or V 981+ - a buying guide to Vartech's multimeter range, supplied by CIE as authorised dealer.",
+    "publishDate": "2026-09-25",
+    "readTime": "5 min read",
+    "category": "Buying Guide",
+    "excerpt": "Vartech's twelve-model multimeter range spans pocket meters to a 30000-count bench-top instrument. Here's how to choose the right one for your work.",
+    "seoTitle": "How to Choose a Vartech Multimeter"
   }
 ]

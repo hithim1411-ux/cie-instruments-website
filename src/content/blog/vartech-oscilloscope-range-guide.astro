@@ -1,0 +1,50 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Vartech's oscilloscope range runs from a classic 20 MHz analog CRO to a 150 MHz digital storage scope with a built-in arbitrary waveform generator, six models spanning three decision points: analog or digital, how much bandwidth, and how many channels. This guide walks through each in the order that actually matters when specifying a scope.
+</p>
+
+<h2 id="cro-vs-dso">Analog CRO or Digital Storage Oscilloscope?</h2>
+
+<p>
+  The SS-5020B, SS-5030B and SS-5030BC are analog Cathode Ray Oscilloscopes (CROs) - they display the live waveform directly on a CRT with no digitisation, sampling, or memory. For straightforward repetitive-signal work - audio, basic power supply ripple, general electronics servicing - a CRO remains a proven, reliable choice, and the SS-5030BC adds a built-in component tester that checks resistors, capacitors, inductors, transistors and diodes directly on the CRT without a separate meter. The SS-5080DS4, SS-5100DS1B and SS-5150DS1B FG are Digital Storage Oscilloscopes (DSOs) - they digitise, store and can analyse the waveform, which matters for capturing single-shot or intermittent events, saving traces, and any signal that needs measurement automation rather than just visual inspection.
+</p>
+
+<Callout type="info" title="When a CRO is still the right call">
+  If the work is entirely repetitive-signal troubleshooting on a fixed bench - not chasing intermittent faults, not needing to save or export a capture - a CRO does the job at a lower cost and with zero learning curve. Reach for a DSO once you need to catch a one-off glitch, measure automatically, or document a waveform.
+</Callout>
+
+<h2 id="bandwidth">The Bandwidth Ladder: 20 MHz to 150 MHz</h2>
+
+<p>
+  Vartech's six models step through bandwidth in a clear progression: SS-5020B (20 MHz) → SS-5030B / SS-5030BC (30 MHz) → SS-5080DS4 (80 MHz) → SS-5100DS1B (100 MHz) → SS-5150DS1B FG (150 MHz). As with any scope, the working rule is to specify bandwidth at roughly 5 times the highest frequency component you need to measure accurately, not just the nominal signal frequency - a fast digital edge or PWM switching transient carries harmonic content well above its base frequency. 20-30 MHz analog models suit mains-frequency and general audio/analog work; the 80-150 MHz DSO tier covers embedded systems, power electronics switching, and general digital/analog mixed-signal debugging.
+</p>
+
+<h2 id="channels">2-Channel or 4-Channel</h2>
+
+<p>
+  The SS-5020B, SS-5030B, SS-5030BC, SS-5100DS1B and SS-5150DS1B FG are dual-channel, sufficient for single-signal viewing or comparing two points directly (a stage's input against its output, for instance). The SS-5080DS4 is 4-channel with 1 GS/s sampling and 64K record length, letting you view four signals simultaneously - the practical requirement for three-phase work, multi-point digital bus debugging, or any comparison that routinely needs more than two simultaneous traces.
+</p>
+
+<h2 id="built-in-generator">Built-In Function Generator - The SS-5150DS1B FG</h2>
+
+<p>
+  The range-topping SS-5150DS1B FG pairs a 150 MHz DSO with an integrated 25 MHz arbitrary waveform generator in one bench instrument - source and analyse a signal without a second box on the bench. This matters most for anyone routinely doing stimulus-response testing (injecting a signal and observing the circuit's response) since it removes the need to co-ordinate two separate instruments and their respective ground references.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>General electronics servicing / education</strong>: SS-5020B or SS-5030B, 20-30 MHz analog CRO.</li>
+  <li><strong>Servicing bench that also tests passive components</strong>: SS-5030BC with built-in component tester.</li>
+  <li><strong>Multi-signal / three-phase / digital bus debugging</strong>: SS-5080DS4, 4-channel 80 MHz DSO.</li>
+  <li><strong>Embedded and power electronics, single/dual-channel capture</strong>: SS-5100DS1B, 100 MHz DSO with 4M record length.</li>
+  <li><strong>Stimulus-response testing, one-box signal source + analyser</strong>: SS-5150DS1B FG, 150 MHz DSO with built-in 25 MHz AWG.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/authorised-dealership/oscilloscopes/')}>full Vartech oscilloscope range</a>, from entry-level analog CROs to 150 MHz DSOs. <a href={u('/contact/')}>Contact us</a> to match a model to your bandwidth, channel count, and application.
+</p>

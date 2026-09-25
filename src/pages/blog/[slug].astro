@@ -69,6 +69,9 @@ import IrTempCorrectionGuide from '../../content/blog/insulation-resistance-temp
 import ThermoHygrometerGuide from '../../content/blog/thermo-hygrometer-guide.astro';
 import StepTouchPotentialGuide from '../../content/blog/step-and-touch-potential-explained.astro';
 import ChooseInsulationTesterGuide from '../../content/blog/how-to-choose-an-insulation-tester.astro';
+import ChooseVartechDcPowerSupplyGuide from '../../content/blog/how-to-choose-a-vartech-dc-power-supply.astro';
+import VartechOscilloscopeRangeGuide from '../../content/blog/vartech-oscilloscope-range-guide.astro';
+import ChooseVartechMultimeterGuide from '../../content/blog/how-to-choose-a-vartech-multimeter.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -145,6 +148,9 @@ const contentMap: Record<string, any> = {
   'thermo-hygrometer-guide': ThermoHygrometerGuide,
   'step-and-touch-potential-explained': StepTouchPotentialGuide,
   'how-to-choose-an-insulation-tester': ChooseInsulationTesterGuide,
+  'how-to-choose-a-vartech-dc-power-supply': ChooseVartechDcPowerSupplyGuide,
+  'vartech-oscilloscope-range-guide': VartechOscilloscopeRangeGuide,
+  'how-to-choose-a-vartech-multimeter': ChooseVartechMultimeterGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -631,6 +637,28 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'single-vs-multirange', label: 'Single-Range or Multirange?' },
     { id: 'analog-vs-digital', label: 'Analog or Digital?' },
     { id: 'decision-summary', label: 'Quick Decision Summary' },
+  ],
+  'how-to-choose-a-vartech-dc-power-supply': [
+    { id: 'linear-or-smps', label: 'Linear or SMPS?' },
+    { id: 'single-vs-multi-output', label: 'Single, Dual, Triple or Quad?' },
+    { id: 'voltage-current', label: 'Matching Voltage & Current' },
+    { id: 'programmable-interface', label: 'PC Interface & Programmability' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'vartech-oscilloscope-range-guide': [
+    { id: 'cro-vs-dso', label: 'Analog CRO or DSO?' },
+    { id: 'bandwidth', label: 'The Bandwidth Ladder' },
+    { id: 'channels', label: '2-Channel or 4-Channel' },
+    { id: 'built-in-generator', label: 'Built-In Function Generator' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'how-to-choose-a-vartech-multimeter': [
+    { id: 'pocket-handheld-bench', label: 'Pocket, Handheld or Bench-Top?' },
+    { id: 'count-resolution', label: 'Count Resolution Explained' },
+    { id: 'cat-rating', label: 'CAT Rating - What You Need' },
+    { id: 'when-to-step-up', label: 'When to Step Up' },
+    { id: 'multimeter-plus-lcr', label: 'Multimeter Plus LCR' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
   ],
 };
 

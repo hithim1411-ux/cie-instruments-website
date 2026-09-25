@@ -1,0 +1,51 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Vartech's DC regulated power supply range runs from a slim 30 V/5 A bench unit to a 200 V/10 A SMPS with full remote-control interfacing, spanning linear and switch-mode topologies, single, dual, triple and quad-output models, and fixed-panel or PC-programmable control. Picking the right one comes down to four questions, in order: linear or SMPS, how many outputs, what voltage/current envelope, and whether you need remote interfacing.
+</p>
+
+<h2 id="linear-or-smps">Linear or SMPS - Start Here</h2>
+
+<p>
+  This is the first fork in the range, and it decides more than any other spec. Linear supplies (Vartech's 3005/3010/3020/6005/6010 series) regulate output using a linear pass transistor - the trade-off is size and weight against very low output ripple and noise, which matters for sensitive analog circuits, RF work, and precision lab measurement where switching noise on the DC rail would corrupt the reading. SMPS supplies (the "S" and "SR" suffixed models) regulate using high-frequency switching, giving a dramatically smaller, lighter enclosure and higher power density for the same footprint - the 3020 SR delivers 600 W from a compact bench unit, a power-to-size ratio a linear supply of the same rating could not match.
+</p>
+
+<Callout type="tip" title="Rule of thumb">
+  Choose linear for sensitive analog/RF bench work where ripple and noise matter more than size. Choose SMPS for production test, battery/charger testing, motor and drive work, or anywhere you need more power per rack unit.
+</Callout>
+
+<h2 id="single-vs-multi-output">Single, Dual, Triple or Quad Output?</h2>
+
+<p>
+  A single-output supply (3010, 3020, 6005 S) covers most bench and field work - one variable DC rail with current limiting. Dual-output models (3010-2, 6005-2, 3010 S-2) give two independent channels with series and parallel tracking, useful for op-amp and differential circuits that need a symmetrical ±V supply, or for powering two sections of a rig without a second instrument. The 3005-3 D2 (triple: two variable 30 V/5 A channels plus a fixed 5 V/3 A rail) and 3005-4 (quad: two main 30 V/5 A channels plus two 2.2-15 V/1 A auxiliary channels) go further still, aimed at multi-rail embedded and mixed-logic board work where a design needs 3.3 V/5 V logic rails alongside a variable analog supply, all from one instrument.
+</p>
+
+<h2 id="voltage-current">Matching Voltage and Current to Your Load</h2>
+
+<p>
+  Vartech's range is organised in clear voltage tiers - 30 V, 60 V, 100 V, 120 V, 150 V and 200 V - each available across a spread of current ratings. The practical approach: identify your load's actual working voltage and peak current draw, then choose the tier that covers it with headroom, rather than over-specifying. A 0-30 V/10 A supply (3010 or 3010 S) comfortably covers most bench electronics, embedded, and general lab work. Motor, solenoid and higher-voltage DC load testing typically needs the 60 V or 100 V tiers, while the 150 V and 200 V SMPS models (15003 SR, 20005 S, 20010 SR) are sized for specialised high-voltage DC applications - EV/battery pack sections, high-voltage LED driver testing, and similar work.
+</p>
+
+<h2 id="programmable-interface">Do You Need PC Interface or Programmability?</h2>
+
+<p>
+  The "SR" suffixed SMPS models add USB/RS232/RS485 interfacing with ModBus-RTU protocol, letting the supply be monitored and controlled from a PC or PLC - useful for automated test sequences, data logging, and remote lab setups. The PPS-series goes further with true programmability: list mode for stepped test sequences, up to 6 stored memory presets, and 5 separate 4-digit LED displays for simultaneous voltage/current/power monitoring. If your work is a one-off bench measurement, a standard SMPS or linear model with manual controls is simpler and sufficient. If you're running repeatable test sequences, batch production testing, or building an automated rig, the interfacing pays for itself quickly.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>General bench electronics / education</strong>: 3005 B or 3010, 0-30 V linear, single output, CV/CC with Output On/Off.</li>
+  <li><strong>Op-amp / dual-rail analog circuits</strong>: 3010-2 or 6005-2 dual-output with series/parallel tracking.</li>
+  <li><strong>Multi-rail embedded/logic board work</strong>: 3005-3 D2 (triple) or 3005-4 (quad output).</li>
+  <li><strong>Compact high-power bench supply</strong>: 3020 SR (600 W) or 3030 SR (900 W) SMPS with PC interface.</li>
+  <li><strong>Motor, solenoid, higher-voltage DC load testing</strong>: 60 V or 100 V tier SMPS models (6010 SR, 10010 SR).</li>
+  <li><strong>Automated / repeatable test sequences</strong>: PPS-series programmable SMPS with list mode and memory presets.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the full <a href={u('/authorised-dealership/dc-power-supplies/')}>Vartech DC regulated power supply range</a> - 37 models across linear and SMPS topologies, single to quad output, and fixed-panel to fully programmable control. <a href={u('/contact/')}>Contact us</a> with your voltage, current and interfacing requirements for a model recommendation.
+</p>

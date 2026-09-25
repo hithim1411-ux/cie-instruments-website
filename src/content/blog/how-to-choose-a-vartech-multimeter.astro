@@ -1,0 +1,57 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Vartech's multimeter range covers twelve models from a pocket-sized budget meter to a 30000-count bench-top instrument with PC interface, plus a combined multimeter-LCR meter. Rather than working through specifications in the abstract, this guide groups the range by the question that actually decides which one to buy: how it will be used, day to day.
+</p>
+
+<h2 id="pocket-handheld-bench">Pocket, Handheld or Bench-Top?</h2>
+
+<p>
+  The V MAS 830 LB and V 830 L+ are pocket-sized meters built for everyday continuity, voltage and basic resistance checks - the V 830 L+ adds True RMS and non-contact voltage (NCV) detection over the base model. The M 890, V 92, V 92 S, V 890 D, V 68, V 8222 H and V 8222 G are full-size handheld meters for general field and panel work, each adding capability up the range. The V 980 and V 981+ step up to premium and bench-top formats - the V 981+ is a portable bench-top meter with a dual display, PC interface and rechargeable battery, suited to a fixed test station rather than a tool pouch.
+</p>
+
+<h2 id="count-resolution">Count Resolution: What 2000 vs 6000 vs 30000 Actually Means</h2>
+
+<p>
+  Count resolution determines how finely the meter can resolve a reading within each range - a higher count number shows more digits of precision before the meter needs to auto-range to the next scale. The V 92 and V 92 S are 6000-count auto-ranging meters, sufficient for the great majority of field and maintenance work. The V 68 steps up to 4000-count with a much wider frequency range (to 20 MHz) and micro-current sensitivity from 400 µA - aimed at automation, drives and control-loop diagnostic work where standard field meters run out of range. The V 980 (20000 counts) and V 981+ (30000 counts) are the highest-resolution instruments in the range, built for calibration-adjacent work and precision measurement where an ordinary field meter's resolution isn't enough.
+</p>
+
+<Callout type="tip" title="More counts isn't always the right upgrade">
+  If your work is panel troubleshooting, continuity checks and general field diagnostics, a 4000-6000 count auto-ranging meter (V 92, V 92 S, V 68) covers it comfortably. Reserve the 20000/30000-count instruments for work that genuinely needs that resolution - process calibration checks, precision component verification, or lab reference measurement.
+</Callout>
+
+<h2 id="cat-rating">CAT Rating - What You Actually Need</h2>
+
+<p>
+  CAT (measurement category) rating specifies the transient overvoltage a meter is built to survive safely, based on where in an electrical installation it's used - not a general quality indicator. The V 890 D, V 68, V 8222 H and V 8222 G carry CAT III 1000 V / CAT IV 600 V ratings, meaning they're built for higher-energy environments - distribution boards, industrial supply points and outdoor service entrances. For most indoor panel and equipment-level work, a correctly CAT III-rated meter is standard practice; step up to CAT IV only when the work genuinely reaches the origin of the installation or outdoor overhead supply.
+</p>
+
+<h2 id="when-to-step-up">When to Step Up to the V 68 or V 981+</h2>
+
+<p>
+  The V 68 is Vartech's flagship handheld - 4000-count True RMS, frequency to 20 MHz, duty cycle measurement for PWM and switching diagnostics, temperature to 1000 °C, capacitance to 100 mF, and micro-current sensitivity from 400 µA, all in one CAT III 1000 V / CAT IV 600 V rated body. It suits engineers who need one instrument that covers field work, drives diagnostics and light R&D without carrying multiple meters. The V 981+ goes further into bench territory - 30000 counts, a TFT dual display, PC interface, frequency measurement to 300 MHz and Type-C rechargeable operation, aimed at a fixed test bench rather than a tool bag.
+</p>
+
+<h2 id="multimeter-plus-lcr">Multimeter Plus LCR - The V 8222 H</h2>
+
+<p>
+  The V 8222 H combines a full-function True RMS multimeter with a handheld LCR meter in a single CAT III 1000 V-rated instrument - inductance, capacitance, resistance, frequency and temperature alongside standard multimeter functions. For anyone who regularly needs to check a passive component's actual L/C/R value in the field rather than just continuity, this removes the need to carry a separate LCR meter.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>Everyday pocket meter, continuity and voltage checks</strong>: V MAS 830 LB or V 830 L+.</li>
+  <li><strong>General field and panel work</strong>: V 92 or V 92 S, 6000-count auto-ranging True RMS.</li>
+  <li><strong>Heavy industrial use, CAT III 1000 V environments</strong>: V 890 D or V 8222 G.</li>
+  <li><strong>Automation, drives, and control-loop diagnostics</strong>: V 68, with frequency to 20 MHz and micro-current sensitivity.</li>
+  <li><strong>Field LCR measurement alongside standard multimeter functions</strong>: V 8222 H.</li>
+  <li><strong>Fixed bench station, precision work, PC logging</strong>: V 980 or V 981+.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/authorised-dealership/multimeters/')}>full Vartech multimeter range</a>, from pocket meters to 30000-count bench-top instruments. <a href={u('/contact/')}>Contact us</a> to match a model to your resolution, CAT rating, and application requirements.
+</p>
