@@ -76,6 +76,11 @@ import ChooseVartechClampMeterGuide from '../../content/blog/how-to-choose-a-var
 import ChooseVartechFunctionGeneratorGuide from '../../content/blog/how-to-choose-a-vartech-function-generator.astro';
 import ChooseVartechLcrMeterGuide from '../../content/blog/how-to-choose-a-vartech-lcr-meter.astro';
 import ChooseVartechCalibratorGuide from '../../content/blog/how-to-choose-a-vartech-calibrator.astro';
+import ChooseVartechDcLoadGuide from '../../content/blog/how-to-choose-a-vartech-dc-electronic-load.astro';
+import VartechSoundLevelMeterGuide from '../../content/blog/vartech-v-6700-b-sound-level-meter-guide.astro';
+import VartechAnemometerGuide from '../../content/blog/vartech-v-6250-b-anemometer-guide.astro';
+import ChooseVartechLuxMeterGuide from '../../content/blog/how-to-choose-a-vartech-lux-meter.astro';
+import ChooseVartechThermometerGuide from '../../content/blog/how-to-choose-a-vartech-thermometer.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -159,6 +164,11 @@ const contentMap: Record<string, any> = {
   'how-to-choose-a-vartech-function-generator': ChooseVartechFunctionGeneratorGuide,
   'how-to-choose-a-vartech-lcr-meter': ChooseVartechLcrMeterGuide,
   'how-to-choose-a-vartech-calibrator': ChooseVartechCalibratorGuide,
+  'how-to-choose-a-vartech-dc-electronic-load': ChooseVartechDcLoadGuide,
+  'vartech-v-6700-b-sound-level-meter-guide': VartechSoundLevelMeterGuide,
+  'vartech-v-6250-b-anemometer-guide': VartechAnemometerGuide,
+  'how-to-choose-a-vartech-lux-meter': ChooseVartechLuxMeterGuide,
+  'how-to-choose-a-vartech-thermometer': ChooseVartechThermometerGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -693,6 +703,38 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'full-process-vs-loop', label: 'Full Process or Loop Calibrator?' },
     { id: 'v-ma-calibrator', label: 'Precision V/mA Calibration' },
     { id: 'portability', label: 'Portability for Field Work' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'how-to-choose-a-vartech-dc-electronic-load': [
+    { id: 'cc-cv-cr-cp', label: 'Four Modes, One Platform' },
+    { id: 'el-600-vs-plus', label: 'EL-600 or EL-600+?' },
+    { id: 'battery-discharge', label: 'Battery Discharge Testing' },
+    { id: 'protection-interface', label: 'Protection & PC Interface' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'vartech-v-6700-b-sound-level-meter-guide': [
+    { id: 'range-and-weighting', label: 'Range & A-Weighting' },
+    { id: 'fast-slow-response', label: 'Fast/Slow Response' },
+    { id: 'applications', label: 'Where This Fits' },
+    { id: 'what-it-is-not', label: 'What to Check First' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'vartech-v-6250-b-anemometer-guide': [
+    { id: 'range', label: 'Air Speed & Temperature Range' },
+    { id: 'wind-chill-bar-graph', label: 'Wind Chill & Bar Graph' },
+    { id: 'applications', label: 'Where This Fits' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'how-to-choose-a-vartech-lux-meter': [
+    { id: 'fixed-vs-detachable', label: 'Fixed or Detachable Sensor?' },
+    { id: 'range-resolution', label: 'Range & Resolution' },
+    { id: 'unit-selection', label: 'Units & Data Features' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'how-to-choose-a-vartech-thermometer': [
+    { id: 'probe-vs-ambient', label: 'Contact Probe or Ambient?' },
+    { id: 'v-6500-range-probes', label: 'V 6500 Range & Probes' },
+    { id: 'thm-s1-scope', label: 'THM S1 - What It’s For' },
     { id: 'quick-reference', label: 'Quick Reference by Use Case' },
   ],
 };

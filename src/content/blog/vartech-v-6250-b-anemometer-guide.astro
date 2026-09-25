@@ -1,0 +1,43 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  The Vartech V 6250 B is CIE's authorised-dealer digital anemometer - a single model covering air speed and air temperature simultaneously, built for HVAC and general airflow measurement work. Since there's one model rather than a range, this guide covers what its specification actually means for your application rather than a model comparison.
+</p>
+
+<h2 id="range">Air Speed and Temperature Range</h2>
+
+<p>
+  The V 6250 B measures air speed from 0-45 m/s (0-140 km/h) and air temperature from 0-45 °C simultaneously on the same display - a genuine convenience over a speed-only instrument, since airflow measurements (particularly for HVAC commissioning) are frequently interpreted alongside temperature. Before specifying any anemometer, check your actual expected air speed range against the instrument's range - 0-45 m/s comfortably covers duct velocities, room air movement, and most general ventilation checks, but confirm it against your specific application if you're working with unusually high-velocity industrial exhaust or process airflow.
+</p>
+
+<h2 id="wind-chill-bar-graph">Wind Chill and the Analog Bar Graph</h2>
+
+<p>
+  The instrument computes and displays wind chill temperature alongside the raw readings - relevant for outdoor and building-envelope airflow assessment where the combined effect of air speed and temperature on perceived conditions matters, not just the raw air speed number. A real-time analog bar graph runs alongside the digital reading, letting you read a fluctuating airflow's trend at a glance rather than watching digits change - genuinely useful when you're hunting for a draft source or checking for a stable reading during commissioning.
+</p>
+
+<Callout type="tip" title="Avg/Min/Max hold for commissioning work">
+  HVAC commissioning and ventilation testing often calls for a representative average reading rather than a single instantaneous value, since airflow naturally fluctuates. The V 6250 B's Avg/Min/Max memory lets you capture a measurement period's average, and separately confirm the peak and minimum, rather than relying on a single reading that may not be representative.
+</Callout>
+
+<h2 id="applications">Where This Instrument Fits</h2>
+
+<p>
+  The V 6250 B suits HVAC commissioning, ventilation system testing, industrial airflow assessment, and general environmental monitoring - anywhere a technician needs a quick, reliable air speed and temperature reading with Data Hold and Auto Power Off for practical field use. Its large backlit LCD is built for readability in typical field conditions - plant rooms, duct access points, and similar working environments rather than a laboratory bench.
+</p>
+
+<h2 id="quick-reference">Quick Reference</h2>
+
+<ul>
+  <li><strong>HVAC commissioning and duct velocity checks</strong>: V 6250 B's 0-45 m/s range and Avg/Min/Max hold cover this directly.</li>
+  <li><strong>Draft-hunting / trend reading</strong>: use the real-time analog bar graph rather than watching the digital display alone.</li>
+  <li><strong>Outdoor / building-envelope assessment</strong>: the wind-chill computation gives a more representative "felt" reading than raw air speed alone.</li>
+  <li><strong>Unusually high-velocity industrial process airflow</strong>: confirm your expected range against the instrument's 0-45 m/s ceiling before specifying.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-anemometers/')}>Vartech V 6250 B digital anemometer</a>. See our general guide on <a href={u('/blog/anemometer-guide/')}>anemometers</a>, or <a href={u('/contact/')}>contact us</a> to confirm it matches your application.
+</p>

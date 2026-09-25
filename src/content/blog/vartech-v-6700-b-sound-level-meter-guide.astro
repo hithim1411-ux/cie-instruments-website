@@ -1,0 +1,49 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  The Vartech V 6700 B is CIE's authorised-dealer sound level meter offering - a single, well-specified model rather than a multi-tier range, so the useful question isn't "which model" but "does this instrument's spec actually match what you're measuring." This guide covers what the V 6700 B's specifications mean in practice and where it fits.
+</p>
+
+<h2 id="range-and-weighting">Measuring Range and A-Weighting</h2>
+
+<p>
+  The V 6700 B covers 30-130 dBA, using a 1/2-inch condenser microphone with A-frequency weighting - the weighting curve that approximates how the human ear perceives loudness across frequencies, and the standard weighting for workplace noise exposure and general environmental noise measurement. Accuracy is ±1.5 dB, referenced to a 94 dB calibration tone at 1 kHz - a standard reference point used to verify a sound level meter's calibration before a measurement session.
+</p>
+
+<h2 id="fast-slow-response">Fast/Slow Response - What It Actually Changes</h2>
+
+<p>
+  The V 6700 B provides selectable Fast and Slow dynamic response modes, which set how quickly the displayed reading responds to changes in sound level. Fast response (125 ms time constant, per the IEC standard the terms derive from) tracks rapidly varying or impulsive noise more closely, useful for identifying peak or intermittent noise events. Slow response (1 second time constant) smooths out rapid fluctuations, giving a more stable, averaged reading - the more practical setting for general workplace noise assessment where you want a representative steady-state level rather than every momentary spike.
+</p>
+
+<Callout type="info" title="Max hold for capturing peaks">
+  The V 6700 B's Maximum hold function captures and retains the highest reading seen during a measurement session - useful alongside Fast response when the actual question is "what's the loudest this gets," such as verifying a machine's peak noise output rather than its average running level.
+</Callout>
+
+<h2 id="applications">Where This Instrument Fits</h2>
+
+<p>
+  With a 5-digit backlit display offering 0.1 dB resolution and 2 samples per second, the V 6700 B suits routine workplace noise assessment, environmental noise surveys, HVAC system noise checks, and general-purpose acoustic measurement where a compact, easy-to-use instrument is more valuable than laboratory-grade precision. Over/under range warning and Auto Power Off round out the feature set for practical field use, powered from a standard 9 V battery.
+</p>
+
+<h2 id="what-it-is-not">What to Check Before Relying on This Class of Meter</h2>
+
+<p>
+  A general-purpose sound level meter of this type is built for routine surveys and comparative measurement, not for legally-mandated occupational noise compliance testing or environmental noise licensing, which typically require a specific IEC 61672 accuracy Class (Class 1 or Class 2) with third-party calibration certification. If your requirement is regulatory compliance documentation rather than a general noise check, confirm the accuracy class and certification requirement for your specific use case before specifying an instrument.
+</p>
+
+<h2 id="quick-reference">Quick Reference</h2>
+
+<ul>
+  <li><strong>Routine workplace noise checks, HVAC and general surveys</strong>: V 6700 B covers this comfortably.</li>
+  <li><strong>Peak/impulsive noise identification</strong>: use Fast response with Max hold.</li>
+  <li><strong>General steady-state noise assessment</strong>: use Slow response for a stable, representative reading.</li>
+  <li><strong>Regulatory/compliance noise measurement</strong>: confirm the required IEC 61672 accuracy class and certification before specifying any instrument.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-sound-level-meters/')}>Vartech V 6700 B digital sound level meter</a>. See our general guide on <a href={u('/blog/sound-level-meter-guide/')}>sound level meters</a>, or <a href={u('/contact/')}>contact us</a> to discuss whether this accuracy class and range suits your application.
+</p>

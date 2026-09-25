@@ -730,5 +730,55 @@
     "category": "Buying Guide",
     "excerpt": "Vartech's three process calibrators each target a different part of instrumentation maintenance work. Here's how to choose between them.",
     "seoTitle": "How to Choose a Vartech Process Calibrator"
+  },
+  {
+    "slug": "how-to-choose-a-vartech-dc-electronic-load",
+    "title": "How to Choose a Vartech DC Electronic Load",
+    "description": "EL-600 vs EL-600+, CC/CV/CR/CP modes explained, and battery discharge capacity testing - a buying guide to Vartech's DC electronic load range, supplied by CIE as authorised dealer.",
+    "publishDate": "2026-09-25",
+    "readTime": "4 min read",
+    "category": "Buying Guide",
+    "excerpt": "Vartech's two DC electronic loads share one 600 W platform and differ mainly in current rating. Here's how to pick between them.",
+    "seoTitle": "How to Choose a Vartech DC Electronic Load"
+  },
+  {
+    "slug": "vartech-v-6700-b-sound-level-meter-guide",
+    "title": "Vartech V 6700 B Sound Level Meter: A Buying Guide",
+    "description": "A-weighting, Fast/Slow response explained, and where a general-purpose sound level meter fits vs regulatory compliance testing - a guide to the Vartech V 6700 B, supplied by CIE as authorised dealer.",
+    "publishDate": "2026-09-25",
+    "readTime": "4 min read",
+    "category": "Buying Guide",
+    "excerpt": "What the Vartech V 6700 B's specifications actually mean in practice, and where a general-purpose sound level meter fits.",
+    "seoTitle": "Vartech V 6700 B Sound Level Meter Guide"
+  },
+  {
+    "slug": "vartech-v-6250-b-anemometer-guide",
+    "title": "Vartech V 6250 B Anemometer: A Buying Guide",
+    "description": "Air speed and temperature range, wind chill, and Avg/Min/Max hold for HVAC commissioning - a guide to the Vartech V 6250 B digital anemometer, supplied by CIE as authorised dealer.",
+    "publishDate": "2026-09-25",
+    "readTime": "3 min read",
+    "category": "Buying Guide",
+    "excerpt": "What the Vartech V 6250 B anemometer's specification means for HVAC commissioning and general airflow measurement work.",
+    "seoTitle": "Vartech V 6250 B Anemometer Guide"
+  },
+  {
+    "slug": "how-to-choose-a-vartech-lux-meter",
+    "title": "How to Choose a Vartech Lux Meter",
+    "description": "Fixed sensor vs detachable flexible sensor, range and resolution compared - a buying guide to Vartech's two lux meter models, supplied by CIE as authorised dealer.",
+    "publishDate": "2026-09-25",
+    "readTime": "4 min read",
+    "category": "Buying Guide",
+    "excerpt": "Vartech's two lux meters split on one practical line: fixed sensor vs a detachable sensor for awkward measurement points.",
+    "seoTitle": "How to Choose a Vartech Lux Meter"
+  },
+  {
+    "slug": "how-to-choose-a-vartech-thermometer",
+    "title": "How to Choose a Vartech Thermometer",
+    "description": "Contact probe thermometer vs ambient thermo-hygrometer - two genuinely different instruments under one category, and which one actually fits your measurement task.",
+    "publishDate": "2026-09-25",
+    "readTime": "4 min read",
+    "category": "Buying Guide",
+    "excerpt": "The V 6500 and THM S1 don't compete for the same job - one takes contact readings, the other monitors ambient room conditions.",
+    "seoTitle": "How to Choose a Vartech Thermometer"
   }
 ]

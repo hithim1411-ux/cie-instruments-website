@@ -1,0 +1,49 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Vartech's DC electronic load range covers two models on the same 600 W platform - the EL-600 and EL-600+ - differing only in maximum current. Both are fully programmable, covering the same four core operating modes and test features, which makes the buying decision unusually simple: work out your required current, then pick accordingly.
+</p>
+
+<h2 id="cc-cv-cr-cp">Four Modes, One Platform</h2>
+
+<p>
+  Both units operate in Constant Current (CC), Constant Voltage (CV), Constant Resistance (CR) and Constant Power (CP) modes, spanning 9 basic mode variants (CCL, CCH, CVL, CVH, CRL, CRM, CRH, CPV, CPC) selected via a 4.3-inch backlit LCD with rotary dial and keypad. CC mode is the default choice for most power supply and charger testing (a fixed current draw regardless of voltage); CV mode is useful for simulating a fixed-voltage load; CR mode simulates a resistive load whose current varies with applied voltage; CP mode holds constant power draw as voltage changes. Rated accuracy is tight on both models - CC accuracy of ≤±(0.1% + 0.1% FS) and CV accuracy of ≤±(0.05% + 0.02% FS).
+</p>
+
+<h2 id="el-600-vs-plus">EL-600 or EL-600+ - Current Is the Only Difference</h2>
+
+<p>
+  Both models share the identical 600 W, 150 V maximum platform, identical mode set, identical List mode, and identical protections. The EL-600 tops out at 60 A; the EL-600+ extends to 120 A. Since 600 W is the shared power ceiling on both, the higher current rating on the EL-600+ only becomes relevant at lower test voltages (where higher current is needed to reach the same power) - if your test load consistently operates at a voltage where 60 A already comfortably covers your required power draw, the standard EL-600 covers it with no compromise. Step up to the EL-600+ only when your actual test current requirement exceeds 60 A.
+</p>
+
+<Callout type="tip" title="Work backward from your test current, not the wattage rating">
+  Both units are rated 600 W, but that number alone doesn't tell you which one to buy - your actual test current at your actual test voltage is what determines whether 60 A is enough. A 12 V battery pack test drawing 50 A needs only the EL-600; the same 600 W drawn at a lower voltage could require more current than the EL-600 provides.
+</Callout>
+
+<h2 id="battery-discharge">Battery Discharge Testing</h2>
+
+<p>
+  Both models include a dedicated Battery Discharge Capacity test - up to 3000 Ah, with discharge time programmable from 1 second to 100 hours. This is a distinct capability from simple CC/CV/CR/CP loading: rather than just sinking current, the instrument logs the discharge profile against time, letting you verify a battery's actual capacity against its rated Ah figure. Combined with List mode (programmable step sequences with 10 ms to 99999 s step time), this supports realistic, automated duty-cycle testing rather than a single static load point.
+</p>
+
+<h2 id="protection-interface">Protection and PC Interface</h2>
+
+<p>
+  Both units carry a full protection set - OCP, OVP, OPP, OTP and reverse voltage protection - along with a dedicated Short Circuit test mode for verifying a power source's short-circuit behaviour. An RS232C interface allows PC control for automated or remote test sequences, useful when the load is part of a larger automated production or R&D test setup rather than a standalone bench instrument.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>Power supply / adapter / charger testing up to 60 A</strong>: EL-600.</li>
+  <li><strong>Higher-current battery pack or power supply testing (up to 120 A)</strong>: EL-600+.</li>
+  <li><strong>Battery capacity verification against rated Ah</strong>: either model's Battery Discharge Capacity test.</li>
+  <li><strong>Automated / PC-controlled test sequences</strong>: List mode plus RS232C interface on either model.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-dc-loads/')}>full Vartech DC electronic load range</a>. See our general guide on <a href={u('/blog/dc-electronic-load-guide/')}>DC electronic loads</a>, or <a href={u('/contact/')}>contact us</a> to match a model to your voltage, current and test requirements.
+</p>

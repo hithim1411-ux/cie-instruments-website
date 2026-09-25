@@ -1,0 +1,43 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Vartech's thermometer category covers two genuinely different instruments - the V 6500, an industrial K-type thermocouple probe thermometer, and the THM S1, a compact desktop thermo-hygrometer. They don't compete for the same job: one measures contact temperature at a specific point via a probe, the other monitors ambient room temperature and humidity continuously. Which one you need depends on what you're actually trying to measure.
+</p>
+
+<h2 id="probe-vs-ambient">Contact Probe Measurement or Ambient Room Monitoring?</h2>
+
+<p>
+  The V 6500 measures temperature via a K-type thermocouple probe touched to or inserted into the object or process being measured - a motor winding, a pipe surface, a process fluid, an electrical connection during a thermal check. The THM S1 has no probe at all; it measures the ambient air temperature and humidity of the room or space it sits in, continuously, alongside a clock display. If your work involves checking the actual temperature of a specific component or material, you need a probe thermometer like the V 6500. If you're monitoring a room, store, or panel's ambient conditions over time, you need an ambient instrument like the THM S1 - a probe thermometer can't do that job, and an ambient monitor can't take a contact reading.
+</p>
+
+<h2 id="v-6500-range-probes">V 6500 - Range and Probe Options</h2>
+
+<p>
+  The V 6500 covers a wide -150 °C to +1300 °C range with selectable 0.1 °C or 1 °C resolution on a 2000-count display. A Bead-type K probe (-50 °C to 250 °C) is included as standard; a Rod-type probe (-50 °C to 750 °C) and a High-Temperature probe (rated to 1300 °C) are available as optional accessories for higher-temperature work. This matters when specifying: the included bead probe covers general electrical and mechanical maintenance temperature checks, but process or furnace-adjacent work at higher temperatures needs the optional rod or high-temperature probe to actually reach the instrument's full rated range.
+</p>
+
+<Callout type="tip" title="Check which probe you actually need">
+  The V 6500's headline -150 °C to +1300 °C range describes the instrument electronics, not the included probe. The standard bead probe only reaches 250 °C - if your application needs higher-temperature contact measurement, confirm you're also specifying the rod or high-temperature probe accessory, not just the base instrument.
+</Callout>
+
+<h2 id="thm-s1-scope">THM S1 - What It's Actually For</h2>
+
+<p>
+  The THM S1 covers -10 °C to +50 °C temperature and 20-90% RH humidity on a 3-line display alongside a 12/24-hour clock, with a comfort-level indicator and Min/Max memory for both readings. At 9.8 × 5.8 × 1.3 cm, it's designed for continuous desktop or wall placement in a home, office, store room, or server room - monitoring that a space stays within acceptable temperature and humidity bounds over time, not for taking spot measurements at different locations. Vartech's own documentation is explicit that this is a consumer-grade instrument, not intended for industrial applications - use it for general environmental monitoring, not as a calibrated industrial humidity/temperature reference.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>Motor, panel, connection or process contact temperature checks</strong>: V 6500 with bead probe.</li>
+  <li><strong>Higher-temperature contact measurement (up to 750 °C or 1300 °C)</strong>: V 6500 with the optional rod or high-temperature probe.</li>
+  <li><strong>Continuous room/store/server-room temperature and humidity monitoring</strong>: THM S1.</li>
+  <li><strong>Industrial humidity/temperature compliance or calibration reference</strong>: the THM S1 is explicitly consumer-grade - specify an industrial-rated instrument for this instead.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-thermometers/')}>Vartech V 6500 industrial thermometer</a> and the <a href={u('/authorised-dealership/thermometers/thm-s1/')}>THM S1 thermo-hygrometer</a>. See our related guide on <a href={u('/blog/thermocouple-types-explained/')}>thermocouple types</a>, or <a href={u('/contact/')}>contact us</a> for a recommendation.
+</p>
