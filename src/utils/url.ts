@@ -16,3 +16,14 @@ export const u = (path: string): string => {
     : pathname;
   return normalised + query;
 };
+
+// PDF datasheets/catalogues live in a separate repo (github.com/hithim1411-ux/
+// cie-downloads), served via GitHub Pages, not in this repo's public/ dir.
+// Reason: they were bloating every Vercel deployment's build output (~63MB of
+// binaries duplicated per-deploy) enough to hit the Hobby plan's 10GB total
+// Deployment Storage cap. Takes the same "/downloads/..." path callers already
+// pass to u() - only the host changes.
+const DOWNLOADS_HOST = 'https://hithim1411-ux.github.io/cie-downloads';
+
+export const downloadUrl = (path: string): string =>
+  `${DOWNLOADS_HOST}${path.replace(/^\/downloads/, '')}`;

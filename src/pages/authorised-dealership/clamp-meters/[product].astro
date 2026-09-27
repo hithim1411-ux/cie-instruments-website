@@ -1,6 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import { u } from '../../../utils/url';
+import { u, downloadUrl } from '../../../utils/url';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Icon from '../../../components/Icon.astro';
 import CTABand from '../../../components/CTABand.astro';
@@ -131,7 +131,7 @@ const productSchema = {
         <!-- CTAs -->
         <div class="space-y-3">
           <a
-            href={u(`/downloads/vartech/clamp-meters/${product.catalogue}`)}
+            href={downloadUrl(`/downloads/vartech/clamp-meters/${product.catalogue}`)}
             target="_blank"
             rel="noopener noreferrer"
             class="btn-secondary w-full text-ink"

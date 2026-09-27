@@ -1,6 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import { u } from '../../../utils/url';
+import { u, downloadUrl } from '../../../utils/url';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CTABand from '../../../components/CTABand.astro';
 import products from '../../../data/vartech-dc-power-supplies.json';
@@ -94,7 +94,7 @@ const productSchema = {
                   class="btn-primary btn-primary--sm">
                   View Details & Specs
                 </a>
-                <a href={u(`/downloads/vartech/dc-power-supplies/${p.catalogue}`)}
+                <a href={downloadUrl(`/downloads/vartech/dc-power-supplies/${p.catalogue}`)}
                   target="_blank" rel="noopener noreferrer"
                   class="btn-secondary btn-secondary--sm text-ink">
                   <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
