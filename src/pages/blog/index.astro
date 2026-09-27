@@ -18,6 +18,34 @@ const catChip: Record<string, string> = {
   'Physics':      'text-amber-700 bg-amber-50 border-amber-200',
   'Buying Guide': 'text-emerald-700 bg-emerald-50 border-emerald-200',
 };
+
+// ── The Library: subject shelves ─────────────────────────────────────────
+// Groups all posts into a fixed set of subject shelves (like a library's
+// card catalog) instead of one flat, undifferentiated list. Order here is
+// the display order - fundamentals first, then instrument families,
+// broadest first.
+interface Shelf { id: string; label: string; blurb: string; icon: string }
+const SHELVES: Shelf[] = [
+  { id: 'physics',           label: 'Physics & Electrical Fundamentals',   blurb: 'The theory behind every reading - Ohm’s Law, AC/DC, ratings and specs.', icon: 'zap' },
+  { id: 'multimeters',       label: 'Multimeters',                         blurb: 'Choosing, using and understanding the most essential bench and field tool.', icon: 'gauge' },
+  { id: 'clamp-meters',      label: 'Clamp Meters',                        blurb: 'Current measurement without breaking a circuit, including leakage testing.', icon: 'circle-dot' },
+  { id: 'insulation-earthing', label: 'Insulation, Earthing & Motor Testing', blurb: 'Meggers, earth testers and the tests that catch a fault before it does damage.', icon: 'shield-check' },
+  { id: 'scopes-signal',     label: 'Oscilloscopes, Signal & Component Testing', blurb: 'Waveforms, function generators and LCR meters for signal-level work.', icon: 'activity' },
+  { id: 'power-supplies',    label: 'DC Power Supplies & Electronic Loads', blurb: 'Linear vs SMPS, programmable control, and bench power selection.', icon: 'plug' },
+  { id: 'calibration',       label: 'Calibration & Process Instruments',   blurb: '4-20 mA loops, temperature calibration and calibration-interval practice.', icon: 'settings' },
+  { id: 'environmental',     label: 'Environmental & Safety Instruments',  blurb: 'Light, sound, airflow, temperature and humidity measurement.', icon: 'wind' },
+  { id: 'power-quality',     label: 'Power Quality & Circuit Diagnostics', blurb: 'Phase sequence, harmonics, power factor and field fault-finding.', icon: 'waves' },
+  { id: 'relay-hv',          label: 'Relay & High-Voltage Testing',        blurb: 'Protection relays, dielectric withstand and HV safety fundamentals.', icon: 'flask' },
+  { id: 'bench-tools',       label: 'Bench & Repair Tools',                blurb: 'Soldering, desoldering, fuses and batteries - the rest of the toolkit.', icon: 'wrench' },
+];
+
+const byDateDesc = (a: any, b: any) => b.publishDate.localeCompare(a.publishDate);
+const shelvesWithPosts = SHELVES.map(shelf => ({
+  ...shelf,
+  posts: sorted.filter(p => (p as any).shelf === shelf.id).sort(byDateDesc),
+})).filter(s => s.posts.length > 0);
+
+const PREVIEW_COUNT = 4;
 ---
 
 <Base
@@ -127,104 +155,228 @@ const catChip: Record<string, string> = {
   </section>
 
   <!-- ════════════════════════════════════════════════════════
-       ARTICLE SLIDER
+       THE LIBRARY - subject shelves, search, and per-shelf browsing
   ═══════════════════════════════════════════════════════════ -->
-  <section class="bg-gray-50 border-b border-gray-200">
+  <section class="bg-gray-50 border-b border-gray-200" id="library">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-      <div class="flex items-center justify-between mb-8">
-        <p class="text-[10px] font-mono uppercase tracking-[0.18em] text-muted">All Articles</p>
-        <div class="flex items-center gap-2">
-          <button id="art-prev" aria-label="Previous articles"
-            class="w-8 h-8 rounded-full border border-gray-200 bg-white hover:border-ink hover:bg-ink hover:text-white text-ink transition-all flex items-center justify-center disabled:opacity-30 disabled:pointer-events-none">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-          </button>
-          <button id="art-next" aria-label="Next articles"
-            class="w-8 h-8 rounded-full border border-gray-200 bg-white hover:border-ink hover:bg-ink hover:text-white text-ink transition-all flex items-center justify-center disabled:opacity-30 disabled:pointer-events-none">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </button>
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+        <div>
+          <p class="text-[10px] font-mono uppercase tracking-[0.18em] text-muted mb-2">The Library</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-ink leading-tight">Browse by subject.</h2>
+        </div>
+        <div class="relative w-full md:w-80 shrink-0">
+          <svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="m20 20-3.5-3.5"/></svg>
+          <input
+            id="lib-search"
+            type="search"
+            placeholder="Search all articles..."
+            aria-label="Search articles"
+            class="w-full pl-10 pr-4 py-2.5 text-sm rounded-full border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink transition-colors"
+          />
         </div>
       </div>
 
-      <!-- Scrollable slider track -->
-      <div id="art-track"
-        class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
-        style="scrollbar-width:none; -ms-overflow-style:none;">
-        {sorted.slice(1).map(post => (
-          <a
-            href={u(`/blog/${post.slug}/`)}
-            class="art-card card card-interactive group snap-start shrink-0 w-[80vw] sm:w-[calc(50%-8px)] lg:w-[calc(25%-12px)] overflow-hidden flex flex-col"
-          >
-            <div class={`h-1 w-full ${catBar[post.category] ?? 'bg-gray-300'}`}></div>
-            <div class="p-5 flex flex-col flex-1">
-              <span class={`inline-block self-start text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border mb-3 ${catChip[post.category] ?? 'text-gray-600 bg-gray-50 border-gray-200'}`}>
-                {post.category}
-              </span>
-              <h2 class="text-sm font-bold text-ink group-hover:text-red transition-colors leading-snug mb-2 flex-1">
-                {post.title}
-              </h2>
-              <p class="text-xs text-muted leading-relaxed mb-4 line-clamp-2">{post.excerpt}</p>
-              <div class="flex items-center justify-between pt-3 border-t border-gray-100">
-                <div class="flex items-center gap-2 text-[10px] text-gray-400 font-mono">
-                  <time datetime={post.publishDate}>
-                    {new Date(post.publishDate).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })}
-                  </time>
-                  <span>·</span>
-                  <span>{post.readTime}</span>
-                </div>
-                <span class="link-arrow text-xs text-red">
-                  Read <Icon name="arrow" class="w-3.5 h-3.5" />
-                </span>
-              </div>
-            </div>
-          </a>
+      <!-- Shelf directory (pill nav) -->
+      <div id="lib-nav" class="flex flex-wrap gap-2 mb-10">
+        <button data-shelf-btn="all" aria-pressed="true"
+          class="lib-pill is-active inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-full border transition-colors">
+          All Topics <span class="lib-pill-count opacity-60">({sorted.length})</span>
+        </button>
+        {shelvesWithPosts.map(shelf => (
+          <button data-shelf-btn={shelf.id} aria-pressed="false"
+            class="lib-pill inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-full border transition-colors">
+            <Icon name={shelf.icon as any} class="w-3.5 h-3.5 shrink-0" />
+            {shelf.label} <span class="lib-pill-count opacity-60">({shelf.posts.length})</span>
+          </button>
         ))}
       </div>
 
-      <!-- Dot indicators -->
-      <div id="art-dots" class="flex justify-center gap-1.5 mt-5" aria-hidden="true">
-        {sorted.slice(1).map((_, i) => (
-          <button data-art-dot={i} tabindex="-1"
-            class={`art-dot rounded-full transition-all ${i === 0 ? 'w-4 h-1.5 bg-ink' : 'w-1.5 h-1.5 bg-gray-300'}`}></button>
+      <!-- Search results summary (shown only while searching) -->
+      <p id="lib-search-summary" class="hidden text-sm text-muted mb-6"></p>
+
+      <!-- No-results state -->
+      <div id="lib-empty" class="hidden text-center py-16">
+        <p class="text-muted text-sm">No articles match your search. Try a different term.</p>
+      </div>
+
+      <!-- Shelves -->
+      <div id="lib-shelves" class="space-y-14">
+        {shelvesWithPosts.map(shelf => (
+          <div class="lib-shelf" data-shelf-section={shelf.id}>
+            <div class="flex items-start gap-3 mb-5 pb-4 border-b border-gray-200">
+              <div class="w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center shrink-0 text-ink">
+                <Icon name={shelf.icon as any} class="w-4.5 h-4.5" />
+              </div>
+              <div class="min-w-0">
+                <h3 class="text-base font-bold text-ink leading-snug">{shelf.label}</h3>
+                <p class="text-xs text-muted leading-relaxed mt-0.5">{shelf.blurb}</p>
+              </div>
+            </div>
+
+            <div class="lib-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {shelf.posts.map((post, i) => (
+                <a
+                  href={u(`/blog/${post.slug}/`)}
+                  class:list={['lib-card', 'card', 'card-interactive', 'group', 'overflow-hidden', 'flex', 'flex-col', { 'lib-card--overflow': i >= PREVIEW_COUNT }]}
+                  data-search={`${post.title} ${post.excerpt}`.toLowerCase()}
+                >
+                  <div class={`h-1 w-full ${catBar[post.category] ?? 'bg-gray-300'}`}></div>
+                  <div class="p-5 flex flex-col flex-1">
+                    <span class={`inline-block self-start text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border mb-3 ${catChip[post.category] ?? 'text-gray-600 bg-gray-50 border-gray-200'}`}>
+                      {post.category}
+                    </span>
+                    <h4 class="text-sm font-bold text-ink group-hover:text-red transition-colors leading-snug mb-2 flex-1">
+                      {post.title}
+                    </h4>
+                    <p class="text-xs text-muted leading-relaxed mb-4 line-clamp-2">{post.excerpt}</p>
+                    <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                      <div class="flex items-center gap-2 text-[10px] text-gray-400 font-mono">
+                        <time datetime={post.publishDate}>
+                          {new Date(post.publishDate).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })}
+                        </time>
+                        <span>·</span>
+                        <span>{post.readTime}</span>
+                      </div>
+                      <span class="link-arrow text-xs text-red">
+                        Read <Icon name="arrow" class="w-3.5 h-3.5" />
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            {shelf.posts.length > PREVIEW_COUNT && (
+              <button
+                data-shelf-viewall={shelf.id}
+                class="lib-viewall mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-red hover:text-red-dark transition-colors"
+              >
+                View all {shelf.posts.length} articles in {shelf.label}
+                <Icon name="arrow" class="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
         ))}
       </div>
     </div>
   </section>
 
+  <style>
+    .lib-pill { color: #6b7280; background: #fff; border-color: #e5e7eb; }
+    .lib-pill:hover { border-color: #111827; color: #111827; }
+    .lib-pill.is-active { background: #111827; border-color: #111827; color: #fff; }
+    .lib-shelf[data-hidden] { display: none; }
+    .lib-card[data-hidden] { display: none; }
+    .lib-card--overflow.is-capped { display: none; }
+  </style>
+
   <script>
   {
-    const track = document.getElementById('art-track');
-    const dots  = document.querySelectorAll<HTMLButtonElement>('.art-dot');
-    const prev  = document.getElementById('art-prev') as HTMLButtonElement | null;
-    const next  = document.getElementById('art-next') as HTMLButtonElement | null;
-    if (track) {
-      let cachedW = 300;
-      const updateW = () => {
-        const first = track.querySelector('.art-card');
-        if (first) cachedW = (first as HTMLElement).offsetWidth + 16;
-      };
-      requestAnimationFrame(updateW);
-      new ResizeObserver(updateW).observe(track);
-      const slideW = () => cachedW;
+    const searchInput = document.getElementById('lib-search') as HTMLInputElement | null;
+    const navButtons  = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-shelf-btn]'));
+    const shelves     = Array.from(document.querySelectorAll<HTMLElement>('[data-shelf-section]'));
+    const emptyState  = document.getElementById('lib-empty');
+    const searchSummary = document.getElementById('lib-search-summary');
+    const shelvesWrap = document.getElementById('lib-shelves');
 
-      // Desktop: advance 4; mobile: advance 1
-      const step = () => window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1;
+    let activeShelf = 'all';
 
-      prev?.addEventListener('click', () => track.scrollBy({ left: -slideW() * step(), behavior: 'smooth' }));
-      next?.addEventListener('click', () => track.scrollBy({ left:  slideW() * step(), behavior: 'smooth' }));
+    function setActivePill() {
+      navButtons.forEach(btn => {
+        const isActive = btn.dataset.shelfBtn === activeShelf;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+    }
 
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => track.scrollTo({ left: i * slideW(), behavior: 'smooth' }));
+    function applyFilters() {
+      const query = (searchInput?.value ?? '').trim().toLowerCase();
+      const searching = query.length > 0;
+      let totalVisible = 0;
+
+      shelves.forEach(shelf => {
+        const shelfId = shelf.dataset.shelfSection;
+        const matchesShelf = activeShelf === 'all' || activeShelf === shelfId;
+        const cards = Array.from(shelf.querySelectorAll<HTMLElement>('.lib-card'));
+        const viewAllBtn = shelf.querySelector<HTMLElement>('.lib-viewall');
+        const isSingleShelfView = activeShelf !== 'all';
+
+        let visibleInShelf = 0;
+        cards.forEach(card => {
+          const text = card.dataset.search ?? '';
+          const matchesSearch = !searching || text.includes(query);
+          const show = matchesShelf && matchesSearch;
+          card.toggleAttribute('data-hidden', !show);
+          // Cap preview cards to 4 only in the default "All Topics" browse view
+          const isOverflowCard = card.classList.contains('lib-card--overflow');
+          card.classList.toggle('is-capped', show && !searching && !isSingleShelfView && isOverflowCard);
+          if (show) visibleInShelf++;
+        });
+
+        const shelfHasVisible = matchesShelf && visibleInShelf > 0;
+        shelf.toggleAttribute('data-hidden', !shelfHasVisible);
+        if (viewAllBtn) {
+          viewAllBtn.style.display = (shelfHasVisible && !searching && !isSingleShelfView) ? '' : 'none';
+        }
+        if (shelfHasVisible) totalVisible++;
       });
 
-      track.addEventListener('scroll', () => {
-        const idx = Math.round(track.scrollLeft / slideW());
-        dots.forEach((d, i) => {
-          d.classList.toggle('bg-ink', i === idx);
-          d.classList.toggle('!w-4', i === idx);
-          d.classList.toggle('bg-gray-300', i !== idx);
-        });
-      }, { passive: true });
+      if (searching) {
+        const count = shelves.reduce((sum, shelf) => {
+          if (shelf.hasAttribute('data-hidden')) return sum;
+          return sum + shelf.querySelectorAll('.lib-card:not([data-hidden])').length;
+        }, 0);
+        if (searchSummary) {
+          searchSummary.textContent = `${count} article${count === 1 ? '' : 's'} match "${query}"`;
+          searchSummary.classList.remove('hidden');
+        }
+      } else if (searchSummary) {
+        searchSummary.classList.add('hidden');
+      }
+
+      const nothingVisible = totalVisible === 0;
+      emptyState?.classList.toggle('hidden', !nothingVisible);
+      shelvesWrap?.classList.toggle('hidden', nothingVisible);
     }
+
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeShelf = btn.dataset.shelfBtn ?? 'all';
+        setActivePill();
+        // A shelf pill browses that subject specifically - clear any active
+        // search so it doesn't silently narrow the shelf to a stale query.
+        if (searchInput) searchInput.value = '';
+        applyFilters();
+        if (activeShelf !== 'all') {
+          document.getElementById('library')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('[data-shelf-viewall]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeShelf = btn.dataset.shelfViewall ?? 'all';
+        setActivePill();
+        if (searchInput) searchInput.value = '';
+        applyFilters();
+      });
+    });
+
+    let debounce: ReturnType<typeof setTimeout>;
+    searchInput?.addEventListener('input', () => {
+      // Search is global - typing a query resets any single-shelf selection
+      // back to "All Topics" so results aren't silently scoped to a shelf
+      // the user has forgotten they filtered.
+      if (searchInput.value.trim().length > 0 && activeShelf !== 'all') {
+        activeShelf = 'all';
+        setActivePill();
+      }
+      clearTimeout(debounce);
+      debounce = setTimeout(applyFilters, 80);
+    });
+
+    applyFilters();
   }
   </script>
 

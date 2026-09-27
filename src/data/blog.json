@@ -7,7 +7,8 @@
     "readTime": "8 min read",
     "category": "Guides",
     "excerpt": "A multimeter is the most essential instrument in any electrician's or engineer's toolkit. This guide breaks down exactly how it works - from basic physics to practical usage.",
-    "seoTitle": "What Is a Multimeter? How It Works"
+    "seoTitle": "What Is a Multimeter? How It Works",
+    "shelf": "multimeters"
   },
   {
     "slug": "how-to-use-a-clamp-meter",
@@ -17,7 +18,8 @@
     "readTime": "7 min read",
     "category": "How-To",
     "excerpt": "Clamp meters let you measure current safely without cutting a wire. Here's everything you need to know - from jaw placement to reading AC vs DC current.",
-    "seoTitle": "How to Use a Clamp Meter: Step-by-Step Guide"
+    "seoTitle": "How to Use a Clamp Meter: Step-by-Step Guide",
+    "shelf": "clamp-meters"
   },
   {
     "slug": "ohms-law-explained",
@@ -27,7 +29,8 @@
     "readTime": "6 min read",
     "category": "Physics",
     "excerpt": "Every reading on a multimeter or clamp meter traces back to one equation: V = IR. Master Ohm's Law and you'll understand exactly what every tester is measuring.",
-    "seoTitle": "Ohm's Law Explained: The Physics Behind It"
+    "seoTitle": "Ohm's Law Explained: The Physics Behind It",
+    "shelf": "physics"
   },
   {
     "slug": "continuity-testing-guide",
@@ -37,7 +40,8 @@
     "readTime": "6 min read",
     "category": "How-To",
     "excerpt": "Continuity testing is the quickest way to confirm a complete electrical path. Learn the physics behind it and how to run the test correctly with any multimeter.",
-    "seoTitle": "Continuity Testing: What & Why It Matters"
+    "seoTitle": "Continuity Testing: What & Why It Matters",
+    "shelf": "multimeters"
   },
   {
     "slug": "clamp-meter-vs-multimeter",
@@ -47,7 +51,8 @@
     "readTime": "7 min read",
     "category": "Buying Guide",
     "excerpt": "Both measure electrical quantities - but they work very differently. Here's a practical breakdown of when to reach for a clamp meter versus a multimeter.",
-    "seoTitle": "Clamp Meter vs Multimeter: Which Do You Need?"
+    "seoTitle": "Clamp Meter vs Multimeter: Which Do You Need?",
+    "shelf": "clamp-meters"
   },
   {
     "slug": "how-to-use-an-oscilloscope",
@@ -57,7 +62,8 @@
     "readTime": "10 min read",
     "category": "Guides",
     "excerpt": "An oscilloscope turns invisible electrical signals into visible waveforms you can measure. This complete guide takes you from unpacking to your first real measurement.",
-    "seoTitle": "How to Use an Oscilloscope: Beginner's Guide"
+    "seoTitle": "How to Use an Oscilloscope: Beginner's Guide",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "insulation-resistance-testing-guide",
@@ -67,7 +73,8 @@
     "readTime": "9 min read",
     "category": "How-To",
     "excerpt": "Insulation resistance testing is the single most important test you can run on any electrical installation. Learn the test voltages, procedures, and how to read the results.",
-    "seoTitle": "Insulation Resistance Testing Explained"
+    "seoTitle": "Insulation Resistance Testing Explained",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "dc-power-supply-guide",
@@ -77,7 +84,8 @@
     "readTime": "8 min read",
     "category": "Guides",
     "excerpt": "A DC power supply is the foundation of any electronics lab or test bench. This guide breaks down every type, what the specs actually mean, and how to choose the right one.",
-    "seoTitle": "DC Power Supply Explained: Types & Uses"
+    "seoTitle": "DC Power Supply Explained: Types & Uses",
+    "shelf": "power-supplies"
   },
   {
     "slug": "earth-resistance-testing-guide",
@@ -87,7 +95,8 @@
     "readTime": "8 min read",
     "category": "How-To",
     "excerpt": "A poor earth connection is the most invisible and most dangerous electrical fault. This guide explains earth resistance, accepted limits, and how to measure it correctly.",
-    "seoTitle": "Earth Resistance Testing: How to Measure It"
+    "seoTitle": "Earth Resistance Testing: How to Measure It",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "soldering-station-vs-soldering-iron",
@@ -97,7 +106,8 @@
     "readTime": "7 min read",
     "category": "Buying Guide",
     "excerpt": "Both heat up and melt solder - but the similarity ends there. Here's a clear breakdown of when a basic iron is enough and when you need a proper soldering station.",
-    "seoTitle": "Soldering Station vs Soldering Iron"
+    "seoTitle": "Soldering Station vs Soldering Iron",
+    "shelf": "bench-tools"
   },
   {
     "slug": "lux-meter-guide",
@@ -107,7 +117,8 @@
     "readTime": "7 min read",
     "category": "Guides",
     "excerpt": "Lux is the unit of illuminance - and measuring it correctly requires more than just pointing a sensor at a light. Here's everything you need to know about lux meters.",
-    "seoTitle": "What Is a Lux Meter? Measuring Light Intensity"
+    "seoTitle": "What Is a Lux Meter? Measuring Light Intensity",
+    "shelf": "environmental"
   },
   {
     "slug": "transformer-oil-bdv-test",
@@ -117,7 +128,8 @@
     "readTime": "8 min read",
     "category": "How-To",
     "excerpt": "The BDV test is the primary health check for transformer oil - and a failing result is an early warning of catastrophic failure. Here's exactly how to run and read the test.",
-    "seoTitle": "Transformer Oil BDV Test Explained"
+    "seoTitle": "Transformer Oil BDV Test Explained",
+    "shelf": "relay-hv"
   },
   {
     "slug": "oscilloscope-waveform-guide",
@@ -127,7 +139,8 @@
     "readTime": "9 min read",
     "category": "Physics",
     "excerpt": "The oscilloscope screen is a graph - once you know what the axes mean and what each waveform type looks like, every signal tells a story. Here's how to read it.",
-    "seoTitle": "How to Read an Oscilloscope Waveform"
+    "seoTitle": "How to Read an Oscilloscope Waveform",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "ac-vs-dc-electricity",
@@ -137,7 +150,8 @@
     "readTime": "7 min read",
     "category": "Physics",
     "excerpt": "AC powers your home, DC powers your phone - but the difference goes much deeper than that. Here's the physics, the history, and why every electrician must understand both.",
-    "seoTitle": "AC vs DC Electricity: What's the Difference?"
+    "seoTitle": "AC vs DC Electricity: What's the Difference?",
+    "shelf": "physics"
   },
   {
     "slug": "how-to-test-motor-windings",
@@ -147,7 +161,8 @@
     "readTime": "8 min read",
     "category": "How-To",
     "excerpt": "A failed motor is expensive. A bad winding test costs minutes. This guide covers the three tests that tell you whether a motor is healthy, degraded, or ready to fail.",
-    "seoTitle": "How to Test Motor Windings"
+    "seoTitle": "How to Test Motor Windings",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "voltage-drop-explained",
@@ -157,7 +172,8 @@
     "readTime": "7 min read",
     "category": "Physics",
     "excerpt": "Voltage drop is the silent cause of overheating motors, dim lighting, and equipment faults. Here's how to calculate it and keep it within safe limits.",
-    "seoTitle": "Voltage Drop: What It Is & How to Calculate It"
+    "seoTitle": "Voltage Drop: What It Is & How to Calculate It",
+    "shelf": "power-quality"
   },
   {
     "slug": "true-rms-vs-average-rms",
@@ -167,7 +183,8 @@
     "readTime": "6 min read",
     "category": "Guides",
     "excerpt": "Most cheap multimeters assume a perfect sine wave. Modern loads - VFDs, inverters, switch-mode supplies - are not sine waves. Here's why True RMS matters.",
-    "seoTitle": "True RMS vs Average RMS Multimeter"
+    "seoTitle": "True RMS vs Average RMS Multimeter",
+    "shelf": "physics"
   },
   {
     "slug": "how-to-test-a-relay",
@@ -177,7 +194,8 @@
     "readTime": "7 min read",
     "category": "How-To",
     "excerpt": "A faulty relay is one of the hardest faults to find without the right test procedure. Here's a step-by-step guide to testing any relay with basic instruments.",
-    "seoTitle": "How to Test a Relay: Complete Guide"
+    "seoTitle": "How to Test a Relay: Complete Guide",
+    "shelf": "relay-hv"
   },
   {
     "slug": "power-factor-explained",
@@ -187,7 +205,8 @@
     "readTime": "8 min read",
     "category": "Physics",
     "excerpt": "A low power factor is costing your facility money every hour. Here's what power factor actually means, how to measure it, and how to correct it.",
-    "seoTitle": "Power Factor Explained: Causes & Fixes"
+    "seoTitle": "Power Factor Explained: Causes & Fixes",
+    "shelf": "power-quality"
   },
   {
     "slug": "phase-sequence-testing",
@@ -197,7 +216,8 @@
     "readTime": "6 min read",
     "category": "How-To",
     "excerpt": "Connect three-phase power in the wrong sequence and the motor runs backwards - or worse. Here's why phase sequence matters and how to check it in 30 seconds.",
-    "seoTitle": "Phase Sequence Testing for 3-Phase Motors"
+    "seoTitle": "Phase Sequence Testing for 3-Phase Motors",
+    "shelf": "power-quality"
   },
   {
     "slug": "how-to-choose-a-multimeter",
@@ -207,7 +227,8 @@
     "readTime": "8 min read",
     "category": "Buying Guide",
     "excerpt": "There are hundreds of multimeters on the market. This guide cuts through the noise - CAT ratings, True RMS, resolution, and what actually matters for your type of work.",
-    "seoTitle": "How to Choose a Multimeter: Buying Guide"
+    "seoTitle": "How to Choose a Multimeter: Buying Guide",
+    "shelf": "multimeters"
   },
   {
     "slug": "what-is-electrical-earthing",
@@ -217,7 +238,8 @@
     "readTime": "8 min read",
     "category": "Physics",
     "excerpt": "Earthing is not optional - it is the last line of defence between a fault and a fatal shock. Here's how every earthing system works and why testing it matters.",
-    "seoTitle": "What Is Electrical Earthing? Types & Methods"
+    "seoTitle": "What Is Electrical Earthing? Types & Methods",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "desoldering-guide",
@@ -227,7 +249,8 @@
     "readTime": "7 min read",
     "category": "How-To",
     "excerpt": "Removing solder cleanly is harder than applying it. Here's when to use wick, when to use a pump, and when you need a proper desoldering station.",
-    "seoTitle": "Desoldering Guide: Wick, Pump & Station"
+    "seoTitle": "Desoldering Guide: Wick, Pump & Station",
+    "shelf": "bench-tools"
   },
   {
     "slug": "short-circuit-open-circuit-ground-fault",
@@ -237,7 +260,8 @@
     "readTime": "7 min read",
     "category": "Physics",
     "excerpt": "Three faults. Three completely different failure modes. Three different ways to find them. Every electrician needs to know the difference - and how to test for each.",
-    "seoTitle": "Short Circuit vs Open Circuit vs Ground Fault"
+    "seoTitle": "Short Circuit vs Open Circuit vs Ground Fault",
+    "shelf": "power-quality"
   },
   {
     "slug": "digital-vs-analogue-multimeter",
@@ -247,7 +271,8 @@
     "readTime": "6 min read",
     "category": "Buying Guide",
     "excerpt": "Analogue multimeters were the standard for decades. Digital took over - but analogue still has real advantages in specific situations. Here's an honest comparison.",
-    "seoTitle": "Digital vs Analogue Multimeter: Compared"
+    "seoTitle": "Digital vs Analogue Multimeter: Compared",
+    "shelf": "multimeters"
   },
   {
     "slug": "oscilloscope-bandwidth-explained",
@@ -257,7 +282,8 @@
     "readTime": "6 min read",
     "category": "Physics",
     "excerpt": "Bandwidth isn't just about sine waves - it determines how sharp an edge your scope can show at all, and no amount of sample rate can make up for a shortfall.",
-    "seoTitle": "Oscilloscope Bandwidth Explained"
+    "seoTitle": "Oscilloscope Bandwidth Explained",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "lcr-meter-guide",
@@ -267,7 +293,8 @@
     "readTime": "10 min read",
     "category": "Guides",
     "excerpt": "An LCR meter reveals what a multimeter cannot - the true impedance parameters of any passive component at the frequency it actually operates at. Here's how to use one correctly.",
-    "seoTitle": "LCR Meter Guide: L, C & R Measurement"
+    "seoTitle": "LCR Meter Guide: L, C & R Measurement",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "how-to-test-a-fuse",
@@ -276,7 +303,8 @@
     "publishDate": "2026-06-30",
     "readTime": "6 min read",
     "category": "How-To",
-    "excerpt": "Testing a fuse takes seconds - but replacing one without finding out why it blew is how the same fault takes out the next fuse too."
+    "excerpt": "Testing a fuse takes seconds - but replacing one without finding out why it blew is how the same fault takes out the next fuse too.",
+    "shelf": "bench-tools"
   },
   {
     "slug": "how-to-test-a-capacitor",
@@ -286,7 +314,8 @@
     "readTime": "9 min read",
     "category": "How-To",
     "excerpt": "A capacitor that reads the right value on a multimeter can still be completely failed - if its ESR is too high. Here's every method for testing capacitors properly.",
-    "seoTitle": "How to Test a Capacitor: 3 Methods"
+    "seoTitle": "How to Test a Capacitor: 3 Methods",
+    "shelf": "multimeters"
   },
   {
     "slug": "how-to-test-a-diode",
@@ -295,7 +324,8 @@
     "publishDate": "2026-07-04",
     "readTime": "6 min read",
     "category": "How-To",
-    "excerpt": "Diode test mode reveals a component's forward voltage drop in seconds. Learn what a healthy reading looks like and how to catch the three common failure modes."
+    "excerpt": "Diode test mode reveals a component's forward voltage drop in seconds. Learn what a healthy reading looks like and how to catch the three common failure modes.",
+    "shelf": "multimeters"
   },
   {
     "slug": "what-is-a-megger",
@@ -305,7 +335,8 @@
     "readTime": "9 min read",
     "category": "How-To",
     "excerpt": "A megger tests the one thing a regular multimeter can't - whether your cable or motor insulation will survive operating voltage without breaking down.",
-    "seoTitle": "What Is a Megger? Using a Megohmmeter"
+    "seoTitle": "What Is a Megger? Using a Megohmmeter",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "what-is-cat-rating",
@@ -315,7 +346,8 @@
     "readTime": "6 min read",
     "category": "Guides",
     "excerpt": "CAT ratings classify measurement locations by transient overvoltage risk - and a higher voltage number doesn't mean a safer instrument.",
-    "seoTitle": "What Is a CAT Rating? IEC 61010 Explained"
+    "seoTitle": "What Is a CAT Rating? IEC 61010 Explained",
+    "shelf": "physics"
   },
   {
     "slug": "function-generator-guide",
@@ -325,7 +357,8 @@
     "readTime": "9 min read",
     "category": "Guides",
     "excerpt": "A function generator is the signal source that makes every other bench instrument more useful. Here's what it produces, what the specs mean, and how to use it correctly.",
-    "seoTitle": "Function Generator Guide: What It Does"
+    "seoTitle": "Function Generator Guide: What It Does",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "how-to-choose-an-lcr-meter",
@@ -334,7 +367,8 @@
     "publishDate": "2026-07-12",
     "readTime": "7 min read",
     "category": "Buying Guide",
-    "excerpt": "Test frequency changes what an LCR meter reads. Learn why ESR catches failing capacitors a basic tester misses, and how to pick the right tier."
+    "excerpt": "Test frequency changes what an LCR meter reads. Learn why ESR catches failing capacitors a basic tester misses, and how to pick the right tier.",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "how-to-test-a-transformer",
@@ -344,7 +378,8 @@
     "readTime": "10 min read",
     "category": "How-To",
     "excerpt": "Transformers fail in five distinct ways and each requires a different test to detect. Here's the complete electrical test sequence for any transformer.",
-    "seoTitle": "How to Test a Transformer: Complete Guide"
+    "seoTitle": "How to Test a Transformer: Complete Guide",
+    "shelf": "relay-hv"
   },
   {
     "slug": "how-to-choose-a-function-generator",
@@ -354,7 +389,8 @@
     "readTime": "7 min read",
     "category": "Buying Guide",
     "excerpt": "From frequency range to arbitrary waveform generation, here's what actually matters when specifying a function generator for your bench.",
-    "seoTitle": "How to Choose a Function Generator"
+    "seoTitle": "How to Choose a Function Generator",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "battery-testing-guide",
@@ -364,7 +400,8 @@
     "readTime": "9 min read",
     "category": "How-To",
     "excerpt": "A battery that reads 12.5 V can be completely useless. Voltage alone doesn't tell you if a battery can deliver current. Here's how to actually test one.",
-    "seoTitle": "How to Test a Battery: Complete Guide"
+    "seoTitle": "How to Test a Battery: Complete Guide",
+    "shelf": "bench-tools"
   },
   {
     "slug": "how-to-choose-an-oscilloscope",
@@ -373,7 +410,8 @@
     "publishDate": "2026-07-20",
     "readTime": "8 min read",
     "category": "Buying Guide",
-    "excerpt": "Bandwidth, sample rate, channels, and memory depth all trade off against each other. Here's how to size an oscilloscope to the signals you actually need to see."
+    "excerpt": "Bandwidth, sample rate, channels, and memory depth all trade off against each other. Here's how to size an oscilloscope to the signals you actually need to see.",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "harmonic-distortion-explained",
@@ -383,7 +421,8 @@
     "readTime": "10 min read",
     "category": "Physics",
     "excerpt": "Harmonics are invisible, inaudible, and expensive. They overheat cables, destroy capacitor banks, and trip equipment. Here's what they are and what to do about them.",
-    "seoTitle": "Harmonic Distortion Explained: What Is THD?"
+    "seoTitle": "Harmonic Distortion Explained: What Is THD?",
+    "shelf": "power-quality"
   },
   {
     "slug": "dc-electronic-load-guide",
@@ -392,7 +431,8 @@
     "publishDate": "2026-07-24",
     "readTime": "7 min read",
     "category": "Guides",
-    "excerpt": "A DC electronic load replaces a bank of resistors with a precisely controllable current sink - essential for battery capacity and power supply testing."
+    "excerpt": "A DC electronic load replaces a bank of resistors with a precisely controllable current sink - essential for battery capacity and power supply testing.",
+    "shelf": "power-supplies"
   },
   {
     "slug": "how-to-measure-frequency",
@@ -402,7 +442,8 @@
     "readTime": "7 min read",
     "category": "How-To",
     "excerpt": "Frequency measurement is simple on a pure sine wave and tricky on VFD outputs. Here's which instrument to use for each application and the common mistakes to avoid.",
-    "seoTitle": "How to Measure Frequency: 3 Methods"
+    "seoTitle": "How to Measure Frequency: 3 Methods",
+    "shelf": "physics"
   },
   {
     "slug": "infrared-thermometer-guide",
@@ -412,7 +453,8 @@
     "readTime": "7 min read",
     "category": "Guides",
     "excerpt": "IR thermometers read surface temperature instantly without contact - but emissivity and distance-to-spot ratio can silently distort the reading if ignored.",
-    "seoTitle": "How Infrared Thermometers Work"
+    "seoTitle": "How Infrared Thermometers Work",
+    "shelf": "environmental"
   },
   {
     "slug": "how-to-choose-a-clamp-meter",
@@ -422,7 +464,8 @@
     "readTime": "9 min read",
     "category": "Buying Guide",
     "excerpt": "There are clamp meters at every price point - but the one that reads 30% low on your VFD loads is not saving you money, it's costing you accuracy. Here's what actually matters.",
-    "seoTitle": "How to Choose a Clamp Meter: Buying Guide"
+    "seoTitle": "How to Choose a Clamp Meter: Buying Guide",
+    "shelf": "clamp-meters"
   },
   {
     "slug": "process-calibrator-guide",
@@ -431,7 +474,8 @@
     "publishDate": "2026-08-01",
     "readTime": "8 min read",
     "category": "Guides",
-    "excerpt": "Process calibrators inject known reference signals into transmitters and controllers to catch drift before it causes a process problem. Here's how they work."
+    "excerpt": "Process calibrators inject known reference signals into transmitters and controllers to catch drift before it causes a process problem. Here's how they work.",
+    "shelf": "calibration"
   },
   {
     "slug": "electrical-panel-testing",
@@ -441,7 +485,8 @@
     "readTime": "10 min read",
     "category": "How-To",
     "excerpt": "The distribution board is the most common location for electrical faults, overheating, and arc flash. Here's the complete systematic test procedure from external check to insulation test.",
-    "seoTitle": "Electrical Panel Testing: Distribution Boards"
+    "seoTitle": "Electrical Panel Testing: Distribution Boards",
+    "shelf": "power-quality"
   },
   {
     "slug": "anemometer-guide",
@@ -451,7 +496,8 @@
     "readTime": "7 min read",
     "category": "Guides",
     "excerpt": "Digital anemometers measure air velocity, flow volume, and temperature. Learn the difference between vane and hot-wire sensors and how to run a proper duct traverse.",
-    "seoTitle": "What Is an Anemometer? Air Velocity Explained"
+    "seoTitle": "What Is an Anemometer? Air Velocity Explained",
+    "shelf": "environmental"
   },
   {
     "slug": "sound-level-meter-guide",
@@ -460,7 +506,8 @@
     "publishDate": "2026-08-09",
     "readTime": "7 min read",
     "category": "Guides",
-    "excerpt": "Sound level meters convert acoustic pressure into a decibel reading engineers can act on. This guide explains weighting, time response, accuracy class, and calibration."
+    "excerpt": "Sound level meters convert acoustic pressure into a decibel reading engineers can act on. This guide explains weighting, time response, accuracy class, and calibration.",
+    "shelf": "environmental"
   },
   {
     "slug": "micro-ohm-meter-guide",
@@ -470,7 +517,8 @@
     "readTime": "6 min read",
     "category": "Guides",
     "excerpt": "Breaker contacts, winding resistance, and busbar joints all live in the micro-ohm range - far below what a multimeter can resolve. Here's how a 4-terminal Kelvin instrument measures it properly.",
-    "seoTitle": "Micro-Ohm Meter Guide: What It Measures"
+    "seoTitle": "Micro-Ohm Meter Guide: What It Measures",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "hv-dielectric-withstand-testing-guide",
@@ -480,7 +528,8 @@
     "readTime": "6 min read",
     "category": "Guides",
     "excerpt": "An IR test measures a resistance value. A withstand test is pass/fail at a much higher voltage. Confusing the two - or skipping the IR test first - is a common and risky mistake.",
-    "seoTitle": "Dielectric Withstand (HV) Testing Explained"
+    "seoTitle": "Dielectric Withstand (HV) Testing Explained",
+    "shelf": "relay-hv"
   },
   {
     "slug": "how-to-choose-a-relay-test-set",
@@ -490,7 +539,8 @@
     "readTime": "6 min read",
     "category": "Buying Guide",
     "excerpt": "Overcurrent and earth fault relays only need single-phase injection. Directional and distance relays need three-phase current, voltage, and precise phase angle control - get this wrong and you can't test the relay correctly at all.",
-    "seoTitle": "How to Choose a Relay Test Set"
+    "seoTitle": "How to Choose a Relay Test Set",
+    "shelf": "relay-hv"
   },
   {
     "slug": "calibration-interval-guide",
@@ -500,7 +550,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "An out-of-calibration instrument doesn't fail loudly - it just quietly gives wrong readings. Here's how to actually set a calibration interval instead of guessing.",
-    "seoTitle": "How Often to Calibrate Test Instruments"
+    "seoTitle": "How Often to Calibrate Test Instruments",
+    "shelf": "calibration"
   },
   {
     "slug": "ip-rating-explained",
@@ -510,7 +561,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "IP65, IP67, IPX4 - the two-digit ingress protection code tells you exactly how an instrument handles dust and water. Here's how to read it and match it to where you actually work.",
-    "seoTitle": "IP Rating Explained: IP65, IP66, IP67"
+    "seoTitle": "IP Rating Explained: IP65, IP66, IP67",
+    "shelf": "environmental"
   },
   {
     "slug": "continuity-vs-insulation-vs-contact-resistance",
@@ -520,7 +572,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "All three tests involve a resistance-style reading, which is exactly why they get confused. Here's a quick map of which test answers which question.",
-    "seoTitle": "Continuity, Insulation & Contact Resistance"
+    "seoTitle": "Continuity, Insulation & Contact Resistance",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "digital-vs-analog-earth-tester",
@@ -530,7 +583,8 @@
     "readTime": "5 min read",
     "category": "Buying Guide",
     "excerpt": "A hand-driven tester never runs flat. A digital tester never needs a steady crank speed. Here's how to choose between them for your working conditions.",
-    "seoTitle": "Digital vs Analog Earth Tester"
+    "seoTitle": "Digital vs Analog Earth Tester",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "motor-insulation-testing-schedule",
@@ -540,7 +594,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "A single insulation reading tells you today's condition. A periodic testing schedule tells you the trend - and the trend is what actually predicts failure.",
-    "seoTitle": "How Often to Test Motor Insulation"
+    "seoTitle": "How Often to Test Motor Insulation",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "thermocouple-types-explained",
@@ -550,7 +605,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "A Type J probe connected to a meter set for Type K gives a confidently wrong reading, not an obviously wrong one. Here's what each thermocouple letter actually means.",
-    "seoTitle": "Thermocouple Types Explained: K, J, T, E"
+    "seoTitle": "Thermocouple Types Explained: K, J, T, E",
+    "shelf": "environmental"
   },
   {
     "slug": "earthing-vs-bonding",
@@ -559,7 +615,8 @@
     "publishDate": "2026-08-23",
     "readTime": "4 min read",
     "category": "Guides",
-    "excerpt": "Earthing gives fault current a path to earth. Bonding gives dangerous potential difference nowhere to exist between two touchable metal parts. They're not the same thing."
+    "excerpt": "Earthing gives fault current a path to earth. Bonding gives dangerous potential difference nowhere to exist between two touchable metal parts. They're not the same thing.",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "multirange-insulation-testers-explained",
@@ -569,7 +626,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "A fixed-voltage tester does one job reliably. A multirange tester covers a whole voltage span from one instrument - here's when that flexibility actually pays off.",
-    "seoTitle": "Multirange Insulation Testers Explained"
+    "seoTitle": "Multirange Insulation Testers Explained",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "duty-cycle-hv-relay-test-sets",
@@ -579,7 +637,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "This is a different 'duty cycle' than the one on a waveform - it's a thermal rating on the equipment itself, and ignoring it doesn't trip a warning, it damages the instrument.",
-    "seoTitle": "Duty Cycle Ratings on HV & Relay Test Sets"
+    "seoTitle": "Duty Cycle Ratings on HV & Relay Test Sets",
+    "shelf": "relay-hv"
   },
   {
     "slug": "what-is-burden-voltage",
@@ -589,7 +648,8 @@
     "readTime": "4 min read",
     "category": "Guides",
     "excerpt": "A multimeter measuring current inserts a small resistor into your circuit and reads the voltage across it. Usually that's negligible - but on a marginal circuit, it can be the reason the reading looks wrong.",
-    "seoTitle": "What Is Burden Voltage?"
+    "seoTitle": "What Is Burden Voltage?",
+    "shelf": "physics"
   },
   {
     "slug": "accuracy-vs-resolution-vs-precision",
@@ -599,7 +659,8 @@
     "readTime": "4 min read",
     "category": "Guides",
     "excerpt": "A meter can display 4 digits of resolution while only guaranteeing 2% accuracy - the display looks precise, the measurement isn't. Here's what each term actually means.",
-    "seoTitle": "Accuracy vs Resolution vs Precision"
+    "seoTitle": "Accuracy vs Resolution vs Precision",
+    "shelf": "physics"
   },
   {
     "slug": "how-to-check-three-phase-imbalance",
@@ -609,7 +670,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "A small voltage imbalance produces a current imbalance 6 to 10 times larger inside a running motor - and the motor can look completely normal while one winding quietly overheats.",
-    "seoTitle": "Checking Three-Phase Voltage & Current Imbalance"
+    "seoTitle": "Checking Three-Phase Voltage & Current Imbalance",
+    "shelf": "power-quality"
   },
   {
     "slug": "nabl-vs-manufacturer-calibration",
@@ -619,7 +681,8 @@
     "readTime": "4 min read",
     "category": "Buying Guide",
     "excerpt": "Two calibration certificates can both say 'calibrated' and mean very different things to an auditor. Here's what NABL accreditation actually adds, and when you don't need it.",
-    "seoTitle": "NABL vs Manufacturer Calibration"
+    "seoTitle": "NABL vs Manufacturer Calibration",
+    "shelf": "calibration"
   },
   {
     "slug": "insulation-resistance-temperature-correction",
@@ -629,7 +692,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "A megger reading of 80 MΩ one day and 30 MΩ the next isn't necessarily a winding going bad - it might just be a colder motor versus a hot one.",
-    "seoTitle": "Insulation Resistance Temperature Correction"
+    "seoTitle": "Insulation Resistance Temperature Correction",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "thermo-hygrometer-guide",
@@ -639,7 +703,8 @@
     "readTime": "4 min read",
     "category": "Guides",
     "excerpt": "Temperature alone won't tell you whether a store room is about to grow mould or a workshop is at risk of static discharge - you need humidity too.",
-    "seoTitle": "Thermo-Hygrometer Guide: Temp & Humidity"
+    "seoTitle": "Thermo-Hygrometer Guide: Temp & Humidity",
+    "shelf": "environmental"
   },
   {
     "slug": "step-and-touch-potential-explained",
@@ -649,7 +714,8 @@
     "readTime": "5 min read",
     "category": "Physics",
     "excerpt": "When fault current enters the earth, it creates a voltage gradient around the point of contact - and anyone standing in it can become part of the circuit.",
-    "seoTitle": "Step and Touch Potential Explained"
+    "seoTitle": "Step and Touch Potential Explained",
+    "shelf": "relay-hv"
   },
   {
     "slug": "how-to-choose-an-insulation-tester",
@@ -659,7 +725,8 @@
     "readTime": "6 min read",
     "category": "Buying Guide",
     "excerpt": "\"Insulation tester\" covers a wider range of instruments than most buyers expect. Picking the right one comes down to four questions.",
-    "seoTitle": "How to Choose an Insulation Tester"
+    "seoTitle": "How to Choose an Insulation Tester",
+    "shelf": "insulation-earthing"
   },
   {
     "slug": "how-to-choose-a-vartech-dc-power-supply",
@@ -669,7 +736,8 @@
     "readTime": "6 min read",
     "category": "Buying Guide",
     "excerpt": "Vartech's DC power supply range spans linear and SMPS topologies, single to quad output, and fixed-panel to fully programmable control. Picking the right one comes down to four questions.",
-    "seoTitle": "How to Choose a Vartech DC Power Supply"
+    "seoTitle": "How to Choose a Vartech DC Power Supply",
+    "shelf": "power-supplies"
   },
   {
     "slug": "vartech-oscilloscope-range-guide",
@@ -679,7 +747,8 @@
     "readTime": "5 min read",
     "category": "Buying Guide",
     "excerpt": "Vartech's six oscilloscope models span analog CROs to a 150 MHz DSO with built-in waveform generator. Here's how to pick between them.",
-    "seoTitle": "Vartech Oscilloscope Buying Guide"
+    "seoTitle": "Vartech Oscilloscope Buying Guide",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "how-to-choose-a-vartech-multimeter",
@@ -689,7 +758,8 @@
     "readTime": "5 min read",
     "category": "Buying Guide",
     "excerpt": "Vartech's twelve-model multimeter range spans pocket meters to a 30000-count bench-top instrument. Here's how to choose the right one for your work.",
-    "seoTitle": "How to Choose a Vartech Multimeter"
+    "seoTitle": "How to Choose a Vartech Multimeter",
+    "shelf": "multimeters"
   },
   {
     "slug": "how-to-choose-a-vartech-clamp-meter",
@@ -699,7 +769,8 @@
     "readTime": "4 min read",
     "category": "Buying Guide",
     "excerpt": "Vartech's clamp meter range spans a best-selling everyday model to a dedicated mA leakage tester. Here's how to choose between them.",
-    "seoTitle": "How to Choose a Vartech Clamp Meter"
+    "seoTitle": "How to Choose a Vartech Clamp Meter",
+    "shelf": "clamp-meters"
   },
   {
     "slug": "how-to-choose-a-vartech-function-generator",
@@ -709,7 +780,8 @@
     "readTime": "4 min read",
     "category": "Buying Guide",
     "excerpt": "Vartech's five function generator models share one DDS architecture at increasing frequency and control sophistication. Here's how to pick between them.",
-    "seoTitle": "How to Choose a Vartech Function Generator"
+    "seoTitle": "How to Choose a Vartech Function Generator",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "how-to-choose-a-vartech-lcr-meter",
@@ -719,7 +791,8 @@
     "readTime": "4 min read",
     "category": "Buying Guide",
     "excerpt": "Vartech's LCR meter range spans a portable field unit to precision bench instruments. Here's how to choose the right one for your work.",
-    "seoTitle": "How to Choose a Vartech LCR Meter"
+    "seoTitle": "How to Choose a Vartech LCR Meter",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "how-to-choose-a-vartech-calibrator",
@@ -729,7 +802,8 @@
     "readTime": "4 min read",
     "category": "Buying Guide",
     "excerpt": "Vartech's three process calibrators each target a different part of instrumentation maintenance work. Here's how to choose between them.",
-    "seoTitle": "How to Choose a Vartech Process Calibrator"
+    "seoTitle": "How to Choose a Vartech Process Calibrator",
+    "shelf": "calibration"
   },
   {
     "slug": "how-to-choose-a-vartech-dc-electronic-load",
@@ -739,7 +813,8 @@
     "readTime": "4 min read",
     "category": "Buying Guide",
     "excerpt": "Vartech's two DC electronic loads share one 600 W platform and differ mainly in current rating. Here's how to pick between them.",
-    "seoTitle": "How to Choose a Vartech DC Electronic Load"
+    "seoTitle": "How to Choose a Vartech DC Electronic Load",
+    "shelf": "power-supplies"
   },
   {
     "slug": "vartech-v-6700-b-sound-level-meter-guide",
@@ -749,7 +824,8 @@
     "readTime": "4 min read",
     "category": "Buying Guide",
     "excerpt": "What the Vartech V 6700 B's specifications actually mean in practice, and where a general-purpose sound level meter fits.",
-    "seoTitle": "Vartech V 6700 B Sound Level Meter Guide"
+    "seoTitle": "Vartech V 6700 B Sound Level Meter Guide",
+    "shelf": "environmental"
   },
   {
     "slug": "vartech-v-6250-b-anemometer-guide",
@@ -759,7 +835,8 @@
     "readTime": "3 min read",
     "category": "Buying Guide",
     "excerpt": "What the Vartech V 6250 B anemometer's specification means for HVAC commissioning and general airflow measurement work.",
-    "seoTitle": "Vartech V 6250 B Anemometer Guide"
+    "seoTitle": "Vartech V 6250 B Anemometer Guide",
+    "shelf": "environmental"
   },
   {
     "slug": "how-to-choose-a-vartech-lux-meter",
@@ -769,7 +846,8 @@
     "readTime": "4 min read",
     "category": "Buying Guide",
     "excerpt": "Vartech's two lux meters split on one practical line: fixed sensor vs a detachable sensor for awkward measurement points.",
-    "seoTitle": "How to Choose a Vartech Lux Meter"
+    "seoTitle": "How to Choose a Vartech Lux Meter",
+    "shelf": "environmental"
   },
   {
     "slug": "how-to-choose-a-vartech-thermometer",
@@ -779,7 +857,8 @@
     "readTime": "4 min read",
     "category": "Buying Guide",
     "excerpt": "The V 6500 and THM S1 don't compete for the same job - one takes contact readings, the other monitors ambient room conditions.",
-    "seoTitle": "How to Choose a Vartech Thermometer"
+    "seoTitle": "How to Choose a Vartech Thermometer",
+    "shelf": "environmental"
   },
   {
     "slug": "vartech-pps-programmable-power-supply-guide",
@@ -789,7 +868,8 @@
     "readTime": "6 min read",
     "category": "Buying Guide",
     "excerpt": "Memory presets, list mode and PC control turn a power supply into an automated test tool. Here's when that actually pays off and which PPS model to pick.",
-    "seoTitle": "Vartech PPS Programmable Power Supply Guide"
+    "seoTitle": "Vartech PPS Programmable Power Supply Guide",
+    "shelf": "power-supplies"
   },
   {
     "slug": "vartech-multi-output-lab-power-supply-guide",
@@ -799,7 +879,8 @@
     "readTime": "5 min read",
     "category": "Buying Guide",
     "excerpt": "One instrument, three or four independent rails. Here's how the 3005-3 D2 and 3005-4 differ and which multi-rail board work each one actually fits.",
-    "seoTitle": "Triple vs Quad Output Power Supply Guide"
+    "seoTitle": "Triple vs Quad Output Power Supply Guide",
+    "shelf": "power-supplies"
   },
   {
     "slug": "linear-vs-smps-power-supply-explained",
@@ -809,7 +890,8 @@
     "readTime": "6 min read",
     "category": "Physics",
     "excerpt": "Same job, two completely different methods. Here's how linear and SMPS regulation actually work, and why one gives you lower noise while the other gives you less weight.",
-    "seoTitle": "Linear vs SMPS Power Supply Explained"
+    "seoTitle": "Linear vs SMPS Power Supply Explained",
+    "shelf": "physics"
   },
   {
     "slug": "vartech-v-2002-plus-leakage-clamp-meter-guide",
@@ -819,7 +901,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "Leakage current lives in a range standard clamp meters can't see. The V 2002+ is built specifically to resolve it - here's what that actually means in the field.",
-    "seoTitle": "Vartech V 2002+ Leakage Clamp Meter Guide"
+    "seoTitle": "Vartech V 2002+ Leakage Clamp Meter Guide",
+    "shelf": "clamp-meters"
   },
   {
     "slug": "vartech-v-8222h-lcr-multimeter-guide",
@@ -829,7 +912,8 @@
     "readTime": "5 min read",
     "category": "Guides",
     "excerpt": "Component-level LCR checks and full multimeter function from one instrument. Here's what the V 8222 H covers and when a dedicated bench LCR meter is still the better call.",
-    "seoTitle": "Vartech V 8222 H LCR Multimeter Guide"
+    "seoTitle": "Vartech V 8222 H LCR Multimeter Guide",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "loop-calibrator-vs-process-calibrator",
@@ -839,7 +923,8 @@
     "readTime": "6 min read",
     "category": "Buying Guide",
     "excerpt": "4-20 mA loop testing, thermocouple/RTD calibration and high-accuracy transmitter verification are three different jobs. Here's which Vartech calibrator covers each.",
-    "seoTitle": "Loop Calibrator vs Process Calibrator"
+    "seoTitle": "Loop Calibrator vs Process Calibrator",
+    "shelf": "calibration"
   },
   {
     "slug": "analog-vs-digital-oscilloscope",
@@ -849,7 +934,8 @@
     "readTime": "6 min read",
     "category": "Guides",
     "excerpt": "One draws the signal live on a phosphor screen, the other samples and stores it. Here's why that difference decides whether you need a CRO or a DSO.",
-    "seoTitle": "Analog vs Digital Oscilloscope Explained"
+    "seoTitle": "Analog vs Digital Oscilloscope Explained",
+    "shelf": "scopes-signal"
   },
   {
     "slug": "dds-function-generator-explained",
@@ -859,6 +945,7 @@
     "readTime": "6 min read",
     "category": "Physics",
     "excerpt": "Every modern function generator builds its waveform from a digital lookup table read out through a DAC. Here's how that works, and why it matters when you're picking a model.",
-    "seoTitle": "DDS Function Generator Explained"
+    "seoTitle": "DDS Function Generator Explained",
+    "shelf": "scopes-signal"
   }
 ]
