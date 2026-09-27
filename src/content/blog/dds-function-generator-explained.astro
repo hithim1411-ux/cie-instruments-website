@@ -1,0 +1,49 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  DDS - Direct Digital Synthesis - is how virtually every modern function generator produces its output waveform, and understanding how it works explains why a DDS generator can switch instantly between a sine, square, triangle or arbitrary waveform at any frequency with no warm-up drift. Vartech's SGD/SGDA range - from the entry-level SGD-6M to the flagship SGDA-80M - is built entirely on this method.
+</p>
+
+<h2 id="how-dds-works">How DDS Actually Generates a Waveform</h2>
+
+<p>
+  A DDS generator stores a digital representation of a waveform (a sine wave, for instance) as a table of amplitude values in memory, then reads through that table at high speed via a digital-to-analog converter (DAC) to reconstruct the waveform as an analog signal. Changing frequency is simply a matter of changing how fast the table is read out - a purely digital operation with no analog components to retune, which is why DDS generators lock onto a new frequency instantly and hold it with crystal-reference accuracy and stability. This is fundamentally different from older analog function generators, which generated waveforms through analog oscillator circuits that drift with temperature and take time to settle after a frequency change.
+</p>
+
+<h2 id="sample-rate-and-resolution">What Sample Rate Actually Buys You</h2>
+
+<p>
+  The sample rate (given in MSa/s - mega-samples per second) determines how finely the DAC can reconstruct the waveform, which directly affects the maximum usable output frequency and the fidelity of complex or arbitrary waveforms. Vartech's range scales sample rate with bandwidth: the SGD-6M runs 200 MSa/s for its 6 MHz range, the SGDA-30M and SGDA-15M run 266 MSa/s, the SGDA-60M runs 275 MSa/s, and the flagship SGDA-80M runs 300 MSa/s for its 80 MHz output. A higher sample rate at a given output frequency means a cleaner, more accurate waveform reconstruction, particularly for non-sinusoidal and arbitrary waveforms where fine detail in the waveform shape actually matters.
+</p>
+
+<Callout type="tip" title="Why bandwidth alone isn't the whole spec">
+  Two generators can share a headline bandwidth figure but differ meaningfully in sample rate, arbitrary waveform depth, and modulation capability. If your work involves arbitrary or complex waveforms rather than simple sine/square/triangle output, sample rate and waveform memory depth matter as much as the MHz number on the front panel.
+</Callout>
+
+<h2 id="arbitrary-waveforms-and-modulation">Arbitrary Waveforms and Modulation</h2>
+
+<p>
+  Because the waveform is just data in memory, a DDS generator can output any waveform shape you load into it, not just the standard sine/square/triangle set - Vartech's SGDA-30M and SGDA-15M ship with 60 built-in arbitrary waveforms, and the SGDA-60M and SGDA-80M extend this with a fuller modulation suite (AM, FM, PM and similar schemes) for simulating real-world modulated signals rather than pure test tones. The SGDA-80M and SGDA-60M add dual-channel independent operation, letting you generate two different signals simultaneously - useful for differential signal testing or simulating a two-signal system on one bench instrument.
+</p>
+
+<h2 id="frequency-counter">The Built-In Frequency Counter</h2>
+
+<p>
+  Most of Vartech's DDS range includes a built-in frequency counter (up to 100 MHz on the SGDA-30M, 60 MHz on the SGD-6M) - a genuinely practical addition that lets the same instrument measure an unknown signal's frequency without reaching for a separate counter or scope, useful for quickly checking a crystal oscillator, verifying a divider circuit's output, or confirming a signal source elsewhere on the bench.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>Basic bench signal generation, education</strong>: SGD-6M (6 MHz, 200 MSa/s).</li>
+  <li><strong>General R&D, audio and low-RF work</strong>: SGDA-15M or SGDA-30M with 60 built-in arbitrary waveforms.</li>
+  <li><strong>Higher-frequency RF and modulation testing</strong>: SGDA-60M with full modulation suite and VCO scanning.</li>
+  <li><strong>Dual-channel, highest bandwidth, automated test</strong>: SGDA-80M with 300 MSa/s and USB programmability.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the full <a href={u('/products/vartech-function-generators/')}>Vartech DDS function/arbitrary waveform generator range</a>. See our <a href={u('/blog/how-to-choose-a-vartech-function-generator/')}>Vartech function generator buying guide</a> for a full model comparison, or <a href={u('/contact/')}>contact us</a> for a recommendation.
+</p>

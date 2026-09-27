@@ -1,0 +1,49 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Every DC regulated power supply does the same job - convert incoming AC mains into a stable, adjustable DC output - but it does that job one of two fundamentally different ways. Understanding the difference between linear and switch-mode (SMPS) regulation tells you exactly which one belongs on your bench.
+</p>
+
+<h2 id="how-linear-works">How a Linear Supply Regulates</h2>
+
+<p>
+  A linear supply steps mains voltage down with a transformer, rectifies it to DC, then regulates the output using a pass transistor operating in its linear (analog) region - continuously dissipating the difference between the unregulated input and the regulated output as heat. This is a simple, well-understood regulation method that produces very low output ripple and noise, because there's no switching action to generate high-frequency electrical noise on the output rail. The trade-off is efficiency and size: a linear supply wastes a meaningful fraction of its input power as heat, needs a heavy 50/60 Hz transformer and often a substantial heatsink or fan, and typically weighs several times more than an SMPS unit of the same rating.
+</p>
+
+<h2 id="how-smps-works">How an SMPS Regulates</h2>
+
+<p>
+  A switch-mode supply rectifies mains directly, then chops the resulting DC at a high frequency (tens to hundreds of kHz) through a small ferrite-core transformer, regulating the output by varying the switching duty cycle rather than dissipating excess voltage as heat. This makes SMPS designs dramatically more efficient and lighter - a compact SMPS supply can deliver several times the power-to-weight ratio of an equivalent linear unit. The trade-off is switching noise: the high-frequency switching action inevitably couples some noise onto the output rail, which shows up as higher ripple and noise specifications than a comparable linear supply.
+</p>
+
+<Callout type="tip" title="The practical rule">
+  Choose linear when ripple and noise matter more than size or efficiency - sensitive analog and RF bench work, precision measurement, and reference circuits. Choose SMPS when power density, portability or efficiency matter more than the last millivolt of ripple - production test, battery/charger testing, motor and drive work, and anywhere rack space or weight is a real constraint.
+</Callout>
+
+<h2 id="what-the-numbers-mean">Reading Ripple and Noise Specifications</h2>
+
+<p>
+  Ripple and noise is usually specified in mV RMS or mV peak-to-peak - the residual AC component riding on top of the DC output. A well-designed linear supply typically specifies ripple in the low single-digit millivolts (Vartech's 3005-3 D2, for example, specifies ≤1 mV RMS at moderate current), while SMPS units are commonly specified as a percentage of full-scale output rather than an absolute figure, since the noise floor scales with the switching frequency and topology. Neither number is "bad" in isolation - what matters is whether it's low enough for what you're powering. A digital logic board couldn't care less about a few mV of ripple; a sensitive analog front-end or RF mixer stage very much does.
+</p>
+
+<h2 id="efficiency-and-heat">Efficiency, Heat and Running Cost</h2>
+
+<p>
+  Because a linear supply dissipates the voltage difference as heat rather than converting it, running one at a large voltage drop (say, regulating 30 V input down to 5 V output at high current) generates significant heat and wastes real power as a result. An SMPS supply run under the same conditions wastes far less, since its regulation method doesn't depend on dropping excess voltage across a pass element. For any application involving long duty cycles, high current, or limited ventilation, this efficiency difference translates directly into lower running temperature and lower power cost.
+</p>
+
+<h2 id="quick-reference">Quick Reference</h2>
+
+<ul>
+  <li><strong>RF, analog, precision measurement work</strong>: linear supply for lowest ripple and noise.</li>
+  <li><strong>Production test, battery/charger, motor/drive testing</strong>: SMPS for power density and efficiency.</li>
+  <li><strong>Portable or space-constrained bench setups</strong>: SMPS, for the weight and size advantage.</li>
+  <li><strong>Long duty cycles at high current</strong>: SMPS runs cooler and more efficiently than an equivalent linear unit.</li>
+</ul>
+
+<p>
+  Vartech's DC power supply range covers both topologies side by side - linear models (3005/3010/3020/6005/6010 series) and SMPS models (the "S" and "SR" suffixed range, plus the PPS programmable series). See our <a href={u('/blog/how-to-choose-a-vartech-dc-power-supply/')}>full Vartech DC power supply buying guide</a> for the complete range, or <a href={u('/contact/')}>contact us</a> to discuss which topology suits your application. CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-dc-power-supplies/')}>full Vartech DC power supply range</a>.
+</p>

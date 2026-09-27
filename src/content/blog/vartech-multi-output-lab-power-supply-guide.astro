@@ -1,0 +1,43 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Most bench work needs one DC rail. Embedded and mixed-logic board work often needs three or four - a variable analog supply plus one or more fixed logic rails - and running separate instruments for each is a waste of bench space and setup time. Vartech's multi-output linear supplies (3005-3 D2 triple output and 3005-4 quad output) put all of it in one chassis.
+</p>
+
+<h2 id="triple-output">3005-3 D2 - Triple Output for Symmetrical and Fixed-Rail Work</h2>
+
+<p>
+  The 3005-3 D2 gives two fully variable 0-30 V/5 A channels plus a fixed 5 V/3 A channel, with a 5-turn multiturn potentiometer for precise voltage setting on the variable channels. The two variable channels can run independently, in series, or in parallel - series operation gives a symmetrical ±30 V supply from a single instrument, exactly what op-amp and differential-input analog circuits need, while the fixed 5 V/3 A channel covers a standard TTL/logic rail without dedicating a separate supply to it. Each channel has its own 3-digit LED display for V and I, and auto CV/CC switching protects against accidental overload on any channel independently.
+</p>
+
+<h2 id="quad-output">3005-4 - Quad Output for Multi-Rail Embedded Boards</h2>
+
+<p>
+  The 3005-4 goes further: two main variable 0-30 V/5 A channels (Ch 1 & 2) plus two auxiliary 2.2-15 V/1 A channels (Ch 3 & 4), with preset voltage and current facility so you can dial in a setpoint before switching the output on - useful when the board under test can't tolerate a voltage ramp or momentary overshoot. This is the configuration for boards that genuinely need four independent rails at once: a variable analog or motor-drive supply on the main channels, and two lower-current auxiliary rails (3.3 V logic, sensor bias, reference voltages) on Ch 3 & 4, all from one 10 kg instrument instead of four separate supplies cluttering the bench.
+</p>
+
+<Callout type="tip" title="Series and parallel operation">
+  On the variable channels of either model, series connection gives you a higher combined voltage (or a symmetrical ± supply), while parallel connection combines current capacity for a single higher-current rail. Check your specific model's manual for the correct connection procedure before wiring channels together - connecting outputs incorrectly can damage the supply or the circuit under test.
+</Callout>
+
+<h2 id="when-you-dont-need-this">When a Single-Output Supply Is Still the Right Call</h2>
+
+<p>
+  If your bench work only ever needs one variable rail, a multi-output supply is unnecessary complexity and cost - a single-output 3010 or 3020 covers that more simply. Multi-output supplies earn their keep specifically when a board or circuit needs multiple simultaneous rails and you'd otherwise be running two, three or four separate instruments side by side.
+</p>
+
+<h2 id="quick-reference">Quick Reference</h2>
+
+<ul>
+  <li><strong>Op-amp / differential analog circuits needing ±V</strong>: 3005-3 D2 with variable channels in series.</li>
+  <li><strong>Variable rail + one fixed 5 V logic rail</strong>: 3005-3 D2.</li>
+  <li><strong>Variable rail(s) + two auxiliary logic/sensor rails</strong>: 3005-4 quad output.</li>
+  <li><strong>Single-rail bench work only</strong>: a standard single-output linear or SMPS supply is simpler - see our <a href={u('/blog/how-to-choose-a-vartech-dc-power-supply/')}>Vartech DC power supply buying guide</a>.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the Vartech <a href={u('/authorised-dealership/dc-power-supplies/3005-3-d2/')}>3005-3 D2 triple-output</a> and <a href={u('/authorised-dealership/dc-power-supplies/3005-4/')}>3005-4 quad-output</a> DC power supplies, part of the full <a href={u('/products/vartech-dc-power-supplies/')}>Vartech DC power supply range</a>. <a href={u('/contact/')}>Contact us</a> to confirm channel configuration against your board's rail requirements.
+</p>

@@ -1,0 +1,50 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Vartech's PPS series sits at the top of its DC power supply range - not the highest current or voltage, but the most capable when the job is repeatable, automated or unattended testing rather than a one-off bench measurement. This guide covers what "programmable" actually buys you over a standard SMPS supply, and which PPS model fits which job.
+</p>
+
+<h2 id="what-programmable-adds">What "Programmable" Actually Adds</h2>
+
+<p>
+  A standard SMPS supply gives you manual voltage and current control with a dial or buttons - fine for a single setup you dial in once and leave. The PPS-S series (PPS-3005 S, PPS-3010 S, PPS-3020 S, PPS-3610 S, PPS-6005 S, PPS-6010 S, PPS-10003 S) adds five 4-digit LED displays showing V set, I set, V out, I out and Watts simultaneously, a USB interface running ModBus-RTU for PC control, 6 stored memory sets, list mode for stepped test sequences, and programmable output-off delay timing up to 9999 seconds. None of that changes what the supply can output - it changes how repeatably and how remotely you can control what it outputs.
+</p>
+
+<Callout type="tip" title="When this actually matters">
+  If you set a voltage once and run the same test for hours, a manual SMPS supply is simpler and does the job. If you're stepping through a sequence of test points, logging results, or running the same setup dozens of times a day, the memory presets and list mode on a PPS model pay for themselves within the first week.
+</Callout>
+
+<h2 id="single-vs-triple-output">Single-Output PPS-S vs the Triple-Output PPS 3005-3</h2>
+
+<p>
+  The PPS-S models are single-output, differing mainly in voltage/current tier - PPS-3005 S (0-30 V/5 A), PPS-3010 S (0-30 V/10 A), PPS-6010 S (0-60 V/10 A) and similar, each with 10 mV/1 mA display resolution and ±(0.1% + 2 digits) setting accuracy. The PPS 3005-3 is a different animal entirely: a programmable linear supply with two main variable 0-30 V/5 A channels plus a third channel selectable between 2.5 V, 3.3 V or 5 V at 3 A - purpose-built for testing digital logic boards that need a standard logic rail (3.3 V or 5 V) alongside a variable analog or motor-drive supply, all under USB control with LabVIEW support and 4 memory sets.
+</p>
+
+<h2 id="choosing-a-tier">Matching Voltage/Current to Your Test Sequence</h2>
+
+<p>
+  Before choosing a model, map out the actual range your test sequence needs to cover - not just the peak value, but the lowest and highest points in the sequence, since a supply sized too far above your working range loses resolution at the low end. General bench R&D and embedded work is well covered by the 30 V tier (PPS-3005 S or PPS-3010 S depending on current draw); motor, solenoid or higher-voltage DC load testing typically needs the 60 V tier (PPS-6005 S, PPS-6010 S); and the PPS-10003 S (100 V/3 A) suits higher-voltage, lower-current instrumentation and sensor test work.
+</p>
+
+<h2 id="automation">Automating a Test Sequence</h2>
+
+<p>
+  List mode lets you programme a sequence of voltage/current/dwell-time steps directly into the supply and run it without a PC in the loop - useful for a fixed QC test that runs the same way every time. The USB/ModBus-RTU interface goes further, letting a PC or PLC set points, read back V/I/W in real time, and log results automatically - the difference between a technician manually recording readings off a display and a production line that runs unattended overnight.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>R&D bench work, single logic rail</strong>: PPS-3005 S or PPS-3010 S with memory presets for repeated setups.</li>
+  <li><strong>Digital logic board testing (3.3 V/5 V + variable analog)</strong>: PPS 3005-3 triple output with LabVIEW support.</li>
+  <li><strong>Motor, solenoid, higher-voltage DC testing</strong>: PPS-6005 S or PPS-6010 S.</li>
+  <li><strong>Automated production-line QC testing</strong>: any PPS-S model's list mode plus USB/ModBus-RTU for full PC control and data logging.</li>
+  <li><strong>One-off bench measurement, no repeat testing</strong>: a standard manual SMPS model is simpler and sufficient - see our <a href={u('/blog/how-to-choose-a-vartech-dc-power-supply/')}>full Vartech DC power supply buying guide</a>.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the full <a href={u('/products/vartech-dc-power-supplies/')}>Vartech DC power supply range</a>, including the PPS programmable series. <a href={u('/contact/')}>Contact us</a> with your voltage, current and automation requirements for a model recommendation.
+</p>

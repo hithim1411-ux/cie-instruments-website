@@ -1,0 +1,44 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  An analog CRO and a digital storage oscilloscope both show you a waveform - but they get there through completely different means, and that difference decides which one actually suits your work. Vartech's range covers both: the SS-5020B/5030B/5030BC analog CROs, and the SS-5080DS4/5100DS1B/5150DS1B FG digital storage oscilloscopes.
+</p>
+
+<h2 id="how-analog-works">How an Analog CRO Displays a Signal</h2>
+
+<p>
+  An analog CRO drives an electron beam across a phosphor screen in real time, directly deflected by the input signal - what you see on the screen is the actual signal, live, with no sampling or digitisation in between. This gives analog scopes an intuitive, immediate feel and effectively infinite vertical resolution, which is why they remained the standard for decades and are still perfectly capable instruments for their intended range. The SS-5020B (20 MHz) and SS-5030B (30 MHz) are dual-channel analog CROs with ALT triggering for viewing two signals simultaneously; the SS-5030BC adds a built-in component tester, letting you check resistors, capacitors, inductors, transistors and diodes directly on the CRT without a separate instrument.
+</p>
+
+<h2 id="how-dso-works">How a Digital Storage Oscilloscope Works</h2>
+
+<p>
+  A DSO samples the input signal at high speed, converts it to digital values, and stores it in memory before displaying it on an LCD/TFT screen - which is what enables capture and storage of a single transient event, automatic measurements (frequency, amplitude, rise time and more computed directly by the instrument), waveform math, and USB connectivity for saving captures. The SS-5080DS4 is a 4-channel 80 MHz DSO with 1 GS/s sampling and 64K record length; the SS-5100DS1B steps up to 100 MHz with 4M record length for finer detail on captured signals; and the SS-5150DS1B FG tops the range at 150 MHz with a built-in 25 MHz arbitrary waveform generator, combining signal source and analyser in one bench instrument.
+</p>
+
+<Callout type="tip" title="The deciding question">
+  Do you need to capture a one-off or intermittent event, take automatic measurements, or save/export waveform data? That's a DSO's job - an analog scope can't do it, because there's nothing to store once the beam moves past. Are you doing straightforward, repetitive waveform viewing - power supply ripple, signal tracing, general service bench work - where live, real-time display is all you need? An analog CRO does that reliably and simply.
+</Callout>
+
+<h2 id="channel-count-and-record-length">Channel Count and Record Length</h2>
+
+<p>
+  Beyond the analog/digital divide, channel count and record length matter for what you can actually see. The SS-5080DS4's 4 channels let you view four signals simultaneously - useful for multi-rail power electronics or digital bus work where two channels aren't enough. Record length (64K on the SS-5080DS4, 4M on the SS-5100DS1B) determines how much signal detail you can capture at a given timebase before the buffer fills - a longer record length lets you zoom into fine detail within a long capture window, useful when hunting for an intermittent glitch within a longer waveform.
+</p>
+
+<h2 id="quick-reference">Quick Reference</h2>
+
+<ul>
+  <li><strong>General service bench, signal tracing, education</strong>: SS-5020B or SS-5030B analog CRO.</li>
+  <li><strong>Component testing alongside waveform viewing</strong>: SS-5030BC with built-in component tester.</li>
+  <li><strong>Capturing transient/intermittent events, automatic measurements</strong>: any DSO model - digitisation and storage are required for this.</li>
+  <li><strong>Multi-rail power electronics, 4+ simultaneous signals</strong>: SS-5080DS4 (4-channel).</li>
+  <li><strong>Need a signal source and scope in one instrument</strong>: SS-5150DS1B FG with built-in 25 MHz AWG.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the full <a href={u('/products/vartech-oscilloscopes/')}>Vartech oscilloscope range</a>, analog and digital. See our <a href={u('/blog/vartech-oscilloscope-range-guide/')}>Vartech oscilloscope range guide</a> for bandwidth and sample-rate selection, or <a href={u('/contact/')}>contact us</a> for a model recommendation.
+</p>

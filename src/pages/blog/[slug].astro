@@ -81,6 +81,14 @@ import VartechSoundLevelMeterGuide from '../../content/blog/vartech-v-6700-b-sou
 import VartechAnemometerGuide from '../../content/blog/vartech-v-6250-b-anemometer-guide.astro';
 import ChooseVartechLuxMeterGuide from '../../content/blog/how-to-choose-a-vartech-lux-meter.astro';
 import ChooseVartechThermometerGuide from '../../content/blog/how-to-choose-a-vartech-thermometer.astro';
+import VartechPpsProgrammableGuide from '../../content/blog/vartech-pps-programmable-power-supply-guide.astro';
+import VartechMultiOutputGuide from '../../content/blog/vartech-multi-output-lab-power-supply-guide.astro';
+import LinearVsSmpsGuide from '../../content/blog/linear-vs-smps-power-supply-explained.astro';
+import VartechLeakageClampMeterGuide from '../../content/blog/vartech-v-2002-plus-leakage-clamp-meter-guide.astro';
+import VartechLcrMultimeterGuide from '../../content/blog/vartech-v-8222h-lcr-multimeter-guide.astro';
+import LoopVsProcessCalibratorGuide from '../../content/blog/loop-calibrator-vs-process-calibrator.astro';
+import AnalogVsDigitalOscilloscopeGuide from '../../content/blog/analog-vs-digital-oscilloscope.astro';
+import DdsFunctionGeneratorGuide from '../../content/blog/dds-function-generator-explained.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -169,6 +177,14 @@ const contentMap: Record<string, any> = {
   'vartech-v-6250-b-anemometer-guide': VartechAnemometerGuide,
   'how-to-choose-a-vartech-lux-meter': ChooseVartechLuxMeterGuide,
   'how-to-choose-a-vartech-thermometer': ChooseVartechThermometerGuide,
+  'vartech-pps-programmable-power-supply-guide': VartechPpsProgrammableGuide,
+  'vartech-multi-output-lab-power-supply-guide': VartechMultiOutputGuide,
+  'linear-vs-smps-power-supply-explained': LinearVsSmpsGuide,
+  'vartech-v-2002-plus-leakage-clamp-meter-guide': VartechLeakageClampMeterGuide,
+  'vartech-v-8222h-lcr-multimeter-guide': VartechLcrMultimeterGuide,
+  'loop-calibrator-vs-process-calibrator': LoopVsProcessCalibratorGuide,
+  'analog-vs-digital-oscilloscope': AnalogVsDigitalOscilloscopeGuide,
+  'dds-function-generator-explained': DdsFunctionGeneratorGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -735,6 +751,57 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'probe-vs-ambient', label: 'Contact Probe or Ambient?' },
     { id: 'v-6500-range-probes', label: 'V 6500 Range & Probes' },
     { id: 'thm-s1-scope', label: 'THM S1 - What It’s For' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'vartech-pps-programmable-power-supply-guide': [
+    { id: 'what-programmable-adds', label: 'What "Programmable" Adds' },
+    { id: 'single-vs-triple-output', label: 'Single-Output vs PPS 3005-3' },
+    { id: 'choosing-a-tier', label: 'Matching Voltage/Current' },
+    { id: 'automation', label: 'Automating a Test Sequence' },
+    { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'vartech-multi-output-lab-power-supply-guide': [
+    { id: 'triple-output', label: '3005-3 D2 - Triple Output' },
+    { id: 'quad-output', label: '3005-4 - Quad Output' },
+    { id: 'when-you-dont-need-this', label: 'When You Don’t Need This' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'linear-vs-smps-power-supply-explained': [
+    { id: 'how-linear-works', label: 'How Linear Regulation Works' },
+    { id: 'how-smps-works', label: 'How SMPS Regulation Works' },
+    { id: 'what-the-numbers-mean', label: 'Reading Ripple & Noise Specs' },
+    { id: 'efficiency-and-heat', label: 'Efficiency & Heat' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'vartech-v-2002-plus-leakage-clamp-meter-guide': [
+    { id: 'why-ma-resolution-matters', label: 'Why mA-Level Resolution Matters' },
+    { id: 'true-rms-matters-here', label: 'Why True RMS Matters' },
+    { id: 'beyond-leakage', label: 'DC Current & Full Multimeter' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'vartech-v-8222h-lcr-multimeter-guide': [
+    { id: 'lcr-capability', label: 'What the LCR Function Covers' },
+    { id: 'full-multimeter-function', label: 'Full Multimeter Function' },
+    { id: 'who-this-suits', label: 'Who This Suits' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'loop-calibrator-vs-process-calibrator': [
+    { id: 'loop-calibrator', label: 'V 7221 B - Loop Calibrator' },
+    { id: 'temperature-process-calibrator', label: 'V 7220 R - Temperature/Process' },
+    { id: 'high-accuracy-signal-calibrator', label: 'MS 7221 - High-Accuracy V/mA' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'analog-vs-digital-oscilloscope': [
+    { id: 'how-analog-works', label: 'How an Analog CRO Works' },
+    { id: 'how-dso-works', label: 'How a DSO Works' },
+    { id: 'channel-count-and-record-length', label: 'Channel Count & Record Length' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'dds-function-generator-explained': [
+    { id: 'how-dds-works', label: 'How DDS Generates a Waveform' },
+    { id: 'sample-rate-and-resolution', label: 'What Sample Rate Buys You' },
+    { id: 'arbitrary-waveforms-and-modulation', label: 'Arbitrary Waveforms & Modulation' },
+    { id: 'frequency-counter', label: 'The Built-In Frequency Counter' },
     { id: 'quick-reference', label: 'Quick Reference by Use Case' },
   ],
 };

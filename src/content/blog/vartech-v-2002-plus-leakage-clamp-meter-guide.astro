@@ -1,0 +1,43 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A standard clamp meter is built to measure load current - tens or hundreds of amps - and its accuracy at the low end of its range reflects that. Earth leakage current, neutral imbalance, and RCD/ELCB trip currents typically run from a few hundred milliamps down to single-digit milliamps - a range where a standard 400 A or 1000 A clamp meter's reading is essentially meaningless noise. The Vartech V 2002+ is built specifically to resolve that range.
+</p>
+
+<h2 id="why-ma-resolution-matters">Why mA-Level Clamp Resolution Matters</h2>
+
+<p>
+  The V 2002+ measures AC current from 600 mA on its lowest range, with stated accuracy of ±(4% rdg + 20 digits) across the 200-600 mA band - a resolution and accuracy level that standard clamp meters simply aren't designed to deliver, because their lowest range typically starts well above where leakage current lives. This is what makes it useful for earth fault investigation, RCD and ELCB verification, and neutral current checks: you clamp around a conductor and read the actual leakage or imbalance current directly, without breaking the circuit to insert a meter in series.
+</p>
+
+<Callout type="info" title="REL mode for background leakage">
+  Real installations often carry some background leakage even when healthy - from filters, EMI suppression capacitors, or long cable runs. The V 2002+'s REL (Relative) mode lets you zero out that background reading and display only the incremental change, which is what actually matters when you're trying to isolate a specific fault rather than measure total leakage.
+</Callout>
+
+<h2 id="true-rms-matters-here">Why True RMS Matters for Leakage Measurement</h2>
+
+<p>
+  Installations with VFDs, electronic ballasts, or switch-mode loads carry current waveforms that are far from a clean sine wave, and an averaging (non-True RMS) meter will read those waveforms incorrectly - sometimes significantly so. The V 2002+'s True RMS measurement, combined with 6000-count fully automatic ranging, gives an accurate reading regardless of waveform distortion, which matters specifically because the installations most likely to have leakage problems are often the same ones running non-linear loads.
+</p>
+
+<h2 id="beyond-leakage">DC Current, Frequency and Full Multimeter Function</h2>
+
+<p>
+  Beyond its core leakage-measurement role, the V 2002+ also measures DC current (6 A/60 A ranges) through the clamp jaw - useful for solar panel strings and DC distribution work where breaking the circuit to measure current in series isn't practical. Frequency and duty cycle measurement up to 10 MHz lets you diagnose VFD outputs and PWM controllers directly in clamp mode. A full complement of standard multimeter functions - voltage, resistance, capacitance, temperature, continuity, diode test, NCV and Live Wire detection - rounds it out as a complete field instrument, not just a specialised leakage tool. It charges via USB Type-C rather than disposable batteries.
+</p>
+
+<h2 id="quick-reference">Quick Reference</h2>
+
+<ul>
+  <li><strong>Earth leakage / fault investigation</strong>: V 2002+'s 600 mA-start range resolves what standard clamp meters can't.</li>
+  <li><strong>RCD/ELCB trip current verification</strong>: True RMS accuracy holds even on distorted waveforms.</li>
+  <li><strong>Isolating a specific leakage source amid background current</strong>: use REL mode to zero out the baseline.</li>
+  <li><strong>Standard load current measurement (tens to hundreds of amps)</strong>: a standard clamp meter is the right tool - see our <a href={u('/blog/how-to-choose-a-vartech-clamp-meter/')}>Vartech clamp meter buying guide</a>.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/authorised-dealership/clamp-meters/v-2002-plus/')}>Vartech V 2002+ mA leakage clamp meter</a>, part of the full <a href={u('/products/vartech-clamp-meters/')}>Vartech clamp meter range</a>. <a href={u('/contact/')}>Contact us</a> to confirm it matches your leakage measurement requirement.
+</p>

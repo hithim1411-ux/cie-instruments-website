@@ -780,5 +780,85 @@
     "category": "Buying Guide",
     "excerpt": "The V 6500 and THM S1 don't compete for the same job - one takes contact readings, the other monitors ambient room conditions.",
     "seoTitle": "How to Choose a Vartech Thermometer"
+  },
+  {
+    "slug": "vartech-pps-programmable-power-supply-guide",
+    "title": "Vartech PPS Programmable Power Supply Guide",
+    "description": "What programmable actually adds over a standard SMPS supply - USB/ModBus-RTU control, memory presets, list mode - and which PPS-series model fits which test job.",
+    "publishDate": "2026-09-27",
+    "readTime": "6 min read",
+    "category": "Buying Guide",
+    "excerpt": "Memory presets, list mode and PC control turn a power supply into an automated test tool. Here's when that actually pays off and which PPS model to pick.",
+    "seoTitle": "Vartech PPS Programmable Power Supply Guide"
+  },
+  {
+    "slug": "vartech-multi-output-lab-power-supply-guide",
+    "title": "Vartech Multi-Output Lab Power Supply Guide: Triple vs Quad Output",
+    "description": "The 3005-3 D2 triple-output and 3005-4 quad-output linear supplies compared - which multi-rail configuration suits op-amp, analog and multi-rail embedded board work.",
+    "publishDate": "2026-09-27",
+    "readTime": "5 min read",
+    "category": "Buying Guide",
+    "excerpt": "One instrument, three or four independent rails. Here's how the 3005-3 D2 and 3005-4 differ and which multi-rail board work each one actually fits.",
+    "seoTitle": "Triple vs Quad Output Power Supply Guide"
+  },
+  {
+    "slug": "linear-vs-smps-power-supply-explained",
+    "title": "Linear vs SMPS Power Supply: What's the Real Difference?",
+    "description": "How linear and switch-mode DC power supplies regulate output differently, what that means for ripple, noise, efficiency and size, and which topology suits your bench.",
+    "publishDate": "2026-09-27",
+    "readTime": "6 min read",
+    "category": "Physics",
+    "excerpt": "Same job, two completely different methods. Here's how linear and SMPS regulation actually work, and why one gives you lower noise while the other gives you less weight.",
+    "seoTitle": "Linear vs SMPS Power Supply Explained"
+  },
+  {
+    "slug": "vartech-v-2002-plus-leakage-clamp-meter-guide",
+    "title": "Vartech V 2002+ mA Leakage Clamp Meter Guide",
+    "description": "Why standard clamp meters can't resolve earth leakage current, and how the Vartech V 2002+'s 600 mA-start range, REL mode and True RMS measurement solve that.",
+    "publishDate": "2026-09-27",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "Leakage current lives in a range standard clamp meters can't see. The V 2002+ is built specifically to resolve it - here's what that actually means in the field.",
+    "seoTitle": "Vartech V 2002+ Leakage Clamp Meter Guide"
+  },
+  {
+    "slug": "vartech-v-8222h-lcr-multimeter-guide",
+    "title": "Vartech V 8222 H LCR Digital Multimeter Guide",
+    "description": "A True RMS multimeter and an LCR meter in one handheld instrument - what the V 8222 H's inductance and capacitance ranges cover and who it actually suits.",
+    "publishDate": "2026-09-27",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "excerpt": "Component-level LCR checks and full multimeter function from one instrument. Here's what the V 8222 H covers and when a dedicated bench LCR meter is still the better call.",
+    "seoTitle": "Vartech V 8222 H LCR Multimeter Guide"
+  },
+  {
+    "slug": "loop-calibrator-vs-process-calibrator",
+    "title": "Loop Calibrator vs Process Calibrator: Which Do You Need?",
+    "description": "Compare the Vartech V 7221 B loop calibrator, V 7220 R temperature/process calibrator and MS 7221 high-accuracy V/mA calibrator to find the right fit for your instrumentation work.",
+    "publishDate": "2026-09-27",
+    "readTime": "6 min read",
+    "category": "Buying Guide",
+    "excerpt": "4-20 mA loop testing, thermocouple/RTD calibration and high-accuracy transmitter verification are three different jobs. Here's which Vartech calibrator covers each.",
+    "seoTitle": "Loop Calibrator vs Process Calibrator"
+  },
+  {
+    "slug": "analog-vs-digital-oscilloscope",
+    "title": "Analog vs Digital Oscilloscope: What's the Real Difference?",
+    "description": "How analog CROs and digital storage oscilloscopes display a signal differently, what a DSO can do that an analog scope can't, and which one suits your bench work.",
+    "publishDate": "2026-09-27",
+    "readTime": "6 min read",
+    "category": "Guides",
+    "excerpt": "One draws the signal live on a phosphor screen, the other samples and stores it. Here's why that difference decides whether you need a CRO or a DSO.",
+    "seoTitle": "Analog vs Digital Oscilloscope Explained"
+  },
+  {
+    "slug": "dds-function-generator-explained",
+    "title": "DDS Function Generator Explained: How Direct Digital Synthesis Works",
+    "description": "How Direct Digital Synthesis generates a waveform, what sample rate and record depth actually buy you, and how to pick the right Vartech SGD/SGDA model for your bench.",
+    "publishDate": "2026-09-27",
+    "readTime": "6 min read",
+    "category": "Physics",
+    "excerpt": "Every modern function generator builds its waveform from a digital lookup table read out through a DAC. Here's how that works, and why it matters when you're picking a model.",
+    "seoTitle": "DDS Function Generator Explained"
   }
 ]
