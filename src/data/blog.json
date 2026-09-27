@@ -947,5 +947,27 @@
     "excerpt": "Every modern function generator builds its waveform from a digital lookup table read out through a DAC. Here's how that works, and why it matters when you're picking a model.",
     "seoTitle": "DDS Function Generator Explained",
     "shelf": "scopes-signal"
+  },
+  {
+    "slug": "vartech-high-voltage-smps-power-supply-guide",
+    "title": "Vartech High-Voltage SMPS Power Supply Guide (100V-200V)",
+    "description": "How to pick the right Vartech 100V, 120V, 150V or 200V SMPS power supply tier, and when the PC-interfaced SR models are worth it over the standard S models.",
+    "publishDate": "2026-09-27",
+    "readTime": "6 min read",
+    "category": "Buying Guide",
+    "shelf": "power-supplies",
+    "excerpt": "Motor drives, inverter DC-bus simulation and capacitor formation need voltage most bench supplies don't reach. Here's how to pick the right tier without over-buying.",
+    "seoTitle": "Vartech High-Voltage SMPS Power Supply Guide"
+  },
+  {
+    "slug": "vartech-v-981-plus-bench-multimeter-guide",
+    "title": "Vartech V 981+ Bench-Top Multimeter Guide",
+    "description": "What 30,000-count resolution, a 3.5-inch dual TFT display and 300 MHz frequency measurement actually buy you, and how the V 981+ compares to the V 980 and V 92 S.",
+    "publishDate": "2026-09-27",
+    "readTime": "6 min read",
+    "category": "Guides",
+    "shelf": "multimeters",
+    "excerpt": "A portable bench-top multimeter that trades pocket size for lab-grade resolution. Here's when that trade actually pays off, and which Vartech model to reach for instead.",
+    "seoTitle": "Vartech V 981+ Bench-Top Multimeter Guide"
   }
 ]

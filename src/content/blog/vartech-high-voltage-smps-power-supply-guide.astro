@@ -1,0 +1,44 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Most bench work never leaves the 30-60 V range. But motor drive pre-charge circuits, inverter DC-bus simulation, capacitor formation, relay coil and solenoid valve testing, and high-voltage LED driver work all need DC well above what a standard bench supply provides. Vartech's 100-200 V SMPS tier - the 10005 S, 20005 S, 20010 S, and the "SR" interfaced models - is built specifically for that range.
+</p>
+
+<h2 id="the-voltage-tiers">100 V, 120 V, 150 V or 200 V - Matching the Tier to Your Test</h2>
+
+<p>
+  The tier ladder runs 100 V (10005 S, 10010 SR), 120 V (12005 SR), 150 V (15003 SR) and 200 V (20005 S, 20010 S, 20010 SR) - each sized around common real-world test voltages rather than arbitrary round numbers. The 100 V tier suits motor drive and power module testing at moderate bus voltages; 120 V extends to AC motor drive pre-charge circuits and capacitor bank testing; 150 V covers high-voltage relay coils, solenoid valves and lighting ballasts; and 200 V - the ceiling of this tier - handles high-voltage motor drive testing, inverter DC-bus simulation and capacitor formation work. Pick the lowest tier that covers your working voltage with headroom, rather than defaulting to the 200 V model - current capacity drops as voltage rises within a given power budget, so a 200 V/5 A unit delivers far less current than a 100 V/10A unit of similar size.
+</p>
+
+<Callout type="tip" title="Why not just buy the 200 V model for everything?">
+  A higher voltage rating doesn't come free - at a fixed power rating, current capacity falls as the voltage ceiling rises. The 20005 S delivers 5 A at 200 V, while the 10010 SR delivers 10 A at 100 V - both are roughly 1000 W class supplies, just distributed differently. Buy for your actual working voltage, not the highest number on the shelf.
+</Callout>
+
+<h2 id="standard-vs-sr">Standard "S" Models vs "SR" Interfaced Models</h2>
+
+<p>
+  The 10005 S, 20005 S and 20010 S are standard manually-controlled SMPS supplies with LED displays, auto CV/CC switching and (on the 200 V models) adjustable OVP alongside OCP, OTP and OPP protection - suited for bench use where you set a voltage and current limit and monitor a panel meter. The "SR" models (10010 SR, 12005 SR, 15003 SR, 20010 SR) add PC interfacing - RS232 standard on some models, USB/RS232/RS485 with ModBus-RTU on others - plus encoder-based coarse/fine control, preset V & I with Output On/Off, and both set-point and readback shown on 4-digit LED displays. If your work is a fixed bench test, the standard S models are simpler. If you need remote monitoring, automated test sequences, or data logging of a high-voltage test, the SR models' PC interface is the deciding feature.
+</p>
+
+<h2 id="protection">Why OVP, OCP and OPP Matter More at High Voltage</h2>
+
+<p>
+  At 100-200 V, a wiring mistake or a shorted device under test carries real consequences for both the supply and whatever it's connected to - which is why this tier's protection set is more complete than the lower-voltage range. Adjustable Over-Voltage Protection (OVP, typically settable up to 110% of full scale) lets you cap the maximum voltage the supply will ever output, protecting a voltage-sensitive device under test even if the front-panel setting is accidentally set too high. Over-Current Protection (OCP) and Over-Power Protection (OPP) similarly cap current and total power draw, while Over-Temperature Protection (OTP) shuts the unit down before internal heat becomes a safety issue. Together these let you test with confidence at voltages where a mistake would otherwise damage equipment or create a hazard.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Application</h2>
+
+<ul>
+  <li><strong>Motor drive / power module testing at moderate bus voltage</strong>: 10005 S or 10010 SR (100 V tier).</li>
+  <li><strong>AC motor drive pre-charge, capacitor bank testing</strong>: 12005 SR (120 V tier).</li>
+  <li><strong>High-voltage relay coils, solenoid valves, lighting ballasts</strong>: 15003 SR (150 V tier).</li>
+  <li><strong>High-voltage motor drive, inverter DC-bus simulation, capacitor formation</strong>: 20005 S, 20010 S or 20010 SR (200 V tier).</li>
+  <li><strong>Automated test sequences or remote monitoring at any tier</strong>: choose the "SR" interfaced model for that voltage.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the full <a href={u('/products/vartech-dc-power-supplies/')}>Vartech DC power supply range</a>, including the <a href={u('/authorised-dealership/dc-power-supplies/10005-s/')}>10005 S</a>, <a href={u('/authorised-dealership/dc-power-supplies/20010-s/')}>20010 S</a> and the full SR-interfaced high-voltage tier. See our <a href={u('/blog/how-to-choose-a-vartech-dc-power-supply/')}>general Vartech DC power supply buying guide</a> for the full range, or <a href={u('/contact/')}>contact us</a> with your working voltage and current requirement.
+</p>

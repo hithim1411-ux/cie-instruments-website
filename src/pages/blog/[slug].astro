@@ -89,6 +89,8 @@ import VartechLcrMultimeterGuide from '../../content/blog/vartech-v-8222h-lcr-mu
 import LoopVsProcessCalibratorGuide from '../../content/blog/loop-calibrator-vs-process-calibrator.astro';
 import AnalogVsDigitalOscilloscopeGuide from '../../content/blog/analog-vs-digital-oscilloscope.astro';
 import DdsFunctionGeneratorGuide from '../../content/blog/dds-function-generator-explained.astro';
+import VartechHighVoltageSmpsGuide from '../../content/blog/vartech-high-voltage-smps-power-supply-guide.astro';
+import VartechV981PlusBenchMultimeterGuide from '../../content/blog/vartech-v-981-plus-bench-multimeter-guide.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -185,6 +187,8 @@ const contentMap: Record<string, any> = {
   'loop-calibrator-vs-process-calibrator': LoopVsProcessCalibratorGuide,
   'analog-vs-digital-oscilloscope': AnalogVsDigitalOscilloscopeGuide,
   'dds-function-generator-explained': DdsFunctionGeneratorGuide,
+  'vartech-high-voltage-smps-power-supply-guide': VartechHighVoltageSmpsGuide,
+  'vartech-v-981-plus-bench-multimeter-guide': VartechV981PlusBenchMultimeterGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -803,6 +807,19 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'arbitrary-waveforms-and-modulation', label: 'Arbitrary Waveforms & Modulation' },
     { id: 'frequency-counter', label: 'The Built-In Frequency Counter' },
     { id: 'quick-reference', label: 'Quick Reference by Use Case' },
+  ],
+  'vartech-high-voltage-smps-power-supply-guide': [
+    { id: 'the-voltage-tiers', label: 'Matching the Tier to Your Test' },
+    { id: 'standard-vs-sr', label: 'Standard "S" vs "SR" Interfaced' },
+    { id: 'protection', label: 'Why Protection Matters More Here' },
+    { id: 'quick-reference', label: 'Quick Reference by Application' },
+  ],
+  'vartech-v-981-plus-bench-multimeter-guide': [
+    { id: 'what-30000-counts-buys', label: 'What 30,000 Counts Buys You' },
+    { id: 'frequency-and-data', label: '300 MHz Frequency & Data Logging' },
+    { id: 'portable-bench-instrument', label: 'Why "Portable Bench-Top" Fits' },
+    { id: 'v981-vs-v980-vs-v92s', label: 'V 981+ vs V 980 vs V 92 S' },
+    { id: 'quick-reference', label: 'Quick Reference' },
   ],
 };
 
