@@ -93,38 +93,56 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 >
   <!-- ── HERO - full viewport, scroll-driven ─────────────────────────────────
        Header floats transparent over this section (transparentHero on Base)
-       and only turns solid once scrolled. Copy is centered, single flagship
-       product (RTS-33 - already the site's proof point, reused in the
-       dedicated spotlight section further down) floats large beneath it on
-       a soft red glow, no card chrome. Content fades/scales and the product
-       parallaxes at a slower speed than the page scroll (see script below). ── -->
-  <section id="home-hero" class="blueprint-bg text-white relative overflow-hidden min-h-screen">
+       and only turns solid once scrolled. Copy-only: no product photo, just
+       the brand mark motif behind the text. Headline uses text-balance so
+       the browser always picks even line breaks instead of orphaning a
+       single short word, at any viewport width. Content fades/scales on
+       scroll (see script below). ── -->
+  <section id="home-hero" class="blueprint-bg text-white relative overflow-hidden min-h-screen flex items-center">
     <!-- Ambient glow -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full opacity-[0.10] pointer-events-none"
       style="background: radial-gradient(ellipse at top, #E0252E 0%, transparent 65%);" aria-hidden="true">
     </div>
 
-    <div id="hero-content" class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 lg:pt-32 w-full text-center will-change-[transform,opacity]">
+    <!-- Oversized watermark dial motif, purely decorative, sits behind copy -->
+    <svg class="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[900px] h-[900px] opacity-[0.05] pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+      <circle cx="100" cy="100" r="92" stroke="white" stroke-width="0.5" />
+      <circle cx="100" cy="100" r="70" stroke="white" stroke-width="0.5" />
+      {Array.from({ length: 36 }).map((_, i) => {
+        const angle = (i * 10 * Math.PI) / 180;
+        const r1 = i % 3 === 0 ? 70 : 78;
+        const x1 = 100 + r1 * Math.sin(angle);
+        const y1 = 100 - r1 * Math.cos(angle);
+        const x2 = 100 + 92 * Math.sin(angle);
+        const y2 = 100 - 92 * Math.cos(angle);
+        return <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="white" stroke-width="0.5" />;
+      })}
+      <line x1="100" y1="100" x2="100" y2="35" stroke="#E0252E" stroke-width="1.2" />
+      <line x1="100" y1="100" x2="145" y2="120" stroke="white" stroke-width="1" />
+      <circle cx="100" cy="100" r="3" fill="white" />
+    </svg>
+
+    <div id="hero-content" class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-32 w-full text-center will-change-[transform,opacity]">
       <!-- Eyebrow -->
       <div data-hero-anim style="--d: 0ms" class="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
         <span class="w-1.5 h-1.5 rounded-full bg-red animate-pulse" aria-hidden="true"></span>
         <span class="text-[11px] font-mono text-muted-dark tracking-widest uppercase">Cambridge Instruments &amp; Engg. Co. · Est. 1963</span>
       </div>
 
-      <!-- Headline - each line stages in on its own delay -->
-      <h1 class="text-[length:var(--text-hero)] font-extrabold leading-[1.03] tracking-tight mb-6 text-white">
-        <span data-hero-anim style="--d: 120ms" class="block">Precision instruments,</span>
-        <span data-hero-anim style="--d: 220ms" class="block"><span class="text-red">built in India</span>.</span>
+      <!-- Headline - text-balance lets the browser choose even line breaks
+           at every width, instead of forced per-line spans wrapping badly. -->
+      <h1 data-hero-anim style="--d: 120ms" class="text-balance text-[length:var(--text-hero)] font-extrabold leading-[1.05] tracking-tight mb-6 text-white mx-auto max-w-[18ch]">
+        Precision instruments, <span class="text-red">built in India</span>.
       </h1>
 
       <!-- Subhead -->
-      <p data-hero-anim style="--d: 340ms" class="text-lg text-muted-dark mb-10 leading-[1.6] max-w-xl mx-auto">
+      <p data-hero-anim style="--d: 240ms" class="text-balance text-lg text-muted-dark mb-10 leading-[1.6] max-w-xl mx-auto">
         Insulation testers, earth testers, relay test sets, and oil test equipment,
         engineered in Howrah for utilities, railways, and industry since 1963.
       </p>
 
       <!-- CTAs -->
-      <div data-hero-anim style="--d: 440ms" class="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+      <div data-hero-anim style="--d: 360ms" class="flex flex-col sm:flex-row gap-3 justify-center mb-12">
         <a
           href={u('/products/')}
           class="btn-primary link-arrow focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
@@ -141,7 +159,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
       </div>
 
       <!-- Trust row -->
-      <div data-hero-anim style="--d: 540ms" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-dark font-mono uppercase tracking-wide">
+      <div data-hero-anim style="--d: 480ms" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-dark font-mono uppercase tracking-wide">
         {['60+ Years', 'Made in India', '12-Month Warranty', 'Authorised Vartech Dealer'].map(t => (
           <span class="flex items-center gap-1.5">
             <span class="w-1 h-1 rounded-full bg-red" aria-hidden="true"></span>
@@ -149,33 +167,6 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           </span>
         ))}
       </div>
-    </div>
-
-    <!-- ── Product stage - single flagship instrument, floating on its own
-         light instead of boxed in a card. Plain document flow (no flex-grow
-         sizing games): a viewport-relative image height inside an
-         indefinite-height flex ancestor doesn't resolve consistently across
-         browsers and was clipping the caption below it. Parallaxes at a
-         slower rate than scroll (see script below). ── -->
-    <div id="hero-image" data-hero-fade style="--d: 260ms" class="relative z-10 flex flex-col items-center mt-10 lg:mt-12 pb-20 lg:pb-28 px-4">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] max-w-md h-[85%] rounded-[50%] bg-red/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
-      <a href={u('/products/relay-test-sets/rts-33/')} class="group relative flex flex-col items-center focus:outline-none">
-        <img
-          src={u('/images/products/rts-33.webp')}
-          alt="RTS-33 - Three-Phase Relay Test Set"
-          width="1179"
-          height="1384"
-          style="mask-image: radial-gradient(ellipse 42% 46% at 50% 40%, black 25%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 42% 46% at 50% 40%, black 25%, transparent 100%); filter: brightness(0.9) contrast(1.05);"
-          class="relative z-[1] h-[280px] sm:h-[360px] lg:h-[440px] w-auto object-contain transition-transform duration-500 [transition-timing-function:var(--ease-premium)] group-hover:scale-[1.02]"
-          loading="eager"
-          fetchpriority="high"
-        />
-        <div class="relative z-[1] mt-5 flex items-center gap-2.5 text-white/80 group-hover:text-white transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-red shrink-0" aria-hidden="true"></span>
-          <span class="text-[11px] font-mono uppercase tracking-[0.15em]">RTS-33 · Three-Phase Relay Test Set</span>
-          <Icon name="arrow" class="w-3.5 h-3.5 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5" />
-        </div>
-      </a>
     </div>
 
     <!-- Scroll cue -->
