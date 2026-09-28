@@ -50,6 +50,8 @@ const categoryCount = categories
     count: products.filter((p: any) => p.categoryId === cat.id).length || vartechCounts[cat.id] || 0,
   }));
 
+const heroCategoryCount = categoryCount.length;
+
 const featured = products.filter(p => p.featured);
 
 const newVartechFeatured = [
@@ -93,81 +95,142 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 >
   <!-- ── HERO - full viewport, scroll-driven ─────────────────────────────────
        Header floats transparent over this section (transparentHero on Base)
-       and only turns solid once scrolled. Copy-only: no product photo, just
-       the brand mark motif behind the text. Headline uses text-balance so
-       the browser always picks even line breaks instead of orphaning a
-       single short word, at any viewport width. Content fades/scales on
-       scroll (see script below). ── -->
+       and only turns solid once scrolled. Copy-only: no product photo. On
+       large screens the centered copy sits between two instrument-panel
+       rails (ruler ticks + coordinates on the left, an analogue gauge on
+       the right) so the wide viewport reads as a designed panel rather than
+       empty margin; both rails hide below lg and the layout collapses back
+       to the plain centered column already proven on mobile. Headline uses
+       text-balance so the browser always picks even line breaks instead of
+       orphaning a single short word. Content fades/scales on scroll (see
+       script below). ── -->
   <section id="home-hero" class="blueprint-bg text-white relative overflow-hidden min-h-screen flex items-center">
     <!-- Ambient glow -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full opacity-[0.10] pointer-events-none"
       style="background: radial-gradient(ellipse at top, #E0252E 0%, transparent 65%);" aria-hidden="true">
     </div>
 
-    <!-- Oversized watermark dial motif, purely decorative, sits behind copy -->
-    <svg class="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[900px] h-[900px] opacity-[0.05] pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-      <circle cx="100" cy="100" r="92" stroke="white" stroke-width="0.5" />
-      <circle cx="100" cy="100" r="70" stroke="white" stroke-width="0.5" />
-      {Array.from({ length: 36 }).map((_, i) => {
-        const angle = (i * 10 * Math.PI) / 180;
-        const r1 = i % 3 === 0 ? 70 : 78;
-        const x1 = 100 + r1 * Math.sin(angle);
-        const y1 = 100 - r1 * Math.cos(angle);
-        const x2 = 100 + 92 * Math.sin(angle);
-        const y2 = 100 - 92 * Math.cos(angle);
-        return <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="white" stroke-width="0.5" />;
-      })}
-      <line x1="100" y1="100" x2="100" y2="35" stroke="#E0252E" stroke-width="1.2" />
-      <line x1="100" y1="100" x2="145" y2="120" stroke="white" stroke-width="1" />
-      <circle cx="100" cy="100" r="3" fill="white" />
-    </svg>
+    <div id="hero-content" class="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 pt-24 pb-16 lg:py-14 w-full grid grid-cols-1 lg:grid-cols-[minmax(0,120px)_1fr_minmax(0,120px)] xl:grid-cols-[160px_1fr_160px] items-center gap-y-10 lg:gap-x-8 will-change-[transform,opacity]">
 
-    <div id="hero-content" class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-32 w-full text-center will-change-[transform,opacity]">
-      <!-- Eyebrow -->
-      <div data-hero-anim style="--d: 0ms" class="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
-        <span class="w-1.5 h-1.5 rounded-full bg-red animate-pulse" aria-hidden="true"></span>
-        <span class="text-[11px] font-mono text-muted-dark tracking-widest uppercase">Cambridge Instruments &amp; Engg. Co. · Est. 1963</span>
+      <!-- ── Left rail: ruler ticks + works coordinates - hidden below lg ── -->
+      <div class="hidden lg:flex flex-col items-center h-[380px] mx-auto" aria-hidden="true">
+        <span class="text-[10px] font-mono text-muted-dark tracking-[0.25em] uppercase [writing-mode:vertical-rl] mb-4">
+          Test &amp; Measurement Instruments
+        </span>
+        <div class="flex-1 w-px bg-[repeating-linear-gradient(to_bottom,rgba(255,255,255,0.18)_0_1px,transparent_1px_14px)]"></div>
+        <div class="mt-4 text-center">
+          <p class="text-[10px] font-mono text-muted-dark tracking-widest">22.575°N</p>
+          <p class="text-[10px] font-mono text-muted-dark tracking-widest">88.353°E</p>
+          <p class="mt-2 text-[9px] font-mono text-red tracking-[0.2em] uppercase">Howrah Works</p>
+        </div>
       </div>
 
-      <!-- Headline - text-balance lets the browser choose even line breaks
-           at every width, instead of forced per-line spans wrapping badly. -->
-      <h1 data-hero-anim style="--d: 120ms" class="text-balance text-[length:var(--text-hero)] font-extrabold leading-[1.05] tracking-tight mb-6 text-white mx-auto max-w-[18ch]">
-        Precision instruments, <span class="text-red">built in India</span>.
-      </h1>
+      <!-- ── Center: headline, copy, CTAs ─────────────────────────────────── -->
+      <div class="text-center">
+        <!-- Eyebrow -->
+        <div data-hero-anim style="--d: 0ms" class="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
+          <span class="w-1.5 h-1.5 rounded-full bg-red animate-pulse" aria-hidden="true"></span>
+          <span class="text-[11px] font-mono text-muted-dark tracking-widest uppercase">Cambridge Instruments &amp; Engg. Co. · Est. 1963</span>
+        </div>
 
-      <!-- Subhead -->
-      <p data-hero-anim style="--d: 240ms" class="text-balance text-lg text-muted-dark mb-10 leading-[1.6] max-w-xl mx-auto">
-        Insulation testers, earth testers, relay test sets, and oil test equipment,
-        engineered in Howrah for utilities, railways, and industry since 1963.
-      </p>
+        <!-- Headline - text-balance lets the browser choose even line breaks
+             at every width, instead of forced per-line spans wrapping badly. -->
+        <h1 data-hero-anim style="--d: 120ms" class="text-balance text-[length:var(--text-hero)] font-extrabold leading-[1.05] tracking-tight mb-6 text-white mx-auto max-w-[18ch]">
+          Precision instruments, <span class="text-red">built in India</span>.
+        </h1>
 
-      <!-- CTAs -->
-      <div data-hero-anim style="--d: 360ms" class="flex flex-col sm:flex-row gap-3 justify-center mb-12">
-        <a
-          href={u('/products/')}
-          class="btn-primary link-arrow focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-        >
-          Explore Products
-          <Icon name="arrow" class="w-4 h-4 shrink-0" />
-        </a>
-        <a
-          href={genericMailto}
-          class="btn-secondary text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-        >
-          Request a Quote
-        </a>
+        <!-- Subhead -->
+        <p data-hero-anim style="--d: 240ms" class="text-balance text-lg text-muted-dark mb-10 leading-[1.6] max-w-xl mx-auto">
+          Insulation testers, earth testers, relay test sets, and oil test equipment,
+          engineered in Howrah for utilities, railways, and industry since 1963.
+        </p>
+
+        <!-- CTAs -->
+        <div data-hero-anim style="--d: 360ms" class="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+          <a
+            href={u('/products/')}
+            class="btn-primary link-arrow focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            Explore Products
+            <Icon name="arrow" class="w-4 h-4 shrink-0" />
+          </a>
+          <a
+            href={genericMailto}
+            class="btn-secondary text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            Request a Quote
+          </a>
+        </div>
+
+        <!-- Trust row -->
+        <div data-hero-anim style="--d: 480ms" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-10 text-xs text-muted-dark font-mono uppercase tracking-wide">
+          {['60+ Years', 'Made in India', '12-Month Warranty', 'Authorised Vartech Dealer'].map(t => (
+            <span class="flex items-center gap-1.5">
+              <span class="w-1 h-1 rounded-full bg-red" aria-hidden="true"></span>
+              {t}
+            </span>
+          ))}
+        </div>
+
+        <!-- Stat band - real, computed figures (not marketing round-ups) -->
+        <div data-hero-anim style="--d: 560ms" class="flex items-stretch justify-center divide-x divide-white/10 max-w-lg mx-auto">
+          {[
+            { value: '1963', label: 'Founded In' },
+            { value: '60+', label: 'Years of Service' },
+            { value: String(heroCategoryCount), label: 'Product Categories' },
+          ].map(s => (
+            <div class="flex-1 px-4 sm:px-6 first:pl-0 last:pr-0">
+              <p class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{s.value}</p>
+              <p class="mt-1 text-[10px] font-mono text-muted-dark tracking-widest uppercase">{s.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <!-- Trust row -->
-      <div data-hero-anim style="--d: 480ms" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-dark font-mono uppercase tracking-wide">
-        {['60+ Years', 'Made in India', '12-Month Warranty', 'Authorised Vartech Dealer'].map(t => (
-          <span class="flex items-center gap-1.5">
-            <span class="w-1 h-1 rounded-full bg-red" aria-hidden="true"></span>
-            {t}
-          </span>
-        ))}
+      <!-- ── Right rail: analogue gauge motif - hidden below lg ──────────── -->
+      <div class="hidden lg:flex flex-col items-center h-[380px] mx-auto" aria-hidden="true">
+        <svg id="hero-gauge" class="w-24 xl:w-28 h-auto opacity-80" viewBox="0 0 120 90" fill="none">
+          <path d="M 10 75 A 50 50 0 0 1 110 75" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round" />
+          {Array.from({ length: 11 }).map((_, i) => {
+            const deg = 180 - i * 18;
+            const rad = (deg * Math.PI) / 180;
+            const rOuter = 50, rInner = i % 5 === 0 ? 41 : 45;
+            const x1 = 60 + rOuter * Math.cos(rad), y1 = 75 - rOuter * Math.sin(rad);
+            const x2 = 60 + rInner * Math.cos(rad), y2 = 75 - rInner * Math.sin(rad);
+            return <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={i % 5 === 0 ? '#E0252E' : 'rgba(255,255,255,0.35)'} stroke-width="1.5" stroke-linecap="round" />;
+          })}
+          <g id="hero-gauge-needle" style="transform-origin: 60px 75px;">
+            <line x1="60" y1="75" x2="60" y2="30" stroke="#E0252E" stroke-width="2" stroke-linecap="round" />
+          </g>
+          <circle cx="60" cy="75" r="4" fill="white" />
+        </svg>
+        <p class="mt-3 text-[9px] font-mono text-muted-dark tracking-[0.2em] uppercase text-center max-w-[8ch]">Calibrated Before Despatch</p>
+        <div class="flex-1 w-px mt-4 bg-[repeating-linear-gradient(to_bottom,rgba(255,255,255,0.18)_0_1px,transparent_1px_14px)]"></div>
+        <span class="text-[10px] font-mono text-muted-dark tracking-[0.25em] uppercase [writing-mode:vertical-rl] rotate-180 mt-4">
+          Authorised Vartech Dealer
+        </span>
       </div>
+
     </div>
+
+    <!-- Gauge needle: sweeps in once, then rests. Skipped for reduced motion,
+         where the base transform above already shows the resting angle. -->
+    <style>
+      @media (prefers-reduced-motion: no-preference) {
+        #hero-gauge-needle {
+          transform: rotate(-58deg);
+          animation: hero-gauge-sweep 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #hero-gauge-needle { transform: rotate(-58deg); }
+      }
+      @keyframes hero-gauge-sweep {
+        0%   { transform: rotate(70deg); }
+        60%  { transform: rotate(-68deg); }
+        100% { transform: rotate(-58deg); }
+      }
+    </style>
 
     <!-- Scroll cue -->
     <div id="hero-scroll-cue" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-dark transition-opacity duration-500" aria-hidden="true">
