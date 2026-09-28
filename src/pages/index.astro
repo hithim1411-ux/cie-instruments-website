@@ -269,10 +269,20 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           <span class="text-[11px] font-mono text-muted-dark tracking-widest uppercase">Cambridge Instruments &amp; Engg. Co. · Est. 1963</span>
         </div>
 
-        <!-- Headline - text-balance lets the browser choose even line breaks
-             at every width, instead of forced per-line spans wrapping badly. -->
-        <h1 data-hero-anim style="--d: 120ms" class="text-balance text-[length:var(--text-hero)] font-extrabold leading-[1.05] tracking-tight mb-6 text-white mx-auto max-w-[18ch]">
-          Precision instruments, <span class="text-red">built in India</span>.
+        <!-- Headline - "Precision instruments," gets an explicit <br/> so
+             it never splits across two lines on its own (the previous
+             max-w-[18ch] was narrower than that phrase's own rendered
+             width, so text-balance was force-wrapping it into "Precision"
+             / "instruments," - two lines for one four-syllable phrase,
+             which read as an odd gap/orphan rather than a clean headline).
+             Widened to max-w-[22ch] so "Precision instruments," fits one
+             line at any width that can show the hero font at all;
+             text-balance still governs "built in India." on its own line
+             below (and takes over entirely on phones too narrow to fit
+             "Precision instruments," on one line regardless). -->
+        <h1 data-hero-anim style="--d: 120ms" class="text-balance text-[length:var(--text-hero)] font-extrabold leading-[1.05] tracking-tight mb-6 text-white mx-auto max-w-[22ch]">
+          Precision instruments,<br />
+          <span class="text-red">built in India</span>.
         </h1>
 
         <!-- Subhead -->

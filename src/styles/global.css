@@ -45,7 +45,18 @@
      Fluid (clamp-based) for the two display sizes so hero/section
      headings scale smoothly instead of jumping at breakpoints; fixed
      rem sizes for everything at or below H3. ── */
-  --text-hero:    clamp(2.75rem, 5vw + 1rem, 6rem);   /* H1 hero only */
+  /* Max lowered from 6rem to 4.75rem (2026-09-28): the hero grid's side
+     rails are a fixed width (160px each at xl) inside a max-w-[1440px]
+     container, so the center column tops out at a fixed 928px regardless
+     of viewport - but this token kept scaling with vw past that point.
+     At 6rem "Precision instruments," (the first line of the hero H1)
+     measured ~1080px wide, wider than the 928px it had to fit in, so it
+     force-wrapped into "Precision" / "instruments," on any viewport
+     ≳1440px - the vast majority of desktop screens. 4.75rem keeps it at
+     ~855px, comfortably inside the column. If the rail width or grid
+     max-width ever change, re-check this number against the column's
+     actual available width rather than assuming it still fits. */
+  --text-hero:    clamp(2.75rem, 5vw + 1rem, 4.75rem);   /* H1 hero only */
   --text-display: clamp(2rem, 3vw + 1rem, 3.5rem);    /* H1 page title / H2 section */
   --text-h3:      1.375rem;   /* 22px */
   --text-h4:      1.125rem;   /* 18px */
