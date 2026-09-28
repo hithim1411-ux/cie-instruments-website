@@ -396,71 +396,6 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
   }
   </script>
 
-  <!-- ── VARTECH SPOTLIGHT ─────────────────────────────────────────────────── -->
-  <section class="bg-white section-pad border-y border-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10" data-reveal>
-        <div>
-          <EyebrowLabel text="Authorised Dealer" class="mb-3" />
-          <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Vartech Precision Instruments</h2>
-          <p class="mt-3 text-muted max-w-2xl text-lg leading-relaxed">
-            CIE Instruments is an authorised dealer and distributor of Vartech across India -
-            oscilloscopes, function generators, LCR meters, DC electronic loads, multimeters,
-            clamp meters, calibrators and more, backed by direct technical support and
-            pan-India delivery.
-          </p>
-        </div>
-        <a href={u('/authorised-dealership/')} class="btn-primary link-arrow shrink-0 self-start lg:self-auto">
-          Explore Full Vartech Range
-          <Icon name="arrow" class="w-4 h-4 shrink-0" />
-        </a>
-      </div>
-
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
-        {newVartechFeatured.slice(0, 4).map(p => (
-          <a href={u(`/authorised-dealership/${p.slug}/${p.id}/`)} class="card card-interactive group overflow-hidden flex flex-col">
-            <div class="bg-cloud h-40 sm:h-48 flex items-center justify-center relative overflow-hidden">
-              <img
-                src={u(`/images/vartech/${p.slug}/${p.images[0]}`)}
-                alt={`Vartech ${p.model} - ${p.name}`}
-                width="240" height="240"
-                class="object-contain h-32 sm:h-36 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105"
-                loading="lazy"
-                onerror="this.style.display='none'"
-              />
-              <Badge variant="emerald" class="absolute top-3 left-3">Vartech®</Badge>
-            </div>
-            <div class="p-4 flex flex-col flex-1">
-              <p class="text-[11px] font-mono text-red mb-1">{p.model}</p>
-              <h3 class="font-bold text-ink text-sm leading-snug tracking-tight line-clamp-2">{p.name}</h3>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ── WHY CIE ────────────────────────────────────────────────────────────── -->
-  <section class="bg-white section-pad">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-14" data-reveal>
-        <EyebrowLabel text="Why CIE" class="mb-3" />
-        <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Built for reliability.<br />Backed by six decades.</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10" data-reveal-stagger>
-        {trustPoints.map(tp => (
-          <div class="red-stripe">
-            <div class="w-11 h-11 bg-cloud rounded-xl flex items-center justify-center mb-4">
-              <Icon name={tp.icon} class="w-5 h-5 text-ink" />
-            </div>
-            <h3 class="font-bold text-ink mb-2 text-lg tracking-tight">{tp.label}</h3>
-            <p class="text-sm text-muted leading-relaxed">{tp.body}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- ── FEATURED PRODUCTS ─────────────────────────────────────────────────── -->
   <section class="bg-cloud section-pad">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -538,6 +473,71 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
     }
   }
   </script>
+
+  <!-- ── WHY CIE ────────────────────────────────────────────────────────────── -->
+  <section class="bg-white section-pad">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-14" data-reveal>
+        <EyebrowLabel text="Why CIE" class="mb-3" />
+        <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Built for reliability.<br />Backed by six decades.</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10" data-reveal-stagger>
+        {trustPoints.map(tp => (
+          <div class="red-stripe">
+            <div class="w-11 h-11 bg-cloud rounded-xl flex items-center justify-center mb-4">
+              <Icon name={tp.icon} class="w-5 h-5 text-ink" />
+            </div>
+            <h3 class="font-bold text-ink mb-2 text-lg tracking-tight">{tp.label}</h3>
+            <p class="text-sm text-muted leading-relaxed">{tp.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VARTECH SPOTLIGHT ─────────────────────────────────────────────────── -->
+  <section class="bg-white section-pad border-y border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10" data-reveal>
+        <div>
+          <EyebrowLabel text="Authorised Dealer" class="mb-3" />
+          <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Vartech Precision Instruments</h2>
+          <p class="mt-3 text-muted max-w-2xl text-lg leading-relaxed">
+            CIE Instruments is an authorised dealer and distributor of Vartech across India -
+            oscilloscopes, function generators, LCR meters, DC electronic loads, multimeters,
+            clamp meters, calibrators and more, backed by direct technical support and
+            pan-India delivery.
+          </p>
+        </div>
+        <a href={u('/authorised-dealership/')} class="btn-primary link-arrow shrink-0 self-start lg:self-auto">
+          Explore Full Vartech Range
+          <Icon name="arrow" class="w-4 h-4 shrink-0" />
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        {newVartechFeatured.slice(0, 4).map(p => (
+          <a href={u(`/authorised-dealership/${p.slug}/${p.id}/`)} class="card card-interactive group overflow-hidden flex flex-col">
+            <div class="bg-cloud h-40 sm:h-48 flex items-center justify-center relative overflow-hidden">
+              <img
+                src={u(`/images/vartech/${p.slug}/${p.images[0]}`)}
+                alt={`Vartech ${p.model} - ${p.name}`}
+                width="240" height="240"
+                class="object-contain h-32 sm:h-36 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105"
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+              <Badge variant="emerald" class="absolute top-3 left-3">Vartech®</Badge>
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <p class="text-[11px] font-mono text-red mb-1">{p.model}</p>
+              <h3 class="font-bold text-ink text-sm leading-snug tracking-tight line-clamp-2">{p.name}</h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <!-- ── INDUSTRIES ─────────────────────────────────────────────────────────── -->
   <section class="blueprint-bg text-white section-pad">
