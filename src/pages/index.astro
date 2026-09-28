@@ -71,14 +71,14 @@ const heroProductCount =
   (vartechMultimetersAll as any[]).length +
   (vartechClampMetersAll as any[]).length;
 
-// Ticker strip content - real category names pulled from categories.json,
-// not invented copy. CIE-manufactured lines first, then the Vartech range.
-const heroTicker = [
-  'Insulation Testers', 'Earth Resistance Testers', 'Relay Test Sets',
-  'Oil Test Sets', 'Micro-Ohm Meters', 'HV Test Sets',
-  'Phase Sequence Indicators', 'Vartech Oscilloscopes', 'Digital Multimeters',
-  'Clamp Meters', 'Vartech Function Generators', 'LCR Meters',
-];
+// Ticker strip content - real categories pulled straight from categoryCount
+// (same data + same href logic as the slider section below), each one a
+// real link rather than decorative text, so hovering/clicking it actually
+// goes somewhere.
+const heroTickerItems = categoryCount.map((cat: any) => ({
+  name: cat.name,
+  href: u(cat.brand === 'vartech' ? `/authorised-dealership/${cat.id.replace('vartech-', '')}/` : `/products/${cat.id}/`),
+}));
 
 // Oscilloscope-style trace for the ambient waveform layer - a hand-authored
 // signal path (viewBox 0 0 1440 120), not decoration picked at random: two
@@ -162,6 +162,17 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
       style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);">
     </div>
 
+    <!-- Cursor spotlight - a brighter copy of the blueprint grid, masked to
+         a soft circle that follows the pointer (desktop-with-a-mouse only,
+         same mousemove listener that drives the rail/gauge parallax below
+         sets --sx/--sy on this element). Reads as a torch passing over the
+         panel rather than a gimmick, because it only ever reveals MORE of
+         a pattern that's already faintly there the whole time. Opacity is
+         0 until the first mousemove, so it never shows on touch. -->
+    <div id="hero-spotlight" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500" aria-hidden="true"
+      style="background-image: linear-gradient(rgba(255,255,255,0.16) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.16) 1px, transparent 1px); background-size: 32px 32px; -webkit-mask-image: radial-gradient(circle 240px at var(--sx, 50%) var(--sy, 50%), black 0%, transparent 100%); mask-image: radial-gradient(circle 240px at var(--sx, 50%) var(--sy, 50%), black 0%, transparent 100%);">
+    </div>
+
     <!-- Oscilloscope trace - an ambient signal line running along the base
          of the panel: a hand-authored waveform (two transient spikes inside
          a rolling sine, see heroWavePath) rather than a generic squiggle,
@@ -204,22 +215,36 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
     </div>
 
     <!-- Ticker strip - a thin instrument-panel readout band directly under
-         the header, scrolling real category names (categories.json, not
-         invented copy). Sits inside the header-clearance gap already
-         reserved by hero-content's own top padding, so it never collides
-         with the eyebrow/headline below it. Two duplicated passes of the
-         list + translateX(-50%) for a seamless loop; paused under
-         prefers-reduced-motion (see script/style below). -->
-    <div id="hero-ticker" class="hidden sm:flex absolute inset-x-0 top-16 lg:top-20 z-10 h-8 lg:h-9 items-center border-b border-white/10 overflow-hidden pointer-events-none" aria-hidden="true">
+         the header, scrolling real, clickable category links (same data +
+         href logic as the slider section below, not invented copy). Sits
+         inside the header-clearance gap already reserved by hero-content's
+         own top padding, so it never collides with the eyebrow/headline
+         below it. Two duplicated passes of the list + translateX(-50%) for
+         a seamless loop; hovering any link pauses the whole track (CSS
+         :has(), see style below) so it's actually readable/clickable
+         instead of a moving target; paused entirely under
+         prefers-reduced-motion. Not aria-hidden anymore now that it carries
+         real navigation, but still not part of the tab order at rest -
+         each link is reachable, just visually secondary to primary nav. -->
+    <div id="hero-ticker" class="hidden sm:flex absolute inset-x-0 top-16 lg:top-20 z-10 h-8 lg:h-9 items-center border-b border-white/10 overflow-hidden">
       <div class="hero-ticker-track flex items-center gap-10 whitespace-nowrap will-change-transform">
-        {[...heroTicker, ...heroTicker].map((item) => (
-          <span class="flex items-center gap-10 text-[10px] font-mono text-muted-dark tracking-[0.2em] uppercase">
-            {item}
-            <span class="text-red">&#9679;</span>
+        {[...heroTickerItems, ...heroTickerItems].map((item) => (
+          <span class="flex items-center gap-10">
+            <a href={item.href} class="text-[10px] font-mono text-muted-dark hover:text-white tracking-[0.2em] uppercase transition-colors">
+              {item.name}
+            </a>
+            <span class="text-red" aria-hidden="true">&#9679;</span>
           </span>
         ))}
       </div>
     </div>
+
+    <!-- Scan flash - a brief, full-panel white pulse triggered by the
+         diagnostic replay (script below), sitting above everything else so
+         the "sweep just ran" moment reads as one cohesive flash rather than
+         being buried under the content. Opacity-driven, not display, so
+         the transition actually animates. -->
+    <div id="hero-scan-flash" class="absolute inset-0 z-20 bg-white opacity-0 pointer-events-none transition-opacity duration-300 ease-out" aria-hidden="true"></div>
 
     <div id="hero-content" class="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 pt-28 pb-16 lg:pt-32 lg:pb-10 w-full grid grid-cols-1 lg:grid-cols-[minmax(0,120px)_1fr_minmax(0,120px)] xl:grid-cols-[160px_1fr_160px] items-center gap-y-10 lg:gap-x-8 will-change-[transform,opacity]">
 
@@ -256,18 +281,24 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           engineered in Howrah for utilities, railways, and industry since 1963.
         </p>
 
-        <!-- CTAs -->
+        <!-- CTAs - "magnetic": each button nudges toward the cursor while
+             hovered (script below), snaps back on leave. Desktop-mouse +
+             motion-ok gated same as the rail/gauge parallax. -->
         <div data-hero-anim style="--d: 360ms" class="flex flex-col sm:flex-row gap-3 justify-center mb-10">
           <a
+            id="hero-cta-primary"
             href={u('/products/')}
-            class="btn-primary link-arrow focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            class="btn-primary link-arrow focus:outline-none focus-visible:ring-2 focus-visible:ring-white will-change-transform"
+            style="transition: background-color 0.2s var(--ease-premium), border-color 0.2s var(--ease-premium), color 0.2s var(--ease-premium), transform 0.2s var(--ease-premium);"
           >
             Explore Products
             <Icon name="arrow" class="w-4 h-4 shrink-0" />
           </a>
           <a
+            id="hero-cta-secondary"
             href={genericMailto}
-            class="btn-secondary text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            class="btn-secondary text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white will-change-transform"
+            style="transition: background-color 0.2s var(--ease-premium), border-color 0.2s var(--ease-premium), color 0.2s var(--ease-premium), transform 0.2s var(--ease-premium);"
           >
             Request a Quote
           </a>
@@ -281,6 +312,22 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
               {t}
             </span>
           ))}
+        </div>
+
+        <!-- Diagnostic trigger - a real, functioning easter egg: replays
+             every ambient animation in the panel at once (gauge sweep,
+             bracket power-on cascade, waveform redraw, a quick radar
+             boost, a scan-flash) as a satisfying single "the instrument is
+             alive" moment. Purely decorative/no destination, so it's a
+             <button>, not a link. The gauge itself (lg+ only) is wired to
+             the same handler as a bonus, unlabelled trigger - this button
+             is the one real accessible control, see script below. -->
+        <div data-hero-anim style="--d: 520ms" class="mb-8">
+          <button id="hero-diagnostic-btn" type="button"
+            class="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 hover:border-red/50 bg-white/[0.03] hover:bg-red/10 text-[10px] font-mono text-muted-dark hover:text-white tracking-[0.2em] uppercase transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+            <svg class="w-2.5 h-2.5 fill-red group-hover:fill-white transition-colors" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1.5v9l8-4.5-8-4.5z"/></svg>
+            Run Diagnostic Sweep
+          </button>
         </div>
 
         <!-- Stat band - real, computed figures (not marketing round-ups).
@@ -306,7 +353,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
       <!-- ── Right rail: analogue gauge motif - hidden below lg ──────────── -->
       <div id="hero-rail-right" data-hero-fade style="--d: 200ms" class="hidden lg:flex flex-col items-center h-[380px] mx-auto will-change-transform transition-transform duration-500 [transition-timing-function:var(--ease-premium)]" aria-hidden="true">
-        <div id="hero-gauge-wrap" class="relative will-change-transform transition-transform duration-500 [transition-timing-function:var(--ease-premium)]">
+        <div id="hero-gauge-wrap" class="relative cursor-pointer will-change-transform transition-transform duration-500 [transition-timing-function:var(--ease-premium)]" title="Run diagnostic sweep">
           <div class="absolute inset-0 rounded-full bg-red/25 blur-2xl pointer-events-none" aria-hidden="true"></div>
           <svg id="hero-gauge" class="relative w-24 xl:w-28 h-auto" viewBox="0 0 120 90" fill="none">
             <path d="M 10 75 A 50 50 0 0 1 110 75" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round" />
@@ -351,6 +398,14 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         }
         .hero-ticker-track {
           animation: hero-ticker-scroll 34s linear infinite;
+          transition: filter 0.3s var(--ease-premium);
+        }
+        /* Pause the scroll the moment any link inside it has focus or
+           hover, so a visitor can actually read/click one instead of
+           chasing a moving target. */
+        #hero-ticker:has(a:hover) .hero-ticker-track,
+        #hero-ticker:has(a:focus-visible) .hero-ticker-track {
+          animation-play-state: paused;
         }
         .hero-stat-blink {
           animation: hero-stat-blink 2.4s ease-in-out infinite;
@@ -462,28 +517,35 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
   <script>
   {
-    // ── Hero rail/gauge parallax: subtle cursor-follow tilt ──────────────
+    // ── Hero rail/gauge parallax + cursor spotlight ──────────────────────
     // Desktop-with-a-mouse only (matchMedia pointer:fine — never fires from
-    // a touch tap) and skipped for prefers-reduced-motion. Targets three
-    // elements with no pre-existing Tailwind transform of their own (the
-    // two side rails + the gauge's wrapper), so writing el.style.transform
-    // directly can't clobber a centering translate the way it would on the
-    // ambient glow orbs. rAF-throttled; does nothing once the pointer
-    // leaves the hero.
+    // a touch tap) and skipped for prefers-reduced-motion. Parallax targets
+    // three elements with no pre-existing Tailwind transform of their own
+    // (the two side rails + the gauge's wrapper), so writing
+    // el.style.transform directly can't clobber a centering translate the
+    // way it would on the ambient glow orbs. Same pointer position also
+    // drives #hero-spotlight's --sx/--sy (percentage, not the -1..1 range
+    // parallax uses) so one listener powers both effects. rAF-throttled;
+    // resets and hides the spotlight once the pointer leaves the hero.
     const hero      = document.getElementById('home-hero');
     const railLeft  = document.getElementById('hero-rail-left');
     const railRight = document.getElementById('hero-rail-right');
     const gauge     = document.getElementById('hero-gauge-wrap');
+    const spotlight = document.getElementById('hero-spotlight');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const fine = window.matchMedia('(pointer: fine)').matches;
 
     if (hero && fine && !reduceMotion) {
-      let targetX = 0, targetY = 0, raf = 0;
+      let targetX = 0, targetY = 0, pctX = 50, pctY = 50, raf = 0;
 
       function render() {
         if (railLeft)  railLeft.style.transform  = `translate3d(${targetX * -6}px, ${targetY * -4}px, 0)`;
         if (railRight) railRight.style.transform = `translate3d(${targetX * 6}px, ${targetY * -4}px, 0)`;
         if (gauge)     gauge.style.transform     = `translate3d(${targetX * 10}px, ${targetY * 8}px, 0) rotate(${targetX * 3}deg)`;
+        if (spotlight) {
+          spotlight.style.setProperty('--sx', `${pctX}%`);
+          spotlight.style.setProperty('--sy', `${pctY}%`);
+        }
         raf = 0;
       }
 
@@ -491,12 +553,52 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         const r = hero.getBoundingClientRect();
         targetX = ((e.clientX - r.left) / r.width - 0.5) * 2;
         targetY = ((e.clientY - r.top) / r.height - 0.5) * 2;
+        pctX = ((e.clientX - r.left) / r.width) * 100;
+        pctY = ((e.clientY - r.top) / r.height) * 100;
+        spotlight?.classList.replace('opacity-0', 'opacity-100');
         if (!raf) raf = requestAnimationFrame(render);
       }, { passive: true });
 
       hero.addEventListener('mouseleave', () => {
         targetX = 0; targetY = 0;
+        spotlight?.classList.replace('opacity-100', 'opacity-0');
         if (!raf) raf = requestAnimationFrame(render);
+      });
+    }
+  }
+  </script>
+
+  <script>
+  {
+    // ── Magnetic CTAs: buttons nudge toward the cursor while hovered ─────
+    // Each button tracks the pointer only while the pointer is over its
+    // own bounding box (no expanded "reach" zone - keeps it subtle rather
+    // than gimmicky) and snaps back via the CSS transition already on the
+    // element (see markup) on mouseleave. Same pointer:fine + motion gate
+    // as the rest of the hero's cursor-driven effects.
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = window.matchMedia('(pointer: fine)').matches;
+
+    if (fine && !reduceMotion) {
+      const MAX = 10;
+      const STRENGTH = 0.35;
+
+      ['hero-cta-primary', 'hero-cta-secondary'].forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        el.addEventListener('mousemove', (e) => {
+          const r = el.getBoundingClientRect();
+          const dx = (e as MouseEvent).clientX - (r.left + r.width / 2);
+          const dy = (e as MouseEvent).clientY - (r.top + r.height / 2);
+          const x = Math.max(-MAX, Math.min(MAX, dx * STRENGTH));
+          const y = Math.max(-MAX, Math.min(MAX, dy * STRENGTH));
+          el.style.transform = `translate(${x}px, ${y}px)`;
+        }, { passive: true });
+
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = '';
+        });
       });
     }
   }
@@ -535,6 +637,62 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         requestAnimationFrame(frame);
       }, 2700);
     }
+  }
+  </script>
+
+  <script>
+  {
+    // ── Diagnostic sweep: replay every ambient animation at once ─────────
+    // Ties the whole panel's existing motifs together into one on-demand
+    // "the instrument is alive" moment: needle re-sweeps, corner brackets
+    // re-cascade, the waveform redraws, the radar takes a brief speed
+    // boost, and a soft white flash washes over the panel. Two triggers -
+    // the labelled button (real accessible control, works at every
+    // breakpoint) and the gauge itself on lg+ (bonus/unlabelled, cursor
+    // affordance only). Runs once at a time (`running` guard) so rapid
+    // clicks can't stack overlapping flashes. Fully skipped for
+    // prefers-reduced-motion - the button still exists but no-ops, since
+    // every effect it would trigger is itself motion.
+    const btn   = document.getElementById('hero-diagnostic-btn');
+    const gauge = document.getElementById('hero-gauge-wrap');
+    const needle  = document.getElementById('hero-gauge-needle');
+    const trace   = document.getElementById('hero-wave-trace');
+    const radar   = document.getElementById('hero-radar');
+    const flash   = document.getElementById('hero-scan-flash');
+    const brackets = document.querySelectorAll<HTMLElement>('[data-hero-bracket]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function replay(el: HTMLElement | SVGElement | null) {
+      if (!el) return;
+      (el as HTMLElement).style.animation = 'none';
+      void (el as HTMLElement).offsetHeight;
+      (el as HTMLElement).style.animation = '';
+    }
+
+    let running = false;
+    function runSweep() {
+      if (running || reduceMotion) return;
+      running = true;
+
+      replay(needle as unknown as HTMLElement);
+      replay(trace as unknown as HTMLElement);
+      brackets.forEach(replay);
+
+      if (radar) {
+        radar.style.animationDuration = '2.5s';
+        setTimeout(() => { radar.style.animationDuration = '16s'; }, 2500);
+      }
+
+      if (flash) {
+        flash.style.opacity = '0.1';
+        setTimeout(() => { flash.style.opacity = '0'; }, 160);
+      }
+
+      setTimeout(() => { running = false; }, 2600);
+    }
+
+    btn?.addEventListener('click', runSweep);
+    gauge?.addEventListener('click', runSweep);
   }
   </script>
 
