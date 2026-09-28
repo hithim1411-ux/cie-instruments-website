@@ -276,10 +276,37 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         </h1>
 
         <!-- Subhead -->
-        <p data-hero-anim style="--d: 240ms" class="text-balance text-lg text-muted-dark mb-10 leading-[1.6] max-w-xl mx-auto">
+        <p data-hero-anim style="--d: 240ms" class="text-balance text-lg text-muted-dark mb-6 leading-[1.6] max-w-xl mx-auto">
           Insulation testers, earth testers, relay test sets, and oil test equipment,
           engineered in Howrah for utilities, railways, and industry since 1963.
         </p>
+
+        <!-- Live status line - a typewriter cycling through real industries
+             (the same `industries` const the Industries section further
+             down the page uses, so it can't drift out of sync with real
+             copy). Reads like a live instrument log ("currently in
+             service at...") rather than a generic marketing rotator - one
+             more use of the mono/terminal register already established by
+             the ticker and rail coordinates. The text sits in a fixed-width
+             box (sized to the longest name, "Substation Commissioning")
+             so the row doesn't jiggle side to side as shorter/longer
+             names cycle through - only the word inside the box changes,
+             not the box itself. Stacks to two centered lines below ~375px
+             (icon+label, then the word) rather than forcing everything
+             onto one line - a single-row layout at that width wrapped
+             mid-phrase ("IN SERVICE" / "AT") with the fixed-width word box
+             overflowing off the right edge, caught via a real mobile
+             screenshot, not just a breakpoint guess. Static (first
+             industry, no cursor) under prefers-reduced-motion. -->
+        <div data-hero-anim style="--d: 300ms" class="flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 mb-10 text-[11px] font-mono text-muted-dark tracking-[0.2em] uppercase">
+          <span class="flex items-center gap-2">
+            <span class="text-red" aria-hidden="true">&#9656;</span>
+            <span>In Service At</span>
+          </span>
+          <span class="relative w-[220px] sm:w-[250px] overflow-hidden whitespace-nowrap text-center sm:text-left text-white">
+            <span id="hero-typewriter">{industries[0].name}</span><span id="hero-typewriter-cursor" class="inline-block w-[2px] h-[0.9em] -mb-[1px] bg-red" aria-hidden="true"></span>
+          </span>
+        </div>
 
         <!-- CTAs - "magnetic": each button nudges toward the cursor while
              hovered (script below), snaps back on leave. Desktop-mouse +
@@ -414,6 +441,9 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           opacity: 0;
           animation: hero-bracket-in 0.9s ease-out var(--bd, 0ms) both;
         }
+        #hero-typewriter-cursor {
+          animation: hero-cursor-blink 0.9s step-end infinite;
+        }
       }
       @media (prefers-reduced-motion: reduce) {
         #hero-gauge-needle { transform: rotate(-58deg); }
@@ -421,6 +451,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         #hero-wave-trace { stroke-dashoffset: 0; }
         #hero-wave-dot { display: none; }
         .hero-ticker-track { animation: none; }
+        #hero-typewriter-cursor { display: none; }
       }
       @keyframes hero-gauge-sweep {
         0%   { transform: rotate(70deg); }
@@ -446,6 +477,10 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
       @keyframes hero-stat-blink {
         0%, 100% { opacity: 1; }
         50%      { opacity: 0.25; }
+      }
+      @keyframes hero-cursor-blink {
+        0%, 100% { opacity: 1; }
+        50%      { opacity: 0; }
       }
       @keyframes hero-bracket-in {
         from { opacity: 0; box-shadow: 0 0 0 rgba(224,37,46,0); }
@@ -724,6 +759,51 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
         setTimeout(() => requestAnimationFrame(step), 700);
       });
+    }
+  }
+  </script>
+
+  <script define:vars={{ industryNames: industries.map((i) => i.name) }}>
+  {
+    // ── Live status line: typewriter through real industries ─────────────
+    // Types out each name from the same `industries` list the Industries
+    // section further down the page uses (passed in via define:vars, so
+    // there's one source of truth - editing that const updates both the
+    // section and this line together), pauses, deletes, moves to the
+    // next. Loops forever. One `step` function handles both the typing
+    // and deleting phases (recursion, toggling a `typing` flag) rather
+    // than two near-duplicate functions. Starts from the SSR-rendered
+    // first word already fully "typed" (c = word.length, typing = false)
+    // so the very first thing that happens is a hold, then a delete -
+    // never a clear-and-retype flash of the word that's already on
+    // screen. Skipped entirely for prefers-reduced-motion (the first name
+    // and a hidden cursor - see CSS - is the resting state).
+    const el = document.getElementById('hero-typewriter');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (el && industryNames.length && !reduceMotion) {
+      const TYPE_MS = 55;
+      const DELETE_MS = 28;
+      const HOLD_MS = 1800;
+      const GAP_MS = 300;
+      let i = 0;
+
+      function step(word, c, typing) {
+        el.textContent = word.slice(0, c);
+        if (typing) {
+          if (c < word.length) setTimeout(() => step(word, c + 1, true), TYPE_MS);
+          else setTimeout(() => step(word, c, false), HOLD_MS);
+        } else {
+          if (c > 0) setTimeout(() => step(word, c - 1, false), DELETE_MS);
+          else {
+            i++;
+            const next = industryNames[i % industryNames.length];
+            setTimeout(() => step(next, 0, true), GAP_MS);
+          }
+        }
+      }
+
+      setTimeout(() => step(industryNames[0], industryNames[0].length, false), HOLD_MS);
     }
   }
   </script>
