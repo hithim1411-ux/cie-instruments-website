@@ -832,7 +832,18 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
   </script>
 
   <!-- ── FEATURED PRODUCTS ─────────────────────────────────────────────────── -->
-  <section class="bg-cloud section-pad">
+  <!-- No top padding here on purpose: this section shares bg-cloud with
+       Product Categories directly above it and has no divider between
+       them, so stacking a full section-pad top AND the previous section's
+       full section-pad bottom read as one oversized, accidental-looking
+       gap (128-160px + 128-160px = 256-320px of blank space with nothing
+       to signal "new section start"). Bottom padding stays identical to
+       section-pad's own values (pb-20/32/40 = 5/8/10rem) since Why CIE
+       below uses a different background and still needs the full rhythm
+       to read as a real section break. If this section is ever moved
+       away from directly following Product Categories, restore
+       section-pad in full. -->
+  <section class="bg-cloud pb-20 lg:pb-32 xl:pb-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-end justify-between mb-10 gap-4" data-reveal>
         <div>
