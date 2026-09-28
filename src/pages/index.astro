@@ -22,6 +22,8 @@ import vartechOscilloscopes from '../data/vartech-oscilloscopes.json';
 import vartechFunctionGenerators from '../data/vartech-function-generators.json';
 import vartechLcrMeters from '../data/vartech-lcr-meters.json';
 import vartechDcLoads from '../data/vartech-dc-loads.json';
+import vartechMultimetersAll from '../data/vartech-multimeters.json';
+import vartechClampMetersAll from '../data/vartech-clamp-meters.json';
 
 const vartechCounts: Record<string, number> = {
   'vartech-sound-level-meters': (vartechSoundLevelMeters as any[]).length,
@@ -51,6 +53,39 @@ const categoryCount = categories
   }));
 
 const heroCategoryCount = categoryCount.length;
+
+// Real, computed catalogue size (CIE manufactured + full Vartech range) - not
+// a marketing round-up. Recalculates itself as products are added/removed.
+const heroProductCount =
+  (products as any[]).length +
+  (vartechThermometers as any[]).length +
+  (vartechLuxMeters as any[]).length +
+  (vartechCalibrators as any[]).length +
+  (vartechDcPowerSupplies as any[]).length +
+  (vartechSoundLevelMeters as any[]).length +
+  (vartechAnemometers as any[]).length +
+  (vartechOscilloscopes as any[]).length +
+  (vartechFunctionGenerators as any[]).length +
+  (vartechLcrMeters as any[]).length +
+  (vartechDcLoads as any[]).length +
+  (vartechMultimetersAll as any[]).length +
+  (vartechClampMetersAll as any[]).length;
+
+// Ticker strip content - real category names pulled from categories.json,
+// not invented copy. CIE-manufactured lines first, then the Vartech range.
+const heroTicker = [
+  'Insulation Testers', 'Earth Resistance Testers', 'Relay Test Sets',
+  'Oil Test Sets', 'Micro-Ohm Meters', 'HV Test Sets',
+  'Phase Sequence Indicators', 'Vartech Oscilloscopes', 'Digital Multimeters',
+  'Clamp Meters', 'Vartech Function Generators', 'LCR Meters',
+];
+
+// Oscilloscope-style trace for the ambient waveform layer - a hand-authored
+// signal path (viewBox 0 0 1440 120), not decoration picked at random: two
+// sharp transient spikes sit inside a rolling sine, reading as a live scope
+// capture rather than a generic squiggle. Reused for both the static <path>
+// and the CSS offset-path the traveling "beam" dot rides along.
+const heroWavePath = 'M0,60 C60,60 60,30 120,30 C180,30 180,90 240,90 C300,90 300,60 340,60 L344,8 L348,112 L352,60 C400,60 400,20 450,20 C500,20 500,100 550,100 C600,100 600,60 660,60 C720,60 720,35 770,35 C820,35 820,85 870,85 C920,85 920,60 980,60 L984,15 L988,105 L992,60 C1040,60 1040,40 1090,40 C1140,40 1140,80 1190,80 C1240,80 1240,60 1300,60 C1350,60 1350,50 1440,50';
 
 const featured = products.filter(p => p.featured);
 
@@ -120,19 +155,76 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
       style="background: conic-gradient(from 0deg, transparent 0deg, #E0252E 8deg, transparent 40deg, transparent 360deg);" aria-hidden="true">
     </div>
 
+    <!-- Film-grain overlay - a repeating SVG turbulence tile at very low
+         opacity so the flat blueprint dark reads as a lit surface rather
+         than a solid fill. Pure CSS/SVG data-uri, no image request. -->
+    <div class="absolute inset-0 opacity-[0.035] mix-blend-overlay pointer-events-none" aria-hidden="true"
+      style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);">
+    </div>
+
+    <!-- Oscilloscope trace - an ambient signal line running along the base
+         of the panel: a hand-authored waveform (two transient spikes inside
+         a rolling sine, see heroWavePath) rather than a generic squiggle,
+         echoing "we test AC/DC signals for a living" without competing with
+         the copy above it. Draws in once on load, then breathes gently; a
+         small glowing dot rides the path continuously (JS reads points
+         straight off the live <path> via getPointAtLength, so it tracks
+         correctly no matter how wide the section stretches - a CSS
+         offset-path was tried first and rejected: it uses fixed local
+         coordinates that don't rescale with the preserveAspectRatio="none"
+         SVG, so the dot drifted off the visible line on any viewport wider
+         or narrower than the 1440px the path was authored at). ── -->
+    <div class="absolute inset-x-0 bottom-[8%] sm:bottom-[10%] h-[90px] sm:h-[120px] opacity-70 pointer-events-none" aria-hidden="true">
+      <svg id="hero-wave" class="w-full h-full" viewBox="0 0 1440 120" preserveAspectRatio="none" fill="none">
+        <defs>
+          <filter id="wave-glow" x="-20%" y="-100%" width="140%" height="300%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <path d={heroWavePath} stroke="white" stroke-opacity="0.08" stroke-width="1" vector-effect="non-scaling-stroke" />
+        <path id="hero-wave-trace" d={heroWavePath} stroke="#E0252E" stroke-width="1.5" stroke-linecap="round"
+          vector-effect="non-scaling-stroke" filter="url(#wave-glow)" pathLength="1000" stroke-dasharray="1000" />
+        <circle id="hero-wave-dot" r="3.5" fill="#E0252E" filter="url(#wave-glow)" opacity="0" />
+      </svg>
+    </div>
+
     <!-- Corner brackets - a calibration-frame motif around the whole panel,
-         reinforcing "precision instrument" at the widest breakpoints only. -->
+         reinforcing "precision instrument" at the widest breakpoints only.
+         Each corner glows in on load, staggered, like an instrument
+         powering up and confirming its four calibration points. -->
     <div class="hidden lg:block absolute inset-6 xl:inset-10 pointer-events-none z-10" aria-hidden="true">
-      <span class="absolute top-0 left-0 w-6 h-6 border-t border-l border-white/20"></span>
-      <span class="absolute top-0 right-0 w-6 h-6 border-t border-r border-white/20"></span>
-      <span class="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-white/20"></span>
-      <span class="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-white/20"></span>
+      <span data-hero-bracket style="--bd: 700ms" class="absolute top-0 left-0 w-6 h-6 border-t border-l border-white/20"></span>
+      <span data-hero-bracket style="--bd: 850ms" class="absolute top-0 right-0 w-6 h-6 border-t border-r border-white/20"></span>
+      <span data-hero-bracket style="--bd: 1000ms" class="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-white/20"></span>
+      <span data-hero-bracket style="--bd: 1150ms" class="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-white/20"></span>
+    </div>
+
+    <!-- Ticker strip - a thin instrument-panel readout band directly under
+         the header, scrolling real category names (categories.json, not
+         invented copy). Sits inside the header-clearance gap already
+         reserved by hero-content's own top padding, so it never collides
+         with the eyebrow/headline below it. Two duplicated passes of the
+         list + translateX(-50%) for a seamless loop; paused under
+         prefers-reduced-motion (see script/style below). -->
+    <div id="hero-ticker" class="hidden sm:flex absolute inset-x-0 top-16 lg:top-20 z-10 h-8 lg:h-9 items-center border-b border-white/10 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div class="hero-ticker-track flex items-center gap-10 whitespace-nowrap will-change-transform">
+        {[...heroTicker, ...heroTicker].map((item) => (
+          <span class="flex items-center gap-10 text-[10px] font-mono text-muted-dark tracking-[0.2em] uppercase">
+            {item}
+            <span class="text-red">&#9679;</span>
+          </span>
+        ))}
+      </div>
     </div>
 
     <div id="hero-content" class="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 pt-28 pb-16 lg:pt-32 lg:pb-10 w-full grid grid-cols-1 lg:grid-cols-[minmax(0,120px)_1fr_minmax(0,120px)] xl:grid-cols-[160px_1fr_160px] items-center gap-y-10 lg:gap-x-8 will-change-[transform,opacity]">
 
       <!-- ── Left rail: ruler ticks + works coordinates - hidden below lg ── -->
-      <div data-hero-fade style="--d: 200ms" class="hidden lg:flex flex-col items-center h-[380px] mx-auto" aria-hidden="true">
+      <div id="hero-rail-left" data-hero-fade style="--d: 200ms" class="hidden lg:flex flex-col items-center h-[380px] mx-auto will-change-transform transition-transform duration-500 [transition-timing-function:var(--ease-premium)]" aria-hidden="true">
         <span class="text-[10px] font-mono text-muted-dark tracking-[0.25em] uppercase [writing-mode:vertical-rl] mb-4">
           Test &amp; Measurement Instruments
         </span>
@@ -194,23 +286,27 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         <!-- Stat band - real, computed figures (not marketing round-ups).
              Numbers count up on load (script below); prefers-reduced-motion
              and no-JS both fall back to the plain final value below. -->
-        <div data-hero-anim style="--d: 560ms" class="flex items-stretch justify-center divide-x divide-white/10 max-w-lg mx-auto">
+        <div data-hero-anim style="--d: 560ms" class="flex items-stretch justify-center divide-x divide-white/10 max-w-2xl mx-auto">
           {[
             { value: 1963, suffix: '', label: 'Founded In' },
             { value: 60, suffix: '+', label: 'Years of Service' },
+            { value: heroProductCount, suffix: '+', label: 'Instruments in Range' },
             { value: heroCategoryCount, suffix: '', label: 'Product Categories' },
           ].map(s => (
-            <div class="flex-1 px-4 sm:px-6 first:pl-0 last:pr-0">
-              <p class="hero-stat-num text-2xl sm:text-3xl font-extrabold text-white tracking-tight" data-count-to={s.value} data-suffix={s.suffix}>{s.value}{s.suffix}</p>
-              <p class="mt-1 text-[10px] font-mono text-muted-dark tracking-widest uppercase">{s.label}</p>
+            <div class="flex-1 px-3 sm:px-6 first:pl-0 last:pr-0">
+              <p class="hero-stat-num text-2xl sm:text-3xl font-extrabold text-white tracking-tight [text-shadow:0_0_18px_rgba(224,37,46,0.35)]" data-count-to={s.value} data-suffix={s.suffix}>{s.value}{s.suffix}</p>
+              <p class="mt-1 text-[10px] font-mono text-muted-dark tracking-widest uppercase flex items-center justify-center gap-1.5">
+                <span class="w-1 h-1 rounded-full bg-red hero-stat-blink" aria-hidden="true"></span>
+                {s.label}
+              </p>
             </div>
           ))}
         </div>
       </div>
 
       <!-- ── Right rail: analogue gauge motif - hidden below lg ──────────── -->
-      <div data-hero-fade style="--d: 200ms" class="hidden lg:flex flex-col items-center h-[380px] mx-auto" aria-hidden="true">
-        <div class="relative">
+      <div id="hero-rail-right" data-hero-fade style="--d: 200ms" class="hidden lg:flex flex-col items-center h-[380px] mx-auto will-change-transform transition-transform duration-500 [transition-timing-function:var(--ease-premium)]" aria-hidden="true">
+        <div id="hero-gauge-wrap" class="relative will-change-transform transition-transform duration-500 [transition-timing-function:var(--ease-premium)]">
           <div class="absolute inset-0 rounded-full bg-red/25 blur-2xl pointer-events-none" aria-hidden="true"></div>
           <svg id="hero-gauge" class="relative w-24 xl:w-28 h-auto" viewBox="0 0 120 90" fill="none">
             <path d="M 10 75 A 50 50 0 0 1 110 75" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linecap="round" />
@@ -249,10 +345,27 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         #hero-radar {
           animation: hero-radar-spin 16s linear infinite;
         }
+        #hero-wave-trace {
+          animation: hero-wave-draw 2.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both,
+                     hero-wave-breathe 4.5s ease-in-out 2.8s infinite alternate;
+        }
+        .hero-ticker-track {
+          animation: hero-ticker-scroll 34s linear infinite;
+        }
+        .hero-stat-blink {
+          animation: hero-stat-blink 2.4s ease-in-out infinite;
+        }
+        [data-hero-bracket] {
+          opacity: 0;
+          animation: hero-bracket-in 0.9s ease-out var(--bd, 0ms) both;
+        }
       }
       @media (prefers-reduced-motion: reduce) {
         #hero-gauge-needle { transform: rotate(-58deg); }
         #hero-radar { display: none; }
+        #hero-wave-trace { stroke-dashoffset: 0; }
+        #hero-wave-dot { display: none; }
+        .hero-ticker-track { animation: none; }
       }
       @keyframes hero-gauge-sweep {
         0%   { transform: rotate(70deg); }
@@ -262,6 +375,27 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
       @keyframes hero-radar-spin {
         from { transform: translate(-50%, -50%) rotate(0deg); }
         to   { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+      @keyframes hero-wave-draw {
+        from { stroke-dashoffset: 1000; }
+        to   { stroke-dashoffset: 0; }
+      }
+      @keyframes hero-wave-breathe {
+        from { opacity: 0.55; }
+        to   { opacity: 1; }
+      }
+      @keyframes hero-ticker-scroll {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+      @keyframes hero-stat-blink {
+        0%, 100% { opacity: 1; }
+        50%      { opacity: 0.25; }
+      }
+      @keyframes hero-bracket-in {
+        from { opacity: 0; box-shadow: 0 0 0 rgba(224,37,46,0); }
+        60%  { opacity: 1; box-shadow: 0 0 10px rgba(224,37,46,0.6); }
+        to   { opacity: 1; box-shadow: 0 0 0 rgba(224,37,46,0); }
       }
     </style>
 
@@ -322,6 +456,84 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
       window.addEventListener('scroll', onScroll, { passive: true });
       apply();
+    }
+  }
+  </script>
+
+  <script>
+  {
+    // ── Hero rail/gauge parallax: subtle cursor-follow tilt ──────────────
+    // Desktop-with-a-mouse only (matchMedia pointer:fine — never fires from
+    // a touch tap) and skipped for prefers-reduced-motion. Targets three
+    // elements with no pre-existing Tailwind transform of their own (the
+    // two side rails + the gauge's wrapper), so writing el.style.transform
+    // directly can't clobber a centering translate the way it would on the
+    // ambient glow orbs. rAF-throttled; does nothing once the pointer
+    // leaves the hero.
+    const hero      = document.getElementById('home-hero');
+    const railLeft  = document.getElementById('hero-rail-left');
+    const railRight = document.getElementById('hero-rail-right');
+    const gauge     = document.getElementById('hero-gauge-wrap');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = window.matchMedia('(pointer: fine)').matches;
+
+    if (hero && fine && !reduceMotion) {
+      let targetX = 0, targetY = 0, raf = 0;
+
+      function render() {
+        if (railLeft)  railLeft.style.transform  = `translate3d(${targetX * -6}px, ${targetY * -4}px, 0)`;
+        if (railRight) railRight.style.transform = `translate3d(${targetX * 6}px, ${targetY * -4}px, 0)`;
+        if (gauge)     gauge.style.transform     = `translate3d(${targetX * 10}px, ${targetY * 8}px, 0) rotate(${targetX * 3}deg)`;
+        raf = 0;
+      }
+
+      hero.addEventListener('mousemove', (e) => {
+        const r = hero.getBoundingClientRect();
+        targetX = ((e.clientX - r.left) / r.width - 0.5) * 2;
+        targetY = ((e.clientY - r.top) / r.height - 0.5) * 2;
+        if (!raf) raf = requestAnimationFrame(render);
+      }, { passive: true });
+
+      hero.addEventListener('mouseleave', () => {
+        targetX = 0; targetY = 0;
+        if (!raf) raf = requestAnimationFrame(render);
+      });
+    }
+  }
+  </script>
+
+  <script>
+  {
+    // ── Hero wave trace: traveling "beam" dot ────────────────────────────
+    // Reads points straight off the real <path> geometry (getPointAtLength)
+    // so it always lands on the visible line regardless of how wide the
+    // section is stretched - see the markup comment above #hero-wave for
+    // why a CSS offset-path was tried first and rejected. Starts once the
+    // draw-in animation has finished, then loops indefinitely. Skipped
+    // entirely for prefers-reduced-motion (the dot stays hidden, matching
+    // the CSS rule that also hides it).
+    const path = document.getElementById('hero-wave-trace') as unknown as SVGPathElement | null;
+    const dot  = document.getElementById('hero-wave-dot') as unknown as SVGCircleElement | null;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (path && dot && !reduceMotion) {
+      const len = path.getTotalLength();
+      const duration = 7000;
+      let start: number | null = null;
+
+      function frame(ts: number) {
+        if (start === null) start = ts;
+        const elapsed = (ts - start) % duration;
+        const point = path!.getPointAtLength((elapsed / duration) * len);
+        dot!.setAttribute('cx', String(point.x));
+        dot!.setAttribute('cy', String(point.y));
+        requestAnimationFrame(frame);
+      }
+
+      setTimeout(() => {
+        dot.setAttribute('opacity', '1');
+        requestAnimationFrame(frame);
+      }, 2700);
     }
   }
   </script>
