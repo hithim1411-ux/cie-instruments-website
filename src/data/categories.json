@@ -432,7 +432,8 @@
     "relatedArticles": [
       "how-to-use-an-oscilloscope",
       "how-to-choose-an-oscilloscope",
-      "oscilloscope-bandwidth-explained"
+      "oscilloscope-bandwidth-explained",
+      "vartech-2-in-1-oscilloscope-guide"
     ]
   },
   {
@@ -615,7 +616,9 @@
       "Linear power supplies offer the lowest ripple and noise, making them ideal for sensitive analog, RF and precision measurement applications. SMPS-based models trade slightly higher ripple for dramatically reduced weight and heat - the slim S series units weigh just ~1 kg. The SR series adds USB/RS232/RS485 PC interface and ModBus-RTU protocol for automated test and ATE integration. The programmable PPS-S series adds list mode, 6 memories, a rotary dial and display of watts for complete bench automation. Available through CIE Instruments with pan-India supply."
     ],
     "relatedArticles": [
-      "dc-power-supply-guide"
+      "dc-power-supply-guide",
+      "vartech-high-power-smps-power-supply-guide",
+      "vartech-linear-bench-power-supply-guide"
     ]
   }
 ]

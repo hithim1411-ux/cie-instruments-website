@@ -1,0 +1,42 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Two instruments in one chassis save more than bench space - they save the cost of a second unit and the hassle of routing cables between two separate boxes. Vartech builds this idea into two very different points in its oscilloscope range: the SS-5150 DS1B FG, a 150 MHz digital scope with a built-in 25 MHz function generator, and the SS-5030BC, a 30 MHz analogue CRT scope with a built-in component tester.
+</p>
+
+<h2 id="scope-plus-function-generator">SS-5150 DS1B FG: Scope and Signal Source Together</h2>
+
+<p>
+  Most bench work that involves a function generator also involves a scope, for the simple reason that you need to see what your signal actually did after it went into the circuit - stimulus and response are two halves of the same measurement. The SS-5150 DS1B FG combines both into one instrument: a 150 MHz, 2-channel, 1 GS/s digital storage oscilloscope with a 25 MHz DDS function generator built in, producing sine, square, triangle, ramp and arbitrary waveforms. For filter characterisation, amplifier frequency-response testing, and sensor testing - all cases where you drive a circuit with a known signal and capture what comes out - this removes the need for a second instrument, a second power cord, and the bench space both would otherwise take.
+</p>
+
+<Callout type="tip" title="Where a combined instrument makes the most sense">
+  A built-in function generator earns its keep specifically when the signal you need is a standard waveform at a moderate frequency (the SS-5150's FG tops out at 25 MHz) - for R&D work needing arbitrary, high-frequency, or multi-channel synchronised signal generation, a dedicated function generator (see our <a href={u('/blog/how-to-choose-a-vartech-function-generator/')}>function generator guide</a>) is still the better tool.
+</Callout>
+
+<h2 id="scope-plus-component-tester">SS-5030BC: Scope and Component Tester Together</h2>
+
+<p>
+  The SS-5030BC takes a different, older but still genuinely useful combination: a 30 MHz analogue CRT oscilloscope with a built-in component tester, displaying a V-I characteristic curve for resistors, capacitors, inductors, diodes and transistors directly on the CRT screen. For a repair bench where the recurring task is "is this component actually good or bad" - a shorted diode, an open capacitor, a leaky transistor junction - the V-I curve gives an immediate visual answer without needing to desolder the part and test it separately on a multimeter or dedicated component tester. It remains a standard 30 MHz, 2-channel scope for normal waveform work the rest of the time.
+</p>
+
+<h2 id="analogue-vs-digital-context">Why One Is Analogue and the Other Is Digital</h2>
+
+<p>
+  The component-tester function is a classic analogue-CRT-era feature - it works by driving the component under test with an internal AC signal and displaying the resulting current-vs-voltage Lissajous-style curve directly on the CRT, which is why it pairs naturally with the SS-5030BC's analogue design rather than the newer digital range. The SS-5150 DS1B FG, being a digital storage scope, instead pairs its combination feature (the function generator) with digital signal synthesis (DDS) - a natural fit for a DSO's own digital architecture. Neither combination is "better" in the abstract; they solve different problems for different kinds of bench work.
+</p>
+
+<h2 id="quick-reference">Quick Reference</h2>
+
+<ul>
+  <li><strong>R&D, filter/amplifier response testing, one instrument for stimulus and capture</strong>: SS-5150 DS1B FG.</li>
+  <li><strong>Repair bench, fast pass/fail component checks alongside general scope work</strong>: SS-5030BC.</li>
+  <li><strong>High-frequency, arbitrary or multi-channel signal generation</strong>: a dedicated function generator, not a combined scope.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-oscilloscopes/')}>full Vartech oscilloscope range</a>, including the <a href={u('/products/vartech-oscilloscopes/ss-5150ds1bfg/')}>SS-5150 DS1B FG</a>. <a href={u('/contact/')}>Contact us</a> to check whether a combined instrument covers your bench, or whether you need dedicated units.
+</p>

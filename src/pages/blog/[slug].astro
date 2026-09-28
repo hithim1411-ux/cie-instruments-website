@@ -91,6 +91,10 @@ import AnalogVsDigitalOscilloscopeGuide from '../../content/blog/analog-vs-digit
 import DdsFunctionGeneratorGuide from '../../content/blog/dds-function-generator-explained.astro';
 import VartechHighVoltageSmpsGuide from '../../content/blog/vartech-high-voltage-smps-power-supply-guide.astro';
 import VartechV981PlusBenchMultimeterGuide from '../../content/blog/vartech-v-981-plus-bench-multimeter-guide.astro';
+import VartechHighPowerSmpsGuide from '../../content/blog/vartech-high-power-smps-power-supply-guide.astro';
+import VartechLinearBenchPowerSupplyGuide from '../../content/blog/vartech-linear-bench-power-supply-guide.astro';
+import Vartech2In1OscilloscopeGuide from '../../content/blog/vartech-2-in-1-oscilloscope-guide.astro';
+import AutoRangingPowerSupplyExplained from '../../content/blog/auto-ranging-power-supply-explained.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -189,6 +193,10 @@ const contentMap: Record<string, any> = {
   'dds-function-generator-explained': DdsFunctionGeneratorGuide,
   'vartech-high-voltage-smps-power-supply-guide': VartechHighVoltageSmpsGuide,
   'vartech-v-981-plus-bench-multimeter-guide': VartechV981PlusBenchMultimeterGuide,
+  'vartech-high-power-smps-power-supply-guide': VartechHighPowerSmpsGuide,
+  'vartech-linear-bench-power-supply-guide': VartechLinearBenchPowerSupplyGuide,
+  'vartech-2-in-1-oscilloscope-guide': Vartech2In1OscilloscopeGuide,
+  'auto-ranging-power-supply-explained': AutoRangingPowerSupplyExplained,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -819,6 +827,30 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'frequency-and-data', label: '300 MHz Frequency & Data Logging' },
     { id: 'portable-bench-instrument', label: 'Why "Portable Bench-Top" Fits' },
     { id: 'v981-vs-v980-vs-v92s', label: 'V 981+ vs V 980 vs V 92 S' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'vartech-high-power-smps-power-supply-guide': [
+    { id: 'the-power-ladder', label: 'Matching Power to Your Load' },
+    { id: 'why-this-tier', label: 'Why Not a Standard Bench Supply?' },
+    { id: 'pc-interface', label: 'PC Interface & ModBus-RTU' },
+    { id: 'applications', label: 'Where This Tier Gets Used' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'vartech-linear-bench-power-supply-guide': [
+    { id: 'why-linear-still-matters', label: 'Why Choose Linear Over SMPS?' },
+    { id: 'single-output-range', label: 'Single-Output Range' },
+    { id: 'dual-output-range', label: 'Dual-Output Range' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'vartech-2-in-1-oscilloscope-guide': [
+    { id: 'scope-plus-function-generator', label: 'Scope + Function Generator' },
+    { id: 'scope-plus-component-tester', label: 'Scope + Component Tester' },
+    { id: 'analogue-vs-digital-context', label: 'Why One Is Analogue, One Digital' },
+    { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'auto-ranging-power-supply-explained': [
+    { id: 'how-it-works', label: 'How Auto-Ranging Works' },
+    { id: 'when-it-matters', label: 'When It Is Worth Paying For' },
     { id: 'quick-reference', label: 'Quick Reference' },
   ],
 };

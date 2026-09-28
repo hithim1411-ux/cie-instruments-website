@@ -1,0 +1,36 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A conventional DC power supply has one fixed voltage ceiling and one fixed current ceiling - a "30 V, 5 A" supply gives you 5 A only up to 30 V, and nothing beyond either limit, regardless of how the other one is set. An auto-ranging supply instead lets voltage and current trade off against each other within a fixed power envelope, covering a wider combined range from a single unit. Vartech's PPSA-100W-8005 S is a working example: rated 0.5-81 V and 0-5.1 A, but never both at their maximum simultaneously - it auto-ranges within a 100 W envelope.
+</p>
+
+<h2 id="how-it-works">How Auto-Ranging Actually Works</h2>
+
+<p>
+  Take the PPSA-100W-8005 S's own numbers: its "auto-ranging power ratio" is 4.131, meaning voltage and current can each independently range up to roughly 4x beyond what a simple V x I = 100 W calculation alone would suggest at the opposite extreme - the supply's control loop continuously recalculates the maximum available current for whatever voltage is currently set, and vice versa, always keeping total power within the 100 W limit. At a low set voltage, more current is available; at a high set voltage, less current is available - but unlike a fixed-range supply, you don't lose access to either end of the scale entirely.
+</p>
+
+<Callout type="tip" title="What this replaces">
+  Without auto-ranging, covering the same combined voltage/current territory would need two or three separate fixed-range supplies - a low-voltage/high-current unit and a high-voltage/low-current unit at minimum. An auto-ranging supply collapses that into one instrument, which matters most for labs testing a variety of DUTs (devices under test) with different voltage/current needs, where swapping supplies between tests wastes time.
+</Callout>
+
+<h2 id="when-it-matters">When Auto-Ranging Is Worth Paying For</h2>
+
+<p>
+  If your bench work is always the same voltage and current combination, a fixed-range supply sized correctly for that job is simpler and usually cheaper - auto-ranging doesn't help if you never move off one operating point. It earns its cost when you're testing multiple different devices with genuinely different voltage/current profiles on the same bench - R&D labs, product validation, and calibration/service departments that see a wide variety of DUTs are the typical users. The PPSA-100W-8005 S adds to this with remote sensing (compensating up to 2 V of lead drop so the DUT sees the exact set voltage, not the voltage minus cable resistance), list mode (100 groups x 4 memories) for scripted test sequences, and RS232/RS485 with SCPI and ModBus-RTU as standard - features aimed squarely at automated, repeatable test setups rather than a single fixed bench job.
+</p>
+
+<h2 id="quick-reference">Quick Reference</h2>
+
+<ul>
+  <li><strong>Same voltage/current every time</strong>: a standard fixed-range supply is simpler and sufficient - see our <a href={u('/blog/how-to-choose-a-vartech-dc-power-supply/')}>general DC power supply guide</a>.</li>
+  <li><strong>Multiple DUTs with different voltage/current needs on one bench</strong>: an auto-ranging supply avoids swapping units between tests.</li>
+  <li><strong>Automated or scripted test sequences with remote sensing</strong>: look for list mode, remote sensing and a documented command set (SCPI/ModBus-RTU), as on the PPSA-100W-8005 S.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the Vartech <a href={u('/authorised-dealership/dc-power-supplies/ppsa-100w-8005-s/')}>PPSA-100W-8005 S</a> auto-ranging power supply and the <a href={u('/products/vartech-dc-power-supplies/')}>full Vartech DC power supply range</a>. <a href={u('/contact/')}>Contact us</a> to work out whether auto-ranging fits your test bench.
+</p>

@@ -1,0 +1,44 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Before choosing a switch-mode bench supply by default, it's worth knowing what you'd be giving up - because Vartech's transformer-based linear range (3005 B, 3010, 3020, 6005, 6010, plus the dual-output 3010-2 and 6005-2) still outperforms SMPS on the one thing linear regulation does best: clean, low-noise DC with no switching artefacts on the output.
+</p>
+
+<h2 id="why-linear-still-matters">Why Choose Linear Over SMPS at All?</h2>
+
+<p>
+  A linear supply's output ripple and noise comes only from mains-frequency residue after a large transformer, rectifier and filter capacitor bank - typically single-digit millivolts RMS, with no switching-frequency noise at all. An SMPS supply, however well designed, always carries some residual switching-frequency ripple riding on its output. For most bench work this is irrelevant. It matters for audio circuit development and testing (switching noise is audible), RF and sensitive analogue/instrumentation circuits (switching harmonics can couple into a sensitive front-end), and any measurement where the power rail itself needs to be "quiet" rather than merely regulated.
+</p>
+
+<Callout type="tip" title="The trade-off, stated plainly">
+  Linear supplies are heavier, larger and less power-efficient than SMPS for the same output rating - Vartech's linear range weighs 4-16 kg where an equivalent-power SMPS unit is a fraction of that. You're trading size and efficiency for output cleanliness. If your work doesn't need that cleanliness, the SMPS range (see our <a href={u('/blog/how-to-choose-a-vartech-dc-power-supply/')}>general buying guide</a>) is the more practical choice.
+</Callout>
+
+<h2 id="single-output-range">The Single-Output Range: 3005 B, 3010, 3020, 6005, 6010</h2>
+
+<p>
+  The 3005 B (0-30 V, 0-5 A) is the entry point, adding a distinctive Output Pause function that lets you dial in a voltage before connecting the load rather than exposing the circuit to whatever voltage the dial happened to be at. The 3010 (0-30 V, 0-10 A) and 3020 (0-30 V, 0-20 A) step up in current for heavier 30 V loads, with the 3020 adding preset V & I so a value can be set and recalled without live adjustment. The 6005 (0-60 V, 0-5 A) and 6010 (0-60 V, 0-10 A) mirror the same current progression at double the voltage ceiling. All five support series/parallel connection with a second unit for extending range beyond a single chassis.
+</p>
+
+<h2 id="dual-output-range">The Dual-Output Range: 3010-2 and 6005-2</h2>
+
+<p>
+  The 3010-2 (two independent 0-30 V/0-10 A channels) and 6005-2 (two independent 0-60 V/0-5 A channels) go further than simple dual-channel convenience - both support auto series/parallel tracking, meaning the two channels can be linked to move together as a single higher-voltage or higher-current source, or run fully independently. This is exactly the configuration op-amp circuits, bridge circuits and differential-signal testing need: two matched, independently-adjustable rails from one instrument rather than juggling two separate supplies.
+</p>
+
+<h2 id="quick-reference">Quick Reference by Use Case</h2>
+
+<ul>
+  <li><strong>Entry-level bench work, education, service</strong>: 3005 B.</li>
+  <li><strong>Higher-current 30 V bench or industrial use</strong>: 3010 or 3020 (preset V & I).</li>
+  <li><strong>Higher-voltage bench or industrial use</strong>: 6005 or 6010 (preset V & I).</li>
+  <li><strong>Op-amp, bridge or differential circuit testing needing two tracked rails</strong>: 3010-2 or 6005-2.</li>
+  <li><strong>Audio, RF or noise-sensitive circuit work</strong>: any model in this range, over an equivalent-rated SMPS supply.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-dc-power-supplies/')}>full Vartech DC power supply range</a>, including the <a href={u('/authorised-dealership/dc-power-supplies/3010-2/')}>3010-2</a> and <a href={u('/authorised-dealership/dc-power-supplies/6005-2/')}>6005-2</a> dual-output linear supplies. <a href={u('/contact/')}>Contact us</a> to confirm whether linear or SMPS regulation is the right fit for your circuit.
+</p>

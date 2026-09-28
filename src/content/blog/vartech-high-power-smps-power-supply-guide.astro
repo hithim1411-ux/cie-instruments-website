@@ -1,0 +1,55 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Battery pack charge/discharge testing, electroplating lines, EV charger and LED driver burn-in, and motor load testing all share one requirement most bench supplies can't meet: a lot of current at a moderate voltage, for hours at a time, without overheating or drifting. Vartech's "SR" high-power SMPS series - 3020 SR through 6020 SR, 600 W to 1500 W - is built specifically for that class of work, distinct from both the everyday 30-60 V bench range and the 100-200 V high-voltage tier.
+</p>
+
+<h2 id="the-power-ladder">600 W to 1500 W - Matching Power to Your Load</h2>
+
+<p>
+  The range covers three voltage families at increasing power: the 30 V family (3020 SR at 20 A/600 W, 3030 SR at 30 A/900 W, 3040 SR at 40 A/1200 W), the 50 V family (5020 SR at 20 A/1000 W, 5030 SR at 30 A/1500 W), and the 60 V family (6010 SR at 10 A/600 W, 6020 SR at 20 A/1200 W). Within each voltage family, moving up a model gets you more current at the same voltage ceiling - so the choice isn't "which voltage" so much as "how much current does my heaviest load actually draw." Undersizing current capacity is the most common mistake: a supply running at its current limit spends most of its time in CC mode fighting the load rather than holding a clean set voltage.
+</p>
+
+<Callout type="tip" title="Size for your worst-case load, not your typical one">
+  Battery pack testing, in particular, draws its highest current at the start of charge (or end of discharge) - if you size the supply for your battery's nominal charge current only, you'll clip against OCP the moment the pack's internal resistance is lower than expected. Add headroom above your calculated worst-case current, not just your nominal rating.
+</Callout>
+
+<h2 id="why-this-tier">Why Not Just Use a Standard Bench Supply?</h2>
+
+<p>
+  A typical 30-60 V bench supply in the 150-300 W class simply cannot deliver the sustained current this tier is built for - and even if it technically could hit the current briefly, doing so continuously would push it well past its thermal design. This SR series uses PWM (SMPS) topology specifically so it can deliver high continuous current in a compact, actively-cooled chassis (the same physical footprint scales from 600 W up to 3000 W-plus in Vartech's chassis design), with OVP, OCP, OPP and OTP protection sized for the higher stakes of running hundreds of watts into a real load for extended periods.
+</p>
+
+<h2 id="pc-interface">PC Interface and ModBus-RTU as Standard</h2>
+
+<p>
+  Every model in this tier ships with PC interfacing as standard - USB with RS232/RS485 optional on the 30 V and 50 V families, RS232 standard on the 6010 SR - all running ModBus-RTU protocol, plus coarse/fine encoder control and preset V & I with Output On/Off. For burn-in testing or battery cycling that runs unattended for hours, this means the test can be scripted, logged and monitored remotely rather than requiring someone to watch a panel meter - a meaningful difference when a single charge/discharge cycle can run longer than a working day.
+</p>
+
+<h2 id="applications">Where This Tier Actually Gets Used</h2>
+
+<ul>
+  <li><strong>Battery pack charge/discharge testing</strong> - the 50 V and 60 V families cover common battery bus voltages (36 V/48 V packs) with the current headroom to charge at a realistic C-rate.</li>
+  <li><strong>Electroplating and electrolysis lines</strong> - the 30 V family's high current (up to 40 A on the 3040 SR) suits low-voltage, high-current plating baths.</li>
+  <li><strong>LED driver and lighting ballast burn-in</strong> - sustained current at a fixed voltage, run for extended soak-test periods, is exactly this tier's design point.</li>
+  <li><strong>Motor and solenoid load testing</strong> - current well beyond what a standard bench supply's continuous rating allows.</li>
+</ul>
+
+<h2 id="quick-reference">Quick Reference by Voltage and Current</h2>
+
+<ul>
+  <li><strong>30 V, up to 20 A / 600 W</strong>: 3020 SR.</li>
+  <li><strong>30 V, up to 30 A / 900 W</strong>: 3030 SR.</li>
+  <li><strong>30 V, up to 40 A / 1200 W</strong>: 3040 SR.</li>
+  <li><strong>50 V, up to 20 A / 1000 W</strong>: 5020 SR.</li>
+  <li><strong>50 V, up to 30 A / 1500 W</strong>: 5030 SR.</li>
+  <li><strong>60 V, up to 10 A / 600 W</strong>: 6010 SR.</li>
+  <li><strong>60 V, up to 20 A / 1200 W</strong>: 6020 SR.</li>
+</ul>
+
+<p>
+  CIE Instruments is an authorised dealer for the <a href={u('/products/vartech-dc-power-supplies/')}>full Vartech DC power supply range</a>, including the <a href={u('/authorised-dealership/dc-power-supplies/3040-sr/')}>3040 SR</a> and <a href={u('/authorised-dealership/dc-power-supplies/5030-sr/')}>5030 SR</a> high-power models. For the 100-200 V tier, see our <a href={u('/blog/vartech-high-voltage-smps-power-supply-guide/')}>high-voltage SMPS guide</a>. <a href={u('/contact/')}>Contact us</a> with your load's voltage and worst-case current draw to confirm the right model.
+</p>

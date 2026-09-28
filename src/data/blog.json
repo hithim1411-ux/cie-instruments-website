@@ -969,5 +969,49 @@
     "shelf": "multimeters",
     "excerpt": "A portable bench-top multimeter that trades pocket size for lab-grade resolution. Here's when that trade actually pays off, and which Vartech model to reach for instead.",
     "seoTitle": "Vartech V 981+ Bench-Top Multimeter Guide"
+  },
+  {
+    "slug": "vartech-high-power-smps-power-supply-guide",
+    "title": "Vartech High-Power SMPS Bench Supply Guide (600W-1500W)",
+    "description": "How to pick the right Vartech SR-series high-power SMPS supply for battery pack testing, electroplating, LED driver burn-in and heavy motor loads.",
+    "publishDate": "2026-09-28",
+    "readTime": "6 min read",
+    "category": "Buying Guide",
+    "shelf": "power-supplies",
+    "excerpt": "Battery testing and burn-in work need current most bench supplies can't sustain. Here's how Vartech's 600W-1500W SR series matches power to your actual load.",
+    "seoTitle": "Vartech High-Power SMPS Bench Supply Guide"
+  },
+  {
+    "slug": "vartech-linear-bench-power-supply-guide",
+    "title": "Vartech Linear Bench Power Supply Guide",
+    "description": "Why Vartech's transformer-based linear power supply range still beats SMPS on output cleanliness, and how to choose between the single and dual-output models.",
+    "publishDate": "2026-09-28",
+    "readTime": "5 min read",
+    "category": "Buying Guide",
+    "shelf": "power-supplies",
+    "excerpt": "Switch-mode isn't always the right default. Here's when a linear supply's low-noise output is worth the extra size and weight, and which Vartech model to pick.",
+    "seoTitle": "Vartech Linear Bench Power Supply Guide"
+  },
+  {
+    "slug": "vartech-2-in-1-oscilloscope-guide",
+    "title": "Vartech 2-in-1 Oscilloscope Guide: Scope Plus FG or Component Tester",
+    "description": "How the Vartech SS-5150 DS1B FG (scope + function generator) and SS-5030BC (scope + component tester) each combine two instruments into one bench unit.",
+    "publishDate": "2026-09-28",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "shelf": "scopes-signal",
+    "excerpt": "Two instruments, one chassis. Here's when a combined scope actually saves you a second unit, and when it doesn't.",
+    "seoTitle": "Vartech 2-in-1 Oscilloscope Guide"
+  },
+  {
+    "slug": "auto-ranging-power-supply-explained",
+    "title": "What Is an Auto-Ranging Power Supply?",
+    "description": "How auto-ranging lets a DC power supply trade voltage against current within a fixed power envelope, and when it's worth choosing over a fixed-range supply.",
+    "publishDate": "2026-09-28",
+    "readTime": "5 min read",
+    "category": "Physics",
+    "shelf": "physics",
+    "excerpt": "One supply covering a wider voltage/current territory than the maths seems to allow. Here's how auto-ranging actually works, and who actually needs it.",
+    "seoTitle": "What Is an Auto-Ranging Power Supply?"
   }
 ]
