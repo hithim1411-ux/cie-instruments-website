@@ -1,0 +1,143 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import CTABand from '../../components/CTABand.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import { categoryIcons } from '../../utils/categoryIcons';
+import { u } from '../../utils/url';
+import locations from '../../data/locations.json';
+import categories from '../../data/categories.json';
+
+export async function getStaticPaths() {
+  return locations.map(location => ({
+    params: { slug: location.slug },
+    props: { location },
+  }));
+}
+
+const { location } = Astro.props as { location: typeof locations[number] };
+
+// Same core CIE-manufactured lines highlighted on every city page - honest,
+// not fabricated per-city specialisation (CIE doesn't have per-city product lines).
+const featuredCategoryIds = [
+  'insulation-testers-hand',
+  'earth-tester',
+  'clamp-meters',
+  'multimeters',
+  'oil-test-sets',
+  'relay-test-sets',
+];
+const featuredCategories = featuredCategoryIds
+  .map(id => categories.find(c => c.id === id))
+  .filter((c): c is NonNullable<typeof c> => !!c);
+
+const categoryHref = (cat: { id: string; brand?: string }) =>
+  cat.brand === 'vartech'
+    ? u(`/authorised-dealership/${cat.id.replace(/^vartech-/, '')}/`)
+    : u(`/products/${cat.id}/`);
+
+const otherLocations = locations.filter(l => l.slug !== location.slug).slice(0, 8);
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Electrical Test & Measurement Instrument Supply',
+  provider: {
+    '@id': 'https://www.cieinstruments.in/#organization',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: location.name,
+    containedInPlace: {
+      '@type': 'State',
+      name: location.state,
+    },
+  },
+  url: `https://www.cieinstruments.in/locations/${location.slug}/`,
+};
+---
+
+<Base title={location.metaTitle} description={location.metaDesc} rawTitle>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+  <div class="bg-cloud border-b border-border py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Locations', href: '/locations' }, { label: location.name }]} />
+      <div class="flex items-center gap-3 mt-4 mb-3">
+        <div class="w-11 h-11 bg-white rounded-xl flex items-center justify-center shrink-0">
+          <Icon name="globe" class="w-5 h-5 text-ink" />
+        </div>
+        <EyebrowLabel text={`${location.region} · ${location.state}`} />
+      </div>
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">
+        Test &amp; Measurement Instruments in {location.name}
+      </h1>
+      <p class="mt-2 text-muted max-w-2xl">{location.intro}</p>
+    </div>
+  </div>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-ink mb-8">Instruments Supplied to {location.name}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredCategories.map(cat => (
+          <a href={categoryHref(cat)} class="card card-interactive group block p-7">
+            <div class="flex items-start gap-4">
+              <div class="shrink-0 w-12 h-12 bg-cloud rounded-xl flex items-center justify-center transition-colors duration-200 group-hover:bg-red/8">
+                <Icon name={categoryIcons[cat.id] ?? 'box'} class="w-6 h-6 text-ink transition-colors duration-200 group-hover:text-red" />
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="font-bold text-ink text-[15px] leading-snug transition-colors duration-200 group-hover:text-red mb-2">
+                  {cat.shortName}
+                </h3>
+                <p class="text-sm text-muted line-clamp-2 leading-relaxed">{cat.description}</p>
+              </div>
+            </div>
+            <div class="link-arrow mt-5 text-xs text-red">
+              View products <Icon name="arrow" class="w-3.5 h-3.5" />
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cloud border-t border-border section-pad-sm">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-ink mb-6">Why Buy From CIE in {location.name}</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="bg-white rounded-xl border border-border p-5">
+          <p class="text-sm font-bold text-ink mb-1">Manufacturer, not a trader</p>
+          <p class="text-sm text-muted leading-relaxed">Every CIE-brand instrument is built and calibrated at our own works in Howrah - direct pricing, no middleman markup.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-border p-5">
+          <p class="text-sm font-bold text-ink mb-1">60+ years in the field</p>
+          <p class="text-sm text-muted leading-relaxed">Manufacturing electrical test instruments since 1963, with a track record across State Electricity Boards, industry, and Indian Railways.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-border p-5">
+          <p class="text-sm font-bold text-ink mb-1">Pan-India dispatch</p>
+          <p class="text-sm text-muted leading-relaxed">Orders are dispatched from Howrah by courier or transport to {location.name} and every other part of India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border-t border-border section-pad-sm">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-ink mb-6">CIE in Other Cities</h2>
+      <div class="flex flex-wrap gap-3">
+        {otherLocations.map(loc => (
+          <a href={u(`/locations/${loc.slug}/`)} class="px-4 py-2 rounded-full border border-border text-sm text-ink hover:border-red hover:text-red transition-colors">
+            {loc.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    heading={`Need an instrument delivered in ${location.name}? We'll recommend the right model.`}
+    body="Send your requirement by email or WhatsApp - we respond within one business day and dispatch pan-India."
+  />
+</Base>

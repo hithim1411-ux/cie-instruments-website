@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import EyebrowLabel from '../components/EyebrowLabel.astro';
+import CTABand from '../components/CTABand.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+import { u } from '../utils/url';
+import locations from '../data/locations.json';
+
+const regions = [...new Set(locations.map(l => l.region))];
+---
+
+<Base
+  title="Locations We Supply"
+  description="CIE manufactures electrical test & measurement instruments in Howrah, West Bengal and supplies pan-India - Kolkata, Mumbai, Delhi, Bengaluru, Chennai, Hyderabad, Pune, Ahmedabad, and more."
+>
+  <div class="bg-cloud border-b border-border py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Locations' }]} />
+      <EyebrowLabel text="Pan-India Supply" class="mt-4 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Locations We Supply</h1>
+      <p class="mt-2 text-muted max-w-2xl">
+        Every CIE instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched pan-India. Find your city below.
+      </p>
+    </div>
+  </div>
+
+  {regions.map(region => (
+    <section class="bg-white border-b border-border section-pad-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-lg font-black text-ink mb-6">{region}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {locations.filter(l => l.region === region).map(location => (
+            <a href={u(`/locations/${location.slug}/`)} class="card card-interactive group block p-7">
+              <div class="flex items-start gap-4">
+                <div class="shrink-0 w-11 h-11 bg-cloud rounded-xl flex items-center justify-center transition-colors duration-200 group-hover:bg-red/8">
+                  <Icon name="globe" class="w-5 h-5 text-ink transition-colors duration-200 group-hover:text-red" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-bold text-ink text-[15px] leading-snug transition-colors duration-200 group-hover:text-red mb-1">
+                    {location.name}{location.isHomeBase && <span class="ml-2 text-[10px] font-mono uppercase tracking-wider text-red">HQ / Works</span>}
+                  </h3>
+                  <p class="text-xs text-muted uppercase tracking-wider font-mono">{location.state}</p>
+                </div>
+              </div>
+              <div class="link-arrow mt-5 text-xs text-red">
+                View instruments <Icon name="arrow" class="w-3.5 h-3.5" />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <CTABand
+    heading="Don't see your city? We ship pan-India."
+    body="Send your requirement by email or WhatsApp - we dispatch to every state in India."
+  />
+</Base>

@@ -126,6 +126,7 @@ const slugLabels: Record<string, string> = {
   'substation-commissioning': 'Substation Commissioning',
   'industry-manufacturing': 'Industry & Manufacturing',
   'test-laboratories': 'Test Laboratories', 'epc-contractors': 'EPC Contractors',
+  locations: 'Locations',
 };
 const pathParts = Astro.url.pathname.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
 const breadcrumbSchema = pathParts.length > 0 ? JSON.stringify({

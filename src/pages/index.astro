@@ -12,6 +12,7 @@ import type { IconName } from '../utils/iconNames';
 import categories from '../data/categories.json';
 import products from '../data/products.json';
 import clients from '../data/clients.json';
+import locations from '../data/locations.json';
 import vartechThermometers from '../data/vartech-thermometers.json';
 import vartechLuxMeters from '../data/vartech-lux-meters.json';
 import vartechCalibrators from '../data/vartech-calibrators.json';
@@ -1214,34 +1215,15 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           <EyebrowLabel text="Cities We Supply To" class="mb-4" />
           <h3 class="text-lg font-bold text-ink mb-4">Supplying instruments across India</h3>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {[
-              { city: 'Kolkata', state: 'West Bengal' },
-              { city: 'Howrah', state: 'West Bengal' },
-              { city: 'Bhubaneswar', state: 'Odisha' },
-              { city: 'Raipur', state: 'Chhattisgarh' },
-              { city: 'Ranchi', state: 'Jharkhand' },
-              { city: 'Patna', state: 'Bihar' },
-              { city: 'Delhi / NCR', state: 'Delhi' },
-              { city: 'Lucknow', state: 'Uttar Pradesh' },
-              { city: 'Mumbai', state: 'Maharashtra' },
-              { city: 'Pune', state: 'Maharashtra' },
-              { city: 'Ahmedabad', state: 'Gujarat' },
-              { city: 'Bengaluru', state: 'Karnataka' },
-              { city: 'Chennai', state: 'Tamil Nadu' },
-              { city: 'Hyderabad', state: 'Telangana' },
-              { city: 'Chandigarh', state: 'Punjab / Haryana' },
-              { city: 'Kochi', state: 'Kerala' },
-              { city: 'Nagpur', state: 'Maharashtra' },
-              { city: 'Jaipur', state: 'Rajasthan' },
-            ].map(({ city, state }) => (
-              <div class="bg-white border border-border rounded-lg px-3 py-2.5">
-                <p class="text-xs font-bold text-ink">{city}</p>
+            {locations.map(({ slug, name, state }) => (
+              <a href={u(`/locations/${slug}/`)} class="bg-white border border-border rounded-lg px-3 py-2.5 hover:border-red transition-colors group">
+                <p class="text-xs font-bold text-ink group-hover:text-red transition-colors">{name}</p>
                 <p class="text-[10px] text-muted">{state}</p>
-              </div>
+              </a>
             ))}
           </div>
           <p class="mt-4 text-xs text-muted">
-            … and all major cities, industrial centres, and power sector locations across India.
+            <a href={u('/locations/')} class="text-red hover:text-red-dark transition-colors font-medium">View all locations →</a> and all major cities, industrial centres, and power sector locations across India.
           </p>
         </div>
 
