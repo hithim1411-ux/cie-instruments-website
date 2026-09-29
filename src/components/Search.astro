@@ -499,7 +499,7 @@ async function askAI(q: string) {
       const vt  = aiMentionedProducts.filter(p => p.brand === 'vartech');
       let html = '';
       if (cie.length) html += section('CIE - Manufactured', 'text-red', cie, q, false);
-      if (vt.length)  html += section('Vartech - Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
+      if (vt.length)  html += section('Vartech - Authorised Distributor', 'text-emerald-600', vt, q, !!cie.length);
       if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; return; }
     }
 
@@ -511,7 +511,7 @@ async function askAI(q: string) {
       const vt  = items.filter(p => p.brand === 'vartech');
       let html = '';
       if (cie.length) html += section('CIE - Manufactured', 'text-red', cie, q, false);
-      if (vt.length)  html += section('Vartech - Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
+      if (vt.length)  html += section('Vartech - Authorised Distributor', 'text-emerald-600', vt, q, !!cie.length);
       if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; }
     }
   }
@@ -631,7 +631,7 @@ function renderCatalog(q: string) {
   const vt  = items.filter(i => i.brand === 'vartech');
   let html = '';
   if (cie.length) html += section('CIE - Manufactured', 'text-red', cie, q, false);
-  if (vt.length)  html += section('Vartech - Authorised Dealer', 'text-emerald-600', vt, q, !!cie.length);
+  if (vt.length)  html += section('Vartech - Authorised Distributor', 'text-emerald-600', vt, q, !!cie.length);
 
   catalogDiv.innerHTML   = html;
   mobileCatalog.innerHTML = html;

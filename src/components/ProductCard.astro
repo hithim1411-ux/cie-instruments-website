@@ -20,7 +20,7 @@ const imgSrc = image
   ? (image.startsWith('vartech/') ? u(`/images/${image}`) : u(`/images/products/${image}`))
   : u(`/images/products/${id}.webp`);
 // Vartech products live under /authorised-dealership/{slug}/, not /products/{categoryId}/
-// categoryId pattern: "vartech-oscilloscopes" → dealer slug: "oscilloscopes"
+// categoryId pattern: "vartech-oscilloscopes" → distributor slug: "oscilloscopes"
 // A couple of SKUs use a different product id on the /products/ side than on the
 // /authorised-dealership/ side - map those here so the link always resolves.
 const dealerIdOverrides: Record<string, string> = {

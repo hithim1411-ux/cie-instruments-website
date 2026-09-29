@@ -65,7 +65,7 @@ for (const { label, slug, items } of vartechSections) {
   for (const p of items as any[]) {
     allProducts.push({
       model: p.model, name: p.name, category: label,
-      brand: 'Vartech (CIE authorised dealer)',
+      brand: 'Vartech (CIE authorised distributor)',
       tagline: p.tagline || '',
       description: (p.description || '').slice(0, 200),
       specs: (p.specs || []).map((s: any) => `${s.label}: ${s.value}`).join(' | '),

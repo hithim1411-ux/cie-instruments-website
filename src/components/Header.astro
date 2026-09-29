@@ -10,7 +10,7 @@ interface Props {
 }
 const { transparentHero = false } = Astro.props;
 
-// Nav dropdown: split CIE-manufactured vs Vartech authorised-dealer categories.
+// Nav dropdown: split CIE-manufactured vs Vartech authorised-distributor categories.
 // vartech-multimeters and vartech-clamp-meters excluded (CIE already covers those types).
 const DROPDOWN_EXCLUDE = new Set(['vartech-multimeters', 'vartech-clamp-meters']);
 const cieCategories     = categories.filter((c: any) => (!c.brand || c.brand !== 'vartech') && !DROPDOWN_EXCLUDE.has(c.id));
@@ -121,7 +121,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
           </div>
         </div>
 
-        <!-- Vartech + dropdown (authorised dealer line) -->
+        <!-- Vartech + dropdown (authorised distributor line) -->
         <div class="relative" data-nav-dropdown>
           <div class="flex items-center">
             <a href={u('/authorised-dealership/')}
@@ -153,7 +153,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
               <div class="px-6 pt-6 pb-2">
                 <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 uppercase tracking-widest mb-4">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true"></span>
-                  Vartech® - Authorised Dealer
+                  Vartech® - Authorised Distributor
                 </span>
               </div>
               <div class="grid grid-cols-2 gap-x-8 px-6 pb-6">
@@ -272,7 +272,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         </div>
       </div>
 
-      <!-- Vartech accordion (authorised dealer line) -->
+      <!-- Vartech accordion (authorised distributor line) -->
       <div data-mobile-accordion>
         <div class="flex items-center">
           <a href={u('/authorised-dealership/')} class="flex-1 text-sm font-medium text-muted-dark hover:text-white hover:bg-white/5 px-3 py-2 rounded-l transition-colors">
@@ -301,7 +301,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
           <a href={u('/authorised-dealership/')}
              class="flex items-center gap-2.5 px-2 py-2 text-xs text-emerald-400 hover:text-emerald-300 hover:bg-white/5 rounded transition-colors mt-1 border-t border-white/10 pt-2">
             <Icon name="store" class="w-3.5 h-3.5 shrink-0" />
-            All Vartech - Authorised Dealership
+            All Vartech - Authorised Distributor
           </a>
         </div>
       </div>
