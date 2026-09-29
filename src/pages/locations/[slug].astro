@@ -37,7 +37,11 @@ const categoryHref = (cat: { id: string; brand?: string }) =>
     ? u(`/authorised-dealership/${cat.id.replace(/^vartech-/, '')}/`)
     : u(`/products/${cat.id}/`);
 
-const otherLocations = locations.filter(l => l.slug !== location.slug).slice(0, 8);
+// Nearby cities first (same region), then the rest, so related pages link to each other.
+const otherLocations = [
+  ...locations.filter(l => l.slug !== location.slug && l.region === location.region),
+  ...locations.filter(l => l.slug !== location.slug && l.region !== location.region),
+].slice(0, 10);
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -104,6 +108,18 @@ const serviceSchema = {
   </section>
 
   <section class="bg-cloud border-t border-border section-pad-sm">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-ink mb-4">Who We Supply in {location.name}</h2>
+      <p class="text-sm text-muted leading-relaxed mb-5 max-w-3xl">{location.localNote}</p>
+      <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-ink">
+        {location.industries.map(item => (
+          <li class="flex gap-2"><span class="text-red">&bull;</span><span>{item}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-white border-t border-border section-pad-sm">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-xl font-bold text-ink mb-6">Why Buy From CIE in {location.name}</h2>
       <div class="grid sm:grid-cols-3 gap-4">

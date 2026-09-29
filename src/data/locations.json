@@ -7,7 +7,14 @@
     "isHomeBase": true,
     "intro": "Cambridge Instruments & Engg. Co. (CIE) is headquartered in Kolkata, with our manufacturing works across the river in Howrah. Electrical contractors, panel manufacturers, testing laboratories, and State Electricity Board engineers across the city have specified CIE insulation testers, earth testers, and relay test sets since 1963.",
     "metaTitle": "Insulation Tester & Electrical Test Equipment Supplier in Kolkata | CIE",
-    "metaDesc": "CIE manufactures insulation testers, earth testers, relay test sets, and oil BDV test sets in Howrah/Kolkata. Same-city sales office, same-day response, pan-India dispatch."
+    "metaDesc": "CIE manufactures insulation testers, earth testers, relay test sets, and oil BDV test sets in Howrah/Kolkata. Same-city sales office, same-day response, pan-India dispatch.",
+    "industries": [
+      "Power distribution and CESC-area utilities",
+      "Jute, engineering and port-based industry",
+      "Metro, railway and infrastructure contractors",
+      "Testing and calibration laboratories"
+    ],
+    "localNote": "Kolkata buyers can reach our sales office and Howrah works directly, so demonstrations, custom requirements and same-day collection are possible."
   },
   {
     "slug": "howrah",
@@ -17,7 +24,14 @@
     "isHomeBase": true,
     "intro": "Every CIE instrument is designed, built, and calibrated at our works on Maulana Abul Kalam Azad Road, Howrah - the same site the company has manufactured from since 1963. Local buyers can inspect an instrument, discuss a custom requirement, or collect an order directly from the works.",
     "metaTitle": "Insulation Tester Manufacturer in Howrah | CIE - Since 1963",
-    "metaDesc": "CIE (Cambridge Instruments & Engg. Co.) manufactures insulation testers, earth testers, relay test sets, and oil BDV test sets at our works in Howrah, West Bengal, since 1963."
+    "metaDesc": "CIE (Cambridge Instruments & Engg. Co.) manufactures insulation testers, earth testers, relay test sets, and oil BDV test sets at our works in Howrah, West Bengal, since 1963.",
+    "industries": [
+      "Foundries and light engineering units",
+      "Jute and allied manufacturing",
+      "Railway workshops and electrical maintenance teams",
+      "Panel builders and electrical contractors"
+    ],
+    "localNote": "Howrah is a long-established engineering cluster, and many of our nearest customers are the workshops and foundries around the works."
   },
   {
     "slug": "bengaluru",
@@ -26,7 +40,14 @@
     "region": "Southern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Bengaluru. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Karnataka by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Bengaluru | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Bengaluru and across Karnataka. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Bengaluru and across Karnataka. Request a quote.",
+    "industries": [
+      "Electronics and aerospace manufacturing",
+      "IT parks and data-centre electrical maintenance",
+      "Panel and switchgear manufacturers",
+      "Testing laboratories and R&D centres"
+    ],
+    "localNote": "Bengaluru's electronics, aerospace and data-centre facilities need dependable insulation and earth testing for routine maintenance."
   },
   {
     "slug": "chennai",
@@ -35,7 +56,14 @@
     "region": "Southern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Chennai. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Tamil Nadu by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Chennai | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Chennai and across Tamil Nadu. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Chennai and across Tamil Nadu. Request a quote.",
+    "industries": [
+      "Automotive and auto-component plants",
+      "Power and transmission utilities",
+      "Ports, shipbuilding and heavy engineering",
+      "Electrical contractors and panel builders"
+    ],
+    "localNote": "Chennai's automotive belt and port-side engineering make earth and insulation testing a regular maintenance need."
   },
   {
     "slug": "hyderabad",
@@ -44,7 +72,14 @@
     "region": "Southern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Hyderabad. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Telangana by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Hyderabad | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Hyderabad and across Telangana. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Hyderabad and across Telangana. Request a quote.",
+    "industries": [
+      "Pharmaceutical and bulk-drug plants",
+      "Defence and aerospace manufacturing",
+      "Data centres and IT campuses",
+      "Power transmission and distribution"
+    ],
+    "localNote": "Hyderabad's pharma and defence facilities run scheduled electrical safety testing, where an earth tester and insulation tester are basic tools."
   },
   {
     "slug": "mumbai",
@@ -53,7 +88,14 @@
     "region": "Western India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Mumbai. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Maharashtra by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Mumbai | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Mumbai and across Maharashtra. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Mumbai and across Maharashtra. Request a quote.",
+    "industries": [
+      "Power distribution and utilities",
+      "Shipyards, ports and offshore support",
+      "Commercial towers and real-estate electrical contractors",
+      "Chemical and process plants nearby"
+    ],
+    "localNote": "Mumbai's dense commercial and port infrastructure means a large base of electrical contractors and maintenance teams."
   },
   {
     "slug": "delhi",
@@ -62,7 +104,14 @@
     "region": "Northern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Delhi NCR. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Delhi by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Delhi NCR | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Delhi NCR. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Delhi NCR. Request a quote.",
+    "industries": [
+      "Metro rail and public infrastructure",
+      "Power distribution companies",
+      "Commercial and government buildings",
+      "Manufacturing clusters across NCR"
+    ],
+    "localNote": "Delhi NCR covers a wide spread of metro, government and manufacturing users, all served by dispatch from Howrah."
   },
   {
     "slug": "pune",
@@ -71,7 +120,14 @@
     "region": "Western India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Pune. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Maharashtra by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Pune | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Pune and across Maharashtra. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Pune and across Maharashtra. Request a quote.",
+    "industries": [
+      "Automotive and auto-component manufacturing",
+      "Machine tool and heavy engineering",
+      "IT parks and industrial estates",
+      "Panel and switchgear builders"
+    ],
+    "localNote": "Pune's automotive and machine-tool plants in Chakan, Pimpri-Chinchwad and Ranjangaon maintain large motor and panel installations."
   },
   {
     "slug": "ahmedabad",
@@ -80,7 +136,14 @@
     "region": "Western India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Ahmedabad. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Gujarat by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Ahmedabad | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Ahmedabad and across Gujarat. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Ahmedabad and across Gujarat. Request a quote.",
+    "industries": [
+      "Textile and chemical units",
+      "Pharmaceutical manufacturing",
+      "Power distribution and solar contractors",
+      "Engineering and fabrication workshops"
+    ],
+    "localNote": "Ahmedabad's chemical, pharma and textile industry relies on regular motor and cable insulation checks."
   },
   {
     "slug": "bhubaneswar",
@@ -89,7 +152,14 @@
     "region": "Eastern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Bhubaneswar. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal - a short dispatch distance to Odisha.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Bhubaneswar | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Bhubaneswar and across Odisha. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Bhubaneswar and across Odisha. Request a quote.",
+    "industries": [
+      "State utilities and power distribution",
+      "Steel, mining and allied industry across Odisha",
+      "Government and infrastructure projects",
+      "Electrical contractors"
+    ],
+    "localNote": "Bhubaneswar is the main gateway to Odisha and sits within easy dispatch distance of our Howrah works."
   },
   {
     "slug": "raipur",
@@ -98,7 +168,14 @@
     "region": "Central India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Raipur. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Chhattisgarh by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Raipur | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Raipur and across Chhattisgarh. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Raipur and across Chhattisgarh. Request a quote.",
+    "industries": [
+      "Steel and sponge-iron plants",
+      "Coal and power generation",
+      "Cement and mining operations",
+      "State electricity board contractors"
+    ],
+    "localNote": "Raipur and the Chhattisgarh belt have heavy power and steel users where earth resistance and insulation testing are routine."
   },
   {
     "slug": "ranchi",
@@ -107,7 +184,14 @@
     "region": "Eastern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Ranchi. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal - a short dispatch distance to Jharkhand.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Ranchi | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Ranchi and across Jharkhand. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Ranchi and across Jharkhand. Request a quote.",
+    "industries": [
+      "Mining and coal-belt operations",
+      "Steel and heavy engineering",
+      "State electricity board engineers",
+      "Electrical contractors and panel builders"
+    ],
+    "localNote": "Ranchi supports the Jharkhand mining and steel belt and is a short dispatch from Howrah."
   },
   {
     "slug": "patna",
@@ -116,7 +200,14 @@
     "region": "Eastern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Patna. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Bihar by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Patna | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Patna and across Bihar. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Patna and across Bihar. Request a quote.",
+    "industries": [
+      "State electricity board and distribution contractors",
+      "Rural electrification projects",
+      "Government and infrastructure works",
+      "Electrical contractors"
+    ],
+    "localNote": "Patna's demand comes mainly from distribution utilities, rural electrification and electrical contractors."
   },
   {
     "slug": "lucknow",
@@ -125,7 +216,14 @@
     "region": "Northern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Lucknow. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Uttar Pradesh by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Lucknow | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Lucknow and across Uttar Pradesh. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Lucknow and across Uttar Pradesh. Request a quote.",
+    "industries": [
+      "State power distribution utilities",
+      "Government and defence establishments",
+      "Small and medium manufacturing",
+      "Electrical contractors"
+    ],
+    "localNote": "Lucknow is a large base of utility engineers and contractors across Uttar Pradesh."
   },
   {
     "slug": "chandigarh",
@@ -134,7 +232,14 @@
     "region": "Northern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Chandigarh. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Punjab and Haryana by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Chandigarh | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Chandigarh, Punjab and Haryana. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Chandigarh, Punjab and Haryana. Request a quote.",
+    "industries": [
+      "Panel and switchgear manufacturers",
+      "Machine tools, hand tools and light engineering",
+      "Pharmaceutical and food processing",
+      "Utilities across Punjab, Haryana and Himachal"
+    ],
+    "localNote": "Chandigarh and the surrounding Mohali, Panchkula and Baddi belt is a hub of small industry and electrical contracting."
   },
   {
     "slug": "kochi",
@@ -143,7 +248,14 @@
     "region": "Southern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Kochi. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Kerala by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Kochi | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Kochi and across Kerala. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Kochi and across Kerala. Request a quote.",
+    "industries": [
+      "Shipyard and port operations",
+      "Refinery and petrochemical facilities",
+      "Power utilities and renewable projects",
+      "Electrical contractors"
+    ],
+    "localNote": "Kochi's shipyard and port-side industry favours rugged, portable insulation and earth testers."
   },
   {
     "slug": "nagpur",
@@ -152,7 +264,14 @@
     "region": "Western India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Nagpur. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Maharashtra by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Nagpur | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Nagpur and across Maharashtra. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Nagpur and across Maharashtra. Request a quote.",
+    "industries": [
+      "Power generation and transmission",
+      "Coal and mining operations",
+      "Defence and ordnance establishments",
+      "Panel builders and contractors"
+    ],
+    "localNote": "Nagpur sits at the centre of India and serves the power, mining and defence users of Vidarbha."
   },
   {
     "slug": "jaipur",
@@ -161,6 +280,285 @@
     "region": "Northern India",
     "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Jaipur. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Rajasthan by courier or transport.",
     "metaTitle": "Insulation Tester & Earth Tester Supplier in Jaipur | CIE",
-    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Jaipur and across Rajasthan. Request a quote."
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Jaipur and across Rajasthan. Request a quote.",
+    "industries": [
+      "Power distribution utilities",
+      "Solar and renewable installations",
+      "Cement and mining industry",
+      "Electrical contractors and panel builders"
+    ],
+    "localNote": "Jaipur and Rajasthan's large solar and utility base creates steady demand for earth testers and insulation testers."
+  },
+  {
+    "slug": "jamshedpur",
+    "name": "Jamshedpur",
+    "state": "Jharkhand",
+    "region": "Eastern India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Jamshedpur. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Jharkhand by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Jamshedpur | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Jamshedpur and across Jharkhand. Request a quote.",
+    "industries": [
+      "Steel plants and their ancillary units",
+      "Automotive and engineering works in Adityapur",
+      "Utility and power maintenance teams",
+      "Electrical contractors"
+    ],
+    "localNote": "Jamshedpur's steel and ancillary engineering cluster has large motor, cable and earthing installations that need regular testing. Dispatch from Howrah is short."
+  },
+  {
+    "slug": "durgapur",
+    "name": "Durgapur",
+    "state": "West Bengal",
+    "region": "Eastern India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Durgapur. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to West Bengal by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Durgapur | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Durgapur and across West Bengal. Request a quote.",
+    "industries": [
+      "Steel and alloy plants",
+      "Thermal power generation",
+      "Heavy engineering and fabrication",
+      "Industrial electrical contractors"
+    ],
+    "localNote": "Durgapur is an industrial belt in our home state of West Bengal, so orders reach the region quickly from Howrah."
+  },
+  {
+    "slug": "siliguri",
+    "name": "Siliguri",
+    "state": "West Bengal",
+    "region": "Eastern India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Siliguri. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to West Bengal by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Siliguri | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Siliguri and across West Bengal. Request a quote.",
+    "industries": [
+      "Hydropower and transmission works in the region",
+      "Tea estates and agro-processing",
+      "Trading and warehousing",
+      "State utility engineers and contractors"
+    ],
+    "localNote": "Siliguri is the gateway to North Bengal, Sikkim and the North-East, and a common dispatch point for customers in the hill and tea-estate regions."
+  },
+  {
+    "slug": "guwahati",
+    "name": "Guwahati",
+    "state": "Assam",
+    "region": "North-East India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Guwahati. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Assam by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Guwahati | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Guwahati and across Assam. Request a quote.",
+    "industries": [
+      "Oil, gas and refinery operations",
+      "Power distribution and hydropower",
+      "Tea and agro-processing",
+      "Government and infrastructure projects"
+    ],
+    "localNote": "Guwahati serves the wider North-East, where oil and gas, hydropower and distribution networks rely on portable electrical test equipment."
+  },
+  {
+    "slug": "rourkela",
+    "name": "Rourkela",
+    "state": "Odisha",
+    "region": "Eastern India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Rourkela. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Odisha by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Rourkela | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Rourkela and across Odisha. Request a quote.",
+    "industries": [
+      "Steel plant and ancillary units",
+      "Power and captive generation",
+      "Heavy engineering workshops",
+      "Electrical maintenance contractors"
+    ],
+    "localNote": "Rourkela is a steel town in western Odisha whose plant maintenance teams need dependable insulation and earth testing."
+  },
+  {
+    "slug": "dhanbad",
+    "name": "Dhanbad",
+    "state": "Jharkhand",
+    "region": "Eastern India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Dhanbad. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Jharkhand by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Dhanbad | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Dhanbad and across Jharkhand. Request a quote.",
+    "industries": [
+      "Coal mining operations",
+      "Coal washeries and power users",
+      "Railway and heavy engineering",
+      "Electrical contractors"
+    ],
+    "localNote": "Dhanbad's coal-belt operations use large electrical installations underground and on surface, where regular insulation and earth resistance tests matter."
+  },
+  {
+    "slug": "bhilai",
+    "name": "Bhilai",
+    "state": "Chhattisgarh",
+    "region": "Central India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Bhilai. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Chhattisgarh by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Bhilai | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Bhilai and across Chhattisgarh. Request a quote.",
+    "industries": [
+      "Steel plant and ancillary industries",
+      "Power generation",
+      "Engineering and fabrication",
+      "Electrical contractors"
+    ],
+    "localNote": "Bhilai is one of India's best-known steel towns, with plant electrical teams and a broad supplier ecosystem."
+  },
+  {
+    "slug": "bhopal",
+    "name": "Bhopal",
+    "state": "Madhya Pradesh",
+    "region": "Central India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Bhopal. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Madhya Pradesh by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Bhopal | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Bhopal and across Madhya Pradesh. Request a quote.",
+    "industries": [
+      "State electricity utilities",
+      "Heavy electrical and engineering manufacturing",
+      "Government and public-sector establishments",
+      "Panel builders and contractors"
+    ],
+    "localNote": "Bhopal combines utility, public-sector and heavy electrical users across Madhya Pradesh."
+  },
+  {
+    "slug": "indore",
+    "name": "Indore",
+    "state": "Madhya Pradesh",
+    "region": "Central India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Indore. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Madhya Pradesh by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Indore | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Indore and across Madhya Pradesh. Request a quote.",
+    "industries": [
+      "Pharmaceutical and food processing units",
+      "Auto and engineering units at Pithampur",
+      "Commercial and industrial electrical contractors",
+      "Textile and allied industry"
+    ],
+    "localNote": "Indore and the Pithampur industrial area concentrate a wide range of manufacturing plants that maintain motors and panels."
+  },
+  {
+    "slug": "kanpur",
+    "name": "Kanpur",
+    "state": "Uttar Pradesh",
+    "region": "Northern India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Kanpur. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Uttar Pradesh by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Kanpur | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Kanpur and across Uttar Pradesh. Request a quote.",
+    "industries": [
+      "Leather, textile and chemical industry",
+      "Power distribution and thermal generation",
+      "Defence ordnance establishments",
+      "Electrical contractors"
+    ],
+    "localNote": "Kanpur's older industrial belt uses many motors, cables and panels that benefit from routine insulation resistance checks."
+  },
+  {
+    "slug": "ludhiana",
+    "name": "Ludhiana",
+    "state": "Punjab",
+    "region": "Northern India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Ludhiana. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Punjab by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Ludhiana | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Ludhiana and across Punjab. Request a quote.",
+    "industries": [
+      "Hosiery, textile and cycle manufacturing",
+      "Machine tools and auto parts",
+      "Steel re-rolling and foundries",
+      "Panel builders and electrical contractors"
+    ],
+    "localNote": "Ludhiana is one of North India's densest small-industry clusters, with a large base of machine shops, foundries and panel builders."
+  },
+  {
+    "slug": "vadodara",
+    "name": "Vadodara",
+    "state": "Gujarat",
+    "region": "Western India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Vadodara. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Gujarat by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Vadodara | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Vadodara and across Gujarat. Request a quote.",
+    "industries": [
+      "Petrochemical, chemical and fertiliser plants",
+      "Heavy electrical equipment manufacturing",
+      "Power generation and transmission",
+      "Engineering fabrication"
+    ],
+    "localNote": "Vadodara has a strong petrochemical and heavy-electrical base, where earthing and insulation testing are compliance-driven."
+  },
+  {
+    "slug": "surat",
+    "name": "Surat",
+    "state": "Gujarat",
+    "region": "Western India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Surat. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Gujarat by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Surat | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Surat and across Gujarat. Request a quote.",
+    "industries": [
+      "Textile and dyeing mills",
+      "Diamond and jewellery units",
+      "Chemical and power users",
+      "Electrical contractors and panel builders"
+    ],
+    "localNote": "Surat's textile and processing mills run large motor loads that need periodic insulation testing."
+  },
+  {
+    "slug": "nashik",
+    "name": "Nashik",
+    "state": "Maharashtra",
+    "region": "Western India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Nashik. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Maharashtra by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Nashik | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Nashik and across Maharashtra. Request a quote.",
+    "industries": [
+      "Electrical equipment and switchgear manufacturing",
+      "Automotive and engineering units",
+      "Agro-processing",
+      "Power utilities and contractors"
+    ],
+    "localNote": "Nashik has an established electrical-equipment manufacturing cluster and a network of industrial estates."
+  },
+  {
+    "slug": "aurangabad",
+    "name": "Chhatrapati Sambhajinagar (Aurangabad)",
+    "state": "Maharashtra",
+    "region": "Western India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Chhatrapati Sambhajinagar (Aurangabad). Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Maharashtra by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Chhatrapati Sambhajinagar (Aurangabad) | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Chhatrapati Sambhajinagar (Aurangabad) and across Maharashtra. Request a quote.",
+    "industries": [
+      "Automotive and auto-component plants",
+      "Pharmaceutical and beverage manufacturing",
+      "Engineering units at Waluj and Chikalthana",
+      "Electrical contractors"
+    ],
+    "localNote": "The Waluj, Chikalthana and Shendra industrial areas are large maintenance-heavy manufacturing clusters."
+  },
+  {
+    "slug": "coimbatore",
+    "name": "Coimbatore",
+    "state": "Tamil Nadu",
+    "region": "Southern India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Coimbatore. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Tamil Nadu by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Coimbatore | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Coimbatore and across Tamil Nadu. Request a quote.",
+    "industries": [
+      "Textile mills and spinning units",
+      "Motor and pump manufacturing",
+      "Foundries and engineering works",
+      "Panel builders and contractors"
+    ],
+    "localNote": "Coimbatore is a pump, motor and textile centre, so motor winding insulation testing is part of everyday maintenance."
+  },
+  {
+    "slug": "visakhapatnam",
+    "name": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "region": "Southern India",
+    "intro": "CIE supplies insulation testers, earth testers, and other electrical test & measurement instruments to electrical contractors, panel builders, testing laboratories, and industrial maintenance teams in Visakhapatnam. Every instrument is manufactured and calibrated at our works in Howrah, West Bengal, and dispatched to Andhra Pradesh by courier or transport.",
+    "metaTitle": "Insulation Tester & Earth Tester Supplier in Visakhapatnam | CIE",
+    "metaDesc": "CIE insulation testers, earth testers, clamp meters, and relay test sets - manufactured in Howrah, supplied to Visakhapatnam and across Andhra Pradesh. Request a quote.",
+    "industries": [
+      "Steel plant and port operations",
+      "Shipyard and naval establishments",
+      "Refinery and petrochemical plants",
+      "Pharma and power utilities"
+    ],
+    "localNote": "Visakhapatnam's port, steel and refinery industry runs large installations with regular earthing and insulation testing requirements."
   }
 ]
