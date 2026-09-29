@@ -1215,7 +1215,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           <EyebrowLabel text="Cities We Supply To" class="mb-4" />
           <h3 class="text-lg font-bold text-ink mb-4">Supplying instruments across India</h3>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {locations.map(({ slug, name, state }) => (
+            {locations.filter(l => l.featured).map(({ slug, name, state }) => (
               <a href={u(`/locations/${slug}/`)} class="bg-white border border-border rounded-lg px-3 py-2.5 hover:border-red transition-colors group">
                 <p class="text-xs font-bold text-ink group-hover:text-red transition-colors">{name}</p>
                 <p class="text-[10px] text-muted">{state}</p>

@@ -14,7 +14,8 @@
       "Metro, railway and infrastructure contractors",
       "Testing and calibration laboratories"
     ],
-    "localNote": "Kolkata buyers can reach our sales office and Howrah works directly, so demonstrations, custom requirements and same-day collection are possible."
+    "localNote": "Kolkata buyers can reach our sales office and Howrah works directly, so demonstrations, custom requirements and same-day collection are possible.",
+    "featured": true
   },
   {
     "slug": "howrah",
@@ -31,7 +32,8 @@
       "Railway workshops and electrical maintenance teams",
       "Panel builders and electrical contractors"
     ],
-    "localNote": "Howrah is a long-established engineering cluster, and many of our nearest customers are the workshops and foundries around the works."
+    "localNote": "Howrah is a long-established engineering cluster, and many of our nearest customers are the workshops and foundries around the works.",
+    "featured": true
   },
   {
     "slug": "bengaluru",
@@ -47,7 +49,8 @@
       "Panel and switchgear manufacturers",
       "Testing laboratories and R&D centres"
     ],
-    "localNote": "Bengaluru's electronics, aerospace and data-centre facilities need dependable insulation and earth testing for routine maintenance."
+    "localNote": "Bengaluru's electronics, aerospace and data-centre facilities need dependable insulation and earth testing for routine maintenance.",
+    "featured": true
   },
   {
     "slug": "chennai",
@@ -63,7 +66,8 @@
       "Ports, shipbuilding and heavy engineering",
       "Electrical contractors and panel builders"
     ],
-    "localNote": "Chennai's automotive belt and port-side engineering make earth and insulation testing a regular maintenance need."
+    "localNote": "Chennai's automotive belt and port-side engineering make earth and insulation testing a regular maintenance need.",
+    "featured": true
   },
   {
     "slug": "hyderabad",
@@ -79,7 +83,8 @@
       "Data centres and IT campuses",
       "Power transmission and distribution"
     ],
-    "localNote": "Hyderabad's pharma and defence facilities run scheduled electrical safety testing, where an earth tester and insulation tester are basic tools."
+    "localNote": "Hyderabad's pharma and defence facilities run scheduled electrical safety testing, where an earth tester and insulation tester are basic tools.",
+    "featured": true
   },
   {
     "slug": "mumbai",
@@ -95,7 +100,8 @@
       "Commercial towers and real-estate electrical contractors",
       "Chemical and process plants nearby"
     ],
-    "localNote": "Mumbai's dense commercial and port infrastructure means a large base of electrical contractors and maintenance teams."
+    "localNote": "Mumbai's dense commercial and port infrastructure means a large base of electrical contractors and maintenance teams.",
+    "featured": true
   },
   {
     "slug": "delhi",
@@ -111,7 +117,8 @@
       "Commercial and government buildings",
       "Manufacturing clusters across NCR"
     ],
-    "localNote": "Delhi NCR covers a wide spread of metro, government and manufacturing users, all served by dispatch from Howrah."
+    "localNote": "Delhi NCR covers a wide spread of metro, government and manufacturing users, all served by dispatch from Howrah.",
+    "featured": true
   },
   {
     "slug": "pune",
@@ -127,7 +134,8 @@
       "IT parks and industrial estates",
       "Panel and switchgear builders"
     ],
-    "localNote": "Pune's automotive and machine-tool plants in Chakan, Pimpri-Chinchwad and Ranjangaon maintain large motor and panel installations."
+    "localNote": "Pune's automotive and machine-tool plants in Chakan, Pimpri-Chinchwad and Ranjangaon maintain large motor and panel installations.",
+    "featured": true
   },
   {
     "slug": "ahmedabad",
@@ -143,7 +151,8 @@
       "Power distribution and solar contractors",
       "Engineering and fabrication workshops"
     ],
-    "localNote": "Ahmedabad's chemical, pharma and textile industry relies on regular motor and cable insulation checks."
+    "localNote": "Ahmedabad's chemical, pharma and textile industry relies on regular motor and cable insulation checks.",
+    "featured": true
   },
   {
     "slug": "bhubaneswar",
@@ -159,7 +168,8 @@
       "Government and infrastructure projects",
       "Electrical contractors"
     ],
-    "localNote": "Bhubaneswar is the main gateway to Odisha and sits within easy dispatch distance of our Howrah works."
+    "localNote": "Bhubaneswar is the main gateway to Odisha and sits within easy dispatch distance of our Howrah works.",
+    "featured": true
   },
   {
     "slug": "raipur",
@@ -175,7 +185,8 @@
       "Cement and mining operations",
       "State electricity board contractors"
     ],
-    "localNote": "Raipur and the Chhattisgarh belt have heavy power and steel users where earth resistance and insulation testing are routine."
+    "localNote": "Raipur and the Chhattisgarh belt have heavy power and steel users where earth resistance and insulation testing are routine.",
+    "featured": false
   },
   {
     "slug": "ranchi",
@@ -191,7 +202,8 @@
       "State electricity board engineers",
       "Electrical contractors and panel builders"
     ],
-    "localNote": "Ranchi supports the Jharkhand mining and steel belt and is a short dispatch from Howrah."
+    "localNote": "Ranchi supports the Jharkhand mining and steel belt and is a short dispatch from Howrah.",
+    "featured": false
   },
   {
     "slug": "patna",
@@ -207,7 +219,8 @@
       "Government and infrastructure works",
       "Electrical contractors"
     ],
-    "localNote": "Patna's demand comes mainly from distribution utilities, rural electrification and electrical contractors."
+    "localNote": "Patna's demand comes mainly from distribution utilities, rural electrification and electrical contractors.",
+    "featured": false
   },
   {
     "slug": "lucknow",
@@ -223,7 +236,8 @@
       "Small and medium manufacturing",
       "Electrical contractors"
     ],
-    "localNote": "Lucknow is a large base of utility engineers and contractors across Uttar Pradesh."
+    "localNote": "Lucknow is a large base of utility engineers and contractors across Uttar Pradesh.",
+    "featured": true
   },
   {
     "slug": "chandigarh",
@@ -239,7 +253,8 @@
       "Pharmaceutical and food processing",
       "Utilities across Punjab, Haryana and Himachal"
     ],
-    "localNote": "Chandigarh and the surrounding Mohali, Panchkula and Baddi belt is a hub of small industry and electrical contracting."
+    "localNote": "Chandigarh and the surrounding Mohali, Panchkula and Baddi belt is a hub of small industry and electrical contracting.",
+    "featured": false
   },
   {
     "slug": "kochi",
@@ -255,7 +270,8 @@
       "Power utilities and renewable projects",
       "Electrical contractors"
     ],
-    "localNote": "Kochi's shipyard and port-side industry favours rugged, portable insulation and earth testers."
+    "localNote": "Kochi's shipyard and port-side industry favours rugged, portable insulation and earth testers.",
+    "featured": false
   },
   {
     "slug": "nagpur",
@@ -271,7 +287,8 @@
       "Defence and ordnance establishments",
       "Panel builders and contractors"
     ],
-    "localNote": "Nagpur sits at the centre of India and serves the power, mining and defence users of Vidarbha."
+    "localNote": "Nagpur sits at the centre of India and serves the power, mining and defence users of Vidarbha.",
+    "featured": false
   },
   {
     "slug": "jaipur",
@@ -287,7 +304,8 @@
       "Cement and mining industry",
       "Electrical contractors and panel builders"
     ],
-    "localNote": "Jaipur and Rajasthan's large solar and utility base creates steady demand for earth testers and insulation testers."
+    "localNote": "Jaipur and Rajasthan's large solar and utility base creates steady demand for earth testers and insulation testers.",
+    "featured": false
   },
   {
     "slug": "jamshedpur",
@@ -303,7 +321,8 @@
       "Utility and power maintenance teams",
       "Electrical contractors"
     ],
-    "localNote": "Jamshedpur's steel and ancillary engineering cluster has large motor, cable and earthing installations that need regular testing. Dispatch from Howrah is short."
+    "localNote": "Jamshedpur's steel and ancillary engineering cluster has large motor, cable and earthing installations that need regular testing. Dispatch from Howrah is short.",
+    "featured": true
   },
   {
     "slug": "durgapur",
@@ -319,7 +338,8 @@
       "Heavy engineering and fabrication",
       "Industrial electrical contractors"
     ],
-    "localNote": "Durgapur is an industrial belt in our home state of West Bengal, so orders reach the region quickly from Howrah."
+    "localNote": "Durgapur is an industrial belt in our home state of West Bengal, so orders reach the region quickly from Howrah.",
+    "featured": false
   },
   {
     "slug": "siliguri",
@@ -335,7 +355,8 @@
       "Trading and warehousing",
       "State utility engineers and contractors"
     ],
-    "localNote": "Siliguri is the gateway to North Bengal, Sikkim and the North-East, and a common dispatch point for customers in the hill and tea-estate regions."
+    "localNote": "Siliguri is the gateway to North Bengal, Sikkim and the North-East, and a common dispatch point for customers in the hill and tea-estate regions.",
+    "featured": false
   },
   {
     "slug": "guwahati",
@@ -351,7 +372,8 @@
       "Tea and agro-processing",
       "Government and infrastructure projects"
     ],
-    "localNote": "Guwahati serves the wider North-East, where oil and gas, hydropower and distribution networks rely on portable electrical test equipment."
+    "localNote": "Guwahati serves the wider North-East, where oil and gas, hydropower and distribution networks rely on portable electrical test equipment.",
+    "featured": false
   },
   {
     "slug": "rourkela",
@@ -367,7 +389,8 @@
       "Heavy engineering workshops",
       "Electrical maintenance contractors"
     ],
-    "localNote": "Rourkela is a steel town in western Odisha whose plant maintenance teams need dependable insulation and earth testing."
+    "localNote": "Rourkela is a steel town in western Odisha whose plant maintenance teams need dependable insulation and earth testing.",
+    "featured": false
   },
   {
     "slug": "dhanbad",
@@ -383,7 +406,8 @@
       "Railway and heavy engineering",
       "Electrical contractors"
     ],
-    "localNote": "Dhanbad's coal-belt operations use large electrical installations underground and on surface, where regular insulation and earth resistance tests matter."
+    "localNote": "Dhanbad's coal-belt operations use large electrical installations underground and on surface, where regular insulation and earth resistance tests matter.",
+    "featured": false
   },
   {
     "slug": "bhilai",
@@ -399,7 +423,8 @@
       "Engineering and fabrication",
       "Electrical contractors"
     ],
-    "localNote": "Bhilai is one of India's best-known steel towns, with plant electrical teams and a broad supplier ecosystem."
+    "localNote": "Bhilai is one of India's best-known steel towns, with plant electrical teams and a broad supplier ecosystem.",
+    "featured": false
   },
   {
     "slug": "bhopal",
@@ -415,7 +440,8 @@
       "Government and public-sector establishments",
       "Panel builders and contractors"
     ],
-    "localNote": "Bhopal combines utility, public-sector and heavy electrical users across Madhya Pradesh."
+    "localNote": "Bhopal combines utility, public-sector and heavy electrical users across Madhya Pradesh.",
+    "featured": false
   },
   {
     "slug": "indore",
@@ -431,7 +457,8 @@
       "Commercial and industrial electrical contractors",
       "Textile and allied industry"
     ],
-    "localNote": "Indore and the Pithampur industrial area concentrate a wide range of manufacturing plants that maintain motors and panels."
+    "localNote": "Indore and the Pithampur industrial area concentrate a wide range of manufacturing plants that maintain motors and panels.",
+    "featured": false
   },
   {
     "slug": "kanpur",
@@ -447,7 +474,8 @@
       "Defence ordnance establishments",
       "Electrical contractors"
     ],
-    "localNote": "Kanpur's older industrial belt uses many motors, cables and panels that benefit from routine insulation resistance checks."
+    "localNote": "Kanpur's older industrial belt uses many motors, cables and panels that benefit from routine insulation resistance checks.",
+    "featured": false
   },
   {
     "slug": "ludhiana",
@@ -463,7 +491,8 @@
       "Steel re-rolling and foundries",
       "Panel builders and electrical contractors"
     ],
-    "localNote": "Ludhiana is one of North India's densest small-industry clusters, with a large base of machine shops, foundries and panel builders."
+    "localNote": "Ludhiana is one of North India's densest small-industry clusters, with a large base of machine shops, foundries and panel builders.",
+    "featured": false
   },
   {
     "slug": "vadodara",
@@ -479,7 +508,8 @@
       "Power generation and transmission",
       "Engineering fabrication"
     ],
-    "localNote": "Vadodara has a strong petrochemical and heavy-electrical base, where earthing and insulation testing are compliance-driven."
+    "localNote": "Vadodara has a strong petrochemical and heavy-electrical base, where earthing and insulation testing are compliance-driven.",
+    "featured": false
   },
   {
     "slug": "surat",
@@ -495,7 +525,8 @@
       "Chemical and power users",
       "Electrical contractors and panel builders"
     ],
-    "localNote": "Surat's textile and processing mills run large motor loads that need periodic insulation testing."
+    "localNote": "Surat's textile and processing mills run large motor loads that need periodic insulation testing.",
+    "featured": false
   },
   {
     "slug": "nashik",
@@ -511,7 +542,8 @@
       "Agro-processing",
       "Power utilities and contractors"
     ],
-    "localNote": "Nashik has an established electrical-equipment manufacturing cluster and a network of industrial estates."
+    "localNote": "Nashik has an established electrical-equipment manufacturing cluster and a network of industrial estates.",
+    "featured": false
   },
   {
     "slug": "aurangabad",
@@ -527,7 +559,8 @@
       "Engineering units at Waluj and Chikalthana",
       "Electrical contractors"
     ],
-    "localNote": "The Waluj, Chikalthana and Shendra industrial areas are large maintenance-heavy manufacturing clusters."
+    "localNote": "The Waluj, Chikalthana and Shendra industrial areas are large maintenance-heavy manufacturing clusters.",
+    "featured": false
   },
   {
     "slug": "coimbatore",
@@ -543,7 +576,8 @@
       "Foundries and engineering works",
       "Panel builders and contractors"
     ],
-    "localNote": "Coimbatore is a pump, motor and textile centre, so motor winding insulation testing is part of everyday maintenance."
+    "localNote": "Coimbatore is a pump, motor and textile centre, so motor winding insulation testing is part of everyday maintenance.",
+    "featured": false
   },
   {
     "slug": "visakhapatnam",
@@ -559,6 +593,7 @@
       "Refinery and petrochemical plants",
       "Pharma and power utilities"
     ],
-    "localNote": "Visakhapatnam's port, steel and refinery industry runs large installations with regular earthing and insulation testing requirements."
+    "localNote": "Visakhapatnam's port, steel and refinery industry runs large installations with regular earthing and insulation testing requirements.",
+    "featured": false
   }
 ]

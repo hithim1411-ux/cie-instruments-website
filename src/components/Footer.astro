@@ -82,7 +82,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <p class="text-white text-xs font-semibold uppercase tracking-[0.15em] mb-3 font-mono">Cities We Supply</p>
       <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs">
-        {locations.map(loc => (
+        {locations.filter(l => l.featured).map(loc => (
           <a href={u(`/locations/${loc.slug}/`)} class="hover:text-white transition-colors">{loc.name}</a>
         ))}
         <a href={u('/locations/')} class="text-red hover:text-red-dark transition-colors font-medium">All locations →</a>
