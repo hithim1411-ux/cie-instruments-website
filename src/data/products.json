@@ -1077,8 +1077,8 @@
     "categoryId": "digital-insulation-testers",
     "model": "DIT-2500",
     "name": "Digital Insulation Tester + Multimeter - up to 2500 V",
-    "tagline": "Combined digital insulation tester (100 V\u20132500 V, 50 G\u03a9) and True-RMS multimeter with DAR, PI, capacitance, and diode test. CAT III 1000 V / CAT IV 600 V.",
-    "description": "The DIT-2500 combines a digital insulation resistance tester with a full-function True-RMS digital multimeter in one handheld instrument. Insulation testing at five selectable voltages (100 V to 2500 V) with resistance measurement to 50 G\u03a9, including Dielectric Absorption Ratio (DAR) and Polarization Index (PI) calculations. Also functions as a general-purpose multimeter: AC/DC voltage up to 1500 V, resistance to 60 M\u03a9, capacitance to 100 mF, continuity, diode test, and ACV-Hz frequency measurement. Powered by rechargeable Li-ion battery (3.7 V \u00d7 2). Safety rated CAT III 1000 V / CAT IV 600 V. Features data hold, backlight, and auto power-off. Dimensions: 189 \u00d7 89 \u00d7 55 mm. Weight: approx. 380 g.",
+    "tagline": "Combined digital insulation tester (100 V\u20132500 V, 50 G\u03a9) and True-RMS multimeter with DAR, PI, capacitance, and diode test. CAT III 1000 V.",
+    "description": "The DIT-2500 combines a digital insulation resistance tester with a full-function True-RMS digital multimeter in one handheld instrument. Insulation testing at five selectable voltages (100 V to 2500 V) with resistance measurement to 50 G\u03a9, including Dielectric Absorption Ratio (DAR) and Polarization Index (PI) calculations. Also functions as a general-purpose multimeter: AC/DC voltage up to 1500 V, resistance to 60 M\u03a9, capacitance to 100 mF, continuity, diode test, and ACV-Hz frequency measurement. Powered by rechargeable Li-ion battery (3.7 V \u00d7 2). Safety rated CAT III 1000 V. Features data hold, backlight, and auto power-off. Dimensions: 189 \u00d7 89 \u00d7 55 mm. Weight: approx. 380 g.",
     "specs": [
       {
         "label": "Insulation Test Voltage",
@@ -1122,7 +1122,7 @@
       },
       {
         "label": "Safety Category",
-        "value": "CAT III 1000 V / CAT IV 600 V"
+        "value": "CAT III 1000 V"
       },
       {
         "label": "Dimensions (L\u00d7W\u00d7H)",
@@ -1148,7 +1148,7 @@
     "specTables": [],
     "includedWith": [],
     "metaTitle": "DIT-2500 Digital Insulation Tester + Multimeter, 2500 V / 50 G\u03a9 | Cambridge Instruments (CIE)",
-    "metaDesc": "DIT-2500: digital insulation tester (100\u20132500 V, 50 G\u03a9, DAR, PI) combined with True-RMS multimeter. CAT III 1000 V / CAT IV 600 V. Li-ion rechargeable. Cambridge Instruments & Engg. Co., Howrah.",
+    "metaDesc": "DIT-2500: digital insulation tester (100\u20132500 V, 50 G\u03a9, DAR, PI) combined with True-RMS multimeter. CAT III 1000 V. Li-ion rechargeable. Cambridge Instruments & Engg. Co., Howrah.",
     "images": [
       "dit-2500.webp",
       "dit-2500-2.webp"
