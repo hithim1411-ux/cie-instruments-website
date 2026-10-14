@@ -1,0 +1,56 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Mining in southern and western Africa and oil and gas in the Gulf share a reliance on large motors, long cable runs and equipment that cannot afford unplanned downtime. Insulation testing is the cheapest way to find a failing motor or cable before it takes a production line with it. This guide covers how to set up a practical programme for those environments.
+</p>
+
+<h2 id="why-it-matters">Why These Sites Are Demanding</h2>
+
+<p>
+  Heavy motors run for long hours, often in heat, dust, moisture or corrosive atmospheres, and a failure can stop an entire process. Long cables to remote pumps and conveyors add leakage paths. Testing at planned intervals and trending the results turns a surprise failure into a scheduled repair.
+</p>
+
+<h2 id="spot-vs-pi">Spot Readings and the Polarisation Index</h2>
+
+<p>
+  A single one-minute reading is a quick screen. The polarisation index, the 10-minute reading divided by the 1-minute reading, is more revealing for larger machines because it separates good dry insulation from damp or contaminated insulation. Standards for rotating machines give minimum PI values, and a commonly cited figure for modern insulation classes is 2.0, but follow the standard and the manufacturer's guidance for your motor. Our <a href={u('/blog/what-is-a-megger/')}>Megger guide</a> explains PI and DAR in detail.
+</p>
+
+<Callout type="warning" title="Discharge after every test">
+  Insulation under test stores charge like a capacitor. Large motors and long cables can hold a dangerous charge after the test. Discharge through the instrument's discharge path or a suitable resistor, and keep earthed for as long as the standard requires.
+</Callout>
+
+<h2 id="voltage-selection">Choosing the Test Voltage</h2>
+
+<p>
+  Test voltage should follow the rated voltage of the equipment, and standards give recommended levels by rating. Low-voltage motors are commonly tested at 500 V or 1000 V, while medium-voltage machines call for 2500 V or 5000 V. Using too low a voltage can hide defects, and too high can damage aged insulation. Read <a href={u('/blog/motor-insulation-testing-schedule/')}>the motor insulation testing schedule</a> and <a href={u('/blog/how-to-choose-an-insulation-tester/')}>how to choose an insulation tester</a>.
+</p>
+
+<h2 id="cables">Cables and Long Runs</h2>
+
+<p>
+  Test cables between phases and from each phase to earth, with both ends isolated. Long cables have high capacitance, so allow a longer charging time before reading and discharge fully afterwards. Compare each phase to its neighbours, since a single low phase is the clearest sign of a developing fault. For related tests, see <a href={u('/blog/continuity-vs-insulation-vs-contact-resistance/')}>continuity, insulation and contact resistance compared</a>.
+</p>
+
+<h2 id="instruments">Instruments for This Work</h2>
+
+<p>
+  For sustained PI tests in the field, the motor-driven CIE/777 range holds a steady voltage for as long as needed. These are available as single-range and multirange motorised and motor-cum-hand-driven versions, listed under <a href={u('/products/motor-operated-insulation/')}>motor-operated insulation testers</a>. For battery-powered work, the DIT-5000 digital insulation tester offers 500 V, 1000 V, 2500 V and 5000 V output and readings to 200 GΩ, and the DIT-2500 adds DAR and PI calculation. Both are under <a href={u('/products/digital-insulation-testers/')}>digital insulation testers</a>.
+</p>
+
+<h2 id="programme">Building the Programme</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>List every critical motor and cable, with its rated voltage.</li>
+  <li>Set an interval by criticality and environment.</li>
+  <li>Test the same way each time and record temperature.</li>
+  <li>Correct to a reference temperature and trend the results.</li>
+  <li>Act on a falling trend, not just on a failed limit.</li>
+</ul>
+
+<p>
+  <a href={u('/contact/')}>Tell us your motor ratings</a> and site conditions and we will help you pick the right insulation testers.
+</p>

@@ -1,0 +1,56 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Coastal Gulf cities, West African ports and East African shorelines share a testing problem: high temperature, high humidity and salt in the air. All three pull insulation resistance readings down, and not always because the insulation is bad. This guide explains what is really happening and how to take a reading you can trust.
+</p>
+
+<h2 id="three-effects">Three Effects That Lower a Reading</h2>
+
+<p>
+  <strong>Temperature.</strong> Insulation resistance falls as temperature rises, roughly halving for every 10°C increase. A motor tested hot reads much lower than the same motor tested cold. <strong>Moisture.</strong> Absorbed water inside the insulation and a film of condensation on its surface both create leakage paths. <strong>Salt and dust.</strong> A salt-laden surface film conducts even when it looks dry, so a contaminated terminal box can give a poor result on perfectly sound windings.
+</p>
+
+<Callout type="warning" title="Do not compare readings across temperatures">
+  A single number means little unless you also record the winding or cable temperature. Correct readings to a standard reference temperature before comparing them with a limit or with last year's result. Our <a href={u('/blog/insulation-resistance-temperature-correction/')}>temperature correction guide</a> shows how.
+</Callout>
+
+<h2 id="surface-leakage">Separating Surface Leakage with the Guard Terminal</h2>
+
+<p>
+  Surface leakage flows across the outside of the insulation, while the reading you want is the current through the bulk of it. A guard terminal diverts the surface current around the measuring circuit so it does not count. On a humid site this can be the difference between a misleading low reading and a true one. Wrap a bare conductor around the insulation near the terminal, connect it to the guard, and the surface path is bypassed. Clean and dry the insulating surface first where you can.
+</p>
+
+<h2 id="dew-point">Beware of Testing Below the Dew Point</h2>
+
+<p>
+  If equipment is cooler than the surrounding air, moisture condenses on it. Motors that have been shut down overnight in a humid climate are a classic case. Where the insulation temperature is at or below the dew point, condensation will depress the reading. Warm the equipment slightly above ambient first, or run space heaters on idle motors so the windings stay dry.
+</p>
+
+<h2 id="trend">Trend, Do Not Just Pass or Fail</h2>
+
+<p>
+  A fixed minimum is a rough screen. The most useful information is the trend of corrected readings over time, taken in the same way each visit. A steady downward drift warns of developing trouble long before a single reading crosses a limit. For the schedule that makes a trend practical, see <a href={u('/blog/motor-insulation-testing-schedule/')}>motor insulation testing schedule</a>.
+</p>
+
+<h2 id="polarisation">Polarisation Index in Humid Conditions</h2>
+
+<p>
+  The polarisation index, the ratio of the 10-minute reading to the 1-minute reading, is largely independent of temperature, which makes it useful when you cannot control the conditions. A low value points to moisture or contamination. It needs a test voltage held steadily for ten minutes, which is why the motor-driven CIE/777 and its variants are popular for this work. They are listed under <a href={u('/products/motor-operated-insulation/')}>motor-operated insulation testers</a>, and digital options with PI and DAR built in are under <a href={u('/products/digital-insulation-testers/')}>digital insulation testers</a>. Our <a href={u('/blog/what-is-a-megger/')}>Megger guide</a> explains PI and DAR in detail.
+</p>
+
+<h2 id="checklist">Humid-Site Checklist</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>Record temperature and humidity with every reading.</li>
+  <li>Clean and dry terminals and bushings before testing.</li>
+  <li>Use the guard terminal to remove surface leakage.</li>
+  <li>Keep the equipment above the dew point.</li>
+  <li>Correct to a reference temperature and trend the results.</li>
+</ul>
+
+<p>
+  A <a href={u('/blog/thermo-hygrometer-guide/')}>thermo-hygrometer</a> in the kit makes the first item easy. For help choosing an insulation tester for a coastal site, <a href={u('/contact/')}>contact CIE</a>.
+</p>

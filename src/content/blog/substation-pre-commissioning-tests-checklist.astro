@@ -1,0 +1,83 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Substation projects in the Gulf, East Africa and West Africa are commissioned against the same underlying checks, whichever utility specification sits on top. This checklist groups the pre-commissioning tests by equipment and shows which instrument family each one calls for. Use it to plan a test kit, not to replace the client's own test procedure.
+</p>
+
+<Callout type="warning" title="The utility specification wins">
+  Every utility and EPC contract has its own test schedule, acceptance limits and witnessing rules. Where this guide and the contract differ, follow the contract.
+</Callout>
+
+<h2 id="power-transformers">Power Transformers</h2>
+
+<p>
+  Typical checks are insulation resistance between windings and to earth, polarisation index, winding resistance, turns ratio and vector group, and the dielectric strength of the oil. Insulation tests on larger transformers benefit from a steady test voltage held for ten minutes, so a motor-driven or high-voltage digital tester is preferred. Oil is checked with a BDV test set, and the method matters, as explained in <a href={u('/blog/transformer-oil-bdv-standards-compared/')}>transformer oil BDV standards compared</a>. Read <a href={u('/blog/how-to-test-a-transformer/')}>how to test a transformer</a> for the basics.
+</p>
+
+<h2 id="breakers-switchgear">Circuit Breakers and Switchgear</h2>
+
+<p>
+  Expect insulation resistance across open contacts and to earth, contact resistance across closed contacts, and a high-voltage withstand test on the assembly. Contact resistance of breakers is normally done with a high test current, often around 100 A, which is beyond a bench micro-ohm meter. Our MR-253A is a precision four-terminal bench instrument for windings, cables, relay contacts and smaller components, not a substitute for a high-current breaker contact tester. For the technique, see the <a href={u('/blog/micro-ohm-meter-guide/')}>micro-ohm meter guide</a>.
+</p>
+
+<h2 id="protection">Protection Relays</h2>
+
+<p>
+  Secondary injection proves that each relay picks up and trips at its set values and times. Single-phase over-current and earth fault relays can be tested with a current injection set, while distance and directional relays need three-phase sources with phase angle control. The <a href={u('/products/relay-test-sets/')}>relay test sets</a> cover both, and the <a href={u('/blog/how-to-choose-a-relay-test-set/')}>relay test set buying guide</a> helps with the selection.
+</p>
+
+<h2 id="earthing">Earthing System</h2>
+
+<p>
+  Measure the resistance of the earth grid and of individual electrodes, and verify continuity of the bonding to every structure and equipment frame. Touch and step voltages near the grid matter for safety, so read <a href={u('/blog/step-and-touch-potential-explained/')}>step and touch potential explained</a>. The <a href={u('/products/earth-tester/')}>earth resistance testers</a> handle the electrode measurements, and arid sites need extra thought, as covered in <a href={u('/blog/earth-resistance-testing-dry-sandy-soil/')}>earth resistance testing in dry and sandy soil</a>.
+</p>
+
+<h2 id="phasing">Phase Sequence and Phasing</h2>
+
+<p>
+  Before any motor or incomer is energised, confirm phase rotation, and before paralleling two sources, confirm they are in phase. A <a href={u('/products/phase-sequence-indicators/')}>phase sequence indicator</a> handles the rotation check quickly. Our <a href={u('/blog/phase-sequence-testing/')}>phase sequence testing guide</a> explains the procedure.
+</p>
+
+<h2 id="hv-withstand">High-Voltage Withstand</h2>
+
+<p>
+  Withstand and breakdown tests on cables, bushings and insulating materials confirm the insulation stands up to more than its working voltage. Respect the duty cycle of the test set and the discharge and earthing procedure afterwards. See <a href={u('/blog/hv-dielectric-withstand-testing-guide/')}>the HV dielectric withstand guide</a> and the CIE <a href={u('/products/hv-phase-sequence/')}>HV test sets</a>.
+</p>
+
+<h2 id="checklist-summary">Summary Table</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Equipment to test to instrument family</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Equipment</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Core test</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Instrument family</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Transformer', 'Insulation resistance, PI', 'Motorised or high-voltage insulation tester'],
+        ['Transformer oil', 'Dielectric strength', 'Oil BDV test set'],
+        ['Protection relay', 'Pick-up and trip time', 'Relay test set'],
+        ['Earth grid', 'Electrode resistance', 'Earth resistance tester'],
+        ['Incomer and motors', 'Phase rotation', 'Phase sequence indicator'],
+        ['Cable and bushings', 'HV withstand', 'AC HV test set'],
+      ].map(([a, b, c], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{c}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<p>
+  CIE has made test instruments since 1963. See our <a href={u('/industries/substation-commissioning/')}>substation commissioning</a> page, or <a href={u('/contact/')}>send us your test schedule</a> and we will suggest a kit.
+</p>

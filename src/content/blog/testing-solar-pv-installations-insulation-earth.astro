@@ -1,0 +1,56 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Solar is growing quickly in the Gulf and across Africa, from utility plants to rooftop systems and mini-grids. Commissioning a PV array safely means a short list of electrical tests that differ from ordinary AC work, because the source is live whenever there is light. This guide covers the core tests and the instruments they call for.
+</p>
+
+<Callout type="warning" title="A PV string cannot be switched off">
+  Panels produce voltage in daylight and you cannot isolate the source at its origin. DC arcs also do not extinguish like AC arcs. Use instruments rated for the DC voltage involved, follow the project method statement and never open a loaded DC connector.
+</Callout>
+
+<h2 id="core-tests">The Core Commissioning Tests</h2>
+
+<p>
+  International practice, set out in IEC 62446-1 for grid-connected systems, centres on continuity of protective earthing and equipotential bonding, polarity of every string, open-circuit voltage and short-circuit current per string, and insulation resistance of the DC circuits. Check the edition and any project-specific requirements, since test procedures and thresholds are refined between editions.
+</p>
+
+<h2 id="polarity-voc">Polarity and Open-Circuit Voltage</h2>
+
+<p>
+  Before connecting a string to the inverter, confirm its polarity and measure its open-circuit voltage. A reversed string can damage the inverter, and a string reading low points to a failed module or a bad connector. Compare each string against its neighbours under the same light. The reading must also stay below the maximum system voltage of the equipment. A multimeter with a DC range that covers the full string voltage is the right tool. See <a href={u('/products/multimeters/')}>digital multimeters</a>.
+</p>
+
+<h2 id="current">Checking String Current</h2>
+
+<p>
+  Short-circuit current is normally measured with a suitable DC-rated instrument, and working current can be checked with a DC clamp. A clamp that reads DC lets you compare string currents without breaking the circuit, which quickly exposes a shaded or faulty string. The DCM 5410 TR clamp multimeter reads both AC and DC current to 1000 A, so it suits PV and battery work. It is listed with the <a href={u('/products/clamp-meters/')}>clamp meters</a>.
+</p>
+
+<h2 id="insulation">Insulation Resistance of the DC Circuit</h2>
+
+<p>
+  The insulation test applies a DC voltage between the live conductors and earth, and the test voltage steps up with the system voltage. For higher-voltage arrays the commonly quoted minimum is 1 MΩ, and the applied voltage must never exceed what the modules and cables are rated for. Because the array is a large capacitor and a leaky one on humid mornings, readings can settle slowly, so allow the instrument time to stabilise. Short the positive and negative of the string together for the test, as the method statement specifies, so that the whole circuit is stressed against earth.
+</p>
+
+<p>
+  A digital insulation tester with selectable voltages from 500 V upward suits this work. Our <a href={u('/products/digital-insulation-testers/')}>digital insulation testers</a> cover 500 V to 5000 V ranges, and the <a href={u('/blog/how-to-choose-an-insulation-tester/')}>insulation tester buying guide</a> helps match the voltage to the system.
+</p>
+
+<h2 id="earth">Earthing the Array and Frames</h2>
+
+<p>
+  Metal mounting frames and module frames must be bonded and connected to a low-resistance earth, and lightning protection adds its own earthing requirement. In dry, sandy ground this can be harder to achieve than the electrical design assumes, so read <a href={u('/blog/earth-resistance-testing-dry-sandy-soil/')}>earth resistance testing in dry and sandy soil</a>. The resistance of the finished electrode is measured with an <a href={u('/products/earth-tester/')}>earth resistance tester</a>.
+</p>
+
+<h2 id="record">Record and Re-Test</h2>
+
+<p>
+  Keep the commissioning results as a baseline. Re-test insulation periodically, since PV cables in desert sun and sand abrasion age faster than the design life suggests. A falling insulation reading on one string is an early warning of a cable or connector problem, long before an inverter trips on an earth fault.
+</p>
+
+<p>
+  Equipping a solar project team? <a href={u('/contact/')}>Share your system voltage</a> and test list and we will recommend instruments.
+</p>

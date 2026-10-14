@@ -95,6 +95,17 @@ import VartechHighPowerSmpsGuide from '../../content/blog/vartech-high-power-smp
 import VartechLinearBenchPowerSupplyGuide from '../../content/blog/vartech-linear-bench-power-supply-guide.astro';
 import Vartech2In1OscilloscopeGuide from '../../content/blog/vartech-2-in-1-oscilloscope-guide.astro';
 import AutoRangingPowerSupplyExplained from '../../content/blog/auto-ranging-power-supply-explained.astro';
+import Bs7671Iec60364InitialVerificationInstrumentsGuide from '../../content/blog/bs-7671-iec-60364-initial-verification-instruments.astro';
+import EarthResistanceTestingDrySandySoilGuide from '../../content/blog/earth-resistance-testing-dry-sandy-soil.astro';
+import InsulationTestingHotHumidCoastalClimatesGuide from '../../content/blog/insulation-testing-hot-humid-coastal-climates.astro';
+import TestingSolarPvInstallationsInsulationEarthGuide from '../../content/blog/testing-solar-pv-installations-insulation-earth.astro';
+import TransformerOilBdvStandardsComparedGuide from '../../content/blog/transformer-oil-bdv-standards-compared.astro';
+import SubstationPreCommissioningTestsChecklistGuide from '../../content/blog/substation-pre-commissioning-tests-checklist.astro';
+import TestInstrumentsMainsVoltageFrequencyWorldwideGuide from '../../content/blog/test-instruments-mains-voltage-frequency-worldwide.astro';
+import BuyingElectricalTestInstrumentsFromIndiaImporterGuideGuide from '../../content/blog/buying-electrical-test-instruments-from-india-importer-guide.astro';
+import ElectronicsRepairTrainingLabInstrumentChecklistGuide from '../../content/blog/electronics-repair-training-lab-instrument-checklist.astro';
+import TestInstrumentsExtremeHeatDustFieldCareGuide from '../../content/blog/test-instruments-extreme-heat-dust-field-care.astro';
+import MotorCableInsulationTestingMiningOilGasGuide from '../../content/blog/motor-cable-insulation-testing-mining-oil-gas.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -197,6 +208,17 @@ const contentMap: Record<string, any> = {
   'vartech-linear-bench-power-supply-guide': VartechLinearBenchPowerSupplyGuide,
   'vartech-2-in-1-oscilloscope-guide': Vartech2In1OscilloscopeGuide,
   'auto-ranging-power-supply-explained': AutoRangingPowerSupplyExplained,
+  'bs-7671-iec-60364-initial-verification-instruments': Bs7671Iec60364InitialVerificationInstrumentsGuide,
+  'earth-resistance-testing-dry-sandy-soil': EarthResistanceTestingDrySandySoilGuide,
+  'insulation-testing-hot-humid-coastal-climates': InsulationTestingHotHumidCoastalClimatesGuide,
+  'testing-solar-pv-installations-insulation-earth': TestingSolarPvInstallationsInsulationEarthGuide,
+  'transformer-oil-bdv-standards-compared': TransformerOilBdvStandardsComparedGuide,
+  'substation-pre-commissioning-tests-checklist': SubstationPreCommissioningTestsChecklistGuide,
+  'test-instruments-mains-voltage-frequency-worldwide': TestInstrumentsMainsVoltageFrequencyWorldwideGuide,
+  'buying-electrical-test-instruments-from-india-importer-guide': BuyingElectricalTestInstrumentsFromIndiaImporterGuideGuide,
+  'electronics-repair-training-lab-instrument-checklist': ElectronicsRepairTrainingLabInstrumentChecklistGuide,
+  'test-instruments-extreme-heat-dust-field-care': TestInstrumentsExtremeHeatDustFieldCareGuide,
+  'motor-cable-insulation-testing-mining-oil-gas': MotorCableInsulationTestingMiningOilGasGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -852,6 +874,94 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'how-it-works', label: 'How Auto-Ranging Works' },
     { id: 'when-it-matters', label: 'When It Is Worth Paying For' },
     { id: 'quick-reference', label: 'Quick Reference' },
+  ],
+  'bs-7671-iec-60364-initial-verification-instruments': [
+    { id: 'test-sequence', label: 'The Standard Test Sequence' },
+    { id: 'insulation-limits', label: 'Insulation Resistance: Test Voltage and Minimum Value' },
+    { id: 'continuity-current', label: 'Continuity: The Test Current Matters' },
+    { id: 'instrument-map', label: 'Which Instrument Covers Which Test' },
+    { id: 'records', label: 'Record Everything' },
+  ],
+  'earth-resistance-testing-dry-sandy-soil': [
+    { id: 'why-high', label: 'Why Dry Ground Gives High Resistance' },
+    { id: 'measure-resistivity', label: 'Measure Soil Resistivity Before You Design' },
+    { id: 'improve', label: 'Ways to Bring Resistance Down' },
+    { id: 'verify', label: 'Verify the Finished Electrode' },
+    { id: 'instrument', label: 'Choosing the Instrument' },
+  ],
+  'insulation-testing-hot-humid-coastal-climates': [
+    { id: 'three-effects', label: 'Three Effects That Lower a Reading' },
+    { id: 'surface-leakage', label: 'Separating Surface Leakage with the Guard Terminal' },
+    { id: 'dew-point', label: 'Beware of Testing Below the Dew Point' },
+    { id: 'trend', label: 'Trend, Do Not Just Pass or Fail' },
+    { id: 'polarisation', label: 'Polarisation Index in Humid Conditions' },
+    { id: 'checklist', label: 'Humid-Site Checklist' },
+  ],
+  'testing-solar-pv-installations-insulation-earth': [
+    { id: 'core-tests', label: 'The Core Commissioning Tests' },
+    { id: 'polarity-voc', label: 'Polarity and Open-Circuit Voltage' },
+    { id: 'current', label: 'Checking String Current' },
+    { id: 'insulation', label: 'Insulation Resistance of the DC Circuit' },
+    { id: 'earth', label: 'Earthing the Array and Frames' },
+    { id: 'record', label: 'Record and Re-Test' },
+  ],
+  'transformer-oil-bdv-standards-compared': [
+    { id: 'what-bdv-tells', label: 'What BDV Actually Measures' },
+    { id: 'main-methods', label: 'The Main Methods' },
+    { id: 'sensitivity', label: 'Sensitivity to Moisture' },
+    { id: 'sampling', label: 'Sampling Matters as Much as the Tester' },
+    { id: 'choosing-tester', label: 'Choosing a Tester' },
+  ],
+  'substation-pre-commissioning-tests-checklist': [
+    { id: 'power-transformers', label: 'Power Transformers' },
+    { id: 'breakers-switchgear', label: 'Circuit Breakers and Switchgear' },
+    { id: 'protection', label: 'Protection Relays' },
+    { id: 'earthing', label: 'Earthing System' },
+    { id: 'phasing', label: 'Phase Sequence and Phasing' },
+    { id: 'hv-withstand', label: 'High-Voltage Withstand' },
+    { id: 'checklist-summary', label: 'Summary Table' },
+  ],
+  'test-instruments-mains-voltage-frequency-worldwide': [
+    { id: 'two-questions', label: 'Two Separate Questions' },
+    { id: 'typical-supplies', label: 'Typical Supplies in Major Markets' },
+    { id: 'plugged-instruments', label: 'If the Instrument Plugs In' },
+    { id: 'battery-instruments', label: 'Battery and Hand-Driven Instruments' },
+    { id: 'measurement-ratings', label: 'Match Ratings to the Network You Will Test' },
+    { id: 'frequency-measurement', label: 'Frequency Range of the Instrument' },
+    { id: 'before-you-order', label: 'Quick Pre-Order Checklist' },
+  ],
+  'buying-electrical-test-instruments-from-india-importer-guide': [
+    { id: 'specs-first', label: 'Start with the Specification, Not the Price' },
+    { id: 'questions', label: 'Ten Questions to Ask Any Supplier' },
+    { id: 'calibration-traceability', label: 'Calibration and Traceability' },
+    { id: 'shipping-terms', label: 'Shipping Terms and Paperwork' },
+    { id: 'after-sales', label: 'Plan for After-Sales' },
+    { id: 'about-cie', label: 'About Sourcing from CIE' },
+  ],
+  'electronics-repair-training-lab-instrument-checklist': [
+    { id: 'core-bench', label: 'The Core Bench: Four Instruments' },
+    { id: 'multimeter', label: 'Multimeter' },
+    { id: 'power-supply', label: 'Bench Power Supply' },
+    { id: 'oscilloscope', label: 'Oscilloscope' },
+    { id: 'add-later', label: 'Add as the Work Grows' },
+    { id: 'safety', label: 'Bench Safety' },
+  ],
+  'test-instruments-extreme-heat-dust-field-care': [
+    { id: 'read-the-limits', label: 'Read the Operating and Storage Limits' },
+    { id: 'vehicle-heat', label: 'Never Leave It in the Vehicle' },
+    { id: 'battery-heat', label: 'Batteries and Heat' },
+    { id: 'dust-sand', label: 'Dust, Sand and Ingress' },
+    { id: 'condensation', label: 'Condensation When Moving Between Environments' },
+    { id: 'thermal-effects', label: 'Thermal Effects on the Measurement Itself' },
+    { id: 'recalibration', label: 'Harsh Use Means Shorter Calibration Intervals' },
+  ],
+  'motor-cable-insulation-testing-mining-oil-gas': [
+    { id: 'why-it-matters', label: 'Why These Sites Are Demanding' },
+    { id: 'spot-vs-pi', label: 'Spot Readings and the Polarisation Index' },
+    { id: 'voltage-selection', label: 'Choosing the Test Voltage' },
+    { id: 'cables', label: 'Cables and Long Runs' },
+    { id: 'instruments', label: 'Instruments for This Work' },
+    { id: 'programme', label: 'Building the Programme' },
   ],
 };
 

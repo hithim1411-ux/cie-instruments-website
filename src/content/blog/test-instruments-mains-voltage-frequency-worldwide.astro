@@ -1,0 +1,61 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Before ordering a test instrument for another country, check the electricity supply it will meet. Most battery-powered meters do not care about the local mains, but anything that plugs in does, and so does the system you plan to test. Getting this wrong is an avoidable and expensive mistake.
+</p>
+
+<h2 id="two-questions">Two Separate Questions</h2>
+
+<p>
+  First: what supply does the <em>instrument</em> need to run, if it plugs in? Second: what voltage and frequency is the <em>installation</em> you will test? The answers decide which models suit you.
+</p>
+
+<h2 id="typical-supplies">Typical Supplies in Major Markets</h2>
+
+<p>
+  Most of the Gulf and most of Africa use a nominal 230 V single phase and 400 V three phase at 50 Hz, with some countries using 220 V or 240 V and 415 V variants. Notable exceptions exist. Saudi Arabia operates at 60 Hz, and older installations there use 127/220 V alongside newer 230/400 V networks. Because tables published online disagree and change, always confirm the current supply with the client or the local utility rather than trusting a chart.
+</p>
+
+<Callout type="warning" title="Do not rely on a country list">
+  Regions within a country can differ, and industrial sites often have their own transformers. Ask the site for the actual nominal voltage and frequency in writing.
+</Callout>
+
+<h2 id="plugged-instruments">If the Instrument Plugs In</h2>
+
+<p>
+  Mains-powered instruments are built for a stated voltage and frequency. Motor-driven insulation testers, bench micro-ohm meters, oil test sets and HV test sets in our range are specified for 230 V, 50 Hz single phase, and the CIE/RTS-33 three-phase relay test set for a 415 V three-phase supply. A motor-driven tester also depends on frequency, since the motor speed follows it. If your site runs a different voltage or 60 Hz, tell us before ordering so we can advise whether a step-down or step-up transformer or a different configuration is appropriate. We do not want you finding out at the port.
+</p>
+
+<h2 id="battery-instruments">Battery and Hand-Driven Instruments</h2>
+
+<p>
+  Hand-cranked insulation testers and earth testers need no supply at all, which makes them good for remote sites and for markets with unreliable power. Battery-powered digital meters need only suitable cells, though rechargeable models come with a charger rated for a given mains, so check that too.
+</p>
+
+<h2 id="measurement-ratings">Match Ratings to the Network You Will Test</h2>
+
+<p>
+  A meter's voltage and CAT rating must cover the network, not just the supply it runs from. A 400 V three-phase system needs an instrument rated for at least that line-to-line voltage, in the right measurement category for where you connect. See <a href={u('/blog/what-is-cat-rating/')}>what is a CAT rating</a> before specifying meters for distribution boards or incomers.
+</p>
+
+<h2 id="frequency-measurement">Frequency Range of the Instrument</h2>
+
+<p>
+  Meters and phase sequence indicators have an operating frequency range. For example, our PSI-2 phase sequence indicator is specified for 25 to 60 Hz, which covers both common supply frequencies, but you should check this for any instrument that depends on frequency. Our guide to <a href={u('/blog/how-to-measure-frequency/')}>how to measure frequency</a> may also help.
+</p>
+
+<h2 id="before-you-order">Quick Pre-Order Checklist</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>Nominal voltage and frequency of the installation under test.</li>
+  <li>Supply the instrument itself will run from, if mains-powered.</li>
+  <li>Required measurement category for the points you will connect to.</li>
+  <li>Plug type for any chargers or mains leads.</li>
+</ul>
+
+<p>
+  <a href={u('/contact/')}>Tell us your country and supply</a> and we will confirm which instruments are suitable.
+</p>

@@ -1,0 +1,102 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Across the Gulf and much of Africa, a large share of low-voltage installations are designed and inspected to BS 7671 or to a national code built on IEC 60364. Whichever one governs a project, the structure of the initial verification is the same: inspect first, then test in a set order, then record the results. This guide lists the tests and the instrument each one needs, so a contractor or importer can build the right kit before the job starts.
+</p>
+
+<Callout type="info" title="Check the governing code first">
+  National codes and utility rules differ in edition and in local amendments. Treat the figures here as the common international baseline and confirm the limits against the code or client specification that applies to your project.
+</Callout>
+
+<h2 id="test-sequence">The Standard Test Sequence</h2>
+
+<p>
+  Dead tests come first, live tests after. A typical order is continuity of protective conductors and bonding, continuity of ring final circuits where they exist, insulation resistance, polarity, earth electrode resistance where an electrode is used, earth fault loop impedance, and finally RCD operation. Running the dead tests first means you never energise a circuit that has an obvious wiring fault.
+</p>
+
+<h2 id="insulation-limits">Insulation Resistance: Test Voltage and Minimum Value</h2>
+
+<p>
+  The test voltage follows the nominal circuit voltage, and the minimum acceptable reading rises only modestly. These are the values most commonly applied:
+</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Insulation resistance - test voltage and minimum value</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Nominal circuit voltage</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Test voltage (DC)</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Minimum insulation resistance</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['SELV and PELV circuits', '250 V', '0.5 MΩ'],
+        ['Up to and including 500 V (includes 230/400 V systems)', '500 V', '1.0 MΩ'],
+        ['Above 500 V', '1000 V', '1.0 MΩ'],
+      ].map(([a, b, c], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{c}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<p>
+  The minimum is a floor, not a target. A healthy new circuit normally reads tens or hundreds of megohms, so a reading barely above the minimum on new work is a reason to investigate. Disconnect or protect surge protectors, electronic dimmers and other equipment that the test voltage could damage before you test.
+</p>
+
+<h2 id="continuity-current">Continuity: The Test Current Matters</h2>
+
+<p>
+  Protective conductor continuity is meant to be measured with a low-ohms test current, commonly specified as at least 200 mA. The buzzer mode on many general-purpose multimeters sources far less current than that and will happily pass a poor joint. Confirm what current your instrument supplies before relying on it for a formal certificate. See our <a href={u('/blog/continuity-testing-guide/')}>continuity testing guide</a> for how the mode works and where it falls short.
+</p>
+
+<h2 id="instrument-map">Which Instrument Covers Which Test</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Verification test to instrument</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Test</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Instrument</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Insulation resistance (250 / 500 / 1000 V)', 'Insulation tester with selectable test voltage'],
+        ['Earth electrode resistance', 'Earth resistance tester using the fall-of-potential method'],
+        ['Supply voltage, polarity, general checks', 'Digital multimeter or clamp multimeter'],
+        ['Phase rotation on three-phase supplies', 'Phase sequence indicator'],
+        ['Earth fault loop impedance and RCD trip tests', 'Multifunction installation tester (not in our range)'],
+      ].map(([a, b], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<p>
+  We are open about the last row: loop impedance and RCD testing need a dedicated multifunction installation tester, and that is not something CIE supplies. For the rest of the sequence, CIE covers <a href={u('/products/digital-insulation-testers/')}>digital insulation testers</a> with selectable test voltages, <a href={u('/products/earth-tester/')}>earth resistance testers</a>, <a href={u('/products/multimeters/')}>multimeters</a> and <a href={u('/products/phase-sequence-indicators/')}>phase sequence indicators</a>.
+</p>
+
+<h2 id="records">Record Everything</h2>
+
+<p>
+  A verification is only as good as its paperwork. Record the instrument serial number, the test voltage actually applied, the reading for each circuit and the date. Clients and inspectors in every market will ask for it, and a calibrated instrument with a traceable record protects the contractor if a result is ever questioned. For how often to recalibrate, read our <a href={u('/blog/calibration-interval-guide/')}>calibration interval guide</a>.
+</p>
+
+<p>
+  Planning a kit for a project outside India? <a href={u('/contact/')}>Send us the test list and your supply voltage</a> and we will tell you which instruments fit.
+</p>

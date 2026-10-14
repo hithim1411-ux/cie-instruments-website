@@ -1,0 +1,74 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Earthing designs that work well in a wet climate often struggle in the Gulf, the Sahel and other arid regions. Dry sand, gravel and rock are poor conductors, and an electrode that measured well in one season can read far higher in another. This guide explains why, how to measure soil properly before you design, and what to do when the ground simply will not cooperate.
+</p>
+
+<h2 id="why-high">Why Dry Ground Gives High Resistance</h2>
+
+<p>
+  Soil conducts mainly through moisture and the dissolved salts in it, not through the mineral grains themselves. Dry sand and rock hold almost no water, so their resistivity is very high. Temperature matters too: as soil approaches freezing or dries in extreme heat, resistivity rises. Coastal flats and salt-affected ground are a different problem, because they conduct well but are strongly corrosive to copper and steel electrodes, so the electrode material has to be chosen with that in mind.
+</p>
+
+<h2 id="measure-resistivity">Measure Soil Resistivity Before You Design</h2>
+
+<p>
+  Do not guess. Resistivity is measured with the four-pin Wenner method: four electrodes driven in a straight line at equal spacing <em>a</em>, with the instrument reading a resistance <em>R</em>. Soil resistivity is then approximately 2π × a × R. Repeating the measurement at several spacings shows how resistivity changes with depth, which tells you whether to drive rods deeper or spread the electrode wider.
+</p>
+
+<Callout type="info" title="Test in the driest conditions you can">
+  Resistivity measured just after rain or irrigation is optimistic. Measure at the end of the dry season, or add a seasonal margin, so the electrode still meets its target when the ground is at its worst.
+</Callout>
+
+<h2 id="improve">Ways to Bring Resistance Down</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Options for high-resistivity ground</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Method</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Why it helps</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Watch out for</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Drive rods deeper', 'Deeper layers are usually damper and more stable', 'Rock can stop a rod; use a drilled electrode instead'],
+        ['Several rods in parallel', 'Parallel paths lower the combined resistance', 'Space rods at least twice their length apart or they interfere'],
+        ['Conductive backfill', 'Bentonite or similar material holds moisture around the rod', 'Use a product suited to the soil and the electrode metal'],
+        ['Buried ring or mesh', 'A large surface area compensates for poor soil', 'Needs open ground and more material'],
+        ['Chemical or salt treatment', 'Lowers resistivity locally', 'Can corrode the electrode and leach away; follow local rules'],
+      ].map(([a, b, c], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{c}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<p>
+  Watering the ground gives a good reading today and a bad one next month. Treat it as a test aid, never as a design solution.
+</p>
+
+<h2 id="verify">Verify the Finished Electrode</h2>
+
+<p>
+  Once the electrode is installed, measure it with the three-point fall-of-potential method, placing the current and potential spikes far enough from the electrode that their resistance areas do not overlap. In hard or rocky ground it is often difficult to drive spikes, so wet the spike positions lightly to get a stable reading and keep the spacing generous. Our <a href={u('/blog/earth-resistance-testing-guide/')}>earth resistance testing guide</a> walks through the method step by step.
+</p>
+
+<h2 id="instrument">Choosing the Instrument</h2>
+
+<p>
+  The CIE/222M analog earth tester is available in a four-terminal version that measures both earth resistance and soil resistivity, and the DET-2000 digital earth tester offers the same four-terminal capability with an LCD readout. Both are built and calibrated by CIE. The hand-driven CIE/222M needs no batteries, which is useful at remote sites where charging is not practical. Browse the <a href={u('/products/earth-tester/')}>earth resistance testers</a> or read <a href={u('/blog/digital-vs-analog-earth-tester/')}>digital vs analog earth testers</a> to decide which suits your site.
+</p>
+
+<p>
+  Working on a project with difficult soil? <a href={u('/contact/')}>Talk to us</a> about the right instrument and range.
+</p>

@@ -1,0 +1,71 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A transformer oil breakdown voltage (BDV) result is only meaningful against the method that produced it. Utilities in the Gulf, Africa, India and elsewhere reference different standards, so the same oil sample can legitimately give different numbers depending on the test. This guide compares the main methods so you know which one your client expects and which tester you need.
+</p>
+
+<h2 id="what-bdv-tells">What BDV Actually Measures</h2>
+
+<p>
+  BDV is the voltage at which oil between two electrodes breaks down. It is mainly a screen for moisture and for particles and contamination in the oil. It does not tell you about oil chemistry such as acidity, which needs separate tests. A low BDV usually means water or dirt, and often the fix is filtering or drying the oil.
+</p>
+
+<h2 id="main-methods">The Main Methods</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">BDV test methods - key differences</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Method</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Electrodes</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Gap</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Voltage rise</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['IEC 60156', 'Spherical or similar profile', '2.5 mm', '2 kV per second'],
+        ['IS 6792', 'Brass spheres', '2.5 mm', 'About 2 kV per second'],
+        ['ASTM D877', 'Flat disc electrodes', '2.5 mm', 'Faster ramp than D1816'],
+        ['ASTM D1816', 'VDE-profile electrodes', '1 mm or 2 mm', '0.5 kV per second'],
+      ].map(([a, b, c, d], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{c}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{d}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="info" title="Always confirm against the current standard">
+  Details such as electrode profile, stirring, rest time and the number of breakdowns averaged differ between editions and between methods. This table is a comparison guide, not a substitute for the standard your client specifies.
+</Callout>
+
+<h2 id="sensitivity">Sensitivity to Moisture</h2>
+
+<p>
+  Methods with the slower ramp and tighter gap, such as D1816, tend to be more sensitive to dissolved moisture and fibres than D877. Because of this, results from different methods should never be mixed in one trend. Pick the method your utility uses, stay with it, and record it on every report.
+</p>
+
+<h2 id="sampling">Sampling Matters as Much as the Tester</h2>
+
+<p>
+  A perfect tester gives a useless result on a bad sample. Draw the sample from the bottom drain valve after flushing it, use a clean dry container, avoid exposing it to air and test it soon after drawing. Rinse the test vessel with the oil being tested, fill slowly to avoid bubbles and allow the specified rest time before applying voltage. Our <a href={u('/blog/transformer-oil-bdv-test/')}>transformer oil BDV test guide</a> covers the procedure in full.
+</p>
+
+<h2 id="choosing-tester">Choosing a Tester</h2>
+
+<p>
+  The CIE/7000 series is built to IS 6792, with brass sphere electrodes and an adjustable gap of 2.5 mm or 4 mm. It spans eight output tiers from 0 to 50 kV up to 0 to 120 kV in manual and motorised versions, with the motorised type raising voltage at about 2 kV per second. That makes it a natural fit where IEC 60156 style testing at 2.5 mm is specified, but check that the test method your client names matches the equipment before ordering. See the <a href={u('/products/oil-test-sets/')}>oil test sets</a> range for the full table of models.
+</p>
+
+<p>
+  Not sure which method your project needs? <a href={u('/contact/')}>Ask us</a> before you order, and we will help match tester to standard.
+</p>

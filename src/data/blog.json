@@ -1013,5 +1013,126 @@
     "shelf": "physics",
     "excerpt": "One supply covering a wider voltage/current territory than the maths seems to allow. Here's how auto-ranging actually works, and who actually needs it.",
     "seoTitle": "What Is an Auto-Ranging Power Supply?"
+  },
+  {
+    "slug": "bs-7671-iec-60364-initial-verification-instruments",
+    "title": "BS 7671 and IEC 60364 Initial Verification: Tests and Instruments",
+    "description": "Which tests an initial electrical verification needs, the insulation resistance limits, and which instrument covers each test, for projects in the Gulf, Africa and beyond.",
+    "publishDate": "2026-10-14",
+    "readTime": "8 min read",
+    "category": "How-To",
+    "shelf": "insulation-earthing",
+    "excerpt": "The tests, limits and instruments behind an initial verification, in the order you run them.",
+    "seoTitle": "BS 7671 / IEC 60364 Verification: Tests and Instruments"
+  },
+  {
+    "slug": "earth-resistance-testing-dry-sandy-soil",
+    "title": "Earth Resistance Testing in Dry and Sandy Soil",
+    "description": "Why dry sand and rock give high earth resistance, how to measure soil resistivity, and practical ways to bring an electrode down to target in arid regions.",
+    "publishDate": "2026-10-14",
+    "readTime": "7 min read",
+    "category": "Guides",
+    "shelf": "insulation-earthing",
+    "excerpt": "Arid ground fights your earthing design. Measure resistivity first, then choose the fix.",
+    "seoTitle": "Earth Resistance Testing in Dry, Sandy Soil"
+  },
+  {
+    "slug": "insulation-testing-hot-humid-coastal-climates",
+    "title": "Insulation Testing in Hot, Humid and Coastal Climates",
+    "description": "How heat, humidity and salt lower insulation resistance readings, and how to use the guard terminal, dew point and trending to get a reading you can trust.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "How-To",
+    "shelf": "insulation-earthing",
+    "excerpt": "Heat, humidity and salt all pull readings down. Here is how to tell real faults from site conditions.",
+    "seoTitle": "Insulation Testing in Hot, Humid Climates"
+  },
+  {
+    "slug": "testing-solar-pv-installations-insulation-earth",
+    "title": "Testing Solar PV Installations: Insulation, Polarity and Earthing",
+    "description": "The core commissioning tests for a solar PV array, polarity, open-circuit voltage, string current, insulation resistance and earthing, and the instruments each needs.",
+    "publishDate": "2026-10-14",
+    "readTime": "7 min read",
+    "category": "Guides",
+    "shelf": "power-quality",
+    "excerpt": "A practical commissioning test list for PV arrays and the instruments that fit each step.",
+    "seoTitle": "Testing Solar PV: Insulation, Polarity, Earthing"
+  },
+  {
+    "slug": "transformer-oil-bdv-standards-compared",
+    "title": "Transformer Oil BDV Standards Compared: IEC 60156, IS 6792, ASTM",
+    "description": "How the main transformer oil breakdown voltage test methods differ in electrodes, gap and voltage rise, and how to match a BDV tester to your client standard.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "Guides",
+    "shelf": "relay-hv",
+    "excerpt": "Same oil, different method, different number. Know which standard your client expects.",
+    "seoTitle": "Transformer Oil BDV: IEC, IS and ASTM Compared"
+  },
+  {
+    "slug": "substation-pre-commissioning-tests-checklist",
+    "title": "Substation Pre-Commissioning Tests: Equipment Checklist",
+    "description": "A checklist of pre-commissioning tests for transformers, switchgear, relays, earthing and phasing, with the instrument family each test needs.",
+    "publishDate": "2026-10-14",
+    "readTime": "8 min read",
+    "category": "Guides",
+    "shelf": "relay-hv",
+    "excerpt": "Plan a substation test kit: the core test for each piece of equipment and the instrument for it.",
+    "seoTitle": "Substation Pre-Commissioning Test Checklist"
+  },
+  {
+    "slug": "test-instruments-mains-voltage-frequency-worldwide",
+    "title": "Mains Voltage and Frequency Worldwide: Choosing Test Instruments",
+    "description": "What to check about supply voltage, frequency and ratings before ordering electrical test instruments for another country, and why country lists should not be trusted blindly.",
+    "publishDate": "2026-10-14",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "shelf": "physics",
+    "excerpt": "Check the supply before you order. A short pre-order checklist for buyers outside India.",
+    "seoTitle": "Mains Voltage and Frequency: Test Instrument Check"
+  },
+  {
+    "slug": "buying-electrical-test-instruments-from-india-importer-guide",
+    "title": "Buying Electrical Test Instruments from India: An Importer Guide",
+    "description": "Ten questions to ask any supplier, plus notes on calibration certificates, shipping terms and after-sales, for importers in the Gulf, Africa and other markets.",
+    "publishDate": "2026-10-14",
+    "readTime": "7 min read",
+    "category": "Buying Guide",
+    "shelf": "calibration",
+    "excerpt": "What overseas buyers should ask before ordering test and measuring instruments.",
+    "seoTitle": "Importing Test Instruments from India: A Buyer Guide"
+  },
+  {
+    "slug": "electronics-repair-training-lab-instrument-checklist",
+    "title": "Equipping an Electronics Repair Shop or Training Lab",
+    "description": "The instruments every electronics repair bench or technical training lab needs first, what to add as it grows, and how to choose each one.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "Buying Guide",
+    "shelf": "bench-tools",
+    "excerpt": "The four instruments to buy first, and what to add as your repair shop or lab grows.",
+    "seoTitle": "Electronics Repair Shop and Training Lab Checklist"
+  },
+  {
+    "slug": "test-instruments-extreme-heat-dust-field-care",
+    "title": "Using Test Instruments in Extreme Heat and Dust",
+    "description": "How to protect accuracy and instrument life in desert and hot-climate field work: operating limits, batteries, dust, condensation and calibration intervals.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "How-To",
+    "shelf": "environmental",
+    "excerpt": "Field care for meters and testers in desert heat, sand and sudden humidity.",
+    "seoTitle": "Test Instruments in Extreme Heat and Dust"
+  },
+  {
+    "slug": "motor-cable-insulation-testing-mining-oil-gas",
+    "title": "Motor and Cable Insulation Testing for Mining and Oil and Gas",
+    "description": "How to build a practical insulation testing programme for large motors and long cables, covering PI, test voltage selection, safety and instrument choice.",
+    "publishDate": "2026-10-14",
+    "readTime": "7 min read",
+    "category": "How-To",
+    "shelf": "insulation-earthing",
+    "excerpt": "Large motors and long cables cannot fail unplanned. A testing programme that catches faults early.",
+    "seoTitle": "Motor and Cable Insulation Testing: Mining, Oil and Gas"
   }
 ]
