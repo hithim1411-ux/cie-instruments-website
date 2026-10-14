@@ -1,0 +1,75 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Protection testing uses two different techniques, primary injection and secondary injection, and the words are often used loosely. They test different parts of the protection chain, and a complete commissioning usually needs both. This guide explains the difference and when each is used.
+</p>
+
+<h2 id="chain">The Protection Chain</h2>
+
+<p>
+  A protection scheme has several links. The current transformer (CT) senses the primary current, wiring carries the secondary current to a relay, the relay decides and issues a trip, and the trip circuit operates the breaker. A fault in any link defeats the protection.
+</p>
+
+<h2 id="secondary">Secondary Injection</h2>
+
+<p>
+  Secondary injection feeds a controlled current directly into the relay's current input, bypassing the CT. It tests the relay itself: its pick-up, its time characteristic and its output contacts. Because the current is small, the equipment is portable and the test is repeatable. The CIE/RTS-5 and RTS-33 relay test sets work in this way. See <a href={u('/blog/idmt-relay-curves-explained/')}>IDMT relay curves explained</a> for what is verified.
+</p>
+
+<h2 id="primary">Primary Injection</h2>
+
+<p>
+  Primary injection passes a large current through the actual primary conductor, such as a busbar or cable, so that it flows through the CT, the secondary wiring and the relay. It proves the whole chain, including the CT ratio, polarity and wiring. It needs a high-current, low-voltage source, which is heavy, and it must be done with the circuit isolated and set up carefully.
+</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Primary versus secondary injection</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">&nbsp;</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Secondary injection</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Primary injection</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Where current is applied', 'Relay current input', 'Primary conductor through the CT'],
+        ['What it proves', 'Relay settings, timing and contacts', 'CT ratio, polarity, wiring and the relay together'],
+        ['Equipment', 'Portable, lower current', 'Heavy, very high current'],
+        ['Effort', 'Quick and repeatable', 'Slower, more preparation'],
+      ].map(([a, b, c], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{c}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="warning" title="CT secondaries must never be open-circuited">
+  An energised CT with an open secondary can develop a dangerously high voltage. Always short the CT secondary before working on wiring, and follow the isolation and shorting procedure for the scheme.
+</Callout>
+
+<h2 id="which">Which Do You Need?</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>Routine maintenance on an existing relay: secondary injection is usually enough.</li>
+  <li>New installation or replaced CT or wiring: primary injection is normally added to prove the whole path.</li>
+  <li>Fault investigation: start with secondary to rule out the relay, then primary if the cause is not found.</li>
+</ul>
+
+<h2 id="what-cie">What CIE Supplies</h2>
+
+<p>
+  CIE's relay test sets are secondary injection instruments, and we do not supply primary injection sets. They cover single-phase over-current and earth fault testing and three-phase testing with phase angle control for directional and distance relays. See <a href={u('/products/relay-test-sets/')}>relay test sets</a>, and read <a href={u('/blog/how-to-choose-a-relay-test-set/')}>how to choose a relay test set</a> and <a href={u('/blog/substation-pre-commissioning-tests-checklist/')}>the substation pre-commissioning checklist</a>.
+</p>
+
+<p>
+  <a href={u('/contact/')}>Contact CIE</a> to discuss your protection testing.
+</p>

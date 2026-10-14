@@ -1,0 +1,61 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Submersible pumps and borewell cables are among the hardest-working and most failure-prone electrical assets in India, with farms, townships and industries all depending on them. When a pump trips or will not start, the fault is usually in the motor winding or in the long cable down the bore. A quick insulation test tells you which, before you spend hours and money pulling the pump.
+</p>
+
+<h2 id="why-fails">Why Submersible Systems Fail</h2>
+
+<p>
+  The motor and cable operate in water, and any damage to the insulation lets moisture in. Common causes include abrasion of the cable against the bore wall, joint failures, voltage surges and running dry, which overheats the winding. Monsoon seasons raise water tables and add lightning-induced surges on top of that.
+</p>
+
+<h2 id="test-at-surface">Start at the Surface</h2>
+
+<p>
+  With the supply isolated and locked off, disconnect the pump at the starter or control panel and test from there. Measure insulation resistance of each phase to earth and between phases with the cable and motor connected. A healthy installation reads high on every phase. If a phase reads low, the fault is somewhere between the panel and the motor, and the next step is to isolate which section.
+</p>
+
+<Callout type="warning" title="Always isolate and discharge">
+  Lock off the supply before touching conductors. The long cable stores charge after a test, so discharge it fully before you disconnect the instrument.
+</Callout>
+
+<h2 id="locate">Separate the Cable from the Motor</h2>
+
+<p>
+  If the pump is out of the borewell, disconnect the cable from the motor and test each separately. A low reading on the cable alone points to cable damage, and a low reading on the motor alone points to winding failure. Before assuming the winding is bad, dry and clean the motor leads, since moisture on a damaged joint can mimic a winding fault. See <a href={u('/blog/how-to-test-motor-windings/')}>how to test motor windings</a> for the full procedure.
+</p>
+
+<h2 id="test-voltage">Test Voltage</h2>
+
+<p>
+  For low-voltage submersible motors, a test voltage of 500 V is the usual choice, and 1000 V is used on larger or higher-voltage motors. A 500 V instrument covers the majority of agricultural and domestic pump work. See <a href={u('/blog/how-to-choose-an-insulation-tester/')}>how to choose an insulation tester</a> for matching the range to the equipment.
+</p>
+
+<h2 id="readings">What the Readings Mean</h2>
+
+<p>
+  A reading of many megohms indicates sound insulation. A reading that is low but steady suggests moisture or contamination that may recover with drying. A reading that is near zero or unstable points to a breakdown in the insulation. Record the reading when a pump is installed and use it as a baseline, because a drop from that figure is more telling than any fixed limit. Our <a href={u('/blog/insulation-resistance-temperature-correction/')}>temperature correction guide</a> helps compare readings fairly.
+</p>
+
+<h2 id="field-instruments">Instruments for Field Work</h2>
+
+<p>
+  Pump work happens at remote wells, often without mains power, which makes hand-driven testers popular. CIE's hand-cranked models need no battery and the compact CIE/555 weighs only about 1.4 kg. They are listed under <a href={u('/products/insulation-testers-hand/')}>hand-driven insulation testers</a> and <a href={u('/products/compact-insulation-testers/')}>compact insulation testers</a>. For battery-powered digital readings, see <a href={u('/products/digital-insulation-testers/')}>digital insulation testers</a>.
+</p>
+
+<h2 id="prevention">Prevention</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>Fit proper surge and dry-run protection.</li>
+  <li>Test and record insulation each season, before the monsoon.</li>
+  <li>Use correctly rated, sealed cable joints.</li>
+  <li>Check the earthing of the starter and pump frame.</li>
+</ul>
+
+<p>
+  Servicing pumps for a living? <a href={u('/contact/')}>Ask us</a> which tester suits your work.
+</p>

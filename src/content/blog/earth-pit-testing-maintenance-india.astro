@@ -1,0 +1,65 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Walk around any Indian factory, apartment complex or substation and you will find earth pits, the concrete-capped chambers where the earth electrode meets the ground. Most are installed once and then forgotten, until a shock, a trip or an inspection shows they no longer work. This guide covers how an earth pit works, how to test it and how to keep it effective.
+</p>
+
+<h2 id="how-pit-works">How a Typical Earth Pit Works</h2>
+
+<p>
+  A common design is a GI pipe or a copper or GI plate buried vertically in a pit, surrounded by layers of charcoal and salt or a modern conductive backfill. A pipe above ground lets water be poured in to keep the surrounding soil moist. The earthing conductor connects the electrode to the installation, and a test link or removable connection allows measurement.
+</p>
+
+<h2 id="why-degrade">Why Earth Pits Degrade</h2>
+
+<p>
+  Water and salt wash away over a season, so the surrounding soil dries and resistance climbs. The electrode itself corrodes, especially GI in aggressive soil. Connections loosen or corrode, and in some pits the conductor is simply cut or missing. A pit that tested well when new may be nearly useless a few years later.
+</p>
+
+<h2 id="how-test">How to Test an Earth Pit</h2>
+
+<ol class="list-decimal pl-6 space-y-2 my-4">
+  <li>Disconnect the electrode from the installation, or use a method suited to a live connection.</li>
+  <li>Drive the current and potential spikes in a straight line away from the pit, at the spacing the instrument manual gives.</li>
+  <li>Take the reading with the three-point method and repeat with the potential spike moved slightly to confirm a stable value.</li>
+  <li>Record the result with the date, soil condition and recent weather.</li>
+</ol>
+
+<Callout type="warning" title="Never test a live system carelessly">
+  Disconnecting an earth electrode removes protection from the installation. Plan the work, isolate the supply where required and reconnect and tighten the link before re-energising. See <a href={u('/blog/earth-resistance-testing-guide/')}>the earth resistance testing guide</a> for the full method.
+</Callout>
+
+<h2 id="interpret">Interpreting the Result</h2>
+
+<p>
+  Compare the reading with the target for the installation, and with the previous reading for the same pit. A pit that has doubled in resistance since last year needs attention even if it still passes. Our guide on <a href={u('/blog/how-low-should-earth-resistance-be/')}>how low earth resistance should be</a> explains typical targets.
+</p>
+
+<h2 id="maintain">Keeping It Effective</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>Water the pit regularly in dry months through the watering pipe.</li>
+  <li>Test at least once a year, and test in the driest season for a worst-case figure.</li>
+  <li>Inspect and tighten the connections, and replace corroded conductor.</li>
+  <li>Consider a conductive backfill or a larger or deeper electrode if resistance stays high.</li>
+  <li>Label each pit and keep a register of readings.</li>
+</ul>
+
+<h2 id="bad-soil">If the Soil Is Simply Bad</h2>
+
+<p>
+  Sandy, rocky or dry ground may never give a low reading with a single pit. Measure resistivity first, then use deeper electrodes, several pits in parallel or a buried ring. See <a href={u('/blog/earth-resistance-testing-dry-sandy-soil/')}>earth resistance testing in dry and sandy soil</a> for options.
+</p>
+
+<h2 id="instrument">Instruments</h2>
+
+<p>
+  The CIE/222M hand-driven earth tester and the DET-2000 digital earth tester are made by CIE for exactly this work. Read <a href={u('/blog/digital-vs-analog-earth-tester/')}>digital versus analog earth testers</a>, then see the <a href={u('/products/earth-tester/')}>earth resistance testers</a>.
+</p>
+
+<p>
+  Looking after a site's earthing? <a href={u('/contact/')}>Contact CIE</a> to choose an instrument.
+</p>

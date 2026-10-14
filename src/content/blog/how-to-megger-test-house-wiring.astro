@@ -1,0 +1,58 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Whether you have just rewired a flat, built a new house or want to check why an MCB or RCD keeps tripping, an insulation resistance test of the wiring is the standard check. Often called "megger testing", it finds damaged insulation that a multimeter cannot. This guide shows how to do it safely on domestic wiring.
+</p>
+
+<Callout type="warning" title="Isolate first and let a competent person do it">
+  The test applies up to 500 V to the circuit. Switch off and lock off the supply, prove it dead, and never test on a live circuit. If you are not trained in electrical testing, hire a licensed electrician.
+</Callout>
+
+<h2 id="what-it-finds">What the Test Finds</h2>
+
+<p>
+  Wiring insulation can be nicked during installation, crushed behind a switch box, chewed by rodents or degraded by heat and moisture. Current leaks from a live conductor to earth or to another conductor, and over time this can trip protection or start a fire. The test measures the resistance of the insulation between conductors, and a high value means the insulation is sound.
+</p>
+
+<h2 id="preparation">Preparation</h2>
+
+<ol class="list-decimal pl-6 space-y-2 my-4">
+  <li>Switch off the main supply and isolate the circuits under test.</li>
+  <li>Switch on all lights and unplug all appliances so that the full circuit wiring is included.</li>
+  <li>Remove or disconnect items that the test voltage could damage, such as dimmers, electronic devices, surge protectors and LED drivers.</li>
+  <li>Link phase and neutral together at the distribution board for the test between the live conductors and earth.</li>
+</ol>
+
+<h2 id="procedure">Procedure</h2>
+
+<p>
+  Set the instrument to 500 V for ordinary low-voltage circuits. Test between the linked live conductors and earth for each circuit, and then between phase and neutral with the neutral separated. Hold the test for about a minute until the reading settles, and record the result. Discharge the circuit afterwards. An instrument with selectable test voltages, like the DIT-2500 or DIT-5000, covers this. See <a href={u('/products/digital-insulation-testers/')}>digital insulation testers</a> and <a href={u('/blog/what-is-a-megger/')}>what is a Megger</a>.
+</p>
+
+<h2 id="results">What Result Is Acceptable?</h2>
+
+<p>
+  For low-voltage circuits up to 500 V, the commonly applied minimum is 1 megohm at 500 V, as set out in <a href={u('/blog/bs-7671-iec-60364-initial-verification-instruments/')}>the BS 7671 verification guide</a>. Many local rules and codes use similar figures, so check the rules that apply in your region. Healthy new wiring usually reads tens or hundreds of megohms, so a reading close to the minimum deserves investigation.
+</p>
+
+<h2 id="low-reading">If a Reading Is Low</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>Disconnect equipment you missed and retest.</li>
+  <li>Split the circuit at junction points to find which section is at fault.</li>
+  <li>Check for moisture in outdoor fittings, damaged cable and burnt connections.</li>
+  <li>Repair or replace the cable, then retest before re-energising.</li>
+</ul>
+
+<h2 id="other-checks">Other Checks Worth Doing</h2>
+
+<p>
+  Insulation resistance is only one check. Also confirm earth continuity and the supply polarity, and test the RCD with its test button and, if possible, with a proper tester. A <a href={u('/products/multimeters/')}>multimeter</a> handles continuity and voltage checks. Our <a href={u('/blog/continuity-testing-guide/')}>continuity testing guide</a> covers the first.
+</p>
+
+<p>
+  Need an insulation tester for electrical work? <a href={u('/contact/')}>Ask CIE</a>.
+</p>

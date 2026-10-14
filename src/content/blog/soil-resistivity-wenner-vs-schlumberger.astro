@@ -1,0 +1,73 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Before you design an earthing system, you need to know how well the ground conducts. Soil resistivity measurement gives you that, and the choice of method affects both the effort in the field and the quality of the answer. This guide compares the two most common four-pin methods and explains what a four-terminal earth tester does.
+</p>
+
+<h2 id="what-measured">What Resistivity Tells You</h2>
+
+<p>
+  Resistivity, measured in ohm-metres, describes the soil itself rather than any particular electrode. Combined with the electrode design, it lets you predict the resistance you will get before you dig. Measured at several depths, it shows whether deeper soil is better or worse than the surface, which decides whether to go deeper or wider.
+</p>
+
+<h2 id="four-pin">The Four-Pin Principle</h2>
+
+<p>
+  In both methods, a current is passed between two outer electrodes and the resulting voltage is measured between two inner ones. Because the voltage electrodes carry almost no current, contact resistance does not spoil the result. That is why a four-terminal instrument is used for resistivity, and why the DET-2000 and the four-terminal CIE/222M both offer it. See <a href={u('/products/earth-tester/')}>earth resistance testers</a>.
+</p>
+
+<h2 id="wenner">The Wenner Method</h2>
+
+<p>
+  Four pins are placed in a line at equal spacing <em>a</em>. Resistivity is approximately 2π × a × R, where R is the measured resistance. To profile depth, the spacing is increased in steps, and the reading roughly reflects soil to a depth comparable to the spacing. It is simple, the formula is easy and the layout is easy to repeat, which is why it is the most common field method.
+</p>
+
+<h2 id="schlumberger">The Schlumberger Method</h2>
+
+<p>
+  Here the inner voltage pins stay fixed near the centre while the outer current pins are moved outward. Because the inner pins are not repositioned at every step, there are fewer moves and it is less sensitive to local variation near the pins. It suits deep investigations where long spacings make repeated repositioning of all four pins impractical, but the calculation is more involved.
+</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Wenner versus Schlumberger</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">&nbsp;</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Wenner</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Schlumberger</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Pin layout', 'Equal spacing, all four pins move', 'Inner pins fixed, outer pins move'],
+        ['Field effort', 'More pin moves', 'Fewer pin moves at large spacing'],
+        ['Calculation', 'Simple', 'More involved'],
+        ['Typical use', 'Earthing design and most surveys', 'Deeper investigation'],
+      ].map(([a, b, c], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{c}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="tip" title="Practical tips">
+  Keep the pins in a straight line, drive them to a consistent shallow depth, keep leads apart so they do not couple, and avoid buried metal pipes near the line. Take readings in two perpendicular directions to spot unevenness.
+</Callout>
+
+<h2 id="use-results">Using the Results</h2>
+
+<p>
+  Plot resistivity against spacing. A falling curve means deeper soil is better, which favours long rods. A rising curve means deeper soil is worse, which favours a wide, shallow arrangement. Practical consequences for difficult ground are in <a href={u('/blog/earth-resistance-testing-dry-sandy-soil/')}>earth resistance testing in dry and sandy soil</a>, and the electrode test method is in <a href={u('/blog/earth-resistance-testing-guide/')}>how to test earth resistance</a>.
+</p>
+
+<p>
+  Doing a soil survey? <a href={u('/contact/')}>Talk to CIE</a> about a four-terminal earth tester.
+</p>

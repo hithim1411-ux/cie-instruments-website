@@ -1,0 +1,73 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Polarization Index (PI) and Dielectric Absorption Ratio (DAR) are the two time-based insulation tests found on better testers. Both take a single instrument and a single connection, yet tell you far more than a spot reading. This guide explains how each is calculated, how to read the result and when to choose one over the other.
+</p>
+
+<h2 id="idea">The Idea Behind Both Tests</h2>
+
+<p>
+  When you apply a steady DC test voltage to insulation, the current falls over time as the insulation polarises and absorbs charge. In clean, dry insulation the current keeps falling, so the measured resistance climbs. In damp or dirty insulation, leakage current dominates and the resistance stays flat. Taking the ratio of two readings at different times captures this trend in a single number that is largely independent of temperature and of the size of the machine.
+</p>
+
+<h2 id="calculation">How Each Is Calculated</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">PI and DAR</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">&nbsp;</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Polarization Index</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Dielectric Absorption Ratio</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Calculation', 'Resistance at 10 min divided by resistance at 1 min', 'Resistance at 60 s divided by resistance at 30 s (or at 15 s)'],
+        ['Test length', '10 minutes', 'About 1 minute'],
+        ['Best for', 'Large motors, generators, transformers', 'Quick check, or where a 10 minute test is not practical'],
+        ['Sensitivity', 'Better at revealing moisture and contamination', 'Faster, less discriminating'],
+      ].map(([a, b, c], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{c}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="interpret">Reading the Result</h2>
+
+<p>
+  A commonly used guide for PI is that a value below 1 is poor, between 1 and 2 is questionable, between 2 and 4 is good and above 4 is excellent. Standards for rotating machines give minimum values by insulation class, with 2.0 often cited for modern classes. DAR guides are broadly similar, with values around 1.25 to 1.6 or higher often regarded as acceptable. Always follow the standard and the manufacturer's guidance for the machine, since limits vary.
+</p>
+
+<Callout type="warning" title="Very high resistance can hide a poor PI">
+  If the insulation resistance is already extremely high, current is so small that the readings barely change, and PI can come out close to 1 even though the insulation is perfectly good. Where the one-minute reading is already in the gigohm range, a low PI should not be treated as a failure by itself.
+</Callout>
+
+<h2 id="requirements">What the Instrument Needs</h2>
+
+<p>
+  The test voltage must stay steady for the full duration, and the instrument must hold it for ten minutes without sagging. A hand-cranked tester cannot hold a test for that long, so PI work calls for a motor-driven or digital tester. The CIE/777 series is motor-driven for exactly this purpose, and the DIT-2500 digital tester calculates both DAR and PI automatically. See <a href={u('/products/motor-operated-insulation/')}>motor-operated insulation testers</a> and <a href={u('/products/digital-insulation-testers/')}>digital insulation testers</a>.
+</p>
+
+<h2 id="practical">Practical Tips</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>Discharge the winding fully and wait before starting.</li>
+  <li>Use the same test voltage each time, and record temperature.</li>
+  <li>Use the guard terminal if surface leakage is a concern.</li>
+  <li>Trend PI over years, not just against a single limit.</li>
+  <li>Discharge for at least as long as the test lasted afterwards.</li>
+</ul>
+
+<p>
+  See <a href={u('/blog/what-is-a-megger/')}>the Megger guide</a> and <a href={u('/blog/motor-insulation-testing-schedule/')}>the motor testing schedule</a> for more, and <a href={u('/contact/')}>contact CIE</a> to choose a tester.
+</p>

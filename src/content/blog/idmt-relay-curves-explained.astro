@@ -1,0 +1,72 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Over-current relays do not just trip at a set current. They trip after a time that depends on how large the current is, following a defined curve. These are the IDMT relays, short for Inverse Definite Minimum Time, and understanding their curves is essential for setting and testing protection. This guide explains the characteristic and how it is checked in practice.
+</p>
+
+<h2 id="why-inverse">Why Inverse Time</h2>
+
+<p>
+  A larger fault should be cleared faster than a small overload, and the relay nearest the fault should operate before those upstream. An inverse characteristic gives exactly that: the higher the current, the shorter the trip time. A definite minimum time means the operating time stops falling at very high currents. Coordinating several relays in series depends on these shapes being predictable.
+</p>
+
+<h2 id="equation">The Standard Equation</h2>
+
+<p>
+  Standard curves follow the form: operating time t = TMS × k / ((I / Is)<sup>a</sup> − 1), where I is the fault current, Is is the plug setting (pick-up current), TMS is the time multiplier setting, and k and a are constants for the curve family. For the IEC standard inverse curve, k is 0.14 and a is 0.02.
+</p>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">IEC curve constants</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Curve</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">k</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">a</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Standard inverse', '0.14', '0.02'],
+        ['Very inverse', '13.5', '1'],
+        ['Extremely inverse', '80', '2'],
+      ].map(([a, b, c], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{c}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="example">A Worked Example</h2>
+
+<p>
+  Take a standard inverse relay with a plug setting of 100 A and a TMS of 0.5, and apply 400 A. The multiple is 400 / 100 = 4. Then 4 raised to the power 0.02 is about 1.028, so the denominator is about 0.028. The time is 0.5 × 0.14 / 0.028, which is roughly 2.5 seconds. Raise the current to 800 A and the multiple becomes 8, giving a denominator of about 0.0425 and a time of about 1.6 seconds. The relay really does trip faster as the current grows.
+</p>
+
+<Callout type="info" title="Check against the manufacturer's curve">
+  Real relays have tolerances, and electromechanical relays differ from numerical ones. Always compare the measured time with the manufacturer's published curve and tolerance rather than only the formula.
+</Callout>
+
+<h2 id="testing">How It Is Tested</h2>
+
+<p>
+  A relay test set injects a controlled current into the relay's current input and measures the time it takes to trip, typically at several multiples of the plug setting, for example 2, 5 and 10 times. The measured times are compared with the curve, within the stated tolerance. The pick-up and drop-off current are also found by slowly raising and lowering the current. The built-in timer of a set like the CIE/RTS-5 measures trip time to a resolution of 1 ms.
+</p>
+
+<h2 id="equipment">Choosing a Relay Test Set</h2>
+
+<p>
+  Single-phase sets cover over-current and earth fault relays, while directional and distance relays need three-phase sources with phase angle control. See the <a href={u('/products/relay-test-sets/')}>relay test sets</a> and <a href={u('/blog/how-to-choose-a-relay-test-set/')}>how to choose a relay test set</a>. Duty cycle matters for high-current injection, so read <a href={u('/blog/duty-cycle-hv-relay-test-sets/')}>duty cycle explained</a> too. For the manual procedure, see <a href={u('/blog/how-to-test-a-relay/')}>how to test a relay</a>.
+</p>
+
+<p>
+  <a href={u('/contact/')}>Contact CIE</a> for help matching a test set to your relays.
+</p>

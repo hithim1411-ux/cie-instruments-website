@@ -1,0 +1,75 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  The hand-cranked insulation tester, the classic "megger", looks like old technology, yet it remains in daily use across utilities, railways, factories and field service worldwide. It needs no battery, it has little to fail and it has been trusted for generations. This guide explains how it produces a high test voltage and why its reading is stable.
+</p>
+
+<h2 id="generator">The Hand-Driven Generator</h2>
+
+<p>
+  Turning the handle spins a small DC generator through gearing, which produces the test voltage. The output rating of the instrument, for example 500 V or 1000 V, is the voltage developed when the handle is turned at the specified speed. For CIE's hand-driven models this speed is 160 r.p.m. or more.
+</p>
+
+<h2 id="governor">The Centrifugal Governor</h2>
+
+<p>
+  People do not crank at a perfectly steady speed, and generator voltage depends on speed. To fix this, the instrument includes a centrifugal governor, or clutch. Above a certain speed the clutch slips, so the generator cannot be driven faster, and the output voltage stays constant. Provided you crank at the specified speed or faster, the test voltage is the rated one. That is the reason the reading is stable even when different people use it.
+</p>
+
+<Callout type="info" title="Why it matters">
+  Insulation resistance depends on the applied voltage. A governor that holds the voltage constant is what makes a hand-cranked reading repeatable and comparable from test to test.
+</Callout>
+
+<h2 id="cross-coil">The Cross-Coil Meter</h2>
+
+<p>
+  The reading is taken by a cross-coil, or ratio, meter. One coil carries the current through the insulation under test, and another carries a reference current. The pointer settles at an angle set by the ratio of the two currents. Because the reading is a ratio, it does not depend on the generator voltage being exactly right, which gives another layer of stability. The scale is marked directly in megohms.
+</p>
+
+<h2 id="terminals">Line, Earth and Guard</h2>
+
+<p>
+  The instrument has a line terminal for the conductor under test and an earth terminal for the return. Higher-range models add a guard terminal that diverts surface leakage around the measuring circuit, which is valuable on damp or dirty insulation. Many models also include an infinity adjuster so the pointer can be set properly before the test. See our <a href={u('/blog/what-is-a-megger/')}>Megger guide</a> for how to use them.
+</p>
+
+<h2 id="vs-digital">Hand-Driven Compared with Digital</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Hand-driven versus digital insulation testers</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">&nbsp;</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Hand-driven</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Digital</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Power', 'None needed, you provide it', 'Batteries or rechargeable cells'],
+        ['Reading', 'Analog pointer', 'Digital display'],
+        ['Long tests such as PI', 'Needs a motor-driven version', 'Built-in timing and calculation on many models'],
+        ['Maintenance', 'Little to fail', 'Batteries and electronics to maintain'],
+      ].map(([a, b, c], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{c}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="range">CIE Hand-Driven Models</h2>
+
+<p>
+  CIE makes hand-driven testers in a metal body (CIE/444), a wooden body (CIE/666) and a compact bakelite body (CIE/555), with single-range and multirange versions, all conforming to IS 2992. For sustained testing, the motor-driven CIE/777 range holds the voltage as long as you need. Browse <a href={u('/products/insulation-testers-hand/')}>hand-driven insulation testers</a>, <a href={u('/products/multirange-insulation-hand/')}>multirange models</a> and <a href={u('/products/motor-operated-insulation/')}>motor-operated testers</a>, and read <a href={u('/blog/multirange-insulation-testers-explained/')}>multirange insulation testers explained</a>.
+</p>
+
+<p>
+  Not sure which to choose? <a href={u('/contact/')}>Ask CIE</a>.
+</p>

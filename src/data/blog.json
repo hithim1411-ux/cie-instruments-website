@@ -1134,5 +1134,137 @@
     "shelf": "insulation-earthing",
     "excerpt": "Large motors and long cables cannot fail unplanned. A testing programme that catches faults early.",
     "seoTitle": "Motor and Cable Insulation Testing: Mining, Oil and Gas"
+  },
+  {
+    "slug": "indian-standards-insulation-earth-oil-testers",
+    "title": "Indian Standards for Insulation, Earth and Oil Testers",
+    "description": "Which Indian Standards (IS 2992, IS 9223, IS 6792, IS 3043) apply to insulation testers, earth testers and oil test sets, and how to write them into a specification.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "Guides",
+    "shelf": "calibration",
+    "excerpt": "Which Indian Standard covers which instrument, and how to quote it correctly in a tender.",
+    "seoTitle": "IS 2992, IS 9223, IS 6792: Standards for Test Instruments"
+  },
+  {
+    "slug": "submersible-pump-motor-borewell-cable-testing",
+    "title": "Testing Submersible Pump Motors and Borewell Cables",
+    "description": "How to use an insulation tester to tell whether a failed submersible pump has a motor fault or a cable fault, before pulling it from the borewell.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "How-To",
+    "shelf": "insulation-earthing",
+    "excerpt": "A quick insulation test tells you motor or cable before you pull the pump.",
+    "seoTitle": "Testing Submersible Pump Motors and Borewell Cables"
+  },
+  {
+    "slug": "earth-pit-testing-maintenance-india",
+    "title": "Earth Pit Testing and Maintenance: A Practical Guide",
+    "description": "How an earth pit works, why it degrades, how to test it and how to keep its resistance low, for factories, buildings and substations.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "How-To",
+    "shelf": "insulation-earthing",
+    "excerpt": "Most earth pits are installed once and forgotten. Here is how to test and maintain them.",
+    "seoTitle": "Earth Pit Testing and Maintenance"
+  },
+  {
+    "slug": "how-low-should-earth-resistance-be",
+    "title": "How Low Should Earth Resistance Be?",
+    "description": "Typical earth electrode resistance targets for substations, distribution, lightning protection and sensitive electronics, and what to do when a reading is too high.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "Guides",
+    "shelf": "insulation-earthing",
+    "excerpt": "There is no single number. Here is where the targets come from and what to do when you miss one.",
+    "seoTitle": "How Low Should Earth Resistance Be?"
+  },
+  {
+    "slug": "soil-resistivity-wenner-vs-schlumberger",
+    "title": "Soil Resistivity Testing: Wenner vs Schlumberger",
+    "description": "How the Wenner and Schlumberger four-pin methods work, how they differ, and how to use soil resistivity results to design an earthing system.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "Guides",
+    "shelf": "insulation-earthing",
+    "excerpt": "Two four-pin methods compared, and how to read the resistivity curve for earthing design.",
+    "seoTitle": "Soil Resistivity: Wenner vs Schlumberger"
+  },
+  {
+    "slug": "how-a-hand-driven-insulation-tester-works",
+    "title": "How a Hand-Driven Insulation Tester Works",
+    "description": "How the hand-cranked megger generates its test voltage, why the centrifugal governor keeps it steady and how a cross-coil meter gives a stable reading.",
+    "publishDate": "2026-10-14",
+    "readTime": "5 min read",
+    "category": "Physics",
+    "shelf": "insulation-earthing",
+    "excerpt": "Generator, governor and cross-coil meter: why a hand-cranked megger still earns its place.",
+    "seoTitle": "How a Hand-Driven Insulation Tester Works"
+  },
+  {
+    "slug": "polarization-index-vs-dielectric-absorption-ratio",
+    "title": "Polarization Index vs Dielectric Absorption Ratio",
+    "description": "How PI and DAR are calculated, how to read the results, when very high resistance can mislead, and which instruments can run them.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "Guides",
+    "shelf": "insulation-earthing",
+    "excerpt": "Two time-based insulation tests compared, with typical interpretation guides.",
+    "seoTitle": "Polarization Index vs DAR: How to Read Them"
+  },
+  {
+    "slug": "idmt-relay-curves-explained",
+    "title": "IDMT Relay Curves Explained",
+    "description": "How inverse definite minimum time relay characteristics work, the standard IEC equation with a worked example, and how a relay test set verifies them.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "Physics",
+    "shelf": "relay-hv",
+    "excerpt": "Why larger faults trip faster, the IEC equation, and a worked example you can check.",
+    "seoTitle": "IDMT Relay Curves Explained"
+  },
+  {
+    "slug": "primary-vs-secondary-injection-testing",
+    "title": "Primary vs Secondary Injection Testing",
+    "description": "The difference between primary and secondary injection in protection testing, what each proves, when each is needed and the CT safety rule to remember.",
+    "publishDate": "2026-10-14",
+    "readTime": "5 min read",
+    "category": "Guides",
+    "shelf": "relay-hv",
+    "excerpt": "What each technique proves, and when a commissioning needs both.",
+    "seoTitle": "Primary vs Secondary Injection Testing"
+  },
+  {
+    "slug": "how-to-megger-test-house-wiring",
+    "title": "How to Megger Test House Wiring",
+    "description": "A safe step-by-step guide to insulation resistance testing of domestic wiring: preparation, test voltage, acceptable readings and what to do about a low result.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "How-To",
+    "shelf": "insulation-earthing",
+    "excerpt": "Step-by-step insulation resistance testing for domestic wiring, with safe preparation.",
+    "seoTitle": "How to Megger Test House Wiring"
+  },
+  {
+    "slug": "generator-alternator-insulation-testing",
+    "title": "Insulation Testing of Generators and Alternators",
+    "description": "How to test standby generator and alternator windings for damp or damaged insulation, including the electronics to protect and a routine for idle sets.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "How-To",
+    "shelf": "insulation-earthing",
+    "excerpt": "Standby sets fail when damp. A test routine that finds it first.",
+    "seoTitle": "Insulation Testing of Generators and Alternators"
+  },
+  {
+    "slug": "lightning-protection-earthing-testing",
+    "title": "Testing Lightning Protection Earthing",
+    "description": "How to test the earth electrodes and bonding of a lightning protection system safely, with typical target values and what to do on poor ground.",
+    "publishDate": "2026-10-14",
+    "readTime": "6 min read",
+    "category": "How-To",
+    "shelf": "insulation-earthing",
+    "excerpt": "Air terminals only work if the earth electrodes do. How to test them safely.",
+    "seoTitle": "Testing Lightning Protection Earthing"
   }
 ]

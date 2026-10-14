@@ -1,0 +1,61 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Standby generators are the backbone of backup power for hospitals, factories, towers and buildings across India and many other regions. They sit idle for long periods in damp, dusty rooms, and then must start without fail. The most common reason an alternator refuses to deliver is damaged or damp winding insulation, and a simple insulation test finds it in advance.
+</p>
+
+<h2 id="why-test">Why Idle Alternators Fail</h2>
+
+<p>
+  Alternator windings absorb moisture and collect dust and oil vapour while idle. When the machine is started, moisture can cause tracking, and in the worst case a winding failure. Condensation is worst in humid climates and after cool nights, which is why standby sets benefit from anti-condensation heaters and regular testing.
+</p>
+
+<h2 id="what-to-test">What to Test</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li><strong>Main stator winding:</strong> each phase to earth and between phases.</li>
+  <li><strong>Rotor (field) winding:</strong> to the shaft and frame.</li>
+  <li><strong>Exciter and auxiliary windings:</strong> to earth, where applicable.</li>
+</ul>
+
+<Callout type="warning" title="Protect the electronics first">
+  Alternators contain an AVR, rectifier diodes and other electronics that the test voltage can destroy. Disconnect or short out the AVR, diode bridge and any electronic components exactly as the manufacturer instructs before testing. Isolate the engine start and lock it out.
+</Callout>
+
+<h2 id="procedure">Procedure</h2>
+
+<ol class="list-decimal pl-6 space-y-2 my-4">
+  <li>Shut down, isolate the set from the load and lock off the start circuit.</li>
+  <li>Disconnect the output cables from the alternator terminals, and the AVR and diodes as required.</li>
+  <li>Test each stator phase to earth with the other phases grounded, then between phases.</li>
+  <li>Apply the test voltage for one minute, or for ten minutes if you are calculating PI, and record the readings.</li>
+  <li>Discharge the winding by connecting it to earth for at least as long as the test lasted.</li>
+</ol>
+
+<h2 id="voltage">Choosing the Test Voltage</h2>
+
+<p>
+  A common guide is a test voltage related to the rated winding voltage. Many small low-voltage alternators are tested at 500 V, and 1000 V is used on larger or higher-voltage machines, while the rotor field winding is tested at a lower voltage according to the manufacturer. Check the manual for the right figures. See <a href={u('/blog/how-to-choose-an-insulation-tester/')}>how to choose an insulation tester</a>.
+</p>
+
+<h2 id="interpreting">Interpreting the Reading</h2>
+
+<p>
+  Low readings in a damp alternator often recover after drying with heaters or by running the set unloaded. Record the temperature, correct the readings and trend them, as explained in <a href={u('/blog/insulation-resistance-temperature-correction/')}>temperature correction</a>. For larger machines, PI is more revealing, covered in <a href={u('/blog/polarization-index-vs-dielectric-absorption-ratio/')}>PI versus DAR</a>.
+</p>
+
+<h2 id="routine">A Routine for Standby Sets</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>Test insulation at planned intervals and before the monsoon or rainy season.</li>
+  <li>Keep winding heaters energised in humid rooms.</li>
+  <li>Run the set on load periodically instead of leaving it idle for months.</li>
+  <li>Keep the room clean and ventilated.</li>
+</ul>
+
+<p>
+  For field testers, see <a href={u('/products/insulation-testers-hand/')}>hand-driven insulation testers</a> and <a href={u('/products/digital-insulation-testers/')}>digital testers</a>. See also <a href={u('/blog/how-to-test-motor-windings/')}>how to test motor windings</a>, and <a href={u('/contact/')}>contact CIE</a> for advice.
+</p>

@@ -1,0 +1,56 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  A lightning protection system is only as good as its earthing. The air terminals and down conductors catch the strike, but the earth electrodes must dissipate the energy into the ground. If an electrode has corroded or the soil has dried out, the system may be in place on paper but ineffective in practice. This guide explains how to test lightning protection earthing safely.
+</p>
+
+<h2 id="why-different">Why Lightning Earthing Is Different</h2>
+
+<p>
+  A lightning current is a very fast, very large impulse rather than a steady 50 Hz fault current. For that reason lightning earthing places importance on a low impedance, on several electrodes spread around the structure and on bonding with the other earthing systems. The measured low-frequency resistance is still the standard acceptance check and a practical indicator of the health of the electrodes.
+</p>
+
+<h2 id="before-testing">Before You Test</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>Never test during a thunderstorm or when one is approaching.</li>
+  <li>Identify each electrode and its test point, and review the drawings.</li>
+  <li>Check the visible conductors and connections for corrosion and damage.</li>
+</ul>
+
+<Callout type="warning" title="Do not test when lightning is possible">
+  The down conductors and electrodes can carry lethal currents during a strike. Postpone the work if thunderstorms are forecast or nearby, and follow the site's permit-to-work rules.
+</Callout>
+
+<h2 id="electrode-test">Testing an Electrode</h2>
+
+<p>
+  Disconnect the electrode from the down conductor at its test joint, so that you measure the electrode alone and not the whole network in parallel. Measure each electrode with the three-point fall-of-potential method, as described in <a href={u('/blog/earth-resistance-testing-guide/')}>how to test earth resistance</a>. Reconnect the joint carefully afterwards and make sure it is tight and protected from corrosion.
+</p>
+
+<h2 id="targets">Target Values</h2>
+
+<p>
+  Specifications commonly ask for an individual electrode, or the whole lightning earth system, of around 10 ohms or less, with lower values sometimes required. The applicable standard and the risk assessment decide this, so use the figure in your specification. More on typical targets is in <a href={u('/blog/how-low-should-earth-resistance-be/')}>how low should earth resistance be</a>.
+</p>
+
+<h2 id="continuity">Continuity and Bonding</h2>
+
+<p>
+  Also check the continuity of the down conductors from the air terminals to the electrode, and the bonding between the lightning earthing and the other earthing in the building. Use a low-resistance continuity measurement, since a loose or corroded joint can add resistance that a simple buzzer will not catch. See <a href={u('/blog/earthing-vs-bonding/')}>earthing versus bonding</a> and <a href={u('/blog/micro-ohm-meter-guide/')}>the micro-ohm meter guide</a> for precise joint checks.
+</p>
+
+<h2 id="hard-ground">If the Ground Is Poor</h2>
+
+<p>
+  Rocky and dry sites make low readings hard to achieve. Use deeper electrodes, a ring conductor or conductive backfill, as discussed in <a href={u('/blog/earth-resistance-testing-dry-sandy-soil/')}>earth resistance testing in dry and sandy soil</a>, and measure soil resistivity first, as in <a href={u('/blog/soil-resistivity-wenner-vs-schlumberger/')}>Wenner versus Schlumberger</a>.
+</p>
+
+<h2 id="retest">Retest on a Schedule</h2>
+
+<p>
+  Record every reading and retest regularly, with extra attention in the driest season and after any construction around the electrodes. The CIE/222M and DET-2000 <a href={u('/products/earth-tester/')}>earth testers</a> are made for this work. <a href={u('/contact/')}>Contact CIE</a> for advice.
+</p>

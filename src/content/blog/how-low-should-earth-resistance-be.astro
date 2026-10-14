@@ -1,0 +1,76 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  "What should my earth resistance be?" is one of the most searched questions in electrical work, and the honest answer is that it depends on the installation. A single number does not fit a house, a factory and a substation. This guide explains where the targets come from and what to do when your reading does not meet one.
+</p>
+
+<h2 id="why-target">Why the Target Exists</h2>
+
+<p>
+  Earth resistance determines how much a fault current is limited and how high the voltage on an earthed metal part can rise during a fault. Lower resistance means a larger fault current, which trips the protective device faster, and a smaller touch voltage. Higher-risk installations therefore demand lower resistance.
+</p>
+
+<h2 id="typical-targets">Commonly Quoted Targets</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Typical maximum earth electrode resistance</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Installation</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Commonly quoted target</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['Generating stations', 'About 1 Ω or less'],
+        ['Large substations', 'About 2 Ω or less'],
+        ['Distribution systems', 'About 5 Ω or less'],
+        ['Domestic and small installations', 'Often specified between 5 Ω and 10 Ω, or per the supply rules'],
+        ['Lightning protection electrodes', 'Often specified at about 10 Ω or less'],
+        ['Sensitive electronics and data rooms', 'Often specified at 1 Ω to 2 Ω'],
+      ].map(([a, b], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="warning" title="Treat these as typical, not definitive">
+  Different codes, utilities and client specifications set different limits, and they change between editions. Use the figure in your project specification or applicable code. For background, see our <a href={u('/blog/what-is-electrical-earthing/')}>earthing guide</a>.
+</Callout>
+
+<h2 id="fault-loop">The Resistance of the Electrode Is Not the Whole Story</h2>
+
+<p>
+  In many systems what actually trips the protective device is the whole fault loop, including the supply neutral earth and the protective conductors, not just your electrode. A low electrode reading does not guarantee a good loop, and a modest electrode reading may be perfectly safe where the system is well bonded and protected by RCDs. Do not chase a very low number on the electrode alone without understanding the system.
+</p>
+
+<h2 id="not-meeting">When the Reading Is Too High</h2>
+
+<ol class="list-decimal pl-6 space-y-2 my-4">
+  <li>Check the measurement first: spike spacing, spike contact and lead connections.</li>
+  <li>Check the connection between the electrode and the installation.</li>
+  <li>Add depth, add parallel electrodes or improve the backfill.</li>
+  <li>Retest in the driest season.</li>
+</ol>
+
+<p>
+  See <a href={u('/blog/earth-pit-testing-maintenance-india/')}>earth pit testing and maintenance</a> and <a href={u('/blog/earth-resistance-testing-dry-sandy-soil/')}>earth resistance testing in dry soil</a> for remedies.
+</p>
+
+<h2 id="measure-right">Measure It Correctly</h2>
+
+<p>
+  Because the target is a hard pass-or-fail number, the measurement must be trustworthy. Use an instrument with adequate accuracy at the resistance you expect, and follow the fall-of-potential method, covered in <a href={u('/blog/earth-resistance-testing-guide/')}>how to test earth resistance</a>. Browse CIE <a href={u('/products/earth-tester/')}>earth testers</a> in analog and digital forms.
+</p>
+
+<p>
+  Unsure which target applies to your site? <a href={u('/contact/')}>Ask us</a>, and check the project specification.
+</p>

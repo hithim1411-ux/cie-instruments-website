@@ -1,0 +1,79 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Indian tenders, DISCOM purchase specifications and government inspections regularly ask for instruments that conform to a named Indian Standard. A buyer who does not know which standard applies to which instrument can order the wrong thing or fail an inspection. This guide maps the commonly cited standards to the instruments they cover.
+</p>
+
+<h2 id="standards-map">Standards and the Instruments They Cover</h2>
+
+<div class="my-8 rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+  <div class="bg-[#0D1B2A] px-5 py-3 text-xs font-mono text-[#94a3b8] uppercase tracking-widest">Indian Standards frequently named in specifications</div>
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="bg-[#1B3A5B]">
+        <th class="text-left px-5 py-3 text-blue-200 font-semibold text-xs">Standard</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Subject</th>
+        <th class="text-left px-4 py-3 text-blue-200 font-semibold text-xs">Where it matters</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[
+        ['IS 2992', 'Insulation resistance testers (generator type)', 'Accuracy and construction of hand-driven and motor-driven insulation testers'],
+        ['IS 9223', 'Direct-reading earth testers', 'Accuracy and construction of earth resistance testers'],
+        ['IS 6792', 'Electrical strength of insulating oil', 'Transformer oil BDV test method and test cell'],
+        ['IS 3043', 'Code of practice for earthing', 'Design and testing of earthing systems'],
+        ['IS 1248', 'Direct-acting indicating analogue electrical measuring instruments', 'Accuracy classes of analogue panel-type meters'],
+      ].map(([a, b, c], i) => (
+        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+          <td class="px-5 py-3 border-b border-gray-100 text-xs font-bold text-[#0D1B2A]">{a}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{b}</td>
+          <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-700">{c}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<Callout type="info" title="Quote the year and the part">
+  Standards are revised, and some are split into parts. In an enquiry or tender, write the full designation, for example "IS 2992 : 1987", exactly as the specification gives it. Note that the prefix is "IS", not "ISS".
+</Callout>
+
+<h2 id="insulation">Insulation Resistance Testers: IS 2992</h2>
+
+<p>
+  This standard covers generator-type insulation testers, which includes the classic hand-cranked megger. It addresses accuracy, the generator speed, the high-voltage withstand of the instrument itself, and the guard terminal arrangement. CIE hand-driven models such as the CIE/444 and CIE/666, and the motor-driven CIE/777 series, are made to conform to it. See our <a href={u('/products/insulation-testers-hand/')}>hand-driven</a> and <a href={u('/products/motor-operated-insulation/')}>motor-operated</a> insulation testers.
+</p>
+
+<h2 id="earth">Earth Testers: IS 9223</h2>
+
+<p>
+  IS 9223 sets the accuracy expected of a direct-reading earth tester. The CIE/222M analog earth tester states a basic accuracy of &plusmn;5% per this standard. For the testing method itself, see the <a href={u('/blog/earth-resistance-testing-guide/')}>earth resistance testing guide</a>, and browse the <a href={u('/products/earth-tester/')}>earth testers</a>.
+</p>
+
+<h2 id="oil">Insulating Oil Testers: IS 6792</h2>
+
+<p>
+  IS 6792 describes the electrical strength test for insulating oil, including the test cell, electrode gap and procedure. The CIE/7000 series oil test sets are built around it, using brass sphere electrodes with an adjustable gap. For how this compares with IEC and ASTM methods, read <a href={u('/blog/transformer-oil-bdv-standards-compared/')}>transformer oil BDV standards compared</a>, and see the <a href={u('/products/oil-test-sets/')}>oil test sets</a>.
+</p>
+
+<h2 id="earthing-code">Earthing Practice: IS 3043</h2>
+
+<p>
+  Unlike the standards above, IS 3043 does not specify an instrument. It is the earthing code of practice, and it is why an earth tester exists in the first place. Use it to decide what resistance your electrode must achieve, then use an instrument built to IS 9223 to prove it. Our <a href={u('/blog/what-is-electrical-earthing/')}>earthing guide</a> explains the background.
+</p>
+
+<h2 id="tender">Writing the Specification Correctly</h2>
+
+<ul class="list-disc pl-6 space-y-1 my-4">
+  <li>Name the instrument type and the standard it must conform to.</li>
+  <li>State the range, test voltage and accuracy you need.</li>
+  <li>Ask for a test certificate to be supplied with each instrument.</li>
+  <li>Confirm the supply voltage for any mains-driven instrument.</li>
+</ul>
+
+<p>
+  Preparing a tender or a purchase order? <a href={u('/contact/')}>Send us the specification</a> and we will confirm which CIE models match.
+</p>

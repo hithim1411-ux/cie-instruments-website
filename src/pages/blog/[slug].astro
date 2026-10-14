@@ -106,6 +106,18 @@ import BuyingElectricalTestInstrumentsFromIndiaImporterGuideGuide from '../../co
 import ElectronicsRepairTrainingLabInstrumentChecklistGuide from '../../content/blog/electronics-repair-training-lab-instrument-checklist.astro';
 import TestInstrumentsExtremeHeatDustFieldCareGuide from '../../content/blog/test-instruments-extreme-heat-dust-field-care.astro';
 import MotorCableInsulationTestingMiningOilGasGuide from '../../content/blog/motor-cable-insulation-testing-mining-oil-gas.astro';
+import IndianStandardsInsulationEarthOilTestersGuide from '../../content/blog/indian-standards-insulation-earth-oil-testers.astro';
+import SubmersiblePumpMotorBorewellCableTestingGuide from '../../content/blog/submersible-pump-motor-borewell-cable-testing.astro';
+import EarthPitTestingMaintenanceIndiaGuide from '../../content/blog/earth-pit-testing-maintenance-india.astro';
+import HowLowShouldEarthResistanceBeGuide from '../../content/blog/how-low-should-earth-resistance-be.astro';
+import SoilResistivityWennerVsSchlumbergerGuide from '../../content/blog/soil-resistivity-wenner-vs-schlumberger.astro';
+import HowAHandDrivenInsulationTesterWorksGuide from '../../content/blog/how-a-hand-driven-insulation-tester-works.astro';
+import PolarizationIndexVsDielectricAbsorptionRatioGuide from '../../content/blog/polarization-index-vs-dielectric-absorption-ratio.astro';
+import IdmtRelayCurvesExplainedGuide from '../../content/blog/idmt-relay-curves-explained.astro';
+import PrimaryVsSecondaryInjectionTestingGuide from '../../content/blog/primary-vs-secondary-injection-testing.astro';
+import HowToMeggerTestHouseWiringGuide from '../../content/blog/how-to-megger-test-house-wiring.astro';
+import GeneratorAlternatorInsulationTestingGuide from '../../content/blog/generator-alternator-insulation-testing.astro';
+import LightningProtectionEarthingTestingGuide from '../../content/blog/lightning-protection-earthing-testing.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -219,6 +231,18 @@ const contentMap: Record<string, any> = {
   'electronics-repair-training-lab-instrument-checklist': ElectronicsRepairTrainingLabInstrumentChecklistGuide,
   'test-instruments-extreme-heat-dust-field-care': TestInstrumentsExtremeHeatDustFieldCareGuide,
   'motor-cable-insulation-testing-mining-oil-gas': MotorCableInsulationTestingMiningOilGasGuide,
+  'indian-standards-insulation-earth-oil-testers': IndianStandardsInsulationEarthOilTestersGuide,
+  'submersible-pump-motor-borewell-cable-testing': SubmersiblePumpMotorBorewellCableTestingGuide,
+  'earth-pit-testing-maintenance-india': EarthPitTestingMaintenanceIndiaGuide,
+  'how-low-should-earth-resistance-be': HowLowShouldEarthResistanceBeGuide,
+  'soil-resistivity-wenner-vs-schlumberger': SoilResistivityWennerVsSchlumbergerGuide,
+  'how-a-hand-driven-insulation-tester-works': HowAHandDrivenInsulationTesterWorksGuide,
+  'polarization-index-vs-dielectric-absorption-ratio': PolarizationIndexVsDielectricAbsorptionRatioGuide,
+  'idmt-relay-curves-explained': IdmtRelayCurvesExplainedGuide,
+  'primary-vs-secondary-injection-testing': PrimaryVsSecondaryInjectionTestingGuide,
+  'how-to-megger-test-house-wiring': HowToMeggerTestHouseWiringGuide,
+  'generator-alternator-insulation-testing': GeneratorAlternatorInsulationTestingGuide,
+  'lightning-protection-earthing-testing': LightningProtectionEarthingTestingGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -962,6 +986,100 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'cables', label: 'Cables and Long Runs' },
     { id: 'instruments', label: 'Instruments for This Work' },
     { id: 'programme', label: 'Building the Programme' },
+  ],
+  'indian-standards-insulation-earth-oil-testers': [
+    { id: 'standards-map', label: 'Standards and the Instruments They Cover' },
+    { id: 'insulation', label: 'Insulation Resistance Testers: IS 2992' },
+    { id: 'earth', label: 'Earth Testers: IS 9223' },
+    { id: 'oil', label: 'Insulating Oil Testers: IS 6792' },
+    { id: 'earthing-code', label: 'Earthing Practice: IS 3043' },
+    { id: 'tender', label: 'Writing the Specification Correctly' },
+  ],
+  'submersible-pump-motor-borewell-cable-testing': [
+    { id: 'why-fails', label: 'Why Submersible Systems Fail' },
+    { id: 'test-at-surface', label: 'Start at the Surface' },
+    { id: 'locate', label: 'Separate the Cable from the Motor' },
+    { id: 'test-voltage', label: 'Test Voltage' },
+    { id: 'readings', label: 'What the Readings Mean' },
+    { id: 'field-instruments', label: 'Instruments for Field Work' },
+    { id: 'prevention', label: 'Prevention' },
+  ],
+  'earth-pit-testing-maintenance-india': [
+    { id: 'how-pit-works', label: 'How a Typical Earth Pit Works' },
+    { id: 'why-degrade', label: 'Why Earth Pits Degrade' },
+    { id: 'how-test', label: 'How to Test an Earth Pit' },
+    { id: 'interpret', label: 'Interpreting the Result' },
+    { id: 'maintain', label: 'Keeping It Effective' },
+    { id: 'bad-soil', label: 'If the Soil Is Simply Bad' },
+    { id: 'instrument', label: 'Instruments' },
+  ],
+  'how-low-should-earth-resistance-be': [
+    { id: 'why-target', label: 'Why the Target Exists' },
+    { id: 'typical-targets', label: 'Commonly Quoted Targets' },
+    { id: 'fault-loop', label: 'The Resistance of the Electrode Is Not the Whole Story' },
+    { id: 'not-meeting', label: 'When the Reading Is Too High' },
+    { id: 'measure-right', label: 'Measure It Correctly' },
+  ],
+  'soil-resistivity-wenner-vs-schlumberger': [
+    { id: 'what-measured', label: 'What Resistivity Tells You' },
+    { id: 'four-pin', label: 'The Four-Pin Principle' },
+    { id: 'wenner', label: 'The Wenner Method' },
+    { id: 'schlumberger', label: 'The Schlumberger Method' },
+    { id: 'use-results', label: 'Using the Results' },
+  ],
+  'how-a-hand-driven-insulation-tester-works': [
+    { id: 'generator', label: 'The Hand-Driven Generator' },
+    { id: 'governor', label: 'The Centrifugal Governor' },
+    { id: 'cross-coil', label: 'The Cross-Coil Meter' },
+    { id: 'terminals', label: 'Line, Earth and Guard' },
+    { id: 'vs-digital', label: 'Hand-Driven Compared with Digital' },
+    { id: 'range', label: 'CIE Hand-Driven Models' },
+  ],
+  'polarization-index-vs-dielectric-absorption-ratio': [
+    { id: 'idea', label: 'The Idea Behind Both Tests' },
+    { id: 'calculation', label: 'How Each Is Calculated' },
+    { id: 'interpret', label: 'Reading the Result' },
+    { id: 'requirements', label: 'What the Instrument Needs' },
+    { id: 'practical', label: 'Practical Tips' },
+  ],
+  'idmt-relay-curves-explained': [
+    { id: 'why-inverse', label: 'Why Inverse Time' },
+    { id: 'equation', label: 'The Standard Equation' },
+    { id: 'example', label: 'A Worked Example' },
+    { id: 'testing', label: 'How It Is Tested' },
+    { id: 'equipment', label: 'Choosing a Relay Test Set' },
+  ],
+  'primary-vs-secondary-injection-testing': [
+    { id: 'chain', label: 'The Protection Chain' },
+    { id: 'secondary', label: 'Secondary Injection' },
+    { id: 'primary', label: 'Primary Injection' },
+    { id: 'which', label: 'Which Do You Need?' },
+    { id: 'what-cie', label: 'What CIE Supplies' },
+  ],
+  'how-to-megger-test-house-wiring': [
+    { id: 'what-it-finds', label: 'What the Test Finds' },
+    { id: 'preparation', label: 'Preparation' },
+    { id: 'procedure', label: 'Procedure' },
+    { id: 'results', label: 'What Result Is Acceptable?' },
+    { id: 'low-reading', label: 'If a Reading Is Low' },
+    { id: 'other-checks', label: 'Other Checks Worth Doing' },
+  ],
+  'generator-alternator-insulation-testing': [
+    { id: 'why-test', label: 'Why Idle Alternators Fail' },
+    { id: 'what-to-test', label: 'What to Test' },
+    { id: 'procedure', label: 'Procedure' },
+    { id: 'voltage', label: 'Choosing the Test Voltage' },
+    { id: 'interpreting', label: 'Interpreting the Reading' },
+    { id: 'routine', label: 'A Routine for Standby Sets' },
+  ],
+  'lightning-protection-earthing-testing': [
+    { id: 'why-different', label: 'Why Lightning Earthing Is Different' },
+    { id: 'before-testing', label: 'Before You Test' },
+    { id: 'electrode-test', label: 'Testing an Electrode' },
+    { id: 'targets', label: 'Target Values' },
+    { id: 'continuity', label: 'Continuity and Bonding' },
+    { id: 'hard-ground', label: 'If the Ground Is Poor' },
+    { id: 'retest', label: 'Retest on a Schedule' },
   ],
 };
 
