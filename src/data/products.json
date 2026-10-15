@@ -1705,27 +1705,27 @@
       },
       {
         "label": "DC Voltage",
-        "value": "200 mV / 2 V / 20 V / 200 V / 1000 V"
+        "value": "200 mV / 2 V / 20 V / 200 V / 1000 V  |  \u00b1(0.5% rdg + 3 digits)"
       },
       {
         "label": "AC Voltage (True-RMS)",
-        "value": "2 V / 20 V / 200 V / 750 V"
+        "value": "2 V / 20 V / 200 V / 750 V  |  \u00b1(0.8% rdg + 5 digits) @ 40 Hz\u20131 kHz"
       },
       {
         "label": "DC Current",
-        "value": "200 \u00b5A / 2 mA / 20 mA / 200 mA / 20 A"
+        "value": "200 \u00b5A / 2 mA / 20 mA / 200 mA / 20 A  |  \u00b1(0.8% rdg + 10 digits)"
       },
       {
         "label": "AC Current (True-RMS)",
-        "value": "20 mA / 200 mA / 20 A"
+        "value": "20 mA / 200 mA / 20 A  |  \u00b1(1.0% rdg + 15 digits) @ 40 Hz\u2013400 Hz"
       },
       {
         "label": "Resistance",
-        "value": "200 \u03a9 / 2 K\u03a9 / 20 K\u03a9 / 200 K\u03a9 / 2 M\u03a9 / 20 M\u03a9"
+        "value": "200 \u03a9 / 2 K\u03a9 / 20 K\u03a9 / 200 K\u03a9 / 2 M\u03a9 / 20 M\u03a9  |  \u00b1(0.8% rdg + 3 digits)"
       },
       {
         "label": "Capacitance (Auto Ranging)",
-        "value": "6 nF \u2013 20 mF"
+        "value": "6 nF \u2013 20 mF  |  \u00b1(3.5% rdg + 20 digits)"
       },
       {
         "label": "Transistor Test",
