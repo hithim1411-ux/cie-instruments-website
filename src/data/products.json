@@ -1689,7 +1689,7 @@
     "model": "DM 321T",
     "name": "True-RMS Digital Multimeter - Manual Ranging, 3\u00bd-digit",
     "tagline": "True-RMS, manual-ranging 3\u00bd-digit DMM with transistor hFE test, capacitance, backlight, and protective holster.",
-    "description": "The DM 321T is a 3\u00bd-digit True-RMS digital multimeter for general electrical and electronic test work. It is a manual-ranging instrument, measuring AC/DC voltage, AC/DC current, resistance, and capacitance, alongside continuity test, diode test, and transistor (hFE) test. Supplied with a protective holster. True-RMS measurement gives accurate readings on non-sinusoidal AC waveforms - useful when working on circuits with switching loads or harmonics. DC voltage up to 1000 V; DC current up to 20 A. Auto power-off and data hold standard. Dimensions: 175 \u00d7 93 \u00d7 55 mm. Weight: approx. 400 g (incl. battery).",
+    "description": "The DM 321T is a 3\u00bd-digit True-RMS digital multimeter for general electrical and electronic test work. It is a manual-ranging instrument, measuring AC/DC voltage, AC/DC current, resistance, and capacitance, alongside continuity test, diode test, and transistor (hFE) test. Supplied with a protective holster. True-RMS measurement gives accurate readings on non-sinusoidal AC waveforms - useful when working on circuits with switching loads or harmonics. DC voltage up to 1000 V; DC current up to 20 A. Auto power-off and data hold standard. Dimensions: 178 \u00d7 86 \u00d7 52 mm. Weight: approx. 360 g (incl. battery and holster).",
     "specs": [
       {
         "label": "Measurement Type",
@@ -1713,7 +1713,7 @@
       },
       {
         "label": "DC Current",
-        "value": "20 \u00b5A / 2 mA / 20 mA / 200 mA / 20 A"
+        "value": "200 \u00b5A / 2 mA / 20 mA / 200 mA / 20 A"
       },
       {
         "label": "AC Current (True-RMS)",
@@ -1725,7 +1725,7 @@
       },
       {
         "label": "Capacitance (Auto Ranging)",
-        "value": "2 nF \u2013 20 mF"
+        "value": "6 nF \u2013 20 mF"
       },
       {
         "label": "Transistor Test",
@@ -1733,19 +1733,19 @@
       },
       {
         "label": "Additional Functions",
-        "value": "Continuity test, diode test, data hold, backlight, auto power-off, low battery indication"
+        "value": "Continuity test, diode test, REL measurement, AC mains frequency test (750 V range), data hold, backlight, auto power-off, low battery indication"
       },
       {
         "label": "Power Supply",
-        "value": "9 V battery"
+        "value": "2 \u00d7 AA battery"
       },
       {
         "label": "Dimensions (L\u00d7W\u00d7H)",
-        "value": "175 \u00d7 93 \u00d7 55 mm"
+        "value": "178 \u00d7 86 \u00d7 52 mm"
       },
       {
         "label": "Weight",
-        "value": "Approx. 400 g (incl. battery)"
+        "value": "Approx. 360 g (incl. battery and holster)"
       },
       {
         "label": "Warranty",
