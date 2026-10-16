@@ -1141,6 +1141,10 @@
         "value": "LCD, backlit, max. 3999 / 5999 counts, auto-ranging"
       },
       {
+        "label": "Terminals",
+        "value": "LINE, EARTH, GUARD (insulation) \u00b7 V\u03a9, COM (multimeter, max. 1500 V)"
+      },
+      {
         "label": "Battery",
         "value": "Li-ion 14500, 3.7 V \u00d7 2 (rechargeable)"
       },
