@@ -1077,8 +1077,8 @@
     "categoryId": "digital-insulation-testers",
     "model": "DIT-2500",
     "name": "Digital Insulation Tester + Multimeter - up to 2500 V",
-    "tagline": "Combined digital insulation tester (100 V\u20132500 V, 50 G\u03a9) and True-RMS multimeter with DAR, PI, capacitance, and diode test. CAT III 1000 V.",
-    "description": "The DIT-2500 combines a digital insulation resistance tester with a full-function True-RMS digital multimeter in one handheld instrument. Insulation testing at five selectable voltages (100 V to 2500 V) with resistance measurement to 50 G\u03a9, including Dielectric Absorption Ratio (DAR) and Polarization Index (PI) calculations. Also functions as a general-purpose multimeter: AC/DC voltage up to 1500 V, resistance to 60 M\u03a9, capacitance to 100 mF, continuity, diode test, and ACV-Hz frequency measurement. Powered by rechargeable Li-ion battery (3.7 V \u00d7 2). Safety rated CAT III 1000 V. Features data hold, backlight, and auto power-off. Dimensions: 189 \u00d7 89 \u00d7 55 mm. Weight: approx. 380 g.",
+    "tagline": "Combined digital insulation tester (100 V\u20132500 V, up to 50 G\u03a9) and True-RMS multimeter with DAR, PI, capacitance, frequency and diode test. CAT III 1000 V / CAT IV 600 V.",
+    "description": "The DIT-2500 combines a digital insulation resistance tester with a full-function True-RMS digital multimeter in one handheld instrument. Insulation testing at five selectable voltages (100 V to 2500 V) with resistance measurement up to 50 G\u03a9 at 2500 V, including Dielectric Absorption Ratio (DAR) and Polarization Index (PI) tests with timer. Also functions as a general-purpose multimeter: AC/DC voltage up to 1500 V, resistance to 60 M\u03a9, capacitance to 100 mF, frequency, continuity and diode test. Powered by rechargeable Li-ion batteries (3.7 V \u00d7 2). Safety rated CAT III 1000 V / CAT IV 600 V. Features data hold, backlight and auto power-off. Dimensions: 189 \u00d7 89 \u00d7 55 mm. Weight: approx. 380 g including battery.",
     "specs": [
       {
         "label": "Insulation Test Voltage",
@@ -1086,7 +1086,15 @@
       },
       {
         "label": "Insulation Resistance Range",
-        "value": "0.1 M\u03a9 \u2013 50 G\u03a9"
+        "value": "By test voltage - 0.1 M\u03a9 \u2013 2 G\u03a9 at 100 V, up to 50 G\u03a9 at 2500 V (see table)"
+      },
+      {
+        "label": "Insulation Accuracy",
+        "value": "\u00b1(3% + 5) to 399.9 M\u03a9 \u00b7 \u00b1(5% + 5) 0.4 \u2013 2 G\u03a9 \u00b7 \u00b1(10% + 5) 2.001 \u2013 50 G\u03a9"
+      },
+      {
+        "label": "Open Circuit Voltage",
+        "value": "90% \u2013 110% of rated test voltage"
       },
       {
         "label": "Short Circuit Current",
@@ -1101,28 +1109,48 @@
         "value": "10 min : 60 s"
       },
       {
-        "label": "DC/AC Voltage",
-        "value": "1 mV \u2013 1500 V"
+        "label": "Test Timer",
+        "value": "15 s / 30 s / 1 min / 10 min (selectable)"
+      },
+      {
+        "label": "DC Voltage",
+        "value": "6 V \u2013 600 V \u00b1(0.5% + 5) \u00b7 1500 V \u00b1(1% + 5)"
+      },
+      {
+        "label": "AC Voltage (True-RMS)",
+        "value": "6 V \u2013 600 V \u00b1(1.2% + 5) \u00b7 1500 V \u00b1(2% + 5), 40 Hz \u2013 1 kHz"
       },
       {
         "label": "Resistance",
-        "value": "0.1 \u03a9 \u2013 60 M\u03a9"
+        "value": "600 \u03a9 \u2013 60 M\u03a9"
       },
       {
         "label": "Capacitance",
-        "value": "0.001 nF \u2013 100 mF"
+        "value": "10 nF \u2013 100 mF"
       },
       {
-        "label": "Measurement Type",
-        "value": "True-RMS"
+        "label": "Frequency",
+        "value": "10 Hz \u2013 20 kHz (ACV 1 \u2013 600 V)"
+      },
+      {
+        "label": "Diode / Continuity",
+        "value": "Diode test \u00b7 continuity buzzer below approx. 50 \u03a9"
+      },
+      {
+        "label": "Display",
+        "value": "LCD, backlit, max. 3999 / 5999 counts, auto-ranging"
       },
       {
         "label": "Battery",
-        "value": "Li-ion 3.7 V \u00d7 2 (rechargeable)"
+        "value": "Li-ion 14500, 3.7 V \u00d7 2 (rechargeable)"
       },
       {
         "label": "Safety Category",
-        "value": "CAT III 1000 V"
+        "value": "CAT III 1000 V / CAT IV 600 V"
+      },
+      {
+        "label": "Operating Temperature",
+        "value": "0 \u2013 40 \u00b0C, below 75% RH"
       },
       {
         "label": "Dimensions (L\u00d7W\u00d7H)",
@@ -1130,7 +1158,7 @@
       },
       {
         "label": "Weight",
-        "value": "Approx. 380 g"
+        "value": "Approx. 380 g (incl. battery)"
       },
       {
         "label": "Warranty",
@@ -1145,10 +1173,40 @@
     ],
     "featured": true,
     "datasheet": "dit-2500.pdf",
-    "specTables": [],
+    "specTables": [
+      {
+        "heading": "Insulation Resistance Range by Test Voltage",
+        "columns": [
+          "Test Voltage",
+          "Measurement Range"
+        ],
+        "rows": [
+          {
+            "col0": "100 V",
+            "col1": "0.1 M\u03a9 \u2013 2 G\u03a9"
+          },
+          {
+            "col0": "250 V",
+            "col1": "0.25 M\u03a9 \u2013 5 G\u03a9"
+          },
+          {
+            "col0": "500 V",
+            "col1": "0.5 M\u03a9 \u2013 10 G\u03a9"
+          },
+          {
+            "col0": "1000 V",
+            "col1": "1 M\u03a9 \u2013 20 G\u03a9"
+          },
+          {
+            "col0": "2500 V",
+            "col1": "2.5 M\u03a9 \u2013 50 G\u03a9"
+          }
+        ]
+      }
+    ],
     "includedWith": [],
     "metaTitle": "DIT-2500 Digital Insulation Tester + Multimeter, 2500 V / 50 G\u03a9 | Cambridge Instruments (CIE)",
-    "metaDesc": "DIT-2500: digital insulation tester (100\u20132500 V, 50 G\u03a9, DAR, PI) combined with True-RMS multimeter. CAT III 1000 V. Li-ion rechargeable. Cambridge Instruments & Engg. Co., Howrah.",
+    "metaDesc": "DIT-2500: digital insulation tester (100\u20132500 V, up to 50 G\u03a9, DAR, PI) combined with True-RMS multimeter. CAT III 1000 V / CAT IV 600 V. Li-ion rechargeable. Cambridge Instruments & Engg. Co., Howrah.",
     "images": [
       "dit-2500.webp",
       "dit-2500-2.webp"
