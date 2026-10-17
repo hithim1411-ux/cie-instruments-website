@@ -8,28 +8,20 @@
   "src": "/images/hero/cie-444.webp"
  },
  {
+  "id": "rts-33",
+  "brand": "cie",
+  "label": "RTS-33",
+  "note": "Three-Phase Relay Test Set",
+  "href": "/products/relay-test-sets/rts-33/",
+  "src": "/images/hero/rts-33.webp"
+ },
+ {
   "id": "cie-666",
   "brand": "cie",
   "label": "CIE/666",
   "note": "Insulation Tester - Wooden Body, Hand-Driven",
   "href": "/products/insulation-testers-hand/cie-666/",
   "src": "/images/hero/cie-666.webp"
- },
- {
-  "id": "cie-444-mr",
-  "brand": "cie",
-  "label": "CIE/444/MR",
-  "note": "Multirange Insulation Tester - Metal Body (Hand-Driven)",
-  "href": "/products/multirange-insulation-hand/cie-444-mr/",
-  "src": "/images/hero/cie-444-mr.webp"
- },
- {
-  "id": "cie-666-mr",
-  "brand": "cie",
-  "label": "CIE/666/MR",
-  "note": "Multirange Insulation Tester - Wooden Body (Hand-Driven)",
-  "href": "/products/multirange-insulation-hand/cie-666-mr/",
-  "src": "/images/hero/cie-666-mr.webp"
  },
  {
   "id": "cie-777",
@@ -46,22 +38,6 @@
   "note": "Motor-cum-Hand Driven Insulation Tester",
   "href": "/products/motor-operated-insulation/cie-777-hm/",
   "src": "/images/hero/cie-777-hm.webp"
- },
- {
-  "id": "cie-777-mr",
-  "brand": "cie",
-  "label": "CIE/777/MR",
-  "note": "Multirange Motorised Insulation Tester",
-  "href": "/products/multirange-motorised-insulation/cie-777-mr/",
-  "src": "/images/hero/cie-777-mr.webp"
- },
- {
-  "id": "cie-777-hm-mr",
-  "brand": "cie",
-  "label": "CIE/777 HM/MR",
-  "note": "Multirange Motor-cum-Hand Driven Insulation Tester",
-  "href": "/products/multirange-motorised-insulation/cie-777-hm-mr/",
-  "src": "/images/hero/cie-777-hm-mr.webp"
  },
  {
   "id": "cie-555",
@@ -184,30 +160,6 @@
   "src": "/images/hero/cie-7050.webp"
  },
  {
-  "id": "rts-5",
-  "brand": "cie",
-  "label": "RTS-5",
-  "note": "Relay Test Set - Single Phase (Secondary Current Injection)",
-  "href": "/products/relay-test-sets/rts-5/",
-  "src": "/images/hero/rts-5.webp"
- },
- {
-  "id": "rts-5a",
-  "brand": "cie",
-  "label": "RTS-5A",
-  "note": "Relay Test Set - Single Phase, 0–200 A (Portable Trolley)",
-  "href": "/products/relay-test-sets/rts-5a/",
-  "src": "/images/hero/rts-5a.webp"
- },
- {
-  "id": "rts-33",
-  "brand": "cie",
-  "label": "RTS-33",
-  "note": "Three-Phase Relay Test Set",
-  "href": "/products/relay-test-sets/rts-33/",
-  "src": "/images/hero/rts-33.webp"
- },
- {
   "id": "v-mas-830-lb",
   "brand": "vartech",
   "label": "V MAS 830 LB",
@@ -216,12 +168,20 @@
   "src": "/images/hero/v-mas-830-lb.webp"
  },
  {
-  "id": "v-92",
+  "id": "m-890",
   "brand": "vartech",
-  "label": "V 92",
-  "note": "Digital Multimeter True RMS Auto Ranging",
-  "href": "/authorised-dealership/multimeters/v-92/",
-  "src": "/images/hero/v-92.webp"
+  "label": "M 890",
+  "note": "Full Function Digital Multimeter True RMS",
+  "href": "/authorised-dealership/multimeters/m-890/",
+  "src": "/images/hero/m-890.webp"
+ },
+ {
+  "id": "v-92-s",
+  "brand": "vartech",
+  "label": "V 92 S",
+  "note": "Smart Digital Multimeter True RMS Auto Ranging",
+  "href": "/authorised-dealership/multimeters/v-92-s/",
+  "src": "/images/hero/v-92-s.webp"
  },
  {
   "id": "v-68",
@@ -232,12 +192,20 @@
   "src": "/images/hero/v-68.webp"
  },
  {
-  "id": "v-980",
+  "id": "v-8222-g",
   "brand": "vartech",
-  "label": "V 980",
-  "note": "True RMS Digital Multimeter 20000 Counts",
-  "href": "/authorised-dealership/multimeters/v-980/",
-  "src": "/images/hero/v-980.webp"
+  "label": "V 8222 G",
+  "note": "Full Function Digital Multimeter True RMS 1000V AC/DC 20A",
+  "href": "/authorised-dealership/multimeters/v-8222-g/",
+  "src": "/images/hero/v-8222-g.webp"
+ },
+ {
+  "id": "v-981-plus",
+  "brand": "vartech",
+  "label": "V 981+",
+  "note": "Bench Top Digital Multimeter with PC Interface TRMS 30000 Counts",
+  "href": "/authorised-dealership/multimeters/v-981-plus/",
+  "src": "/images/hero/v-981-plus.webp"
  },
  {
   "id": "v-266",
@@ -248,12 +216,20 @@
   "src": "/images/hero/v-266.webp"
  },
  {
-  "id": "v-266-c",
+  "id": "v-266-plus",
   "brand": "vartech",
-  "label": "V 266 C",
-  "note": "Digital Clamp Multimeter with Capacitance Frequency Temperature",
-  "href": "/authorised-dealership/clamp-meters/v-266-c/",
-  "src": "/images/hero/v-266-c.webp"
+  "label": "V 266+",
+  "note": "Digital Clamp Multimeter 1000A AC 600V",
+  "href": "/authorised-dealership/clamp-meters/v-266-plus/",
+  "src": "/images/hero/v-266-plus.webp"
+ },
+ {
+  "id": "m-2101",
+  "brand": "vartech",
+  "label": "M 2101",
+  "note": "True RMS Digital Clamp Multimeter 1000A AC DC",
+  "href": "/authorised-dealership/clamp-meters/m-2101/",
+  "src": "/images/hero/m-2101.webp"
  },
  {
   "id": "v-2001-plus",
@@ -272,12 +248,20 @@
   "src": "/images/hero/ss-5020b.webp"
  },
  {
-  "id": "ss-5030bc",
+  "id": "ss-5030b",
   "brand": "vartech",
-  "label": "SS-5030BC",
-  "note": "30 MHz Dual Channel CRO with Built-in Component Tester",
-  "href": "/authorised-dealership/oscilloscopes/ss-5030bc/",
-  "src": "/images/hero/ss-5030bc.webp"
+  "label": "SS-5030B",
+  "note": "30 MHz Dual Channel Analog Oscilloscope (CRO)",
+  "href": "/authorised-dealership/oscilloscopes/ss-5030b/",
+  "src": "/images/hero/ss-5030b.webp"
+ },
+ {
+  "id": "ss-5080ds4",
+  "brand": "vartech",
+  "label": "SS-5080DS4",
+  "note": "80 MHz 4-Channel Digital Storage Oscilloscope (DSO)",
+  "href": "/authorised-dealership/oscilloscopes/ss-5080ds4/",
+  "src": "/images/hero/ss-5080ds4.webp"
  },
  {
   "id": "ss-5100ds1b",
@@ -376,11 +360,27 @@
   "src": "/images/hero/3005-b.webp"
  },
  {
+  "id": "3005-s",
+  "brand": "vartech",
+  "label": "3005 S",
+  "note": "30V / 5A Slim SMPS DC Regulated Power Supply (150W)",
+  "href": "/authorised-dealership/dc-power-supplies/3005-s/",
+  "src": "/images/hero/3005-s.webp"
+ },
+ {
   "id": "3030-sr",
   "brand": "vartech",
   "label": "3030 SR",
   "note": "30V / 30A SMPS DC Regulated Power Supply with PC Interface (900W)",
   "href": "/authorised-dealership/dc-power-supplies/3030-sr/",
   "src": "/images/hero/3030-sr.webp"
+ },
+ {
+  "id": "20010-sr",
+  "brand": "vartech",
+  "label": "20010 SR",
+  "note": "200V / 10A SMPS DC Regulated Power Supply with RS232 Interface (2000W)",
+  "href": "/authorised-dealership/dc-power-supplies/20010-sr/",
+  "src": "/images/hero/20010-sr.webp"
  }
 ]

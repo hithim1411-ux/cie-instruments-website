@@ -4,6 +4,7 @@
 import sharp from 'sharp';
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = (f) => JSON.parse(fs.readFileSync(path.join(root, 'src/data', f), 'utf8'));
@@ -13,9 +14,9 @@ fs.mkdirSync(outDir, { recursive: true });
 const cie = read('products.json').filter((p) => p.brand !== 'vartech');
 const vt = (file, slug, label, take) => ({ items: read(file), slug, label, take });
 const sections = [
-  vt('vartech-multimeters.json', 'multimeters', 'Multimeters', 4),
-  vt('vartech-clamp-meters.json', 'clamp-meters', 'Clamp Meters', 3),
-  vt('vartech-oscilloscopes.json', 'oscilloscopes', 'Oscilloscopes', 3),
+  vt('vartech-multimeters.json', 'multimeters', 'Multimeters', 6),
+  vt('vartech-clamp-meters.json', 'clamp-meters', 'Clamp Meters', 4),
+  vt('vartech-oscilloscopes.json', 'oscilloscopes', 'Oscilloscopes', 4),
   vt('vartech-function-generators.json', 'function-generators', 'Function Generators', 2),
   vt('vartech-lcr-meters.json', 'lcr-meters', 'LCR Meters', 2),
   vt('vartech-dc-loads.json', 'dc-loads', 'DC Loads', 1),
@@ -24,7 +25,7 @@ const sections = [
   vt('vartech-calibrators.json', 'calibrators', 'Calibrators', 1),
   vt('vartech-sound-level-meters.json', 'sound-level-meters', 'Sound Level Meters', 1),
   vt('vartech-anemometers.json', 'anemometers', 'Anemometers', 1),
-  vt('vartech-dc-power-supplies.json', 'dc-power-supplies', 'DC Power Supplies', 2),
+  vt('vartech-dc-power-supplies.json', 'dc-power-supplies', 'DC Power Supplies', 4),
 ];
 
 const entries = [];
@@ -50,8 +51,21 @@ async function bgOf(file) {
   return a < 200 ? { r: 241, g: 241, b: 241 } : { r, g, b };
 }
 
+// Products that share one photo (RTS-5/5A/33, the /MR pairs...) must not repeat on the wall:
+// keep only the first entry per identical image. Flagship tiles win ties.
+const FLAGSHIP = ['cie-444', 'rts-33'];
+entries.sort((a, b) => FLAGSHIP.includes(b.id) - FLAGSHIP.includes(a.id));
+const seenHash = new Set();
+const unique = entries.filter((e) => {
+  const abs = path.join(root, e.file);
+  if (!fs.existsSync(abs)) return true;
+  const h = crypto.createHash('md5').update(fs.readFileSync(abs)).digest('hex');
+  if (seenHash.has(h)) { console.log('skip duplicate photo:', e.id); return false; }
+  seenHash.add(h); return true;
+});
+
 const out = [];
-for (const e of entries) {
+for (const e of unique) {
   const abs = path.join(root, e.file);
   if (!fs.existsSync(abs)) { console.warn('missing', e.file); continue; }
   const bg = await bgOf(abs);
