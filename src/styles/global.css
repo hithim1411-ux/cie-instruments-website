@@ -663,9 +663,7 @@ textarea.border-border:focus {
 /* Red text on light glass: the brand red is 4.5:1 on white but dips on
    tinted glass at 11px, so use a deeper red there. Dark sections keep the
    brighter brand red. */
-.eyebrow,
-.link-arrow.text-red,
-a.text-red { color: #A8121B; }
+.eyebrow { color: #A8121B; }
 section.bg-ink .eyebrow,
 .blueprint-bg .eyebrow,
 footer .eyebrow,
@@ -718,14 +716,14 @@ a[aria-label='Call CIE'] { background-color: rgba(224, 37, 46, 0.92); }
 
 /* Faint grays: gray-300/400 are ~2.5:1 on light surfaces. Darken them
    everywhere EXCEPT inside dark sections/cards, where they are correct. */
-.text-gray-300:not(:where(.bg-ink, .blueprint-bg, .hub-card, [class*='bg-ink']) *),
-.text-gray-400:not(:where(.bg-ink, .blueprint-bg, .hub-card, [class*='bg-ink']) *) { color: #5A6577; }
-.text-gray-500:not(:where(.bg-ink, .blueprint-bg, .hub-card, [class*='bg-ink']) *) { color: #4F5A6B; }
+.text-gray-300:not(:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) *),
+.text-gray-400:not(:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) *) { color: #5A6577; }
+.text-gray-500:not(:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) *) { color: #4F5A6B; }
 
 /* Secondary text inside dark sections must use the light muted tone; the
    darkened --color-muted is for light surfaces only. */
-:where(.bg-ink, .blueprint-bg, .hub-card, [class*='bg-ink']) .text-muted,
-:where(.bg-ink, .blueprint-bg, .hub-card, [class*='bg-ink']) [class*='text-muted/'] { color: var(--color-muted-dark); }
+:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) .text-muted,
+:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) [class*='text-muted/'] { color: var(--color-muted-dark); }
 
 /* ══════════════════════════════════════════════════════════════════════
    HEADER + FOOTER BLEND (2026-10-17)
@@ -819,3 +817,57 @@ footer.footer-glass .eyebrow { color: #A8121B; }
 .btn-secondary.text-ink { color: var(--color-ink); }
 .bg-red .btn-secondary { color: #fff; border: 1.5px solid rgba(255, 255, 255, 0.7); background-color: rgba(255, 255, 255, 0.10); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; font-weight: 600; }
 .bg-red .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.22); border-color: rgba(255, 255, 255, 0.8); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   CONTRAST AUDIT FIXES (2026-10-17)
+   Found by computing WCAG ratios for every text node on 22 page types.
+   The site's light-surface text colours were designed for white; on the
+   steel field several drop under 4.5:1. Each rule below swaps to a darker
+   shade ONLY outside dark contexts (dark sections, dark cards, the dark
+   header tone, red bands, photo gradients), where the light originals are
+   correct.
+   ══════════════════════════════════════════════════════════════════════ */
+.text-muted-dark:not(:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) *) { color: #3F4A5C; }
+.text-red:not(:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) *) { color: #A8121B; }
+.text-emerald-500:not(:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) *),
+.text-emerald-600:not(:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) *) { color: #046249; }
+.text-\[\#1DB954\]:not(:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) *) { color: #0B6B2C; }
+[class*='bg-[#1DB954]'] { background-color: #0F7A35; }
+[class*='bg-[#1DB954]']:hover { background-color: #0B6B2C; }
+/* light tints of red used for small text on the red CTA bands */
+.bg-red .text-red-100, .bg-red .text-red-200 { color: rgba(255, 255, 255, 0.94); }
+/* a touch deeper on the primary button so white 14px text clears 4.5:1 */
+.btn-primary:not(.btn-primary--inverse) { background-color: #CC1F29; }
+.btn-primary:not(.btn-primary--inverse):hover { background-color: #B51A23; }
+.bg-red .btn-secondary { background-color: rgba(0, 0, 0, 0.12); }
+.bg-red .btn-secondary:hover { background-color: rgba(0, 0, 0, 0.2); }
+#site-header a.bg-red { background-color: #CC1F29; }
+#site-header a.bg-red:hover { background-color: #B51A23; }
+
+/* Red CTA bands: deepen from the raw brand red so small white copy clears 4.5:1 */
+section.bg-red, .bg-red.rounded-2xl { background-color: #CC1F29; }
+
+/* Brand red is 4.1:1 on near-black: use the brighter tint for small red text on dark sections */
+.blueprint-bg .text-red, .bg-ink .text-red, .hub-card .text-red { color: #FF5A62; }
+.text-\[\#E0252E\]:not(:where(.bg-ink, .blueprint-bg, .hub-card, .bg-red, [class*='bg-ink'], [class*='from-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-[#3'], [class*='bg-gray-7'], [class*='bg-gray-8'], [class*='bg-gray-9'], [class*='bg-slate-7'], [class*='bg-slate-8'], [class*='bg-slate-9'], .bg-black, [class*='bg-amber-6'], [class*='bg-amber-7'], [class*='bg-emerald-6'], [class*='bg-emerald-7'], [class*='bg-emerald-8'], [class*='bg-blue-6'], [class*='bg-blue-7'], [class*='bg-blue-8'], [class*='bg-red-6'], [class*='bg-red-7'], [class*='bg-purple-'], [class*='bg-orange-6'], #site-header[data-tone='dark']) *) { color: #A8121B; }
+.bg-amber-600 { background-color: #B45309; }
+.bg-red:not(.btn-primary) { background-color: #CC1F29; }
+.bg-red:not(.btn-primary):hover { background-color: #B51A23; }
+.text-red-100:not(.bg-red *) { color: rgba(255, 255, 255, 0.95); }
+
+/* Blog posts: dark callout boxes (div.bg-ink) sit inside .blog-content, whose
+   paragraph/strong rules force dark text. Restore light text inside them. */
+.blog-content .bg-ink p,
+.blog-content .bg-ink li { color: #E2E8F0; }
+.blog-content .bg-ink p.text-gray-400,
+.blog-content .bg-ink p[class*='text-gray-4'] { color: #A8B3C4; }
+.blog-content .bg-ink strong,
+.blog-content .bg-ink em { color: #fff; }
+.blog-content .bg-ink a { color: #FF7A82; }
+
+/* Dark callouts in blog posts: unclassed text inherits ink from .blog-content,
+   which is invisible on navy. Give it a light tone; classed text keeps its own. */
+.blog-content :is(.bg-ink, [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-gray-8'], [class*='bg-gray-9']) :is(div, p, li):not([class*='text-']) { color: #CBD5E1; }
+.text-amber-600:not(:where(.bg-ink, .blueprint-bg, [class*='bg-ink'], [class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], [class*='bg-gray-8'], [class*='bg-gray-9']) *) { color: #B45309; }
+:where([class*='bg-[#0'], [class*='bg-[#1'], [class*='bg-[#2'], .bg-ink, .blueprint-bg) .text-\[\#E0252E\] { color: #FF5A62; }
+[class*='bg-[#E0252E]'] { background-color: #CC1F29; }
