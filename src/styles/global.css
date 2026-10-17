@@ -629,7 +629,6 @@ textarea.border-border:focus {
 }
 
 /* ── Footer + search + other dark chrome ── */
-footer.bg-ink { background-color: rgba(10, 14, 20, 0.94); }
 #search-box-desktop {
   background-color: rgba(255, 255, 255, 0.82);
   -webkit-backdrop-filter: var(--glass-blur-lg);
@@ -725,3 +724,59 @@ a[aria-label='Call CIE'] { background-color: rgba(224, 37, 46, 0.92); }
    darkened --color-muted is for light surfaces only. */
 :where(.bg-ink, .blueprint-bg, .hub-card, [class*='bg-ink']) .text-muted,
 :where(.bg-ink, .blueprint-bg, .hub-card, [class*='bg-ink']) [class*='text-muted/'] { color: var(--color-muted-dark); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   HEADER + FOOTER BLEND (2026-10-17)
+   Header: JS sets data-tone="light|dark" from what is painted behind it.
+   Light tone = frosted white glass with dark text, so it melts into the
+   page; dark tone (over a dark hero) keeps the existing dark glass.
+   Footer: light frosted glass, no black slab.
+   ══════════════════════════════════════════════════════════════════════ */
+#site-header { transition: background-color 0.35s var(--ease-premium), box-shadow 0.35s var(--ease-premium); }
+#site-header[data-tone='light'],
+#site-header[data-tone='light'][data-transparent-hero='true'],
+#site-header[data-tone='light'].backdrop-blur-xl,
+#site-header[data-tone='light'][data-transparent-hero='false'] {
+  background-color: rgba(255, 255, 255, 0.58) !important;
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  backdrop-filter: var(--glass-blur-lg);
+  box-shadow: inset 0 -1px 0 rgba(10, 14, 20, 0.07), 0 8px 28px -14px rgba(10, 14, 20, 0.18) !important;
+}
+#site-header[data-tone='light'] .text-white { color: var(--color-ink); }
+#site-header[data-tone='light'] .text-muted-dark,
+#site-header[data-tone='light'] .text-muted { color: #4A5568; }
+#site-header[data-tone='light'] a:hover,
+#site-header[data-tone='light'] button:hover { color: var(--color-ink); }
+#site-header[data-tone='light'] a.bg-red,
+#site-header[data-tone='light'] a.bg-red:hover { color: #fff; }
+#site-header[data-tone='light'] a.text-red,
+#site-header[data-tone='light'] .text-red { color: #B8141D; }
+#site-header[data-tone='light'] .text-emerald-400,
+#site-header[data-tone='light'] [class*='text-emerald-400/'] { color: #047857; }
+#site-header[data-tone='light'] .text-emerald-500 { color: #059669; }
+#site-header[data-tone='light'] .bg-white\/10,
+#site-header[data-tone='light'] #search-trigger { background-color: rgba(10, 14, 20, 0.06); }
+#site-header[data-tone='light'] #search-trigger:hover { background-color: rgba(10, 14, 20, 0.1); }
+#site-header[data-tone='light'] kbd { background-color: rgba(10, 14, 20, 0.05); border-color: rgba(10, 14, 20, 0.1); color: #4A5568; }
+#site-header[data-tone='light'] .hover\:bg-white\/5:hover { background-color: rgba(10, 14, 20, 0.05); }
+#site-header[data-tone='light'] .border-white\/10,
+#site-header[data-tone='light'] .border-t.border-white\/10 { border-color: rgba(10, 14, 20, 0.1); }
+/* dropdown + mobile menu panels follow the tone */
+#site-header[data-tone='light'] .bg-ink {
+  background-color: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--glass-rim), 0 24px 64px -16px rgba(10, 14, 20, 0.28);
+}
+#site-header[data-tone='light'] #mobile-menu {
+  background-color: rgba(255, 255, 255, 0.82) !important;
+  box-shadow: inset 0 -1px 0 rgba(10, 14, 20, 0.07), 0 20px 40px -16px rgba(10, 14, 20, 0.25);
+}
+#site-header[data-tone='light'] #mobile-menu a.bg-red { background-color: var(--color-red); }
+
+footer.footer-glass {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 -1px 0 rgba(10, 14, 20, 0.07);
+}
+footer.footer-glass .eyebrow { color: #B8141D; }

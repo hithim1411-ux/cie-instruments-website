@@ -38,6 +38,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 <header
   id="site-header"
   data-transparent-hero={transparentHero ? 'true' : 'false'}
+  data-tone={transparentHero ? 'dark' : 'light'}
   class={`fixed top-0 inset-x-0 z-50 transition-[background-color,box-shadow] duration-300 [transition-timing-function:var(--ease-premium)] ${transparentHero ? 'bg-transparent' : 'bg-ink'}`}
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -415,6 +416,36 @@ function updateScrollState() {
   headerBar?.classList.toggle('lg:h-20', !scrolled);
   siteLogo?.classList.toggle('scale-90', scrolled);
 }
+// ── Tone: the header frosts light over light content and dark over a dark
+// hero, so it blends with whatever page is behind it instead of sitting on
+// top as a black bar. Samples what is actually painted behind the bar.
+function detectTone(): 'light' | 'dark' {
+  const y = (headerBar?.offsetHeight ?? 64) / 2;
+  const under = document.elementsFromPoint(window.innerWidth / 2, y)
+    .find((e) => !header.contains(e) && e !== document.documentElement && e !== document.body);
+  let el: Element | null = under ?? null;
+  while (el && el !== document.documentElement) {
+    const m = getComputedStyle(el).backgroundColor.match(/[\d.]+/g);
+    if (m && (m.length > 3 ? +m[3] : 1) > 0.6) {
+      const lum = (0.2126 * +m[0] + 0.7152 * +m[1] + 0.0722 * +m[2]) / 255;
+      return lum < 0.4 ? 'dark' : 'light';
+    }
+    el = el.parentElement;
+  }
+  return 'light';
+}
+let toneQueued = false;
+function updateTone() {
+  if (toneQueued) return;
+  toneQueued = true;
+  requestAnimationFrame(() => {
+    toneQueued = false;
+    const t = detectTone();
+    if (header && header.dataset.tone !== t) header.dataset.tone = t;
+  });
+}
 updateScrollState();
-window.addEventListener('scroll', updateScrollState, { passive: true });
+updateTone();
+window.addEventListener('scroll', () => { updateScrollState(); updateTone(); }, { passive: true });
+window.addEventListener('resize', updateTone, { passive: true });
 </script>
