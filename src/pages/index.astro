@@ -134,7 +134,8 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
        pre-generated (public/images/hero). Tiles are real links; hovering one
        lights it up and prints its model + name in the readout under the wall.
        ── -->
-  <section id="home-hero" class="relative bg-ink text-white border-t border-white/10">
+  <section id="home-hero" class="relative bg-ink text-white -mt-16 lg:-mt-20 pt-16 lg:pt-20">
+    <!-- Pulled up under the fixed header (which condenses on scroll) so the ink background fills the gap instead of white body showing through. -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12 grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-0 lg:gap-14 items-center min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)]">
 
       <div class="contents lg:block">
