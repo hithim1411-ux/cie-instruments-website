@@ -9,12 +9,6 @@ import { u } from '../../utils/url';
   description="Free calculator: find the minimum acceptable insulation resistance for a motor or generator winding per IEEE 43, corrected to 40°C, and check your megger reading against it."
   h1="Motor Minimum Insulation Resistance Check"
   intro="Pick the winding type and rated voltage, enter your reading and temperature, and see whether it clears the IEEE 43 recommended minimum."
-  productLabel="View Insulation Testers"
-  productHref="/products/insulation-testers-hand"
-  related={[
-    { href: '/tools/ir-temperature-correction-calculator', label: 'Insulation Resistance Temperature Correction' },
-    { href: '/tools/pi-dar-calculator', label: 'PI and DAR Calculator' },
-  ]}
 >
   <Fragment slot="inputs">
     <div class="tool-field"><label for="type">Winding type</label>
@@ -23,12 +17,21 @@ import { u } from '../../utils/url';
         <option value="form">Form-wound, built after about 1970 (AC) and DC armatures</option>
         <option value="rand">Random-wound stator coils, or form-wound below 1 kV</option>
       </select></div>
-    <div class="tool-field"><label for="kv">Rated line voltage (kV)</label><input id="kv" type="number" min="0" step="any" value="0.415" inputmode="decimal" /></div>
-    <div class="tool-field"><label for="ir">Measured IR, 1 minute (MΩ)</label><input id="ir" type="number" min="0" step="any" value="30" inputmode="decimal" /></div>
-    <div class="tool-field"><label for="temp">Winding temperature (°C)</label><input id="temp" type="number" min="-20" max="150" step="any" value="30" inputmode="decimal" /></div>
+    <div class="tool-field"><label for="kv">Rated line voltage</label>
+      <div class="input-wrap"><input id="kv" type="number" min="0" step="any" value="0.415" inputmode="decimal" /><span class="unit">kV</span></div>
+      <div class="chips">
+        <button type="button" class="chip" data-set='{"kv":0.415}'>415 V</button>
+        <button type="button" class="chip" data-set='{"kv":3.3}'>3.3 kV</button>
+        <button type="button" class="chip" data-set='{"kv":6.6}'>6.6 kV</button>
+        <button type="button" class="chip" data-set='{"kv":11}'>11 kV</button>
+      </div></div>
+    <div class="tool-split">
+      <div class="tool-field"><label for="ir">Measured IR, 1 min</label><div class="input-wrap"><input id="ir" type="number" min="0" step="any" value="30" inputmode="decimal" /><span class="unit">MΩ</span></div></div>
+      <div class="tool-field"><label for="temp">Winding temp</label><div class="input-wrap"><input id="temp" type="number" min="-20" max="150" step="any" value="30" inputmode="decimal" /><span class="unit">°C</span></div></div>
+    </div>
   </Fragment>
   <Fragment slot="readout">
-    <div class="lcd" id="min">-</div>
+    <div class="lcd"><small>MIN</small><span id="min">-</span><span class="u">MΩ at 40°C</span></div>
     <div class="lcd-sub" id="detail"></div>
     <div id="verdict"></div>
     <div class="bar-track"><div class="bar-fill" id="bar" style="width:0"></div><i class="bar-min" id="bar-min"></i></div>
@@ -53,8 +56,7 @@ import { u } from '../../utils/url';
 
   <script is:inline>
     (function () {
-      var $ = function (id) { return document.getElementById(id); };
-      function badge(cls, text) { return '<span class="tool-verdict ' + cls + '">' + text + '</span>'; }
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
       function testV(kv) {
         if (kv < 1) return '500 V DC';
         if (kv <= 2.5) return '500 to 1000 V DC';
@@ -63,16 +65,16 @@ import { u } from '../../utils/url';
         return '5000 to 10000 V DC';
       }
       function calc() {
-        var type = $('type').value, kv = parseFloat($('kv').value), ir = parseFloat($('ir').value), t = parseFloat($('temp').value);
+        var type = $('type').value, kv = C.val('kv'), ir = C.val('ir'), t = C.val('temp');
         if (!isFinite(kv) || kv <= 0 || !isFinite(ir) || !isFinite(t) || ir < 0) {
-          $('min').textContent = '-'; $('bar').style.width = '0'; $('detail').textContent = 'Enter valid numbers.'; $('verdict').innerHTML = ''; $('volt').textContent = ''; return;
+          C.num($('min'), null); $('bar').style.width = '0'; $('detail').textContent = 'Enter valid numbers.'; $('verdict').innerHTML = ''; $('volt').textContent = ''; return;
         }
         var min = type === 'old' ? kv + 1 : type === 'form' ? 100 : 5;
         var f = Math.pow(2, (t - 40) / 10), c = ir * f;
-        $('min').innerHTML = '<small>MIN</small> ' + parseFloat(min.toPrecision(3)) + ' <small>MΩ at 40°C</small>';
+        C.num($('min'), min, function (v) { return C.fmt(v, 3); });
         var sc = Math.max(c, min) * 1.25; $('bar').style.width = (c / sc * 100) + '%'; $('bar').style.background = c >= min ? '#10b981' : '#ef4444'; $('bar-min').style.left = (min / sc * 100) + '%';
-        $('detail').textContent = 'Your ' + ir + ' MΩ at ' + t + '°C equals ' + c.toPrecision(4) + ' MΩ at 40°C (factor ' + f.toPrecision(3) + ').';
-        $('verdict').innerHTML = c >= min ? badge('v-great', 'Meets the minimum') : badge('v-bad', 'Below the minimum');
+        $('detail').innerHTML = 'Your <b>' + C.fmt(ir) + ' MΩ</b> at ' + t + '°C equals <b>' + C.fmt(c) + ' MΩ</b> at 40°C (factor ' + C.fmt(f, 3) + ').';
+        $('verdict').innerHTML = c >= min ? C.badge('v-great', 'Meets the minimum') : C.badge('v-bad', 'Below the minimum');
         $('volt').textContent = 'Suggested test voltage for ' + kv + ' kV: ' + testV(kv) + '.';
       }
       ['type', 'kv', 'ir', 'temp'].forEach(function (id) { $(id).addEventListener('input', calc); });

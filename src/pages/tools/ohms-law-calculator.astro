@@ -1,0 +1,91 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="ohms-law-calculator"
+  title="Ohm's Law and Power Calculator (V, I, R, P)"
+  description="Free calculator: enter any two of voltage, current, resistance and power and instantly get the other two, with the formulas used."
+  h1="Ohm's Law and Power Calculator"
+  intro="Type any two values. The two you touched last are your inputs, and the other two are worked out for you."
+>
+  <Fragment slot="inputs">
+    <div class="tool-field"><label for="V">Voltage</label><div class="input-wrap"><input id="V" type="number" step="any" value="230" inputmode="decimal" /><span class="unit">V</span></div></div>
+    <div class="tool-field"><label for="I">Current</label><div class="input-wrap"><input id="I" type="number" step="any" value="" inputmode="decimal" /><span class="unit">A</span></div></div>
+    <div class="tool-field"><label for="R">Resistance</label><div class="input-wrap"><input id="R" type="number" step="any" value="46" inputmode="decimal" /><span class="unit">Ω</span></div></div>
+    <div class="tool-field"><label for="P">Power</label><div class="input-wrap"><input id="P" type="number" step="any" value="" inputmode="decimal" /><span class="unit">W</span></div></div>
+    <p class="hint" id="hint">Tinted fields are calculated. Type in a tinted field to make it an input instead.</p>
+    <div class="tool-field"><span class="flabel">Try an example</span>
+      <div class="chips">
+        <button type="button" class="chip" data-set='{"V":230,"R":46}'>230 V across 46 Ω</button>
+        <button type="button" class="chip" data-set='{"V":12,"I":2.5}'>12 V at 2.5 A</button>
+        <button type="button" class="chip" data-set='{"P":1500,"V":230}'>1.5 kW at 230 V</button>
+      </div></div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="readout-block">
+      <div class="lcd"><small id="k1">I</small><span id="o1">-</span><span class="u" id="u1">A</span></div>
+    </div>
+    <div class="readout-block">
+      <div class="lcd"><small id="k2">P</small><span id="o2">-</span><span class="u" id="u2">W</span></div>
+    </div>
+    <div class="lcd-sub" id="formula"></div>
+    <div class="tool-callout" id="note"></div>
+  </Fragment>
+
+  <h2>The formulas</h2>
+  <p class="formula">V = I × R  ·  P = V × I  ·  P = I² × R  ·  P = V² / R</p>
+  <p>These hold for DC and for AC circuits that are purely resistive. For AC loads with inductance or capacitance (motors, transformers), use the <a href={u('/tools/three-phase-power-calculator/')}>power calculator</a>, because power factor then matters.</p>
+  <h2>Where it helps on the bench</h2>
+  <ul>
+    <li><strong>Insulation leakage:</strong> a megger applying 500 V that sees 0.5 µA of leakage is reading 1000 MΩ. Enter 500 V and 0.0000005 A to check.</li>
+    <li><strong>Heater or lamp check:</strong> measure the cold resistance with a <a href={u('/products/multimeters/')}>multimeter</a> and compare with the rated power. Heating elements read higher when hot.</li>
+    <li><strong>Burden and shunt checks:</strong> find the power a resistor must dissipate, then pick a part with at least twice that rating.</li>
+  </ul>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      var keys = ['V', 'I', 'R', 'P'], order = ['V', 'R'];
+      var units = { V: 'V', I: 'A', R: 'Ω', P: 'W' };
+      var pre = [[1e9, 'G'], [1e6, 'M'], [1e3, 'k'], [1, ''], [1e-3, 'm'], [1e-6, 'µ'], [1e-9, 'n']];
+      function eng(v) { var a = Math.abs(v); if (a === 0) return { n: 0, p: '' }; for (var i = 0; i < pre.length; i++) if (a >= pre[i][0]) return { n: v / pre[i][0], p: pre[i][1] }; return { n: v / 1e-9, p: 'n' }; }
+      function put(k, v) { var el = $(k); el.value = isFinite(v) ? +v.toPrecision(7) : ''; }
+      function calc(e) {
+        if (e && e.target && keys.indexOf(e.target.id) >= 0) {
+          var k = e.target.id; order = order.filter(function (x) { return x !== k; }); order.push(k); if (order.length > 2) order.shift();
+        }
+        var s = order.slice().sort().join(''), a = {}; keys.forEach(function (k) { a[k] = parseFloat($(k).value); });
+        var V = a.V, I = a.I, R = a.R, P = a.P, f = '';
+        function need(x, y) { return isFinite(x) && isFinite(y); }
+        var ok = need(a[order[0]], a[order[1]]);
+        $('note').textContent = '';
+        if (ok) {
+          if (s === 'IV') { R = V / I; P = V * I; f = 'R = V / I, P = V × I'; }
+          else if (s === 'RV') { I = V / R; P = V * V / R; f = 'I = V / R, P = V² / R'; }
+          else if (s === 'PV') { I = P / V; R = V * V / P; f = 'I = P / V, R = V² / P'; }
+          else if (s === 'IR') { V = I * R; P = I * I * R; f = 'V = I × R, P = I² × R'; }
+          else if (s === 'IP') { V = P / I; R = P / (I * I); f = 'V = P / I, R = P / I²'; }
+          else if (s === 'PR') { V = Math.sqrt(P * R); I = Math.sqrt(P / R); f = 'V = √(P × R), I = √(P / R)'; }
+          if ((P < 0 || R < 0) ) $('note').textContent = 'Negative power or resistance is not physical for a passive resistor.';
+        }
+        var out = keys.filter(function (k) { return order.indexOf(k) < 0; });
+        var vals = { V: V, I: I, R: R, P: P };
+        keys.forEach(function (k) { $(k).classList.toggle('is-out', out.indexOf(k) >= 0); });
+        if (ok) out.forEach(function (k) { put(k, vals[k]); });
+        else out.forEach(function (k) { $(k).value = ''; });
+        [0, 1].forEach(function (i) {
+          var k = out[i], v = vals[k], good = ok && isFinite(v);
+          $('k' + (i + 1)).textContent = k;
+          if (good) { var x = eng(v); C.num($('o' + (i + 1)), x.n, function (n) { return C.fmt(n, 3); }); $('u' + (i + 1)).textContent = x.p + units[k]; }
+          else { C.num($('o' + (i + 1)), null); $('u' + (i + 1)).textContent = units[k]; }
+        });
+        $('formula').innerHTML = ok ? 'Using <b>' + f + '</b>' : 'Enter two values to see the other two.';
+      }
+      keys.forEach(function (k) { $(k).addEventListener('input', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

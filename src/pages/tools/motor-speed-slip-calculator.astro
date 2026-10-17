@@ -1,0 +1,98 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="motor-speed-slip-calculator"
+  title="Motor Synchronous Speed and Slip Calculator"
+  description="Free calculator: synchronous speed from poles and supply frequency, plus slip and rotor frequency from a measured motor speed."
+  h1="Motor Speed and Slip Calculator"
+  intro="Choose the pole count and supply frequency for the synchronous speed. Add the measured rpm to get slip and rotor frequency."
+>
+  <Fragment slot="inputs">
+    <div class="tool-field"><span class="flabel">Supply frequency</span>
+      <div class="seg" role="radiogroup" aria-label="Supply frequency">
+        <label><input type="radio" name="hz" value="50" checked /><span>50 Hz</span></label>
+        <label><input type="radio" name="hz" value="60" /><span>60 Hz</span></label>
+        <label><input type="radio" name="hz" value="x" /><span>Other</span></label>
+      </div></div>
+    <div class="tool-field" id="hz-f" hidden><label for="hzv">Frequency</label><div class="input-wrap"><input id="hzv" type="number" min="1" step="any" value="50" inputmode="decimal" /><span class="unit">Hz</span></div></div>
+
+    <div class="tool-field"><label for="poles">Number of poles</label>
+      <select id="poles">
+        <option value="2">2 pole</option><option value="4" selected>4 pole</option><option value="6">6 pole</option>
+        <option value="8">8 pole</option><option value="10">10 pole</option><option value="12">12 pole</option><option value="16">16 pole</option>
+      </select></div>
+
+    <div class="tool-field"><label for="rpm">Measured rotor speed (nameplate or tachometer)</label>
+      <div class="input-wrap"><input id="rpm" type="number" min="0" step="any" value="1470" inputmode="decimal" data-slider data-min="0" data-max="3600" data-step="1" /><span class="unit">rpm</span></div>
+      <p class="hint">Use a non-contact tachometer on the shaft for the real speed under load.</p></div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="readout-block">
+      <div class="lcd"><small>Ns</small><span id="ns">-</span><span class="u">rpm synchronous</span></div>
+      <div class="bar-track"><div class="bar-fill" id="bar" style="width:0;background:#3b82f6"></div></div>
+      <div class="scale-ticks"><span>0</span><span id="barlab">rotor speed vs synchronous</span><span>Ns</span></div>
+    </div>
+    <div class="readout-block">
+      <div class="lcd"><small>SLIP</small><span id="slip">-</span><span class="u">%</span></div>
+      <div id="verdict"></div>
+      <div class="stat-grid">
+        <div class="stat"><div class="stat-k">Slip speed</div><div class="stat-v"><span id="sl">-</span><i>rpm</i></div></div>
+        <div class="stat"><div class="stat-k">Rotor frequency</div><div class="stat-v"><span id="fr">-</span><i>Hz</i></div></div>
+      </div>
+      <div class="tool-callout" id="note"></div>
+    </div>
+  </Fragment>
+
+  <h2>Formulas</h2>
+  <p class="formula">N<sub>s</sub> = 120 × f / P  ·  slip s = (N<sub>s</sub> − N) / N<sub>s</sub>  ·  f<sub>rotor</sub> = s × f</p>
+  <h2>Synchronous speeds</h2>
+  <table>
+    <thead><tr><th>Poles</th><th class="num">50 Hz</th><th class="num">60 Hz</th></tr></thead>
+    <tbody>
+      <tr><td>2</td><td class="num">3000</td><td class="num">3600</td></tr>
+      <tr><td>4</td><td class="num">1500</td><td class="num">1800</td></tr>
+      <tr><td>6</td><td class="num">1000</td><td class="num">1200</td></tr>
+      <tr><td>8</td><td class="num">750</td><td class="num">900</td></tr>
+      <tr><td>10</td><td class="num">600</td><td class="num">720</td></tr>
+      <tr><td>12</td><td class="num">500</td><td class="num">600</td></tr>
+    </tbody>
+  </table>
+  <h2>Reading the slip</h2>
+  <ul>
+    <li>A healthy loaded induction motor typically runs at roughly 1% to 5% slip, with small machines at the higher end.</li>
+    <li>Slip well above the nameplate value at the same load suggests low supply voltage, an overload, or a rotor problem.</li>
+    <li>Slip near zero means little load. A speed above synchronous means the machine is being driven as a generator.</li>
+  </ul>
+  <p>Frequency checks matter too: see <a href={u('/blog/how-to-measure-frequency/')}>how to measure frequency</a>.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      function calc() {
+        var h = document.querySelector('input[name=hz]:checked').value;
+        $('hz-f').hidden = h !== 'x';
+        var f = h === 'x' ? C.val('hzv') : parseFloat(h), P = parseFloat($('poles').value), N = C.val('rpm');
+        $('note').textContent = '';
+        if (!(f > 0) || !(P > 0)) { C.num($('ns'), null); C.num($('slip'), null); return; }
+        var ns = 120 * f / P;
+        C.num($('ns'), ns, function (v) { return C.fmt(v, 0); });
+        if (!(N >= 0)) { C.num($('slip'), null); C.num($('sl'), null); C.num($('fr'), null); $('verdict').innerHTML = ''; return; }
+        var s = (ns - N) / ns;
+        C.num($('slip'), s * 100, function (v) { return C.fmt(v, 2); });
+        C.num($('sl'), ns - N, function (v) { return C.fmt(v, 0); });
+        C.num($('fr'), Math.abs(s) * f, function (v) { return C.fmt(v, 2); });
+        var pct = Math.min(N / ns, 1.15) / 1.15 * 100;
+        $('bar').style.width = pct + '%'; $('bar').style.background = s < 0 ? '#f59e0b' : '#3b82f6';
+        $('verdict').innerHTML = s < 0 ? C.badge('v-warn', 'Above synchronous: generating') : s < 0.001 ? C.badge('v-warn', 'No load or wrong poles') : s <= 0.06 ? C.badge('v-great', 'Normal running slip') : s <= 0.15 ? C.badge('v-warn', 'High slip') : C.badge('v-bad', 'Very high slip: check poles and load');
+        if (s > 0.15) $('note').textContent = 'This is far outside normal running slip. Check that the pole count is correct for the motor.';
+      }
+      ['hzv', 'poles', 'rpm'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      document.querySelectorAll('input[name=hz]').forEach(function (e) { e.addEventListener('change', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

@@ -1,0 +1,111 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="three-phase-power-calculator"
+  title="Three-Phase Power and Current Calculator (kW, kVA, kVAR, Amps)"
+  description="Free calculator: convert between kW, kVA, kVAR and line current for three-phase and single-phase loads, with power factor and motor efficiency."
+  h1="Three-Phase Power and Current Calculator"
+  intro="Know the kW and want the amps, or measured the amps and want the kW. Works for three-phase and single-phase, with power factor and motor efficiency."
+>
+  <Fragment slot="inputs">
+    <div class="tool-split">
+      <div class="tool-field"><span class="flabel">Supply</span>
+        <div class="seg" role="radiogroup" aria-label="Supply type">
+          <label><input type="radio" name="ph" value="3" checked /><span>3-phase</span></label>
+          <label><input type="radio" name="ph" value="1" /><span>1-phase</span></label>
+        </div></div>
+      <div class="tool-field"><span class="flabel">I know the</span>
+        <div class="seg" role="radiogroup" aria-label="Known quantity">
+          <label><input type="radio" name="mode" value="kw" checked /><span>kW</span></label>
+          <label><input type="radio" name="mode" value="amp" /><span>Amps</span></label>
+        </div></div>
+    </div>
+
+    <div class="tool-field"><label for="q" id="q-label">Power</label>
+      <div class="input-wrap"><input id="q" type="number" min="0" step="any" value="30" inputmode="decimal" /><span class="unit" id="q-unit">kW</span></div></div>
+
+    <div class="tool-field"><label for="v">Voltage <span class="hint" style="display:inline">(line-to-line for 3-phase)</span></label>
+      <div class="input-wrap"><input id="v" type="number" min="0" step="any" value="415" inputmode="decimal" /><span class="unit">V</span></div>
+      <div class="chips">
+        <button type="button" class="chip" data-set='{"v":230}'>230</button>
+        <button type="button" class="chip" data-set='{"v":400}'>400</button>
+        <button type="button" class="chip is-on" data-set='{"v":415}'>415</button>
+        <button type="button" class="chip" data-set='{"v":440}'>440</button>
+        <button type="button" class="chip" data-set='{"v":690}'>690</button>
+        <button type="button" class="chip" data-set='{"v":11000}'>11000</button>
+      </div></div>
+
+    <div class="tool-field"><label for="pf">Power factor</label>
+      <input id="pf" type="number" min="0.05" max="1" step="0.01" value="0.85" inputmode="decimal" data-slider data-min="0.3" data-max="1" data-step="0.01" /></div>
+
+    <div class="tool-field"><label for="basis">The kW figure is</label>
+      <select id="basis"><option value="in">Electrical input power</option><option value="out">Motor shaft output (use efficiency)</option></select></div>
+    <div class="tool-field" id="eff-f"><label for="eff">Motor efficiency</label>
+      <div class="input-wrap"><input id="eff" type="number" min="10" max="100" step="0.1" value="92" inputmode="decimal" data-slider data-min="50" data-max="98" data-step="0.5" /><span class="unit">%</span></div></div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="lcd"><small id="hero-k">I</small><span id="hero">-</span><span class="u" id="hero-u">A</span></div>
+    <div class="lcd-sub" id="detail"></div>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-k">Real power</div><div class="stat-v"><span id="s-kw">-</span><i>kW</i></div></div>
+      <div class="stat"><div class="stat-k">Apparent power</div><div class="stat-v"><span id="s-kva">-</span><i>kVA</i></div></div>
+      <div class="stat"><div class="stat-k">Reactive power</div><div class="stat-v"><span id="s-kvar">-</span><i>kVAR</i></div></div>
+      <div class="stat"><div class="stat-k">Line current</div><div class="stat-v"><span id="s-a">-</span><i>A</i></div></div>
+      <div class="stat"><div class="stat-k">Shaft output</div><div class="stat-v"><span id="s-out">-</span><i>kW</i></div></div>
+      <div class="stat"><div class="stat-k">Phase angle</div><div class="stat-v"><span id="s-ang">-</span><i>°</i></div></div>
+    </div>
+    <div class="tool-callout" id="note"></div>
+  </Fragment>
+
+  <h2>Formulas</h2>
+  <p class="formula">3-phase: P = √3 × V × I × PF  ·  1-phase: P = V × I × PF<br />kVA = P / PF  ·  kVAR = √(kVA² − kW²)</p>
+  <p>For a motor rated by its shaft output, the electrical input is the shaft kW divided by efficiency. A 30 kW motor at 92% efficiency draws about 32.6 kW from the supply.</p>
+  <h2>Use it to check a reading</h2>
+  <ul>
+    <li>Clamp one phase with a <a href={u('/products/clamp-meters/')}>clamp meter</a> and compare the amps with what this tool predicts for the nameplate kW. A big gap means the motor is lightly loaded, or something is wrong.</li>
+    <li>Unequal phase currents point to supply imbalance or a winding problem. See <a href={u('/blog/how-to-check-three-phase-imbalance/')}>how to check three-phase imbalance</a>.</li>
+  </ul>
+  <h2>Limits</h2>
+  <p>The result is the full-load figure for the values you enter. Starting current, harmonics and a non-sinusoidal waveform are not covered, and the real power factor of a motor falls sharply at light load.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      var r = function (n) { return function (v) { return C.fmt(v, n); }; };
+      function radio(n) { return document.querySelector('input[name=' + n + ']:checked').value; }
+      function calc() {
+        var three = radio('ph') === '3', kmode = radio('mode') === 'kw', shaft = $('basis').value === 'out';
+        var k = three ? Math.sqrt(3) : 1, q = C.val('q'), v = C.val('v'), pf = C.val('pf'), eff = C.val('eff') / 100;
+        $('q-label').textContent = kmode ? (shaft ? 'Motor shaft power' : 'Electrical power') : 'Line current';
+        $('q-unit').textContent = kmode ? 'kW' : 'A';
+        $('eff-f').style.opacity = shaft || !kmode ? 1 : .45;
+        $('note').textContent = '';
+        var ids = ['s-kw', 's-kva', 's-kvar', 's-a', 's-out', 's-ang'];
+        if (!(q >= 0) || !(v > 0) || !(pf > 0 && pf <= 1) || ((shaft || !kmode) && !(eff > 0 && eff <= 1))) {
+          C.num($('hero'), null); ids.forEach(function (i) { C.num($(i), null); }); $('detail').textContent = 'Enter valid numbers (power factor between 0 and 1).'; return;
+        }
+        var pin, s, i, out;
+        if (kmode) {
+          pin = shaft ? q / eff : q; s = pin / pf; i = s * 1000 / (k * v); out = shaft ? q : pin * eff;
+        } else {
+          i = q; s = k * v * i / 1000; pin = s * pf; out = pin * eff;
+        }
+        var kvar = Math.sqrt(Math.max(s * s - pin * pin, 0)), ang = Math.acos(pf) * 180 / Math.PI;
+        $('hero-k').textContent = kmode ? 'I' : 'P'; $('hero-u').textContent = kmode ? 'A' : 'kW';
+        C.num($('hero'), kmode ? i : pin, r(2));
+        C.num($('s-kw'), pin, r(2)); C.num($('s-kva'), s, r(2)); C.num($('s-kvar'), kvar, r(2)); C.num($('s-a'), i, r(2));
+        C.num($('s-out'), out, r(2)); C.num($('s-ang'), ang, r(1));
+        $('detail').innerHTML = (three ? 'Three-phase' : 'Single-phase') + ' at <b>' + C.fmt(v) + ' V</b>, power factor <b>' + pf.toFixed(2) + '</b>.';
+        if (!kmode) $('s-out').title = 'Shaft output assumes the efficiency entered';
+        if (pf < 0.8) $('note').textContent = 'Power factor is low. See the power factor correction tool to size capacitors.';
+      }
+      ['q', 'v', 'pf', 'eff', 'basis'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      document.querySelectorAll('input[name=ph],input[name=mode]').forEach(function (e) { e.addEventListener('change', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

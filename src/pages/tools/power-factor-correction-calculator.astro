@@ -1,0 +1,91 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="power-factor-correction-calculator"
+  title="Power Factor Correction Calculator (Capacitor kVAR)"
+  description="Free calculator: find the capacitor kVAR needed to raise power factor from the present value to a target, with the kVA released and the drop in line current."
+  h1="Power Factor Correction Calculator"
+  intro="Enter the load, your present power factor and the target. Get the capacitor kVAR to install and what it saves in kVA and current."
+>
+  <Fragment slot="inputs">
+    <div class="tool-field"><label for="p">Load (real power)</label>
+      <div class="input-wrap"><input id="p" type="number" min="0" step="any" value="100" inputmode="decimal" data-slider data-min="1" data-max="1000" data-step="1" /><span class="unit">kW</span></div></div>
+    <div class="tool-field"><label for="pf1">Present power factor</label>
+      <input id="pf1" type="number" min="0.1" max="1" step="0.01" value="0.75" inputmode="decimal" data-slider data-min="0.3" data-max="1" data-step="0.01" /></div>
+    <div class="tool-field"><label for="pf2">Target power factor</label>
+      <input id="pf2" type="number" min="0.1" max="1" step="0.01" value="0.95" inputmode="decimal" data-slider data-min="0.8" data-max="1" data-step="0.01" />
+      <div class="chips">
+        <button type="button" class="chip" data-set='{"pf2":0.9}'>0.90</button>
+        <button type="button" class="chip is-on" data-set='{"pf2":0.95}'>0.95</button>
+        <button type="button" class="chip" data-set='{"pf2":0.98}'>0.98</button>
+      </div></div>
+    <div class="tool-split">
+      <div class="tool-field"><label for="v">Line voltage</label><div class="input-wrap"><input id="v" type="number" min="0" step="any" value="415" inputmode="decimal" /><span class="unit">V</span></div></div>
+      <div class="tool-field"><span class="flabel">Supply</span>
+        <div class="seg" role="radiogroup" aria-label="Supply type">
+          <label><input type="radio" name="ph" value="3" checked /><span>3-ph</span></label>
+          <label><input type="radio" name="ph" value="1" /><span>1-ph</span></label>
+        </div></div>
+    </div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="lcd"><small>ADD</small><span id="qc">-</span><span class="u">kVAR</span></div>
+    <div class="lcd-sub" id="detail"></div>
+    <div id="verdict"></div>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-k">kVA before</div><div class="stat-v"><span id="s1">-</span><i>kVA</i></div></div>
+      <div class="stat"><div class="stat-k">kVA after</div><div class="stat-v"><span id="s2">-</span><i>kVA</i></div></div>
+      <div class="stat"><div class="stat-k">kVA released</div><div class="stat-v"><span id="rel">-</span><i>kVA</i></div></div>
+      <div class="stat"><div class="stat-k">Current before</div><div class="stat-v"><span id="i1">-</span><i>A</i></div></div>
+      <div class="stat"><div class="stat-k">Current after</div><div class="stat-v"><span id="i2">-</span><i>A</i></div></div>
+      <div class="stat"><div class="stat-k">Current saved</div><div class="stat-v"><span id="sv">-</span><i>%</i></div></div>
+    </div>
+    <div class="tool-callout" id="note"></div>
+  </Fragment>
+
+  <h2>Formula</h2>
+  <p class="formula">kVAR<sub>cap</sub> = kW × (tan φ₁ − tan φ₂)  ·  φ = arccos(PF)</p>
+  <p>Example: 100 kW at 0.75 needs about 55.3 kVAR to reach 0.95. Line current falls in proportion to the power factor ratio, here by about 21%.</p>
+  <h2>Practical notes</h2>
+  <ul>
+    <li>Pick the nearest standard bank size at or just above the result, usually built from steps of 5, 10, 25 or 50 kVAR.</li>
+    <li>Do not aim for unity. Over-correction under light load pushes a leading power factor and can raise the voltage. 0.95 to 0.98 is a sensible target.</li>
+    <li>Capacitor output scales with voltage squared, so a capacitor rated at 440 V gives about 89% of its kVAR on a 415 V supply.</li>
+    <li>Where there are many variable drives or rectifiers, harmonics can overload plain capacitors. Use detuned (reactor-fitted) banks and measure first.</li>
+  </ul>
+  <p>To measure the present power factor and load, a <a href={u('/products/clamp-meters/')}>clamp meter with power functions</a> is the simplest tool. The <a href={u('/tools/three-phase-power-calculator/')}>three-phase power calculator</a> converts between kW, kVA and amps.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      var r1 = function (v) { return C.fmt(v, 1); };
+      function calc() {
+        var P = C.val('p'), a = C.val('pf1'), b = C.val('pf2'), V = C.val('v');
+        var k = document.querySelector('input[name=ph]:checked').value === '3' ? Math.sqrt(3) : 1;
+        var ids = ['qc', 's1', 's2', 'rel', 'i1', 'i2', 'sv'];
+        $('note').textContent = '';
+        if (!(P > 0) || !(V > 0) || !(a > 0 && a <= 1) || !(b > 0 && b <= 1)) {
+          ids.forEach(function (i) { C.num($(i), null); }); $('detail').textContent = 'Enter valid numbers (power factors between 0 and 1).'; $('verdict').innerHTML = ''; return;
+        }
+        var t = function (x) { return Math.tan(Math.acos(x)); };
+        var q = P * (t(a) - t(b)), s1 = P / a, s2 = P / b, i1 = s1 * 1000 / (k * V), i2 = s2 * 1000 / (k * V);
+        if (b <= a) {
+          ids.forEach(function (i) { C.num($(i), null); }); $('detail').textContent = 'Target is not above the present power factor, so no correction is needed.';
+          $('verdict').innerHTML = C.badge('v-great', 'Already at target'); return;
+        }
+        C.num($('qc'), q, r1); C.num($('s1'), s1, r1); C.num($('s2'), s2, r1); C.num($('rel'), s1 - s2, r1);
+        C.num($('i1'), i1, r1); C.num($('i2'), i2, r1); C.num($('sv'), (1 - i2 / i1) * 100, r1);
+        $('detail').innerHTML = 'Raise <b>' + P + ' kW</b> from PF <b>' + a.toFixed(2) + '</b> to <b>' + b.toFixed(2) + '</b>.';
+        $('verdict').innerHTML = b >= 0.99 ? C.badge('v-warn', 'Near unity: watch for over-correction') : C.badge('v-good', 'Sensible target');
+        if (a < 0.5) $('note').textContent = 'A power factor this low often means lightly loaded motors. Check the loading before sizing a large bank.';
+      }
+      ['p', 'pf1', 'pf2', 'v'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      document.querySelectorAll('input[name=ph]').forEach(function (e) { e.addEventListener('change', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

@@ -9,25 +9,23 @@ import { u } from '../../utils/url';
   description="Free calculator: correct a megger insulation resistance reading to 20°C or 40°C using the 10°C halving rule, so readings taken on different days can be compared."
   h1="Insulation Resistance Temperature Correction Calculator"
   intro="Enter your megger reading and the winding temperature. Get the reading corrected to a common reference temperature so you can trend it honestly."
-  productLabel="View Insulation Testers"
-  productHref="/products/insulation-testers-hand"
-  related={[
-    { href: '/tools/pi-dar-calculator', label: 'PI and DAR Calculator' },
-    { href: '/tools/motor-minimum-insulation-resistance', label: 'Motor Minimum Insulation Resistance Check' },
-  ]}
 >
   <Fragment slot="inputs">
     <div class="tool-field tool-row">
       <div><label for="ir">Measured insulation resistance</label><input id="ir" type="number" min="0" step="any" value="25" inputmode="decimal" /></div>
       <div><label for="unit">Unit</label><select id="unit"><option value="1">MΩ</option><option value="1000">GΩ</option><option value="0.001">kΩ</option></select></div>
     </div>
-    <div class="tool-field"><label for="temp">Winding temperature at test (°C)</label>
-      <input id="temp" type="number" min="-20" max="150" step="any" value="40" inputmode="decimal" /></div>
-    <div class="tool-field"><label for="ref">Correct to</label>
-      <select id="ref"><option value="20">20°C (common for trending)</option><option value="40">40°C (IEEE 43 reference)</option></select></div>
+    <div class="tool-field"><label for="temp">Winding temperature at test</label>
+      <div class="input-wrap"><input id="temp" type="number" min="-20" max="150" step="any" value="40" inputmode="decimal" data-slider data-min="0" data-max="100" data-step="1" /><span class="unit">°C</span></div></div>
+    <div class="tool-field"><span class="flabel">Correct to</span>
+      <div class="seg" role="radiogroup" aria-label="Reference temperature">
+        <label><input type="radio" name="ref" value="20" checked /><span>20°C</span></label>
+        <label><input type="radio" name="ref" value="40" /><span>40°C (IEEE 43)</span></label>
+      </div>
+      <p class="hint">20°C is common for trending. 40°C is the IEEE 43 reference.</p></div>
   </Fragment>
   <Fragment slot="readout">
-    <div class="lcd" id="out">-</div>
+    <div class="lcd"><span id="out">-</span><span class="u" id="outu"></span></div>
     <div class="lcd-sub" id="detail"></div>
     <div class="scale"><span class="s-temp"></span><i class="pin pin--ref" id="pin-ref"></i><i class="pin" id="pin-t"></i></div>
     <div class="scale-ticks"><span>0°C</span><span>25°C</span><span>50°C</span><span>75°C</span><span>100°C</span></div>
@@ -48,20 +46,20 @@ import { u } from '../../utils/url';
 
   <script is:inline>
     (function () {
-      var $ = function (id) { return document.getElementById(id); };
-      function fmt(v) { return v >= 1000 ? (v / 1000).toPrecision(4) + ' GΩ' : v.toPrecision(4) + ' MΩ'; }
-      var calc = function () {
-        var ir = parseFloat($('ir').value) * parseFloat($('unit').value);
-        var t = parseFloat($('temp').value), ref = parseFloat($('ref').value);
-        if (!isFinite(ir) || !isFinite(t) || ir < 0) { $('out').textContent = '-'; $('detail').textContent = 'Enter valid numbers.'; return; }
-        var f = Math.pow(2, (t - ref) / 10);
-        $('out').textContent = fmt(ir * f) + ' at ' + ref + '°C';
-        $('detail').textContent = 'Correction factor ' + f.toPrecision(4) + ' (measured ' + fmt(ir) + ' at ' + t + '°C)';
-      };
-      function pin(id, t) { $(id).style.left = Math.max(0, Math.min(100, t)) + '%'; }
-      var _calc = calc;
-      calc = function () { _calc(); pin('pin-t', parseFloat($('temp').value)); pin('pin-ref', parseFloat($('ref').value)); };
-      ['ir', 'unit', 'temp', 'ref'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      function unitOf(v) { return v >= 1000 ? { n: v / 1000, u: 'GΩ' } : { n: v, u: 'MΩ' }; }
+      function refT() { return parseFloat(document.querySelector('input[name=ref]:checked').value); }
+      function calc() {
+        var ir = C.val('ir') * C.val('unit'), t = C.val('temp'), ref = refT();
+        if (!isFinite(ir) || !isFinite(t) || ir < 0) { C.num($('out'), null); $('outu').textContent = ''; $('detail').textContent = 'Enter valid numbers.'; return; }
+        var f = Math.pow(2, (t - ref) / 10), r = unitOf(ir * f), m = unitOf(ir);
+        C.num($('out'), r.n, function (v) { return C.fmt(v, 3); });
+        $('outu').textContent = r.u + ' at ' + ref + '°C';
+        $('detail').innerHTML = 'Correction factor <b>' + C.fmt(f, 3) + '</b> (measured ' + C.fmt(m.n, 3) + ' ' + m.u + ' at ' + t + '°C)';
+        C.pin($('pin-t'), t); C.pin($('pin-ref'), ref);
+      }
+      ['ir', 'unit', 'temp'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      document.querySelectorAll('input[name=ref]').forEach(function (r) { r.addEventListener('change', calc); });
       calc();
     })();
   </script>

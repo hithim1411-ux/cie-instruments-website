@@ -1,0 +1,130 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="insulation-test-voltage-selector"
+  title="Insulation Test Voltage Selector (IEEE 43 and IEC 60364-6)"
+  description="Free tool: find the right megger test voltage for a motor or generator winding (IEEE 43) or a low-voltage installation circuit (IEC 60364-6), with the minimum acceptable reading."
+  h1="Insulation Test Voltage Selector"
+  intro="Pick what you are testing and its rated voltage. Get the DC test voltage to set on your megger, and the band it falls in."
+>
+  <Fragment slot="inputs">
+    <div class="tool-field"><span class="flabel">What are you testing?</span>
+      <div class="seg" role="radiogroup" aria-label="Equipment type">
+        <label><input type="radio" name="mode" value="mach" checked /><span>Motor / generator</span></label>
+        <label><input type="radio" name="mode" value="inst" /><span>LV installation</span></label>
+      </div></div>
+
+    <div id="grp-mach">
+      <div class="tool-field"><label for="kv">Rated line voltage</label>
+        <div class="input-wrap"><input id="kv" type="number" min="0" step="any" value="3.3" inputmode="decimal" data-slider data-min="0" data-max="15" data-step="0.1" /><span class="unit">kV</span></div>
+        <div class="chips">
+          <button type="button" class="chip" data-set='{"kv":0.415}'>415 V</button>
+          <button type="button" class="chip" data-set='{"kv":0.69}'>690 V</button>
+          <button type="button" class="chip is-on" data-set='{"kv":3.3}'>3.3 kV</button>
+          <button type="button" class="chip" data-set='{"kv":6.6}'>6.6 kV</button>
+          <button type="button" class="chip" data-set='{"kv":11}'>11 kV</button>
+          <button type="button" class="chip" data-set='{"kv":13.8}'>13.8 kV</button>
+        </div></div>
+    </div>
+    <div id="grp-inst" hidden>
+      <div class="tool-field"><label for="circ">Circuit nominal voltage</label>
+        <select id="circ">
+          <option value="selv">SELV or PELV circuit</option>
+          <option value="500" selected>Up to 500 V (includes FELV)</option>
+          <option value="1000">Above 500 V, up to 1000 V</option>
+        </select>
+        <p class="hint">Disconnect or protect electronic equipment before testing.</p></div>
+    </div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="lcd"><small>SET</small><span id="tv">-</span><span class="u">V DC</span></div>
+    <div class="lcd-sub" id="detail"></div>
+    <div id="verdict"></div>
+    <div class="ladder" id="ladder" aria-label="Voltage bands"></div>
+    <div class="tool-callout" id="note"></div>
+  </Fragment>
+
+  <h2>Rotating machines: IEEE 43-2013</h2>
+  <p>IEEE 43 recommends a DC test voltage based on the winding's rated line voltage. Use the lower end for older or damp insulation, and the upper end for clean, dry, healthy windings.</p>
+  <table>
+    <thead><tr><th>Winding rated voltage</th><th class="num">Test voltage (DC)</th></tr></thead>
+    <tbody>
+      <tr><td>Below 1000 V</td><td class="num">500 V</td></tr>
+      <tr><td>1000 to 2500 V</td><td class="num">500 to 1000 V</td></tr>
+      <tr><td>2501 to 5000 V</td><td class="num">1000 to 2500 V</td></tr>
+      <tr><td>5001 to 12000 V</td><td class="num">2500 to 5000 V</td></tr>
+      <tr><td>Above 12000 V</td><td class="num">5000 to 10000 V</td></tr>
+    </tbody>
+  </table>
+  <p>Then judge the result with the <a href={u('/tools/motor-minimum-insulation-resistance/')}>Motor Minimum IR check</a> and trend it with the <a href={u('/tools/pi-dar-calculator/')}>PI and DAR calculator</a>.</p>
+
+  <h2>Low-voltage installations: IEC 60364-6</h2>
+  <table>
+    <thead><tr><th>Circuit nominal voltage</th><th class="num">Test voltage</th><th class="num">Minimum IR</th></tr></thead>
+    <tbody>
+      <tr><td>SELV and PELV</td><td class="num">250 V DC</td><td class="num">0.5 MΩ</td></tr>
+      <tr><td>Up to 500 V, including FELV</td><td class="num">500 V DC</td><td class="num">1.0 MΩ</td></tr>
+      <tr><td>Above 500 V up to 1000 V</td><td class="num">1000 V DC</td><td class="num">1.0 MΩ</td></tr>
+    </tbody>
+  </table>
+  <p>Many national rules (including Indian practice and BS 7671) follow these values. Read the <a href={u('/blog/how-to-megger-test-house-wiring/')}>house wiring megger guide</a> for the procedure.</p>
+
+  <h2>Before you press the test button</h2>
+  <ul>
+    <li>Isolate and lock out the circuit, and confirm it is dead with a proper voltage tester.</li>
+    <li>Discharge the winding or cable after the test. Long cables and big windings store dangerous charge.</li>
+    <li>Your plant specification may call for a different voltage. Always follow the stricter document.</li>
+  </ul>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      var mach = [
+        { lim: 1, lo: 500, hi: 500, t: 'Below 1 kV' }, { lim: 2.5, lo: 500, hi: 1000, t: '1 to 2.5 kV' },
+        { lim: 5, lo: 1000, hi: 2500, t: '2.5 to 5 kV' }, { lim: 12, lo: 2500, hi: 5000, t: '5 to 12 kV' },
+        { lim: Infinity, lo: 5000, hi: 10000, t: 'Above 12 kV' }
+      ];
+      var inst = { selv: { v: 250, ir: 0.5, t: 'SELV / PELV' }, 500: { v: 500, ir: 1, t: 'Up to 500 V' }, 1000: { v: 1000, ir: 1, t: '500 V to 1 kV' } };
+      var vfmt = function (v) { return C.fmt(v, 0); };
+      function ladder(labels, active) {
+        $('ladder').innerHTML = labels.map(function (l, i) { return '<div class="rung' + (i === active ? ' on' : '') + '"><span>' + l[0] + '</span><b>' + l[1] + '</b></div>'; }).join('');
+      }
+      function calc() {
+        var m = document.querySelector('input[name=mode]:checked').value;
+        $('grp-mach').hidden = m !== 'mach'; $('grp-inst').hidden = m !== 'inst';
+        $('note').textContent = '';
+        if (m === 'mach') {
+          var kv = C.val('kv');
+          if (!isFinite(kv) || kv <= 0) { C.num($('tv'), null); $('detail').textContent = 'Enter a rated voltage.'; $('verdict').innerHTML = ''; return; }
+          var i = 0; while (kv > mach[i].lim) i++;
+          var b = mach[i];
+          C.num($('tv'), b.hi, vfmt);
+          $('detail').innerHTML = b.lo === b.hi ? 'Test at <b>' + vfmt(b.lo) + ' V DC</b> (IEEE 43, ' + b.t + ').' : 'Recommended range <b>' + vfmt(b.lo) + ' to ' + vfmt(b.hi) + ' V DC</b> (IEEE 43, ' + b.t + '). Upper end shown; use the lower end if the winding is old or damp.';
+          $('verdict').innerHTML = C.badge('v-good', 'IEEE 43 band: ' + b.t);
+          ladder(mach.map(function (x) { return [x.t, x.lo === x.hi ? vfmt(x.lo) + ' V' : vfmt(x.lo) + ' to ' + vfmt(x.hi) + ' V']; }), i);
+          if (kv >= 1) $('note').textContent = 'Above 1 kV, use a tester rated for the voltage you set, with a guard terminal, and watch the leakage current as the voltage steps up.';
+        } else {
+          var k = $('circ').value, r = inst[k];
+          C.num($('tv'), r.v, vfmt);
+          $('detail').innerHTML = 'Test at <b>' + vfmt(r.v) + ' V DC</b>. The reading should be at least <b>' + r.ir + ' MΩ</b> (IEC 60364-6).';
+          $('verdict').innerHTML = C.badge('v-good', 'Minimum ' + r.ir + ' MΩ');
+          ladder([['SELV / PELV', '250 V, 0.5 MΩ'], ['Up to 500 V', '500 V, 1.0 MΩ'], ['500 V to 1 kV', '1000 V, 1.0 MΩ']], k === 'selv' ? 0 : k === '500' ? 1 : 2);
+        }
+      }
+      ['kv', 'circ'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      document.querySelectorAll('input[name=mode]').forEach(function (r) { r.addEventListener('change', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>
+
+<style is:global>
+  .ladder { margin-top: 1.25rem; display: grid; gap: .4rem; }
+  .rung { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem .85rem; border-radius: .6rem; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); font-size: .84rem; color: #94a3b8; transition: all .25s; }
+  .rung b { font-family: var(--font-mono); font-weight: 600; font-size: .8rem; white-space: nowrap; }
+  .rung.on { background: rgba(224,37,46,.16); border-color: var(--color-red); color: #fff; box-shadow: 0 0 20px rgba(224,37,46,.2); }
+</style>

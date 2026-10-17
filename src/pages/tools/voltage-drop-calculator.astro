@@ -1,0 +1,108 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+const sizes = [1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240, 300];
+---
+
+<ToolShell
+  slug="voltage-drop-calculator"
+  title="Cable Voltage Drop Calculator (Copper and Aluminium)"
+  description="Free calculator: estimate the voltage drop, percentage drop, power loss and maximum length of a copper or aluminium cable for single-phase or three-phase supply."
+  h1="Cable Voltage Drop Calculator"
+  intro="Enter the cable size, length and load current. See the voltage drop, how it compares with the usual limits, and the longest run that stays within them."
+>
+  <Fragment slot="inputs">
+    <div class="tool-split">
+      <div class="tool-field"><span class="flabel">Supply</span>
+        <div class="seg" role="radiogroup" aria-label="Supply type">
+          <label><input type="radio" name="ph" value="3" checked /><span>3-phase</span></label>
+          <label><input type="radio" name="ph" value="1" /><span>1-phase</span></label>
+        </div></div>
+      <div class="tool-field"><span class="flabel">Conductor</span>
+        <div class="seg" role="radiogroup" aria-label="Conductor material">
+          <label><input type="radio" name="mat" value="cu" checked /><span>Copper</span></label>
+          <label><input type="radio" name="mat" value="al" /><span>Aluminium</span></label>
+        </div></div>
+    </div>
+
+    <div class="tool-split">
+      <div class="tool-field"><label for="size">Cable size</label>
+        <select id="size">{sizes.map(s => <option value={s} selected={s === 10}>{s} mm²</option>)}</select></div>
+      <div class="tool-field"><label for="temp">Conductor temp</label><div class="input-wrap"><input id="temp" type="number" min="0" max="120" step="1" value="70" inputmode="decimal" /><span class="unit">°C</span></div></div>
+    </div>
+
+    <div class="tool-field"><label for="len">One-way cable length</label>
+      <div class="input-wrap"><input id="len" type="number" min="0" step="any" value="50" inputmode="decimal" data-slider data-min="1" data-max="500" data-step="1" /><span class="unit">m</span></div></div>
+    <div class="tool-field"><label for="amp">Load current</label>
+      <div class="input-wrap"><input id="amp" type="number" min="0" step="any" value="30" inputmode="decimal" data-slider data-min="1" data-max="400" data-step="1" /><span class="unit">A</span></div></div>
+    <div class="tool-split">
+      <div class="tool-field"><label for="v">Supply voltage</label><div class="input-wrap"><input id="v" type="number" min="0" step="any" value="415" inputmode="decimal" /><span class="unit">V</span></div></div>
+      <div class="tool-field"><label for="lim">Allowed drop</label><div class="input-wrap"><input id="lim" type="number" min="0.1" max="20" step="0.1" value="5" inputmode="decimal" /><span class="unit">%</span></div></div>
+    </div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="lcd"><small>DROP</small><span id="vd">-</span><span class="u">V</span></div>
+    <div class="lcd-sub" id="pct"></div>
+    <div id="verdict"></div>
+    <div class="bar-track"><div class="bar-fill" id="bar" style="width:0"></div><i class="bar-min" id="bar-lim"></i></div>
+    <div class="scale-ticks"><span>0%</span><span>white line: your allowed drop</span></div>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-k">Voltage at load</div><div class="stat-v"><span id="vl">-</span><i>V</i></div></div>
+      <div class="stat"><div class="stat-k">Cable loss</div><div class="stat-v"><span id="pl">-</span><i>W</i></div></div>
+      <div class="stat"><div class="stat-k">Max length at limit</div><div class="stat-v"><span id="lm">-</span><i>m</i></div></div>
+      <div class="stat"><div class="stat-k">Resistance per conductor</div><div class="stat-v"><span id="rr">-</span><i>Ω</i></div></div>
+    </div>
+    <div class="tool-callout" id="note"></div>
+  </Fragment>
+
+  <h2>Formulas</h2>
+  <p class="formula">R = ρ(T) × L / A  ·  ρ(T) = ρ₂₀ × (1 + α × (T − 20))<br />3-phase: ΔV = √3 × I × R  ·  1-phase: ΔV = 2 × I × R</p>
+  <p>Values used: copper ρ₂₀ = 0.01724 Ω·mm²/m with α = 0.00393 per °C, aluminium ρ₂₀ = 0.0282 Ω·mm²/m with α = 0.00403 per °C. For three-phase, enter the line-to-line voltage; for single-phase, the phase-to-neutral or two-wire supply voltage.</p>
+  <h2>Typical limits</h2>
+  <ul>
+    <li>Many Indian and international practices work to a total drop of about 3% for lighting and 5% overall from the supply point to the farthest load. Your own specification may differ.</li>
+    <li>For a motor, also check the drop while it starts. The starting current is several times the running current, and a deep dip can stop it from starting.</li>
+  </ul>
+  <h2>What this estimate leaves out</h2>
+  <ul>
+    <li>It counts conductor resistance only. For large cables, above about 50 mm², reactance adds to the drop, especially at low power factor, so the real figure is higher.</li>
+    <li>It does not check the cable's current rating, grouping or derating, or short-circuit withstand. Use it alongside a proper cable sizing table.</li>
+  </ul>
+  <p>To measure the actual drop, read the voltage at the source and at the load under load with a <a href={u('/products/multimeters/')}>digital multimeter</a>. The <a href={u('/tools/ohms-law-calculator/')}>Ohm's law tool</a> helps with the maths.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      var M = { cu: { r: 0.01724, a: 0.00393 }, al: { r: 0.0282, a: 0.00403 } };
+      function rad(n) { return document.querySelector('input[name=' + n + ']:checked').value; }
+      function calc() {
+        var three = rad('ph') === '3', m = M[rad('mat')], A = parseFloat($('size').value);
+        var T = C.val('temp'), L = C.val('len'), I = C.val('amp'), V = C.val('v'), lim = C.val('lim');
+        var ids = ['vd', 'vl', 'pl', 'lm', 'rr'];
+        $('note').textContent = '';
+        if (!(L >= 0) || !(I >= 0) || !(V > 0) || !(lim > 0) || !isFinite(T)) {
+          ids.forEach(function (i) { C.num($(i), null); }); $('pct').textContent = 'Enter valid numbers.'; $('verdict').innerHTML = ''; return;
+        }
+        var rho = m.r * (1 + m.a * (T - 20)), k = three ? Math.sqrt(3) : 2;
+        var R = rho * L / A, vd = k * I * R, pct = vd / V * 100;
+        var loss = (three ? 3 : 2) * I * I * R;
+        var lmax = I > 0 ? (lim / 100 * V) / (k * I * rho / A) : Infinity;
+        C.num($('vd'), vd, function (v) { return C.fmt(v, 2); });
+        C.num($('vl'), V - vd, function (v) { return C.fmt(v, 1); });
+        C.num($('pl'), loss, function (v) { return C.fmt(v, 0); });
+        C.num($('lm'), isFinite(lmax) ? lmax : null, function (v) { return C.fmt(v, 0); });
+        C.num($('rr'), R, function (v) { return C.fmt(v, 4); });
+        $('pct').innerHTML = '<b>' + C.fmt(pct, 2) + '%</b> of ' + C.fmt(V) + ' V, on <b>' + C.fmt(L) + ' m</b> of ' + C.fmt(A) + ' mm² ' + (rad('mat') === 'cu' ? 'copper' : 'aluminium') + '.';
+        var full = Math.max(lim * 1.5, pct * 1.1);
+        $('bar').style.width = Math.min(pct / full * 100, 100) + '%'; $('bar-lim').style.left = (lim / full * 100) + '%';
+        $('bar').style.background = pct <= lim * 0.6 ? '#10b981' : pct <= lim ? '#f59e0b' : '#ef4444';
+        $('verdict').innerHTML = pct <= lim * 0.6 ? C.badge('v-great', 'Comfortably within the limit') : pct <= lim ? C.badge('v-warn', 'Within the limit, little margin') : C.badge('v-bad', 'Exceeds the limit: use a bigger cable or shorten the run');
+        if (A >= 50) $('note').textContent = 'At this size reactance also contributes. Treat the result as a lower bound.';
+      }
+      ['size', 'temp', 'len', 'amp', 'v', 'lim'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      document.querySelectorAll('input[name=ph],input[name=mat]').forEach(function (e) { e.addEventListener('change', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

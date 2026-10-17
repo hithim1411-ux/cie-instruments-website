@@ -1,0 +1,141 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+
+const C = {
+  black: '#16181d', brown: '#7b4a1e', red: '#e0252e', orange: '#f28a1a', yellow: '#f5d90a', green: '#2faa4b',
+  blue: '#2f6fe0', violet: '#8b3fd1', grey: '#8a8f98', white: '#f4f4f4', gold: '#d4af37', silver: '#c0c0c0',
+};
+const digitCols = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'grey', 'white'];
+const rows = [
+  { id: 'd1', label: 'Band 1 (first digit)', cols: digitCols.slice(1), def: 'yellow' },
+  { id: 'd2', label: 'Band 2 (second digit)', cols: digitCols, def: 'violet' },
+  { id: 'd3', label: 'Band 3 (third digit)', cols: digitCols, def: 'black' },
+  { id: 'mu', label: 'Multiplier', cols: [...digitCols, 'gold', 'silver'], def: 'red' },
+  { id: 'tol', label: 'Tolerance', cols: ['brown', 'red', 'green', 'blue', 'violet', 'grey', 'gold', 'silver'], def: 'gold' },
+  { id: 'tc', label: 'Temperature coefficient', cols: ['black', 'brown', 'red', 'orange', 'yellow', 'blue', 'violet'], def: 'brown' },
+];
+---
+
+<ToolShell
+  slug="resistor-colour-code-calculator"
+  title="Resistor Colour Code Calculator (4, 5 and 6 Band)"
+  description="Free interactive resistor colour code calculator: click the colour bands on a drawn resistor to read the value, tolerance, min and max resistance. Supports 4, 5 and 6 band resistors."
+  h1="Resistor Colour Code Calculator"
+  intro="Click a colour under each band to match your resistor. The drawing, the value and the tolerance range all update as you go."
+>
+  <Fragment slot="inputs">
+    <div class="tool-field"><span class="flabel">Number of bands</span>
+      <div class="seg" role="radiogroup" aria-label="Number of bands">
+        <label><input type="radio" name="nb" value="4" checked /><span>4 band</span></label>
+        <label><input type="radio" name="nb" value="5" /><span>5 band</span></label>
+        <label><input type="radio" name="nb" value="6" /><span>6 band</span></label>
+      </div></div>
+
+    {rows.map(r => (
+      <div class="tool-field swrow" data-row={r.id}>
+        <span class="flabel">{r.label} <em class="cname" data-for={r.id}></em></span>
+        <div class="swatches" role="radiogroup" aria-label={r.label}>
+          {r.cols.map(c => (
+            <label title={c}>
+              <input type="radio" name={r.id} value={c} checked={c === r.def} />
+              <span class="sw" style={`--c:${C[c]}`}></span>
+            </label>
+          ))}
+        </div>
+      </div>
+    ))}
+  </Fragment>
+
+  <Fragment slot="readout">
+    <svg viewBox="0 0 400 110" class="resistor" role="img" aria-label="Resistor with colour bands">
+      <path d="M0 55h70M330 55h70" stroke="#9aa3ad" stroke-width="6" stroke-linecap="round" />
+      <path d="M70 30c0-10 8-16 22-16h20c12 0 14 10 24 10h124c10 0 12-10 24-10h20c14 0 22 6 22 16v50c0 10-8 16-22 16h-20c-12 0-14-10-24-10H136c-10 0-12 10-24 10H92c-14 0-22-6-22-16Z" fill="#e8d9b5" stroke="#bda67a" stroke-width="2" />
+      <rect id="b0" y="16" width="14" height="78" rx="2" />
+      <rect id="b1" y="16" width="14" height="78" rx="2" />
+      <rect id="b2" y="16" width="14" height="78" rx="2" />
+      <rect id="b3" y="16" width="14" height="78" rx="2" />
+      <rect id="b4" y="16" width="14" height="78" rx="2" />
+      <rect id="b5" y="16" width="14" height="78" rx="2" />
+    </svg>
+    <div class="lcd"><span id="val">-</span><span class="u" id="tolt"></span></div>
+    <div class="lcd-sub" id="detail"></div>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-k">Minimum</div><div class="stat-v"><span id="min">-</span></div></div>
+      <div class="stat"><div class="stat-k">Maximum</div><div class="stat-v"><span id="max">-</span></div></div>
+      <div class="stat" id="tcbox"><div class="stat-k">Temp. coefficient</div><div class="stat-v"><span id="tcv">-</span></div></div>
+    </div>
+    <div class="tool-callout" id="note"></div>
+  </Fragment>
+
+  <h2>How to read the bands</h2>
+  <p>Hold the resistor so the tolerance band (usually gold or silver, set slightly apart) is on the right. Read from the left.</p>
+  <ul>
+    <li><strong>4 band:</strong> two digits, a multiplier, then tolerance.</li>
+    <li><strong>5 band:</strong> three digits, a multiplier, then tolerance. Used for precision parts.</li>
+    <li><strong>6 band:</strong> as 5 band, plus a temperature coefficient in ppm per °C.</li>
+  </ul>
+  <p class="formula">Value = (digits) × 10<sup>multiplier</sup>  ·  gold multiplier = ×0.1, silver = ×0.01</p>
+  <h2>Check it with a meter</h2>
+  <p>Colours fade and can be misread, particularly red, orange and brown. Confirm the value with a multimeter or an <a href={u('/authorised-dealership/lcr-meters/')}>LCR meter</a>, with the resistor out of circuit. See <a href={u('/blog/how-to-choose-an-lcr-meter/')}>how to choose an LCR meter</a>.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      var HEX = { black: '#16181d', brown: '#7b4a1e', red: '#e0252e', orange: '#f28a1a', yellow: '#f5d90a', green: '#2faa4b', blue: '#2f6fe0', violet: '#8b3fd1', grey: '#8a8f98', white: '#f4f4f4', gold: '#d4af37', silver: '#c0c0c0' };
+      var DIG = { black: 0, brown: 1, red: 2, orange: 3, yellow: 4, green: 5, blue: 6, violet: 7, grey: 8, white: 9 };
+      var MUL = { gold: -1, silver: -2 };
+      var TOL = { brown: 1, red: 2, green: 0.5, blue: 0.25, violet: 0.1, grey: 0.05, gold: 5, silver: 10 };
+      var TC = { black: 250, brown: 100, red: 50, orange: 15, yellow: 25, blue: 10, violet: 5 };
+      var E24 = [10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30, 33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91];
+      var P = [[1e9, 'GΩ'], [1e6, 'MΩ'], [1e3, 'kΩ'], [1, 'Ω']];
+      function ohm(v) {
+        if (v < 1) return +(v * 1000).toPrecision(4) + ' mΩ';
+        for (var i = 0; i < P.length; i++) if (v >= P[i][0] * 0.9999) return +(v / P[i][0]).toPrecision(4) + ' ' + P[i][1];
+      }
+      function sel(n) { var r = document.querySelector('input[name=' + n + ']:checked'); return r ? r.value : null; }
+      function calc() {
+        var nb = +sel('nb'), role = nb === 4 ? ['d1', 'd2', 'mu', 'tol'] : nb === 5 ? ['d1', 'd2', 'd3', 'mu', 'tol'] : ['d1', 'd2', 'd3', 'mu', 'tol', 'tc'];
+        ['d1', 'd2', 'd3', 'mu', 'tol', 'tc'].forEach(function (r) {
+          var row = document.querySelector('[data-row=' + r + ']'); row.hidden = role.indexOf(r) < 0;
+          var nm = document.querySelector('.cname[data-for=' + r + ']'); if (nm) nm.textContent = sel(r) ? '· ' + sel(r) : '';
+        });
+        // draw bands evenly across the body; tolerance sits slightly apart on the right
+        var x0 = 112, x1 = 282, gap = (x1 - x0) / (role.length - 1);
+        for (var i = 0; i < 6; i++) {
+          var b = $('b' + i);
+          if (i < role.length) {
+            var x = x0 + gap * i + (i >= role.length - (nb === 6 ? 2 : 1) ? 12 : 0);
+            b.setAttribute('x', x - 7); b.setAttribute('fill', HEX[sel(role[i])]); b.style.display = '';
+            b.setAttribute('stroke', 'rgba(0,0,0,.25)'); b.setAttribute('stroke-width', '1');
+          } else b.style.display = 'none';
+        }
+        var nd = role.indexOf('mu'), v = 0;
+        for (var j = 0; j < nd; j++) v = v * 10 + DIG[sel(role[j])];
+        var m = sel('mu'), exp = m in MUL ? MUL[m] : DIG[m], R = v * Math.pow(10, exp), tol = TOL[sel('tol')];
+        $('val').textContent = ohm(R); $('tolt').textContent = '±' + tol + '%';
+        $('min').textContent = ohm(R * (1 - tol / 100)); $('max').textContent = ohm(R * (1 + tol / 100));
+        $('tcbox').hidden = nb !== 6; if (nb === 6) $('tcv').textContent = TC[sel('tc')] + ' ppm/°C';
+        var isE = R > 0 && (function () { var x = R; while (x >= 100) x /= 10; while (x < 10) x *= 10; return E24.some(function (e) { return Math.abs(e - x) < 0.001; }); })();
+        $('detail').innerHTML = R === 0 ? 'A single black band means a zero-ohm link.' : (isE ? 'This is a standard <b>E24</b> value.' : 'Not an E24 value: it may be an E96 precision part, or the colours may be misread.');
+        $('note').textContent = (nb === 4 && (sel('tol') !== 'gold' && sel('tol') !== 'silver')) ? 'Four-band resistors are normally gold (±5%) or silver (±10%). Check you are reading from the correct end.' : '';
+      }
+      document.querySelectorAll('input[type=radio]').forEach(function (r) { r.addEventListener('change', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>
+
+<style is:global>
+  .swatches { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .swatches label { cursor: pointer; margin: 0 !important; }
+  .swatches input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .sw { display: block; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--c); border: 2px solid rgba(255,255,255,.22); transition: transform .15s var(--ease-premium), box-shadow .2s, border-color .2s; }
+  .swatches label:hover .sw { transform: scale(1.14); border-color: #fff; }
+  .swatches input:checked + .sw { border-color: #fff; box-shadow: 0 0 0 3px var(--color-red), 0 0 14px rgba(224,37,46,.6); transform: scale(1.1); }
+  .swatches input:focus-visible + .sw { outline: 2px solid #fff; outline-offset: 3px; }
+  .cname { font-style: normal; font-weight: 500; color: #7b8794; text-transform: capitalize; }
+  .resistor { width: 100%; height: auto; max-height: 9rem; margin-bottom: 1.25rem; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
+  .resistor rect { transition: fill .25s; }
+  .swrow[hidden] { display: none !important; }
+</style>

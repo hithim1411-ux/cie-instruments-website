@@ -9,30 +9,30 @@ import { u } from '../../utils/url';
   description="Free calculator: enter insulation resistance at 30 s, 1 min and 10 min to get the Dielectric Absorption Ratio and Polarization Index with a plain-language verdict."
   h1="Polarization Index (PI) and DAR Calculator"
   intro="Enter the megger readings from a timed test. Get PI, DAR and what the numbers usually mean."
-  productLabel="View Motor-Operated Insulation Testers"
-  productHref="/products/motor-operated-insulation"
-  related={[
-    { href: '/tools/ir-temperature-correction-calculator', label: 'Insulation Resistance Temperature Correction' },
-    { href: '/tools/motor-minimum-insulation-resistance', label: 'Motor Minimum Insulation Resistance Check' },
-  ]}
 >
   <Fragment slot="inputs">
-    <div class="tool-field"><label for="r30">IR at 30 seconds (MΩ)</label><input id="r30" type="number" min="0" step="any" value="800" inputmode="decimal" /></div>
-    <div class="tool-field"><label for="r60">IR at 1 minute (MΩ)</label><input id="r60" type="number" min="0" step="any" value="1100" inputmode="decimal" /></div>
-    <div class="tool-field"><label for="r600">IR at 10 minutes (MΩ)</label><input id="r600" type="number" min="0" step="any" value="2900" inputmode="decimal" /></div>
+    <div class="tool-field"><label for="r30">IR at 30 seconds</label><div class="input-wrap"><input id="r30" type="number" min="0" step="any" value="800" inputmode="decimal" /><span class="unit">MΩ</span></div></div>
+    <div class="tool-field"><label for="r60">IR at 1 minute</label><div class="input-wrap"><input id="r60" type="number" min="0" step="any" value="1100" inputmode="decimal" /><span class="unit">MΩ</span></div></div>
+    <div class="tool-field"><label for="r600">IR at 10 minutes</label><div class="input-wrap"><input id="r600" type="number" min="0" step="any" value="2900" inputmode="decimal" /><span class="unit">MΩ</span></div></div>
+    <div class="tool-field"><span class="flabel">Try an example</span>
+      <div class="chips">
+        <button type="button" class="chip is-on" data-set='{"r30":800,"r60":1100,"r600":2900}'>Healthy motor</button>
+        <button type="button" class="chip" data-set='{"r30":40,"r60":44,"r600":47}'>Damp winding</button>
+        <button type="button" class="chip" data-set='{"r30":1500,"r60":2500,"r600":12000}'>Excellent</button>
+      </div></div>
   </Fragment>
   <Fragment slot="readout">
     <div class="readout-block">
-      <div class="lcd" id="pi"><small>PI</small> -</div><div id="pi-v"></div>
+      <div class="lcd"><small>PI</small><span id="pi">-</span></div><div id="pi-v"></div>
       <div class="scale"><span class="s-bad" style="width:20%"></span><span class="s-warn" style="width:20%"></span><span class="s-good" style="width:40%"></span><span class="s-great" style="width:20%"></span><i class="pin" id="pin-pi"></i></div>
       <div class="scale-ticks"><span>0</span><span>1</span><span>2</span><span>4</span><span>5+</span></div>
     </div>
     <div class="readout-block">
-      <div class="lcd" id="dar"><small>DAR</small> -</div><div id="dar-v"></div>
+      <div class="lcd"><small>DAR</small><span id="dar">-</span></div><div id="dar-v"></div>
       <div class="scale"><span class="s-bad" style="width:50%"></span><span class="s-warn" style="width:12.5%"></span><span class="s-good" style="width:17.5%"></span><span class="s-great" style="width:20%"></span><i class="pin" id="pin-dar"></i></div>
       <div class="scale-ticks"><span>0</span><span>1.0</span><span>1.25</span><span>1.6</span><span>2+</span></div>
     </div>
-    <div class="lcd-sub" id="note"></div>
+    <div class="tool-callout" id="note"></div>
   </Fragment>
 
   <h2>Formulas</h2>
@@ -49,22 +49,22 @@ import { u } from '../../utils/url';
 
   <script is:inline>
     (function () {
-      var $ = function (id) { return document.getElementById(id); };
-      function badge(cls, text) { return '<span class="tool-verdict ' + cls + '">' + text + '</span>'; }
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      var f2 = function (v) { return C.fmt(v, 2); };
       function calc() {
-        var a = parseFloat($('r30').value), b = parseFloat($('r60').value), c = parseFloat($('r600').value);
+        var a = C.val('r30'), b = C.val('r60'), c = C.val('r600');
         $('note').textContent = '';
         if (isFinite(b) && isFinite(c) && b > 0 && c >= 0) {
           var pi = c / b;
-          $('pi').innerHTML = '<small>PI</small> ' + pi.toFixed(2); $('pin-pi').style.left = Math.min(pi / 5, 1) * 100 + '%';
-          $('pi-v').innerHTML = pi < 1 ? badge('v-bad', 'Dangerous') : pi < 2 ? badge('v-warn', 'Questionable') : pi < 4 ? badge('v-good', 'Good') : badge('v-great', 'Excellent');
+          C.num($('pi'), pi, f2); C.pin($('pin-pi'), pi / 5 * 100);
+          $('pi-v').innerHTML = pi < 1 ? C.badge('v-bad', 'Dangerous') : pi < 2 ? C.badge('v-warn', 'Questionable') : pi < 4 ? C.badge('v-good', 'Good') : C.badge('v-great', 'Excellent');
           if (b > 5000) $('note').textContent = 'The 1-minute reading is above 5000 MΩ, so PI may not be meaningful. Judge on the absolute IR.';
-        } else { $('pi').innerHTML = '<small>PI</small> -'; $('pi-v').innerHTML = ''; }
+        } else { C.num($('pi'), null); $('pi-v').innerHTML = ''; }
         if (isFinite(a) && isFinite(b) && a > 0 && b >= 0) {
           var d = b / a;
-          $('dar').innerHTML = '<small>DAR</small> ' + d.toFixed(2); $('pin-dar').style.left = Math.min(d / 2, 1) * 100 + '%';
-          $('dar-v').innerHTML = d < 1 ? badge('v-bad', 'Poor') : d < 1.25 ? badge('v-warn', 'Questionable') : d < 1.6 ? badge('v-good', 'Acceptable') : badge('v-great', 'Excellent');
-        } else { $('dar').innerHTML = '<small>DAR</small> -'; $('dar-v').innerHTML = ''; }
+          C.num($('dar'), d, f2); C.pin($('pin-dar'), d / 2 * 100);
+          $('dar-v').innerHTML = d < 1 ? C.badge('v-bad', 'Poor') : d < 1.25 ? C.badge('v-warn', 'Questionable') : d < 1.6 ? C.badge('v-good', 'Acceptable') : C.badge('v-great', 'Excellent');
+        } else { C.num($('dar'), null); $('dar-v').innerHTML = ''; }
       }
       ['r30', 'r60', 'r600'].forEach(function (id) { $(id).addEventListener('input', calc); });
       calc();

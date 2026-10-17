@@ -1,0 +1,100 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="multimeter-accuracy-calculator"
+  title="Multimeter Accuracy Calculator (% of Reading + Digits)"
+  description="Free calculator: turn a meter's accuracy spec of ±(% of reading + digits) into the real error band around the displayed value, and check it against an expected value."
+  h1="Meter Accuracy and Error Band Calculator"
+  intro="A meter spec like ±(0.5% + 3 digits) is not one number. Enter your reading and the spec to see the real band the true value sits in."
+>
+  <Fragment slot="inputs">
+    <div class="tool-split">
+      <div class="tool-field"><label for="rdg">Displayed reading</label><input id="rdg" type="number" step="any" value="230.4" inputmode="decimal" /></div>
+      <div class="tool-field"><label for="unit">Unit</label>
+        <select id="unit"><option>V</option><option>mV</option><option>A</option><option>mA</option><option>Ω</option><option>kΩ</option><option>MΩ</option><option>Hz</option><option>°C</option></select></div>
+    </div>
+    <div class="tool-field"><label for="res">Resolution (value of the last digit on this range)</label>
+      <input id="res" type="number" min="0" step="any" value="0.1" inputmode="decimal" />
+      <p class="hint">On a 600.0 V range the last digit is 0.1. On a 6.000 V range it is 0.001.</p></div>
+    <div class="tool-split">
+      <div class="tool-field"><label for="pct">Accuracy: % of reading</label><div class="input-wrap"><input id="pct" type="number" min="0" step="any" value="0.5" inputmode="decimal" /><span class="unit">%</span></div></div>
+      <div class="tool-field"><label for="dig">Plus digits</label><div class="input-wrap"><input id="dig" type="number" min="0" step="any" value="3" inputmode="decimal" /><span class="unit">dgt</span></div></div>
+    </div>
+    <div class="tool-field"><span class="flabel">Typical meter classes</span>
+      <div class="chips">
+        <button type="button" class="chip" data-set='{"pct":1,"dig":5}'>Basic 1% + 5</button>
+        <button type="button" class="chip is-on" data-set='{"pct":0.5,"dig":3}'>General 0.5% + 3</button>
+        <button type="button" class="chip" data-set='{"pct":0.1,"dig":2}'>Good 0.1% + 2</button>
+        <button type="button" class="chip" data-set='{"pct":0.03,"dig":2}'>Bench 0.03% + 2</button>
+      </div></div>
+    <div class="tool-field"><label for="nom">Expected value <span class="hint" style="display:inline">(optional, to check against)</span></label>
+      <input id="nom" type="number" step="any" value="230" inputmode="decimal" /></div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="lcd"><small>±</small><span id="err">-</span><span class="u" id="errU"></span></div>
+    <div class="lcd-sub" id="detail"></div>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-k">True value lies from</div><div class="stat-v"><span id="lo">-</span></div></div>
+      <div class="stat"><div class="stat-k">up to</div><div class="stat-v"><span id="hi">-</span></div></div>
+      <div class="stat"><div class="stat-k">Error as % of reading</div><div class="stat-v"><span id="ep">-</span><i>%</i></div></div>
+    </div>
+    <div class="band" id="bandwrap" aria-hidden="true">
+      <div class="band-zone" id="zone"></div>
+      <i class="band-pin band-pin--r" id="pinR"></i>
+      <i class="band-pin band-pin--n" id="pinN"></i>
+    </div>
+    <div class="scale-ticks"><span>White pin: reading</span><span>Red pin: expected</span></div>
+    <div id="verdict"></div>
+    <div class="tool-callout" id="note"></div>
+  </Fragment>
+
+  <h2>How the spec works</h2>
+  <p class="formula">Error = (reading × %) / 100 + (digits × resolution)</p>
+  <p>Example: 230.4 V on a meter rated ±(0.5% + 3 digits) with a 0.1 V last digit. The percentage part is 1.152 V and the digits part is 0.3 V, so the error is ±1.45 V and the true voltage is between 228.95 V and 231.85 V.</p>
+  <h2>Why it matters</h2>
+  <ul>
+    <li>A fixed "+ digits" term hurts most at low readings. On a high range, a small reading can be mostly error.</li>
+    <li>A reading outside the band around an expected value means the circuit, or the meter, is genuinely off. A reading inside it proves nothing more than agreement.</li>
+    <li>Accuracy is only valid at the stated temperature, after warm-up, and within a valid calibration interval.</li>
+  </ul>
+  <p>Read the difference between accuracy and resolution in <a href={u('/blog/accuracy-vs-resolution-vs-precision/')}>accuracy vs resolution vs precision</a>. When choosing an instrument, see <a href={u('/blog/how-to-choose-a-multimeter/')}>how to choose a multimeter</a>.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      function g(v) { return C.fmt(v, Math.abs(v) >= 100 ? 2 : 3); }
+      function calc() {
+        var rd = C.val('rdg'), res = C.val('res'), p = C.val('pct'), d = C.val('dig'), nom = C.val('nom'), u = $('unit').value;
+        $('note').textContent = ''; $('verdict').innerHTML = '';
+        if (!isFinite(rd) || !(res >= 0) || !(p >= 0) || !(d >= 0)) { C.num($('err'), null); $('detail').textContent = 'Enter valid numbers.'; ['lo', 'hi', 'ep'].forEach(function (i) { C.num($(i), null); }); return; }
+        var e = Math.abs(rd) * p / 100 + d * res, lo = rd - e, hi = rd + e;
+        C.num($('err'), e, function (v) { return C.fmt(v, 3); }); $('errU').textContent = u;
+        $('detail').innerHTML = '<b>' + g(Math.abs(rd) * p / 100) + ' ' + u + '</b> from the percentage + <b>' + g(d * res) + ' ' + u + '</b> from the digits.';
+        $('lo').textContent = g(lo) + ' ' + u; $('hi').textContent = g(hi) + ' ' + u;
+        C.num($('ep'), rd !== 0 ? e / Math.abs(rd) * 100 : null, function (v) { return C.fmt(v, 2); });
+        var w = Math.max(e, 1e-12) * 4, start = rd - w / 2;
+        $('zone').style.left = '25%'; $('zone').style.width = '50%'; C.pin($('pinR'), 50);
+        if (isFinite(nom)) {
+          C.pin($('pinN'), (nom - start) / w * 100); $('pinN').style.display = '';
+          var inside = nom >= lo && nom <= hi;
+          $('verdict').innerHTML = inside ? C.badge('v-great', 'Expected value is inside the band') : C.badge('v-bad', 'Expected value is outside the band');
+          if (!inside) $('note').textContent = 'The gap of ' + g(Math.abs(rd - nom)) + ' ' + u + ' is larger than the meter can explain. Check the circuit, the lead connections and the meter.';
+        } else $('pinN').style.display = 'none';
+      }
+      ['rdg', 'unit', 'res', 'pct', 'dig', 'nom'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>
+
+<style is:global>
+  .band { position: relative; height: 2.2rem; margin-top: 1.4rem; border-radius: .6rem; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); }
+  .band-zone { position: absolute; top: 0; bottom: 0; background: repeating-linear-gradient(135deg, rgba(16,185,129,.35) 0 6px, rgba(16,185,129,.22) 6px 12px); border-left: 2px solid #10b981; border-right: 2px solid #10b981; transition: all .35s var(--ease-premium); }
+  .band-pin { position: absolute; top: -.3rem; bottom: -.3rem; width: 3px; margin-left: -1.5px; border-radius: 2px; transition: left .35s var(--ease-premium); }
+  .band-pin--r { background: #fff; box-shadow: 0 0 8px #fff; }
+  .band-pin--n { background: var(--color-red); box-shadow: 0 0 8px var(--color-red); }
+</style>

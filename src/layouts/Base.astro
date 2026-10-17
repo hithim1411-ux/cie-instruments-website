@@ -1,4 +1,5 @@
 ---
+import { tools as toolList } from '../data/tools';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -109,7 +110,7 @@ const canonicalStr = canonicalURL.toString();
 const slugLabels: Record<string, string> = {
   products: 'Products', blog: 'Insights', contact: 'Contact',
   'authorised-dealership': 'Authorised Distributor', about: 'About Us',
-  faq: 'FAQs', tools: 'Tools', 'ir-temperature-correction-calculator': 'IR Temperature Correction', 'pi-dar-calculator': 'PI and DAR Calculator', 'motor-minimum-insulation-resistance': 'Motor Minimum IR Check', industries: 'Industries', quality: 'Quality',
+  faq: 'FAQs', tools: 'Tools', ...Object.fromEntries(toolList.map(t => [t.slug, t.name])), industries: 'Industries', quality: 'Quality',
   'insulation-testers-hand': 'Insulation Testers (Hand-Driven)',
   'multirange-insulation-hand': 'Multirange Insulation Testers',
   'motor-operated-insulation': 'Motor-Operated Insulation Testers',
