@@ -428,3 +428,228 @@ p { line-height: 1.65; }
   }
 }
 
+
+/* ══════════════════════════════════════════════════════════════════════
+   LIQUID GLASS LAYER (2026-10-17) — appended last on purpose so it can be
+   removed by deleting this block alone. It restyles existing classes
+   (.card, .btn-*, .badge, header, inputs, bg-white/bg-cloud surfaces);
+   it adds no new markup requirements. Plain (unlayered) CSS, so it wins
+   over Tailwind utilities without !important, except the header, whose
+   background is toggled by JS utility classes.
+
+   Recipe for every glass surface:
+     1. translucent fill        (--glass-fill)
+     2. backdrop blur+saturate  (--glass-blur)
+     3. specular rim            (inset 1px top highlight + hairline ring)
+     4. soft ambient shadow     (--glass-shadow)
+   Glass needs something to refract, so the page gets a fixed ambient
+   colour field behind everything (body::before).
+   ══════════════════════════════════════════════════════════════════════ */
+:root {
+  --glass-fill:        rgba(255, 255, 255, 0.50);
+  --glass-fill-soft:   rgba(255, 255, 255, 0.36);
+  --glass-fill-strong: rgba(255, 255, 255, 0.78);
+  --glass-fill-dark:   rgba(18, 22, 30, 0.58);
+  --glass-blur:        blur(18px) saturate(180%);
+  --glass-blur-lg:     blur(28px) saturate(190%);
+  --glass-rim:         inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -1px 0 rgba(255, 255, 255, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.55);
+  --glass-rim-dark:    inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -1px 0 rgba(255, 255, 255, 0.04), 0 0 0 1px rgba(255, 255, 255, 0.10);
+  --glass-shadow:      0 1px 2px rgba(10, 14, 20, 0.05), 0 8px 24px -6px rgba(10, 14, 20, 0.10), 0 24px 48px -16px rgba(10, 14, 20, 0.10);
+  --glass-shadow-lift: 0 2px 4px rgba(10, 14, 20, 0.06), 0 16px 40px -8px rgba(10, 14, 20, 0.16), 0 36px 72px -20px rgba(10, 14, 20, 0.18);
+  --radius-glass:      1.25rem;
+}
+
+/* ── Ambient colour field the glass refracts ── */
+html { background-color: #eceef4; }
+body { background: transparent; position: relative; }
+body.bg-white { background: transparent; }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(52rem 38rem at 92% -6%,  rgba(224, 37, 46, 0.26), transparent 62%),
+    radial-gradient(46rem 40rem at -8% 22%,  rgba(70, 120, 255, 0.28), transparent 60%),
+    radial-gradient(40rem 34rem at 78% 68%,  rgba(150, 90, 255, 0.20), transparent 60%),
+    radial-gradient(44rem 36rem at 8% 96%,   rgba(255, 170, 90, 0.26), transparent 62%),
+    linear-gradient(180deg, #f4f5f9 0%, #eaedf4 100%);
+}
+
+/* Light full-bleed sections let the ambient field through */
+section.bg-white { background-color: transparent; }
+section.bg-cloud { background-color: rgba(255, 255, 255, 0.22); }
+footer.bg-cloud { background-color: rgba(255, 255, 255, 0.5); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); }
+
+/* Dark sections: deep field with soft colour glows so glass inside has depth */
+section.bg-ink,
+.blueprint-bg {
+  background-image:
+    radial-gradient(38rem 26rem at 12% 0%,   rgba(224, 37, 46, 0.22), transparent 65%),
+    radial-gradient(40rem 30rem at 95% 100%, rgba(70, 120, 255, 0.20), transparent 65%),
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: auto, auto, 32px 32px, 32px 32px;
+}
+
+/* ── Surfaces: cards and every bordered white/cloud panel ── */
+.card,
+.bg-white.border-border.rounded-xl,
+.bg-white.border-border.rounded-2xl,
+.bg-white.border-border.rounded-3xl {
+  background-color: var(--glass-fill);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-color: transparent;
+  box-shadow: var(--glass-rim), var(--glass-shadow);
+  border-radius: var(--radius-glass);
+}
+/* Soft cloud panels become lighter glass */
+.bg-cloud.border-border.rounded-xl,
+.bg-cloud.border-border.rounded-2xl {
+  background-color: var(--glass-fill-soft);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-color: transparent;
+  box-shadow: var(--glass-rim);
+}
+/* Image wells and icon tiles inside glass: frosted, not flat grey */
+.card .bg-cloud,
+.bg-white.border-border .bg-cloud {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+.card-interactive {
+  transition: box-shadow 0.3s var(--ease-premium), transform 0.3s var(--ease-premium), background-color 0.3s var(--ease-premium);
+}
+.card-interactive:hover {
+  background-color: var(--glass-fill-strong);
+  box-shadow: var(--glass-rim), var(--glass-shadow-lift);
+  transform: translateY(-4px);
+}
+
+/* Dark-section glass (translucent white tints on ink) */
+.bg-white\/5,
+.bg-white\/\[0\.03\] {
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-rim-dark);
+}
+
+/* ── Buttons: capsule glass ── */
+.btn-primary,
+.btn-secondary,
+.btn-primary--sm,
+.btn-secondary--sm {
+  border-radius: 9999px;
+  transition: background-color 0.25s var(--ease-premium), border-color 0.25s var(--ease-premium),
+    color 0.25s var(--ease-premium), box-shadow 0.25s var(--ease-premium), transform 0.25s var(--ease-premium);
+}
+.btn-primary {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 55%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -1px 0 rgba(0, 0, 0, 0.12),
+    0 6px 18px -4px rgba(224, 37, 46, 0.45);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(0, 0, 0, 0.12),
+    0 10px 26px -4px rgba(224, 37, 46, 0.55);
+}
+.btn-primary:active { transform: translateY(0) scale(0.985); }
+.btn-primary--inverse {
+  background-image: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.82) 100%);
+  box-shadow: inset 0 1px 0 #fff, 0 6px 18px -6px rgba(10, 14, 20, 0.3);
+}
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-color: color-mix(in srgb, currentColor 16%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-1px);
+}
+.btn-secondary:active { transform: translateY(0) scale(0.985); }
+
+/* ── Badges: glass pills ── */
+.badge {
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  backdrop-filter: blur(10px) saturate(160%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.badge--neutral { background-color: rgba(255, 255, 255, 0.55); }
+.badge--emerald { background-color: rgba(236, 253, 245, 0.7); }
+
+/* ── Form fields: frosted ── */
+input.border-border,
+select.border-border,
+textarea.border-border {
+  background-color: rgba(255, 255, 255, 0.62);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 1px 2px rgba(10, 14, 20, 0.06), 0 0 0 1px rgba(10, 14, 20, 0.07);
+  border-radius: 0.75rem;
+}
+input.border-border:focus,
+select.border-border:focus,
+textarea.border-border:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 1px 2px rgba(10, 14, 20, 0.04), 0 0 0 3px rgba(224, 37, 46, 0.18), 0 0 0 1px rgba(224, 37, 46, 0.45);
+}
+
+/* ── Header: floating frosted bar. !important only here because the
+   header's background utility classes are swapped by JS on scroll. ── */
+#site-header {
+  background-color: rgba(14, 18, 26, 0.46) !important;
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  backdrop-filter: var(--glass-blur-lg);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.10), 0 8px 32px -12px rgba(10, 14, 20, 0.35) !important;
+}
+#site-header[data-transparent-hero='true'] {
+  background-color: rgba(14, 18, 26, 0.22) !important;
+}
+/* JS adds .backdrop-blur-xl once scrolled; over light sections the bar
+   must be dense enough to keep nav text legible. */
+#site-header.backdrop-blur-xl,
+#site-header[data-transparent-hero='false'] {
+  background-color: rgba(14, 18, 26, 0.80) !important;
+}
+#site-header .bg-ink {
+  background-color: var(--glass-fill-dark);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  backdrop-filter: var(--glass-blur-lg);
+  box-shadow: var(--glass-rim-dark), 0 24px 64px -16px rgba(0, 0, 0, 0.5);
+}
+#mobile-menu {
+  background-color: rgba(14, 18, 26, 0.72) !important;
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  backdrop-filter: var(--glass-blur-lg);
+}
+
+/* ── Footer + search + other dark chrome ── */
+footer.bg-ink { background-color: rgba(10, 14, 20, 0.94); }
+#search-box-desktop {
+  background-color: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  backdrop-filter: var(--glass-blur-lg);
+  box-shadow: var(--glass-rim), 0 32px 80px -16px rgba(10, 14, 20, 0.45);
+  border-radius: 1.5rem;
+}
+
+/* ── Spec tables: rounded frosted container look ── */
+.spec-table tr:nth-child(even) td { background: rgba(255, 255, 255, 0.35); }
+
+/* ── Safety nets ── */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root { --glass-fill: rgba(255,255,255,0.94); --glass-fill-soft: rgba(255,255,255,0.8); --glass-fill-strong: #fff; --glass-fill-dark: rgba(18,22,30,0.96); }
+  #site-header { background-color: rgba(14, 18, 26, 0.96) !important; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  :root { --glass-fill: #fff; --glass-fill-soft: #f5f5f7; --glass-fill-strong: #fff; --glass-fill-dark: #12161e; }
+  * { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+  #site-header { background-color: #0a0e14 !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-interactive:hover, .btn-primary:hover, .btn-secondary:hover { transform: none; }
+}
