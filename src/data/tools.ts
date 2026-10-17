@@ -1,6 +1,6 @@
 import type { IconName } from '../utils/iconNames';
 
-export type ToolCategory = 'Insulation testing' | 'Power and motors' | 'Cables and circuits' | 'Measurement';
+export type ToolCategory = 'Insulation testing' | 'Power and motors' | 'Cables and circuits' | 'Measurement' | 'Earthing and soil' | 'Scopes and signals';
 
 export interface Tool {
   slug: string;
@@ -14,7 +14,7 @@ export interface Tool {
   isNew?: boolean;
 }
 
-export const categories: ToolCategory[] = ['Insulation testing', 'Power and motors', 'Cables and circuits', 'Measurement'];
+export const categories: ToolCategory[] = ['Insulation testing', 'Earthing and soil', 'Power and motors', 'Cables and circuits', 'Measurement', 'Scopes and signals'];
 
 export const tools: Tool[] = [
   { slug: 'ir-temperature-correction-calculator', name: 'IR Temperature Correction', short: 'IR Temp Correction', icon: 'thermometer', category: 'Insulation testing',
@@ -53,6 +53,19 @@ export const tools: Tool[] = [
   { slug: 'resistor-colour-code-calculator', name: 'Resistor Colour Code', short: 'Colour Code', icon: 'circle-dot', category: 'Measurement', isNew: true,
     body: 'Click the colour bands on a drawn resistor to read its value, tolerance and range. 4, 5 and 6 bands.',
     productHref: '/authorised-dealership/lcr-meters', productLabel: 'View LCR Meters' },
+  { slug: 'soil-resistivity-wenner-calculator', name: 'Soil Resistivity (Wenner)', short: 'Soil Resistivity', icon: 'globe', category: 'Earthing and soil', isNew: true,
+    body: 'Turn four-pin Wenner readings into soil resistivity at each depth, with the average and a trend verdict.',
+    productHref: '/products/earth-tester', productLabel: 'View Earth Testers' },
+  { slug: 'earth-rod-resistance-calculator', name: 'Earth Rod Resistance', short: 'Earth Rod', icon: 'ruler', category: 'Earthing and soil', isNew: true,
+    body: 'Estimate the resistance of a driven earth rod from soil resistivity, length and diameter, and how many rods you need.',
+    productHref: '/products/earth-tester', productLabel: 'View Earth Testers' },
+
+  { slug: 'oscilloscope-bandwidth-calculator', name: 'Scope Bandwidth and Rise Time', short: 'Scope Bandwidth', icon: 'radio', category: 'Scopes and signals', isNew: true,
+    body: 'Check whether a scope is fast enough for your signal: rise time, amplitude error and the bandwidth you should buy.',
+    productHref: '/products/vartech-oscilloscopes', productLabel: 'View Vartech Oscilloscopes' },
+  { slug: 'oscilloscope-reading-calculator', name: 'Scope Screen Reading', short: 'Scope Reading', icon: 'activity', category: 'Scopes and signals', isNew: true,
+    body: 'Convert divisions on the screen into period, frequency, peak-to-peak, peak and RMS voltage.',
+    productHref: '/products/vartech-oscilloscopes', productLabel: 'View Vartech Oscilloscopes' },
 ];
 
 export const bySlug = (slug: string) => tools.find(t => t.slug === slug)!;

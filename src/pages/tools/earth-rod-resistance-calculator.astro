@@ -1,0 +1,88 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="earth-rod-resistance-calculator"
+  title="Earth Rod Resistance Calculator (Driven Rod, Dwight Formula)"
+  description="Free calculator: estimate the resistance to earth of a driven rod from soil resistivity, rod length and diameter, see how length changes it, and how many rods you need for a target value."
+  h1="Earth Rod Resistance Calculator"
+  intro="Enter soil resistivity and the rod size. Get the single-rod resistance, the effect of a longer rod, and a first estimate of how many rods reach your target."
+>
+  <Fragment slot="inputs">
+    <div class="tool-field"><label for="rho">Soil resistivity</label>
+      <div class="input-wrap"><input id="rho" type="number" min="0" step="any" value="100" inputmode="decimal" data-slider data-min="5" data-max="1000" data-step="5" /><span class="unit">Ω·m</span></div>
+      <div class="chips">
+        <button type="button" class="chip" data-set='{"rho":30}'>Wet clay 30</button>
+        <button type="button" class="chip is-on" data-set='{"rho":100}'>Loam 100</button>
+        <button type="button" class="chip" data-set='{"rho":300}'>Sandy 300</button>
+        <button type="button" class="chip" data-set='{"rho":1000}'>Rocky 1000</button>
+      </div>
+      <p class="hint">Measure it with the <a href={u('/tools/soil-resistivity-wenner-calculator/')} style="color:#ff8a90">Wenner calculator</a>.</p></div>
+
+    <div class="tool-split">
+      <div class="tool-field"><label for="len">Rod length in soil</label>
+        <div class="input-wrap"><input id="len" type="number" min="0" step="any" value="3" inputmode="decimal" /><span class="unit">m</span></div></div>
+      <div class="tool-field"><label for="dia">Rod diameter</label>
+        <div class="input-wrap"><input id="dia" type="number" min="0" step="any" value="16" inputmode="decimal" /><span class="unit">mm</span></div></div>
+    </div>
+    <div class="tool-split">
+      <div class="tool-field"><label for="tgt">Target resistance</label>
+        <div class="input-wrap"><input id="tgt" type="number" min="0" step="any" value="5" inputmode="decimal" /><span class="unit">Ω</span></div></div>
+      <div class="tool-field"><label for="n">Rods in parallel</label>
+        <div class="input-wrap"><input id="n" type="number" min="1" step="1" value="1" inputmode="numeric" /><span class="unit">rods</span></div></div>
+    </div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="readout-block">
+      <div class="lcd"><small>1 ROD</small><span id="r1">-</span><span class="u">Ω</span></div>
+      <div id="r1v"></div>
+    </div>
+    <div class="lcd-sub" id="lines"></div>
+    <div class="tool-callout" id="note"></div>
+  </Fragment>
+
+  <h2>The formula</h2>
+  <p class="formula">R = ρ / (2π·L) × ( ln(8L / d) − 1 )</p>
+  <p>This is the standard Dwight expression for one vertical rod of length <strong>L</strong> and diameter <strong>d</strong> driven into uniform soil of resistivity <strong>ρ</strong>. It assumes the rod is much longer than it is wide (L/d above about 20) and the soil is the same all the way down.</p>
+  <h2>What the numbers tell you</h2>
+  <ul>
+    <li><strong>Length matters, diameter barely does.</strong> Doubling the length cuts resistance by roughly 40 percent. Doubling the diameter cuts it by only about 10 percent.</li>
+    <li><strong>Parallel rods:</strong> the ideal result is R / n, but only when rods are spaced far apart. At spacing close to one rod length the real value is noticeably higher, so treat the minimum rod count as a starting point and allow 20 to 40 percent more.</li>
+    <li><strong>Always confirm on site.</strong> Real soil is layered, so measure the finished earth with an <a href={u('/products/earth-tester/')}>earth tester</a> using the fall-of-potential method. See <a href={u('/blog/earth-resistance-testing-guide/')}>how earth resistance testing works</a> and <a href={u('/blog/how-low-should-earth-resistance-be/')}>how low is low enough</a>.</li>
+  </ul>
+  <p>This is an estimate for planning, not a design certificate. Seasonal moisture, rod coating, backfill and nearby buried metalwork all change the result.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      function rod(rho, L, dmm) { var d = dmm / 1000; return rho / (2 * Math.PI * L) * (Math.log(8 * L / d) - 1); }
+      function f(v) { return C.fmt(v, v >= 100 ? 0 : v >= 10 ? 1 : 2); }
+      function calc() {
+        var rho = C.val('rho'), L = C.val('len'), d = C.val('dia'), t = C.val('tgt'), n = Math.max(1, Math.round(C.val('n') || 1));
+        var ok = rho > 0 && L > 0 && d > 0 && L / (d / 1000) > 1;
+        if (!ok) { C.num($('r1'), null); $('r1v').innerHTML = ''; $('lines').innerHTML = ''; $('note').textContent = 'Enter soil resistivity, rod length and diameter.'; return; }
+        var r1 = rod(rho, L, d);
+        C.num($('r1'), r1, f);
+        $('r1v').innerHTML = r1 <= 5 ? C.badge('v-great', 'Low') : r1 <= 25 ? C.badge('v-good', 'Moderate') : r1 <= 100 ? C.badge('v-warn', 'High') : C.badge('v-bad', 'Very high');
+        var lines = [];
+        lines.push(n + ' rod' + (n > 1 ? 's' : '') + ' in parallel (ideal, well spaced): <strong>' + f(r1 / n) + ' Ω</strong>');
+        lines.push('Rod ×1.5 longer (' + C.fmt(L * 1.5, 1) + ' m): ' + f(rod(rho, L * 1.5, d)) + ' Ω');
+        lines.push('Rod ×2 longer (' + C.fmt(L * 2, 1) + ' m): ' + f(rod(rho, L * 2, d)) + ' Ω');
+        lines.push('Rod ×2 thicker (' + C.fmt(d * 2, 0) + ' mm): ' + f(rod(rho, L, d * 2)) + ' Ω');
+        var note = '';
+        if (t > 0) {
+          var need = Math.ceil(r1 / t - 1e-9);
+          note = need <= 1 ? 'One rod already meets ' + C.fmt(t, 1) + ' Ω in this model.' : 'To reach ' + C.fmt(t, 1) + ' Ω you need at least ' + need + ' rods in this ideal model. Allow about ' + Math.ceil(need * 1.3) + ' rods in practice, spaced at least one rod length apart. If that is too many, drive deeper or treat the soil.';
+        }
+        if (L / (d / 1000) < 20) note += ' Rod is short relative to its diameter, so the formula is less accurate.';
+        $('lines').innerHTML = lines.join('<br>');
+        $('note').textContent = note;
+      }
+      ['rho', 'len', 'dia', 'tgt', 'n'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

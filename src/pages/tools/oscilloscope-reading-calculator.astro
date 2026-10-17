@@ -1,0 +1,123 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="oscilloscope-reading-calculator"
+  title="Oscilloscope Reading Calculator (Divisions to Volts and Hertz)"
+  description="Free calculator: convert what you see on an oscilloscope screen into period, frequency, peak-to-peak, peak and RMS voltage using time per division, volts per division and the number of divisions."
+  h1="Oscilloscope Screen Reading Calculator"
+  intro="Count the divisions on the screen, enter the knob settings, and get the real period, frequency and voltage of the waveform."
+>
+  <Fragment slot="inputs">
+    <div class="tool-split">
+      <div class="tool-field"><label for="td">Time / div</label>
+        <div class="input-wrap"><input id="td" type="number" min="0" step="any" value="2" inputmode="decimal" /><span class="unit" id="tdu">ms</span></div>
+        <div class="seg" role="radiogroup" aria-label="Time unit">
+          <label><input type="radio" name="tu" value="1e-9" /><span>ns</span></label>
+          <label><input type="radio" name="tu" value="1e-6" /><span>µs</span></label>
+          <label><input type="radio" name="tu" value="1e-3" checked /><span>ms</span></label>
+          <label><input type="radio" name="tu" value="1" /><span>s</span></label>
+        </div></div>
+      <div class="tool-field"><label for="hd">Divisions per cycle</label>
+        <div class="input-wrap"><input id="hd" type="number" min="0" step="any" value="5" inputmode="decimal" /><span class="unit">div</span></div>
+        <p class="hint">Horizontal distance between two matching points.</p></div>
+    </div>
+
+    <div class="tool-split">
+      <div class="tool-field"><label for="vd">Volts / div</label>
+        <div class="input-wrap"><input id="vd" type="number" min="0" step="any" value="1" inputmode="decimal" /><span class="unit" id="vdu">V</span></div>
+        <div class="seg" role="radiogroup" aria-label="Voltage unit">
+          <label><input type="radio" name="vu" value="1e-3" /><span>mV</span></label>
+          <label><input type="radio" name="vu" value="1" checked /><span>V</span></label>
+        </div></div>
+      <div class="tool-field"><label for="vh">Divisions peak-to-peak</label>
+        <div class="input-wrap"><input id="vh" type="number" min="0" step="any" value="6" inputmode="decimal" /><span class="unit">div</span></div>
+        <p class="hint">Vertical distance from lowest to highest point.</p></div>
+    </div>
+
+    <div class="tool-split">
+      <div class="tool-field"><span class="flabel">Waveform</span>
+        <div class="seg" role="radiogroup" aria-label="Waveform shape">
+          <label><input type="radio" name="wf" value="sine" checked /><span>Sine</span></label>
+          <label><input type="radio" name="wf" value="tri" /><span>Tri</span></label>
+          <label><input type="radio" name="wf" value="sq" /><span>Square</span></label>
+        </div></div>
+      <div class="tool-field"><span class="flabel">Probe</span>
+        <div class="seg" role="radiogroup" aria-label="Probe attenuation">
+          <label><input type="radio" name="pr" value="1" checked /><span>×1</span></label>
+          <label><input type="radio" name="pr" value="10" /><span>×10</span></label>
+          <label><input type="radio" name="pr" value="100" /><span>×100</span></label>
+        </div>
+        <p class="hint">Choose ×10 or ×100 only if the V/div you read is at the scope input and does not already include the probe.</p></div>
+    </div>
+
+    <div class="tool-field"><span class="flabel">Try an example</span>
+      <div class="chips">
+        <button type="button" class="chip" data-set='{"td":10,"hd":2,"vd":1,"vh":6.5}'>50 Hz mains via a step-down transformer</button>
+        <button type="button" class="chip" data-set='{"td":2,"hd":5,"vd":1,"vh":6}'>100 Hz, 6 V p-p</button>
+        <button type="button" class="chip" data-set='{"td":1,"hd":4,"vd":0.5,"vh":4}'>250 Hz, 2 V p-p</button>
+      </div></div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="readout-block">
+      <div class="lcd"><small>FREQ</small><span id="f">-</span><span class="u" id="fu">Hz</span></div>
+      <div class="lcd-sub" id="per"></div>
+    </div>
+    <div class="readout-block">
+      <div class="lcd"><small>Vpp</small><span id="vpp">-</span><span class="u" id="vppu">V</span></div>
+      <div class="lcd-sub" id="vlines"></div>
+    </div>
+    <div class="tool-callout" id="note"></div>
+  </Fragment>
+
+  <h2>The formulas</h2>
+  <p class="formula">T = divisions × (time/div)   ·   f = 1 / T   ·   Vpp = divisions × (volts/div) × probe</p>
+  <p class="formula">Vpeak = Vpp / 2   ·   Vrms = Vpp / (2√2) sine  ·  Vpp / (2√3) triangle  ·  Vpp / 2 square</p>
+  <p>Count a full cycle between two matching points, such as one rising zero-crossing to the next. Measuring several cycles and dividing gives a more accurate period than reading one.</p>
+  <h2>Getting a good reading</h2>
+  <ul>
+    <li><strong>Fill the screen.</strong> Adjust volts/div so the waveform spans at least four to six divisions vertically. A small trace has large reading error.</li>
+    <li><strong>Check the coupling.</strong> The RMS values assume a waveform centred on zero. A DC offset adds to the true RMS but not to the peak-to-peak value.</li>
+    <li><strong>Check the probe.</strong> A ×10 probe divides the signal by ten. If your scope does not know the probe setting, multiply the screen value by ten yourself.</li>
+    <li><strong>Mind the bandwidth.</strong> Near the scope limit the amplitude reads low. Test it with the <a href={u('/tools/oscilloscope-bandwidth-calculator/')}>bandwidth calculator</a>.</li>
+  </ul>
+  <p>New to the controls? Start with <a href={u('/blog/how-to-use-an-oscilloscope/')}>how to use an oscilloscope</a> and <a href={u('/blog/oscilloscope-waveform-guide/')}>how to read a waveform</a>.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      function radio(n) { var r = document.querySelector('input[name="' + n + '"]:checked'); return r ? r.value : null; }
+      var SI = [[1e9, 'G'], [1e6, 'M'], [1e3, 'k'], [1, ''], [1e-3, 'm'], [1e-6, 'µ'], [1e-9, 'n']];
+      function eng(v, unit) { var a = Math.abs(v); for (var i = 0; i < SI.length; i++) if (a >= SI[i][0] * 0.9999999) return { n: v / SI[i][0], u: SI[i][1] + unit }; return { n: v / 1e-9, u: 'n' + unit }; }
+      function g3(v) { return +v.toPrecision(4); }
+      function calc() {
+        var tu = parseFloat(radio('tu')), vu = parseFloat(radio('vu')), probe = parseFloat(radio('pr')), wf = radio('wf');
+        $('tdu').textContent = { '1e-9': 'ns', '1e-6': 'µs', '0.001': 'ms', '1': 's' }[String(tu)] || 's';
+        $('vdu').textContent = vu === 1 ? 'V' : 'mV';
+        var td = C.val('td'), hd = C.val('hd'), vd = C.val('vd'), vh = C.val('vh');
+        var T = td * tu * hd, Vpp = vd * vu * vh * probe;
+        if (isFinite(T) && T > 0) {
+          var f = 1 / T, ef = eng(f, 'Hz'), et = eng(T, 's');
+          C.num($('f'), ef.n, function (v) { return C.fmt(v, 3); }); $('fu').textContent = ef.u;
+          $('per').innerHTML = 'Period T = <strong>' + C.fmt(g3(et.n), 3) + ' ' + et.u + '</strong>';
+        } else { C.num($('f'), null); $('per').textContent = ''; }
+        if (isFinite(Vpp) && Vpp > 0) {
+          var ep = eng(Vpp, 'V'); C.num($('vpp'), ep.n, function (v) { return C.fmt(v, 3); }); $('vppu').textContent = ep.u;
+          var pk = Vpp / 2, k = wf === 'sine' ? 1 / (2 * Math.SQRT2) : wf === 'tri' ? 1 / (2 * Math.sqrt(3)) : 0.5, rms = Vpp * k;
+          var ek = eng(pk, 'V'), er = eng(rms, 'V');
+          $('vlines').innerHTML = 'Peak (amplitude) = <strong>' + C.fmt(g3(ek.n), 3) + ' ' + ek.u + '</strong><br>RMS (' + (wf === 'sine' ? 'sine' : wf === 'tri' ? 'triangle' : 'square') + ') = <strong>' + C.fmt(g3(er.n), 3) + ' ' + er.u + '</strong>';
+        } else { C.num($('vpp'), null); $('vlines').textContent = ''; }
+        var note = '';
+        if (isFinite(vh) && vh > 0 && vh < 3) note = 'The trace is under 3 divisions tall. Lower volts/div to enlarge it and read more accurately.';
+        if (isFinite(vh) && vh > 8) note = 'More than 8 divisions peak-to-peak usually means the trace is clipped off screen. Raise volts/div.';
+        $('note').textContent = note;
+      }
+      ['td', 'hd', 'vd', 'vh'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      document.querySelectorAll('input[type=radio]').forEach(function (r) { r.addEventListener('change', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

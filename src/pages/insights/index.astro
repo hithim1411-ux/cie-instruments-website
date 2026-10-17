@@ -44,7 +44,7 @@ const PATHS = [
     id: 'earthing', icon: 'globe', label: 'Check an earth pit',
     pitch: 'Why earthing matters, how low is low enough, and how to test soil.',
     steps: ['what-is-electrical-earthing', 'earth-resistance-testing-guide', 'how-low-should-earth-resistance-be', 'soil-resistivity-wenner-vs-schlumberger'],
-    tools: [],
+    tools: ['soil-resistivity-wenner-calculator', 'earth-rod-resistance-calculator'],
     product: { label: 'Earth testers', href: '/products/earth-tester/' },
   },
   {
@@ -58,7 +58,7 @@ const PATHS = [
     id: 'scopes', icon: 'activity', label: 'Learn the oscilloscope',
     pitch: 'Controls, waveforms, bandwidth and what to buy.',
     steps: ['how-to-use-an-oscilloscope', 'oscilloscope-waveform-guide', 'oscilloscope-bandwidth-explained', 'how-to-choose-an-oscilloscope'],
-    tools: [],
+    tools: ['oscilloscope-reading-calculator', 'oscilloscope-bandwidth-calculator'],
     product: { label: 'Vartech oscilloscopes', href: '/products/vartech-oscilloscopes/' },
   },
 ].map((p) => ({

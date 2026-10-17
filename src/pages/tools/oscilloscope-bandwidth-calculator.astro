@@ -1,0 +1,89 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="oscilloscope-bandwidth-calculator"
+  title="Oscilloscope Bandwidth and Rise Time Calculator"
+  description="Free calculator: check whether an oscilloscope is fast enough for your signal. Get the scope rise time, the amplitude error at your signal frequency, the measured rise time of a fast edge, and the bandwidth you should buy."
+  h1="Oscilloscope Bandwidth and Rise Time Calculator"
+  intro="Enter your scope bandwidth and the signal you want to look at. See how much the scope will under-read it and what bandwidth you actually need."
+>
+  <Fragment slot="inputs">
+    <div class="tool-field"><label for="bw">Scope bandwidth</label>
+      <div class="input-wrap"><input id="bw" type="number" min="0" step="any" value="100" inputmode="decimal" data-slider data-min="10" data-max="500" data-step="5" /><span class="unit">MHz</span></div>
+      <div class="chips">
+        <button type="button" class="chip" data-set='{"bw":20}'>20</button>
+        <button type="button" class="chip" data-set='{"bw":60}'>60</button>
+        <button type="button" class="chip is-on" data-set='{"bw":100}'>100</button>
+        <button type="button" class="chip" data-set='{"bw":200}'>200</button>
+      </div></div>
+
+    <div class="tool-field"><label for="fs">Signal frequency <span class="hint" style="display:inline">(highest component, sine)</span></label>
+      <div class="input-wrap"><input id="fs" type="number" min="0" step="any" value="20" inputmode="decimal" data-slider data-min="0.1" data-max="500" data-step="0.1" /><span class="unit">MHz</span></div></div>
+
+    <div class="tool-field"><label for="tr">Signal rise time <span class="hint" style="display:inline">(optional, for pulses and digital edges)</span></label>
+      <div class="input-wrap"><input id="tr" type="number" min="0" step="any" value="" placeholder="e.g. 5" inputmode="decimal" /><span class="unit">ns</span></div></div>
+
+    <div class="tool-field"><span class="flabel">Try an example</span>
+      <div class="chips">
+        <button type="button" class="chip" data-set='{"bw":20,"fs":1,"tr":""}'>20 MHz scope, 1 MHz sine</button>
+        <button type="button" class="chip" data-set='{"bw":100,"fs":50,"tr":""}'>100 MHz scope, 50 MHz sine</button>
+        <button type="button" class="chip" data-set='{"bw":100,"fs":10,"tr":5}'>100 MHz scope, 5 ns edge</button>
+      </div></div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="readout-block">
+      <div class="lcd"><small>ERROR</small><span id="err">-</span><span class="u">% amplitude</span></div>
+      <div id="verdict"></div>
+      <div class="scale"><span class="s-great" style="width:20%"></span><span class="s-good" style="width:20%"></span><span class="s-warn" style="width:30%"></span><span class="s-bad" style="width:30%"></span><i class="pin" id="pin"></i></div>
+      <div class="scale-ticks"><span>0%</span><span>2%</span><span>5%</span><span>15%</span><span>30%</span></div>
+    </div>
+    <div class="lcd-sub" id="lines"></div>
+    <div class="tool-callout" id="note"></div>
+  </Fragment>
+
+  <h2>The formulas</h2>
+  <p class="formula">scope rise time tᵣ ≈ 0.35 / BW   ·   amplitude error = 1 − 1 / √(1 + (f / BW)²)   ·   measured tᵣ = √(signal tᵣ² + scope tᵣ²)</p>
+  <p>A scope behaves like a low-pass filter whose half-power point is its rated bandwidth. A sine at the bandwidth frequency shows up about 29 percent low. The calculator uses the common single-pole model, which is a good guide for the 20 to 200 MHz class of scopes.</p>
+  <h2>The rules of thumb</h2>
+  <ul>
+    <li><strong>3× rule:</strong> bandwidth at least three times your signal frequency keeps the amplitude error near 5 percent.</li>
+    <li><strong>5× rule:</strong> bandwidth at least five times keeps it near 2 percent. Use this when you care about the measured amplitude.</li>
+    <li><strong>Fast edges:</strong> the scope rise time should be a third to a fifth of the signal rise time, otherwise the edge looks slower than it is. A square wave needs the harmonics, so judge it by its edge, not just its repetition rate.</li>
+  </ul>
+  <p>Probe bandwidth counts too. The system bandwidth of scope plus probe is lower than either alone, so a 100 MHz scope on a 60 MHz probe is a 60 MHz setup. For how bandwidth, sample rate and memory depth fit together read <a href={u('/blog/oscilloscope-bandwidth-explained/')}>Oscilloscope Bandwidth Explained</a> and <a href={u('/blog/how-to-choose-an-oscilloscope/')}>how to choose an oscilloscope</a>.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      function calc() {
+        var bw = C.val('bw'), f = C.val('fs'), tr = C.val('tr');
+        if (!(bw > 0)) { C.num($('err'), null); $('verdict').innerHTML = ''; $('lines').innerHTML = ''; $('note').textContent = 'Enter the scope bandwidth.'; return; }
+        var trs = 350 / bw;
+        var lines = ['Scope rise time: <strong>' + C.fmt(trs, trs >= 10 ? 1 : 2) + ' ns</strong>'], note = '';
+        if (isFinite(f) && f > 0) {
+          var err = (1 - 1 / Math.sqrt(1 + Math.pow(f / bw, 2))) * 100, ratio = bw / f;
+          C.num($('err'), err, function (v) { return C.fmt(v, v < 10 ? 1 : 0); });
+          $('verdict').innerHTML = err < 2 ? C.badge('v-great', 'Fast enough') : err < 5 ? C.badge('v-good', 'Acceptable') : err < 15 ? C.badge('v-warn', 'Under-reading') : C.badge('v-bad', 'Too slow');
+          C.pin($('pin'), Math.min(100, err / 30 * 100));
+          lines.push('Bandwidth is <strong>' + C.fmt(ratio, 1) + '×</strong> the signal frequency');
+          lines.push('Suggested bandwidth: ≥ <strong>' + C.fmt(f * 3, 0) + ' MHz</strong> (3×), <strong>' + C.fmt(f * 5, 0) + ' MHz</strong> (5×)');
+          if (err >= 5) note = 'At ' + C.fmt(f, 1) + ' MHz this scope reads about ' + C.fmt(err, 0) + ' percent low. Step up to ' + C.fmt(f * 5, 0) + ' MHz for a trustworthy amplitude.';
+        } else { C.num($('err'), null); $('verdict').innerHTML = ''; }
+        if (isFinite(tr) && tr > 0) {
+          var meas = Math.sqrt(tr * tr + trs * trs), e = (meas / tr - 1) * 100;
+          lines.push('A ' + C.fmt(tr, 2) + ' ns edge will measure <strong>' + C.fmt(meas, 2) + ' ns</strong> (' + C.fmt(e, 1) + '% slower)');
+          lines.push('For a clean edge you want scope rise time ≤ ' + C.fmt(tr / 3, 2) + ' ns, so bandwidth ≥ <strong>' + C.fmt(350 / (tr / 3), 0) + ' MHz</strong>');
+          if (e > 10) note += (note ? ' ' : '') + 'The scope slows this edge by more than 10 percent. Rise-time and overshoot readings will be misleading.';
+        }
+        $('lines').innerHTML = lines.join('<br>');
+        $('note').textContent = note;
+      }
+      ['bw', 'fs', 'tr'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

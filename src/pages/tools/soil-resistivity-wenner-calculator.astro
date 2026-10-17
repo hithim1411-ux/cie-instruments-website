@@ -1,0 +1,109 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="soil-resistivity-wenner-calculator"
+  title="Soil Resistivity Calculator (Wenner Four-Pin Method)"
+  description="Free calculator: enter probe spacing and the resistance read by an earth tester to get soil resistivity in ohm-metres at each depth, the average, and whether resistivity rises or falls with depth."
+  h1="Soil Resistivity Calculator (Wenner)"
+  intro="Enter the probe spacing and the resistance your earth tester shows for up to four spacings. Get resistivity at each depth, the average and what the trend means for your earth electrode."
+>
+  <Fragment slot="inputs">
+    <div class="tool-field"><label for="b">Probe depth in the soil <span class="hint" style="display:inline">(same for all spacings)</span></label>
+      <div class="input-wrap"><input id="b" type="number" min="0" step="any" value="0.15" inputmode="decimal" /><span class="unit">m</span></div>
+      <p class="hint">The formula corrects for probe depth. Enter 0 to use the simple 2π·a·R form.</p></div>
+
+    <div class="tool-split">
+      <div class="tool-field"><label for="a1">Spacing a₁</label><div class="input-wrap"><input id="a1" type="number" min="0" step="any" value="1" inputmode="decimal" /><span class="unit">m</span></div></div>
+      <div class="tool-field"><label for="r1">Reading R₁</label><div class="input-wrap"><input id="r1" type="number" min="0" step="any" value="7.67" inputmode="decimal" /><span class="unit">Ω</span></div></div>
+    </div>
+    <div class="tool-split">
+      <div class="tool-field"><label for="a2">Spacing a₂</label><div class="input-wrap"><input id="a2" type="number" min="0" step="any" value="2" inputmode="decimal" /><span class="unit">m</span></div></div>
+      <div class="tool-field"><label for="r2">Reading R₂</label><div class="input-wrap"><input id="r2" type="number" min="0" step="any" value="3.94" inputmode="decimal" /><span class="unit">Ω</span></div></div>
+    </div>
+    <div class="tool-split">
+      <div class="tool-field"><label for="a3">Spacing a₃</label><div class="input-wrap"><input id="a3" type="number" min="0" step="any" value="4" inputmode="decimal" /><span class="unit">m</span></div></div>
+      <div class="tool-field"><label for="r3">Reading R₃</label><div class="input-wrap"><input id="r3" type="number" min="0" step="any" value="1.985" inputmode="decimal" /><span class="unit">Ω</span></div></div>
+    </div>
+    <div class="tool-split">
+      <div class="tool-field"><label for="a4">Spacing a₄</label><div class="input-wrap"><input id="a4" type="number" min="0" step="any" value="8" inputmode="decimal" /><span class="unit">m</span></div></div>
+      <div class="tool-field"><label for="r4">Reading R₄</label><div class="input-wrap"><input id="r4" type="number" min="0" step="any" value="0.994" inputmode="decimal" /><span class="unit">Ω</span></div></div>
+    </div>
+
+    <div class="tool-field"><span class="flabel">Try an example</span>
+      <div class="chips">
+        <button type="button" class="chip is-on" data-set='{"b":0.15,"a1":1,"r1":7.67,"a2":2,"r2":3.94,"a3":4,"r3":1.985,"a4":8,"r4":0.994}'>Uniform soil</button>
+        <button type="button" class="chip" data-set='{"b":0.15,"a1":1,"r1":30.7,"a2":2,"r2":11.8,"a3":4,"r3":3.97,"a4":8,"r4":1.59}'>Dry crust, wet below</button>
+        <button type="button" class="chip" data-set='{"b":0.15,"a1":1,"r1":4.6,"a2":2,"r2":4.73,"a3":4,"r3":4.76,"a4":8,"r4":4.77}'>Rock below</button>
+      </div></div>
+    <p class="hint">Leave a spacing and reading blank to skip a row.</p>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="readout-block">
+      <div class="lcd"><small>AVG ρ</small><span id="avg">-</span><span class="u">Ω·m</span></div>
+      <div id="band"></div>
+    </div>
+    <div class="lcd-sub" id="rows"></div>
+    <div class="tool-callout" id="trend"></div>
+  </Fragment>
+
+  <h2>The formula</h2>
+  <p class="formula">ρ = 4π·a·R / ( 1 + 2a/√(a² + 4b²) − a/√(a² + b²) )   →   ρ ≈ 2π·a·R when b is small</p>
+  <p>Four probes go in a straight line at equal spacing <strong>a</strong>. The two outer probes inject current, the two inner ones measure the voltage, and your <a href={u('/products/earth-tester/')}>earth tester</a> shows <strong>R</strong> in ohms. The result is the <em>apparent</em> resistivity of the soil down to roughly a depth equal to the spacing.</p>
+  <h2>Why take several spacings</h2>
+  <p>Wider spacing sees deeper soil. If resistivity <strong>falls</strong> as spacing grows, wetter or more conductive soil lies below, so a long or deep-driven rod works well. If it <strong>rises</strong> with spacing, the good soil is near the surface, and extra rod length helps little. Use more rods, a horizontal electrode or soil treatment instead.</p>
+  <h2>Reading the band</h2>
+  <ul>
+    <li><strong>Below 30 Ω·m:</strong> low. Typical of wet clay and organic soil.</li>
+    <li><strong>30 to 100 Ω·m:</strong> moderate. Typical of loam and mixed soils.</li>
+    <li><strong>100 to 300 Ω·m:</strong> high. Typical of sandy or gravelly soil.</li>
+    <li><strong>Above 300 Ω·m:</strong> very high. Typical of dry sand, rock and laterite.</li>
+  </ul>
+  <p>These bands are general guide values. Resistivity swings with moisture and season, so test in the driest period you can and never treat one number as a design value. For the full method and how Wenner compares with Schlumberger, see <a href={u('/blog/soil-resistivity-wenner-vs-schlumberger/')}>Wenner vs Schlumberger</a>. Then size your electrode with the <a href={u('/tools/earth-rod-resistance-calculator/')}>earth rod calculator</a>.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      function rho(a, R, b) {
+        if (!(a > 0) || !(R >= 0)) return NaN;
+        if (!(b > 0)) return 2 * Math.PI * a * R;
+        var d = 1 + (2 * a) / Math.sqrt(a * a + 4 * b * b) - a / Math.sqrt(a * a + b * b);
+        return 4 * Math.PI * a * R / d;
+      }
+      function band(v) { return v < 30 ? C.badge('v-great', 'Low') : v < 100 ? C.badge('v-good', 'Moderate') : v < 300 ? C.badge('v-warn', 'High') : C.badge('v-bad', 'Very high'); }
+      function calc() {
+        var b = C.val('b'); if (!isFinite(b) || b < 0) b = 0;
+        var rows = [], i;
+        for (i = 1; i <= 4; i++) {
+          var a = C.val('a' + i), R = C.val('r' + i), v = rho(a, R, b);
+          if (isFinite(v)) rows.push({ a: a, R: R, v: v });
+        }
+        rows.sort(function (x, y) { return x.a - y.a; });
+        var note = '';
+        if (!rows.length) {
+          C.num($('avg'), null); $('band').innerHTML = ''; $('rows').innerHTML = ''; $('trend').textContent = 'Enter at least one spacing and reading.'; return;
+        }
+        var sum = 0; rows.forEach(function (r) { sum += r.v; });
+        var avg = sum / rows.length;
+        C.num($('avg'), avg, function (v) { return C.fmt(v, v >= 100 ? 0 : 1); });
+        $('band').innerHTML = band(avg);
+        $('rows').innerHTML = rows.map(function (r) { return 'a = ' + C.fmt(r.a, 2) + ' m &nbsp;→&nbsp; ρ = <strong>' + C.fmt(r.v, r.v >= 100 ? 0 : 1) + '</strong> Ω·m'; }).join('<br>');
+        var warn = [];
+        if (b > 0) rows.forEach(function (r) { if (b > r.a / 4) warn.push('a = ' + C.fmt(r.a, 2) + ' m'); });
+        if (rows.length >= 2) {
+          var f = rows[0].v, l = rows[rows.length - 1].v;
+          if (l > f * 1.25) note = 'Resistivity rises with depth (' + C.fmt(f, 0) + ' to ' + C.fmt(l, 0) + ' Ω·m). Good soil is near the surface, so a longer rod helps little. Consider more rods, a horizontal electrode or soil treatment.';
+          else if (l < f * 0.8) note = 'Resistivity falls with depth (' + C.fmt(f, 0) + ' to ' + C.fmt(l, 0) + ' Ω·m). Wetter soil lies below, so a longer or deeper-driven rod is effective.';
+          else note = 'Resistivity is roughly uniform with depth, so rod length and rod count scale predictably.';
+        } else note = 'Add a second spacing to see how resistivity changes with depth.';
+        if (warn.length) note += ' Probe depth is more than a quarter of the spacing at ' + warn.join(', ') + ', so those readings carry extra error. Drive the probes shallower or widen the spacing.';
+        $('trend').textContent = note;
+      }
+      ['b', 'a1', 'r1', 'a2', 'r2', 'a3', 'r3', 'a4', 'r4'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>
