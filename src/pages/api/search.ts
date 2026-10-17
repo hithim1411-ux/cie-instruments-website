@@ -32,11 +32,12 @@ type RichProduct = {
 const allProducts: RichProduct[] = [];
 
 for (const p of cieProducts as any[]) {
+  if (p.brand === 'vartech') continue; // Vartech items are indexed below from their own data files
   const cat = catMap[p.categoryId] || p.categoryId;
   const slug = `/products/${p.categoryId}/${p.id}/`;
   allProducts.push({
     model: p.model, name: p.name, category: cat,
-    brand: 'CIE (manufactured in Howrah, India)',
+    brand: /^DIT-/.test(p.model) ? 'CIE brand (imported digital line, not manufactured by CIE)' : 'CIE (manufactured in Howrah, India)',
     tagline: p.tagline || '',
     description: (p.description || '').slice(0, 300),
     specs: (p.specs || []).map((s: any) => `${s.label}: ${s.value}`).join(' | '),
@@ -80,19 +81,19 @@ for (const { label, slug, items } of vartechSections) {
 // ── Category routing ──────────────────────────────────────────────────────
 // Maps intent keywords → category labels in allProducts
 const CATEGORY_ROUTES: [RegExp, string[]][] = [
-  [/\binsulat|megger|megohm|winding insul|motor insul|cable insul/i,
+  [/\binsulat|megger|megohm|meg ohm|winding insul|motor insul|cable insul|\bpi\b|\bdar\b|polari[sz]ation index|absorption ratio/i,
     ['Insulation Testers - Hand-Driven','Multirange Insulation Testers (Hand-Driven)','Motor-Operated Insulation Testers','Multirange Motorised Insulation Testers','Compact / Economical Insulation Testers','Digital Insulation Testers']],
-  [/\bearth\b|earthing|grounding|earth tester|earth electrode|earth resist/i,
+  [/\bearth\b|earthing|grounding|earth tester|earth electrode|earth resist|soil resistivity|resistivity/i,
     ['Earth Resistance Testers']],
-  [/\bclamp\b|solar|pv system|photovoltaic|dc clamp/i,
+  [/\bclamp\b|solar|pv system|photovoltaic|dc clamp|leakage current|inrush/i,
     ['Clamp Meters']],
-  [/\bmultimeter\b|voltage fluctuat|volt fluctuat|dmm|general electrical|mains voltage/i,
+  [/\bmultimeter\b|voltage fluctuat|volt fluctuat|dmm|general electrical|mains voltage|true.?rms|\bvfd\b|inverter/i,
     ['Digital Multimeters']],
   [/\blcr\b|inductan|capacitan|impedance|coil test|component test/i,
     ['LCR & Cap Meters']],
-  [/\boscilloscope\b|waveform|signal capture/i,
+  [/\boscilloscope\b|\bscope\b|waveform|signal capture/i,
     ['Oscilloscopes']],
-  [/\bfunction generator\b|signal generator\b/i,
+  [/\bfunction generator\b|signal generator\b|waveform generator/i,
     ['Function Generators']],
   [/\bpower supply\b|bench supply|lab supply|psu\b/i,
     ['DC Power Supplies']],
@@ -102,43 +103,96 @@ const CATEGORY_ROUTES: [RegExp, string[]][] = [
     ['Sound Level Meters']],
   [/\blux\b|light intensity|illuminan|brightness meter/i,
     ['Lux Meters']],
-  [/\banemometer\b|wind speed|air speed|air flow/i,
+  [/\banemometer\b|wind speed|air speed|air flow|airflow/i,
     ['Anemometers']],
-  [/\btemperatur\b|thermometer|thermocouple|heat meter/i,
+  [/\btemperature|thermometer|thermocouple|heat meter|humidity|thermo.?hygro/i,
     ['Thermometers']],
-  [/\bcalibrat/i,
+  [/\bcalibrat|\bprocess signal|4.?20 ?ma|\bmv source/i,
     ['Calibrators']],
-  [/\bmicro.?ohm\b|winding resist|contact resist|low resist/i,
+  [/\bmicro.?ohm\b|winding resist|contact resist|low resist|busbar joint|kelvin/i,
     ['Micro-Ohm Meters']],
+  [/\brelay\b|secondary injection|current injection|protection relay|pickup|trip time|overcurrent/i,
+    ['Relay Test Sets']],
+  [/\bbdv\b|transformer oil|oil test|dielectric strength of oil|breakdown voltage of oil/i,
+    ['Oil Test Sets - CIE/7000 Series']],
+  [/\bhipot\b|hi.?pot|breakdown test|withstand|flash test|high voltage test set|dielectric test/i,
+    ['HV Test Sets']],
+  [/\bphase sequence|phase rotation|phase order|motor rotation direction/i,
+    ['Phase Sequence Indicators']],
 ];
 
-function getRelevantProducts(query: string): string {
-  const matchedCats = new Set<string>();
+const STOPWORDS = new Set(['the','and','for','with','what','which','that','this','need','best','good','tester','meter','instrument','testing','test','use','from','have','will','your','about','into','than','then','are','can','how','does','not','you','our','its']);
+function tokens(text: string): string[] {
+  return (text.toLowerCase().match(/[a-z0-9][a-z0-9+\-\/]{2,}/g) || []).filter(t => !STOPWORDS.has(t));
+}
+const normModel = (m: string) => m.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+function formatProduct(p: RichProduct, specLimit: number): string {
+  let entry = `MODEL: ${p.model} | NAME: ${p.name} | BRAND: ${p.brand} | CATEGORY: ${p.category}`;
+  if (p.tagline) entry += ` | ${p.tagline.slice(0, 160)}`;
+  if (p.specs) entry += `\nSPECS: ${p.specs.slice(0, specLimit)}`;
+  if (p.apps) entry += `\nAPPS: ${p.apps.slice(0, 150)}`;
+  if (p.options) entry += `\nOPTIONS: ${p.options.slice(0, 120)}`;
+  if (p.orderNote) entry += `\nORDER: ${p.orderNote.slice(0, 120)}`;
+  return entry;
+}
+
+// Retrieval looks at the WHOLE conversation, not just the last message. A short
+// follow-up like "yes, mains available" must keep the earlier topic in scope.
+function getRelevantProducts(query: string, priorText: string): string {
+  const context = `${priorText}\n${query}`;
+  const qNorm = normModel(query + ' ' + priorText);
+  const pool = new Map<string, { p: RichProduct; score: number }>();
+  const add = (p: RichProduct, score: number) => {
+    const cur = pool.get(p.model + p.brand);
+    if (!cur || cur.score < score) pool.set(p.model + p.brand, { p, score });
+  };
+
+  // 1. Models named explicitly (e.g. "LCR-1B vs LCR-2A") always get full coverage
+  for (const p of allProducts) {
+    const m = normModel(p.model);
+    if (m.length >= 4 && qNorm.includes(m)) add(p, 100);
+  }
+
+  // 2. Category routing - latest message weighs more than earlier turns
+  const catScore = new Map<string, number>();
   for (const [pattern, cats] of CATEGORY_ROUTES) {
-    if (pattern.test(query)) cats.forEach(c => matchedCats.add(c));
+    if (pattern.test(query)) cats.forEach(c => catScore.set(c, Math.max(catScore.get(c) || 0, 50)));
+    else if (pattern.test(priorText)) cats.forEach(c => catScore.set(c, Math.max(catScore.get(c) || 0, 30)));
+  }
+  const qTokens = new Set(tokens(context));
+  for (const p of allProducts) {
+    const base = catScore.get(p.category);
+    if (!base) continue;
+    const hay = new Set(tokens(`${p.name} ${p.tagline} ${p.apps} ${p.specs}`));
+    let overlap = 0;
+    qTokens.forEach(t => { if (hay.has(t)) overlap++; });
+    add(p, base + Math.min(overlap, 15));
   }
 
-  let pool: RichProduct[];
-
-  if (matchedCats.size > 0) {
-    pool = allProducts.filter(p => matchedCats.has(p.category));
-  } else {
-    // No category matched - send 1 rep per category for AI to ask what they need
-    const seen = new Set<string>();
-    pool = allProducts.filter(p => { if (seen.has(p.category)) return false; seen.add(p.category); return true; });
+  // 3. Nothing routed: general keyword overlap, else one representative per category
+  if (pool.size === 0) {
+    const scored = allProducts
+      .map(p => {
+        const hay = new Set(tokens(`${p.name} ${p.tagline} ${p.apps} ${p.category}`));
+        let overlap = 0;
+        qTokens.forEach(t => { if (hay.has(t)) overlap++; });
+        return { p, score: overlap };
+      })
+      .filter(x => x.score >= 2)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8);
+    if (scored.length) scored.forEach(x => add(x.p, x.score));
+    else {
+      const seen = new Set<string>();
+      for (const p of allProducts) { if (!seen.has(p.category)) { seen.add(p.category); add(p, 1); } }
+    }
   }
 
-  // Cap at 20 products and truncate specs to keep total prompt under ~3000 tokens
-  const capped = pool.slice(0, 20);
-  const text = capped.map(p => {
-    let entry = `MODEL: ${p.model} | NAME: ${p.name} | BRAND: ${p.brand} | CATEGORY: ${p.category}`;
-    if (p.tagline) entry += ` | ${p.tagline}`;
-    if (p.specs) entry += `\nSPECS: ${p.specs.slice(0, 300)}`;
-    if (p.apps) entry += `\nAPPS: ${p.apps.slice(0, 150)}`;
-    return entry;
-  }).join('\n---\n');
-  // Hard cap at 4000 chars to stay well within Groq TPM limits
-  return text.slice(0, 4000);
+  const ranked = [...pool.values()].sort((a, b) => b.score - a.score).slice(0, 16).map(x => x.p);
+  const broad = ranked.length > 10;
+  const text = ranked.map(p => formatProduct(p, broad ? 260 : 420)).join('\n---\n');
+  return text.slice(0, 7000);
 }
 
 const BASE_SYSTEM = `You are Arjun, the lead technical sales expert at Cambridge Instruments & Engineering Co. (CIE), Howrah - India's premier precision instrument manufacturer since 1946. You have 25 years of hands-on field experience across power utilities, steel plants, railways, refineries, and electrical contractors.
@@ -195,6 +249,19 @@ const BASE_SYSTEM = `You are Arjun, the lead technical sales expert at Cambridge
 - **Production QC, incoming inspection, speed matters** → LCR-2A (10 fixed frequencies 100Hz–10kHz, wider range)
 - **Field check of capacitors and inductors** → LCM-1 (portable, 1pF–100mF, 1µH–100H)
 
+## HV, OIL AND RELAY TEST EQUIPMENT (CIE-made)
+- **Transformer oil BDV (dielectric strength)** → CIE/7000 Series (CIE/7050 to CIE/7120, 0-50 kV to 0-120 kV, manual or motorised). Pick the tier from the oil-test voltage the standard or utility requires.
+- **AC hipot / breakdown / withstand on cables, insulators, switchgear** → CIE/5050A (0-3 kV or 0-5 kV, 25/50 mA trip)
+- **Relay secondary current injection, pickup and trip-time checks** → RTS-5 (single phase, 0-200 A), RTS-5A, RTS-33 - read the product list for current ranges
+- **Phase sequence / motor rotation direction** → PSI-1 (disc type, 100-500 V AC), PSI-2
+
+## USEFUL FIELD RULES (use when relevant, state them plainly)
+- Minimum insulation resistance rule of thumb for motors: (rated kV + 1) MOhm at 40 C; trend over time matters more than a single reading
+- PI below 1.0 = failing insulation, 1.0-2.0 = questionable, above 2.0 = acceptable (typical guidance, confirm against the applicable standard)
+- Earth electrode: auxiliary spikes must be placed outside the resistance area of the electrode (typically 20 m and 40 m for the fall-of-potential method) or the reading is wrong
+- Switch off and discharge the equipment under test before any insulation test
+- Never put an AC-only clamp on DC current, and never use a digital multimeter's ohm range on live circuits
+
 ## OTHER CATEGORIES
 - **DC Electronic Loads**: battery discharge testing, PSU verification, burn-in - match load voltage/current range to DUT
 - **Oscilloscopes**: scope bandwidth must be ≥ 5× the highest signal frequency you need to capture
@@ -232,6 +299,12 @@ Choose **[A]** if [specific condition]. Choose **[B]** if [specific condition].
 
 **When one specific thing is unclear and you must ask:**
 ❓ [ONE sharp technical question - name the exact parameter and why it changes the recommendation]
+OPTIONS: [answer 1] | [answer 2] | [answer 3]
+
+The OPTIONS line is mandatory after every ❓ question. It becomes tap-to-answer buttons for the customer.
+- 2 to 4 options, each under 7 words, written as the customer would answer (e.g. "Yes, mains available", "No, remote site, no mains")
+- Options must be mutually exclusive and cover the realistic answers; always include an escape such as "Not sure, advise me" when the customer may not know
+- Never put the question or any other text on the OPTIONS line
 
 Example of a GOOD question: "Is this for a PI/DAR test (sustained 10-minute test) or a routine spot IR reading? This determines whether you need a motorised tester."
 Example of a BAD question: "What voltage is the equipment?" - too vague, doesn't help the customer.
@@ -240,18 +313,35 @@ If asking about insulation: ask about TEST PURPOSE (routine vs PI/DAR) and SITE 
 
 ---
 
+## ASKING SMARTER QUESTIONS
+Before asking, check the conversation: never ask something the customer already told you, and never ask twice about the same parameter.
+Pick the unknown that would CHANGE which model you recommend. Priority order:
+1. Test purpose or measurement type (routine spot check vs PI/DAR; AC vs DC current; component vs in-circuit)
+2. Power at the site (mains available or remote, hand-driven vs motorised)
+3. Voltage or range class (only if not obvious from the equipment named)
+4. Output preference (analog needle for trending vs digital readout)
+If one answer settles it, recommend immediately instead of asking. After the customer answers, you MUST recommend now unless the answer opened a genuinely new decision. Maximum 2 questions across the whole conversation.
+If the customer is vague ("which tester should I buy"), ask what they will test or measure, with OPTIONS naming the main equipment types.
+If the customer asks a pure knowledge question (what is PI, how do I test X), answer it directly and briefly, then link it to the right instrument.
+
+## FOLLOW-UP SUGGESTIONS
+After every recommendation or comparison (NOT after a ❓ question), end the reply with exactly one line:
+NEXT: [follow-up question 1] | [follow-up question 2] | [follow-up question 3]
+These are questions the customer is likely to ask next, phrased in the customer's voice, each under 9 words and answerable from the product list or your rules. Good: "Does it work without mains power?", "How is it different from CIE/777?", "What test leads come with it?". Never repeat a question already asked. Never put a price question here.
+
 ## HANDLING BROWSE / CATEGORY QUERIES
 When the query is just a category name (e.g. "dc power supplies", "clamp meters", "multimeters") with no specific application or requirement stated:
 - DO NOT recommend a generic type or technology
 - DO list the actual models available from the product list, grouped by their key differentiator (voltage range, current rating, etc.)
-- End with ONE sharp question to help them narrow down
+- End with ONE sharp question to help them narrow down, followed by its OPTIONS line
 
 Example for "dc power supplies":
 "We carry linear DC regulated power supplies in two voltage ranges:
 **30V series:** 3005B (0–5A) · 3010 (0–10A) · 3020 (0–20A)
 **60V series:** 6005 (0–5A) · 6010 (0–10A) · 6020 (0–20A)
 All are CV/CC with 4-digit display and output on/off.
-❓ What output voltage and current does your application need?"
+❓ What output voltage and current does your application need?
+OPTIONS: Up to 30V, small bench work | Up to 60V, higher power | Not sure, advise me"
 
 ## IRON RULES
 1. Use model numbers EXACTLY as they appear in the product list. Never invent a model. Never recommend a generic type (like "SMPS") as if it were a product.
@@ -259,9 +349,16 @@ All are CV/CC with 4-digit display and output on/off.
 3. Assume LV (500V test voltage) for any "motor" or "cable" insulation query unless MV/HV is stated.
 4. Never ask more than ONE question. Pick the single most critical unknown.
 5. No preamble - start the response directly.
-6. Max 200 words unless it is a detailed comparison.
+6. Max 200 words unless it is a detailed comparison. The ❓, OPTIONS and NEXT lines do not count toward the limit.
 7. Do not repeat the customer's question back to them.
-8. For browse queries (just a category name), always list the real models from the product list with their key specs, then ask one narrowing question.`;
+8. For browse queries (just a category name), always list the real models from the product list with their key specs, then ask one narrowing question.
+9. Never use the long dash character. Use a plain hyphen.
+10. DIT digital testers are an imported line sold under the CIE brand. Never say CIE manufactures or makes DIT instruments, and never say Made in India for them.
+11. Vartech products are resold by CIE as authorised distributor. Describe them only by their specs and say Vartech is distributed by CIE. Never say CIE calibrates, services or makes them.
+12. Never promise export, shipping outside India, delivery time, stock status or discounts. Send those questions to the contact page.
+13. If asked something unrelated to test and measurement instruments, say briefly that you only help with instrument selection and ask what they need to measure.
+14. If the product list has no instrument that fits (for example a spec CIE does not offer), say so honestly and suggest the nearest model or contacting CIE for a custom build. Never stretch a product beyond its listed specs.
+15. Specs, ranges and accuracy must come from the product list. If a figure is not in the list, do not state it.`;
 
 
 export const POST: APIRoute = async ({ request }) => {
@@ -288,13 +385,22 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  const relevantProducts = getRelevantProducts(query);
-  const systemPrompt = `${BASE_SYSTEM}\n\nRELEVANT PRODUCTS FOR THIS QUERY:\n${relevantProducts}`;
+  const trimmed = history.slice(-10).map(h => ({
+    role: h.role === 'model' ? 'assistant' : h.role === 'assistant' ? 'assistant' : 'user',
+    content: String(h.parts ?? '').slice(0, 1500),
+  }));
+  const priorText = trimmed.map(h => h.content).join('\n').slice(-3000);
+  const relevantProducts = getRelevantProducts(query.slice(0, 600), priorText);
+  const questionsAsked = trimmed.filter(h => h.role === 'assistant' && h.content.includes('❓')).length;
+  const nudge = questionsAsked >= 2
+    ? '\n\nThe customer has already answered two clarifying questions. Do NOT ask another question. Give your best recommendation now.'
+    : '';
+  const systemPrompt = `${BASE_SYSTEM}\n\nRELEVANT PRODUCTS FOR THIS CONVERSATION:\n${relevantProducts}${nudge}`;
 
   const messages = [
     { role: 'system', content: systemPrompt },
-    ...history.map(h => ({ role: h.role === 'model' ? 'assistant' : h.role, content: h.parts })),
-    { role: 'user', content: query },
+    ...trimmed,
+    { role: 'user', content: query.slice(0, 600) },
   ];
 
   const groqModels = [
@@ -311,12 +417,19 @@ export const POST: APIRoute = async ({ request }) => {
           'Authorization': `Bearer ${groqKey}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ model, messages, stream: false, max_tokens: 350, temperature: 0.3 }),
+        body: JSON.stringify({
+          model, messages, stream: false, temperature: 0.25,
+          // Reasoning models spend part of this budget thinking; 350 truncated answers.
+          max_tokens: 1400,
+          ...(model.startsWith('openai/gpt-oss') ? { reasoning_effort: 'medium' } : {}),
+        }),
       });
 
       if (res.ok) {
         const json = await res.json();
-        const text = json.choices?.[0]?.message?.content ?? '';
+        const raw: string = json.choices?.[0]?.message?.content ?? '';
+        const text = raw.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+        if (!text) { console.warn(`Groq ${model} returned empty content`); continue; }
         return new Response(text, {
           headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' },
         });

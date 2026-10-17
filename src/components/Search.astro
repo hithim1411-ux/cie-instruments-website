@@ -64,12 +64,16 @@ const searchIndex: Entry[] = [
 const suggestions = [
   "Insulation tester for 415V motor",
   "PI test / DAR test - which tester?",
-  "Best clamp meter for solar DC current",
-  "Earth tester for site - hand-driven or digital?",
-  "True-RMS multimeter for VFD panels",
   "Megger for HV transformer above 11kV",
+  "Earth tester for site - hand-driven or digital?",
+  "Best clamp meter for solar DC current",
+  "True-RMS multimeter for VFD panels",
   "Micro-ohm meter for winding resistance",
+  "Test transformer oil BDV - which set?",
+  "Relay testing - secondary injection set",
+  "Battery discharge test - which DC load?",
   "Compare LCR-1B vs LCR-2A",
+  "My motor insulation reads low - what next?",
 ];
 ---
 
@@ -426,6 +430,39 @@ function extractKeywords(q: string): string {
 }
 
 // ── AI ────────────────────────────────────────────────────────────────────
+// The model ends answers with "OPTIONS: a | b" (answers to its question) and
+// "NEXT: q1 | q2 | q3" (suggested follow-ups). Pull them out and show as buttons.
+function splitMarkers(text: string): { body: string; options: string[]; next: string[] } {
+  const grab = (re: RegExp) => {
+    const m = text.match(re);
+    return m ? m[1].split('|').map(x => x.replace(/[\[\]*_]/g, '').trim()).filter(x => x.length > 1 && x.length <= 80).slice(0, 4) : [];
+  };
+  const options = grab(/^\s*OPTIONS:\s*(.+)$/im);
+  const next = grab(/^\s*NEXT:\s*(.+)$/im);
+  const body = text.replace(/^\s*(OPTIONS|NEXT):.*$/gim, '').replace(/\n{3,}/g, '\n\n').trim();
+  return { body, options, next };
+}
+
+function renderChips(cont: HTMLElement, options: string[], next: string[]) {
+  const make = (items: string[], label: string, cls: string) => items.length ? `<div class="mt-3">
+    <p class="text-[10px] font-mono uppercase tracking-widest text-muted mb-1.5">${label}</p>
+    <div class="flex flex-wrap gap-2">${items.map(o => `<button type="button" class="followup-chip ${cls} text-left text-[12px] px-3 py-1.5 rounded-full border leading-snug transition-all" data-query="${esc(o)}">${esc(o)}</button>`).join('')}</div>
+  </div>` : '';
+  cont.insertAdjacentHTML('beforeend',
+    make(options, 'Tap to answer', 'border-[#0A0E14] bg-[#0A0E14] text-white hover:bg-[#E0252E] hover:border-[#E0252E]') +
+    make(next, 'You might also ask', 'border-[#CBD5E1] bg-white text-[#334155] hover:border-[#0A0E14] hover:text-[#0A0E14]'));
+}
+
+document.addEventListener('click', e => {
+  const chip = (e.target as HTMLElement).closest('.followup-chip') as HTMLElement | null;
+  if (!chip || isStreaming) return;
+  const q = chip.dataset.query || '';
+  desktopInput.value = q;
+  mobileInput.value = q;
+  showReplyBox(false);
+  askAI(q);
+});
+
 async function askAI(q: string) {
   if (isStreaming) return;
   const now = Date.now();
@@ -467,10 +504,13 @@ async function askAI(q: string) {
         const { done, value } = await reader.read();
         if (done) break;
         fullText += decoder.decode(value, { stream: true });
-        renderMD(cont, fullText);
+        renderMD(cont, splitMarkers(fullText).body);
       }
+      const parsed = splitMarkers(fullText);
+      renderMD(cont, parsed.body);
+      renderChips(cont, parsed.options, parsed.next);
       history.push({ role: 'user', parts: q });
-      history.push({ role: 'model', parts: fullText });
+      history.push({ role: 'model', parts: parsed.body });
       if (history.length > 12) history = history.slice(-12);
     }
   } catch {
@@ -562,12 +602,16 @@ function hideAI() {
 const CHIPS = [
   'Insulation tester for 415V motor',
   'PI test / DAR test - which tester?',
-  'Best clamp meter for solar DC current',
-  'Earth tester for site - hand-driven or digital?',
-  'True-RMS multimeter for VFD panels',
   'Megger for HV transformer above 11kV',
+  'Earth tester for site - hand-driven or digital?',
+  'Best clamp meter for solar DC current',
+  'True-RMS multimeter for VFD panels',
   'Micro-ohm meter for winding resistance',
+  'Test transformer oil BDV - which set?',
+  'Relay testing - secondary injection set',
+  'Battery discharge test - which DC load?',
   'Compare LCR-1B vs LCR-2A',
+  'My motor insulation reads low - what next?',
 ];
 
 function showWelcome() {
