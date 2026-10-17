@@ -1,0 +1,386 @@
+[
+ {
+  "id": "cie-444",
+  "brand": "cie",
+  "label": "CIE/444",
+  "note": "Insulation Tester - Metal Body, Hand-Driven",
+  "href": "/products/insulation-testers-hand/cie-444/",
+  "src": "/images/hero/cie-444.webp"
+ },
+ {
+  "id": "cie-666",
+  "brand": "cie",
+  "label": "CIE/666",
+  "note": "Insulation Tester - Wooden Body, Hand-Driven",
+  "href": "/products/insulation-testers-hand/cie-666/",
+  "src": "/images/hero/cie-666.webp"
+ },
+ {
+  "id": "cie-444-mr",
+  "brand": "cie",
+  "label": "CIE/444/MR",
+  "note": "Multirange Insulation Tester - Metal Body (Hand-Driven)",
+  "href": "/products/multirange-insulation-hand/cie-444-mr/",
+  "src": "/images/hero/cie-444-mr.webp"
+ },
+ {
+  "id": "cie-666-mr",
+  "brand": "cie",
+  "label": "CIE/666/MR",
+  "note": "Multirange Insulation Tester - Wooden Body (Hand-Driven)",
+  "href": "/products/multirange-insulation-hand/cie-666-mr/",
+  "src": "/images/hero/cie-666-mr.webp"
+ },
+ {
+  "id": "cie-777",
+  "brand": "cie",
+  "label": "CIE/777",
+  "note": "Motorised Insulation Tester",
+  "href": "/products/motor-operated-insulation/cie-777/",
+  "src": "/images/hero/cie-777.webp"
+ },
+ {
+  "id": "cie-777-hm",
+  "brand": "cie",
+  "label": "CIE/777 HM",
+  "note": "Motor-cum-Hand Driven Insulation Tester",
+  "href": "/products/motor-operated-insulation/cie-777-hm/",
+  "src": "/images/hero/cie-777-hm.webp"
+ },
+ {
+  "id": "cie-777-mr",
+  "brand": "cie",
+  "label": "CIE/777/MR",
+  "note": "Multirange Motorised Insulation Tester",
+  "href": "/products/multirange-motorised-insulation/cie-777-mr/",
+  "src": "/images/hero/cie-777-mr.webp"
+ },
+ {
+  "id": "cie-777-hm-mr",
+  "brand": "cie",
+  "label": "CIE/777 HM/MR",
+  "note": "Multirange Motor-cum-Hand Driven Insulation Tester",
+  "href": "/products/multirange-motorised-insulation/cie-777-hm-mr/",
+  "src": "/images/hero/cie-777-hm-mr.webp"
+ },
+ {
+  "id": "cie-555",
+  "brand": "cie",
+  "label": "CIE/555",
+  "note": "Insulation Tester (Hand Driven Generator Type, Bakelite Body)",
+  "href": "/products/compact-insulation-testers/cie-555/",
+  "src": "/images/hero/cie-555.webp"
+ },
+ {
+  "id": "cie-222m",
+  "brand": "cie",
+  "label": "CIE/222M",
+  "note": "Analog Earth Tester - Metal Body",
+  "href": "/products/earth-tester/cie-222m/",
+  "src": "/images/hero/cie-222m.webp"
+ },
+ {
+  "id": "dit-5005",
+  "brand": "cie",
+  "label": "DIT-5005",
+  "note": "Digital Insulation Tester",
+  "href": "/products/digital-insulation-testers/dit-5005/",
+  "src": "/images/hero/dit-5005.webp"
+ },
+ {
+  "id": "dit-2500",
+  "brand": "cie",
+  "label": "DIT-2500",
+  "note": "Digital Insulation Tester + Multimeter - up to 2500 V",
+  "href": "/products/digital-insulation-testers/dit-2500/",
+  "src": "/images/hero/dit-2500.webp"
+ },
+ {
+  "id": "dit-5000",
+  "brand": "cie",
+  "label": "DIT-5000",
+  "note": "Digital Insulation Tester - up to 5000 V / 200 GΩ",
+  "href": "/products/digital-insulation-testers/dit-5000/",
+  "src": "/images/hero/dit-5000.webp"
+ },
+ {
+  "id": "det-2000",
+  "brand": "cie",
+  "label": "DET-2000",
+  "note": "Digital Earth Resistance Tester",
+  "href": "/products/earth-tester/det-2000/",
+  "src": "/images/hero/det-2000.webp"
+ },
+ {
+  "id": "mr-253a",
+  "brand": "cie",
+  "label": "MR-253A",
+  "note": "Digital Micro-Ohm Meter (4-Terminal Kelvin)",
+  "href": "/products/digital-earth-micro-ohm/mr-253a/",
+  "src": "/images/hero/mr-253a.webp"
+ },
+ {
+  "id": "dcm-2250-tr",
+  "brand": "cie",
+  "label": "DCM 2250 TR",
+  "note": "Digital Clamp Multimeter - True-RMS AC, 1000 A",
+  "href": "/products/clamp-meters/dcm-2250-tr/",
+  "src": "/images/hero/dcm-2250-tr.webp"
+ },
+ {
+  "id": "dcm-5410-tr",
+  "brand": "cie",
+  "label": "DCM 5410 TR",
+  "note": "Digital Clamp Multimeter - True-RMS AC/DC, 1000 A",
+  "href": "/products/clamp-meters/dcm-5410-tr/",
+  "src": "/images/hero/dcm-5410-tr.webp"
+ },
+ {
+  "id": "dm-235",
+  "brand": "cie",
+  "label": "DM 235",
+  "note": "Digital Multimeter - 3½-digit",
+  "href": "/products/multimeters/dm-235/",
+  "src": "/images/hero/dm-235.webp"
+ },
+ {
+  "id": "dm-321t",
+  "brand": "cie",
+  "label": "DM 321T",
+  "note": "True-RMS Digital Multimeter - Manual Ranging, 3½-digit",
+  "href": "/products/multimeters/dm-321t/",
+  "src": "/images/hero/dm-321t.webp"
+ },
+ {
+  "id": "cie-5050a",
+  "brand": "cie",
+  "label": "CIE/5050A",
+  "note": "A.C. High Voltage Breakdown Test Set",
+  "href": "/products/hv-phase-sequence/cie-5050a/",
+  "src": "/images/hero/cie-5050a.webp"
+ },
+ {
+  "id": "psi-1",
+  "brand": "cie",
+  "label": "PSI-1",
+  "note": "Phase Sequence Indicator - Disc Rotating Type",
+  "href": "/products/phase-sequence-indicators/psi-1/",
+  "src": "/images/hero/psi-1.webp"
+ },
+ {
+  "id": "psi-2",
+  "brand": "cie",
+  "label": "PSI-2",
+  "note": "Phase Sequence Indicator - ABS Moulded",
+  "href": "/products/phase-sequence-indicators/psi-2/",
+  "src": "/images/hero/psi-2.webp"
+ },
+ {
+  "id": "cie-7050",
+  "brand": "cie",
+  "label": "CIE/7000 Series",
+  "note": "Transformer Oil BDV Tester - 7000 Series",
+  "href": "/products/oil-test-sets/cie-7050/",
+  "src": "/images/hero/cie-7050.webp"
+ },
+ {
+  "id": "rts-5",
+  "brand": "cie",
+  "label": "RTS-5",
+  "note": "Relay Test Set - Single Phase (Secondary Current Injection)",
+  "href": "/products/relay-test-sets/rts-5/",
+  "src": "/images/hero/rts-5.webp"
+ },
+ {
+  "id": "rts-5a",
+  "brand": "cie",
+  "label": "RTS-5A",
+  "note": "Relay Test Set - Single Phase, 0–200 A (Portable Trolley)",
+  "href": "/products/relay-test-sets/rts-5a/",
+  "src": "/images/hero/rts-5a.webp"
+ },
+ {
+  "id": "rts-33",
+  "brand": "cie",
+  "label": "RTS-33",
+  "note": "Three-Phase Relay Test Set",
+  "href": "/products/relay-test-sets/rts-33/",
+  "src": "/images/hero/rts-33.webp"
+ },
+ {
+  "id": "v-mas-830-lb",
+  "brand": "vartech",
+  "label": "V MAS 830 LB",
+  "note": "Digital Multimeter 600V DC/AC 10A DC",
+  "href": "/authorised-dealership/multimeters/v-mas-830-lb/",
+  "src": "/images/hero/v-mas-830-lb.webp"
+ },
+ {
+  "id": "v-92",
+  "brand": "vartech",
+  "label": "V 92",
+  "note": "Digital Multimeter True RMS Auto Ranging",
+  "href": "/authorised-dealership/multimeters/v-92/",
+  "src": "/images/hero/v-92.webp"
+ },
+ {
+  "id": "v-68",
+  "brand": "vartech",
+  "label": "V 68",
+  "note": "Digital Multimeter True RMS Auto Ranging 1000V DC / 750V AC 10A",
+  "href": "/authorised-dealership/multimeters/v-68/",
+  "src": "/images/hero/v-68.webp"
+ },
+ {
+  "id": "v-980",
+  "brand": "vartech",
+  "label": "V 980",
+  "note": "True RMS Digital Multimeter 20000 Counts",
+  "href": "/authorised-dealership/multimeters/v-980/",
+  "src": "/images/hero/v-980.webp"
+ },
+ {
+  "id": "v-266",
+  "brand": "vartech",
+  "label": "V 266",
+  "note": "Digital Clamp Multimeter 1000A AC",
+  "href": "/authorised-dealership/clamp-meters/v-266/",
+  "src": "/images/hero/v-266.webp"
+ },
+ {
+  "id": "v-266-c",
+  "brand": "vartech",
+  "label": "V 266 C",
+  "note": "Digital Clamp Multimeter with Capacitance Frequency Temperature",
+  "href": "/authorised-dealership/clamp-meters/v-266-c/",
+  "src": "/images/hero/v-266-c.webp"
+ },
+ {
+  "id": "v-2001-plus",
+  "brand": "vartech",
+  "label": "V 2001+",
+  "note": "Smart Clamp Meter True RMS 200A AC",
+  "href": "/authorised-dealership/clamp-meters/v-2001-plus/",
+  "src": "/images/hero/v-2001-plus.webp"
+ },
+ {
+  "id": "ss-5020b",
+  "brand": "vartech",
+  "label": "SS-5020B",
+  "note": "20 MHz Dual Channel Analog Oscilloscope (CRO)",
+  "href": "/authorised-dealership/oscilloscopes/ss-5020b/",
+  "src": "/images/hero/ss-5020b.webp"
+ },
+ {
+  "id": "ss-5030bc",
+  "brand": "vartech",
+  "label": "SS-5030BC",
+  "note": "30 MHz Dual Channel CRO with Built-in Component Tester",
+  "href": "/authorised-dealership/oscilloscopes/ss-5030bc/",
+  "src": "/images/hero/ss-5030bc.webp"
+ },
+ {
+  "id": "ss-5100ds1b",
+  "brand": "vartech",
+  "label": "SS-5100DS1B",
+  "note": "100 MHz Dual Channel Digital Storage Oscilloscope (DSO)",
+  "href": "/authorised-dealership/oscilloscopes/ss-5100ds1b/",
+  "src": "/images/hero/ss-5100ds1b.webp"
+ },
+ {
+  "id": "sgda-80m",
+  "brand": "vartech",
+  "label": "SGDA-80M",
+  "note": "80 MHz Programmable Dual Channel DDS Function / Arbitrary Waveform Generator",
+  "href": "/authorised-dealership/function-generators/sgda-80m/",
+  "src": "/images/hero/sgda-80m.webp"
+ },
+ {
+  "id": "sgda-30m",
+  "brand": "vartech",
+  "label": "SGDA-30M",
+  "note": "30 MHz Dual Channel DDS Function Generator",
+  "href": "/authorised-dealership/function-generators/sgda-30m/",
+  "src": "/images/hero/sgda-30m.webp"
+ },
+ {
+  "id": "lcm-1",
+  "brand": "vartech",
+  "label": "LCM-1",
+  "note": "Portable Digital LC Meter",
+  "href": "/authorised-dealership/lcr-meters/lcm-1/",
+  "src": "/images/hero/lcm-1.webp"
+ },
+ {
+  "id": "lcr-1b",
+  "brand": "vartech",
+  "label": "LCR-1B",
+  "note": "Bench Top LCR Meter - 10 Hz to 10 kHz Continuously Variable",
+  "href": "/authorised-dealership/lcr-meters/lcr-1b/",
+  "src": "/images/hero/lcr-1b.webp"
+ },
+ {
+  "id": "el-600-plus",
+  "brand": "vartech",
+  "label": "EL-600+",
+  "note": "600 W Programmable DC Electronic Load (150 V / 120 A)",
+  "href": "/authorised-dealership/dc-loads/el-600-plus/",
+  "src": "/images/hero/el-600-plus.webp"
+ },
+ {
+  "id": "v-6500",
+  "brand": "vartech",
+  "label": "V 6500",
+  "note": "Industrial Digital Thermometer - High Precision",
+  "href": "/authorised-dealership/thermometers/v-6500/",
+  "src": "/images/hero/v-6500.webp"
+ },
+ {
+  "id": "v-6610-b",
+  "brand": "vartech",
+  "label": "V 6610 B",
+  "note": "Digital Lux Meter - 0–199999 Lux",
+  "href": "/authorised-dealership/lux-meters/v-6610-b/",
+  "src": "/images/hero/v-6610-b.webp"
+ },
+ {
+  "id": "v-7220-r",
+  "brand": "vartech",
+  "label": "V 7220 R",
+  "note": "Temperature & Process Calibrator",
+  "href": "/authorised-dealership/calibrators/v-7220-r/",
+  "src": "/images/hero/v-7220-r.webp"
+ },
+ {
+  "id": "v-6700-b",
+  "brand": "vartech",
+  "label": "V 6700 B",
+  "note": "Digital Sound Level Meter",
+  "href": "/authorised-dealership/sound-level-meters/v-6700-b/",
+  "src": "/images/hero/v-6700-b.webp"
+ },
+ {
+  "id": "v-6250-b",
+  "brand": "vartech",
+  "label": "V 6250 B",
+  "note": "Digital Anemometer with Temperature",
+  "href": "/authorised-dealership/anemometers/v-6250-b/",
+  "src": "/images/hero/v-6250-b.webp"
+ },
+ {
+  "id": "3005-b",
+  "brand": "vartech",
+  "label": "3005 B",
+  "note": "30V / 5A Linear DC Regulated Power Supply with Output On/Off",
+  "href": "/authorised-dealership/dc-power-supplies/3005-b/",
+  "src": "/images/hero/3005-b.webp"
+ },
+ {
+  "id": "3030-sr",
+  "brand": "vartech",
+  "label": "3030 SR",
+  "note": "30V / 30A SMPS DC Regulated Power Supply with PC Interface (900W)",
+  "href": "/authorised-dealership/dc-power-supplies/3030-sr/",
+  "src": "/images/hero/3030-sr.webp"
+ }
+]
