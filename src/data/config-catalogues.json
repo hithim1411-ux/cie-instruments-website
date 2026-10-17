@@ -680,5 +680,36 @@
     "file": "cie-777-hm-mr/MR-E.pdf"
    }
   ]
+ },
+ "dit-5005": {
+  "type": "vr",
+  "options": [
+   {
+    "voltage": 500,
+    "ranges": [
+     {
+      "range": "0–200 MΩ",
+      "file": "dit-5005/500V_0-200MOhm.pdf"
+     },
+     {
+      "range": "0–1000 MΩ",
+      "file": "dit-5005/500V_0-1000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 1000,
+    "ranges": [
+     {
+      "range": "0–200 MΩ",
+      "file": "dit-5005/1000V_0-200MOhm.pdf"
+     },
+     {
+      "range": "0–2000 MΩ",
+      "file": "dit-5005/1000V_0-2000MOhm.pdf"
+     }
+    ]
+   }
+  ]
  }
 }
