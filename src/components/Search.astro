@@ -84,11 +84,8 @@ const DISCLAIMER = 'Volta is an AI and can make mistakes. Always confirm specs a
   aria-label="Search"
   class="fixed inset-0 z-[9999] w-full h-full bg-transparent p-0 m-0 max-w-none max-h-none border-0 backdrop:bg-ink/80 backdrop:backdrop-blur-xl"
 >
-  <!-- Liquid glass: coloured light behind the panels, refracted by their blur -->
-  <div class="lg-blobs" aria-hidden="true"><i></i><i></i><i></i></div>
-
   <!-- Desktop: centred overlay. Mobile: full-screen panel -->
-  <div id="search-outer" class="hidden sm:flex items-start justify-center min-h-full pt-[8vh] px-4 pb-10 relative z-[1]">
+  <div id="search-outer" class="hidden sm:flex items-start justify-center min-h-full pt-[8vh] px-4 pb-10">
     <div id="search-box-desktop" class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col" style="max-height:84vh;">
 
       <!-- Desktop header -->
@@ -764,81 +761,54 @@ function esc(s: string) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').re
 </script>
 
 <style>
-#cie-search::backdrop { background: rgba(8,12,22,.38); backdrop-filter: blur(22px) saturate(150%); -webkit-backdrop-filter: blur(22px) saturate(150%); }
+/* Frosted glass, kept inside the site palette (ink / red / border / cloud).
+   One blurred layer only: nested backdrop-filters and animated light blobs
+   caused flicker, so chips and fields are plain translucent fills. */
+#cie-search::backdrop { background: rgba(10,14,20,.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .ai-content p:first-child, #mobile-ai-content p:first-child { margin-top: 0; }
 .ai-content p:last-child,  #mobile-ai-content p:last-child  { margin-bottom: 0; }
 #mobile-panel { display: none; }
 
-/* ── Liquid glass ─────────────────────────────────────────────────────── */
-.lg-blobs { position: fixed; inset: 0; overflow: hidden; pointer-events: none; }
-.lg-blobs i { position: absolute; border-radius: 9999px; filter: blur(70px); opacity: .75; will-change: transform; }
-.lg-blobs i:nth-child(1) { width: 46vmax; height: 46vmax; left: -8vmax; top: -10vmax; background: #E0252E; animation: lg-drift-a 22s ease-in-out infinite alternate; }
-.lg-blobs i:nth-child(2) { width: 40vmax; height: 40vmax; right: -10vmax; top: 12vmax; background: #3B6CFF; animation: lg-drift-b 26s ease-in-out infinite alternate; }
-.lg-blobs i:nth-child(3) { width: 34vmax; height: 34vmax; left: 22vw; bottom: -14vmax; background: #19C2B0; animation: lg-drift-c 30s ease-in-out infinite alternate; }
-@keyframes lg-drift-a { to { transform: translate(14vmax, 10vmax) scale(1.15); } }
-@keyframes lg-drift-b { to { transform: translate(-12vmax, 8vmax) scale(.9); } }
-@keyframes lg-drift-c { to { transform: translate(10vmax, -8vmax) scale(1.2); } }
-@media (prefers-reduced-motion: reduce) { .lg-blobs i { animation: none; } }
+#search-box-desktop {
+  background: rgba(255,255,255,.86) !important;
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 20px !important;
+  box-shadow: 0 24px 64px rgba(10,14,20,.35), inset 0 1px 0 rgba(255,255,255,.9) !important;
+}
+/* mobile is full-screen: plain near-white, no blur layer to stutter on scroll */
+#mobile-panel { background: rgba(250,250,252,.97) !important; }
 
-#search-box-desktop, #mobile-panel {
-  position: relative;
-  background: linear-gradient(145deg, rgba(255,255,255,.74) 0%, rgba(255,255,255,.52) 55%, rgba(255,255,255,.62) 100%) !important;
-  backdrop-filter: blur(34px) saturate(190%) brightness(1.04);
-  -webkit-backdrop-filter: blur(34px) saturate(190%) brightness(1.04);
-  border: 1px solid rgba(255,255,255,.65);
-  box-shadow:
-    0 40px 90px -20px rgba(8,12,22,.55),
-    0 8px 24px rgba(8,12,22,.18),
-    inset 0 1.5px 0 rgba(255,255,255,.95),
-    inset 0 -1px 0 rgba(255,255,255,.35),
-    inset 0 0 40px rgba(255,255,255,.28) !important;
-}
-#search-box-desktop { border-radius: 30px !important; }
-#mobile-panel { border: 0; border-radius: 0; }
-/* specular sheen across the top edge */
-#search-box-desktop::before {
-  content: ''; position: absolute; inset: 0 0 auto 0; height: 38%; pointer-events: none; z-index: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,.42), rgba(255,255,255,0));
-  border-radius: 30px 30px 0 0;
-}
-#search-box-desktop > *, #mobile-panel > * { position: relative; z-index: 1; }
-#cie-search .border-border, #cie-search .border-b, #cie-search .border-t { border-color: rgba(255,255,255,.6) !important; }
-#cie-search .bg-\[\#F8FAFC\] { background: rgba(255,255,255,.34) !important; }
-#ai-panel { background: transparent !important; }
-#mobile-ai-toggle { background: rgba(255,255,255,.4) !important; }
+#cie-search .border-border, #cie-search .border-b, #cie-search .border-t { border-color: rgba(10,14,20,.08) !important; }
+#cie-search .bg-\[\#F8FAFC\] { background: rgba(245,245,247,.7) !important; }
+#ai-panel { background: rgba(245,245,247,.55) !important; }
+#mobile-ai-toggle { background: rgba(245,245,247,.9) !important; }
 
-/* chips + inputs */
-.suggestion-chip, .lg-chip, .lg-chip-accent {
-  background: linear-gradient(160deg, rgba(255,255,255,.78), rgba(255,255,255,.46)) !important;
-  border: 1px solid rgba(255,255,255,.8) !important;
-  backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 6px 18px rgba(8,12,22,.10) !important;
-  border-radius: 18px !important;
-  transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, background .25s !important;
+/* chips and fields: flat translucent, hairline border, no motion */
+.suggestion-chip, .lg-chip {
+  background: rgba(255,255,255,.9) !important;
+  border: 1px solid rgba(10,14,20,.1) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  transition: border-color .15s, background-color .15s !important;
 }
-.suggestion-chip:hover, .lg-chip:hover { transform: translateY(-2px) scale(1.01); background: linear-gradient(160deg, rgba(255,255,255,.95), rgba(255,255,255,.62)) !important; box-shadow: inset 0 1px 0 #fff, 0 12px 28px rgba(8,12,22,.16) !important; }
-.suggestion-chip:active, .lg-chip:active, .lg-chip-accent:active { transform: scale(.97); }
-.lg-chip { border-radius: 9999px !important; color: #334155; }
-.lg-chip-accent { border-radius: 9999px !important; color: #fff;
-  background: linear-gradient(160deg, rgba(20,26,40,.88), rgba(10,14,20,.7)) !important;
-  border: 1px solid rgba(255,255,255,.25) !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 8px 20px rgba(8,12,22,.28) !important; }
-.lg-chip-accent:hover { transform: translateY(-2px); background: linear-gradient(160deg, rgba(240,60,70,.95), rgba(200,25,35,.82)) !important; }
+.suggestion-chip:hover, .lg-chip:hover { border-color: #0A0E14 !important; background: #fff !important; }
+.lg-chip { color: #334155; }
+.lg-chip-accent {
+  background: #0A0E14 !important; color: #fff; border: 1px solid #0A0E14 !important;
+  border-radius: 12px !important; box-shadow: none !important;
+  transition: background-color .15s, border-color .15s !important;
+}
+.lg-chip-accent:hover { background: #E0252E !important; border-color: #E0252E !important; }
 #ai-reply-box, #mobile-ai-reply-box {
-  background: rgba(255,255,255,.65) !important; border: 1px solid rgba(255,255,255,.85) !important;
-  border-radius: 9999px !important; backdrop-filter: blur(12px);
-  box-shadow: inset 0 1px 0 #fff, 0 6px 18px rgba(8,12,22,.12) !important;
+  background: #fff !important; border: 1px solid rgba(10,14,20,.15) !important;
+  border-radius: 12px !important; box-shadow: none !important;
 }
-#search-input, #search-input-mobile { letter-spacing: -.01em; }
-#search-close-btn, #new-search-btn, #mobile-new-btn, #mobile-clear-btn {
-  background: rgba(255,255,255,.5) !important; border: 1px solid rgba(255,255,255,.8); border-radius: 9999px !important;
-  box-shadow: inset 0 1px 0 #fff;
-}
-#mobile-close-btn { border-radius: 9999px !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 6px 16px rgba(8,12,22,.25); }
-.ai-content table, #mobile-ai-content table { background: rgba(255,255,255,.45); }
-#catalog-results a:hover, #mobile-catalog-results a:hover { background: rgba(255,255,255,.55) !important; }
+#search-close-btn, #new-search-btn, #mobile-new-btn, #mobile-clear-btn { border-radius: 10px !important; }
+#catalog-results a:hover, #mobile-catalog-results a:hover { background: rgba(10,14,20,.04) !important; }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  #search-box-desktop, #mobile-panel { background: rgba(255,255,255,.96) !important; }
+  #search-box-desktop { background: #fff !important; }
 }
 </style>
