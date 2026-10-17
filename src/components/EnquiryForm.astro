@@ -3,6 +3,7 @@ import Icon from './Icon.astro';
 import site from '../data/site.json';
 import categories from '../data/categories.json';
 import products from '../data/products.json';
+import configCatalogues from '../data/config-catalogues.json';
 import vartechMultimeters from '../data/vartech-multimeters.json';
 import vartechClampMeters from '../data/vartech-clamp-meters.json';
 import vartechOscilloscopes from '../data/vartech-oscilloscopes.json';
@@ -44,6 +45,33 @@ const productsByCategory = categories.map(cat => ({
     ...(vartechByCategory[cat.id] ?? []),
   ],
 }));
+
+// Standard configurations offered per model (reuses the data behind the product-page
+// catalogue picker, minus the PDF paths), keyed by model so the form can offer
+// them as selects. Models with a fixed spec (clamp meters, multimeters, etc.) have none.
+const configByModel: Record<string, any> = {};
+for (const p of products as any[]) {
+  const c = (configCatalogues as Record<string, any>)[p.id];
+  if (!c) continue;
+  if (c.type === 'vr') {
+    configByModel[p.model] = { type: 'vr', options: c.options.map((o: any) => ({ voltage: o.voltage, ranges: o.ranges.map((r: any) => r.range) })) };
+  } else if (c.type === 'series') {
+    configByModel[p.model] = { type: 'list', label: 'Series', options: c.options.map((o: any) => `${o.series} (${o.detail})`) };
+  } else if (c.type === 'grp') {
+    const data: Record<string, Record<string, { range: string; bto: boolean }[]>> = {};
+    for (const [lvl, groups] of Object.entries(c.data as Record<string, any>)) {
+      data[lvl] = {};
+      for (const [g, rs] of Object.entries(groups as Record<string, any[]>)) data[lvl][g] = rs.map((r) => ({ range: r.range, bto: !!r.bto }));
+    }
+    configByModel[p.model] = { type: 'grp', levelLabel: c.levelLabel ?? null, levels: c.levels ?? null, data };
+  }
+}
+const table = (id: string, i = 0) => (products as any[]).find((p) => p.id === id)?.specTables?.[i];
+const hv5050 = table('cie-5050a');
+if (hv5050) configByModel['CIE/5050A'] = { type: 'list', label: 'Variant', options: hv5050.rows.map((r: any) => `${r.col0} - ${r.col1}, trip ${r.col2}`) };
+const oil = table('cie-7050');
+if (oil) configByModel['CIE/7000 Series'] = { type: 'list', label: 'Output voltage / model',
+  options: oil.rows.flatMap((r: any) => [`${r.col2} - ${r.col0}, ${r.col1} (manual)`, `${r.col3} - ${r.col0}, ${r.col1} (motorised)`]) };
 
 const waMsg = productName
   ? encodeURIComponent(`Hi, I'd like a quote for: ${productName}`)
@@ -88,10 +116,23 @@ const waMsg = productName
       </div>
     </div>
 
+    <!-- ── Standard configurations for the chosen model (filled by script) ── -->
+    <div id="qf-config" style="display:none" class="grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-lg border border-border bg-cloud p-4">
+      <div id="qf-cfg-a-wrap">
+        <label for="qf-cfg-a" id="qf-cfg-a-label" class="block text-sm font-medium text-ink mb-1">Standard option</label>
+        <select id="qf-cfg-a" class="w-full px-3 py-2.5 border border-border rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors text-ink"></select>
+      </div>
+      <div id="qf-cfg-b-wrap">
+        <label for="qf-cfg-b" id="qf-cfg-b-label" class="block text-sm font-medium text-ink mb-1">Range</label>
+        <select id="qf-cfg-b" class="w-full px-3 py-2.5 border border-border rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors text-ink disabled:bg-cloud disabled:text-muted"></select>
+      </div>
+      <p class="sm:col-span-2 text-xs text-muted -mt-1">Pick a standard configuration, or choose Other and describe what you need below. Non-standard ranges can be built to order.</p>
+    </div>
+
     <!-- ── Rated voltage / range (context-sensitive hint) ── -->
     <div id="qf-spec-row">
       <label for="qf-spec" class="block text-sm font-medium text-ink mb-1">
-        Rated Voltage &amp; Resistance Range
+        Rated Voltage &amp; Range
       </label>
       <input
         type="text"
@@ -195,7 +236,7 @@ const waMsg = productName
   </form>
 </div>
 
-<script define:vars={{ productsByCategory }}>
+<script define:vars={{ productsByCategory, configByModel }}>
 // ── Data (injected at build time via define:vars) ─────────────────────────────
 const catData = productsByCategory;
 
@@ -213,6 +254,106 @@ const msgInput    = document.getElementById('qf-message');
 const errorEl     = document.getElementById('qf-error');
 const previewWrap = document.getElementById('qf-preview-wrap');
 const previewEl   = document.getElementById('qf-preview');
+
+const cfgWrap  = document.getElementById('qf-config');
+const cfgA     = document.getElementById('qf-cfg-a');
+const cfgB     = document.getElementById('qf-cfg-b');
+const cfgAWrap = document.getElementById('qf-cfg-a-wrap');
+const cfgBWrap = document.getElementById('qf-cfg-b-wrap');
+const cfgALbl  = document.getElementById('qf-cfg-a-label');
+const cfgBLbl  = document.getElementById('qf-cfg-b-label');
+const OTHER = '__other';
+let cfg = null;
+
+function opt(value, text) { const o = document.createElement('option'); o.value = value; o.textContent = text; return o; }
+function resetSelect(sel, placeholder) { sel.innerHTML = ''; sel.appendChild(opt('', placeholder)); }
+function showA(on) { cfgAWrap.classList.toggle('hidden', !on); }
+function showB(on) { cfgBWrap.classList.toggle('hidden', !on); }
+
+function clearConfig() {
+  cfg = null;
+  cfgWrap.style.display = 'none';
+  resetSelect(cfgA, ''); resetSelect(cfgB, '');
+}
+
+// Write the picked configuration into the (still editable) spec field.
+function applyConfig() {
+  if (!cfg) return;
+  let text = '';
+  const a = cfgA.value, b = cfgB.value;
+  if (cfg.type === 'vr') {
+    if (a === OTHER || b === OTHER) text = '';
+    else if (a && b) text = `${a} V, ${b}`;
+    else if (a) text = `${a} V`;
+  } else if (cfg.type === 'list') {
+    text = a && a !== OTHER ? cfgA.selectedOptions[0].textContent : '';
+  } else if (cfg.type === 'grp') {
+    const lvl = cfg.levels && a && a !== OTHER ? cfgA.selectedOptions[0].textContent : '';
+    const rng = b && b !== OTHER ? cfgB.selectedOptions[0].textContent : '';
+    text = [lvl, rng].filter(Boolean).join(', ');
+    if (a === OTHER || b === OTHER) text = '';
+  }
+  specInput.value = text;
+  if ((a === OTHER || b === OTHER)) specInput.focus();
+  updatePreview();
+}
+
+function buildConfig(model) {
+  clearConfig();
+  const c = configByModel[model];
+  if (!c) return;
+  cfg = c;
+  cfgWrap.style.display = '';
+  if (c.type === 'vr') {
+    cfgALbl.textContent = 'Rated voltage'; cfgBLbl.textContent = 'Insulation range';
+    resetSelect(cfgA, 'Select voltage'); resetSelect(cfgB, 'Select voltage first');
+    c.options.forEach(o => cfgA.appendChild(opt(String(o.voltage), `${o.voltage} V`)));
+    cfgA.appendChild(opt(OTHER, 'Other / custom voltage'));
+    cfgB.disabled = true; showA(true); showB(true);
+  } else if (c.type === 'list') {
+    cfgALbl.textContent = c.label; resetSelect(cfgA, `Select ${c.label.toLowerCase()}`);
+    c.options.forEach(o => cfgA.appendChild(opt(o, o)));
+    cfgA.appendChild(opt(OTHER, 'Other / custom'));
+    showA(true); showB(false);
+  } else if (c.type === 'grp') {
+    cfgBLbl.textContent = 'Measuring range';
+    if (c.levels) {
+      cfgALbl.textContent = c.levelLabel; resetSelect(cfgA, `Select ${c.levelLabel.toLowerCase()}`);
+      c.levels.forEach(l => cfgA.appendChild(opt(l.key, l.label)));
+      resetSelect(cfgB, 'Select terminals first'); cfgB.disabled = true; showA(true);
+    } else {
+      showA(false); resetSelect(cfgB, 'Select range'); cfgB.disabled = false; fillGroups(c.data['_']);
+    }
+    showB(true);
+  }
+}
+
+function fillGroups(groups) {
+  Object.entries(groups).forEach(([g, rs]) => {
+    const og = document.createElement('optgroup'); og.label = g;
+    rs.forEach(r => og.appendChild(opt(r.range, r.range + (r.bto ? ' (built to order)' : ''))));
+    cfgB.appendChild(og);
+  });
+  cfgB.appendChild(opt(OTHER, 'Other / custom range'));
+}
+
+cfgA.addEventListener('change', () => {
+  if (!cfg) return;
+  if (cfg.type === 'vr') {
+    resetSelect(cfgB, 'Select range');
+    const o = cfg.options.find(x => String(x.voltage) === cfgA.value);
+    cfgB.disabled = !o;
+    if (o) { o.ranges.forEach(r => cfgB.appendChild(opt(r, r))); cfgB.appendChild(opt(OTHER, 'Other / custom range')); }
+  } else if (cfg.type === 'grp' && cfg.levels) {
+    resetSelect(cfgB, 'Select range');
+    const groups = cfg.data[cfgA.value];
+    cfgB.disabled = !groups;
+    if (groups) fillGroups(groups);
+  }
+  applyConfig();
+});
+cfgB.addEventListener('change', applyConfig);
+prodSel.addEventListener('change', () => buildConfig(prodSel.value));
 
 // Spec hints per category
 const specHints = {
@@ -237,6 +378,7 @@ catSel.addEventListener('change', () => {
   const cat   = catData.find(c => c.id === catId);
 
   // Reset product dropdown
+  clearConfig();
   prodSel.innerHTML = '';
   if (!cat) {
     prodSel.innerHTML = '<option value="">Select category first</option>';
@@ -383,6 +525,7 @@ if (urlProduct) {
       // Wait for options to populate then select
       setTimeout(() => {
         prodSel.value = match.model;
+        buildConfig(match.model);
         updatePreview();
       }, 0);
       break;
