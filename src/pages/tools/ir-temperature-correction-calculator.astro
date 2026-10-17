@@ -16,26 +16,27 @@ import { u } from '../../utils/url';
     { href: '/tools/motor-minimum-insulation-resistance', label: 'Motor Minimum Insulation Resistance Check' },
   ]}
 >
-  <div slot="calculator">
-    <div class="tool-grid">
-      <div class="tool-field"><label for="ir">Measured insulation resistance</label>
-        <input id="ir" type="number" min="0" step="any" value="25" inputmode="decimal" /></div>
-      <div class="tool-field"><label for="unit">Unit</label>
-        <select id="unit"><option value="1">MΩ</option><option value="1000">GΩ</option><option value="0.001">kΩ</option></select></div>
-      <div class="tool-field"><label for="temp">Winding temperature at test (°C)</label>
-        <input id="temp" type="number" min="-20" max="150" step="any" value="40" inputmode="decimal" /></div>
-      <div class="tool-field"><label for="ref">Correct to</label>
-        <select id="ref"><option value="20">20°C (common for trending)</option><option value="40">40°C (IEEE 43 reference)</option></select></div>
+  <Fragment slot="inputs">
+    <div class="tool-field tool-row">
+      <div><label for="ir">Measured insulation resistance</label><input id="ir" type="number" min="0" step="any" value="25" inputmode="decimal" /></div>
+      <div><label for="unit">Unit</label><select id="unit"><option value="1">MΩ</option><option value="1000">GΩ</option><option value="0.001">kΩ</option></select></div>
     </div>
-    <div class="tool-result" aria-live="polite">
-      <div class="big" id="out">-</div>
-      <div class="sub" id="detail"></div>
-    </div>
-  </div>
+    <div class="tool-field"><label for="temp">Winding temperature at test (°C)</label>
+      <input id="temp" type="number" min="-20" max="150" step="any" value="40" inputmode="decimal" /></div>
+    <div class="tool-field"><label for="ref">Correct to</label>
+      <select id="ref"><option value="20">20°C (common for trending)</option><option value="40">40°C (IEEE 43 reference)</option></select></div>
+  </Fragment>
+  <Fragment slot="readout">
+    <div class="lcd" id="out">-</div>
+    <div class="lcd-sub" id="detail"></div>
+    <div class="scale"><span class="s-temp"></span><i class="pin pin--ref" id="pin-ref"></i><i class="pin" id="pin-t"></i></div>
+    <div class="scale-ticks"><span>0°C</span><span>25°C</span><span>50°C</span><span>75°C</span><span>100°C</span></div>
+    <div class="lcd-sub">White pin: your test temperature. Grey pin: reference.</div>
+  </Fragment>
 
   <h2>How it works</h2>
   <p>Insulation resistance falls as temperature rises. The field rule, used in IEEE 43 practice, is that the reading roughly halves for every 10°C rise and doubles for every 10°C fall. The correction factor is:</p>
-  <p class="font-mono text-sm bg-cloud rounded-lg p-3">Factor = 2 ^ ((T<sub>test</sub> - T<sub>ref</sub>) / 10)  ·  Corrected IR = Measured IR × Factor</p>
+  <p class="formula">Factor = 2 ^ ((T<sub>test</sub> - T<sub>ref</sub>) / 10)  ·  Corrected IR = Measured IR × Factor</p>
   <p>Example: 25 MΩ measured at 40°C is 100 MΩ when referred to 20°C (factor 4.0). Log the corrected value, not the raw one.</p>
   <h2>Limits of this calculation</h2>
   <ul>
@@ -49,14 +50,17 @@ import { u } from '../../utils/url';
     (function () {
       var $ = function (id) { return document.getElementById(id); };
       function fmt(v) { return v >= 1000 ? (v / 1000).toPrecision(4) + ' GΩ' : v.toPrecision(4) + ' MΩ'; }
-      function calc() {
+      var calc = function () {
         var ir = parseFloat($('ir').value) * parseFloat($('unit').value);
         var t = parseFloat($('temp').value), ref = parseFloat($('ref').value);
         if (!isFinite(ir) || !isFinite(t) || ir < 0) { $('out').textContent = '-'; $('detail').textContent = 'Enter valid numbers.'; return; }
         var f = Math.pow(2, (t - ref) / 10);
         $('out').textContent = fmt(ir * f) + ' at ' + ref + '°C';
         $('detail').textContent = 'Correction factor ' + f.toPrecision(4) + ' (measured ' + fmt(ir) + ' at ' + t + '°C)';
-      }
+      };
+      function pin(id, t) { $(id).style.left = Math.max(0, Math.min(100, t)) + '%'; }
+      var _calc = calc;
+      calc = function () { _calc(); pin('pin-t', parseFloat($('temp').value)); pin('pin-ref', parseFloat($('ref').value)); };
       ['ir', 'unit', 'temp', 'ref'].forEach(function (id) { $(id).addEventListener('input', calc); });
       calc();
     })();

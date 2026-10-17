@@ -16,23 +16,27 @@ import { u } from '../../utils/url';
     { href: '/tools/motor-minimum-insulation-resistance', label: 'Motor Minimum Insulation Resistance Check' },
   ]}
 >
-  <div slot="calculator">
-    <div class="tool-grid">
-      <div class="tool-field"><label for="r30">IR at 30 seconds (MΩ)</label><input id="r30" type="number" min="0" step="any" value="800" inputmode="decimal" /></div>
-      <div class="tool-field"><label for="r60">IR at 1 minute (MΩ)</label><input id="r60" type="number" min="0" step="any" value="1100" inputmode="decimal" /></div>
-      <div class="tool-field"><label for="r600">IR at 10 minutes (MΩ)</label><input id="r600" type="number" min="0" step="any" value="2900" inputmode="decimal" /></div>
+  <Fragment slot="inputs">
+    <div class="tool-field"><label for="r30">IR at 30 seconds (MΩ)</label><input id="r30" type="number" min="0" step="any" value="800" inputmode="decimal" /></div>
+    <div class="tool-field"><label for="r60">IR at 1 minute (MΩ)</label><input id="r60" type="number" min="0" step="any" value="1100" inputmode="decimal" /></div>
+    <div class="tool-field"><label for="r600">IR at 10 minutes (MΩ)</label><input id="r600" type="number" min="0" step="any" value="2900" inputmode="decimal" /></div>
+  </Fragment>
+  <Fragment slot="readout">
+    <div class="readout-block">
+      <div class="lcd" id="pi"><small>PI</small> -</div><div id="pi-v"></div>
+      <div class="scale"><span class="s-bad" style="width:20%"></span><span class="s-warn" style="width:20%"></span><span class="s-good" style="width:40%"></span><span class="s-great" style="width:20%"></span><i class="pin" id="pin-pi"></i></div>
+      <div class="scale-ticks"><span>0</span><span>1</span><span>2</span><span>4</span><span>5+</span></div>
     </div>
-    <div class="tool-result" aria-live="polite">
-      <div class="big" id="pi">PI -</div>
-      <div id="pi-v"></div>
-      <div class="big" style="margin-top:1rem" id="dar">DAR -</div>
-      <div id="dar-v"></div>
-      <div class="sub" id="note"></div>
+    <div class="readout-block">
+      <div class="lcd" id="dar"><small>DAR</small> -</div><div id="dar-v"></div>
+      <div class="scale"><span class="s-bad" style="width:50%"></span><span class="s-warn" style="width:12.5%"></span><span class="s-good" style="width:17.5%"></span><span class="s-great" style="width:20%"></span><i class="pin" id="pin-dar"></i></div>
+      <div class="scale-ticks"><span>0</span><span>1.0</span><span>1.25</span><span>1.6</span><span>2+</span></div>
     </div>
-  </div>
+    <div class="lcd-sub" id="note"></div>
+  </Fragment>
 
   <h2>Formulas</h2>
-  <p class="font-mono text-sm bg-cloud rounded-lg p-3">PI = IR(10 min) / IR(1 min)  ·  DAR = IR(60 s) / IR(30 s)</p>
+  <p class="formula">PI = IR(10 min) / IR(1 min)  ·  DAR = IR(60 s) / IR(30 s)</p>
   <h2>How to read the result</h2>
   <ul>
     <li><strong>PI:</strong> below 1.0 dangerous, 1.0 to 2.0 questionable, 2.0 to 4.0 good, above 4.0 excellent.</li>
@@ -52,15 +56,15 @@ import { u } from '../../utils/url';
         $('note').textContent = '';
         if (isFinite(b) && isFinite(c) && b > 0 && c >= 0) {
           var pi = c / b;
-          $('pi').textContent = 'PI ' + pi.toFixed(2);
+          $('pi').innerHTML = '<small>PI</small> ' + pi.toFixed(2); $('pin-pi').style.left = Math.min(pi / 5, 1) * 100 + '%';
           $('pi-v').innerHTML = pi < 1 ? badge('v-bad', 'Dangerous') : pi < 2 ? badge('v-warn', 'Questionable') : pi < 4 ? badge('v-good', 'Good') : badge('v-great', 'Excellent');
           if (b > 5000) $('note').textContent = 'The 1-minute reading is above 5000 MΩ, so PI may not be meaningful. Judge on the absolute IR.';
-        } else { $('pi').textContent = 'PI -'; $('pi-v').innerHTML = ''; }
+        } else { $('pi').innerHTML = '<small>PI</small> -'; $('pi-v').innerHTML = ''; }
         if (isFinite(a) && isFinite(b) && a > 0 && b >= 0) {
           var d = b / a;
-          $('dar').textContent = 'DAR ' + d.toFixed(2);
+          $('dar').innerHTML = '<small>DAR</small> ' + d.toFixed(2); $('pin-dar').style.left = Math.min(d / 2, 1) * 100 + '%';
           $('dar-v').innerHTML = d < 1 ? badge('v-bad', 'Poor') : d < 1.25 ? badge('v-warn', 'Questionable') : d < 1.6 ? badge('v-good', 'Acceptable') : badge('v-great', 'Excellent');
-        } else { $('dar').textContent = 'DAR -'; $('dar-v').innerHTML = ''; }
+        } else { $('dar').innerHTML = '<small>DAR</small> -'; $('dar-v').innerHTML = ''; }
       }
       ['r30', 'r60', 'r600'].forEach(function (id) { $(id).addEventListener('input', calc); });
       calc();

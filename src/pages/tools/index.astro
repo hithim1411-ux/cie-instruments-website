@@ -13,20 +13,20 @@ const tools = [
 ---
 
 <Base title="Free Electrical Testing Calculators" description="Free calculators from CIE, Howrah: insulation resistance temperature correction, Polarization Index and DAR, and motor minimum insulation resistance (IEEE 43).">
-  <div class="bg-cloud border-b border-border py-10">
+  <div class="blueprint-bg bg-ink text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Breadcrumbs crumbs={[{ label: 'Tools' }]} />
+      <div class="hub-crumbs"><Breadcrumbs crumbs={[{ label: 'Tools' }]} /></div>
       <EyebrowLabel text="Free Engineering Tools" class="mt-4 mb-3" />
-      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Free Electrical Testing Calculators</h1>
-      <p class="mt-2 text-muted max-w-2xl">Small tools for the people who use our instruments, from the team that has been building them in Howrah since 1963.</p>
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-white leading-[1.1] tracking-tight">Free Electrical Testing Calculators</h1>
+      <p class="mt-2 text-muted-dark max-w-2xl">Small tools for the people who use our instruments, from the team that has been building them in Howrah since 1963.</p>
     </div>
   </div>
   <section class="bg-white section-pad-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {tools.map(t => (
-        <a href={u(t.href)} class="block rounded-2xl border border-border p-6 hover:border-red transition-colors">
-          <h2 class="text-xl font-bold text-ink mb-2">{t.name}</h2>
-          <p class="text-muted">{t.body}</p>
+        <a href={u(t.href)} class="group block rounded-2xl bg-ink text-white border border-white/10 p-6 hover:border-red hover:-translate-y-0.5 transition-all">
+          <h2 class="text-xl font-bold text-white mb-2">{t.name}</h2>
+          <p class="text-muted-dark">{t.body}</p>
           <span class="mt-4 inline-block text-red font-semibold">Open calculator →</span>
         </a>
       ))}
@@ -34,3 +34,7 @@ const tools = [
   </section>
   <CTABand />
 </Base>
+
+<style is:global>
+  .hub-crumbs .text-ink { color: #fff; }
+</style>

@@ -33,35 +33,43 @@ const schema = {
 <Base title={title} description={description}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-  <div class="bg-cloud border-b border-border py-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Instrument panel -->
+  <section class="blueprint-bg bg-ink text-white pt-10 pb-12 lg:pb-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[{ label: 'Tools', href: '/tools' }, { label: h1 }]} />
       <EyebrowLabel text="Free Engineering Tool" class="mt-4 mb-3" />
-      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">{h1}</h1>
-      <p class="mt-2 text-muted max-w-2xl">{intro}</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight max-w-3xl">{h1}</h1>
+      <p class="mt-3 text-muted-dark max-w-2xl">{intro}</p>
+
+      <div class="mt-8 grid lg:grid-cols-5 gap-5">
+        <div class="tool-panel lg:col-span-2">
+          <p class="tool-label">Inputs</p>
+          <slot name="inputs" />
+        </div>
+        <div class="tool-panel tool-panel--readout lg:col-span-3" aria-live="polite">
+          <p class="tool-label">Readout</p>
+          <slot name="readout" />
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <section class="bg-white section-pad-sm">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-2xl border border-border bg-cloud p-5 sm:p-8">
-        <slot name="calculator" />
-      </div>
-
-      <div class="mt-12 text-ink leading-relaxed space-y-4 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-10 [&_h2]:mb-2 [&_a]:text-red [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1">
+      <div class="tool-prose">
         <slot />
       </div>
 
-      <div class="mt-12 rounded-2xl border border-border p-6 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
-        <p class="text-ink font-semibold">Need the instrument to take these readings?</p>
+      <div class="mt-12 rounded-2xl bg-ink text-white p-6 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+        <p class="font-semibold">Need the instrument to take these readings?</p>
         <a href={u(productHref)} class="btn-primary self-start sm:self-auto">{productLabel}</a>
       </div>
 
       <div class="mt-10">
-        <h2 class="text-sm font-mono uppercase tracking-widest text-muted mb-3">More free tools</h2>
+        <p class="text-xs font-mono uppercase tracking-widest text-muted mb-3">More free tools</p>
         <ul class="grid sm:grid-cols-2 gap-3">
           {related.map(r => (
-            <li><a href={u(r.href)} class="block rounded-xl border border-border px-4 py-3 text-ink hover:border-red hover:text-red transition-colors">{r.label}</a></li>
+            <li><a href={u(r.href)} class="flex items-center justify-between rounded-xl border border-border px-4 py-3 text-ink font-medium hover:border-red hover:text-red transition-colors">{r.label}<span aria-hidden="true">→</span></a></li>
           ))}
         </ul>
       </div>
@@ -72,20 +80,54 @@ const schema = {
 </Base>
 
 <style is:global>
-  .tool-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 640px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
-  .tool-field label { display: block; font-size: .8rem; font-weight: 600; color: var(--color-ink); margin-bottom: .35rem; }
+  .tool-panel { border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); border-radius: 1rem; padding: 1.25rem; backdrop-filter: blur(4px); }
+  .tool-panel--readout { background: rgba(0,0,0,.45); box-shadow: inset 0 0 60px rgba(224,37,46,.08); }
+  @media (min-width: 640px) { .tool-panel { padding: 1.75rem; } }
+  .blueprint-bg nav[aria-label="Breadcrumb"] .text-ink { color: #fff; }
+  .tool-label { font-family: ui-monospace, monospace; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: #94a3b8; margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+  .tool-label::before { content: ''; width: .45rem; height: .45rem; border-radius: 999px; background: var(--color-red); box-shadow: 0 0 8px var(--color-red); }
+
+  .tool-field { margin-bottom: 1rem; }
+  .tool-field:last-child { margin-bottom: 0; }
+  .tool-field label { display: block; font-size: .78rem; font-weight: 600; color: #cbd5e1; margin-bottom: .4rem; }
   .tool-field input, .tool-field select {
-    width: 100%; padding: .65rem .8rem; border: 1px solid #cfd5dc; border-radius: .5rem;
-    background: #fff; font-size: 1rem; color: var(--color-ink);
+    width: 100%; padding: .75rem .9rem; border: 1px solid rgba(255,255,255,.18); border-radius: .6rem;
+    background: #0b121b; color: #fff; font-size: 1.15rem; font-family: ui-monospace, monospace;
   }
-  .tool-field input:focus, .tool-field select:focus { outline: 2px solid var(--color-red); outline-offset: 1px; }
-  .tool-result { margin-top: 1.5rem; border-radius: .75rem; background: var(--color-ink); color: #fff; padding: 1.25rem 1.5rem; }
-  .tool-result .big { font-family: ui-monospace, monospace; font-size: 1.75rem; font-weight: 700; }
-  .tool-result .sub { color: #94a3b8; font-size: .85rem; margin-top: .25rem; }
-  .tool-verdict { display: inline-block; margin-top: .75rem; padding: .25rem .75rem; border-radius: 999px; font-size: .8rem; font-weight: 700; }
-  .v-bad { background: #fee2e2; color: #b91c1c; }
-  .v-warn { background: #fef3c7; color: #b45309; }
-  .v-good { background: #dbeafe; color: #1d4ed8; }
-  .v-great { background: #d1fae5; color: #047857; }
+  .tool-field select { font-family: inherit; font-size: .95rem; }
+  .tool-field input:focus, .tool-field select:focus { outline: 2px solid var(--color-red); outline-offset: 1px; border-color: transparent; }
+  .tool-row { display: grid; grid-template-columns: 1fr 6.5rem; gap: .6rem; align-items: end; }
+
+  .lcd { font-family: ui-monospace, monospace; font-weight: 700; font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.05; color: #fff; text-shadow: 0 0 18px rgba(224,37,46,.45); word-break: break-word; }
+  .lcd small { font-size: .45em; color: #94a3b8; font-weight: 500; text-shadow: none; }
+  .lcd-sub { color: #94a3b8; font-size: .9rem; margin-top: .5rem; }
+  .readout-block + .readout-block { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.1); }
+
+  .tool-verdict { display: inline-block; margin-top: .75rem; padding: .3rem .85rem; border-radius: 999px; font-size: .8rem; font-weight: 700; }
+  .v-bad { background: #ef4444; color: #fff; }
+  .v-warn { background: #f59e0b; color: #1c1300; }
+  .v-good { background: #3b82f6; color: #fff; }
+  .v-great { background: #10b981; color: #04210f; }
+
+  .scale { position: relative; display: flex; height: .7rem; border-radius: 999px; margin-top: 1.1rem; }
+  .scale > span { display: block; height: 100%; }
+  .scale > span:first-child { border-radius: 999px 0 0 999px; }
+  .scale > span:last-child { border-radius: 0 999px 999px 0; }
+  .s-bad { background: #ef4444; } .s-warn { background: #f59e0b; } .s-good { background: #3b82f6; } .s-great { background: #10b981; }
+  .s-temp { background: linear-gradient(90deg, #3b82f6, #f59e0b, #ef4444); width: 100%; }
+  .scale .pin { position: absolute; top: -.35rem; width: 3px; height: 1.4rem; margin-left: -1.5px; background: #fff; border-radius: 2px; box-shadow: 0 0 8px #fff; transition: left .35s ease; }
+  .scale .pin--ref { background: #94a3b8; box-shadow: none; opacity: .9; }
+  .scale-ticks { display: flex; justify-content: space-between; font-family: ui-monospace, monospace; font-size: .68rem; color: #64748b; margin-top: .4rem; }
+  .bar-track { position: relative; height: .9rem; border-radius: 999px; background: rgba(255,255,255,.1); margin-top: 1.1rem; }
+  .bar-fill { height: 100%; border-radius: 999px; transition: width .35s ease; }
+  .bar-min { position: absolute; top: -.35rem; width: 3px; height: 1.6rem; margin-left: -1.5px; background: #fff; border-radius: 2px; transition: left .35s ease; }
+
+  .tool-prose { color: var(--color-ink); line-height: 1.7; }
+  .tool-prose h2 { font-size: 1.4rem; font-weight: 700; margin: 2.25rem 0 .6rem; padding-left: .85rem; border-left: 4px solid var(--color-red); }
+  .tool-prose h2:first-child { margin-top: 0; }
+  .tool-prose p { margin: .6rem 0; }
+  .tool-prose a { color: var(--color-red); text-decoration: underline; }
+  .tool-prose ul { list-style: disc; padding-left: 1.4rem; margin: .6rem 0; }
+  .tool-prose li { margin: .35rem 0; }
+  .tool-prose .formula { font-family: ui-monospace, monospace; font-size: .95rem; background: var(--color-ink); color: #fff; border-radius: .75rem; padding: .9rem 1.1rem; border-left: 4px solid var(--color-red); overflow-x: auto; }
 </style>
