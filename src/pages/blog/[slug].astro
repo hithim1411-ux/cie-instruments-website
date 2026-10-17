@@ -1172,43 +1172,44 @@ const catStyle = categoryColors[post.category] ?? 'text-gray-600 bg-gray-50 bord
     isPartOf: { '@id': 'https://www.cieinstruments.in/#website' },
   })} />
 
-  <!-- ── Article Header - gray bg, clearly framed ── -->
-  <div class="bg-cloud border-b-2 border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-10">
+  <!-- ── Article Header - dark graphite hero, matches the Insights index ── -->
+  <div class="blueprint-bg bg-ink text-white border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-12 lg:pt-12 lg:pb-14">
 
       <!-- Breadcrumb -->
-      <nav class="mb-6" aria-label="Breadcrumb">
-        <ol class="flex items-center gap-2 text-xs text-gray-400 font-mono">
-          <li><a href={u('/')} class="hover:text-ink transition-colors">Home</a></li>
-          <li aria-hidden="true" class="text-gray-300">›</li>
-          <li><a href={u('/blog/')} class="hover:text-ink transition-colors">Insights</a></li>
-          <li aria-hidden="true" class="text-gray-300">›</li>
-          <li class="text-gray-500 truncate max-w-[180px]">{post.category}</li>
+      <nav class="mb-7" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 text-xs text-muted-dark font-mono">
+          <li><a href={u('/')} class="hover:text-white transition-colors">Home</a></li>
+          <li aria-hidden="true" class="text-white/30">›</li>
+          <li><a href={u('/blog/')} class="hover:text-white transition-colors">Insights</a></li>
+          <li aria-hidden="true" class="text-white/30">›</li>
+          <li class="text-white/80 truncate max-w-[180px]">{post.category}</li>
         </ol>
       </nav>
 
-      <span class={`inline-block text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded border mb-5 ${catStyle}`}>
+      <span class="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/20 bg-white/10 text-white mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#FF5A62]" aria-hidden="true"></span>
         {post.category}
       </span>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-ink leading-tight tracking-tight max-w-3xl mb-4">
+      <h1 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-[1.1] tracking-tight max-w-3xl mb-5">
         {post.title}
       </h1>
 
-      <p class="text-muted text-base max-w-2xl mb-7 leading-relaxed">{post.description}</p>
+      <p class="text-gray-300 text-base lg:text-lg max-w-2xl mb-8 leading-relaxed">{post.description}</p>
 
       <!-- Meta row -->
-      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-400">
+      <div class="inline-flex flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl sm:rounded-full border border-white/15 bg-white/[0.07] pl-4 pr-5 py-2.5 text-sm">
         <div class="flex items-center gap-2">
           <img src={u('/logo/cie-logo-transparent.webp')} alt="CIE Instruments" width="800" height="502" class="h-5 w-auto object-contain shrink-0" />
-          <span class="text-gray-600 font-medium text-sm">CIE Instruments</span>
+          <span class="text-white font-medium text-sm">CIE Instruments</span>
         </div>
-        <span class="text-gray-300">·</span>
-        <time datetime={post.publishDate} class="font-mono text-xs text-gray-500">
+        <span class="text-white/30">·</span>
+        <time datetime={post.publishDate} class="font-mono text-xs text-muted-dark">
           {new Date(post.publishDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
         </time>
-        <span class="text-gray-300">·</span>
-        <span class="font-mono text-xs text-gray-500">{post.readTime}</span>
+        <span class="text-white/30">·</span>
+        <span class="font-mono text-xs text-muted-dark">{post.readTime}</span>
       </div>
     </div>
   </div>
