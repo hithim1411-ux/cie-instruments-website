@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import { u } from '../../utils/url';
+
+const tools = [
+  { href: '/tools/ir-temperature-correction-calculator/', name: 'IR Temperature Correction', body: 'Correct a megger reading to 20°C or 40°C so readings from different days can be compared.' },
+  { href: '/tools/pi-dar-calculator/', name: 'PI and DAR Calculator', body: 'Turn 30 s, 1 min and 10 min readings into Polarization Index and DAR with a verdict.' },
+  { href: '/tools/motor-minimum-insulation-resistance/', name: 'Motor Minimum IR Check', body: 'Check a winding reading against the IEEE 43 recommended minimum, corrected to 40°C.' },
+];
+---
+
+<Base title="Free Electrical Testing Calculators" description="Free calculators from CIE, Howrah: insulation resistance temperature correction, Polarization Index and DAR, and motor minimum insulation resistance (IEEE 43).">
+  <div class="bg-cloud border-b border-border py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Tools' }]} />
+      <EyebrowLabel text="Free Engineering Tools" class="mt-4 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Free Electrical Testing Calculators</h1>
+      <p class="mt-2 text-muted max-w-2xl">Small tools for the people who use our instruments, from the team that has been building them in Howrah since 1963.</p>
+    </div>
+  </div>
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {tools.map(t => (
+        <a href={u(t.href)} class="block rounded-2xl border border-border p-6 hover:border-red transition-colors">
+          <h2 class="text-xl font-bold text-ink mb-2">{t.name}</h2>
+          <p class="text-muted">{t.body}</p>
+          <span class="mt-4 inline-block text-red font-semibold">Open calculator →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <CTABand />
+</Base>

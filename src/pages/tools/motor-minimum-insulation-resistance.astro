@@ -1,0 +1,81 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="motor-minimum-insulation-resistance"
+  title="Motor Minimum Insulation Resistance Check (IEEE 43)"
+  description="Free calculator: find the minimum acceptable insulation resistance for a motor or generator winding per IEEE 43, corrected to 40°C, and check your megger reading against it."
+  h1="Motor Minimum Insulation Resistance Check"
+  intro="Pick the winding type and rated voltage, enter your reading and temperature, and see whether it clears the IEEE 43 recommended minimum."
+  productLabel="View Insulation Testers"
+  productHref="/products/insulation-testers-hand"
+  related={[
+    { href: '/tools/ir-temperature-correction-calculator', label: 'Insulation Resistance Temperature Correction' },
+    { href: '/tools/pi-dar-calculator', label: 'PI and DAR Calculator' },
+  ]}
+>
+  <div slot="calculator">
+    <div class="tool-grid">
+      <div class="tool-field"><label for="type">Winding type</label>
+        <select id="type">
+          <option value="old">Older windings (before about 1970), field windings, others</option>
+          <option value="form">Form-wound, built after about 1970 (AC) and DC armatures</option>
+          <option value="rand">Random-wound stator coils, or form-wound below 1 kV</option>
+        </select></div>
+      <div class="tool-field"><label for="kv">Rated line voltage (kV)</label><input id="kv" type="number" min="0" step="any" value="0.415" inputmode="decimal" /></div>
+      <div class="tool-field"><label for="ir">Measured IR, 1 minute (MΩ)</label><input id="ir" type="number" min="0" step="any" value="30" inputmode="decimal" /></div>
+      <div class="tool-field"><label for="temp">Winding temperature (°C)</label><input id="temp" type="number" min="-20" max="150" step="any" value="30" inputmode="decimal" /></div>
+    </div>
+    <div class="tool-result" aria-live="polite">
+      <div class="big" id="min">-</div>
+      <div class="sub" id="detail"></div>
+      <div id="verdict"></div>
+      <div class="sub" id="volt"></div>
+    </div>
+  </div>
+
+  <h2>The IEEE 43 minimums (at 40°C, 1 minute)</h2>
+  <ul>
+    <li><strong>Older windings, field windings, others:</strong> rated kV + 1 MΩ.</li>
+    <li><strong>Form-wound AC and DC armature windings built after about 1970:</strong> 100 MΩ.</li>
+    <li><strong>Random-wound stator coils, and form-wound coils rated below 1 kV:</strong> 5 MΩ.</li>
+  </ul>
+  <p>Your reading is first corrected to 40°C with the halving rule (see the <a href={u('/tools/ir-temperature-correction-calculator/')}>temperature correction calculator</a>), then compared with the minimum.</p>
+  <h2>Important</h2>
+  <ul>
+    <li>This is a recommended minimum for an in-service machine, not a guarantee of health. A pass with a falling trend still deserves attention.</li>
+    <li>Your plant or customer specification may set a higher limit. Always use the stricter one.</li>
+    <li>The suggested test voltage shown is a general guide for the rated voltage. Check the machine's own instructions.</li>
+  </ul>
+  <p>Related: <a href={u('/blog/how-to-test-motor-windings/')}>how to test motor windings</a> and the <a href={u('/blog/motor-insulation-testing-schedule/')}>motor insulation testing schedule</a>.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      function badge(cls, text) { return '<span class="tool-verdict ' + cls + '">' + text + '</span>'; }
+      function testV(kv) {
+        if (kv < 1) return '500 V DC';
+        if (kv <= 2.5) return '500 to 1000 V DC';
+        if (kv <= 5) return '1000 to 2500 V DC';
+        if (kv <= 12) return '2500 to 5000 V DC';
+        return '5000 to 10000 V DC';
+      }
+      function calc() {
+        var type = $('type').value, kv = parseFloat($('kv').value), ir = parseFloat($('ir').value), t = parseFloat($('temp').value);
+        if (!isFinite(kv) || kv <= 0 || !isFinite(ir) || !isFinite(t) || ir < 0) {
+          $('min').textContent = '-'; $('detail').textContent = 'Enter valid numbers.'; $('verdict').innerHTML = ''; $('volt').textContent = ''; return;
+        }
+        var min = type === 'old' ? kv + 1 : type === 'form' ? 100 : 5;
+        var f = Math.pow(2, (t - 40) / 10), c = ir * f;
+        $('min').textContent = 'Minimum ' + min.toPrecision(3) + ' MΩ at 40°C';
+        $('detail').textContent = 'Your ' + ir + ' MΩ at ' + t + '°C equals ' + c.toPrecision(4) + ' MΩ at 40°C (factor ' + f.toPrecision(3) + ').';
+        $('verdict').innerHTML = c >= min ? badge('v-great', 'Meets the minimum') : badge('v-bad', 'Below the minimum');
+        $('volt').textContent = 'Suggested test voltage for ' + kv + ' kV: ' + testV(kv) + '.';
+      }
+      ['type', 'kv', 'ir', 'temp'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

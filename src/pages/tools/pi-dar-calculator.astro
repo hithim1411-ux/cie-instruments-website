@@ -1,0 +1,69 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="pi-dar-calculator"
+  title="Polarization Index (PI) and DAR Calculator"
+  description="Free calculator: enter insulation resistance at 30 s, 1 min and 10 min to get the Dielectric Absorption Ratio and Polarization Index with a plain-language verdict."
+  h1="Polarization Index (PI) and DAR Calculator"
+  intro="Enter the megger readings from a timed test. Get PI, DAR and what the numbers usually mean."
+  productLabel="View Motor-Operated Insulation Testers"
+  productHref="/products/motor-operated-insulation"
+  related={[
+    { href: '/tools/ir-temperature-correction-calculator', label: 'Insulation Resistance Temperature Correction' },
+    { href: '/tools/motor-minimum-insulation-resistance', label: 'Motor Minimum Insulation Resistance Check' },
+  ]}
+>
+  <div slot="calculator">
+    <div class="tool-grid">
+      <div class="tool-field"><label for="r30">IR at 30 seconds (MΩ)</label><input id="r30" type="number" min="0" step="any" value="800" inputmode="decimal" /></div>
+      <div class="tool-field"><label for="r60">IR at 1 minute (MΩ)</label><input id="r60" type="number" min="0" step="any" value="1100" inputmode="decimal" /></div>
+      <div class="tool-field"><label for="r600">IR at 10 minutes (MΩ)</label><input id="r600" type="number" min="0" step="any" value="2900" inputmode="decimal" /></div>
+    </div>
+    <div class="tool-result" aria-live="polite">
+      <div class="big" id="pi">PI -</div>
+      <div id="pi-v"></div>
+      <div class="big" style="margin-top:1rem" id="dar">DAR -</div>
+      <div id="dar-v"></div>
+      <div class="sub" id="note"></div>
+    </div>
+  </div>
+
+  <h2>Formulas</h2>
+  <p class="font-mono text-sm bg-cloud rounded-lg p-3">PI = IR(10 min) / IR(1 min)  ·  DAR = IR(60 s) / IR(30 s)</p>
+  <h2>How to read the result</h2>
+  <ul>
+    <li><strong>PI:</strong> below 1.0 dangerous, 1.0 to 2.0 questionable, 2.0 to 4.0 good, above 4.0 excellent.</li>
+    <li><strong>DAR:</strong> below 1.0 poor, 1.0 to 1.25 questionable, 1.25 to 1.6 acceptable, above 1.6 excellent.</li>
+  </ul>
+  <p>These are common guide bands, not a substitute for the limit in your machine's standard or maintenance spec. Trend the values over years: a falling PI matters more than a single reading.</p>
+  <h2>When PI is not meaningful</h2>
+  <p>If the 1-minute reading is already very high (IEEE 43 uses about 5,000 MΩ), the insulation is so good that the current is dominated by instrument leakage and PI can come out near 1.0 without any fault. Judge on the absolute value instead.</p>
+  <p>A 10-minute test needs a tester that holds its voltage steady that long, so it is done with a motor-driven or digital instrument, not a hand-cranked one. See <a href={u('/blog/polarization-index-vs-dielectric-absorption-ratio/')}>PI vs DAR explained</a>.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      function badge(cls, text) { return '<span class="tool-verdict ' + cls + '">' + text + '</span>'; }
+      function calc() {
+        var a = parseFloat($('r30').value), b = parseFloat($('r60').value), c = parseFloat($('r600').value);
+        $('note').textContent = '';
+        if (isFinite(b) && isFinite(c) && b > 0 && c >= 0) {
+          var pi = c / b;
+          $('pi').textContent = 'PI ' + pi.toFixed(2);
+          $('pi-v').innerHTML = pi < 1 ? badge('v-bad', 'Dangerous') : pi < 2 ? badge('v-warn', 'Questionable') : pi < 4 ? badge('v-good', 'Good') : badge('v-great', 'Excellent');
+          if (b > 5000) $('note').textContent = 'The 1-minute reading is above 5000 MΩ, so PI may not be meaningful. Judge on the absolute IR.';
+        } else { $('pi').textContent = 'PI -'; $('pi-v').innerHTML = ''; }
+        if (isFinite(a) && isFinite(b) && a > 0 && b >= 0) {
+          var d = b / a;
+          $('dar').textContent = 'DAR ' + d.toFixed(2);
+          $('dar-v').innerHTML = d < 1 ? badge('v-bad', 'Poor') : d < 1.25 ? badge('v-warn', 'Questionable') : d < 1.6 ? badge('v-good', 'Acceptable') : badge('v-great', 'Excellent');
+        } else { $('dar').textContent = 'DAR -'; $('dar-v').innerHTML = ''; }
+      }
+      ['r30', 'r60', 'r600'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

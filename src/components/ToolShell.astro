@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import EyebrowLabel from './EyebrowLabel.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import CTABand from './CTABand.astro';
+import { u } from '../utils/url';
+
+interface Props {
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+  slug: string;
+  related: { href: string; label: string }[];
+  productHref: string;
+  productLabel: string;
+}
+const { title, description, h1, intro, slug, related, productHref, productLabel } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: h1,
+  description,
+  url: `https://www.cieinstruments.in/tools/${slug}/`,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  publisher: { '@id': 'https://www.cieinstruments.in/#organization' },
+};
+---
+
+<Base title={title} description={description}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <div class="bg-cloud border-b border-border py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Tools', href: '/tools' }, { label: h1 }]} />
+      <EyebrowLabel text="Free Engineering Tool" class="mt-4 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">{h1}</h1>
+      <p class="mt-2 text-muted max-w-2xl">{intro}</p>
+    </div>
+  </div>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-border bg-cloud p-5 sm:p-8">
+        <slot name="calculator" />
+      </div>
+
+      <div class="mt-12 text-ink leading-relaxed space-y-4 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:mt-10 [&_h2]:mb-2 [&_a]:text-red [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1">
+        <slot />
+      </div>
+
+      <div class="mt-12 rounded-2xl border border-border p-6 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+        <p class="text-ink font-semibold">Need the instrument to take these readings?</p>
+        <a href={u(productHref)} class="btn-primary self-start sm:self-auto">{productLabel}</a>
+      </div>
+
+      <div class="mt-10">
+        <h2 class="text-sm font-mono uppercase tracking-widest text-muted mb-3">More free tools</h2>
+        <ul class="grid sm:grid-cols-2 gap-3">
+          {related.map(r => (
+            <li><a href={u(r.href)} class="block rounded-xl border border-border px-4 py-3 text-ink hover:border-red hover:text-red transition-colors">{r.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>
+
+<style is:global>
+  .tool-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
+  .tool-field label { display: block; font-size: .8rem; font-weight: 600; color: var(--color-ink); margin-bottom: .35rem; }
+  .tool-field input, .tool-field select {
+    width: 100%; padding: .65rem .8rem; border: 1px solid #cfd5dc; border-radius: .5rem;
+    background: #fff; font-size: 1rem; color: var(--color-ink);
+  }
+  .tool-field input:focus, .tool-field select:focus { outline: 2px solid var(--color-red); outline-offset: 1px; }
+  .tool-result { margin-top: 1.5rem; border-radius: .75rem; background: var(--color-ink); color: #fff; padding: 1.25rem 1.5rem; }
+  .tool-result .big { font-family: ui-monospace, monospace; font-size: 1.75rem; font-weight: 700; }
+  .tool-result .sub { color: #94a3b8; font-size: .85rem; margin-top: .25rem; }
+  .tool-verdict { display: inline-block; margin-top: .75rem; padding: .25rem .75rem; border-radius: 999px; font-size: .8rem; font-weight: 700; }
+  .v-bad { background: #fee2e2; color: #b91c1c; }
+  .v-warn { background: #fef3c7; color: #b45309; }
+  .v-good { background: #dbeafe; color: #1d4ed8; }
+  .v-great { background: #d1fae5; color: #047857; }
+</style>
