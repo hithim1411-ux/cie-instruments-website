@@ -794,3 +794,20 @@ footer.footer-glass .eyebrow { color: #A8121B; }
   background-color: rgba(16, 185, 129, 0.06);
   border-color: rgba(4, 120, 87, 0.18);
 }
+
+/* Pale gradient sections (e.g. Vartech category listings: emerald-50 to
+   white) were bright slabs against the steel field. Keep the hint of
+   green but fade it into transparency instead of into white. */
+:where(section, div)[class*='from-emerald-50'] {
+  background-image: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0) 100%);
+}
+:where(section, div)[class*='from-emerald-50'].border-b { border-color: rgba(4, 120, 87, 0.16); }
+
+/* Large borderless cloud panels (e.g. the tools-page CTA) get the soft glass treatment too */
+.bg-cloud.rounded-2xl:is([class*='p-']),
+.bg-cloud.rounded-3xl:is([class*='p-']) {
+  background-color: var(--glass-fill-soft);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-rim);
+}
