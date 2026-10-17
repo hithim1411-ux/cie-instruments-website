@@ -446,9 +446,9 @@ p { line-height: 1.65; }
    colour field behind everything (body::before).
    ══════════════════════════════════════════════════════════════════════ */
 :root {
-  --glass-fill:        rgba(244, 247, 251, 0.62);
-  --glass-fill-soft:   rgba(244, 247, 251, 0.42);
-  --glass-fill-strong: rgba(246, 248, 252, 0.8);
+  --glass-fill:        rgba(247, 248, 250, 0.62);
+  --glass-fill-soft:   rgba(247, 248, 250, 0.42);
+  --glass-fill-strong: rgba(250, 251, 252, 0.82);
   --glass-fill-dark:   rgba(18, 22, 30, 0.58);
   --glass-blur:        blur(18px) saturate(180%);
   --glass-blur-lg:     blur(28px) saturate(190%);
@@ -460,7 +460,7 @@ p { line-height: 1.65; }
 }
 
 /* ── Ambient colour field the glass refracts ── */
-html { background-color: #cdd3df; }
+html { background-color: #d6dae0; }
 body { background: transparent; position: relative; }
 body.bg-white { background: transparent; }
 body::before {
@@ -469,14 +469,15 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  /* Cool steel field: slate base, a cold blue wash and a restrained red
-     ember. Deliberately no pastel pink/peach/lavender - those read as
-     fashion/retail rather than precision instruments. */
+  /* "Graphite & Signal": a neutral graphite field lit from above like
+     brushed metal, with one red ember in the corner. Colour is reserved
+     for the CIE red and the product photography. No pastel tints and no
+     blue wash - pastels read as retail, blue as generic SaaS. */
   background:
-    radial-gradient(50rem 36rem at 96% -8%,  rgba(224, 37, 46, 0.12), transparent 62%),
-    radial-gradient(54rem 44rem at -10% 18%, rgba(48, 84, 150, 0.20), transparent 62%),
-    radial-gradient(46rem 40rem at 70% 90%,  rgba(40, 64, 110, 0.16), transparent 62%),
-    linear-gradient(180deg, #d9dee7 0%, #c9d0dc 100%);
+    radial-gradient(70rem 28rem at 50% -12%, rgba(255, 255, 255, 0.70), transparent 68%),
+    radial-gradient(44rem 30rem at 100% 0%,  rgba(224, 37, 46, 0.075), transparent 62%),
+    radial-gradient(50rem 34rem at 0% 100%,  rgba(20, 24, 32, 0.07), transparent 65%),
+    linear-gradient(180deg, #e6e8ec 0%, #d6dae0 55%, #cdd2d9 100%);
 }
 
 /* Light full-bleed sections let the ambient field through */
@@ -489,7 +490,7 @@ section.bg-ink,
 .blueprint-bg {
   background-image:
     radial-gradient(38rem 26rem at 12% 0%,   rgba(224, 37, 46, 0.22), transparent 65%),
-    radial-gradient(40rem 30rem at 95% 100%, rgba(70, 120, 255, 0.20), transparent 65%),
+    radial-gradient(44rem 30rem at 95% 100%, rgba(255, 255, 255, 0.07), transparent 65%),
     linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
   background-size: auto, auto, 32px 32px, 32px 32px;
@@ -703,10 +704,9 @@ a[aria-label='Call CIE'] { background-color: rgba(224, 37, 46, 0.92); }
 @media (max-width: 640px) {
   body::before {
     background:
-      radial-gradient(22rem 20rem at 100% 0%,  rgba(224, 37, 46, 0.10), transparent 65%),
-      radial-gradient(24rem 24rem at 0% 45%,   rgba(48, 84, 150, 0.18), transparent 65%),
-      radial-gradient(22rem 22rem at 100% 88%, rgba(40, 64, 110, 0.14), transparent 65%),
-      linear-gradient(180deg, #d9dee7 0%, #c9d0dc 100%);
+      radial-gradient(34rem 18rem at 50% -8%,  rgba(255, 255, 255, 0.70), transparent 68%),
+      radial-gradient(22rem 20rem at 100% 0%,  rgba(224, 37, 46, 0.07), transparent 65%),
+      linear-gradient(180deg, #e6e8ec 0%, #d6dae0 55%, #cdd2d9 100%);
   }
   :root { --radius-glass: 1.125rem; }
   .btn-primary, .btn-secondary { min-height: 3rem; }
@@ -739,7 +739,7 @@ a[aria-label='Call CIE'] { background-color: rgba(224, 37, 46, 0.92); }
 #site-header[data-tone='light'][data-transparent-hero='true'],
 #site-header[data-tone='light'].backdrop-blur-xl,
 #site-header[data-tone='light'][data-transparent-hero='false'] {
-  background-color: rgba(238, 242, 248, 0.6) !important;
+  background-color: rgba(240, 242, 245, 0.62) !important;
   -webkit-backdrop-filter: var(--glass-blur-lg);
   backdrop-filter: var(--glass-blur-lg);
   box-shadow: inset 0 -1px 0 rgba(10, 14, 20, 0.07), 0 8px 28px -14px rgba(10, 14, 20, 0.18) !important;
@@ -776,7 +776,7 @@ a[aria-label='Call CIE'] { background-color: rgba(224, 37, 46, 0.92); }
 
 footer.footer-glass {
   position: relative;
-  background-color: rgba(238, 242, 248, 0.5);
+  background-color: rgba(240, 242, 245, 0.5);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 -1px 0 rgba(10, 14, 20, 0.07);
