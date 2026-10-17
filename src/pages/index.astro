@@ -88,7 +88,10 @@ const heroTickerItems = categoryCount.map((cat: any) => ({
 // and the CSS offset-path the traveling "beam" dot rides along.
 const heroWavePath = 'M0,60 C60,60 60,30 120,30 C180,30 180,90 240,90 C300,90 300,60 340,60 L344,8 L348,112 L352,60 C400,60 400,20 450,20 C500,20 500,100 550,100 C600,100 600,60 660,60 C720,60 720,35 770,35 C820,35 820,85 870,85 C920,85 920,60 980,60 L984,15 L988,105 L992,60 C1040,60 1040,40 1090,40 C1140,40 1140,80 1190,80 C1240,80 1240,60 1300,60 C1350,60 1350,50 1440,50';
 
-const featured = products.filter(p => p.featured);
+// Priority lines pinned first in the Flagship slider (stock push), then the rest of the featured set.
+const priorityIds = ['dit-2500', 'dcm-2250-tr', 'dcm-5410-tr', 'dm-321t'];
+const priorityProducts = priorityIds.map(id => products.find(p => p.id === id)!).filter(Boolean).map(p => ({ ...p, featured: true }));
+const featured = [...priorityProducts, ...products.filter(p => p.featured && !priorityIds.includes(p.id))];
 
 const newVartechFeatured = [
   { ...vartechThermometers.find(p => p.id === 'v-6500')!,           slug: 'thermometers'     },
@@ -124,9 +127,9 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
 <Base
   title="Home"
-  description="CIE (Cambridge Instruments & Engg. Co.) - manufacturer of test and measuring instruments in India since 1963, and an authorised distributor for Vartech precision digital instruments. Insulation testers, earth testers, relay test sets, oil BDV testers, plus Vartech oscilloscopes, function generators, multimeters and clamp meters. Howrah, Kolkata, West Bengal. Trusted by various State Electricity Boards, Indian Railways, and cement and metal industries."
+  description="CIE (Cambridge Instruments & Engg. Co.) - manufacturer of test and measuring instruments in India since 1963. Insulation testers, earth testers, relay test sets, oil BDV testers, clamp meters, HV test sets. Howrah, Kolkata, West Bengal. Trusted by various State Electricity Boards, Indian Railways, and cement and metal industries."
   preloadImage={u('/images/products/rts-33.webp')}
-  keywords="vartech authorised distributor India, vartech oscilloscope India, vartech multimeter price, vartech function generator, vartech distributor India, test and measurement instruments India, electrical test instruments supplier Kolkata, insulation tester manufacturer India, digital multimeters India, oscilloscopes India, clamp meters India, cambridge instruments insulation tester, CIE instruments Howrah, megger supplier India"
+  keywords="test and measurement instruments India, electrical test instruments supplier Kolkata, insulation tester manufacturer India, digital multimeters India, oscilloscopes India, clamp meters India, vartech authorised distributor India, cambridge instruments insulation tester, CIE instruments Howrah, megger supplier India"
   transparentHero
 >
   <!-- ── HERO - full viewport, scroll-driven ─────────────────────────────────
@@ -344,7 +347,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
 
         <!-- Trust row -->
         <div data-hero-anim style="--d: 480ms" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-10 text-xs text-muted-dark font-mono uppercase tracking-wide">
-          {['60+ Years', 'Made in India', '12-Month Warranty', 'Authorised Vartech Distributor'].map(t => (
+          {['60+ Years', 'Made in India', '12-Month Warranty', 'In-House Calibration'].map(t => (
             <span class="flex items-center gap-1.5">
               <span class="w-1 h-1 rounded-full bg-red" aria-hidden="true"></span>
               {t}
@@ -412,7 +415,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         <p class="mt-3 text-[9px] font-mono text-muted-dark tracking-[0.2em] uppercase text-center max-w-[8ch]">Calibrated Before Despatch</p>
         <div class="flex-1 w-px mt-4 bg-[repeating-linear-gradient(to_bottom,rgba(255,255,255,0.18)_0_1px,transparent_1px_14px)]"></div>
         <span class="text-[10px] font-mono text-muted-dark tracking-[0.25em] uppercase [writing-mode:vertical-rl] rotate-180 mt-4">
-          Authorised Vartech Distributor
+          Since 1963 - Howrah
         </span>
       </div>
 
