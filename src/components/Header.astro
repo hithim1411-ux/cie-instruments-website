@@ -54,12 +54,12 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         />
         <span class="hidden sm:flex flex-col leading-tight min-w-0">
           <span class="text-white font-semibold text-[13px] lg:text-sm tracking-tight leading-snug">Cambridge Instruments &amp; Engg. Co.</span>
-          <span class="text-muted-dark text-[10px] font-mono uppercase tracking-widest leading-tight hidden lg:block">Instruments for Accuracy and Reliability</span>
+          <span class="text-muted-dark text-[10px] font-mono uppercase tracking-widest leading-tight hidden xl:block">Instruments for Accuracy and Reliability</span>
         </span>
       </a>
 
       <!-- ── Desktop Nav ── -->
-      <nav class="hidden lg:flex items-center gap-7" aria-label="Main navigation">
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-7" aria-label="Main navigation">
 
         <!-- Home -->
         <a href={u('/')}
@@ -187,7 +187,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         </button>
 
         <a href={genericMailto}
-           class="px-4 py-2 bg-red hover:bg-red-dark text-white text-[13.5px] font-semibold rounded-lg transition-colors">
+           class="whitespace-nowrap px-4 py-2 bg-red hover:bg-red-dark text-white text-[13.5px] font-semibold rounded-full transition-colors shadow-[inset_0_1px_0_rgba(255,255,255,0.45),0_6px_16px_-4px_rgba(224,37,46,0.5)]">
           Request a Quote
         </a>
       </nav>
