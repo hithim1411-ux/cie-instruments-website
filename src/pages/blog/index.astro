@@ -107,54 +107,6 @@ const PREVIEW_COUNT = 4;
   </section>
 
   <!-- ════════════════════════════════════════════════════════
-       PODCAST - Spotify embed
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="bg-white border-b border-gray-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-      <div class="flex flex-col lg:flex-row lg:items-center gap-10">
-
-        <!-- Left: text -->
-        <div class="lg:w-80 shrink-0">
-          <div class="flex items-center gap-3 mb-5">
-            <span class="w-8 h-0.5 bg-[#1DB954]"></span>
-            <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-[#1DB954]">Podcast</p>
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-ink leading-snug mb-4">
-            We're on<br/>Spotify.
-          </h2>
-          <p class="text-muted text-sm leading-relaxed mb-6">
-            Deep-dives on measurement instruments, testing methodology, and electrical engineering - for engineers and electricians who want more than just a manual.
-          </p>
-          <a
-            href="https://open.spotify.com/show/033DkaSuC0aDSc2X2TApyV"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#1DB954] hover:bg-[#17a349] text-white text-sm font-semibold rounded-full transition-colors"
-          >
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-            Follow on Spotify
-          </a>
-        </div>
-
-        <!-- Right: embed -->
-        <div class="flex-1 min-w-0">
-          <iframe
-            src="https://open.spotify.com/embed/show/033DkaSuC0aDSc2X2TApyV?utm_source=generator"
-            width="100%"
-            height="352"
-            frameborder="0"
-            allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            class="rounded-xl w-full"
-          ></iframe>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════════════════
        THE LIBRARY - subject shelves, search, and per-shelf browsing
   ═══════════════════════════════════════════════════════════ -->
   <section class="bg-gray-50 border-b border-gray-200" id="library">
@@ -376,7 +328,23 @@ const PREVIEW_COUNT = 4;
       debounce = setTimeout(applyFilters, 80);
     });
 
+    // Deep links from /insights/: ?shelf=<id> opens a shelf, ?q=<text> prefills search
+    const params = new URLSearchParams(window.location.search);
+    const wantShelf = params.get('shelf');
+    const wantQ = params.get('q');
+    if (wantShelf && navButtons.some(b => b.dataset.shelfBtn === wantShelf)) {
+      activeShelf = wantShelf;
+      setActivePill();
+    }
+    if (wantQ && searchInput) {
+      searchInput.value = wantQ;
+      activeShelf = 'all';
+      setActivePill();
+    }
     applyFilters();
+    if (wantShelf || wantQ) {
+      setTimeout(() => document.getElementById('library')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+    }
   }
   </script>
 

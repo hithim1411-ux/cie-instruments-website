@@ -872,3 +872,6 @@ section.bg-red, .bg-red.rounded-2xl { background-color: #CC1F29; }
 .text-amber-600:not(:where(.bg-ink, .blueprint-bg, [class^='bg-ink'], [class*=' bg-ink'], [class^='bg-[#0'], [class*=' bg-[#0'], [class^='bg-[#1'], [class*=' bg-[#1'], [class^='bg-[#2'], [class*=' bg-[#2'], [class^='bg-gray-8'], [class*=' bg-gray-8'], [class^='bg-gray-9'], [class*=' bg-gray-9']) *) { color: #B45309; }
 :where([class^='bg-[#0'], [class*=' bg-[#0'], [class^='bg-[#1'], [class*=' bg-[#1'], [class^='bg-[#2'], [class*=' bg-[#2'], .bg-ink, .blueprint-bg) .text-\[\#E0252E\] { color: #FF5A62; }
 [class~='bg-[#E0252E]'] { background-color: #CC1F29; }
+
+/* Header dropdown over the busy hero photo wall: near-opaque so text stays legible */
+#site-header[data-tone='dark'] .bg-ink { background-color: rgba(14, 18, 26, 0.96); }

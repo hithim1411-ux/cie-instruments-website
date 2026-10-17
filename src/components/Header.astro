@@ -26,7 +26,6 @@ const isHome      = currentPath === '/' || currentPath === u('/');
 const onProducts  = currentPath.startsWith(u('/products'));
 const onInsights  = currentPath.startsWith(u('/insights')) || currentPath.startsWith(u('/blog')) || currentPath.startsWith(u('/tools'));
 const insightsLinks = [
-  { label: 'Overview', sub: 'Guides and calculators, together', href: u('/insights/') },
   { label: 'Blog', sub: 'Guides and how-tos on testing', href: u('/blog/') },
   { label: 'Free Tools', sub: 'Calculators for engineers', href: u('/tools/') },
 ];
@@ -274,7 +273,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
         </div>
       </div>
 
-      <div class="px-3 pt-2 pb-0.5 text-[10px] font-mono text-muted uppercase tracking-widest">Insights</div>
+      <a href={u('/insights/')} class="px-3 pt-2 pb-0.5 text-[10px] font-mono text-muted uppercase tracking-widest hover:text-white transition-colors">Insights</a>
       {insightsLinks.map((l) => (
         <a href={l.href} class="text-sm font-medium text-muted-dark hover:text-white hover:bg-white/5 pl-6 pr-3 py-2 rounded transition-colors">
           {l.label}

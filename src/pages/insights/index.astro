@@ -7,10 +7,74 @@ import { tools } from '../../data/tools';
 import posts from '../../data/blog.json';
 
 const sorted = [...posts].sort((a, b) => b.publishDate.localeCompare(a.publishDate));
+const bySlug = Object.fromEntries(posts.map((p) => [p.slug, p]));
+const toolBySlug = Object.fromEntries(tools.map((t) => [t.slug, t]));
 const latest = sorted.slice(0, 3);
 const portalPosts = sorted.slice(0, 3);
-const featuredTools = [...tools.filter(t => t.isNew), ...tools.filter(t => !t.isNew)].slice(0, 4);
+const featuredTools = [...tools.filter((t) => t.isNew), ...tools.filter((t) => !t.isNew)].slice(0, 4);
 const fmt = (d: string) => new Date(d).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+
+// Subject shelves (same ids as the blog library) with counts, for the topic grid.
+const SHELVES = [
+  { id: 'physics', label: 'Physics and fundamentals', blurb: 'Ohm’s law, AC/DC, ratings and specs.', icon: 'zap' },
+  { id: 'multimeters', label: 'Multimeters', blurb: 'Choosing and using the essential tool.', icon: 'gauge' },
+  { id: 'clamp-meters', label: 'Clamp meters', blurb: 'Current without breaking the circuit.', icon: 'circle-dot' },
+  { id: 'insulation-earthing', label: 'Insulation and earthing', blurb: 'Meggers, earth testers, motor tests.', icon: 'shield-check' },
+  { id: 'scopes-signal', label: 'Scopes and signals', blurb: 'Waveforms, generators, LCR meters.', icon: 'activity' },
+  { id: 'power-supplies', label: 'Power supplies and loads', blurb: 'Linear, SMPS and programmable.', icon: 'plug' },
+  { id: 'calibration', label: 'Calibration', blurb: '4-20 mA loops and intervals.', icon: 'settings' },
+  { id: 'environmental', label: 'Environmental', blurb: 'Light, sound, airflow, temperature.', icon: 'wind' },
+  { id: 'power-quality', label: 'Power quality', blurb: 'Phase sequence, harmonics, PF.', icon: 'waves' },
+  { id: 'relay-hv', label: 'Relay and HV testing', blurb: 'Protection relays, dielectric tests.', icon: 'flask' },
+  { id: 'bench-tools', label: 'Bench and repair', blurb: 'Soldering, fuses, batteries.', icon: 'wrench' },
+] as const;
+const shelfCounts = Object.fromEntries(SHELVES.map((s) => [s.id, posts.filter((p: any) => p.shelf === s.id).length]));
+const shelfLabel = Object.fromEntries(SHELVES.map((s) => [s.id, s.label]));
+
+// Curated learning paths: an ordered reading list + the matching tools and instruments.
+const PATHS = [
+  {
+    id: 'insulation', icon: 'shield-check', label: 'Test motor insulation',
+    pitch: 'From what a megger measures to reading PI and DAR like a pro.',
+    steps: ['insulation-resistance-testing-guide', 'what-is-a-megger', 'insulation-resistance-temperature-correction', 'polarization-index-vs-dielectric-absorption-ratio'],
+    tools: ['ir-temperature-correction-calculator', 'pi-dar-calculator', 'motor-minimum-insulation-resistance'],
+    product: { label: 'Insulation testers', href: '/products/insulation-testers-hand/' },
+  },
+  {
+    id: 'earthing', icon: 'globe', label: 'Check an earth pit',
+    pitch: 'Why earthing matters, how low is low enough, and how to test soil.',
+    steps: ['what-is-electrical-earthing', 'earth-resistance-testing-guide', 'how-low-should-earth-resistance-be', 'soil-resistivity-wenner-vs-schlumberger'],
+    tools: [],
+    product: { label: 'Earth testers', href: '/products/earth-tester/' },
+  },
+  {
+    id: 'meters', icon: 'gauge', label: 'Pick the right meter',
+    pitch: 'Multimeter or clamp? True RMS or not? Decide with confidence.',
+    steps: ['what-is-a-multimeter', 'how-to-choose-a-multimeter', 'clamp-meter-vs-multimeter', 'true-rms-vs-average-rms'],
+    tools: ['multimeter-accuracy-calculator', 'ohms-law-calculator'],
+    product: { label: 'Multimeters', href: '/products/multimeters/' },
+  },
+  {
+    id: 'scopes', icon: 'activity', label: 'Learn the oscilloscope',
+    pitch: 'Controls, waveforms, bandwidth and what to buy.',
+    steps: ['how-to-use-an-oscilloscope', 'oscilloscope-waveform-guide', 'oscilloscope-bandwidth-explained', 'how-to-choose-an-oscilloscope'],
+    tools: [],
+    product: { label: 'Vartech oscilloscopes', href: '/products/vartech-oscilloscopes/' },
+  },
+].map((p) => ({
+  ...p,
+  guides: p.steps.map((s) => bySlug[s]).filter(Boolean),
+  toolItems: p.tools.map((t) => toolBySlug[t]).filter(Boolean),
+}));
+
+const TOPIC_CHIPS = ['insulation', 'earthing', 'multimeter', 'clamp meter', 'oscilloscope', 'calibration', 'relay', 'power supply'];
+
+// Compact search index sent to the browser (titles + short excerpt for matching).
+const searchData = {
+  base: u('/'),
+  guides: posts.map((p: any) => ({ t: p.title, u: `/blog/${p.slug}/`, c: p.category, s: shelfLabel[p.shelf] ?? '', x: (p.excerpt ?? '').slice(0, 140) })),
+  tools: tools.map((t) => ({ t: t.name, u: `/tools/${t.slug}/`, c: t.category, x: t.body })),
+};
 
 const schema = {
   '@context': 'https://schema.org',
@@ -24,11 +88,12 @@ const schema = {
 
 <Base
   title="Insights - Technical Guides and Free Calculators"
-  description={`${posts.length} technical guides on test instruments and ${tools.length} free electrical testing calculators, from the team that has built insulation and earth testers in Howrah since 1963.`}
+  description={`${posts.length} technical guides on test instruments and ${tools.length} free electrical testing calculators, plus the CIE podcast, from the team that has built insulation and earth testers in Howrah since 1963.`}
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script id="ins-data" type="application/json" set:html={JSON.stringify(searchData)} />
 
-  <!-- ══ Hero ══ -->
+  <!-- ══ Hero: search + live mini calculator ══ -->
   <div class="blueprint-bg bg-ink text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-28 lg:pb-32">
       <nav aria-label="Breadcrumb" class="mb-7">
@@ -39,20 +104,77 @@ const schema = {
         </ol>
       </nav>
 
-      <p class="eyebrow mb-4">Insights</p>
-      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.06] tracking-tight max-w-4xl">
-        Learn it. Calculate it.<br />
-        <span class="text-muted-dark">Then measure it right.</span>
-      </h1>
-      <p class="mt-5 text-gray-300 text-body-lg max-w-2xl leading-relaxed">
-        Practical guides and free calculators from the people who have been building test instruments in Howrah since 1963. No sign-up, nothing to install.
-      </p>
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <div class="lg:col-span-7 min-w-0">
+          <p class="eyebrow mb-4">Insights</p>
+          <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.06] tracking-tight">
+            Learn it. Calculate it.<br />
+            <span class="text-muted-dark">Then measure it right.</span>
+          </h1>
+          <p class="mt-5 text-gray-300 text-body-lg max-w-xl leading-relaxed">
+            Practical guides, free calculators and a podcast from the people who have been building test instruments in Howrah since 1963.
+          </p>
 
-      <dl class="mt-9 flex flex-wrap gap-x-10 gap-y-4">
-        <div><dt class="font-mono text-[11px] uppercase tracking-widest text-muted-dark">Guides</dt><dd class="text-3xl font-bold">{posts.length}</dd></div>
-        <div><dt class="font-mono text-[11px] uppercase tracking-widest text-muted-dark">Calculators</dt><dd class="text-3xl font-bold">{tools.length}</dd></div>
-        <div><dt class="font-mono text-[11px] uppercase tracking-widest text-muted-dark">Cost</dt><dd class="text-3xl font-bold">Free</dd></div>
-      </dl>
+          <!-- Live search -->
+          <div class="ins-search mt-8" id="ins-search">
+            <label for="ins-q" class="sr-only">Search guides and calculators</label>
+            <div class="ins-search__box">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input id="ins-q" type="search" autocomplete="off" spellcheck="false" placeholder={`Search ${posts.length} guides and ${tools.length} calculators`} aria-controls="ins-results" aria-expanded="false" />
+              <kbd class="hidden sm:inline-flex" aria-hidden="true">/</kbd>
+            </div>
+            <div class="ins-results" id="ins-results" role="listbox" hidden></div>
+          </div>
+          <div class="mt-4 flex flex-wrap items-center gap-2" aria-label="Popular topics">
+            <span class="font-mono text-[11px] uppercase tracking-widest text-muted-dark mr-1">Try</span>
+            {TOPIC_CHIPS.map((c) => <button type="button" class="ins-chip" data-q={c}>{c}</button>)}
+          </div>
+
+          <dl class="mt-9 flex flex-wrap gap-x-10 gap-y-4">
+            <div><dt class="font-mono text-[11px] uppercase tracking-widest text-muted-dark">Guides</dt><dd class="text-3xl font-bold">{posts.length}</dd></div>
+            <div><dt class="font-mono text-[11px] uppercase tracking-widest text-muted-dark">Calculators</dt><dd class="text-3xl font-bold">{tools.length}</dd></div>
+            <div><dt class="font-mono text-[11px] uppercase tracking-widest text-muted-dark">Topics</dt><dd class="text-3xl font-bold">{SHELVES.length}</dd></div>
+            <div><dt class="font-mono text-[11px] uppercase tracking-widest text-muted-dark">Cost</dt><dd class="text-3xl font-bold">Free</dd></div>
+          </dl>
+        </div>
+
+        <!-- Mini PI / DAR calculator -->
+        <aside class="lg:col-span-5 min-w-0" aria-labelledby="mini-title">
+          <div class="mini" id="mini">
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-dark">Try it now</p>
+                <h2 id="mini-title" class="text-xl font-bold">Is this winding healthy?</h2>
+              </div>
+              <span class="mini__live" aria-hidden="true"><i></i>Live</span>
+            </div>
+            <p class="mt-2 text-sm text-gray-300 leading-relaxed">Type your timed megger readings. PI and DAR update as you type.</p>
+
+            <div class="mt-4 grid grid-cols-3 gap-3">
+              <label class="mini__f"><span>30 s</span><input id="m30" type="number" min="0" step="any" value="800" inputmode="decimal" /><em>MΩ</em></label>
+              <label class="mini__f"><span>1 min</span><input id="m60" type="number" min="0" step="any" value="1100" inputmode="decimal" /><em>MΩ</em></label>
+              <label class="mini__f"><span>10 min</span><input id="m600" type="number" min="0" step="any" value="2900" inputmode="decimal" /><em>MΩ</em></label>
+            </div>
+
+            <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Example readings">
+              <button type="button" class="ins-chip is-on" data-ex="800,1100,2900">Healthy motor</button>
+              <button type="button" class="ins-chip" data-ex="40,44,47">Damp winding</button>
+              <button type="button" class="ins-chip" data-ex="1500,2500,12000">Excellent</button>
+            </div>
+
+            <div class="mt-5 grid grid-cols-2 gap-3">
+              <div class="mini__out"><small>PI</small><b id="o-pi">-</b><span id="v-pi" class="mini__v"></span></div>
+              <div class="mini__out"><small>DAR</small><b id="o-dar">-</b><span id="v-dar" class="mini__v"></span></div>
+            </div>
+            <div class="mini__bar" aria-hidden="true"><i id="bar-pi"></i></div>
+            <p class="mini__note" id="mini-note" aria-live="polite"></p>
+
+            <a href={u('/tools/pi-dar-calculator/')} class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-[#FF7A82] transition-colors">
+              Open the full calculator <Icon name="arrow" class="w-4 h-4" />
+            </a>
+          </div>
+        </aside>
+      </div>
     </div>
   </div>
 
@@ -61,7 +183,6 @@ const schema = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 lg:gap-8 md:grid-cols-2" data-reveal-stagger>
 
-        <!-- Blog -->
         <article class="card flex flex-col p-7 lg:p-9">
           <div class="flex items-center gap-4">
             <span class="grid place-items-center w-12 h-12 rounded-2xl bg-ink text-white shadow-lg" aria-hidden="true">
@@ -73,9 +194,8 @@ const schema = {
             </div>
           </div>
           <p class="mt-4 text-muted leading-relaxed">Technical guides on insulation, earthing, multimeters, scopes and more. Written for engineers and electricians who want the reasoning, not just the spec.</p>
-
           <ul class="mt-6 divide-y divide-ink/10 border-t border-ink/10">
-            {portalPosts.map(p => (
+            {portalPosts.map((p) => (
               <li>
                 <a href={u(`/blog/${p.slug}/`)} class="group flex items-start justify-between gap-4 py-3.5">
                   <span class="min-w-0">
@@ -87,13 +207,11 @@ const schema = {
               </li>
             ))}
           </ul>
-
           <div class="mt-auto pt-7">
             <a href={u('/blog/')} class="btn-primary w-full sm:w-auto">Browse all {posts.length} guides <Icon name="arrow" class="w-4 h-4" /></a>
           </div>
         </article>
 
-        <!-- Tools -->
         <article class="card flex flex-col p-7 lg:p-9">
           <div class="flex items-center gap-4">
             <span class="grid place-items-center w-12 h-12 rounded-2xl bg-red text-white shadow-lg" aria-hidden="true">
@@ -105,9 +223,8 @@ const schema = {
             </div>
           </div>
           <p class="mt-4 text-muted leading-relaxed">Small, fast calculators for insulation resistance, PI and DAR, motors, cables and power. Open one, type your readings, get a verdict.</p>
-
           <ul class="mt-6 divide-y divide-ink/10 border-t border-ink/10">
-            {featuredTools.map(t => (
+            {featuredTools.map((t) => (
               <li>
                 <a href={u(`/tools/${t.slug}/`)} class="group flex items-center gap-4 py-3.5">
                   <span class="grid place-items-center w-9 h-9 shrink-0 rounded-xl bg-ink/[0.06] text-ink group-hover:bg-red group-hover:text-white transition-colors"><Icon name={t.icon} class="w-5 h-5" /></span>
@@ -121,7 +238,6 @@ const schema = {
               </li>
             ))}
           </ul>
-
           <div class="mt-auto pt-7">
             <a href={u('/tools/')} class="btn-secondary w-full sm:w-auto text-ink">Open all {tools.length} calculators <Icon name="arrow" class="w-4 h-4" /></a>
           </div>
@@ -131,8 +247,103 @@ const schema = {
     </div>
   </section>
 
-  <!-- ══ Latest articles ══ -->
+  <!-- ══ Learning paths ══ -->
   <section class="section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <p class="eyebrow mb-3">Start here</p>
+        <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Pick your job. Follow the path.</h2>
+        <p class="mt-3 text-muted leading-relaxed">Not sure where to begin? Each path is an ordered reading list, with the calculators and instruments that go with it.</p>
+      </div>
+
+      <div class="mt-8 grid gap-6 lg:grid-cols-12" id="paths">
+        <div class="lg:col-span-4 min-w-0" role="tablist" aria-label="Learning paths" aria-orientation="vertical">
+          <div class="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 snap-x">
+            {PATHS.map((p, i) => (
+              <button type="button" role="tab" id={`tab-${p.id}`} aria-controls={`panel-${p.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-path={p.id}
+                class="path-tab snap-start shrink-0 lg:shrink text-left">
+                <span class="path-tab__ico"><Icon name={p.icon as any} class="w-5 h-5" /></span>
+                <span class="min-w-0">
+                  <span class="path-tab__t">{p.label}</span>
+                  <span class="path-tab__s">{p.guides.length} guides{p.toolItems.length ? ` · ${p.toolItems.length} tools` : ''}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div class="lg:col-span-8 min-w-0">
+          {PATHS.map((p, i) => (
+            <div role="tabpanel" id={`panel-${p.id}`} aria-labelledby={`tab-${p.id}`} class="card p-6 lg:p-8" hidden={i !== 0}>
+              <p class="text-muted leading-relaxed">{p.pitch}</p>
+              <ol class="path-steps mt-6">
+                {p.guides.map((g: any, n: number) => (
+                  <li>
+                    <a href={u(`/blog/${g.slug}/`)} class="group path-step">
+                      <span class="path-step__n">{n + 1}</span>
+                      <span class="min-w-0 flex-1">
+                        <span class="block font-semibold text-ink group-hover:text-red transition-colors leading-snug">{g.title}</span>
+                        <span class="mt-0.5 block text-small text-muted line-clamp-2">{g.excerpt}</span>
+                        <span class="mt-1 block font-mono text-[11px] text-muted">{g.readTime}</span>
+                      </span>
+                      <span class="shrink-0 text-muted group-hover:text-red group-hover:translate-x-1 transition mt-1" aria-hidden="true">→</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+
+              {(p.toolItems.length > 0 || p.product) && (
+                <div class="mt-6 pt-6 border-t border-ink/10 grid gap-5 sm:grid-cols-2">
+                  {p.toolItems.length > 0 && (
+                    <div>
+                      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-muted mb-2.5">Calculators for this</p>
+                      <div class="flex flex-wrap gap-2">
+                        {p.toolItems.map((t: any) => (
+                          <a href={u(`/tools/${t.slug}/`)} class="path-pill"><Icon name={t.icon} class="w-4 h-4" />{t.short}</a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  <div>
+                    <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-muted mb-2.5">Instruments</p>
+                    <a href={u(p.product.href)} class="path-pill path-pill--red"><Icon name="box" class="w-4 h-4" />{p.product.label}<Icon name="arrow" class="w-4 h-4" /></a>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Browse by topic ══ -->
+  <section class="section-pad-sm pt-0 lg:pt-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-6 mb-8">
+        <div>
+          <p class="eyebrow mb-3">Library</p>
+          <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Browse by topic</h2>
+        </div>
+        <a href={u('/blog/')} class="link-arrow text-red hidden sm:inline-flex">Full library <Icon name="arrow" class="w-4 h-4" /></a>
+      </div>
+      <div class="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
+        {SHELVES.map((s) => (
+          <a href={u(`/blog/?shelf=${s.id}`)} class="card card-interactive group p-4 sm:p-5 flex flex-col">
+            <span class="flex items-center justify-between gap-2">
+              <span class="grid place-items-center w-10 h-10 rounded-xl bg-ink/[0.06] text-ink group-hover:bg-red group-hover:text-white transition-colors"><Icon name={s.icon as any} class="w-5 h-5" /></span>
+              <span class="badge badge--neutral">{shelfCounts[s.id]} guides</span>
+            </span>
+            <h3 class="mt-4 font-bold text-ink leading-snug group-hover:text-red transition-colors">{s.label}</h3>
+            <p class="mt-1 text-small text-muted leading-relaxed">{s.blurb}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Latest articles ══ -->
+  <section class="section-pad-sm pt-0 lg:pt-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-end justify-between gap-6 mb-8">
         <div>
@@ -141,9 +352,8 @@ const schema = {
         </div>
         <a href={u('/blog/')} class="link-arrow text-red hidden sm:inline-flex">All guides <Icon name="arrow" class="w-4 h-4" /></a>
       </div>
-
       <div class="grid gap-6 md:grid-cols-3" data-reveal-stagger>
-        {latest.map(p => (
+        {latest.map((p) => (
           <a href={u(`/blog/${p.slug}/`)} class="card card-interactive group flex flex-col p-6">
             <span class="badge badge--neutral self-start">{p.category}</span>
             <h3 class="mt-4 text-h4 font-bold text-ink leading-snug group-hover:text-red transition-colors">{p.title}</h3>
@@ -152,7 +362,34 @@ const schema = {
           </a>
         ))}
       </div>
-      <a href={u('/blog/')} class="link-arrow text-red mt-6 sm:hidden inline-flex">All guides <Icon name="arrow" class="w-4 h-4" /></a>
+    </div>
+  </section>
+
+  <!-- ══ Podcast ══ -->
+  <section class="section-pad-sm pt-0 lg:pt-0" id="podcast">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="card p-6 lg:p-10">
+        <div class="flex flex-col lg:flex-row lg:items-center gap-10">
+          <div class="lg:w-96 shrink-0">
+            <div class="flex items-center gap-3 mb-5">
+              <span class="w-8 h-0.5 bg-[#1DB954]"></span>
+              <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-[#1DB954]">Podcast</p>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-ink leading-snug mb-4">We're on<br />Spotify.</h2>
+            <p class="text-muted text-sm leading-relaxed mb-6">
+              Deep-dives on measurement instruments, testing methodology and electrical engineering, for engineers and electricians who want more than just a manual.
+            </p>
+            <a href="https://open.spotify.com/show/033DkaSuC0aDSc2X2TApyV" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#1DB954] hover:bg-[#17a349] text-white text-sm font-semibold rounded-full transition-colors">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+              Follow on Spotify
+            </a>
+          </div>
+          <div class="flex-1 min-w-0">
+            <iframe src="https://open.spotify.com/embed/show/033DkaSuC0aDSc2X2TApyV?utm_source=generator" title="CIE podcast on Spotify" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" class="rounded-xl w-full"></iframe>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -161,3 +398,191 @@ const schema = {
     body="Insulation testers, earth testers and relay test sets, made in Howrah. Send your requirement and we reply the same day."
   />
 </Base>
+
+<style is:global>
+  /* ── Hero search ── (global: result rows are injected by script, so scoped CSS would not reach them) */
+  .ins-search { position: relative; max-width: 36rem; }
+  .ins-search__box { display: flex; align-items: center; gap: .75rem; height: 3.5rem; padding: 0 1.1rem; border-radius: 9999px; color: #cbd5e1;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.18); transition: border-color .2s, box-shadow .2s, background .2s; }
+  .ins-search__box:focus-within { border-color: #FF5A62; background: rgba(255,255,255,.12); box-shadow: 0 0 0 4px rgba(224,37,46,.25); }
+  .ins-search__box input { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: #fff; font-size: 1rem; }
+  .ins-search__box input::placeholder { color: #aeb8c6; opacity: 1; }
+  .ins-search__box input::-webkit-search-cancel-button { filter: invert(1); opacity: .6; }
+  .ins-search__box kbd { padding: .1rem .45rem; border-radius: .4rem; font: 600 .7rem var(--font-mono); color: #aeb8c6; border: 1px solid rgba(255,255,255,.2); }
+  .ins-results { position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + .6rem); max-height: 26rem; overflow-y: auto; padding: .5rem;
+    border-radius: 1.25rem; background: rgba(255,255,255,.97); color: #0A0E14; box-shadow: 0 24px 60px -12px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.6); }
+  .ins-results[hidden] { display: none; }
+  .ins-r { display: flex; align-items: center; gap: .85rem; padding: .65rem .75rem; border-radius: .85rem; color: #0A0E14; text-decoration: none; }
+  .ins-r:hover, .ins-r[aria-selected='true'] { background: rgba(10,14,20,.06); }
+  .ins-r__tag { flex-shrink: 0; width: 3.4rem; text-align: center; padding: .15rem 0; border-radius: 9999px; font: 700 .62rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+  .ins-r__tag--g { background: #0A0E14; color: #fff; }
+  .ins-r__tag--t { background: #CC1F29; color: #fff; }
+  .ins-r__t { display: block; font-weight: 600; font-size: .92rem; line-height: 1.3; color: #0A0E14; }
+  .ins-r__m { display: block; font: 500 .7rem var(--font-mono); color: #3F4A5C; margin-top: .1rem; }
+  .ins-r__empty { padding: 1rem .9rem; color: #3F4A5C; font-size: .9rem; }
+  .ins-r__more { display: block; padding: .6rem .9rem; font-weight: 600; font-size: .85rem; color: #A8121B; text-decoration: none; }
+  .ins-chip { padding: .35rem .8rem; border-radius: 9999px; font-size: .8rem; font-weight: 600; color: #e2e8f0; cursor: pointer;
+    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); transition: background .2s, border-color .2s, color .2s; }
+  .ins-chip:hover { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.32); }
+  .ins-chip.is-on { background: #CC1F29; border-color: #CC1F29; color: #fff; }
+
+  /* ── Mini calculator ── */
+  .mini { padding: 1.6rem; border-radius: 1.5rem; color: #fff; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16);
+    -webkit-backdrop-filter: var(--glass-blur-lg); backdrop-filter: var(--glass-blur-lg); box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 30px 70px -20px rgba(0,0,0,.6); }
+  .mini__live { display: inline-flex; align-items: center; gap: .4rem; font: 700 .65rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: #6ee7b7; }
+  .mini__live i { width: .5rem; height: .5rem; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 0 rgba(52,211,153,.6); animation: mini-pulse 1.8s infinite; }
+  @keyframes mini-pulse { 70% { box-shadow: 0 0 0 .5rem rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+  .mini__f { display: block; padding: .55rem .7rem; border-radius: .9rem; background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.12); transition: border-color .2s, box-shadow .2s; cursor: text; }
+  .mini__f:focus-within { border-color: #FF5A62; box-shadow: 0 0 0 3px rgba(224,37,46,.25); }
+  .mini__f span { display: block; font: 600 .68rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: #aeb8c6; }
+  .mini__f input { width: 100%; background: transparent; border: 0; outline: 0; color: #fff; font: 700 1.25rem var(--font-sans); padding: .1rem 0; -moz-appearance: textfield; }
+  .mini__f input::-webkit-outer-spin-button, .mini__f input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .mini__f em { font: normal 500 .7rem var(--font-mono); color: #aeb8c6; }
+  .mini__out { padding: .8rem 1rem; border-radius: 1rem; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.1); }
+  .mini__out small { display: block; font: 700 .68rem var(--font-mono); letter-spacing: .1em; color: #aeb8c6; }
+  .mini__out b { display: block; font: 700 2rem/1.1 var(--font-mono); letter-spacing: -.02em; color: #fff; font-variant-numeric: tabular-nums; }
+  .mini__v { display: inline-block; margin-top: .35rem; padding: .15rem .6rem; border-radius: 9999px; font: 700 .72rem var(--font-sans); }
+  .mini__v.v-bad { background: #dc2626; color: #fff; } .mini__v.v-warn { background: #fbbf24; color: #0A0E14; }
+  .mini__v.v-good { background: #2563eb; color: #fff; } .mini__v.v-great { background: #34d399; color: #04261b; }
+  .mini__bar { height: .4rem; margin-top: .9rem; border-radius: 9999px; background: linear-gradient(90deg, #dc2626 0 20%, #fbbf24 20% 40%, #2563eb 40% 80%, #34d399 80% 100%); position: relative; opacity: .9; }
+  .mini__bar i { position: absolute; top: -.35rem; width: 3px; height: 1.1rem; margin-left: -1.5px; border-radius: 2px; background: #fff; box-shadow: 0 0 8px #fff; transition: left .35s var(--ease-premium); left: 0; }
+  .mini__note { min-height: 1.1rem; margin-top: .6rem; font-size: .8rem; color: #fcd34d; }
+
+  /* ── Learning paths ── */
+  .path-tab { display: flex; align-items: center; gap: .9rem; padding: .9rem 1rem; border-radius: 1.1rem; cursor: pointer; min-width: 14.5rem;
+    background: var(--glass-fill-soft); box-shadow: var(--glass-rim); color: #0A0E14; border: 0; transition: background .2s, box-shadow .25s, transform .25s var(--ease-premium); }
+  .path-tab:hover { background: var(--glass-fill); transform: translateY(-1px); }
+  .path-tab[aria-selected='true'] { background: #0A0E14; color: #fff; box-shadow: 0 14px 30px -10px rgba(10,14,20,.5); }
+  .path-tab__ico { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; flex-shrink: 0; border-radius: .8rem; background: rgba(10,14,20,.07); }
+  .path-tab[aria-selected='true'] .path-tab__ico { background: #CC1F29; color: #fff; }
+  .path-tab__t { display: block; font-weight: 700; line-height: 1.2; }
+  .path-tab__s { display: block; margin-top: .15rem; font: 500 .7rem var(--font-mono); color: #3F4A5C; }
+  .path-tab[aria-selected='true'] .path-tab__s { color: #cbd5e1; }
+  .path-steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+  .path-step { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem .25rem; text-decoration: none; border-top: 1px solid rgba(10,14,20,.08); }
+  .path-steps li:first-child .path-step { border-top: 0; }
+  .path-step__n { display: grid; place-items: center; flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 50%; font: 700 .8rem var(--font-mono); background: #0A0E14; color: #fff; transition: background .2s; }
+  .path-step:hover .path-step__n { background: #CC1F29; }
+  .path-pill { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .9rem; border-radius: 9999px; font-size: .85rem; font-weight: 600; color: #0A0E14; text-decoration: none;
+    background: var(--glass-fill); box-shadow: var(--glass-rim); transition: background .2s, color .2s, transform .2s; }
+  .path-pill:hover { background: #0A0E14; color: #fff; transform: translateY(-1px); }
+  .path-pill--red { background: #CC1F29; color: #fff; box-shadow: none; }
+  .path-pill--red:hover { background: #A8121B; }
+  .path-steps .path-step, .path-tab { -webkit-tap-highlight-color: transparent; }
+  [role='tabpanel'] { animation: path-in .35s var(--ease-premium); }
+  @keyframes path-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { [role='tabpanel'] { animation: none; } .mini__live i { animation: none; } }
+</style>
+
+<script>
+  // ── Live search ──────────────────────────────────────────────────────
+  type Item = { type: 'g' | 't'; title: string; url: string; meta: string; hay: string };
+  const dataEl = document.getElementById('ins-data');
+  const input = document.getElementById('ins-q') as HTMLInputElement | null;
+  const box = document.getElementById('ins-results');
+  if (dataEl && input && box) {
+    const raw = JSON.parse(dataEl.textContent || '{}');
+    const base: string = raw.base ?? '/';
+    const withBase = (p: string) => (base.endsWith('/') ? base.slice(0, -1) : base) + p;
+    const items: Item[] = [
+      ...raw.guides.map((g: any) => ({ type: 'g' as const, title: g.t, url: g.u, meta: [g.c, g.s].filter(Boolean).join(' · '), hay: `${g.t} ${g.c} ${g.s} ${g.x}`.toLowerCase() })),
+      ...raw.tools.map((t: any) => ({ type: 't' as const, title: t.t, url: t.u, meta: t.c, hay: `${t.t} ${t.c} ${t.x}`.toLowerCase() })),
+    ];
+    let active = -1;
+    const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] as string));
+
+    function run() {
+      const q = input!.value.trim().toLowerCase();
+      active = -1;
+      if (q.length < 2) { box!.hidden = true; input!.setAttribute('aria-expanded', 'false'); return; }
+      const toks = q.split(/\s+/);
+      const scored = items
+        .filter((i) => toks.every((t) => i.hay.includes(t)))
+        .map((i) => {
+          const tl = i.title.toLowerCase();
+          let s = 0;
+          toks.forEach((t) => { if (tl.startsWith(t)) s += 4; else if (tl.includes(t)) s += 3; else s += 1; });
+          if (i.type === 't') s += 0.5;
+          return { i, s };
+        })
+        .sort((a, b) => b.s - a.s);
+      const top = scored.slice(0, 8);
+      box!.innerHTML = top.length
+        ? top.map(({ i }, n) => `<a class="ins-r" role="option" id="ins-r-${n}" href="${withBase(i.url)}"><span class="ins-r__tag ins-r__tag--${i.type}">${i.type === 'g' ? 'Guide' : 'Tool'}</span><span class="min-w-0"><span class="ins-r__t">${esc(i.title)}</span><span class="ins-r__m">${esc(i.meta)}</span></span></a>`).join('')
+          + (scored.length > 8 ? `<a class="ins-r__more" href="${withBase('/blog/')}?q=${encodeURIComponent(input!.value.trim())}">See all ${scored.length} matches in the library →</a>` : '')
+        : `<p class="ins-r__empty">No match for "${esc(input!.value.trim())}". Try a shorter word like "earth" or "motor".</p>`;
+      box!.hidden = false;
+      input!.setAttribute('aria-expanded', 'true');
+    }
+    function move(d: number) {
+      const rs = Array.from(box!.querySelectorAll<HTMLElement>('.ins-r'));
+      if (!rs.length) return;
+      active = (active + d + rs.length) % rs.length;
+      rs.forEach((r, n) => r.setAttribute('aria-selected', String(n === active)));
+      rs[active].scrollIntoView({ block: 'nearest' });
+    }
+    input.addEventListener('input', run);
+    input.addEventListener('focus', run);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+      else if (e.key === 'Enter') { const r = box!.querySelectorAll<HTMLAnchorElement>('.ins-r'); const t = r[active] ?? r[0]; if (t) { e.preventDefault(); window.location.href = t.href; } }
+      else if (e.key === 'Escape') { box!.hidden = true; input!.blur(); }
+    });
+    document.addEventListener('click', (e) => { if (!(e.target as HTMLElement).closest('#ins-search')) box!.hidden = true; });
+    document.addEventListener('keydown', (e) => {
+      const tag = (document.activeElement?.tagName ?? '').toLowerCase();
+      if (e.key === '/' && tag !== 'input' && tag !== 'textarea') { e.preventDefault(); input!.focus(); }
+    });
+    document.querySelectorAll<HTMLButtonElement>('[data-q]').forEach((b) => b.addEventListener('click', () => { input!.value = b.dataset.q ?? ''; input!.focus(); run(); }));
+  }
+
+  // ── Mini PI / DAR calculator (same bands as /tools/pi-dar-calculator/) ──
+  const g = (id: string) => document.getElementById(id) as HTMLInputElement | null;
+  const m30 = g('m30'), m60 = g('m60'), m600 = g('m600');
+  if (m30 && m60 && m600) {
+    const set = (id: string, t: string) => { const el = document.getElementById(id); if (el) el.textContent = t; };
+    const verdict = (id: string, cls: string, label: string) => { const el = document.getElementById(id); if (el) { el.className = 'mini__v ' + cls; el.textContent = label; } };
+    const clear = (id: string) => { const el = document.getElementById(id); if (el) { el.className = 'mini__v'; el.textContent = ''; } };
+    const calc = () => {
+      const a = parseFloat(m30.value), b = parseFloat(m60.value), c = parseFloat(m600.value);
+      const note = document.getElementById('mini-note'); if (note) note.textContent = '';
+      let pi = NaN;
+      if (isFinite(b) && isFinite(c) && b > 0 && c >= 0) {
+        pi = c / b; set('o-pi', pi.toFixed(2));
+        if (pi < 1) verdict('v-pi', 'v-bad', 'Dangerous'); else if (pi < 2) verdict('v-pi', 'v-warn', 'Questionable'); else if (pi < 4) verdict('v-pi', 'v-good', 'Good'); else verdict('v-pi', 'v-great', 'Excellent');
+        if (b > 5000 && note) note.textContent = 'Above 5000 MΩ at 1 min, PI may not be meaningful. Judge on absolute IR.';
+      } else { set('o-pi', '-'); clear('v-pi'); }
+      if (isFinite(a) && isFinite(b) && a > 0 && b >= 0) {
+        const d = b / a; set('o-dar', d.toFixed(2));
+        if (d < 1) verdict('v-dar', 'v-bad', 'Poor'); else if (d < 1.25) verdict('v-dar', 'v-warn', 'Questionable'); else if (d < 1.6) verdict('v-dar', 'v-good', 'Acceptable'); else verdict('v-dar', 'v-great', 'Excellent');
+      } else { set('o-dar', '-'); clear('v-dar'); }
+      const pin = document.getElementById('bar-pi'); if (pin) pin.style.left = (isFinite(pi) ? Math.max(0, Math.min(100, (pi / 5) * 100)) : 0) + '%';
+    };
+    [m30, m60, m600].forEach((el) => el.addEventListener('input', () => { document.querySelectorAll('[data-ex]').forEach((b) => b.classList.remove('is-on')); calc(); }));
+    document.querySelectorAll<HTMLButtonElement>('[data-ex]').forEach((b) => b.addEventListener('click', () => {
+      const [x, y, z] = (b.dataset.ex ?? '').split(',');
+      m30.value = x; m60.value = y; m600.value = z;
+      document.querySelectorAll('[data-ex]').forEach((o) => o.classList.toggle('is-on', o === b));
+      calc();
+    }));
+    calc();
+  }
+
+  // ── Learning-path tabs (arrow-key accessible) ──
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.path-tab'));
+  const panels = Array.from(document.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+  function pick(id: string, focus = false) {
+    tabs.forEach((t) => { const on = t.dataset.path === id; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+    panels.forEach((p) => { p.hidden = p.id !== `panel-${id}`; });
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => pick(t.dataset.path!));
+    t.addEventListener('keydown', (e) => {
+      const k = e.key;
+      if (k === 'ArrowDown' || k === 'ArrowRight') { e.preventDefault(); pick(tabs[(i + 1) % tabs.length].dataset.path!, true); }
+      else if (k === 'ArrowUp' || k === 'ArrowLeft') { e.preventDefault(); pick(tabs[(i - 1 + tabs.length) % tabs.length].dataset.path!, true); }
+    });
+  });
+</script>
