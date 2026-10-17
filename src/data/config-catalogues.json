@@ -711,5 +711,531 @@
     ]
    }
   ]
+ },
+ "cie-222m": {
+  "type": "grp",
+  "levelLabel": "Terminals",
+  "levels": [
+   {
+    "key": "3",
+    "label": "3-terminal (earth resistance)"
+   },
+   {
+    "key": "4",
+    "label": "4-terminal (earth resistance + soil resistivity)"
+   }
+  ],
+  "data": {
+   "3": {
+    "Single range": [
+     {
+      "range": "0–1 Ω",
+      "file": "cie-222m/3T_1Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 Ω",
+      "file": "cie-222m/3T_2Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–3 Ω",
+      "file": "cie-222m/3T_3Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–5 Ω",
+      "file": "cie-222m/3T_5Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 Ω",
+      "file": "cie-222m/3T_10Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–20 Ω",
+      "file": "cie-222m/3T_20Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–30 Ω",
+      "file": "cie-222m/3T_30Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–50 Ω",
+      "file": "cie-222m/3T_50Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–100 Ω",
+      "file": "cie-222m/3T_100Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–200 Ω",
+      "file": "cie-222m/3T_200Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–300 Ω",
+      "file": "cie-222m/3T_300Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–500 Ω",
+      "file": "cie-222m/3T_500Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–1000 Ω",
+      "file": "cie-222m/3T_1000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2000 Ω",
+      "file": "cie-222m/3T_2000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–3000 Ω",
+      "file": "cie-222m/3T_3000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–5000 Ω",
+      "file": "cie-222m/3T_5000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10000 Ω",
+      "file": "cie-222m/3T_10000Ohm.pdf",
+      "bto": false
+     }
+    ],
+    "Dual range": [
+     {
+      "range": "0–1 / 10 Ω",
+      "file": "cie-222m/3T_1-10Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 10 Ω",
+      "file": "cie-222m/3T_2-10Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–3 / 30 Ω",
+      "file": "cie-222m/3T_3-30Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 / 100 Ω",
+      "file": "cie-222m/3T_10-100Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 20 Ω",
+      "file": "cie-222m/3T_2-20Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–5 / 50 Ω",
+      "file": "cie-222m/3T_5-50Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–20 / 200 Ω",
+      "file": "cie-222m/3T_20-200Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–50 / 500 Ω",
+      "file": "cie-222m/3T_50-500Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–100 / 1000 Ω",
+      "file": "cie-222m/3T_100-1000Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–500 / 5000 Ω",
+      "file": "cie-222m/3T_500-5000Ohm.pdf",
+      "bto": true
+     }
+    ],
+    "Triple range": [
+     {
+      "range": "0–1 / 10 / 100 Ω",
+      "file": "cie-222m/3T_1-10-100Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 10 / 100 Ω",
+      "file": "cie-222m/3T_2-10-100Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 20 / 200 Ω",
+      "file": "cie-222m/3T_2-20-200Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–3 / 30 / 300 Ω",
+      "file": "cie-222m/3T_3-30-300Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 / 100 / 1000 Ω",
+      "file": "cie-222m/3T_10-100-1000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–5 / 50 / 500 Ω",
+      "file": "cie-222m/3T_5-50-500Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–20 / 200 / 2000 Ω",
+      "file": "cie-222m/3T_20-200-2000Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–50 / 500 / 5000 Ω",
+      "file": "cie-222m/3T_50-500-5000Ohm.pdf",
+      "bto": true
+     }
+    ],
+    "Four range": [
+     {
+      "range": "0–1 / 10 / 100 / 1000 Ω",
+      "file": "cie-222m/3T_1-10-100-1000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 10 / 100 / 1000 Ω",
+      "file": "cie-222m/3T_2-10-100-1000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 / 100 / 1000 / 10000 Ω",
+      "file": "cie-222m/3T_10-100-1000-10000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–3 / 30 / 300 / 3000 Ω",
+      "file": "cie-222m/3T_3-30-300-3000Ohm.pdf",
+      "bto": true
+     }
+    ],
+    "Five range": [
+     {
+      "range": "0–1 / 10 / 100 / 1000 / 10000 Ω",
+      "file": "cie-222m/3T_1-10-100-1000-10000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 10 / 100 / 1000 / 10000 Ω",
+      "file": "cie-222m/3T_2-10-100-1000-10000Ohm.pdf",
+      "bto": false
+     }
+    ]
+   },
+   "4": {
+    "Single range": [
+     {
+      "range": "0–1 Ω",
+      "file": "cie-222m/4T_1Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 Ω",
+      "file": "cie-222m/4T_2Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–3 Ω",
+      "file": "cie-222m/4T_3Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–5 Ω",
+      "file": "cie-222m/4T_5Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 Ω",
+      "file": "cie-222m/4T_10Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–20 Ω",
+      "file": "cie-222m/4T_20Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–30 Ω",
+      "file": "cie-222m/4T_30Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–50 Ω",
+      "file": "cie-222m/4T_50Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–100 Ω",
+      "file": "cie-222m/4T_100Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–200 Ω",
+      "file": "cie-222m/4T_200Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–300 Ω",
+      "file": "cie-222m/4T_300Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–500 Ω",
+      "file": "cie-222m/4T_500Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–1000 Ω",
+      "file": "cie-222m/4T_1000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2000 Ω",
+      "file": "cie-222m/4T_2000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–3000 Ω",
+      "file": "cie-222m/4T_3000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–5000 Ω",
+      "file": "cie-222m/4T_5000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10000 Ω",
+      "file": "cie-222m/4T_10000Ohm.pdf",
+      "bto": false
+     }
+    ],
+    "Dual range": [
+     {
+      "range": "0–1 / 10 Ω",
+      "file": "cie-222m/4T_1-10Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 10 Ω",
+      "file": "cie-222m/4T_2-10Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–3 / 30 Ω",
+      "file": "cie-222m/4T_3-30Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 / 100 Ω",
+      "file": "cie-222m/4T_10-100Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 20 Ω",
+      "file": "cie-222m/4T_2-20Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–5 / 50 Ω",
+      "file": "cie-222m/4T_5-50Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–20 / 200 Ω",
+      "file": "cie-222m/4T_20-200Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–50 / 500 Ω",
+      "file": "cie-222m/4T_50-500Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–100 / 1000 Ω",
+      "file": "cie-222m/4T_100-1000Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–500 / 5000 Ω",
+      "file": "cie-222m/4T_500-5000Ohm.pdf",
+      "bto": true
+     }
+    ],
+    "Triple range": [
+     {
+      "range": "0–1 / 10 / 100 Ω",
+      "file": "cie-222m/4T_1-10-100Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 10 / 100 Ω",
+      "file": "cie-222m/4T_2-10-100Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 20 / 200 Ω",
+      "file": "cie-222m/4T_2-20-200Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–3 / 30 / 300 Ω",
+      "file": "cie-222m/4T_3-30-300Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 / 100 / 1000 Ω",
+      "file": "cie-222m/4T_10-100-1000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–5 / 50 / 500 Ω",
+      "file": "cie-222m/4T_5-50-500Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–20 / 200 / 2000 Ω",
+      "file": "cie-222m/4T_20-200-2000Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–50 / 500 / 5000 Ω",
+      "file": "cie-222m/4T_50-500-5000Ohm.pdf",
+      "bto": true
+     }
+    ],
+    "Four range": [
+     {
+      "range": "0–1 / 10 / 100 / 1000 Ω",
+      "file": "cie-222m/4T_1-10-100-1000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 10 / 100 / 1000 Ω",
+      "file": "cie-222m/4T_2-10-100-1000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 / 100 / 1000 / 10000 Ω",
+      "file": "cie-222m/4T_10-100-1000-10000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–3 / 30 / 300 / 3000 Ω",
+      "file": "cie-222m/4T_3-30-300-3000Ohm.pdf",
+      "bto": true
+     }
+    ],
+    "Five range": [
+     {
+      "range": "0–1 / 10 / 100 / 1000 / 10000 Ω",
+      "file": "cie-222m/4T_1-10-100-1000-10000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 10 / 100 / 1000 / 10000 Ω",
+      "file": "cie-222m/4T_2-10-100-1000-10000Ohm.pdf",
+      "bto": false
+     }
+    ]
+   }
+  }
+ },
+ "det-2000": {
+  "type": "grp",
+  "data": {
+   "_": {
+    "Dual range": [
+     {
+      "range": "0–5 / 500 Ω",
+      "file": "det-2000/5-500Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 / 100 Ω",
+      "file": "det-2000/10-100Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–20 / 200 Ω",
+      "file": "det-2000/20-200Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 / 1000 Ω",
+      "file": "det-2000/10-1000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–20 / 2000 Ω",
+      "file": "det-2000/20-2000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–200 / 2000 Ω",
+      "file": "det-2000/200-2000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 20 Ω",
+      "file": "det-2000/2-20Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–50 / 500 Ω",
+      "file": "det-2000/50-500Ohm.pdf",
+      "bto": true
+     },
+     {
+      "range": "0–100 / 1000 Ω",
+      "file": "det-2000/100-1000Ohm.pdf",
+      "bto": true
+     }
+    ],
+    "Triple range": [
+     {
+      "range": "0–5 / 50 / 500 Ω",
+      "file": "det-2000/5-50-500Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–10 / 100 / 1000 Ω",
+      "file": "det-2000/10-100-1000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–20 / 200 / 2000 Ω",
+      "file": "det-2000/20-200-2000Ohm.pdf",
+      "bto": false
+     },
+     {
+      "range": "0–2 / 20 / 200 Ω",
+      "file": "det-2000/2-20-200Ohm.pdf",
+      "bto": true
+     }
+    ]
+   }
+  }
  }
 }

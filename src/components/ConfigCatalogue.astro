@@ -12,9 +12,30 @@ const selectCls = 'w-full rounded-lg border border-border bg-white px-3 py-2.5 t
   <div class="config-cat rounded-xl border border-border bg-cloud p-4" data-base={base} data-cfg={JSON.stringify(cfg)}>
     <p class="text-sm font-semibold text-ink">Catalogue for your configuration</p>
     <p class="text-xs text-muted mt-0.5 mb-3">
-      {cfg.type === 'vr' ? 'Select rated voltage and insulation range.' : 'Select your series.'}
+      {cfg.type === 'vr' ? 'Select rated voltage and insulation range.' : cfg.type === 'grp' ? (cfg.levels ? 'Select terminal type and measuring range.' : 'Select measuring range.') : 'Select your series.'}
     </p>
-    {cfg.type === 'vr' ? (
+    {cfg.type === 'grp' ? (
+      <div class="space-y-2">
+        {cfg.levels && (
+          <label class="block">
+            <span class="sr-only">{cfg.levelLabel}</span>
+            <select class={`${selectCls} cc-level`}>
+              <option value="">{cfg.levelLabel}</option>
+              {cfg.levels.map((l: any) => <option value={l.key}>{l.label}</option>)}
+            </select>
+          </label>
+        )}
+        <label class="block">
+          <span class="sr-only">Measuring range</span>
+          <select class={`${selectCls} cc-grp`} disabled={!!cfg.levels}>
+            <option value="">Measuring range</option>
+            {!cfg.levels && Object.entries(cfg.data._).map(([g, rs]: any) => (
+              <optgroup label={g}>{rs.map((r: any) => <option value={r.file}>{r.range}{r.bto ? ' (built to order)' : ''}</option>)}</optgroup>
+            ))}
+          </select>
+        </label>
+      </div>
+    ) : cfg.type === 'vr' ? (
       <div class="space-y-2">
         <label class="block">
           <span class="sr-only">Rated voltage</span>
@@ -64,7 +85,26 @@ const selectCls = 'w-full rounded-lg border border-border bg-white px-3 py-2.5 t
         dl.classList.add('pointer-events-none', 'opacity-50');
       }
     };
-    if (cfg.type === 'vr') {
+    if (cfg.type === 'grp') {
+      const gSel = root.querySelector<HTMLSelectElement>('.cc-grp')!;
+      const lSel = root.querySelector<HTMLSelectElement>('.cc-level');
+      gSel.addEventListener('change', () => setFile(gSel.value || null));
+      lSel?.addEventListener('change', () => {
+        gSel.innerHTML = '<option value="">Measuring range</option>';
+        setFile(null);
+        const groups = cfg.data[lSel.value];
+        gSel.disabled = !groups;
+        if (!groups) return;
+        Object.entries(groups).forEach(([g, rs]: any) => {
+          const og = document.createElement('optgroup'); og.label = g;
+          rs.forEach((r: any) => {
+            const el = document.createElement('option');
+            el.value = r.file; el.textContent = r.range + (r.bto ? ' (built to order)' : ''); og.appendChild(el);
+          });
+          gSel.appendChild(og);
+        });
+      });
+    } else if (cfg.type === 'vr') {
       const vSel = root.querySelector<HTMLSelectElement>('.cc-voltage')!;
       const rSel = root.querySelector<HTMLSelectElement>('.cc-range')!;
       vSel.addEventListener('change', () => {
