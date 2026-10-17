@@ -24,8 +24,9 @@ const otherNav = [
 const currentPath = Astro.url.pathname;
 const isHome      = currentPath === '/' || currentPath === u('/');
 const onProducts  = currentPath.startsWith(u('/products'));
-const onInsights  = currentPath.startsWith(u('/blog')) || currentPath.startsWith(u('/tools'));
+const onInsights  = currentPath.startsWith(u('/insights')) || currentPath.startsWith(u('/blog')) || currentPath.startsWith(u('/tools'));
 const insightsLinks = [
+  { label: 'Overview', sub: 'Guides and calculators, together', href: u('/insights/') },
   { label: 'Blog', sub: 'Guides and how-tos on testing', href: u('/blog/') },
   { label: 'Free Tools', sub: 'Calculators for engineers', href: u('/tools/') },
 ];
@@ -147,7 +148,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
         <!-- Insights + dropdown (Blog, Free Tools) -->
         <div class="relative group">
-          <a href={u('/blog/')}
+          <a href={u('/insights/')}
              class={`inline-flex items-center gap-1 whitespace-nowrap text-[13.5px] font-medium tracking-wide transition-colors ${onInsights ? 'text-white' : 'text-muted-dark group-hover:text-white'}`}>
             Insights
             <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
