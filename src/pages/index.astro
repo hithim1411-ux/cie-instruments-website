@@ -174,12 +174,12 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           <a role="listitem" href={heroBigTiles[1].href} data-hero-anim style="--d: 140ms; --c:6; --r:4; --cm:4; --rm:3;" class="hero-t hero-t--big" data-label={heroBigTiles[1].label} data-note={heroBigTiles[1].note} aria-label={`${heroBigTiles[1].label} - ${heroBigTiles[1].note}`}>
             <img src={heroBigTiles[1].src} alt="" width="360" height="360" decoding="async" />
           </a>
-          <div role="listitem" data-hero-anim style="--d: 200ms; --c:4; --r:3; --cm:6; --rm:2;" class="hero-t hero-t--text">
+          <a role="listitem" href={u('/about/')} data-hero-anim style="--d: 200ms; --c:4; --r:3; --cm:6; --rm:2;" class="hero-t hero-t--text" data-label="Est. 1963" data-note="Our story, Howrah" aria-label="Est. 1963 in Howrah - about CIE">
             <span class="hero-t-big">1963</span><span class="hero-t-small">Est. Howrah</span>
-          </div>
-          <div role="listitem" data-hero-anim style="--d: 260ms; --c:8; --r:7; --cm:1; --rm:6;" class="hero-t hero-t--text hero-t--ghost">
+          </a>
+          <a role="listitem" href={u('/products/')} data-hero-anim style="--d: 260ms; --c:8; --r:7; --cm:1; --rm:6;" class="hero-t hero-t--text hero-t--ghost" data-label={`${heroProductCount}+ instruments`} data-note="Browse all products" aria-label={`${heroProductCount}+ instruments - browse all products`}>
             <span class="hero-t-big">{heroProductCount}+</span><span class="hero-t-small">Instruments</span>
-          </div>
+          </a>
           {heroSingles.map((t, i) => (
             <a role="listitem" href={t.href} data-hero-anim style={`--d: ${120 + i * 16}ms;`} class={`hero-t${i >= 26 ? ' hero-t--extra' : ''}`} data-label={t.label} data-note={t.note} aria-label={`${t.label} - ${t.note}`}>
               <img src={t.src} alt="" width="360" height="360" loading={i < 14 ? 'eager' : 'lazy'} decoding="async" />
