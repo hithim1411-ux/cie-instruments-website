@@ -26,7 +26,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
     <!-- Products column -->
     <div>
-      <h3 class="text-ink text-xs font-semibold uppercase tracking-[0.15em] mb-5 font-mono">Products</h3>
+      <h3 class="text-red text-xs font-semibold uppercase tracking-[0.15em] mb-5 font-mono">Products</h3>
       <ul class="space-y-3 text-sm">
         {topCategories.map(cat => (
           <li>
@@ -43,7 +43,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
     <!-- Company column -->
     <div>
-      <h3 class="text-ink text-xs font-semibold uppercase tracking-[0.15em] mb-5 font-mono">Company</h3>
+      <h3 class="text-red text-xs font-semibold uppercase tracking-[0.15em] mb-5 font-mono">Company</h3>
       <ul class="space-y-3 text-sm">
         <li><a href={u('/about/')} class="hover:text-ink transition-colors">About Us</a></li>
         <li><a href={u('/blog/')} class="hover:text-ink transition-colors">Insights</a></li>
@@ -56,11 +56,11 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
     <!-- Contact column -->
     <div>
-      <h3 class="text-ink text-xs font-semibold uppercase tracking-[0.15em] mb-5 font-mono">Contact</h3>
+      <h3 class="text-red text-xs font-semibold uppercase tracking-[0.15em] mb-5 font-mono">Contact</h3>
       <address class="not-italic text-sm space-y-4">
         {site.addresses.map(addr => (
           <div>
-            <p class="text-ink text-xs font-mono uppercase tracking-wider mb-1.5">{addr.type}</p>
+            <p class="text-red text-xs font-mono uppercase tracking-wider mb-1.5">{addr.type}</p>
             {addr.lines.map(line => <p class="leading-relaxed">{line}</p>)}
           </div>
         ))}
@@ -81,7 +81,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
 
   <div class="border-t border-ink/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <p class="text-ink text-xs font-semibold uppercase tracking-[0.15em] mb-3 font-mono">Cities We Supply</p>
+      <p class="text-red text-xs font-semibold uppercase tracking-[0.15em] mb-3 font-mono">Cities We Supply</p>
       <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs">
         {locations.filter(l => l.featured).map(loc => (
           <a href={u(`/locations/${loc.slug}/`)} class="hover:text-ink transition-colors">{loc.name}</a>
