@@ -811,3 +811,11 @@ footer.footer-glass .eyebrow { color: #A8121B; }
   backdrop-filter: var(--glass-blur);
   box-shadow: var(--glass-rim);
 }
+
+/* .btn-secondary sets color: currentColor (unlayered), which beats the
+   layered .text-white utility, so "btn-secondary text-white" on a red or
+   dark band rendered dark-on-red. Honour the explicit utility. */
+.btn-secondary.text-white { color: #fff; }
+.btn-secondary.text-ink { color: var(--color-ink); }
+.bg-red .btn-secondary { color: #fff; border: 1.5px solid rgba(255, 255, 255, 0.7); background-color: rgba(255, 255, 255, 0.10); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; font-weight: 600; }
+.bg-red .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.22); border-color: rgba(255, 255, 255, 0.8); }
