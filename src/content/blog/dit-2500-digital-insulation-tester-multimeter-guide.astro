@@ -1,0 +1,65 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+import StepCards from '../../components/blog/StepCards.astro';
+---
+
+<p>
+  A digital insulation tester puts a precise DC test voltage across insulation and displays the leakage resistance on an LCD, with timers for the Dielectric Absorption Ratio (DAR) and Polarization Index (PI) built in. The CIE <a href={u('/products/digital-insulation-testers/dit-2500/')}>DIT-2500</a> goes further: it is an insulation tester and a True-RMS multimeter in one handheld unit, which means a technician can check supply voltage, continuity and insulation without swapping instruments. This guide explains how to get good readings from it.
+</p>
+
+<h2 id="test-voltages">Choosing the Test Voltage</h2>
+
+<p>
+  The DIT-2500 offers five test voltages: 100 V, 250 V, 500 V, 1000 V and 2500 V. The measuring range depends on the voltage you select, and a higher test voltage reaches higher resistance:
+</p>
+
+<ul>
+  <li><strong>100 V</strong>: 0.1 MΩ to 2 GΩ</li>
+  <li><strong>250 V</strong>: 0.25 MΩ to 5 GΩ</li>
+  <li><strong>500 V</strong>: 0.5 MΩ to 10 GΩ</li>
+  <li><strong>1000 V</strong>: 1 MΩ to 20 GΩ</li>
+  <li><strong>2500 V</strong>: 2.5 MΩ to 50 GΩ</li>
+</ul>
+
+<p>
+  A common practice is to match the test voltage to the equipment's rated voltage: lower voltages for delicate or low-voltage circuits, 500 V to 1000 V for typical low-voltage motors and cables, and 2500 V for higher-voltage plant, according to the equipment maker's and your site's standard. Never test above what the equipment maker permits. For the reasoning behind voltage selection, see <a href={u('/blog/insulation-resistance-testing-guide/')}>the insulation resistance testing guide</a>.
+</p>
+
+<h2 id="procedure">Running a Test</h2>
+
+<StepCards steps={[
+  { title: 'Isolate and prove dead', body: 'Switch off, lock out and confirm the equipment is dead. Discharge any capacitance, such as a long cable.' },
+  { title: 'Connect the leads', body: 'The DIT-2500 has LINE, EARTH and GUARD terminals for insulation testing. Connect LINE to the conductor and EARTH to the frame or earth.' },
+  { title: 'Select the voltage', body: 'Choose the test voltage for the equipment under test.' },
+  { title: 'Start the test and read', body: 'Hold the test until the reading settles. Use the timer for timed readings.' },
+  { title: 'Let it discharge', body: 'Leave the leads connected after the test until the equipment has discharged before touching it.' },
+]} />
+
+<h2 id="dar-pi">DAR and PI With the Built-In Timer</h2>
+
+<p>
+  The DIT-2500 supports DAR (1 min : 15 s and 1 min : 30 s) and PI (10 min : 60 s), with selectable test timers of 15 s, 30 s, 1 min and 10 min. A single spot reading can mislead, because it depends heavily on temperature and moisture. The ratio of two readings taken at different times removes much of that dependence and shows whether insulation is clean and dry or contaminated. See <a href={u('/blog/polarization-index-vs-dielectric-absorption-ratio/')}>PI vs DAR</a> for how to interpret the results.
+</p>
+
+<h2 id="guard">The Guard Terminal</h2>
+
+<p>
+  The GUARD terminal diverts surface leakage current around the measuring circuit, so it is not counted in the reading. On a cable with a dirty or damp outer surface, or on a bushing, surface leakage can make good insulation look poor. Connecting the guard to the surface, with a few turns of bare wire, tests the bulk insulation only. For routine motor and cable tests you often do not need it, but it is valuable when you need to separate surface leakage from the insulation itself.
+</p>
+
+<Callout type="info" title="One instrument, two jobs">
+  The multimeter side measures AC and DC voltage up to 1500 V, resistance to 60 MΩ, capacitance up to 100 mF, frequency, continuity and diode test, with CAT III 1000 V / CAT IV 600 V safety rating. Use the VΩ and COM terminals for these, not the insulation terminals, and never select the insulation function while connected to a live circuit.
+</Callout>
+
+<h2 id="who-for">Who Uses It</h2>
+
+<ul>
+  <li>Electrical maintenance teams who want one instrument for both insulation and general fault finding.</li>
+  <li>Commissioning engineers testing motors, transformers, cables, switchgear and panels.</li>
+  <li>Service engineers who need DAR/PI trending but do not want a large bench instrument.</li>
+</ul>
+
+<p>
+  It runs on rechargeable 3.7 V × 2 Li-ion batteries, with data hold, backlight and auto power-off, and weighs about 380 g. For hand-driven analog options, see our <a href={u('/products/insulation-testers-hand/')}>hand-driven insulation testers</a>, and to compare digital and analog approaches read <a href={u('/blog/how-to-choose-an-insulation-tester/')}>how to choose an insulation tester</a>. <a href={u('/contact/')}>Contact us</a> for help selecting a test voltage and instrument.
+</p>

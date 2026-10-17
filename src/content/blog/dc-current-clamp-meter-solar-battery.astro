@@ -1,0 +1,53 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  An ordinary AC clamp meter reads nothing on a DC cable, however much current is flowing through it. As solar arrays, battery banks, UPS systems and DC distribution boards become routine on Indian sites, an AC/DC clamp meter has gone from a specialist tool to something maintenance teams need every week. This guide explains how DC current clamps work, how to use one properly, and where the limits are.
+</p>
+
+<h2 id="why-ac-clamps-fail">Why an AC Clamp Cannot Read DC</h2>
+
+<p>
+  A basic AC clamp is a current transformer. The jaws wrap around the conductor, and the alternating magnetic field induces a current in a coil that the meter measures. Direct current produces a steady magnetic field, which cannot induce anything in a transformer, so the reading stays at zero. The result is a meter that looks fine and tells you nothing.
+</p>
+
+<h2 id="how-dc-clamps-work">How a DC Clamp Senses Current</h2>
+
+<p>
+  An AC/DC clamp meter adds a Hall-effect sensor in the jaw gap. A Hall sensor produces a small voltage in proportion to the magnetic field passing through it, steady or alternating, so it can measure the field around a DC conductor directly. The same sensor handles AC, which is why one AC/DC clamp covers both jobs without breaking the circuit.
+</p>
+
+<h2 id="where-it-is-used">Where You Need DC Current Measurement</h2>
+
+<ul>
+  <li><strong>Solar PV strings and combiner boxes</strong>: checking string current to spot a shaded, soiled or failing string.</li>
+  <li><strong>Battery banks and chargers</strong>: confirming charge and discharge current on UPS, telecom and inverter batteries.</li>
+  <li><strong>DC distribution and control panels</strong>: tracing loads on 24 V, 48 V and 110 V DC supplies in substations and plants.</li>
+  <li><strong>Vehicle and motor-drive work</strong>: measuring starter, charger and DC motor currents.</li>
+</ul>
+
+<h2 id="procedure">Measuring DC Current Step by Step</h2>
+
+<ol>
+  <li><strong>Select the DC current function</strong> and the range (or leave an auto-ranging meter to choose).</li>
+  <li><strong>Zero the display with the jaws open and clear of any conductor</strong>, following your meter's manual. A Hall sensor can show a small offset from the earth's field or residual magnetism, and zeroing removes it.</li>
+  <li><strong>Clamp around one conductor only</strong>. Enclosing both the positive and negative cable cancels the field and reads near zero.</li>
+  <li><strong>Check the polarity sign</strong>. Many clamps show a minus sign when current flows against the arrow marked on the jaw, which tells you the direction of flow.</li>
+  <li><strong>Keep the conductor centred</strong> in the jaw and away from other current-carrying cables, which add stray field to the reading.</li>
+</ol>
+
+<Callout type="warning" title="Check the CAT rating and the system voltage before you clamp">
+  The clamp measures current through insulation, but you are still working next to live conductors. Match the meter's CAT rating and voltage rating to the system. A meter rated CAT III 600 V is suited to panels, batteries and many DC distribution systems, but it is not the right tool for the higher open-circuit voltages that can appear on larger solar strings. Always confirm the string voltage first and use a meter rated above it.
+</Callout>
+
+<h2 id="dcm-5410-tr">The CIE DCM 5410 TR for AC and DC Work</h2>
+
+<p>
+  The <a href={u('/products/clamp-meters/dcm-5410-tr/')}>CIE DCM 5410 TR</a> is a True-RMS AC/DC clamp multimeter measuring up to 1000 A on both AC and DC current, with ranges of 60 A, 600 A and 1000 A. It also measures AC/DC voltage up to 1000 V DC, capacitance from 1 nF to 10 mF, frequency from 10 Hz to 10 MHz, and temperature from -20 °C to 1000 °C. It has a 6000-count auto-ranging display, a 40 mm jaw, NCV and live-wire detection, and a CAT III 600 V rating. It runs on 2 AAA batteries. The DC current capability is what separates it from the AC-only <a href={u('/products/clamp-meters/dcm-2250-tr/')}>DCM 2250 TR</a> - see our <a href={u('/blog/dcm-2250-tr-vs-dcm-5410-tr/')}>side-by-side comparison</a> for how to choose between them.
+</p>
+
+<p>
+  For the basics of clamp meter use, start with our <a href={u('/blog/how-to-use-a-clamp-meter/')}>clamp meter guide</a>, and see <a href={u('/blog/testing-solar-pv-installations-insulation-earth/')}>testing solar PV installations</a> for the insulation and earth side of solar commissioning. <a href={u('/contact/')}>Contact us</a> for help choosing a clamp meter for your work.
+</p>

@@ -118,6 +118,11 @@ import PrimaryVsSecondaryInjectionTestingGuide from '../../content/blog/primary-
 import HowToMeggerTestHouseWiringGuide from '../../content/blog/how-to-megger-test-house-wiring.astro';
 import GeneratorAlternatorInsulationTestingGuide from '../../content/blog/generator-alternator-insulation-testing.astro';
 import LightningProtectionEarthingTestingGuide from '../../content/blog/lightning-protection-earthing-testing.astro';
+import DcCurrentClampMeterSolarBatteryGuide from '../../content/blog/dc-current-clamp-meter-solar-battery.astro';
+import GhostVoltageLowZNcvExplainedGuide from '../../content/blog/ghost-voltage-low-z-ncv-explained.astro';
+import Dcm2250TrVsDcm5410TrGuide from '../../content/blog/dcm-2250-tr-vs-dcm-5410-tr.astro';
+import ManualRangingTrueRmsMultimeterDm321tGuide from '../../content/blog/manual-ranging-true-rms-multimeter-dm-321t.astro';
+import Dit2500DigitalInsulationTesterMultimeterGuideGuide from '../../content/blog/dit-2500-digital-insulation-tester-multimeter-guide.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -243,6 +248,11 @@ const contentMap: Record<string, any> = {
   'how-to-megger-test-house-wiring': HowToMeggerTestHouseWiringGuide,
   'generator-alternator-insulation-testing': GeneratorAlternatorInsulationTestingGuide,
   'lightning-protection-earthing-testing': LightningProtectionEarthingTestingGuide,
+  'dc-current-clamp-meter-solar-battery': DcCurrentClampMeterSolarBatteryGuide,
+  'ghost-voltage-low-z-ncv-explained': GhostVoltageLowZNcvExplainedGuide,
+  'dcm-2250-tr-vs-dcm-5410-tr': Dcm2250TrVsDcm5410TrGuide,
+  'manual-ranging-true-rms-multimeter-dm-321t': ManualRangingTrueRmsMultimeterDm321tGuide,
+  'dit-2500-digital-insulation-tester-multimeter-guide': Dit2500DigitalInsulationTesterMultimeterGuideGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -1080,6 +1090,40 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'continuity', label: 'Continuity and Bonding' },
     { id: 'hard-ground', label: 'If the Ground Is Poor' },
     { id: 'retest', label: 'Retest on a Schedule' },
+  ],
+  'dc-current-clamp-meter-solar-battery': [
+    { id: 'why-ac-clamps-fail', label: 'Why an AC Clamp Cannot Read DC' },
+    { id: 'how-dc-clamps-work', label: 'How a DC Clamp Senses Current' },
+    { id: 'where-it-is-used', label: 'Where You Need DC Measurement' },
+    { id: 'procedure', label: 'Step by Step' },
+    { id: 'dcm-5410-tr', label: 'The CIE DCM 5410 TR' },
+  ],
+  'ghost-voltage-low-z-ncv-explained': [
+    { id: 'what-ghost-voltage-is', label: 'What Ghost Voltage Is' },
+    { id: 'low-z', label: 'How Low-Z Mode Solves It' },
+    { id: 'ncv', label: 'What NCV Adds' },
+    { id: 'routine', label: 'A Sensible Check Routine' },
+    { id: 'where-it-bites', label: 'Where It Causes Trouble' },
+  ],
+  'dcm-2250-tr-vs-dcm-5410-tr': [
+    { id: 'side-by-side', label: 'Side-by-Side Specification' },
+    { id: 'choose-2250', label: 'Choose the DCM 2250 TR If' },
+    { id: 'choose-5410', label: 'Choose the DCM 5410 TR If' },
+    { id: 'shared', label: 'What They Share' },
+  ],
+  'manual-ranging-true-rms-multimeter-dm-321t': [
+    { id: 'what-manual-means', label: 'What Manual Ranging Means' },
+    { id: 'advantages', label: 'Where Manual Is Better' },
+    { id: 'dm-321t', label: 'What the DM 321T Measures' },
+    { id: 'who-for', label: 'Who Should Choose It' },
+    { id: 'choose-auto', label: 'When to Choose Auto-Ranging' },
+  ],
+  'dit-2500-digital-insulation-tester-multimeter-guide': [
+    { id: 'test-voltages', label: 'Choosing the Test Voltage' },
+    { id: 'procedure', label: 'Running a Test' },
+    { id: 'dar-pi', label: 'DAR and PI With the Timer' },
+    { id: 'guard', label: 'The Guard Terminal' },
+    { id: 'who-for', label: 'Who Uses It' },
   ],
 };
 

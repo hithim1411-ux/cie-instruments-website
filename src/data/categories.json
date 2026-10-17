@@ -28,7 +28,7 @@
     ],
     "seoContent": [
       "CIE hand-driven insulation testers are generator-type instruments that require no batteries or mains supply - a built-in hand-cranked AC generator produces the test voltage, which is rectified to DC by silicon diodes and applied across the insulation under test. The result is read directly off a cross-coil analog indicator. This operating principle makes them inherently robust and suitable for use in remote field locations, substations, and industrial sites across India where power supply is unavailable or unreliable.",
-      "CIE manufactures hand-driven insulation testers in two body variants: the CIE/444 in an anti-magnetic aluminium die-cast body, and the CIE/666 in a teak wood body. Both are available in test voltages from 100 V to 10 kV, making them suitable for testing low-voltage domestic wiring, medium-voltage distribution cables, HV transmission equipment, and large rotating machines. All instruments conform to ISS: 2992-1987.",
+      "CIE manufactures hand-driven insulation testers in two body variants: the CIE/444 in an anti-magnetic aluminium die-cast body, and the CIE/666 in a teak wood body. Both are available in test voltages from 100 V to 10 kV, making them suitable for testing low-voltage domestic wiring, medium-voltage distribution cables, HV transmission equipment, and large rotating machines. All instruments conform to IS 2992:1987.",
       "These instruments are widely used by power utilities, electrical contractors, substation commissioning engineers, and industrial maintenance teams across India - including in Kolkata, Howrah, West Bengal, Odisha, Jharkhand, Bihar, and across Eastern India. They are equally specified by engineers in Bangalore, Chennai, Mumbai, Delhi, Hyderabad, Pune, Ahmedabad, and all major industrial centres.",
       "Common applications include insulation resistance testing of motors, generators, transformers, HV cables, switchgear, distribution boards, and industrial wiring. CIE insulation testers are used for routine maintenance testing, pre-commissioning acceptance testing, condition monitoring, and fault location. Custom test voltages and resistance ranges can be manufactured to specification."
     ],
@@ -109,11 +109,11 @@
     "description": "Economical bakelite and compact metal body hand-driven insulation testers for everyday site and workshop use at 100 V to 1000 V.",
     "icon": "🔋",
     "metaTitle": "Compact Insulation Testers | CIE/555 Bakelite Body - Cambridge Instruments (CIE), Howrah",
-    "metaDesc": "CIE/555 compact hand-driven insulation tester in high-grade bakelite body. 100 V to 1000 V. Lightweight, battery-free, conforms to ISS: 2992-1987. Manufacturer in Howrah, India.",
+    "metaDesc": "CIE/555 compact hand-driven insulation tester in high-grade bakelite body. 100 V to 1000 V. Lightweight, battery-free, conforms to IS 2992:1987. Manufacturer in Howrah, India.",
     "seoContent": [
       "The CIE/555 is a compact, economical insulation tester in a high-grade moulded bakelite body, designed for everyday site and workshop use at test voltages from 100 V to 1000 V. Like all CIE hand-driven insulation testers, it requires no batteries or mains supply - the hand-cranked generator provides the test voltage, making it completely self-contained for field use.",
       "The CIE/555 is suited to testing household wiring, light industrial equipment, motors and pumps at low voltage, electrical panels, and distribution boards. It is widely used by electricians, electrical contractors, maintenance engineers, and testing laboratories across India for routine insulation resistance checks on low-voltage equipment.",
-      "At 1.4 kg and 155 × 104 × 70 mm, the CIE/555 is the most portable insulation tester in the CIE range - easy to carry on site and store in a tool kit. It conforms to ISS: 2992-1987 and carries a 12-month warranty against manufacturing defects only. Custom resistance ranges from 0–10 MΩ to 0–500 MΩ are available to specification."
+      "At 1.4 kg and 155 × 104 × 70 mm, the CIE/555 is the most portable insulation tester in the CIE range - easy to carry on site and store in a tool kit. It conforms to IS 2992:1987 and carries a 12-month warranty against manufacturing defects only. Custom resistance ranges from 0–10 MΩ to 0–500 MΩ are available to specification."
     ],
     "relatedArticles": [
       "insulation-resistance-testing-guide",
@@ -174,7 +174,8 @@
     "relatedArticles": [
       "insulation-resistance-testing-guide",
       "what-is-a-megger",
-      "insulation-resistance-temperature-correction"
+      "insulation-resistance-temperature-correction",
+      "dit-2500-digital-insulation-tester-multimeter-guide"
     ]
   },
   {
@@ -232,10 +233,10 @@
       "Clamp meters are used by electrical engineers, electricians, HVAC technicians, panel builders, and industrial maintenance teams across India. Available directly from CIE with pan-India supply to Kolkata, Howrah, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, and all major cities."
     ],
     "relatedArticles": [
-      "how-to-use-a-clamp-meter",
-      "how-to-choose-a-clamp-meter",
       "clamp-meter-vs-multimeter",
-      "how-to-check-three-phase-imbalance"
+      "how-to-check-three-phase-imbalance",
+      "dc-current-clamp-meter-solar-battery",
+      "dcm-2250-tr-vs-dcm-5410-tr"
     ]
   },
   {
@@ -273,10 +274,10 @@
       "Digital multimeters are used by electricians, engineers, technicians, and students across India for general electrical measurement, troubleshooting, and maintenance. Available from CIE with pan-India supply to Kolkata, Howrah, Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, and all major cities."
     ],
     "relatedArticles": [
-      "what-is-a-multimeter",
       "how-to-choose-a-multimeter",
       "digital-vs-analogue-multimeter",
-      "what-is-burden-voltage"
+      "what-is-burden-voltage",
+      "manual-ranging-true-rms-multimeter-dm-321t"
     ]
   },
   {

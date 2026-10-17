@@ -1,0 +1,59 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+import CompareTable from '../../components/blog/CompareTable.astro';
+---
+
+<p>
+  CIE's two True-RMS clamp multimeters, the <a href={u('/products/clamp-meters/dcm-2250-tr/')}>DCM 2250 TR</a> and the <a href={u('/products/clamp-meters/dcm-5410-tr/')}>DCM 5410 TR</a>, look almost identical: same 40 mm jaw, same 6000-count display, same CAT III 600 V rating, same 2 × AAA power. The difference that matters is one line in the specification: whether the clamp can read <strong>DC current</strong>. This guide helps you decide which one your work actually needs.
+</p>
+
+<h2 id="side-by-side">Side-by-Side Specification</h2>
+
+<CompareTable
+  labelA="DCM 2250 TR"
+  labelB="DCM 5410 TR"
+  rows={[
+    { feature: 'AC current (True-RMS)', a: '6 A / 60 A / 600 A / 1000 A', b: '60 A / 600 A / 1000 A', winner: 'a' },
+    { feature: 'DC current', a: 'Not available', b: '60 A / 600 A / 1000 A', winner: 'b' },
+    { feature: 'DC voltage', a: 'Up to 1000 V', b: 'Up to 1000 V', winner: 'both' },
+    { feature: 'AC voltage (True-RMS)', a: 'Up to 750 V', b: 'Up to 750 V', winner: 'both' },
+    { feature: 'Low-Z ACV', a: '6 / 60 / 300 V', b: '6 / 60 / 300 V', winner: 'both' },
+    { feature: 'NCV / live-wire test', a: 'Yes', b: 'Yes', winner: 'both' },
+    { feature: 'Capacitance', a: 'Not listed', b: '1 nF to 10 mF', winner: 'b' },
+    { feature: 'Frequency', a: 'Not listed', b: '10 Hz to 10 MHz', winner: 'b' },
+    { feature: 'Temperature', a: 'Not listed', b: '-20 °C to 1000 °C', winner: 'b' },
+    { feature: 'Jaw opening', a: '40 mm', b: '40 mm', winner: 'both' },
+    { feature: 'Safety rating', a: 'CAT III 600 V', b: 'CAT III 600 V', winner: 'both' },
+  ]}
+/>
+
+<h2 id="choose-2250">Choose the DCM 2250 TR If</h2>
+
+<ul>
+  <li>Your work is on AC systems: panels, motors, feeders, lighting and distribution boards.</li>
+  <li>You want the extra 6 A range for small AC loads, with finer resolution than a 60 A range gives.</li>
+  <li>You want True-RMS accuracy on non-sinusoidal loads, plus NCV and Low-Z ACV for ghost-voltage checks, in a straightforward AC instrument.</li>
+</ul>
+
+<h2 id="choose-5410">Choose the DCM 5410 TR If</h2>
+
+<ul>
+  <li>You work with <strong>DC current</strong>: solar strings, battery banks, UPS and charger circuits, DC control panels.</li>
+  <li>You want capacitance, frequency and temperature in the same instrument, for example checking a motor-run capacitor or a hot connection.</li>
+  <li>You want one clamp that covers both AC and DC so a team does not carry two.</li>
+</ul>
+
+<Callout type="info" title="The simple rule">
+  If you will never clamp a DC cable, the DCM 2250 TR covers AC work with a simpler feature set. If there is any chance you will, buy the DCM 5410 TR now. An AC-only clamp reads zero on DC and cannot be upgraded later.
+</Callout>
+
+<h2 id="shared">What They Share</h2>
+
+<p>
+  Both measure True-RMS AC current, which matters on loads fed by drives and switching supplies where an average-responding meter would read wrong (see <a href={u('/blog/true-rms-vs-average-rms/')}>True-RMS vs average-responding</a>). Both include Low-Z ACV for separating ghost voltage from real supply (see <a href={u('/blog/ghost-voltage-low-z-ncv-explained/')}>ghost voltage explained</a>), both have data hold, MIN/MAX, a backlight and a torch, and both come with test leads, a carrying pouch and a manual.
+</p>
+
+<p>
+  For a deeper look at DC clamp measurement, read <a href={u('/blog/dc-current-clamp-meter-solar-battery/')}>measuring DC current with a clamp meter</a>, and for the wider choice see <a href={u('/blog/how-to-choose-a-clamp-meter/')}>how to choose a clamp meter</a>. <a href={u('/contact/')}>Contact us</a> and we will recommend the right model for your application.
+</p>

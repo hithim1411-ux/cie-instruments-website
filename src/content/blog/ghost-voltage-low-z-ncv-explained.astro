@@ -1,0 +1,60 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  An electrician checks a cable that should be dead. The multimeter reads 90 V. Is the circuit live? Often it is not - the cable is picking up <strong>ghost voltage</strong> (also called phantom or induced voltage) from a parallel live cable. Getting this wrong in either direction is costly: treating a live circuit as dead is dangerous, and treating a dead circuit as live wastes hours of fault-finding.
+</p>
+
+<h2 id="what-ghost-voltage-is">What Ghost Voltage Is</h2>
+
+<p>
+  Conductors that run alongside live cables couple to them capacitively, in the same way the two plates of a capacitor couple across a gap. This induces a voltage on the unused conductor. The voltage is real, but it carries almost no current, so it collapses the moment anything draws power from it. A standard digital multimeter has very high input impedance (typically 10 MΩ or more), which draws almost nothing, so it reads the full induced voltage and shows a number that looks alarming.
+</p>
+
+<h2 id="low-z">How Low-Z Mode Solves It</h2>
+
+<p>
+  A low-impedance (Low-Z) ACV mode loads the circuit with a much smaller input impedance. A real live supply can easily drive that load and the reading stays correct. A ghost voltage source cannot, so the reading falls to near zero. The meter itself separates "real" from "induced" for you.
+</p>
+
+<p>
+  The CIE <a href={u('/products/clamp-meters/dcm-2250-tr/')}>DCM 2250 TR</a> and <a href={u('/products/clamp-meters/dcm-5410-tr/')}>DCM 5410 TR</a> both offer Low-Z ACV on 6 V, 60 V and 300 V ranges with an input impedance of 3 kΩ or less, alongside normal high-impedance AC voltage up to 750 V.
+</p>
+
+<Callout type="warning" title="Low-Z mode is not a substitute for proving dead">
+  Low-Z mode loads the circuit, so never use it on a sensitive electronic circuit, and never rely on one reading to declare a circuit safe. Use your site's isolation and prove-dead procedure with a proper voltage tester, and treat any circuit as live until it is proven otherwise.
+</Callout>
+
+<h2 id="ncv">What Non-Contact Voltage (NCV) Adds</h2>
+
+<p>
+  NCV detection senses the electric field around a conductor without touching it. Hold the tip near a cable or socket and the meter beeps or lights when voltage is present. It is a fast first screening step: it is quick, it works through insulation, and it keeps you away from bare conductors. Both DCM models include NCV and a live-wire test.
+</p>
+
+<p>
+  NCV has its own weakness. It detects an electric field, so shielding, cable routing and stray fields can produce false negatives (a live cable that does not trigger it) or false positives. Treat a beep as "voltage may be present" and a silent result as "inconclusive", never as proof the circuit is dead.
+</p>
+
+<h2 id="routine">A Sensible Check Routine</h2>
+
+<ol>
+  <li><strong>NCV first</strong>, to find where voltage might exist before you touch anything.</li>
+  <li><strong>Normal ACV</strong> to see what voltage is present. If it reads a few tens of volts on a cable that should be dead, suspect ghost voltage.</li>
+  <li><strong>Switch to Low-Z</strong> on a circuit that is safe to load. A reading that drops to near zero points to induced voltage. A reading that holds is genuine supply.</li>
+  <li><strong>Confirm with your site isolation procedure</strong> before working on any conductor.</li>
+</ol>
+
+<h2 id="where-it-bites">Where It Causes the Most Trouble</h2>
+
+<ul>
+  <li>Long cable runs in shared trays and conduits.</li>
+  <li>Control cables running next to power cables in panels.</li>
+  <li>Disconnected sockets and spare cores in distribution boards.</li>
+  <li>Lighting circuits with long parallel runs and electronic drivers.</li>
+</ul>
+
+<p>
+  To understand the multimeter side of this in more depth, see <a href={u('/blog/how-to-choose-a-multimeter/')}>how to choose a multimeter</a> and <a href={u('/blog/clamp-meter-vs-multimeter/')}>clamp meter vs multimeter</a>. <a href={u('/contact/')}>Contact us</a> if you want help choosing a meter for panel and distribution work.
+</p>

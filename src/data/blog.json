@@ -1266,5 +1266,60 @@
     "shelf": "insulation-earthing",
     "excerpt": "Air terminals only work if the earth electrodes do. How to test them safely.",
     "seoTitle": "Testing Lightning Protection Earthing"
+  },
+  {
+      "slug": "dc-current-clamp-meter-solar-battery",
+      "title": "Measuring DC Current with a Clamp Meter",
+      "description": "How AC/DC clamp meters read DC current for solar strings, batteries and DC panels, with a step-by-step method and safety limits.",
+      "publishDate": "2026-10-17",
+      "readTime": "7 min read",
+      "category": "Guide",
+      "shelf": "clamp-meters",
+      "excerpt": "An AC clamp reads zero on DC. Here is how DC clamps work and how to use one.",
+      "seoTitle": "DC Current Clamp Meter: Solar and Battery Guide"
+  },
+  {
+      "slug": "ghost-voltage-low-z-ncv-explained",
+      "title": "Ghost Voltage, Low-Z Mode and NCV Explained",
+      "description": "Why a dead cable can read 90 V, how Low-Z ACV separates ghost voltage from real supply, and what NCV detection can and cannot tell you.",
+      "publishDate": "2026-10-17",
+      "readTime": "6 min read",
+      "category": "Explainer",
+      "shelf": "clamp-meters",
+      "excerpt": "A dead cable reading 90 V is usually ghost voltage. Here is how to tell.",
+      "seoTitle": "Ghost Voltage, Low-Z and NCV Explained"
+  },
+  {
+      "slug": "dcm-2250-tr-vs-dcm-5410-tr",
+      "title": "DCM 2250 TR vs DCM 5410 TR: Which Clamp Meter?",
+      "description": "Side-by-side comparison of CIE's two True-RMS clamp multimeters: the AC-only DCM 2250 TR and the AC/DC DCM 5410 TR.",
+      "publishDate": "2026-10-17",
+      "readTime": "5 min read",
+      "category": "Comparison",
+      "shelf": "clamp-meters",
+      "excerpt": "One spec line separates these two clamps: DC current. Which do you need?",
+      "seoTitle": "DCM 2250 TR vs DCM 5410 TR Comparison"
+  },
+  {
+      "slug": "manual-ranging-true-rms-multimeter-dm-321t",
+      "title": "Manual-Ranging True-RMS Multimeter: DM 321T",
+      "description": "When a manual-ranging multimeter beats auto-ranging, with the CIE DM 321T True-RMS meter as the worked example.",
+      "publishDate": "2026-10-17",
+      "readTime": "6 min read",
+      "category": "Guide",
+      "shelf": "multimeters",
+      "excerpt": "Manual ranging is faster, steadier and cheaper. When it is the right choice.",
+      "seoTitle": "Manual-Ranging True-RMS Multimeter Guide"
+  },
+  {
+      "slug": "dit-2500-digital-insulation-tester-multimeter-guide",
+      "title": "How to Use the DIT-2500 Insulation Tester",
+      "description": "A practical guide to the CIE DIT-2500 digital insulation tester and multimeter: test voltages, DAR/PI timers, guard terminal and safe procedure.",
+      "publishDate": "2026-10-17",
+      "readTime": "7 min read",
+      "category": "How-To",
+      "shelf": "insulation-earthing",
+      "excerpt": "Five test voltages, DAR/PI timers and a multimeter in one handheld.",
+      "seoTitle": "How to Use the DIT-2500 Insulation Tester"
   }
 ]

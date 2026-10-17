@@ -1,0 +1,62 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+---
+
+<p>
+  Auto-ranging multimeters get most of the attention, and for good reason: they are convenient. But a manual-ranging meter is still the right tool in plenty of situations, and it often costs less for the same measurement capability. This guide explains where manual ranging earns its place, using the CIE <a href={u('/products/multimeters/dm-321t/')}>DM 321T</a> True-RMS multimeter as the worked example.
+</p>
+
+<h2 id="what-manual-means">What Manual Ranging Means</h2>
+
+<p>
+  On a manual-ranging meter you choose the measurement range yourself with the rotary switch - for example 2 V, 20 V, 200 V or 1000 V on DC voltage. An auto-ranging meter picks the range for you. Both measure the same thing; the difference is who decides the range, and how quickly the reading settles.
+</p>
+
+<h2 id="advantages">Where Manual Ranging Is Actually Better</h2>
+
+<ul>
+  <li><strong>Faster, steadier readings</strong>: there is no pause while the meter hunts for a range, and the display does not flicker between ranges on a fluctuating signal.</li>
+  <li><strong>Predictable resolution</strong>: you choose the range, so you know exactly how many digits and which resolution you are getting.</li>
+  <li><strong>Learning and training</strong>: choosing a range forces you to estimate the expected value first, which builds good measurement habits.</li>
+  <li><strong>Simplicity and cost</strong>: no auto-range circuitry means a simpler, more economical instrument for the same measurement set.</li>
+</ul>
+
+<p>
+  The trade-off is that you must pick a sensible range. Start high and step down. If the display reads over-range, move up a range. This is exactly the habit described in <a href={u('/blog/how-to-choose-a-multimeter/')}>how to choose a multimeter</a>.
+</p>
+
+<h2 id="dm-321t">What the DM 321T Measures</h2>
+
+<p>
+  The DM 321T is a 3½-digit, manual-ranging, True-RMS digital multimeter with a backlit display and a protective holster. Its measurement set covers:
+</p>
+
+<ul>
+  <li><strong>DC voltage</strong>: 200 mV to 1000 V.</li>
+  <li><strong>AC voltage (True-RMS)</strong>: 2 V to 750 V, 40 Hz to 1 kHz.</li>
+  <li><strong>DC current</strong>: 200 µA to 20 A.</li>
+  <li><strong>AC current (True-RMS)</strong>: 20 mA to 20 A.</li>
+  <li><strong>Resistance</strong>: 200 Ω to 20 MΩ.</li>
+  <li><strong>Capacitance</strong>: auto-ranging from 6 nF to 20 mF.</li>
+  <li><strong>Also</strong>: continuity buzzer, diode test, transistor hFE test, relative (REL) measurement, AC mains frequency test on the 750 V range, data hold, auto power-off and low-battery indication.</li>
+</ul>
+
+<Callout type="tip" title="Why True-RMS matters on a basic meter">
+  A True-RMS meter reads the heating value of the waveform correctly even when it is not a clean sine wave. On circuits with dimmers, switching supplies, LED drivers or variable-speed drives, an average-responding meter can read noticeably wrong. See <a href={u('/blog/true-rms-vs-average-rms/')}>True-RMS vs average-responding</a> for how large the error can be.
+</Callout>
+
+<h2 id="who-for">Who Should Choose a Manual-Ranging Meter</h2>
+
+<ul>
+  <li><strong>Electronics students and training labs</strong>, where learning range selection is part of the skill.</li>
+  <li><strong>Repair benches</strong> that use the transistor hFE test, diode test and capacitance in daily fault finding. See <a href={u('/blog/electronics-repair-training-lab-instrument-checklist/')}>the repair-lab instrument checklist</a>.</li>
+  <li><strong>Electricians and maintenance teams</strong> who want an accurate, rugged meter with a holster for general panel and equipment work.</li>
+  <li><strong>Anyone on a budget</strong> who still needs True-RMS accuracy.</li>
+</ul>
+
+<h2 id="choose-auto">When to Choose Auto-Ranging Instead</h2>
+
+<p>
+  If the people using the meter are new to measurement, or the work involves rapidly changing signals across wide ranges, auto-ranging saves time and reduces mistakes. See <a href={u('/blog/digital-vs-analogue-multimeter/')}>digital vs analogue multimeters</a> and the <a href={u('/products/multimeters/')}>full CIE multimeter range</a> for auto-ranging options. <a href={u('/contact/')}>Contact us</a> for a recommendation.
+</p>

@@ -1558,6 +1558,8 @@
     ],
     "featured": false,
     "datasheet": "dcm-2250-tr.pdf",
+    "metaTitle": "DCM 2250 TR True-RMS AC Clamp Multimeter, 1000 A | Cambridge Instruments (CIE)",
+    "metaDesc": "DCM 2250 TR: True-RMS AC clamp multimeter, 6/60/600/1000 A, NCV, Low-Z ACV, 6000 counts, CAT III 600 V. Cambridge Instruments & Engg. Co., Howrah.",
     "image": "dcm-2250-tr.webp",
     "includedWith": [
       "Test Leads",
@@ -1655,6 +1657,8 @@
     ],
     "featured": false,
     "datasheet": "dcm-5410-tr.pdf",
+    "metaTitle": "DCM 5410 TR True-RMS AC/DC Clamp Multimeter, 1000 A | Cambridge Instruments (CIE)",
+    "metaDesc": "DCM 5410 TR: True-RMS AC/DC clamp multimeter, 1000 A, capacitance, frequency, temperature, NCV, CAT III 600 V. Cambridge Instruments & Engg. Co., Howrah.",
     "image": "dcm-5410-tr.webp",
     "includedWith": [
       "Test Leads",
@@ -1821,6 +1825,8 @@
     ],
     "featured": false,
     "datasheet": "dm-321t.pdf",
+    "metaTitle": "DM 321T True-RMS Digital Multimeter, Manual Ranging | Cambridge Instruments (CIE)",
+    "metaDesc": "DM 321T: 3½-digit True-RMS manual-ranging digital multimeter with capacitance, hFE transistor test, backlight and holster. Cambridge Instruments & Engg. Co., Howrah.",
     "includedWith": [
       "Test Leads",
       "User Manual",
