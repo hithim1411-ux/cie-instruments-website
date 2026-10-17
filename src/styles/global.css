@@ -30,7 +30,7 @@
   --color-ink:      #0A0E14;
   --color-red:      #E0252E;
   --color-red-dark: #D72631;
-  --color-muted:    #4A5568; /* was #64748B; darkened 2026-10-17 for AA contrast on glass */
+  --color-muted:    #3F4A5C; /* was #64748B; darkened 2026-10-17 for AA contrast on glass */
   --color-border:   #E8ECF2;
   --color-cloud:    #F5F5F7;
   /* Secondary text's counterpart for dark/ink sections (hero, footer,
@@ -446,9 +446,9 @@ p { line-height: 1.65; }
    colour field behind everything (body::before).
    ══════════════════════════════════════════════════════════════════════ */
 :root {
-  --glass-fill:        rgba(255, 255, 255, 0.66);
-  --glass-fill-soft:   rgba(255, 255, 255, 0.5);
-  --glass-fill-strong: rgba(255, 255, 255, 0.84);
+  --glass-fill:        rgba(244, 247, 251, 0.62);
+  --glass-fill-soft:   rgba(244, 247, 251, 0.42);
+  --glass-fill-strong: rgba(246, 248, 252, 0.8);
   --glass-fill-dark:   rgba(18, 22, 30, 0.58);
   --glass-blur:        blur(18px) saturate(180%);
   --glass-blur-lg:     blur(28px) saturate(190%);
@@ -460,7 +460,7 @@ p { line-height: 1.65; }
 }
 
 /* ── Ambient colour field the glass refracts ── */
-html { background-color: #eceef4; }
+html { background-color: #cdd3df; }
 body { background: transparent; position: relative; }
 body.bg-white { background: transparent; }
 body::before {
@@ -469,17 +469,19 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  /* Cool steel field: slate base, a cold blue wash and a restrained red
+     ember. Deliberately no pastel pink/peach/lavender - those read as
+     fashion/retail rather than precision instruments. */
   background:
-    radial-gradient(52rem 38rem at 92% -6%,  rgba(224, 37, 46, 0.26), transparent 62%),
-    radial-gradient(46rem 40rem at -8% 22%,  rgba(70, 120, 255, 0.28), transparent 60%),
-    radial-gradient(40rem 34rem at 78% 68%,  rgba(150, 90, 255, 0.20), transparent 60%),
-    radial-gradient(44rem 36rem at 8% 96%,   rgba(255, 170, 90, 0.26), transparent 62%),
-    linear-gradient(180deg, #f4f5f9 0%, #eaedf4 100%);
+    radial-gradient(50rem 36rem at 96% -8%,  rgba(224, 37, 46, 0.12), transparent 62%),
+    radial-gradient(54rem 44rem at -10% 18%, rgba(48, 84, 150, 0.20), transparent 62%),
+    radial-gradient(46rem 40rem at 70% 90%,  rgba(40, 64, 110, 0.16), transparent 62%),
+    linear-gradient(180deg, #d9dee7 0%, #c9d0dc 100%);
 }
 
 /* Light full-bleed sections let the ambient field through */
 section.bg-white { background-color: transparent; }
-section.bg-cloud { background-color: rgba(255, 255, 255, 0.22); }
+section.bg-cloud { background-color: rgba(255, 255, 255, 0.10); }
 footer.bg-cloud { background-color: rgba(255, 255, 255, 0.5); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); }
 
 /* Dark sections: deep field with soft colour glows so glass inside has depth */
@@ -662,13 +664,13 @@ textarea.border-border:focus {
    brighter brand red. */
 .eyebrow,
 .link-arrow.text-red,
-a.text-red { color: #B8141D; }
+a.text-red { color: #A8121B; }
 section.bg-ink .eyebrow,
 .blueprint-bg .eyebrow,
 footer .eyebrow,
 header a.text-red,
 .bg-ink a.text-red { color: #FF5A62; }
-.badge--red { color: #B8141D; background-color: rgba(224, 37, 46, 0.12); }
+.badge--red { color: #A8121B; background-color: rgba(224, 37, 46, 0.12); }
 /* Placeholder text readable but clearly secondary */
 input::placeholder, textarea::placeholder { color: #6B7586; opacity: 1; }
 /* Anything dimmed with text-muted/NN on light glass is too faint */
@@ -701,10 +703,10 @@ a[aria-label='Call CIE'] { background-color: rgba(224, 37, 46, 0.92); }
 @media (max-width: 640px) {
   body::before {
     background:
-      radial-gradient(22rem 20rem at 100% 0%,  rgba(224, 37, 46, 0.16), transparent 65%),
-      radial-gradient(22rem 22rem at 0% 45%,   rgba(70, 120, 255, 0.16), transparent 65%),
-      radial-gradient(22rem 20rem at 100% 85%, rgba(255, 170, 90, 0.16), transparent 65%),
-      linear-gradient(180deg, #f5f6fa 0%, #eceef5 100%);
+      radial-gradient(22rem 20rem at 100% 0%,  rgba(224, 37, 46, 0.10), transparent 65%),
+      radial-gradient(24rem 24rem at 0% 45%,   rgba(48, 84, 150, 0.18), transparent 65%),
+      radial-gradient(22rem 22rem at 100% 88%, rgba(40, 64, 110, 0.14), transparent 65%),
+      linear-gradient(180deg, #d9dee7 0%, #c9d0dc 100%);
   }
   :root { --radius-glass: 1.125rem; }
   .btn-primary, .btn-secondary { min-height: 3rem; }
@@ -737,27 +739,27 @@ a[aria-label='Call CIE'] { background-color: rgba(224, 37, 46, 0.92); }
 #site-header[data-tone='light'][data-transparent-hero='true'],
 #site-header[data-tone='light'].backdrop-blur-xl,
 #site-header[data-tone='light'][data-transparent-hero='false'] {
-  background-color: rgba(255, 255, 255, 0.58) !important;
+  background-color: rgba(238, 242, 248, 0.6) !important;
   -webkit-backdrop-filter: var(--glass-blur-lg);
   backdrop-filter: var(--glass-blur-lg);
   box-shadow: inset 0 -1px 0 rgba(10, 14, 20, 0.07), 0 8px 28px -14px rgba(10, 14, 20, 0.18) !important;
 }
 #site-header[data-tone='light'] .text-white { color: var(--color-ink); }
 #site-header[data-tone='light'] .text-muted-dark,
-#site-header[data-tone='light'] .text-muted { color: #4A5568; }
+#site-header[data-tone='light'] .text-muted { color: #3F4A5C; }
 #site-header[data-tone='light'] a:hover,
 #site-header[data-tone='light'] button:hover { color: var(--color-ink); }
 #site-header[data-tone='light'] a.bg-red,
 #site-header[data-tone='light'] a.bg-red:hover { color: #fff; }
 #site-header[data-tone='light'] a.text-red,
-#site-header[data-tone='light'] .text-red { color: #B8141D; }
+#site-header[data-tone='light'] .text-red { color: #A8121B; }
 #site-header[data-tone='light'] .text-emerald-400,
 #site-header[data-tone='light'] [class*='text-emerald-400/'] { color: #047857; }
 #site-header[data-tone='light'] .text-emerald-500 { color: #059669; }
 #site-header[data-tone='light'] .bg-white\/10,
 #site-header[data-tone='light'] #search-trigger { background-color: rgba(10, 14, 20, 0.06); }
 #site-header[data-tone='light'] #search-trigger:hover { background-color: rgba(10, 14, 20, 0.1); }
-#site-header[data-tone='light'] kbd { background-color: rgba(10, 14, 20, 0.05); border-color: rgba(10, 14, 20, 0.1); color: #4A5568; }
+#site-header[data-tone='light'] kbd { background-color: rgba(10, 14, 20, 0.05); border-color: rgba(10, 14, 20, 0.1); color: #3F4A5C; }
 #site-header[data-tone='light'] .hover\:bg-white\/5:hover { background-color: rgba(10, 14, 20, 0.05); }
 #site-header[data-tone='light'] .border-white\/10,
 #site-header[data-tone='light'] .border-t.border-white\/10 { border-color: rgba(10, 14, 20, 0.1); }
@@ -774,9 +776,9 @@ a[aria-label='Call CIE'] { background-color: rgba(224, 37, 46, 0.92); }
 
 footer.footer-glass {
   position: relative;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(238, 242, 248, 0.5);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 -1px 0 rgba(10, 14, 20, 0.07);
 }
-footer.footer-glass .eyebrow { color: #B8141D; }
+footer.footer-glass .eyebrow { color: #A8121B; }
