@@ -27,7 +27,7 @@ const onProducts  = currentPath.startsWith(u('/products'));
 const onInsights  = currentPath.startsWith(u('/blog')) || currentPath.startsWith(u('/tools'));
 const insightsLinks = [
   { label: 'Blog', sub: 'Guides and how-tos on testing', href: u('/blog/') },
-  { label: 'Free Tools', sub: 'Calculators for engineers', href: u('/tools/'), tag: 'New' },
+  { label: 'Free Tools', sub: 'Calculators for engineers', href: u('/tools/') },
 ];
 
 // Generic mailto for header button
@@ -157,8 +157,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
                 <a href={l.href} class="block rounded-xl px-4 py-3 hover:bg-white/5 transition-colors">
                   <span class="flex items-center gap-2 text-[13px] font-semibold text-white">
                     {l.label}
-                    {l.tag && <span class="text-[9px] font-mono uppercase tracking-widest bg-red text-white rounded px-1.5 py-0.5">{l.tag}</span>}
-                  </span>
+                                      </span>
                   <span class="block text-[11.5px] text-muted-dark mt-0.5">{l.sub}</span>
                 </a>
               ))}
@@ -276,7 +275,7 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
       <div class="px-3 pt-2 pb-0.5 text-[10px] font-mono text-muted uppercase tracking-widest">Insights</div>
       {insightsLinks.map((l) => (
         <a href={l.href} class="text-sm font-medium text-muted-dark hover:text-white hover:bg-white/5 pl-6 pr-3 py-2 rounded transition-colors">
-          {l.label}{l.tag ? ' (New)' : ''}
+          {l.label}
         </a>
       ))}
 
