@@ -62,19 +62,21 @@ const searchIndex: Entry[] = [
 ];
 
 const suggestions = [
-  "Insulation tester for 415V motor",
-  "PI test / DAR test - which tester?",
-  "Megger for HV transformer above 11kV",
-  "Earth tester for site - hand-driven or digital?",
-  "Best clamp meter for solar DC current",
-  "True-RMS multimeter for VFD panels",
-  "Micro-ohm meter for winding resistance",
-  "Test transformer oil BDV - which set?",
-  "Relay testing - secondary injection set",
-  "Battery discharge test - which DC load?",
-  "Compare LCR-1B vs LCR-2A",
-  "My motor insulation reads low - what next?",
+  { tag: 'Insulation', q: "Insulation tester for 415V motor" },
+  { tag: 'Insulation', q: "PI test / DAR test - which tester?" },
+  { tag: 'High voltage', q: "Megger for HV transformer above 11kV" },
+  { tag: 'Earthing', q: "Earth tester for site - hand-driven or digital?" },
+  { tag: 'Solar / DC', q: "Best clamp meter for solar DC current" },
+  { tag: 'Electrical', q: "True-RMS multimeter for VFD panels" },
+  { tag: 'Low resistance', q: "Micro-ohm meter for winding resistance" },
+  { tag: 'Oil testing', q: "Test transformer oil BDV - which set?" },
+  { tag: 'Protection', q: "Relay testing - secondary injection set" },
+  { tag: 'Battery', q: "Battery discharge test - which DC load?" },
+  { tag: 'Compare', q: "Compare LCR-1B vs LCR-2A" },
+  { tag: 'Troubleshoot', q: "My motor insulation reads low - what next?" },
 ];
+const AI_NAME = 'Volta';
+const DISCLAIMER = 'Volta is an AI and can make mistakes. Always confirm specs and suitability with CIE before you order.';
 ---
 
 <dialog
@@ -92,7 +94,7 @@ const suggestions = [
           <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
         </div>
         <input id="search-input" type="text" autocomplete="off" spellcheck="false"
-          placeholder="Search products or ask anything…"
+          placeholder="Ask Volta or search instruments…"
           class="flex-1 text-[#0A0E14] text-[15px] bg-transparent outline-none placeholder:text-muted font-medium min-w-0"
           inputmode="search" enterkeyhint="search" />
         <button id="new-search-btn" class="hidden items-center gap-1 text-[11px] font-medium text-[#0A0E14] bg-[#EEF2FF] hover:bg-[#E0E9FF] px-2.5 py-1.5 rounded-lg transition-colors shrink-0 whitespace-nowrap">
@@ -105,13 +107,13 @@ const suggestions = [
 
       <!-- Desktop: single scrollable body containing AI answer + catalog -->
       <div class="flex-1 overflow-y-auto min-h-0" style="scrollbar-width:thin;">
-        <div id="ai-panel" class="hidden border-b border-border">
-          <div class="px-4 py-3">
+        <div id="ai-panel" class="hidden border-b border-border bg-gradient-to-b from-[#F5F8FF] to-white">
+          <div class="px-4 py-4">
             <div class="flex items-center gap-2 mb-2">
               <div class="w-5 h-5 rounded-md bg-gradient-to-br from-[#0A0E14] to-[#E0252E] flex items-center justify-center shrink-0">
                 <svg class="w-2.5 h-2.5 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
               </div>
-              <span class="text-[10px] font-mono uppercase tracking-widest text-[#0A0E14] font-bold">AI Answer</span>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-[#0A0E14] font-bold">Volta</span><span class="text-[9px] font-mono uppercase tracking-wider bg-[#E0252E]/10 text-[#E0252E] px-1.5 py-0.5 rounded">AI · Beta</span>
               <button id="ai-close" class="ml-auto text-muted hover:text-muted">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
               </button>
@@ -126,25 +128,30 @@ const suggestions = [
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
             </div>
+            <p class="disclaimer mt-3 pt-2.5 border-t border-[#E0E9FF] text-[10px] text-muted flex items-start gap-1.5"><svg class="w-3 h-3 shrink-0 mt-px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 8h.01M11 12h1v4h1"/></svg><span>{DISCLAIMER}</span></p>
           </div>
         </div>
         <div id="catalog-results">
-          <div class="px-4 py-4">
-            <p class="text-xs text-muted mb-3">Popular questions - click to ask instantly</p>
+          <div class="px-4 py-5">
+            <div class="mb-4">
+              <p class="text-[15px] font-semibold text-[#0A0E14]">Hi, I'm {AI_NAME}. Tell me what you need to test.</p>
+              <p class="text-xs text-muted mt-0.5">I'll match it to the right instrument and ask only what matters. Try one of these:</p>
+            </div>
             <div class="grid grid-cols-2 gap-2">
               {suggestions.map(s => (
-                <button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#0A0E14] hover:text-[#0A0E14] hover:bg-[#F0F4FF] transition-all leading-snug" data-query={s}>{s}</button>
+                <button class="suggestion-chip group text-left px-3 py-2.5 rounded-xl border border-[#E2E8F0] bg-white hover:border-[#0A0E14] hover:shadow-md hover:-translate-y-px transition-all" data-query={s.q}><span class="block text-[9px] font-mono uppercase tracking-widest text-[#E0252E] mb-0.5">{s.tag}</span><span class="block text-xs text-[#334155] group-hover:text-[#0A0E14] leading-snug">{s.q}</span></button>
               ))}
             </div>
+            <p class="disclaimer mt-4 text-[10px] text-muted flex items-start gap-1.5"><svg class="w-3 h-3 shrink-0 mt-px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 8h.01M11 12h1v4h1"/></svg><span>{DISCLAIMER}</span></p>
           </div>
         </div>
       </div>
 
       <!-- Desktop footer -->
       <div class="px-4 py-2 border-t border-border bg-[#F8FAFC] flex items-center justify-between shrink-0">
-        <span class="text-[10px] text-muted font-mono">AI Search · {searchIndex.length} instruments</span>
+        <span class="text-[10px] text-muted font-mono">Volta · AI instrument advisor · {searchIndex.length} instruments</span>
         <div class="flex items-center gap-3 text-[10px] text-muted font-mono">
-          <span><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">↵</kbd> ask AI</span>
+          <span><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">↵</kbd> ask Volta</span>
           <span><kbd class="px-1 py-0.5 bg-white border border-[#E2E8F0] rounded text-[9px]">esc</kbd> close</span>
         </div>
       </div>
@@ -162,7 +169,7 @@ const suggestions = [
         <svg class="w-4 h-4 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
       </div>
       <input id="search-input-mobile" type="text" autocomplete="off" spellcheck="false"
-        placeholder="Search or ask anything…"
+        placeholder="Ask Volta or search…"
         class="flex-1 text-[#0A0E14] text-[16px] bg-transparent outline-none placeholder:text-muted font-medium min-w-0"
         inputmode="search" enterkeyhint="search" />
       <button id="mobile-clear-btn" class="hidden w-8 h-8 rounded-full bg-[#F1F5F9] items-center justify-center text-muted active:bg-[#E2E8F0] shrink-0">
@@ -176,7 +183,7 @@ const suggestions = [
         <div class="w-4 h-4 rounded bg-gradient-to-br from-[#0A0E14] to-[#E0252E] flex items-center justify-center shrink-0">
           <svg class="w-2 h-2 text-white" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.5 4.5L14 7l-4.5 1.5L8 13l-1.5-4.5L2 7l4.5-1.5z"/></svg>
         </div>
-        <span class="text-[11px] font-bold text-[#0A0E14] uppercase tracking-wider">AI Answer</span>
+        <span class="text-[11px] font-bold text-[#0A0E14] uppercase tracking-wider">Volta</span><span class="text-[9px] font-mono uppercase bg-[#E0252E]/10 text-[#E0252E] px-1.5 py-0.5 rounded">AI · Beta</span>
         <svg id="mobile-ai-chevron" class="w-4 h-4 text-muted ml-auto transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M19 9l-7 7-7-7"/></svg>
       </button>
       <div id="mobile-ai-content" class="px-4 pt-1 pb-2 text-sm text-[#0A0E14] leading-relaxed ai-content"></div>
@@ -189,24 +196,27 @@ const suggestions = [
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
+      <p class="disclaimer px-4 pb-3 text-[10px] text-muted">{DISCLAIMER}</p>
     </div>
 
     <!-- Mobile results - fills all remaining space, scrolls -->
     <div id="mobile-catalog-results" class="flex-1 overflow-y-auto min-h-0" style="-webkit-overflow-scrolling:touch; overscroll-behavior:contain;">
       <!-- welcome -->
       <div id="mobile-welcome" class="px-4 pt-5 pb-4">
-        <p class="text-sm text-muted mb-4">Popular questions - tap to ask instantly</p>
-        <div class="flex flex-col gap-3">
+        <p class="text-base font-semibold text-[#0A0E14]">Hi, I'm {AI_NAME}.</p>
+        <p class="text-sm text-muted mt-0.5 mb-4">Tell me what you need to test and I'll find the right instrument.</p>
+        <div class="flex flex-col gap-2.5">
           {suggestions.map(s => (
-            <button class="suggestion-chip text-left text-[15px] font-medium px-4 py-3.5 rounded-2xl border-2 border-border text-[#334155] active:bg-[#EEF2FF] active:border-[#0A0E14] leading-snug" data-query={s}>{s}</button>
+            <button class="suggestion-chip text-left px-4 py-3 rounded-2xl border-2 border-border bg-white active:bg-[#EEF2FF] active:border-[#0A0E14]" data-query={s.q}><span class="block text-[10px] font-mono uppercase tracking-widest text-[#E0252E] mb-0.5">{s.tag}</span><span class="block text-[15px] font-medium text-[#334155] leading-snug">{s.q}</span></button>
           ))}
         </div>
+        <p class="disclaimer mt-4 text-[11px] text-muted">{DISCLAIMER}</p>
       </div>
     </div>
 
     <!-- Mobile bottom bar (always visible) -->
     <div class="flex items-center gap-3 px-4 border-t border-border bg-[#F8FAFC] shrink-0" style="height:60px; padding-bottom:env(safe-area-inset-bottom);">
-      <span class="text-[10px] text-muted font-mono flex-1">AI Search · {searchIndex.length} instruments</span>
+      <span class="text-[10px] text-muted font-mono flex-1">Volta · AI instrument advisor · {searchIndex.length} instruments</span>
       <button id="mobile-new-btn" class="text-sm font-semibold text-[#0A0E14] bg-[#EEF2FF] px-4 py-2 rounded-xl active:bg-[#E0E9FF]">+ New</button>
       <button id="mobile-close-btn" class="text-sm font-semibold text-white bg-[#0A0E14] px-4 py-2 rounded-xl active:bg-[#0A0E14]">Close</button>
     </div>
@@ -214,8 +224,10 @@ const suggestions = [
 
 </dialog>
 
-<script define:vars={{ searchIndex }}>
+<script define:vars={{ searchIndex, suggestions, disclaimer: DISCLAIMER }}>
   window.__CIE_SEARCH_INDEX__ = searchIndex;
+  window.__CIE_SUGGESTIONS__ = suggestions;
+  window.__CIE_DISCLAIMER__ = disclaimer;
 </script>
 
 <script>
@@ -480,10 +492,10 @@ async function askAI(q: string) {
   desktopNewBtn.classList.remove('hidden');
   desktopNewBtn.classList.add('flex');
 
-  cont.innerHTML = `<span class="inline-flex gap-1.5 items-center py-1">
+  cont.innerHTML = `<span class="inline-flex gap-2 items-center py-1 text-xs text-muted"><span class="inline-flex gap-1.5 items-center">
     <span class="w-2 h-2 bg-[#0A0E14] rounded-full animate-bounce" style="animation-delay:0ms"></span>
     <span class="w-2 h-2 bg-[#0A0E14] rounded-full animate-bounce" style="animation-delay:150ms"></span>
-    <span class="w-2 h-2 bg-[#0A0E14] rounded-full animate-bounce" style="animation-delay:300ms"></span>
+    <span class="w-2 h-2 bg-[#0A0E14] rounded-full animate-bounce" style="animation-delay:300ms"></span></span>Volta is checking the catalogue…
   </span>`;
 
   let fullText = '';
@@ -599,30 +611,22 @@ function hideAI() {
 }
 
 // ── Catalog ───────────────────────────────────────────────────────────────
-const CHIPS = [
-  'Insulation tester for 415V motor',
-  'PI test / DAR test - which tester?',
-  'Megger for HV transformer above 11kV',
-  'Earth tester for site - hand-driven or digital?',
-  'Best clamp meter for solar DC current',
-  'True-RMS multimeter for VFD panels',
-  'Micro-ohm meter for winding resistance',
-  'Test transformer oil BDV - which set?',
-  'Relay testing - secondary injection set',
-  'Battery discharge test - which DC load?',
-  'Compare LCR-1B vs LCR-2A',
-  'My motor insulation reads low - what next?',
-];
+const CHIPS: { tag: string; q: string }[] = (window as any).__CIE_SUGGESTIONS__ || [];
+const DISCLAIMER_TXT = (window as any).__CIE_DISCLAIMER__ || '';
 
 function showWelcome() {
   hideAI();
-  const desktopWelcome = `<div class="px-4 py-4">
-    <p class="text-xs text-muted mb-3">Popular questions - click to ask instantly</p>
-    <div class="grid grid-cols-2 gap-2">${CHIPS.map(s => `<button class="suggestion-chip text-left text-xs px-3 py-2.5 rounded-xl border border-[#E2E8F0] text-[#475569] hover:border-[#0A0E14] hover:text-[#0A0E14] hover:bg-[#F0F4FF] transition-all leading-snug" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
+  const desktopWelcome = `<div class="px-4 py-5">
+    <div class="mb-4"><p class="text-[15px] font-semibold text-[#0A0E14]">Hi, I'm Volta. Tell me what you need to test.</p>
+    <p class="text-xs text-muted mt-0.5">I'll match it to the right instrument and ask only what matters. Try one of these:</p></div>
+    <div class="grid grid-cols-2 gap-2">${CHIPS.map(s => `<button class="suggestion-chip group text-left px-3 py-2.5 rounded-xl border border-[#E2E8F0] bg-white hover:border-[#0A0E14] hover:shadow-md hover:-translate-y-px transition-all" data-query="${esc(s.q)}"><span class="block text-[9px] font-mono uppercase tracking-widest text-[#E0252E] mb-0.5">${esc(s.tag)}</span><span class="block text-xs text-[#334155] group-hover:text-[#0A0E14] leading-snug">${esc(s.q)}</span></button>`).join('')}</div>
+    <p class="disclaimer mt-4 text-[10px] text-muted">${esc(DISCLAIMER_TXT)}</p>
   </div>`;
   const mobileWelcome = `<div class="px-4 pt-5 pb-4">
-    <p class="text-sm text-muted mb-4">Popular questions - tap to ask instantly</p>
-    <div class="flex flex-col gap-3">${CHIPS.map(s => `<button class="suggestion-chip text-left text-[15px] font-medium px-4 py-3.5 rounded-2xl border-2 border-border text-[#334155] active:bg-[#EEF2FF] active:border-[#0A0E14] leading-snug" data-query="${esc(s)}">${esc(s)}</button>`).join('')}</div>
+    <p class="text-base font-semibold text-[#0A0E14]">Hi, I'm Volta.</p>
+    <p class="text-sm text-muted mt-0.5 mb-4">Tell me what you need to test and I'll find the right instrument.</p>
+    <div class="flex flex-col gap-2.5">${CHIPS.map(s => `<button class="suggestion-chip text-left px-4 py-3 rounded-2xl border-2 border-border bg-white active:bg-[#EEF2FF] active:border-[#0A0E14]" data-query="${esc(s.q)}"><span class="block text-[10px] font-mono uppercase tracking-widest text-[#E0252E] mb-0.5">${esc(s.tag)}</span><span class="block text-[15px] font-medium text-[#334155] leading-snug">${esc(s.q)}</span></button>`).join('')}</div>
+    <p class="disclaimer mt-4 text-[11px] text-muted">${esc(DISCLAIMER_TXT)}</p>
   </div>`;
   catalogDiv.innerHTML = desktopWelcome;
   mobileCatalog.innerHTML = mobileWelcome;
