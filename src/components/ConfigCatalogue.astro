@@ -1,0 +1,88 @@
+---
+import { downloadUrl } from '../utils/url';
+import configs from '../data/config-catalogues.json';
+
+interface Props { productId: string; }
+const { productId } = Astro.props;
+const cfg = (configs as Record<string, any>)[productId];
+const base = downloadUrl('/downloads/cie/configs/');
+const selectCls = 'w-full rounded-lg border border-border bg-white px-3 py-2.5 text-sm text-ink focus:outline-none focus:border-ink';
+---
+{cfg && (
+  <div class="config-cat rounded-xl border border-border bg-cloud p-4" data-base={base} data-cfg={JSON.stringify(cfg)}>
+    <p class="text-sm font-semibold text-ink">Catalogue for your configuration</p>
+    <p class="text-xs text-muted mt-0.5 mb-3">
+      {cfg.type === 'vr' ? 'Select rated voltage and insulation range.' : 'Select your series.'}
+    </p>
+    {cfg.type === 'vr' ? (
+      <div class="space-y-2">
+        <label class="block">
+          <span class="sr-only">Rated voltage</span>
+          <select class={`${selectCls} cc-voltage`}>
+            <option value="">Rated voltage</option>
+            {cfg.options.map((o: any) => <option value={String(o.voltage)}>{o.voltage} V</option>)}
+          </select>
+        </label>
+        <label class="block">
+          <span class="sr-only">Insulation range</span>
+          <select class={`${selectCls} cc-range`} disabled>
+            <option value="">Insulation range</option>
+          </select>
+        </label>
+      </div>
+    ) : (
+      <label class="block">
+        <span class="sr-only">Series</span>
+        <select class={`${selectCls} cc-series`}>
+          <option value="">Series</option>
+          {cfg.options.map((o: any) => <option value={o.file}>{o.series} - {o.detail}</option>)}
+        </select>
+      </label>
+    )}
+    <a class="cc-dl btn-secondary w-full text-ink mt-3 pointer-events-none opacity-50" aria-disabled="true" target="_blank" rel="noopener noreferrer" href="#">
+      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a1 1 0 001 1h16a1 1 0 001-1v-3"/>
+      </svg>
+      <span class="cc-label">Download selected (PDF)</span>
+    </a>
+    <p class="text-xs text-muted mt-2">Need a range not listed? Use Request a Quote below - custom ranges can be built.</p>
+  </div>
+)}
+<script>
+  document.querySelectorAll<HTMLElement>('.config-cat').forEach((root) => {
+    const base = root.dataset.base || '';
+    const cfg = JSON.parse(root.dataset.cfg || '{}');
+    const dl = root.querySelector<HTMLAnchorElement>('.cc-dl')!;
+    const setFile = (file: string | null) => {
+      if (file) {
+        dl.href = base + file;
+        dl.removeAttribute('aria-disabled');
+        dl.classList.remove('pointer-events-none', 'opacity-50');
+      } else {
+        dl.href = '#';
+        dl.setAttribute('aria-disabled', 'true');
+        dl.classList.add('pointer-events-none', 'opacity-50');
+      }
+    };
+    if (cfg.type === 'vr') {
+      const vSel = root.querySelector<HTMLSelectElement>('.cc-voltage')!;
+      const rSel = root.querySelector<HTMLSelectElement>('.cc-range')!;
+      vSel.addEventListener('change', () => {
+        rSel.innerHTML = '<option value="">Insulation range</option>';
+        setFile(null);
+        const opt = cfg.options.find((o: any) => String(o.voltage) === vSel.value);
+        rSel.disabled = !opt;
+        if (!opt) return;
+        opt.ranges.forEach((r: any) => {
+          const el = document.createElement('option');
+          el.value = r.file; el.textContent = r.range; rSel.appendChild(el);
+        });
+        if (opt.ranges.length === 1) { rSel.value = opt.ranges[0].file; setFile(rSel.value); }
+      });
+      rSel.addEventListener('change', () => setFile(rSel.value || null));
+    } else {
+      const sSel = root.querySelector<HTMLSelectElement>('.cc-series')!;
+      sSel.addEventListener('change', () => setFile(sSel.value || null));
+    }
+  });
+</script>

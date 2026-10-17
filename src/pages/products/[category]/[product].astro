@@ -7,6 +7,7 @@ import CTABand from '../../../components/CTABand.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Badge from '../../../components/Badge.astro';
 import Icon from '../../../components/Icon.astro';
+import ConfigCatalogue from '../../../components/ConfigCatalogue.astro';
 import ProductCard from '../../../components/ProductCard.astro';
 import categories from '../../../data/categories.json';
 import products from '../../../data/products.json';
@@ -186,6 +187,7 @@ const relatedProducts = [
               Download Catalogue (PDF)
             </a>
           )}
+          <ConfigCatalogue productId={product.id} />
           <a href={quoteMailto} class="btn-primary w-full">
             <Icon name="mail" class="w-4 h-4 shrink-0" />
             Request a Quote

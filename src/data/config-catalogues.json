@@ -1,0 +1,684 @@
+{
+ "cie-444": {
+  "type": "vr",
+  "options": [
+   {
+    "voltage": 100,
+    "ranges": [
+     {
+      "range": "0–20 MΩ",
+      "file": "cie-444/100V_0-20MOhm.pdf"
+     },
+     {
+      "range": "0–50 MΩ",
+      "file": "cie-444/100V_0-50MOhm.pdf"
+     },
+     {
+      "range": "0–100 MΩ",
+      "file": "cie-444/100V_0-100MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 250,
+    "ranges": [
+     {
+      "range": "0–50 MΩ",
+      "file": "cie-444/250V_0-50MOhm.pdf"
+     },
+     {
+      "range": "0–100 MΩ",
+      "file": "cie-444/250V_0-100MOhm.pdf"
+     },
+     {
+      "range": "0–250 MΩ",
+      "file": "cie-444/250V_0-250MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 500,
+    "ranges": [
+     {
+      "range": "0–100 MΩ",
+      "file": "cie-444/500V_0-100MOhm.pdf"
+     },
+     {
+      "range": "0–200 MΩ",
+      "file": "cie-444/500V_0-200MOhm.pdf"
+     },
+     {
+      "range": "0–500 MΩ",
+      "file": "cie-444/500V_0-500MOhm.pdf"
+     },
+     {
+      "range": "0–1000 MΩ",
+      "file": "cie-444/500V_0-1000MOhm.pdf"
+     },
+     {
+      "range": "0–2000 MΩ",
+      "file": "cie-444/500V_0-2000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 1000,
+    "ranges": [
+     {
+      "range": "0–100 MΩ",
+      "file": "cie-444/1000V_0-100MOhm.pdf"
+     },
+     {
+      "range": "0–200 MΩ",
+      "file": "cie-444/1000V_0-200MOhm.pdf"
+     },
+     {
+      "range": "0–500 MΩ",
+      "file": "cie-444/1000V_0-500MOhm.pdf"
+     },
+     {
+      "range": "0–1000 MΩ",
+      "file": "cie-444/1000V_0-1000MOhm.pdf"
+     },
+     {
+      "range": "0–2000 MΩ",
+      "file": "cie-444/1000V_0-2000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 2500,
+    "ranges": [
+     {
+      "range": "0–1000 MΩ",
+      "file": "cie-444/2500V_0-1000MOhm.pdf"
+     },
+     {
+      "range": "0–2000 MΩ",
+      "file": "cie-444/2500V_0-2000MOhm.pdf"
+     },
+     {
+      "range": "0–2500 MΩ",
+      "file": "cie-444/2500V_0-2500MOhm.pdf"
+     },
+     {
+      "range": "0–5000 MΩ",
+      "file": "cie-444/2500V_0-5000MOhm.pdf"
+     },
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-444/2500V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-444/2500V_0-20000MOhm.pdf"
+     },
+     {
+      "range": "50–50000 MΩ",
+      "file": "cie-444/2500V_50-50000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 5000,
+    "ranges": [
+     {
+      "range": "0–5000 MΩ",
+      "file": "cie-444/5000V_0-5000MOhm.pdf"
+     },
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-444/5000V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-444/5000V_0-20000MOhm.pdf"
+     },
+     {
+      "range": "50–50000 MΩ",
+      "file": "cie-444/5000V_50-50000MOhm.pdf"
+     }
+    ]
+   }
+  ]
+ },
+ "cie-666": {
+  "type": "vr",
+  "options": [
+   {
+    "voltage": 100,
+    "ranges": [
+     {
+      "range": "0–20 MΩ",
+      "file": "cie-666/100V_0-20MOhm.pdf"
+     },
+     {
+      "range": "0–50 MΩ",
+      "file": "cie-666/100V_0-50MOhm.pdf"
+     },
+     {
+      "range": "0–100 MΩ",
+      "file": "cie-666/100V_0-100MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 250,
+    "ranges": [
+     {
+      "range": "0–50 MΩ",
+      "file": "cie-666/250V_0-50MOhm.pdf"
+     },
+     {
+      "range": "0–100 MΩ",
+      "file": "cie-666/250V_0-100MOhm.pdf"
+     },
+     {
+      "range": "0–250 MΩ",
+      "file": "cie-666/250V_0-250MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 500,
+    "ranges": [
+     {
+      "range": "0–100 MΩ",
+      "file": "cie-666/500V_0-100MOhm.pdf"
+     },
+     {
+      "range": "0–200 MΩ",
+      "file": "cie-666/500V_0-200MOhm.pdf"
+     },
+     {
+      "range": "0–500 MΩ",
+      "file": "cie-666/500V_0-500MOhm.pdf"
+     },
+     {
+      "range": "0–1000 MΩ",
+      "file": "cie-666/500V_0-1000MOhm.pdf"
+     },
+     {
+      "range": "0–2000 MΩ",
+      "file": "cie-666/500V_0-2000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 1000,
+    "ranges": [
+     {
+      "range": "0–100 MΩ",
+      "file": "cie-666/1000V_0-100MOhm.pdf"
+     },
+     {
+      "range": "0–200 MΩ",
+      "file": "cie-666/1000V_0-200MOhm.pdf"
+     },
+     {
+      "range": "0–500 MΩ",
+      "file": "cie-666/1000V_0-500MOhm.pdf"
+     },
+     {
+      "range": "0–1000 MΩ",
+      "file": "cie-666/1000V_0-1000MOhm.pdf"
+     },
+     {
+      "range": "0–2000 MΩ",
+      "file": "cie-666/1000V_0-2000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 2500,
+    "ranges": [
+     {
+      "range": "0–1000 MΩ",
+      "file": "cie-666/2500V_0-1000MOhm.pdf"
+     },
+     {
+      "range": "0–2000 MΩ",
+      "file": "cie-666/2500V_0-2000MOhm.pdf"
+     },
+     {
+      "range": "0–2500 MΩ",
+      "file": "cie-666/2500V_0-2500MOhm.pdf"
+     },
+     {
+      "range": "0–5000 MΩ",
+      "file": "cie-666/2500V_0-5000MOhm.pdf"
+     },
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-666/2500V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-666/2500V_0-20000MOhm.pdf"
+     },
+     {
+      "range": "50–50000 MΩ",
+      "file": "cie-666/2500V_50-50000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 5000,
+    "ranges": [
+     {
+      "range": "0–5000 MΩ",
+      "file": "cie-666/5000V_0-5000MOhm.pdf"
+     },
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-666/5000V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-666/5000V_0-20000MOhm.pdf"
+     },
+     {
+      "range": "50–50000 MΩ",
+      "file": "cie-666/5000V_50-50000MOhm.pdf"
+     },
+     {
+      "range": "100–100000 MΩ",
+      "file": "cie-666/5000V_100-100000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 10000,
+    "ranges": [
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-666/10000V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-666/10000V_0-20000MOhm.pdf"
+     },
+     {
+      "range": "50–50000 MΩ",
+      "file": "cie-666/10000V_50-50000MOhm.pdf"
+     },
+     {
+      "range": "100–100000 MΩ",
+      "file": "cie-666/10000V_100-100000MOhm.pdf"
+     }
+    ]
+   }
+  ]
+ },
+ "cie-555": {
+  "type": "vr",
+  "options": [
+   {
+    "voltage": 100,
+    "ranges": [
+     {
+      "range": "0–10 MΩ",
+      "file": "cie-555/100V_0-10MOhm.pdf"
+     },
+     {
+      "range": "0–20 MΩ",
+      "file": "cie-555/100V_0-20MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 250,
+    "ranges": [
+     {
+      "range": "0–20 MΩ",
+      "file": "cie-555/250V_0-20MOhm.pdf"
+     },
+     {
+      "range": "0–50 MΩ",
+      "file": "cie-555/250V_0-50MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 500,
+    "ranges": [
+     {
+      "range": "0–50 MΩ",
+      "file": "cie-555/500V_0-50MOhm.pdf"
+     },
+     {
+      "range": "0–100 MΩ",
+      "file": "cie-555/500V_0-100MOhm.pdf"
+     },
+     {
+      "range": "0–200 MΩ",
+      "file": "cie-555/500V_0-200MOhm.pdf"
+     },
+     {
+      "range": "0–500 MΩ",
+      "file": "cie-555/500V_0-500MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 1000,
+    "ranges": [
+     {
+      "range": "0–100 MΩ",
+      "file": "cie-555/1000V_0-100MOhm.pdf"
+     },
+     {
+      "range": "0–200 MΩ",
+      "file": "cie-555/1000V_0-200MOhm.pdf"
+     },
+     {
+      "range": "0–500 MΩ",
+      "file": "cie-555/1000V_0-500MOhm.pdf"
+     }
+    ]
+   }
+  ]
+ },
+ "cie-777": {
+  "type": "vr",
+  "options": [
+   {
+    "voltage": 500,
+    "ranges": [
+     {
+      "range": "0–1000 MΩ",
+      "file": "cie-777/500V_0-1000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 1000,
+    "ranges": [
+     {
+      "range": "0–2000 MΩ",
+      "file": "cie-777/1000V_0-2000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 2500,
+    "ranges": [
+     {
+      "range": "0–5000 MΩ",
+      "file": "cie-777/2500V_0-5000MOhm.pdf"
+     },
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-777/2500V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-777/2500V_0-20000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 5000,
+    "ranges": [
+     {
+      "range": "0–5000 MΩ",
+      "file": "cie-777/5000V_0-5000MOhm.pdf"
+     },
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-777/5000V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-777/5000V_0-20000MOhm.pdf"
+     },
+     {
+      "range": "50–50000 MΩ",
+      "file": "cie-777/5000V_50-50000MOhm.pdf"
+     },
+     {
+      "range": "100–100000 MΩ",
+      "file": "cie-777/5000V_100-100000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 10000,
+    "ranges": [
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-777/10000V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-777/10000V_0-20000MOhm.pdf"
+     },
+     {
+      "range": "50–50000 MΩ",
+      "file": "cie-777/10000V_50-50000MOhm.pdf"
+     },
+     {
+      "range": "100–100000 MΩ",
+      "file": "cie-777/10000V_100-100000MOhm.pdf"
+     }
+    ]
+   }
+  ]
+ },
+ "cie-777-hm": {
+  "type": "vr",
+  "options": [
+   {
+    "voltage": 500,
+    "ranges": [
+     {
+      "range": "0–1000 MΩ",
+      "file": "cie-777-hm/500V_0-1000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 1000,
+    "ranges": [
+     {
+      "range": "0–2000 MΩ",
+      "file": "cie-777-hm/1000V_0-2000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 2500,
+    "ranges": [
+     {
+      "range": "0–5000 MΩ",
+      "file": "cie-777-hm/2500V_0-5000MOhm.pdf"
+     },
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-777-hm/2500V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-777-hm/2500V_0-20000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 5000,
+    "ranges": [
+     {
+      "range": "0–5000 MΩ",
+      "file": "cie-777-hm/5000V_0-5000MOhm.pdf"
+     },
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-777-hm/5000V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-777-hm/5000V_0-20000MOhm.pdf"
+     },
+     {
+      "range": "50–50000 MΩ",
+      "file": "cie-777-hm/5000V_50-50000MOhm.pdf"
+     },
+     {
+      "range": "100–100000 MΩ",
+      "file": "cie-777-hm/5000V_100-100000MOhm.pdf"
+     }
+    ]
+   },
+   {
+    "voltage": 10000,
+    "ranges": [
+     {
+      "range": "0–10000 MΩ",
+      "file": "cie-777-hm/10000V_0-10000MOhm.pdf"
+     },
+     {
+      "range": "0–20000 MΩ",
+      "file": "cie-777-hm/10000V_0-20000MOhm.pdf"
+     },
+     {
+      "range": "50–50000 MΩ",
+      "file": "cie-777-hm/10000V_50-50000MOhm.pdf"
+     },
+     {
+      "range": "100–100000 MΩ",
+      "file": "cie-777-hm/10000V_100-100000MOhm.pdf"
+     }
+    ]
+   }
+  ]
+ },
+ "cie-444-mr": {
+  "type": "series",
+  "options": [
+   {
+    "series": "MR-1",
+    "detail": "1000 / 500 / 250 V",
+    "file": "cie-444-mr/MR-1.pdf"
+   },
+   {
+    "series": "MR-2",
+    "detail": "1000 / 500 / 250 V",
+    "file": "cie-444-mr/MR-2.pdf"
+   },
+   {
+    "series": "MR-3",
+    "detail": "500 / 250 / 100 V",
+    "file": "cie-444-mr/MR-3.pdf"
+   },
+   {
+    "series": "MR-4",
+    "detail": "500 / 250 / 100 V",
+    "file": "cie-444-mr/MR-4.pdf"
+   }
+  ]
+ },
+ "cie-666-mr": {
+  "type": "series",
+  "options": [
+   {
+    "series": "MR-1",
+    "detail": "1000 / 500 / 250 V",
+    "file": "cie-666-mr/MR-1.pdf"
+   },
+   {
+    "series": "MR-2",
+    "detail": "1000 / 500 / 250 V",
+    "file": "cie-666-mr/MR-2.pdf"
+   },
+   {
+    "series": "MR-3",
+    "detail": "500 / 250 / 100 V",
+    "file": "cie-666-mr/MR-3.pdf"
+   },
+   {
+    "series": "MR-4",
+    "detail": "500 / 250 / 100 V",
+    "file": "cie-666-mr/MR-4.pdf"
+   },
+   {
+    "series": "MR-5",
+    "detail": "2500 / 1000 / 500 V",
+    "file": "cie-666-mr/MR-5.pdf"
+   },
+   {
+    "series": "MR-6",
+    "detail": "2500 / 1000 / 500 V",
+    "file": "cie-666-mr/MR-6.pdf"
+   },
+   {
+    "series": "MR-7",
+    "detail": "5000 / 2500 V",
+    "file": "cie-666-mr/MR-7.pdf"
+   },
+   {
+    "series": "MR-8",
+    "detail": "5000 / 2500 V",
+    "file": "cie-666-mr/MR-8.pdf"
+   }
+  ]
+ },
+ "cie-777-mr": {
+  "type": "series",
+  "options": [
+   {
+    "series": "MR-A",
+    "detail": "5000 / 2500 / 1000 V",
+    "file": "cie-777-mr/MR-A.pdf"
+   },
+   {
+    "series": "MR-B",
+    "detail": "5000 / 2500 / 1000 V",
+    "file": "cie-777-mr/MR-B.pdf"
+   },
+   {
+    "series": "MR-C",
+    "detail": "5000 / 2500 V",
+    "file": "cie-777-mr/MR-C.pdf"
+   },
+   {
+    "series": "MR-D",
+    "detail": "5000 / 2500 V",
+    "file": "cie-777-mr/MR-D.pdf"
+   },
+   {
+    "series": "MR-E",
+    "detail": "5000 / 2500 / 1000 V",
+    "file": "cie-777-mr/MR-E.pdf"
+   }
+  ]
+ },
+ "cie-777-hm-mr": {
+  "type": "series",
+  "options": [
+   {
+    "series": "MR-A",
+    "detail": "5000 / 2500 / 1000 V",
+    "file": "cie-777-hm-mr/MR-A.pdf"
+   },
+   {
+    "series": "MR-B",
+    "detail": "5000 / 2500 / 1000 V",
+    "file": "cie-777-hm-mr/MR-B.pdf"
+   },
+   {
+    "series": "MR-C",
+    "detail": "5000 / 2500 V",
+    "file": "cie-777-hm-mr/MR-C.pdf"
+   },
+   {
+    "series": "MR-D",
+    "detail": "5000 / 2500 V",
+    "file": "cie-777-hm-mr/MR-D.pdf"
+   },
+   {
+    "series": "MR-E",
+    "detail": "5000 / 2500 / 1000 V",
+    "file": "cie-777-hm-mr/MR-E.pdf"
+   }
+  ]
+ }
+}
