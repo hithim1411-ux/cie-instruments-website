@@ -5,57 +5,57 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CTABand from '../components/CTABand.astro';
 import { u, downloadUrl } from '../utils/url';
 
-interface T { slug: string; file: string; name: string; std: string; summary: string; inside: string[]; checks: string; links: [string, string][] }
+interface T { slug: string; file: string; pages: number; name: string; std: string; summary: string; inside: string[]; checks: string; links: [string, string][] }
 const templates: T[] = [
   {
     slug: 'insulation-resistance-test-report',
-    file: 'CIE_Insulation_Resistance_Test_Report.xlsx',
+    file: 'CIE-Insulation-Resistance-Test-Report-Form.pdf',
+    pages: 2,
     name: 'Insulation Resistance Test Report',
     std: 'IEEE 43-2013 timed test',
-    summary: 'A one-page report for motors, generators and other windings. Enter the timed megger readings and it does the corrections, ratios and limit checks for you.',
+    summary: 'Print it, fill it in on site and hand it over. Page 1 is the report form. Page 2 gives you the formulas, the temperature factor table and the limits, so you can work out every result by hand.',
     inside: [
-      'Readings at 15 s, 30 s, 45 s, 60 s and 10 min for up to 6 connections',
-      'Temperature correction to 40 °C using Kt = 0.5^((40 - T) / 10)',
-      'Leakage current at 1 min (test voltage / IR), DAR (60 s / 30 s) and polarization index (10 min / 1 min)',
-      'Minimum IR by winding class (kV + 1, 100 or 5 MΩ) and minimum PI by thermal class, with a pass or below-limit result per connection',
-      'Recommended test voltage for the rated kV, with a check against the voltage you applied',
-      'A Reference sheet listing every constant, its source and which values are common guide bands rather than standard limits',
+      'Timed readings at 15 s, 30 s, 45 s, 60 s and 10 min for up to 6 connections, with columns for Kt, IR at 40 °C, DAR and PI',
+      'An evaluation table that checks each connection against the minimum IR and minimum PI',
+      'A ready temperature factor table, Kt = 0.5^((40 - T) / 10), from 0 to 90 °C in 5 °C steps',
+      'Minimum IR by winding class (kV + 1, 100 or 5 MΩ), minimum PI by thermal class, and recommended test voltage by rated kV',
+      'DAR and PI guide bands, clearly marked as guides rather than standard limits',
     ],
-    checks: 'Checked against independent calculations, including the cases where PI is below the minimum, IR is below the minimum and IR exceeds 5000 MΩ (PI not meaningful).',
+    checks: 'Kt values are calculated from the formula shown, and the formulas were checked against independent calculations. Limits are IEEE 43-2013 as commonly quoted, so check them against your edition.',
     links: [['PI and DAR calculator', '/tools/pi-dar-calculator/'], ['Motor minimum IR check', '/tools/motor-minimum-insulation-resistance/'], ['IR temperature correction', '/tools/ir-temperature-correction-calculator/']],
   },
   {
     slug: 'earth-resistance-test-report',
-    file: 'CIE_Earth_Resistance_Test_Report.xlsx',
+    file: 'CIE-Earth-Resistance-Test-Report-Form.pdf',
+    pages: 2,
     name: 'Earth Resistance and Soil Resistivity Report',
     std: 'IEEE 81 fall-of-potential and Wenner methods',
-    summary: 'Two linked sheets: the electrode test with a plateau check, and the Wenner soil resistivity survey with a single-rod estimate to compare against.',
+    summary: 'Page 1 is the electrode test with a printed graph for plotting the plateau. Page 2 is the Wenner soil resistivity worksheet with a depth correction table and a single-rod estimate.',
     inside: [
-      'Fall-of-potential readings with the P spike positions worked out from the E to C distance',
-      'The 62 % result with a 52 / 62 / 72 % plateau check, so an invalid test is flagged instead of reported',
-      'Spacing check on the E to C distance, a seasonal correction factor you set, and a pass or fail against your permitted value',
-      'Wenner apparent resistivity with the exact probe-depth correction, shown beside the simple 2πaR value so you can see the difference',
-      'Average, lowest, highest and spread of resistivity, plus a single vertical rod estimate (Dwight) compared with your measurement',
-      'Charts of reading against P position and resistivity against spacing',
+      'Fall-of-potential readings at 10 to 90 % of the E to C distance, with the 52, 62 and 72 % plateau check rows marked',
+      'A printed graph with the 52, 62 and 72 % positions drawn on it, so a flat region is easy to see',
+      'Result boxes for the plateau check, the spacing check, the seasonal factor and the pass or fail against your permitted value',
+      'A Wenner worksheet for up to 8 spacings, with a depth correction factor table for b / a from 0.01 to 0.30',
+      'The Dwight single-rod formula with a worked example, for comparing an estimate with your measurement',
     ],
-    checks: 'Resistivity and rod values were checked against an independent calculation, and the invalid-plateau and short-spacing flags were tested with deliberately bad data.',
+    checks: 'The depth correction factors are calculated from the exact Wenner relation, which reduces to 2πaR when the probe depth is zero. The 5 % plateau tolerance and 5 × L spacing are practical guides, not limits from a standard.',
     links: [['Earth resistance testing guide', '/blog/earth-resistance-testing-guide/'], ['Soil resistivity calculator', '/tools/soil-resistivity-wenner-calculator/'], ['Earth rod resistance calculator', '/tools/earth-rod-resistance-calculator/']],
   },
   {
     slug: 'relay-test-report',
-    file: 'CIE_Relay_Test_Report.xlsx',
+    file: 'CIE-Relay-Injection-Test-Report-Form.pdf',
+    pages: 3,
     name: 'Overcurrent Relay Secondary Injection Report',
     std: 'IEC 60255-151 inverse-time characteristics',
-    summary: 'Commissioning sheet for phase overcurrent relays. Enter the settings and the CT ratio, and it tells you what to inject and what operating time to expect.',
+    summary: 'A commissioning form for phase overcurrent relays, with a plot sheet and a reference page that gives the expected operating time for any TMS.',
     inside: [
-      'CT ratio and primary settings converted to secondary injection currents',
-      'Standard, very, extremely and long-time inverse curves plus definite time, with expected time = TMS × k / ((I / Is)^α - 1)',
-      'Pickup and drop-off (reset ratio), five timing points, and the high-set element with its time',
-      'Tolerance inputs for you to fill from the relay datasheet. None are assumed, and a result reads "Enter tolerance" until you do',
-      'Allowed timing band as the larger of a percentage and a minimum in milliseconds',
-      'An eight-item checklist (CT polarity, settings read-back, trip test and more), an overall result, and a log-log chart of expected against measured time',
+      'Settings, CT ratio and the working to turn primary settings into secondary injection currents',
+      'Pickup, drop-off, six timing points and the high-set element, each with expected, measured and result columns',
+      'Tolerance boxes for you to fill from the relay datasheet. The form assumes none',
+      'Base operating times at TMS = 1 for the standard, very, extremely and long-time inverse curves, so expected time = base × TMS',
+      'An eight-item checklist, a sign-off block and a log-log plot sheet for expected against measured times',
     ],
-    checks: 'Expected times were checked against an independent calculation, and the failing, definite-time and missing-tolerance paths were tested.',
+    checks: 'Base times are calculated from t = k / ((I / Is)^α - 1) and the formula was checked against independent calculations. The constants are from IEC 60255-151, so confirm your relay uses the same characteristic.',
     links: [['How to choose a relay test set', '/blog/how-to-choose-a-relay-test-set/'], ['Relay test sets', '/products/relay-test-sets/']],
   },
 ];
@@ -63,22 +63,22 @@ const templates: T[] = [
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Free Excel test report templates',
+  name: 'Free printable test report forms (PDF)',
   itemListElement: templates.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.name, url: `https://www.cieinstruments.in/templates/#${t.slug}` })),
 };
 ---
 
-<Base title="Free Test Report Templates (Excel): Insulation, Earth, Relay" description="Free Excel report templates with built-in calculations: IEEE 43 insulation resistance with PI and DAR, earth resistance and soil resistivity, and overcurrent relay injection tests. Each includes a filled example.">
+<Base title="Free Printable Test Report Forms (PDF): Insulation, Earth, Relay" description="Free printable PDF test report forms with worksheets: IEEE 43 insulation resistance with PI and DAR, earth resistance and soil resistivity, and overcurrent relay injection tests.">
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <section class="blueprint-bg bg-ink text-white pt-10 pb-12 lg:pb-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="tpl-crumbs"><Breadcrumbs crumbs={[{ label: 'Tools', href: u('/tools/') }, { label: 'Test report templates' }]} /></div>
+      <div class="tpl-crumbs"><Breadcrumbs crumbs={[{ label: 'Tools', href: u('/tools/') }, { label: 'Test report forms' }]} /></div>
       <EyebrowLabel text="Free downloads" class="mt-5 mb-3" />
-      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight max-w-4xl">Test report templates for the field</h1>
-      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Three Excel workbooks with the calculations built in, so the report checks your readings as you type. Each one has a blank sheet, a filled example and a reference sheet that shows every constant and its source.</p>
+      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight max-w-4xl">Test report forms for the field</h1>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Three printable PDF forms for the people who test on site. Print one, fill it in by hand, and use the worksheet page for the formulas, tables and limits.</p>
       <ul class="mt-5 flex flex-wrap gap-2 text-xs text-muted-dark">
-        <li class="tpl-pill">Free</li><li class="tpl-pill">No sign-up</li><li class="tpl-pill">Open formulas, nothing hidden</li><li class="tpl-pill">Prints on A4</li>
+        <li class="tpl-pill">Free</li><li class="tpl-pill">No sign-up</li><li class="tpl-pill">Prints on A4</li><li class="tpl-pill">Formulas and limits included</li>
       </ul>
     </div>
   </section>
@@ -89,12 +89,13 @@ const schema = {
         {templates.map(t => (
           <article class="tpl-card" id={t.slug}>
             <div class="tpl-head">
-              <div>
+              <a href={downloadUrl(`/downloads/templates/${t.file}`)} class="tpl-thumb" rel="noopener" aria-label={`Open the ${t.name} form`}><img src={u(`/images/templates/${t.slug}.webp`)} alt={`Preview of the ${t.name} form`} width="720" height="1019" loading="lazy" /></a>
+              <div class="tpl-main">
                 <p class="tpl-std">{t.std}</p>
                 <h2 class="tpl-name">{t.name}</h2>
                 <p class="tpl-sum">{t.summary}</p>
+                <a href={downloadUrl(`/downloads/templates/${t.file}`)} class="btn-primary tpl-dl" rel="noopener">Download the PDF form<span class="tpl-dl-sub">A4, {t.pages} pages</span></a>
               </div>
-              <a href={downloadUrl(`/downloads/templates/${t.file}`)} class="btn-primary tpl-dl" rel="noopener">Download Excel file<span class="tpl-dl-sub">.xlsx</span></a>
             </div>
             <div class="tpl-body">
               <div>
@@ -113,11 +114,11 @@ const schema = {
       </div>
 
       <div class="tpl-notes">
-        <h2>Using the templates</h2>
+        <h2>Using the forms</h2>
         <ul>
-          <li>Enter data in the blue-on-yellow cells. Grey cells are formulas and are locked, so they cannot be overwritten by accident. The protection has no password: Review, then Unprotect Sheet.</li>
-          <li>The Example sheet in each file uses made-up numbers to show the format. Use the blank Report sheet for your own test, and copy the sheet if you need several reports.</li>
-          <li>Limits and constants come from the standards named above and are listed on the Reference sheet in blue cells you can edit. They were entered as the standards are commonly quoted, so check them against the edition you work to, and use the stricter of those and your plant or customer specification.</li>
+          <li>Print on A4 at 100 % (no scaling). Page 1 of each form is the report you fill in. The following pages are worksheets and reference tables to keep with it.</li>
+          <li>Limits and constants come from the standards named above, as commonly quoted. Check them against the edition you work to, and use the stricter of those and your plant or customer specification.</li>
+          <li>Where a value is a common guide rather than a limit from a standard, the form says so.</li>
           <li>These are calculation aids for qualified people. They do not replace the standard, the instrument manual or your site safety procedure.</li>
         </ul>
       </div>
@@ -132,11 +133,15 @@ const schema = {
   .tpl-pill { padding: .25rem .7rem; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; background: rgba(255,255,255,.04); }
   .tpl-card { padding: 1.4rem; border: 1px solid var(--color-border); border-radius: 1.2rem; background: #fff; box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 16px 40px -24px rgba(16,24,40,.22); scroll-margin-top: 6rem; }
   @media (min-width: 640px) { .tpl-card { padding: 2rem; } }
-  .tpl-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1.2rem; }
+  .tpl-head { display: grid; gap: 1.4rem; }
+  @media (min-width: 720px) { .tpl-head { grid-template-columns: 11rem minmax(0, 1fr); gap: 2rem; align-items: start; } }
+  .tpl-thumb { display: block; border: 1px solid var(--color-border); border-radius: .5rem; overflow: hidden; box-shadow: 0 10px 28px -14px rgba(10,14,20,.35); transition: transform .25s var(--ease-premium), box-shadow .25s; max-width: 11rem; }
+  .tpl-thumb:hover { transform: translateY(-3px); box-shadow: 0 16px 34px -14px rgba(10,14,20,.45); }
+  .tpl-thumb img { display: block; width: 100%; height: auto; }
   .tpl-std { margin: 0 0 .35rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--color-red); font-weight: 700; }
   .tpl-name { margin: 0; font-size: 1.5rem; font-weight: 800; color: var(--color-ink); line-height: 1.2; }
   .tpl-sum { margin: .5rem 0 0; max-width: 40rem; color: var(--color-muted); line-height: 1.6; }
-  .tpl-dl { display: inline-flex; align-items: center; gap: .5rem; flex: none; }
+  .tpl-dl { display: inline-flex; align-items: center; gap: .6rem; margin-top: 1.1rem; }
   .tpl-dl-sub { font-family: var(--font-mono); font-size: .7rem; opacity: .8; }
   .tpl-body { display: grid; gap: 1.6rem; margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--color-border); }
   @media (min-width: 900px) { .tpl-body { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 2.4rem; } }
