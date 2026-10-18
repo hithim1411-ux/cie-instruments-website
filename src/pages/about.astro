@@ -6,21 +6,15 @@ import CTABand from '../components/CTABand.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Icon from '../components/Icon.astro';
 import type { IconName } from '../utils/iconNames';
-import products from '../data/products.json';
-
-// Live counts so the stat strip never drifts from the catalogue.
-const cieProducts = (products as any[]).filter((p) => !String(p.categoryId).startsWith('vartech'));
-const cieCategories = new Set(cieProducts.map((p) => p.categoryId)).size;
 ---
 
 <Base
   title="About Cambridge Instruments & Engg. Co. - Electrical Test Instruments Supplier, Kolkata"
   description="Cambridge Instruments & Engg. Co. (CIE) - established 1963, Howrah, West Bengal. Manufacturer and supplier of insulation testers, earth testers, relay test sets, oil BDV testers, HV test sets. Trusted by various State Electricity Boards, Indian Railways, and cement and metal industries."
 >
-  <!-- ══ Hero: dark graphite with a heritage stat strip ══ -->
+  <!-- ══ Hero: dark graphite, title left, one big 60+ feature right ══ -->
   <div class="blueprint-bg bg-ink text-white relative overflow-hidden">
-    <span class="about-mark" aria-hidden="true">1963</span>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14 lg:pb-16">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14 lg:pb-20">
       <nav aria-label="Breadcrumb" class="mb-7">
         <ol class="flex items-center gap-2 text-xs text-muted-dark font-mono">
           <li><a href={u('/')} class="hover:text-white transition-colors">Home</a></li>
@@ -28,24 +22,25 @@ const cieCategories = new Set(cieProducts.map((p) => p.categoryId)).size;
           <li class="text-white/80" aria-current="page">About Us</li>
         </ol>
       </nav>
-      <EyebrowLabel text="Est. 1963 · Howrah, India" class="mb-4" />
-      <h1 class="text-[clamp(2rem,3.7vw,3.4rem)] font-extrabold leading-[1.06] tracking-tight">Cambridge Instruments &amp; Engg. Co.</h1>
-      <p class="mt-4 text-lg text-gray-300 max-w-2xl font-medium">Also known as CIE Instruments - Instruments for Accuracy and Reliability since 1963.</p>
 
-      <dl class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
-        {[
-          { k: '1963', v: 'Founded in Howrah' },
-          { k: '60+', v: 'Years of service' },
-          { k: String(cieProducts.length), v: `CIE instruments across ${cieCategories} categories` },
-          { k: '12', v: 'Month warranty on every instrument' },
-        ].map((x) => (
-          <div class="about-stat">
-            <dt class="text-3xl lg:text-4xl font-extrabold tracking-tight">{x.k}</dt>
-            <dd class="mt-1 text-sm text-muted-dark leading-snug">{x.v}</dd>
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div class="lg:col-span-7 min-w-0">
+          <EyebrowLabel text="Est. 1963 · Howrah, India" class="mb-4" />
+          <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.06] tracking-tight">Cambridge Instruments &amp; Engg. Co.</h1>
+          <p class="mt-5 text-lg lg:text-xl text-gray-300 max-w-xl font-medium leading-relaxed">Also known as CIE Instruments - Instruments for Accuracy and Reliability since 1963.</p>
+          <p class="mt-5 text-muted-dark max-w-xl leading-relaxed">Preferred by various State Electricity Boards, Indian Railways and EPC contractors across India.</p>
+        </div>
+
+        <div class="lg:col-span-5 min-w-0">
+          <div class="about-years">
+            <div class="about-years__glow" aria-hidden="true"></div>
+            <p class="about-years__num"><span>60</span><sup>+</sup></p>
+            <p class="about-years__lbl">Years of making instruments you can trust</p>
+            <div class="about-years__rule" aria-hidden="true"></div>
+            <p class="about-years__meta"><span>1963</span><i aria-hidden="true"></i><span>Today</span></p>
           </div>
-        ))}
-      </dl>
-      <p class="mt-6 text-sm text-muted-dark max-w-3xl leading-relaxed">Preferred by various State Electricity Boards, Indian Railways and EPC contractors across India.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -267,12 +262,18 @@ const cieCategories = new Set(cieProducts.map((p) => p.categoryId)).size;
 </Base>
 
 <style>
-  .about-stat { padding: 1.1rem 1.25rem; border-radius: 1.25rem; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16);
-    -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); box-shadow: inset 0 1px 0 rgba(255,255,255,.18); }
-  .about-stat dt { color: #fff; }
-  .about-mark { position: absolute; right: -2rem; bottom: -4.5rem; font: 800 clamp(12rem, 26vw, 26rem)/1 var(--font-sans); letter-spacing: -.06em; color: transparent;
-    -webkit-text-stroke: 1.5px rgba(255,255,255,.09); user-select: none; pointer-events: none; display: none; }
-  @media (min-width: 1024px) { .about-mark { display: block; } }
+  .about-years { position: relative; padding: 2.2rem 2rem 1.8rem; border-radius: 2rem; overflow: hidden; text-align: left;
+    background: linear-gradient(160deg, rgba(255,255,255,.10), rgba(255,255,255,.03)); border: 1px solid rgba(255,255,255,.18);
+    -webkit-backdrop-filter: var(--glass-blur-lg); backdrop-filter: var(--glass-blur-lg);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 30px 70px -24px rgba(0,0,0,.65); }
+  .about-years__glow { position: absolute; width: 22rem; height: 22rem; right: -7rem; top: -8rem; border-radius: 50%; background: radial-gradient(circle, rgba(224,37,46,.55), transparent 65%); pointer-events: none; }
+  .about-years__num { position: relative; margin: 0; display: flex; align-items: flex-start; gap: .15rem; font-weight: 800; line-height: .9; letter-spacing: -.05em; color: #fff; }
+  .about-years__num span { font-size: clamp(6rem, 13vw, 10rem); }
+  .about-years__num sup { font-size: clamp(3rem, 6vw, 5rem); line-height: 1; margin-top: .6rem; color: #FF5A62; letter-spacing: 0; }
+  .about-years__lbl { position: relative; margin: .9rem 0 0; font-size: 1.15rem; font-weight: 600; line-height: 1.35; color: #e2e8f0; max-width: 18rem; }
+  .about-years__rule { position: relative; margin-top: 1.6rem; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #CC1F29, rgba(204,31,41,.15)); }
+  .about-years__meta { position: relative; margin: .9rem 0 0; display: flex; align-items: center; gap: .8rem; font: 600 .75rem var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: #aeb8c6; }
+  .about-years__meta i { flex: 1; height: 1px; background: rgba(255,255,255,.2); }
 
   .about-timeline { list-style: none; margin: 0; padding: 0 0 0 .25rem; position: relative; }
   .about-timeline::before { content: ''; position: absolute; left: 5.1rem; top: .5rem; bottom: .5rem; width: 2px; border-radius: 2px;
