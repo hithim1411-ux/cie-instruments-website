@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { u, downloadUrl } from '../../../utils/url';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Icon from '../../../components/Icon.astro';
+import CompareAddButton from '../../../components/CompareAddButton.astro';
 import CTABand from '../../../components/CTABand.astro';
 import ProductCard from '../../../components/ProductCard.astro';
 import site from '../../../data/site.json';
@@ -115,6 +116,7 @@ const productSchema = {
             <Icon name="message-circle" class="w-4 h-4 shrink-0" />
             Enquire on WhatsApp
           </a>
+          <div class="flex justify-center"><CompareAddButton categoryId={'vartech-lux-meters'} id={product.id} /></div>
         </div>
 
         <div class="mt-6 bg-cloud rounded-lg p-4 border border-border">

@@ -9,8 +9,14 @@ import vScopes from './vartech-oscilloscopes.json';
 import vFg from './vartech-function-generators.json';
 import vLcr from './vartech-lcr-meters.json';
 import vDcl from './vartech-dc-loads.json';
+import vSound from './vartech-sound-level-meters.json';
+import vAnemo from './vartech-anemometers.json';
+import vLux from './vartech-lux-meters.json';
+import vThermo from './vartech-thermometers.json';
+import vCal from './vartech-calibrators.json';
+import vPsu from './vartech-dc-power-supplies.json';
 
-interface Def { id: string; label: string; blurb: string; cie?: string[]; vt?: { slug: string; data: any[] }; rows: Row[] }
+interface Def { id: string; label: string; blurb: string; cie?: string[]; vt?: { slug: string; data: any[] }[]; rows: Row[] }
 
 const R = (label: string, re: string): Row => ({ label, re });
 const POWER = R('Power', '^(power|battery)');
@@ -18,10 +24,10 @@ const DIMS = R('Size and weight', '^(dimensions|weight)');
 const WARR = R('Warranty', '^warranty');
 
 const DEFS: Def[] = [
-  { id: 'clamp-meters', label: 'Clamp meters', blurb: 'CIE and Vartech clamp multimeters side by side.', cie: ['clamp-meters'], vt: { slug: 'clamp-meters', data: vClamp as any[] },
+  { id: 'clamp-meters', label: 'Clamp meters', blurb: 'CIE and Vartech clamp multimeters side by side.', cie: ['clamp-meters'], vt: [{ slug: 'clamp-meters', data: vClamp as any[] }],
     rows: [R('Display and ranging', '^(display|ranging)'), R('Jaw opening', '^jaw'), R('AC current', '^ac(\\s&\\sdc)?\\scurrent'), R('DC current', '^dc current'), R('AC voltage', '^ac voltage|^true rms'), R('DC voltage', '^dc voltage'), R('Resistance', '^resistance'), R('Capacitance', '^capacitance'), R('Frequency', '^frequency'), R('Temperature', '^temperature'), R('Safety category', 'safety'), POWER, DIMS, WARR],
      },
-  { id: 'multimeters', label: 'Digital multimeters', blurb: 'Compare CIE and Vartech multimeters from pocket models to bench units.', cie: ['multimeters'], vt: { slug: 'multimeters', data: vMultimeters as any[] },
+  { id: 'multimeters', label: 'Digital multimeters', blurb: 'Compare CIE and Vartech multimeters from pocket models to bench units.', cie: ['multimeters'], vt: [{ slug: 'multimeters', data: vMultimeters as any[] }],
     rows: [R('Display and ranging', '^(display|ranging)'), R('True RMS', 'true.?rms'), R('DC voltage', '^dc voltage|^dcv'), R('AC voltage', '^ac voltage'), R('DC current', '^dc current'), R('AC current', '^ac current'), R('Resistance', '^resistance'), R('Capacitance', '^capacitance'), R('Frequency', '^frequency'), R('Temperature', '^temperature'), POWER, DIMS, WARR],
      },
   { id: 'digital-insulation-testers', label: 'Digital insulation testers', blurb: 'Test voltage, range and accuracy across the digital insulation testers.', cie: ['digital-insulation-testers'],
@@ -34,17 +40,25 @@ const DEFS: Def[] = [
   { id: 'relay-test-sets', label: 'Relay test sets', blurb: 'Single-phase and three-phase relay test sets.', cie: ['relay-test-sets'], rows: [],
      },
   { id: 'phase-sequence-indicators', label: 'Phase sequence indicators', blurb: 'Compare the two phase sequence indicators.', cie: ['phase-sequence-indicators'], rows: [] },
-  { id: 'oscilloscopes', label: 'Oscilloscopes', blurb: 'Vartech analog and digital storage oscilloscopes.', vt: { slug: 'oscilloscopes', data: vScopes as any[] },
+  { id: 'oscilloscopes', label: 'Oscilloscopes', blurb: 'Vartech analog and digital storage oscilloscopes.', vt: [{ slug: 'oscilloscopes', data: vScopes as any[] }],
     rows: [R('Channels', '^channels'), R('Bandwidth', '^bandwidth'), R('Sampling rate', '^(real-time sampling|sampling)'), R('Sweep time', '^sweep time'), R('Display', '^(display|crt)'), R('Vertical sensitivity', '^vertical sensitivity'), R('Record length', '^record length'), R('Interface', '^interface'), R('Power supply', '^power'), DIMS],
      },
-  { id: 'function-generators', label: 'Function generators', blurb: 'Vartech arbitrary waveform and function generators.', vt: { slug: 'function-generators', data: vFg as any[] },
+  { id: 'function-generators', label: 'Function generators', blurb: 'Vartech arbitrary waveform and function generators.', vt: [{ slug: 'function-generators', data: vFg as any[] }],
     rows: [R('Channels', '^channels'), R('Waveforms', '^waveforms'), R('Sampling rate', '^sampling'), R('Display', '^display'), R('Interface', '^interface'), R('Power supply', '^power'), DIMS],
      },
-  { id: 'lcr-meters', label: 'LCR meters', blurb: 'Vartech LCR meters and the LCR-capable multimeter.', vt: { slug: 'lcr-meters', data: vLcr as any[] },
+  { id: 'lcr-meters', label: 'LCR meters', blurb: 'Vartech LCR meters and the LCR-capable multimeter.', vt: [{ slug: 'lcr-meters', data: vLcr as any[] }],
     rows: [R('Display', '^display'), R('Basic accuracy', '^basic accuracy'), R('Test frequency', '^test frequency'), R('Capacitance', '^capacitance'), R('Inductance', '^inductance'), R('Resistance', '^resistance'), R('Power', '^power'), DIMS],
      },
-  { id: 'dc-loads', label: 'DC electronic loads', blurb: 'Compare the Vartech EL-600 series.', vt: { slug: 'dc-loads', data: vDcl as any[] }, rows: [],
+  { id: 'dc-loads', label: 'DC electronic loads', blurb: 'Compare the Vartech EL-600 series.', vt: [{ slug: 'dc-loads', data: vDcl as any[] }], rows: [],
      },
+  { id: 'environment-meters', label: 'Sound, wind, light and temperature meters', blurb: 'Vartech sound level, air speed, lux and temperature meters.',
+    vt: [{ slug: 'sound-level-meters', data: vSound as any[] }, { slug: 'anemometers', data: vAnemo as any[] }, { slug: 'lux-meters', data: vLux as any[] }, { slug: 'thermometers', data: vThermo as any[] }],
+    rows: [R('Range', 'range( \\d)?$'), R('Accuracy', '^accuracy'), R('Display', '^(digital )?display'), R('Power', '^power'), DIMS] },
+  { id: 'calibrators', label: 'Process calibrators', blurb: 'Vartech process and loop calibrators.', vt: [{ slug: 'calibrators', data: vCal as any[] }],
+    rows: [R('Function', '^(function|measurands)'), R('Display', '^display'), R('Power', '^power'), DIMS] },
+  { id: 'dc-power-supplies', label: 'DC power supplies', blurb: 'The full Vartech DC power supply range.', vt: [{ slug: 'dc-power-supplies', data: vPsu as any[] }],
+    rows: [R('Output voltage', '^(output voltage|rated output|output$|variable output)'), R('Output current', '^output current'), R('Output power', '^(output power|rated power)'), R('Type', '^(type|mode|working mode)$'), R('Line regulation', 'line reg'), R('Load regulation', 'load reg'), R('Ripple and noise', '^ripple'), R('Protection', '^protection'), R('Display', '^display$'), R('PC interface', '^pc interface'), R('Power supply', '^power supply'), DIMS] },
+  { id: 'hv-oil-micro-ohm', label: 'HV, oil and micro-ohm test sets', blurb: 'The CIE/5050A, CIE/7000 oil test set and MR-253A micro-ohm meter.', cie: ['hv-phase-sequence', 'oil-test-sets', 'digital-earth-micro-ohm'], rows: [] },
 ];
 
 /** products.json category -> compare group */
@@ -55,6 +69,9 @@ const CATEGORY_GROUP: Record<string, string> = {
   'compact-insulation-testers': 'hand-driven-insulation-testers',
   'earth-tester': 'earth-testers', 'relay-test-sets': 'relay-test-sets', 'phase-sequence-indicators': 'phase-sequence-indicators',
   'vartech-clamp-meters': 'clamp-meters', 'vartech-multimeters': 'multimeters', 'vartech-oscilloscopes': 'oscilloscopes',
+  'vartech-sound-level-meters': 'environment-meters', 'vartech-anemometers': 'environment-meters', 'vartech-lux-meters': 'environment-meters', 'vartech-thermometers': 'environment-meters',
+  'vartech-calibrators': 'calibrators', 'vartech-dc-power-supplies': 'dc-power-supplies',
+  'hv-phase-sequence': 'hv-oil-micro-ohm', 'oil-test-sets': 'hv-oil-micro-ohm', 'digital-earth-micro-ohm': 'hv-oil-micro-ohm',
   'vartech-function-generators': 'function-generators', 'vartech-lcr-meters': 'lcr-meters', 'vartech-dc-loads': 'dc-loads',
 };
 // A couple of SKUs use a different id in products.json than in the vartech-*.json files
@@ -87,10 +104,10 @@ export function getGroups(): Group[] {
         items.push({ id: p.id, brand: 'CIE', model: p.model, name: p.name, cat: catId, href: u(`/products/${catId}/${p.id}/`), img: exists(`/images/products/${f}`) ? u(`/images/products/${f}`) : '', specs: [...trim(p.specs), ...extras(p)] });
       }
     }
-    if (d.vt) {
-      for (const p of d.vt.data) {
+    for (const v of d.vt ?? []) {
+      for (const p of v.data) {
         const f = p.images && p.images[0];
-        items.push({ id: p.id, brand: 'Vartech', model: p.model, name: p.name, cat: `vartech-${d.vt.slug}`, href: u(`/authorised-dealership/${d.vt.slug}/${p.id}/`), img: f && exists(`/images/vartech/${d.vt.slug}/${f}`) ? u(`/images/vartech/${d.vt.slug}/${f}`) : '', specs: trim(p.specs) });
+        items.push({ id: p.id, brand: 'Vartech', model: p.model, name: p.name, cat: `vartech-${v.slug}`, href: u(`/authorised-dealership/${v.slug}/${p.id}/`), img: f && exists(`/images/vartech/${v.slug}/${f}`) ? u(`/images/vartech/${v.slug}/${f}`) : '', specs: trim(p.specs) });
       }
     }
     return { id: d.id, label: d.label, blurb: d.blurb, rows: d.rows, items };

@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { u } from '../../../utils/url';
 import EyebrowLabel from '../../../components/EyebrowLabel.astro';
 import ProductCard from '../../../components/ProductCard.astro';
+import { compareGroupForCategory } from '../../../data/compare';
 import CompareAddButton from '../../../components/CompareAddButton.astro';
 import CTABand from '../../../components/CTABand.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
@@ -109,18 +110,7 @@ const itemListSchema = {
   ],
 };
 
-const compareGroups: Record<string, string> = {
-  'clamp-meters': 'clamp-meters', 'vartech-clamp-meters': 'clamp-meters',
-  multimeters: 'multimeters', 'vartech-multimeters': 'multimeters',
-  'digital-insulation-testers': 'digital-insulation-testers',
-  'insulation-testers-hand': 'hand-driven-insulation-testers', 'multirange-insulation-hand': 'hand-driven-insulation-testers',
-  'motor-operated-insulation': 'hand-driven-insulation-testers', 'multirange-motorised-insulation': 'hand-driven-insulation-testers',
-  'compact-insulation-testers': 'hand-driven-insulation-testers',
-  'earth-tester': 'earth-testers', 'relay-test-sets': 'relay-test-sets', 'phase-sequence-indicators': 'phase-sequence-indicators',
-  'vartech-oscilloscopes': 'oscilloscopes', 'vartech-function-generators': 'function-generators',
-  'vartech-lcr-meters': 'lcr-meters', 'vartech-dc-loads': 'dc-loads',
-};
-const compareGroup = compareGroups[(category as any).id];
+const compareGroup = compareGroupForCategory((category as any).id);
 
 const categoryFaqs = (category as any).faq as { q: string; a: string }[] | undefined;
 const faqSchema = categoryFaqs && categoryFaqs.length > 0 ? {
