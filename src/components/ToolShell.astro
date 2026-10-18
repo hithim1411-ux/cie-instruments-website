@@ -36,6 +36,9 @@ const schema = {
 
 <Base title={title} description={description}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script slot="head" is:inline>
+    try { if (/[?&]embed=1(&|$)/.test(location.search)) document.documentElement.classList.add('is-embed'); } catch (e) {}
+  </script>
 
   <!-- Shared helpers, loaded before the tool's own script runs -->
   <script is:inline>
@@ -118,10 +121,24 @@ const schema = {
           </div>
         </div>
       </div>
+
+      <div class="embed-foot">
+        <a href={`https://www.cieinstruments.in/tools/${slug}/`} target="_top" rel="noopener">Free tool by CIE Instruments, Howrah. Open the full version →</a>
+      </div>
+
+      <details class="embed-box" id="embed-box">
+        <summary>Embed this calculator on your website</summary>
+        <p class="embed-lead">Free to use on your blog, training page or company intranet. Paste this into any page that accepts HTML. The small credit link underneath is part of the deal.</p>
+        <textarea id="embed-code" readonly rows="5" spellcheck="false"></textarea>
+        <div class="embed-actions">
+          <button type="button" class="tool-act" id="embed-copy">Copy embed code</button>
+          <span class="embed-note">Works on WordPress (Custom HTML block), Wix, Blogger and plain HTML. The calculator runs inside the frame and sends no data anywhere.</span>
+        </div>
+      </details>
     </div>
   </section>
 
-  <section class="bg-white section-pad-sm">
+  <section class="bg-white section-pad-sm" id="tool-below">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[minmax(0,1fr)_20rem] gap-10 lg:gap-14 items-start">
       <div class="tool-prose max-w-3xl">
         <slot />
@@ -242,6 +259,20 @@ const schema = {
         txt = document.querySelector('h1').textContent + '\n' + txt + '\n(CIE free tool: ' + location.origin + location.pathname + ')';
         (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function () { say('Result copied'); }, function () { say('Copy not available here'); });
       });
+
+      // Embed snippet (iframe of this page in embed mode, plus a visible credit link)
+      (function () {
+        var ta = document.getElementById('embed-code'), btn = document.getElementById('embed-copy');
+        if (!ta || !btn) return;
+        var page = 'https://www.cieinstruments.in' + location.pathname;
+        var h1 = document.querySelector('h1').textContent.replace(/"/g, '&quot;');
+        ta.value = '<iframe src="' + page + '?embed=1" title="' + h1 + '" width="100%" height="780" style="border:1px solid #d9dee5;border-radius:12px;max-width:1100px" loading="lazy"></iframe>\n' +
+          '<p style="font-size:13px">Calculator by <a href="' + page + '">CIE Instruments, Howrah</a></p>';
+        btn.addEventListener('click', function () {
+          ta.select();
+          (navigator.clipboard ? navigator.clipboard.writeText(ta.value) : Promise.reject()).then(function () { say('Embed code copied'); }, function () { say('Press Ctrl+C to copy'); });
+        });
+      })();
 
       document.getElementById('tool-share').addEventListener('click', function () {
         var s = read(), p = new URLSearchParams();
@@ -386,6 +417,27 @@ const schema = {
   .rel-ico { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: .55rem; background: var(--color-cloud); color: var(--color-red); flex: none; }
   .rel-arrow { color: var(--color-muted); transition: color .2s, transform .2s; }
   .rel-link:hover .rel-arrow { color: var(--color-red); transform: translateX(3px); }
+
+  /* ── Embed box + embed mode ── */
+  .embed-foot { display: none; margin-top: 1rem; text-align: center; font-size: .8rem; }
+  .embed-foot a { color: #cbd5e1; text-decoration: underline; }
+  .embed-box { margin-top: 1.5rem; border: 1px dashed rgba(255,255,255,.2); border-radius: .9rem; padding: .9rem 1.1rem; background: rgba(255,255,255,.03); }
+  .embed-box summary { cursor: pointer; font-weight: 600; font-size: .9rem; color: #e2e8f0; }
+  .embed-box[open] summary { margin-bottom: .6rem; }
+  .embed-lead { font-size: .84rem; color: #94a3b8; margin: 0 0 .7rem; max-width: 46rem; }
+  .embed-box textarea { width: 100%; font-family: var(--font-mono); font-size: .74rem; line-height: 1.5; color: #cbd5e1; background: #0b121b; border: 1px solid rgba(255,255,255,.18); border-radius: .6rem; padding: .7rem .8rem; resize: vertical; }
+  .embed-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: .7rem; }
+  .embed-note { font-size: .74rem; color: #7b8794; }
+
+  html.is-embed body > :not(main):not(script):not(#tool-toast) { display: none !important; }
+  html.is-embed main { padding-top: 0 !important; }
+  html.is-embed .tool-crumbs, html.is-embed .tool-pill, html.is-embed #tool-below, html.is-embed .embed-box, html.is-embed main > section ~ section, html.is-embed main > section ~ div { display: none !important; }
+  html.is-embed .embed-foot { display: block; }
+  html.is-embed main > section:first-of-type { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+  html.is-embed main > section:first-of-type h1 { font-size: 1.5rem; margin-top: .6rem; }
+  html.is-embed main > section:first-of-type h1 + p { font-size: .9rem; margin-top: .4rem; }
+  html.is-embed #tool-app { margin-top: 1.1rem; }
+  html.is-embed .tool-badge, html.is-embed main > section:first-of-type .mt-5.flex { display: none; }
 
   @media (prefers-reduced-motion: reduce) { .tool-label::before, .tool-verdict { animation: none; } }
 </style>

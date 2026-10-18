@@ -108,6 +108,19 @@ const itemListSchema = {
   ],
 };
 
+const compareGroups: Record<string, string> = {
+  'clamp-meters': 'clamp-meters', 'vartech-clamp-meters': 'clamp-meters',
+  multimeters: 'multimeters', 'vartech-multimeters': 'multimeters',
+  'digital-insulation-testers': 'digital-insulation-testers',
+  'insulation-testers-hand': 'hand-driven-insulation-testers', 'multirange-insulation-hand': 'hand-driven-insulation-testers',
+  'motor-operated-insulation': 'hand-driven-insulation-testers', 'multirange-motorised-insulation': 'hand-driven-insulation-testers',
+  'compact-insulation-testers': 'hand-driven-insulation-testers',
+  'earth-tester': 'earth-testers', 'relay-test-sets': 'relay-test-sets', 'phase-sequence-indicators': 'phase-sequence-indicators',
+  'vartech-oscilloscopes': 'oscilloscopes', 'vartech-function-generators': 'function-generators',
+  'vartech-lcr-meters': 'lcr-meters', 'vartech-dc-loads': 'dc-loads',
+};
+const compareGroup = compareGroups[(category as any).id];
+
 const categoryFaqs = (category as any).faq as { q: string; a: string }[] | undefined;
 const faqSchema = categoryFaqs && categoryFaqs.length > 0 ? {
   '@context': 'https://schema.org',
@@ -146,6 +159,9 @@ const relatedArticles = (relatedArticleSlugs ?? [])
 
       <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">{category.name}</h1>
       <p class="mt-3 text-muted max-w-2xl leading-relaxed">{category.description}</p>
+      {compareGroup && (
+        <a href={u(`/compare/?g=${compareGroup}`)} class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-red hover:underline">Compare models side by side →</a>
+      )}
 
       {isCombined && (
         <div class="mt-4 flex items-center gap-2 flex-wrap">

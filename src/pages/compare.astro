@@ -1,0 +1,308 @@
+---
+import fs from 'node:fs';
+import Base from '../layouts/Base.astro';
+import EyebrowLabel from '../components/EyebrowLabel.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CTABand from '../components/CTABand.astro';
+import { u } from '../utils/url';
+import products from '../data/products.json';
+import vMultimeters from '../data/vartech-multimeters.json';
+import vClamp from '../data/vartech-clamp-meters.json';
+import vScopes from '../data/vartech-oscilloscopes.json';
+import vFg from '../data/vartech-function-generators.json';
+import vLcr from '../data/vartech-lcr-meters.json';
+import vDcl from '../data/vartech-dc-loads.json';
+
+type Row = [string, string]; // [row label, regex source matched against spec labels]
+interface Group { id: string; label: string; blurb: string; cie?: string[]; vt?: { slug: string; data: any[] }; rows?: Row[]; }
+
+const MORE_POWER: Row = ['Power', '^(power|battery)'];
+const DIMS: Row = ['Size and weight', '^(dimensions|weight)'];
+const WARRANTY: Row = ['Warranty', '^warranty'];
+
+const groups: Group[] = [
+  { id: 'clamp-meters', label: 'Clamp meters', blurb: 'CIE and Vartech clamp multimeters side by side.', cie: ['clamp-meters'], vt: { slug: 'clamp-meters', data: vClamp as any[] },
+    rows: [['Display', '^display'], ['Ranging', '^ranging'], ['Jaw opening', '^jaw'], ['AC current', '^ac(\\s&\\sdc)?\\scurrent'], ['DC current', '^dc current'], ['AC voltage', '^ac voltage|^true rms'], ['DC voltage', '^dc voltage'], ['Resistance', '^resistance'], ['Capacitance', '^capacitance'], ['Frequency', '^frequency'], ['Temperature', '^temperature'], ['Safety category', 'safety'], MORE_POWER, DIMS, WARRANTY] },
+  { id: 'multimeters', label: 'Digital multimeters', blurb: 'Compare CIE and Vartech multimeters from pocket models to bench units.', cie: ['multimeters'], vt: { slug: 'multimeters', data: vMultimeters as any[] },
+    rows: [['Display', '^display'], ['Ranging', '^ranging'], ['True RMS', 'true.?rms'], ['DC voltage', '^dc voltage|^dcv'], ['AC voltage', '^ac voltage'], ['DC current', '^dc current'], ['AC current', '^ac current'], ['Resistance', '^resistance'], ['Capacitance', '^capacitance'], ['Frequency', '^frequency'], ['Temperature', '^temperature'], MORE_POWER, DIMS, WARRANTY] },
+  { id: 'digital-insulation-testers', label: 'Digital insulation testers', blurb: 'Test voltage, range and accuracy across the digital insulation testers.', cie: ['digital-insulation-testers'],
+    rows: [['Test voltage', '^(insulation test voltage|output voltage)$'], ['Insulation range', '^insulation resistance( range)?$'], ['Accuracy', '^(accuracy|insulation accuracy)'], ['Short-circuit current', '^short circuit'], ['DAR and PI', '^(dar|pi)$'], ['Test timer', '^test timer'], ['Display', '^display'], MORE_POWER, DIMS, WARRANTY] },
+  { id: 'hand-driven-insulation-testers', label: 'Hand-driven and motorised insulation testers', blurb: 'The CIE/444, 555, 666 and 777 families, including multirange versions.', cie: ['insulation-testers-hand', 'multirange-insulation-hand', 'motor-operated-insulation', 'multirange-motorised-insulation', 'compact-insulation-testers'],
+    rows: [['Body', '^body'], ['Generator or drive', '^(generator type|drive)'], ['Indicator or display', '^(indicator|display)'], ['Accuracy', '^accuracy'], ['Range configuration', '^range configuration'], ['Weight', '^weight'], ['Dimensions', '^dimensions'], WARRANTY] },
+  { id: 'earth-testers', label: 'Earth testers', blurb: 'Compare the earth resistance testers.', cie: ['earth-tester'] },
+  { id: 'relay-test-sets', label: 'Relay test sets', blurb: 'Single-phase and three-phase relay test sets.', cie: ['relay-test-sets'] },
+  { id: 'phase-sequence-indicators', label: 'Phase sequence indicators', blurb: 'Compare the two phase sequence indicators.', cie: ['phase-sequence-indicators'] },
+  { id: 'oscilloscopes', label: 'Oscilloscopes', blurb: 'Vartech analog and digital storage oscilloscopes.', vt: { slug: 'oscilloscopes', data: vScopes as any[] },
+    rows: [['Channels', '^channels'], ['Bandwidth', '^bandwidth'], ['Sampling rate', '^(real-time sampling|sampling)'], ['Sweep time', '^sweep time'], ['Display', '^(display|crt)'], ['Vertical sensitivity', '^vertical sensitivity'], ['Record length', '^record length'], ['Interface', '^interface'], ['Power supply', '^power'], DIMS] },
+  { id: 'function-generators', label: 'Function generators', blurb: 'Vartech arbitrary waveform and function generators.', vt: { slug: 'function-generators', data: vFg as any[] },
+    rows: [['Channels', '^channels'], ['Waveforms', '^waveforms'], ['Sampling rate', '^sampling'], ['Display', '^display'], ['Interface', '^interface'], ['Power supply', '^power'], DIMS] },
+  { id: 'lcr-meters', label: 'LCR meters', blurb: 'Vartech LCR meters and the LCR-capable multimeter.', vt: { slug: 'lcr-meters', data: vLcr as any[] },
+    rows: [['Display', '^display'], ['Basic accuracy', '^basic accuracy'], ['Test frequency', '^test frequency'], ['Capacitance', '^capacitance'], ['Inductance', '^inductance'], ['Resistance', '^resistance'], ['Power', '^power'], DIMS] },
+  { id: 'dc-loads', label: 'DC electronic loads', blurb: 'Compare the Vartech EL-600 series.', vt: { slug: 'dc-loads', data: vDcl as any[] } },
+];
+
+const cwd = process.cwd();
+const exists = (p: string) => fs.existsSync(`${cwd}/public${p}`);
+const cieImg = (p: any) => {
+  const f = (p.images && p.images[0]) || `${p.id}.webp`;
+  return exists(`/images/products/${f}`) ? u(`/images/products/${f}`) : '';
+};
+const vtImg = (slug: string, p: any) => {
+  const f = p.images && p.images[0];
+  return f && exists(`/images/vartech/${slug}/${f}`) ? u(`/images/vartech/${slug}/${f}`) : '';
+};
+const trim = (specs: any[]) => (specs || []).map((s: any) => ({ l: String(s.label), v: String(s.value) }));
+
+const data = groups.map(g => {
+  const items: any[] = [];
+  for (const catId of g.cie ?? []) {
+    for (const p of (products as any[]).filter(x => x.categoryId === catId)) {
+      items.push({ id: p.id, brand: 'CIE', model: p.model, name: p.name, href: u(`/products/${p.categoryId}/${p.id}/`), img: cieImg(p), specs: trim(p.specs) });
+    }
+  }
+  if (g.vt) {
+    for (const p of g.vt.data) {
+      items.push({ id: p.id, brand: 'Vartech', model: p.model, name: p.name, href: u(`/authorised-dealership/${g.vt.slug}/${p.id}/`), img: vtImg(g.vt.slug, p), specs: trim(p.specs) });
+    }
+  }
+  return { id: g.id, label: g.label, blurb: g.blurb, rows: g.rows ?? [], items };
+}).filter(g => g.items.length >= 2);
+
+const json = JSON.stringify(data).replace(/</g, '\\u003c');
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Instrument Comparison Tool',
+  description: 'Compare CIE and Vartech test instruments side by side.',
+  url: 'https://www.cieinstruments.in/compare/',
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  publisher: { '@id': 'https://www.cieinstruments.in/#organization' },
+};
+---
+
+<Base title="Compare Instruments Side by Side" description="Pick two or three CIE or Vartech instruments and compare their specifications side by side: clamp meters, multimeters, insulation testers, oscilloscopes and more.">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <section class="blueprint-bg bg-ink text-white pt-10 pb-12 lg:pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="cmp-crumbs"><Breadcrumbs crumbs={[{ label: 'Compare' }]} /></div>
+      <EyebrowLabel text="Free tool" class="mt-5 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight max-w-4xl">Compare instruments side by side</h1>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Choose a type, tick up to three models and see their specifications lined up row by row. Differences are highlighted so you can spot them in seconds.</p>
+    </div>
+  </section>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="cmp-step"><span>1</span> What are you comparing?</p>
+      <div class="cmp-pills" id="cmp-groups" role="group" aria-label="Instrument type"></div>
+      <p class="cmp-blurb" id="cmp-blurb"></p>
+
+      <p class="cmp-step mt-7"><span>2</span> Pick up to three models <em id="cmp-count"></em></p>
+      <div class="cmp-picker" id="cmp-picker"></div>
+
+      <div class="cmp-bar" id="cmp-bar" hidden>
+        <label class="cmp-hl"><input type="checkbox" id="cmp-hl" checked /> Highlight differences</label>
+        <button type="button" class="cmp-btn" id="cmp-share">Copy link to this comparison</button>
+        <button type="button" class="cmp-btn" id="cmp-clear">Clear selection</button>
+      </div>
+
+      <div class="cmp-empty" id="cmp-empty">Tick at least two models above to see them side by side.</div>
+      <div class="cmp-wrap" id="cmp-wrap" hidden>
+        <table class="cmp-table hl" id="cmp-table"></table>
+      </div>
+      <button type="button" class="cmp-more" id="cmp-more" hidden aria-expanded="false"></button>
+
+      <p class="cmp-note">Specifications come from the data on each product page. "Not listed" means that page does not state a value for that row, which does not mean the instrument lacks the feature. Ranges, accuracy and options can vary by version, so confirm against the datasheet before you order.</p>
+    </div>
+  </section>
+
+  <CTABand heading="Not sure which one fits?" body="Tell us what you need to measure and our team in Howrah will suggest the right instrument." />
+
+  <div id="cmp-toast" role="status" aria-live="polite"></div>
+
+  <script type="application/json" id="cmp-data" set:html={json}></script>
+  <script is:inline>
+    (function () {
+      var DATA = JSON.parse(document.getElementById('cmp-data').textContent);
+      var MAX = 3;
+      var $ = function (id) { return document.getElementById(id); };
+      var state = { g: DATA[0].id, sel: [] };
+      var showMore = false;
+
+      function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+      function group() { return DATA.filter(function (g) { return g.id === state.g; })[0] || DATA[0]; }
+      function byId(g, id) { return g.items.filter(function (i) { return i.id === id; })[0]; }
+      function say(msg) { var t = $('cmp-toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(say._t); say._t = setTimeout(function () { t.classList.remove('on'); }, 1800); }
+
+      function fromUrl() {
+        var q = new URLSearchParams(location.search), g = q.get('g');
+        if (g && DATA.some(function (d) { return d.id === g; })) state.g = g;
+        var gr = group(), ids = (q.get('p') || '').split(',').filter(Boolean);
+        state.sel = ids.filter(function (id) { return byId(gr, id); }).slice(0, MAX);
+        if (!q.get('p')) state.sel = gr.items.slice(0, 2).map(function (i) { return i.id; });
+      }
+      function toUrl() {
+        var p = new URLSearchParams(); p.set('g', state.g); if (state.sel.length) p.set('p', state.sel.join(','));
+        return location.origin + location.pathname + '?' + p.toString();
+      }
+      function sync() { try { history.replaceState(null, '', toUrl()); } catch (e) {} }
+
+      function renderGroups() {
+        $('cmp-groups').innerHTML = DATA.map(function (g) {
+          return '<button type="button" class="cmp-pill" data-g="' + esc(g.id) + '" aria-pressed="' + (g.id === state.g) + '">' + esc(g.label) + ' <i>' + g.items.length + '</i></button>';
+        }).join('');
+        $('cmp-blurb').textContent = group().blurb;
+      }
+      function renderPicker() {
+        var g = group();
+        $('cmp-count').textContent = '(' + state.sel.length + ' of ' + MAX + ' chosen)';
+        $('cmp-picker').innerHTML = g.items.map(function (i) {
+          var on = state.sel.indexOf(i.id) >= 0, full = !on && state.sel.length >= MAX;
+          return '<button type="button" class="cmp-card' + (on ? ' on' : '') + '" data-id="' + esc(i.id) + '" aria-pressed="' + on + '"' + (full ? ' disabled' : '') + '>' +
+            '<span class="cmp-tick" aria-hidden="true">' + (on ? '✓' : '') + '</span>' +
+            (i.img ? '<img src="' + esc(i.img) + '" alt="" width="64" height="64" loading="lazy" />' : '<span class="cmp-noimg"></span>') +
+            '<span class="cmp-cm"><b>' + esc(i.model) + '</b><small>' + esc(i.brand) + '</small></span></button>';
+        }).join('');
+      }
+
+      function norm(v) { return String(v).toLowerCase().replace(/\s+/g, ' ').trim(); }
+      function render() {
+        var g = group(), items = state.sel.map(function (id) { return byId(g, id); }).filter(Boolean);
+        var ok = items.length >= 2;
+        $('cmp-empty').hidden = ok; $('cmp-wrap').hidden = !ok; $('cmp-bar').hidden = !ok; $('cmp-more').hidden = true;
+        if (!ok) return;
+
+        var consumed = items.map(function () { return {}; });
+        var rows = g.rows.map(function (r) {
+          var re = new RegExp(r[1], 'i');
+          var vals = items.map(function (it, k) {
+            var out = [];
+            it.specs.forEach(function (s) { if (re.test(s.l)) { consumed[k][s.l] = 1; if (out.indexOf(s.v) < 0) out.push(s.v); } });
+            return out.length ? out.join(' · ') : null;
+          });
+          return { label: r[0], vals: vals };
+        }).filter(function (r) { return r.vals.some(function (v) { return v !== null; }); });
+
+        var seen = {}, extra = [];
+        items.forEach(function (it, k) { it.specs.forEach(function (s) { if (!consumed[k][s.l] && !seen[s.l]) { seen[s.l] = 1; extra.push(s.l); } }); });
+        var extraRows = extra.map(function (l) {
+          return { label: l, vals: items.map(function (it) { var m = it.specs.filter(function (s) { return s.l === l; })[0]; return m ? m.v : null; }) };
+        });
+
+        function tr(r, cls) {
+          var present = r.vals.filter(function (v) { return v !== null; });
+          var diff = present.length !== r.vals.length || present.some(function (v) { return norm(v) !== norm(present[0]); });
+          return '<tr class="' + (cls || '') + (diff ? ' is-diff' : '') + '"><th scope="row">' + esc(r.label) + '</th>' + r.vals.map(function (v) {
+            return v === null ? '<td class="cmp-na">Not listed</td>' : '<td>' + esc(v).replace(/ \| /g, '<br>') + '</td>';
+          }).join('') + '</tr>';
+        }
+
+        var head = '<thead><tr><th class="cmp-corner"></th>' + items.map(function (it) {
+          return '<th scope="col" class="cmp-h"><button type="button" class="cmp-x" data-rm="' + esc(it.id) + '" aria-label="Remove ' + esc(it.model) + '">×</button>' +
+            (it.img ? '<img src="' + esc(it.img) + '" alt="' + esc(it.model) + '" width="120" height="120" />' : '') +
+            '<span class="cmp-brand">' + esc(it.brand) + '</span><a class="cmp-model" href="' + esc(it.href) + '">' + esc(it.model) + '</a><span class="cmp-name">' + esc(it.name) + '</span>' +
+            '<a class="cmp-view" href="' + esc(it.href) + '">View details →</a></th>';
+        }).join('') + '</tr></thead>';
+
+        var body = '<tbody>' + rows.map(function (r) { return tr(r); }).join('') + '</tbody>';
+        var more = extraRows.length ? '<tbody class="cmp-extra"' + (showMore ? '' : ' hidden') + '>' + extraRows.map(function (r) { return tr(r); }).join('') + '</tbody>' : '';
+        $('cmp-table').innerHTML = head + body + more;
+        $('cmp-table').style.setProperty('--n', items.length);
+
+        var mb = $('cmp-more');
+        if (extraRows.length) { mb.hidden = false; mb.textContent = (showMore ? 'Hide' : 'Show') + ' ' + extraRows.length + ' more specification' + (extraRows.length === 1 ? '' : 's'); mb.setAttribute('aria-expanded', showMore); }
+      }
+
+      function all() { renderGroups(); renderPicker(); render(); sync(); }
+
+      $('cmp-groups').addEventListener('click', function (e) {
+        var b = e.target.closest('[data-g]'); if (!b) return;
+        state.g = b.dataset.g; state.sel = group().items.slice(0, 2).map(function (i) { return i.id; }); showMore = false; all();
+      });
+      $('cmp-picker').addEventListener('click', function (e) {
+        var b = e.target.closest('[data-id]'); if (!b || b.disabled) return;
+        var id = b.dataset.id, i = state.sel.indexOf(id);
+        if (i >= 0) state.sel.splice(i, 1); else if (state.sel.length < MAX) state.sel.push(id);
+        renderPicker(); render(); sync();
+      });
+      $('cmp-table').addEventListener('click', function (e) {
+        var x = e.target.closest('[data-rm]'); if (!x) return;
+        state.sel = state.sel.filter(function (id) { return id !== x.dataset.rm; }); renderPicker(); render(); sync();
+      });
+      $('cmp-hl').addEventListener('change', function (e) { $('cmp-table').classList.toggle('hl', e.target.checked); });
+      $('cmp-clear').addEventListener('click', function () { state.sel = []; renderPicker(); render(); sync(); });
+      $('cmp-more').addEventListener('click', function () { showMore = !showMore; render(); });
+      $('cmp-share').addEventListener('click', function () {
+        var url = toUrl();
+        (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(function () { say('Link copied'); }, function () { say('Link is in the address bar'); });
+      });
+
+      fromUrl(); all();
+    })();
+  </script>
+</Base>
+
+<style is:global>
+  .cmp-crumbs .text-ink { color: #fff; }
+  .cmp-step { display: flex; align-items: center; gap: .6rem; margin: 0 0 .8rem; font-weight: 700; color: var(--color-ink); font-size: 1.02rem; }
+  .cmp-step span { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: .5rem; background: var(--color-red); color: #fff; font-family: var(--font-mono); font-size: .78rem; }
+  .cmp-step em { font-style: normal; font-weight: 500; font-size: .85rem; color: var(--color-muted); }
+  .cmp-pills { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .cmp-pill { padding: .55rem 1rem; font-size: .88rem; font-weight: 600; border: 1px solid var(--color-border); border-radius: 999px; background: #fff; color: var(--color-ink); cursor: pointer; transition: all .18s; }
+  .cmp-pill i { font-style: normal; font-family: var(--font-mono); font-size: .72rem; opacity: .6; margin-left: .25rem; }
+  .cmp-pill:hover { border-color: var(--color-red); }
+  .cmp-pill[aria-pressed="true"] { background: var(--color-ink); color: #fff; border-color: var(--color-ink); }
+  .cmp-blurb { margin: .7rem 0 0; font-size: .9rem; color: var(--color-muted); }
+
+  .cmp-picker { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .6rem; }
+  .cmp-card { position: relative; display: flex; align-items: center; gap: .8rem; padding: .6rem .8rem; text-align: left; border: 1px solid var(--color-border); border-radius: .9rem; background: #fff; cursor: pointer; transition: all .15s; min-width: 0; }
+  .cmp-card:hover:not(:disabled) { border-color: #b9c0cc; }
+  .cmp-card.on { border-color: var(--color-red); background: #fff6f6; box-shadow: 0 0 0 3px rgba(224,37,46,.12); }
+  .cmp-card:disabled { opacity: .45; cursor: not-allowed; }
+  .cmp-card:focus-visible, .cmp-pill:focus-visible, .cmp-btn:focus-visible, .cmp-more:focus-visible { outline: 2px solid var(--color-red); outline-offset: 2px; }
+  .cmp-card img, .cmp-noimg { width: 3rem; height: 3rem; object-fit: contain; flex: none; border-radius: .5rem; background: var(--color-cloud); }
+  .cmp-cm { display: flex; flex-direction: column; min-width: 0; }
+  .cmp-cm b { font-size: .92rem; color: var(--color-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cmp-cm small { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--color-muted); }
+  .cmp-tick { position: absolute; top: .45rem; right: .55rem; font-size: .8rem; font-weight: 800; color: var(--color-red); }
+
+  .cmp-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.2rem; margin: 1.6rem 0 .8rem; }
+  .cmp-bar[hidden], .cmp-wrap[hidden], .cmp-more[hidden], .cmp-extra[hidden] { display: none; }
+  .cmp-hl { display: inline-flex; align-items: center; gap: .5rem; font-size: .88rem; font-weight: 600; color: var(--color-ink); cursor: pointer; }
+  .cmp-hl input { width: 1.05rem; height: 1.05rem; accent-color: var(--color-red); }
+  .cmp-btn { padding: .45rem .9rem; font-size: .82rem; font-weight: 600; border: 1px solid var(--color-border); border-radius: .6rem; background: var(--color-cloud); cursor: pointer; }
+  .cmp-btn:hover { border-color: var(--color-red); color: var(--color-red); }
+  .cmp-empty { margin-top: 1.6rem; padding: 2rem; text-align: center; border: 1px dashed var(--color-border); border-radius: 1rem; color: var(--color-muted); }
+  .cmp-empty[hidden] { display: none; }
+
+  .cmp-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 1rem; background: #fff; -webkit-overflow-scrolling: touch; }
+  .cmp-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: calc(7rem + var(--n, 2) * 13rem); table-layout: fixed; }
+  .cmp-table th, .cmp-table td { padding: .7rem .9rem; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: top; font-size: .86rem; line-height: 1.5; overflow-wrap: anywhere; }
+  .cmp-table tbody th { position: sticky; left: 0; z-index: 1; width: 7rem; background: var(--color-cloud); font-family: var(--font-mono); font-size: .7rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--color-ink); }
+  .cmp-corner { position: sticky; left: 0; z-index: 2; width: 7rem; background: #fff; }
+  .cmp-table td + td, .cmp-table th.cmp-h + th.cmp-h { border-left: 1px solid var(--color-border); }
+  .cmp-h { position: relative; background: #fff; text-align: center !important; padding-top: 1.2rem !important; }
+  .cmp-h img { display: block; margin: 0 auto .5rem; width: 6.5rem; height: 6.5rem; object-fit: contain; }
+  .cmp-brand { display: block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; color: var(--color-muted); }
+  .cmp-model { display: block; font-size: 1.1rem; font-weight: 800; color: var(--color-ink); }
+  .cmp-model:hover { color: var(--color-red); }
+  .cmp-name { display: block; margin-top: .2rem; font-size: .76rem; font-weight: 400; color: var(--color-muted); line-height: 1.35; }
+  .cmp-view { display: inline-block; margin-top: .55rem; font-size: .8rem; font-weight: 700; color: var(--color-red); }
+  .cmp-view:hover { text-decoration: underline; }
+  .cmp-x { position: absolute; top: .35rem; right: .45rem; width: 1.5rem; height: 1.5rem; border-radius: 50%; font-size: 1rem; line-height: 1; color: var(--color-muted); background: var(--color-cloud); cursor: pointer; }
+  .cmp-x:hover { background: var(--color-red); color: #fff; }
+  .cmp-na { color: #9aa3af; font-style: italic; }
+  .cmp-table.hl tr.is-diff td { background: #fff9ec; }
+  .cmp-table.hl tr.is-diff th { box-shadow: inset 3px 0 0 #f59e0b; }
+  .cmp-more { margin-top: .9rem; padding: .6rem 1.1rem; font-size: .86rem; font-weight: 600; border: 1px solid var(--color-border); border-radius: .7rem; background: #fff; cursor: pointer; }
+  .cmp-more:hover { border-color: var(--color-red); color: var(--color-red); }
+  .cmp-note { margin-top: 1.6rem; max-width: 52rem; font-size: .82rem; line-height: 1.6; color: var(--color-muted); }
+
+  #cmp-toast { position: fixed; left: 50%; bottom: 1.5rem; transform: translate(-50%, 1rem); padding: .6rem 1.1rem; border-radius: 999px; background: var(--color-ink); color: #fff; font-size: .85rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 60; }
+  #cmp-toast.on { opacity: 1; transform: translate(-50%, 0); }
+  @media (max-width: 640px) { .cmp-table th, .cmp-table td { padding: .55rem .6rem; font-size: .8rem; } .cmp-table tbody th, .cmp-corner { width: 5.6rem; } .cmp-table { min-width: calc(5.6rem + var(--n, 2) * 11rem); } }
+</style>

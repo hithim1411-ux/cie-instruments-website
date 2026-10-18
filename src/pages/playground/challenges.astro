@@ -1,0 +1,329 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import { u } from '../../utils/url';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Test Instrument Challenges and Quiz',
+  description: 'Six find-the-fault cases and a 10-question quiz on insulation testing, earth testing, clamp meters and multimeters.',
+  url: 'https://www.cieinstruments.in/playground/challenges/',
+  applicationCategory: 'GameApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  publisher: { '@id': 'https://www.cieinstruments.in/#organization' },
+};
+const L = {
+  pi: u('/tools/pi-dar-calculator/'),
+  temp: u('/tools/ir-temperature-correction-calculator/'),
+  earth: u('/blog/earth-resistance-testing-guide/'),
+  soil: u('/tools/soil-resistivity-wenner-calculator/'),
+  imb: u('/blog/how-to-check-three-phase-imbalance/'),
+  clamp: u('/blog/how-to-use-a-clamp-meter/'),
+  ghost: u('/blog/ghost-voltage-low-z-ncv-explained/'),
+  kv: u('/tools/insulation-test-voltage-selector/'),
+  burden: u('/blog/what-is-burden-voltage/'),
+  bw: u('/tools/oscilloscope-bandwidth-calculator/'),
+  accuracy: u('/tools/multimeter-accuracy-calculator/'),
+  ohm: u('/tools/ohms-law-calculator/'),
+  slip: u('/tools/motor-speed-slip-calculator/'),
+  pf: u('/tools/power-factor-correction-calculator/'),
+  resistor: u('/tools/resistor-colour-code-calculator/'),
+};
+---
+
+<Base title="Find the Fault: Test Instrument Challenges and Quiz" description="Play six find-the-fault cases and a 10-question quiz on insulation testing, earth testing, clamp meters and multimeters. Free, no sign-up, shareable score.">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <section class="blueprint-bg bg-ink text-white pt-10 pb-10 lg:pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="ch-crumbs"><Breadcrumbs crumbs={[{ label: 'Instrument Playground', href: u('/playground/') }, { label: 'Challenges' }]} /></div>
+      <EyebrowLabel text="Just for fun" class="mt-5 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight max-w-4xl">Find the fault <span class="ch-beta">Beta</span></h1>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Read the instrument, spot what is wrong and pick the diagnosis. Six site cases, then a ten-question quiz you can send to a colleague to beat.</p>
+      <div class="ch-tabs mt-7" role="tablist" aria-label="Choose a mode">
+        <button type="button" role="tab" id="tab-cases" aria-selected="true" data-mode="cases">Find the fault <i>6 cases</i></button>
+        <button type="button" role="tab" id="tab-quiz" aria-selected="false" data-mode="quiz">Quick quiz <i>10 questions</i></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="ch-disc" role="note"><strong>Beta, just for fun.</strong> The numbers in these cases are made up for the game and the answers use general guide values. This is not a training course and not a substitute for your standards, the instrument manual or your site safety procedure.</div>
+
+      <div id="ch-beat" class="ch-beat" hidden></div>
+      <div id="ch-stage" class="ch-stage" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <CTABand heading="Want the real instruments?" body="CIE supplies insulation testers, earth testers and clamp meters from Howrah, with test certificate available on request." />
+
+  <script type="application/json" id="ch-links" set:html={JSON.stringify(L)}></script>
+  <script is:inline>
+    (function () {
+      var LK = JSON.parse(document.getElementById('ch-links').textContent);
+      var $ = function (id) { return document.getElementById(id); };
+      function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+      function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+      function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+      var toastEl;
+      function say(msg) { if (!toastEl) { toastEl = document.createElement('div'); toastEl.id = 'ch-toast'; document.body.appendChild(toastEl); } toastEl.textContent = msg; toastEl.classList.add('on'); clearTimeout(say._t); say._t = setTimeout(function () { toastEl.classList.remove('on'); }, 1800); }
+
+      /* ---------- Chart + tile helpers ---------- */
+      function lineChart(pts, o) {
+        var W = 520, H = 230, m = { l: 52, r: 16, t: 16, b: 40 };
+        var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+        var x0 = 0, x1 = Math.max.apply(null, xs), y0 = 0, y1 = Math.ceil(Math.max.apply(null, ys) / o.ystep) * o.ystep;
+        function X(v) { return m.l + (v - x0) / (x1 - x0) * (W - m.l - m.r); }
+        function Y(v) { return H - m.b - (v - y0) / (y1 - y0) * (H - m.t - m.b); }
+        var g = '';
+        for (var y = y0; y <= y1 + 1e-9; y += o.ystep) g += '<line x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + Y(y) + '" y2="' + Y(y) + '" class="gl"/><text x="' + (m.l - 8) + '" y="' + (Y(y) + 3) + '" text-anchor="end">' + y + '</text>';
+        xs.forEach(function (x) { g += '<text x="' + X(x) + '" y="' + (H - m.b + 16) + '" text-anchor="middle">' + x + '</text>'; });
+        var d = pts.map(function (p, i) { return (i ? 'L' : 'M') + X(p[0]).toFixed(1) + ' ' + Y(p[1]).toFixed(1); }).join(' ');
+        var dots = pts.map(function (p) { return '<circle cx="' + X(p[0]).toFixed(1) + '" cy="' + Y(p[1]).toFixed(1) + '" r="4"/>'; }).join('');
+        return '<svg viewBox="0 0 ' + W + ' ' + H + '" class="ch-chart" role="img" aria-label="' + esc(o.label) + '">' + g +
+          '<path d="' + d + '" class="ln"/>' + dots +
+          '<text x="' + (W / 2) + '" y="' + (H - 4) + '" text-anchor="middle" class="ax">' + esc(o.xl) + '</text>' +
+          '<text x="12" y="' + (H / 2) + '" text-anchor="middle" class="ax" transform="rotate(-90 12 ' + (H / 2) + ')">' + esc(o.yl) + '</text></svg>';
+      }
+      function tiles(list) {
+        return '<div class="ch-tiles">' + list.map(function (t) { return '<div class="ch-lcd' + (t.cls ? ' ' + t.cls : '') + '"><small>' + esc(t.k) + '</small><b>' + esc(t.v) + '</b>' + (t.s ? '<span>' + esc(t.s) + '</span>' : '') + '</div>'; }).join('') + '</div>';
+      }
+      function bars(rows, unit, max) {
+        return '<div class="ch-bars">' + rows.map(function (r) { return '<div class="ch-bar"><span>' + esc(r[0]) + '</span><div><i style="width:' + (r[1] / max * 100).toFixed(1) + '%"></i></div><b>' + r[1] + ' ' + unit + '</b></div>'; }).join('') + '</div>';
+      }
+      function imbalance(a) { var avg = a.reduce(function (s, v) { return s + v; }, 0) / a.length; var dev = Math.max.apply(null, a.map(function (v) { return Math.abs(v - avg); })); return dev / avg * 100; }
+
+      /* ---------- Find-the-fault cases ---------- */
+      var vI = [415, 414, 398], aI = [18.2, 17.9, 24.6];
+      var vImb = imbalance(vI), aImb = imbalance(aI);
+      var CASES = [
+        { title: 'The flat line', setup: 'A 415 V motor is megger-tested at 500 V DC for ten minutes after a monsoon shutdown. The readings are plotted below.',
+          viz: function () { var p = [[0.25, 90], [0.5, 105], [1, 120], [2, 122], [5, 124], [10, 126]]; return lineChart(p, { ystep: 40, xl: 'Time (minutes)', yl: 'Insulation resistance (MΩ)', label: 'Insulation resistance rising only from 120 to 126 megohms over ten minutes' }) + tiles([{ k: 'IR at 1 min', v: '120 MΩ' }, { k: 'IR at 10 min', v: '126 MΩ' }, { k: 'PI (10 min / 1 min)', v: (126 / 120).toFixed(2) }]); },
+          q: 'What does this curve most likely tell you?',
+          opts: ['A healthy winding. A PI of about 1 is normal for an older motor.', 'The winding is probably damp or dirty. Clean and dry it, then retest.', 'The tester is faulty, because the reading should keep climbing for the whole ten minutes.', 'The winding is open circuit.'], ok: 1,
+          why: 'Dry, clean insulation keeps polarising, so the reading climbs and PI usually lands above 2. A curve that goes flat early (PI close to 1) points to leakage current through moisture or contamination. The 120 MΩ looks comfortable on its own, which is exactly why the trend matters.',
+          links: [['PI and DAR calculator', LK.pi]] },
+        { title: 'The curve that will not level', setup: 'Fall-of-potential earth test on a plant earth electrode. The current spike C is 20 m from the electrode. The potential spike P is moved in steps and the tester shows this.',
+          viz: function () { return lineChart([[4, 6], [8, 11], [12, 16], [16, 21]], { ystep: 5, xl: 'Distance of P spike from the electrode (m)', yl: 'Reading (Ω)', label: 'Earth reading climbing steadily from 6 to 21 ohms with no flat region' }); },
+          q: 'The readings never flatten into a plateau. What should you do?',
+          opts: ['Report the highest value, 21 Ω, as the electrode resistance.', 'Move the current spike C much farther from the electrode, then repeat with P at about 62% of the new distance.', 'Pour water on the soil around the P spike.', 'Average the four readings and record that.'], ok: 1,
+          why: 'A steadily rising curve means the resistance areas of the electrode and the C spike overlap, so there is no true plateau to read. Spacing C further out (several times the electrode size) lets the curve flatten, and the reading at about 62% of the E to C distance then represents the electrode.',
+          links: [['Earth resistance testing guide', LK.earth]] },
+        { title: 'The lopsided motor', setup: 'A clamp meter on a 415 V pump motor shows uneven phase currents. The line voltages at the starter are measured too.',
+          viz: function () { return bars([['L1', aI[0]], ['L2', aI[1]], ['L3', aI[2]]], 'A', 30) + tiles([{ k: 'Line voltages', v: vI.join(' / ') + ' V' }, { k: 'Voltage imbalance', v: vImb.toFixed(1) + ' %' }, { k: 'Current imbalance', v: aImb.toFixed(0) + ' %' }]); },
+          q: 'Where should you look first?',
+          opts: ['A shorted turn in the motor winding.', 'The supply: a small voltage imbalance can cause a current imbalance several times larger. Check lugs, fuses and upstream loads.', 'Overload. The motor is too big for the pump.', 'The clamp meter is reading wrong.'], ok: 1,
+          why: 'As a rule of thumb, current imbalance in an induction motor is about 6 to 10 times the voltage imbalance. Here ' + vImb.toFixed(1) + ' % x 8 is about ' + (vImb * 8).toFixed(0) + ' %, close to the ' + aImb.toFixed(0) + ' % measured. That pattern points upstream (loose connection, unequal single-phase loads) before opening the motor.',
+          links: [['Check three-phase imbalance', LK.imb]] },
+        { title: 'The heater that reads zero', setup: 'A 2.3 kW, 230 V heater is glowing red hot. You clamp the whole two-core supply cable and the meter shows this.',
+          viz: function () { return tiles([{ k: 'Clamp reading', v: '0.0 A', s: 'both conductors inside the jaw' }, { k: 'Expected', v: '10 A', s: '2300 W / 230 V' }]); },
+          q: 'Why is the reading zero?',
+          opts: ['The heater is drawing no current, so it must be faulty.', 'The clamp is on the wrong range.', 'Line and neutral carry equal and opposite currents, so their magnetic fields cancel inside the jaw.', 'The meter battery is low.'], ok: 2,
+          why: 'A clamp meter senses the net magnetic field. With line and neutral both inside the jaw the net is almost zero. Clamp one conductor only. The cancelling effect is also how leakage clamps work: any current that does not return through the clamped conductors shows up as a reading.',
+          links: [['How to use a clamp meter', LK.clamp]] },
+        { title: 'Voltage on a dead cable', setup: 'A disconnected, isolated cable runs alongside live cables for 80 m. A standard multimeter is touched across it.',
+          viz: function () { return tiles([{ k: 'High-impedance DMM', v: '87 V AC' }, { k: 'Low-Z mode', v: '0.4 V AC', cls: 'ok' }]); },
+          q: 'What is going on?',
+          opts: ['The cable is live and the Low-Z reading is wrong.', 'Ghost voltage: capacitive coupling from the neighbouring live cables. The high-impedance input barely loads it, the low-impedance mode collapses it.', 'A neutral to earth fault.', 'The meter needs calibration.'], ok: 1,
+          why: 'A high-impedance input draws almost no current, so even a tiny coupled current shows a large voltage. A low-impedance mode loads it down. It is a useful clue, but it is never the proof of dead: follow your site isolation and test-prove-test procedure with an approved voltage tester.',
+          links: [['Ghost voltage and Low-Z explained', LK.ghost]] },
+        { title: 'Hot motor, scary number', setup: 'Last year a motor read 400 MΩ at 20 °C. Today it reads 6 MΩ straight after running, at a winding temperature of 80 °C. Both at the same test voltage.',
+          viz: function () { return tiles([{ k: 'Last year', v: '400 MΩ', s: 'at 20 °C' }, { k: 'Today', v: '6 MΩ', s: 'at 80 °C' }]); },
+          q: 'Has the insulation actually deteriorated?',
+          opts: ['Yes. A drop from 400 to 6 MΩ is a 98 % loss.', 'Not necessarily. Refer both readings to 40 °C with the halving rule first.', 'No. Temperature never affects insulation resistance.', 'It cannot be judged without a PI test.'], ok: 1,
+          why: 'Insulation resistance roughly halves for every 10 °C rise. Referred to 40 °C: last year 400 x 0.25 = 100 MΩ, today 6 x 16 = 96 MΩ. Essentially unchanged. Always log temperature-corrected values so trends mean something.',
+          links: [['IR temperature correction', LK.temp]] }
+      ];
+
+      /* ---------- Quiz pool ---------- */
+      var Q = [
+        ['What is the guard terminal on an insulation tester for?', ['It protects the operator from shock', 'It diverts surface leakage so it is left out of the measurement', 'It doubles the test voltage', 'It zeroes the leads'], 1, 'Guard bypasses surface leakage (for example across a dirty terminal bushing) so only the volume insulation you want is measured.'],
+        ['On a fall-of-potential earth test, where is the potential spike P normally placed?', ['Next to the electrode', 'At about 62 % of the distance from the electrode to the current spike', 'Beyond the current spike', 'At 10 % of the distance'], 1, 'About 62 % of the E to C distance is the usual starting point on the plateau.'],
+        ['How is the Polarisation Index calculated?', ['IR at 1 min divided by IR at 10 min', 'IR at 10 min divided by IR at 1 min', 'IR at 30 s divided by IR at 60 s', 'Test voltage divided by current'], 1, 'PI = IR(10 min) / IR(1 min). DAR uses 60 s over 30 s.'],
+        ['A clamp meter is closed around both the line and neutral of a loaded single-phase cable. It reads about:', ['Double the load current', 'The load current', 'Zero', 'Half the load current'], 2, 'Equal and opposite currents cancel in the jaw, so clamp one conductor.'],
+        ['230 V is applied across 46 Ω. What is the current?', ['0.2 A', '5 A', '10 A', '46 A'], 1, 'I = V / R = 230 / 46 = 5 A.'],
+        ['A small supply voltage imbalance to a motor typically causes a current imbalance that is:', ['Smaller than the voltage imbalance', 'About equal', 'Several times larger', 'Always zero'], 2, 'A rule of thumb is 6 to 10 times larger.'],
+        ['Insulation resistance and temperature: as winding temperature rises, the reading generally:', ['Rises', 'Falls, roughly halving per 10 °C', 'Stays the same', 'Reads infinity'], 1, 'The halving-per-10 °C rule is used to refer readings to a common temperature.'],
+        ['After an insulation test on a cable or motor, before touching the terminals you should:', ['Switch the tester off and walk away', 'Let the stored charge discharge safely through the tester or an earth link', 'Test again at a higher voltage', 'Do nothing, it is safe'], 1, 'Capacitive insulation stays charged after the test. Discharge before handling.'],
+        ['You measure the current drawn by a motor drive on a variable-frequency supply. Which meter type is the right choice?', ['Average-responding', 'True-RMS', 'Peak-hold only', 'Any meter'], 1, 'Distorted waveforms need a true-RMS reading to be accurate.'],
+        ['Which category rating is the right minimum for work on a building distribution panel?', ['CAT I', 'CAT II', 'CAT III', 'No rating needed'], 2, 'CAT III covers distribution level. CAT IV is for the origin of the installation.'],
+        ['As a rule of thumb, an oscilloscope should have a bandwidth of about how many times the signal frequency?', ['1 x', '2 x', '5 x', '50 x'], 2, 'Roughly 5 x gives about 2 % amplitude error. 3 x is the bare minimum.'],
+        ['A scope has a rise time of 3.5 ns. Using BW = 0.35 / tr, its bandwidth is about:', ['10 MHz', '35 MHz', '100 MHz', '350 MHz'], 2, '0.35 / 3.5 ns = 100 MHz.'],
+        ['Burden voltage on an ammeter matters most when:', ['Measuring high-voltage circuits', 'Measuring small currents in low-voltage circuits', 'Measuring resistance', 'Measuring frequency'], 1, 'The meter\'s series drop is a bigger fraction of a low-voltage supply.'],
+        ['To measure current with a multimeter you connect it:', ['In parallel with the load', 'In series with the load', 'Across the supply with the load removed', 'To earth only'], 1, 'Current meters sit in series. Parallel across a supply on a current range can blow the fuse.'],
+        ['Wenner soil resistivity: probes spaced a = 2 m apart read R = 5 Ω. Using rho = 2 x pi x a x R, resistivity is about:', ['10 ohm-m', '31 ohm-m', '63 ohm-m', '126 ohm-m'], 2, '2 x 3.1416 x 2 x 5 = 62.8 ohm-m.'],
+        ['Why use a four-terminal (Kelvin) connection for micro-ohm measurements?', ['It is cheaper', 'It removes lead and contact resistance from the result', 'It raises the test voltage', 'It speeds up the display'], 1, 'Separate current and sense leads leave only the resistance between the sense points.'],
+        ['A dead, isolated cable shows 80 V on a normal multimeter. A common cause is:', ['A faulty earth rod', 'Ghost voltage from capacitive coupling to nearby live cables', 'A dead battery', 'DC leakage'], 1, 'High input impedance meters pick up coupled voltage. Low-Z mode or a proper tester settles it.'],
+        ['A meter is specified as +/-(1 % of reading + 2 digits) with 0.1 V resolution and shows 100.0 V. The worst-case error is:', ['+/-0.2 V', '+/-1.0 V', '+/-1.2 V', '+/-3.0 V'], 2, '1 % of 100.0 = 1.0 V, plus 2 digits x 0.1 V = 0.2 V, so +/-1.2 V.'],
+        ['With the leads open and nothing connected, an insulation tester at 500 V should read:', ['0 MΩ', 'About 1 MΩ', 'Over-range, shown as infinity', 'The battery voltage'], 2, 'Open leads mean no current path, so the display over-ranges. A 0 reading with leads shorted checks the other end.'],
+        ['Swapping any two phases of a three-phase motor supply will:', ['Stop the motor', 'Reverse its direction of rotation', 'Halve its speed', 'Change nothing'], 1, 'Reversing the phase sequence reverses rotation. This is why a phase sequence indicator is used before connecting a motor.'],
+        ['What colour code gives 1.0 kΩ (first digit, second digit, multiplier)?', ['Brown, black, red', 'Brown, black, brown', 'Red, red, black', 'Orange, orange, brown'], 0, 'Brown 1, black 0, red x100 = 1000 Ω.'],
+        ['A load draws 80 kW and 100 kVA. Its power factor is:', ['0.6', '0.8', '1.25', '0.08'], 1, 'PF = kW / kVA = 80 / 100 = 0.8.'],
+        ['The synchronous speed of a 4-pole motor on a 50 Hz supply is:', ['750 rpm', '1000 rpm', '1500 rpm', '3000 rpm'], 2, 'Ns = 120 x f / poles = 120 x 50 / 4 = 1500 rpm.'],
+        ['For equipment rated below 1000 V, a common insulation test voltage for windings (IEEE 43) is:', ['50 V DC', '500 V DC', '5000 V DC', '10000 V DC'], 1, 'Below 1000 V rated the usual choice is 500 V DC.']
+      ];
+
+      /* ---------- State + rendering ---------- */
+      var stage = $('ch-stage'), mode = 'cases';
+      var qs = new URLSearchParams(location.search);
+      function setMode(m) {
+        mode = m;
+        ['cases', 'quiz'].forEach(function (k) { $('tab-' + k).setAttribute('aria-selected', k === m); });
+        try { history.replaceState(null, '', location.pathname + (m === 'quiz' ? '?mode=quiz' + (qs.get('beat') ? '&beat=' + encodeURIComponent(qs.get('beat')) : '') : '')); } catch (e) {}
+        $('ch-beat').hidden = !(m === 'quiz' && beatScore !== null);
+        m === 'cases' ? startCases() : startQuiz();
+      }
+      var beatScore = null; (function () { var b = parseInt(qs.get('beat'), 10); if (b >= 0 && b <= 10) { beatScore = b; $('ch-beat').innerHTML = '<b>A colleague scored ' + b + '/10.</b> Can you beat it?'; } })();
+      document.querySelector('.ch-tabs').addEventListener('click', function (e) { var b = e.target.closest('[data-mode]'); if (b) setMode(b.dataset.mode); });
+
+      function links(arr) { return arr.map(function (l) { return '<a href="' + esc(l[1]) + '">' + esc(l[0]) + ' →</a>'; }).join(''); }
+      function pips(n, i, res) { var s = ''; for (var k = 0; k < n; k++) s += '<i class="' + (k === i ? 'cur ' : '') + (res[k] === true ? 'ok' : res[k] === false ? 'no' : '') + '"></i>'; return '<div class="ch-pips" aria-hidden="true">' + s + '</div>'; }
+
+      /* Cases */
+      var cs;
+      function startCases() { cs = { i: 0, res: [] }; showCase(); }
+      function showCase() {
+        var c = CASES[cs.i], order = shuffle([0, 1, 2, 3]);
+        stage.innerHTML = '<div class="ch-card">' + pips(CASES.length, cs.i, cs.res) +
+          '<p class="ch-kicker">Case ' + (cs.i + 1) + ' of ' + CASES.length + '</p><h2>' + esc(c.title) + '</h2><p class="ch-setup">' + esc(c.setup) + '</p>' +
+          '<div class="ch-viz">' + c.viz() + '</div><p class="ch-q">' + esc(c.q) + '</p>' +
+          '<div class="ch-opts">' + order.map(function (k) { return '<button type="button" class="ch-opt" data-k="' + k + '">' + esc(c.opts[k]) + '</button>'; }).join('') + '</div>' +
+          '<div class="ch-fb" id="ch-fb" hidden></div></div>';
+        stage.onclick = function (e) {
+          var b = e.target.closest('.ch-opt'); if (b && !b.disabled) answerCase(+b.dataset.k);
+          if (e.target.closest('#ch-next')) { cs.i++; cs.i < CASES.length ? showCase() : endCases(); }
+          if (e.target.closest('#ch-again')) startCases();
+          if (e.target.closest('#ch-toquiz')) setMode('quiz');
+          if (e.target.closest('#ch-sharec')) shareText('I solved ' + cs.res.filter(Boolean).length + ' of ' + CASES.length + ' find-the-fault cases on the CIE Instrument Playground. Try them:', location.origin + location.pathname);
+        };
+      }
+      function answerCase(k) {
+        var c = CASES[cs.i], good = k === c.ok; cs.res[cs.i] = good;
+        stage.querySelectorAll('.ch-opt').forEach(function (b) { b.disabled = true; var bk = +b.dataset.k; if (bk === c.ok) b.classList.add('ok'); else if (bk === k) b.classList.add('no'); });
+        var fb = $('ch-fb'); fb.hidden = false;
+        fb.innerHTML = '<p class="ch-verdict ' + (good ? 'ok' : 'no') + '">' + (good ? 'Correct' : 'Not quite') + '</p><p>' + esc(c.why) + '</p><div class="ch-links">' + links(c.links) + '</div><button type="button" class="ch-primary" id="ch-next">' + (cs.i < CASES.length - 1 ? 'Next case' : 'See result') + '</button>';
+        fb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+      function endCases() {
+        var n = cs.res.filter(Boolean).length;
+        stage.innerHTML = '<div class="ch-card ch-end">' + pips(CASES.length, -1, cs.res) + '<p class="ch-kicker">All cases done</p><h2>' + n + ' of ' + CASES.length + ' solved</h2><p class="ch-setup">' +
+          (n === CASES.length ? 'Clean sweep. You would be welcome on any commissioning team.' : n >= 4 ? 'Solid diagnosing. Read the explanations on the ones you missed.' : 'Good practice. Try again and read each explanation before the next case.') +
+          '</p><div class="ch-row"><button type="button" class="ch-primary" id="ch-toquiz">Try the quiz</button><button type="button" class="ch-ghost" id="ch-again">Play the cases again</button><button type="button" class="ch-ghost" id="ch-sharec">Share</button></div></div>';
+      }
+
+      /* Quiz */
+      var qz;
+      function startQuiz() { qz = { i: 0, score: 0, res: [], pick: shuffle(Q.map(function (_, i) { return i; })).slice(0, 10) }; showQ(); }
+      function showQ() {
+        var q = Q[qz.pick[qz.i]], order = shuffle([0, 1, 2, 3]);
+        stage.innerHTML = '<div class="ch-card">' + pips(10, qz.i, qz.res) + '<p class="ch-kicker">Question ' + (qz.i + 1) + ' of 10</p><h2 class="ch-qh">' + esc(q[0]) + '</h2>' +
+          '<div class="ch-opts">' + order.map(function (k) { return '<button type="button" class="ch-opt" data-k="' + k + '">' + esc(q[1][k]) + '</button>'; }).join('') + '</div><div class="ch-fb" id="ch-fb" hidden></div></div>';
+        stage.onclick = function (e) {
+          var b = e.target.closest('.ch-opt'); if (b && !b.disabled) answerQ(+b.dataset.k);
+          if (e.target.closest('#ch-next')) { qz.i++; qz.i < 10 ? showQ() : endQuiz(); }
+          if (e.target.closest('#ch-again')) startQuiz();
+          if (e.target.closest('#ch-tocases')) setMode('cases');
+          if (e.target.closest('#ch-wa')) { var t = qText(); window.open('https://wa.me/?text=' + encodeURIComponent(t.text + ' ' + t.url), '_blank', 'noopener'); }
+          if (e.target.closest('#ch-copy')) { var t2 = qText(); (navigator.clipboard ? navigator.clipboard.writeText(t2.text + ' ' + t2.url) : Promise.reject()).then(function () { say('Copied, now paste it to a colleague'); }, function () { say('Copy not available here'); }); }
+        };
+      }
+      function answerQ(k) {
+        var q = Q[qz.pick[qz.i]], good = k === q[2]; qz.res[qz.i] = good; if (good) qz.score++;
+        stage.querySelectorAll('.ch-opt').forEach(function (b) { b.disabled = true; var bk = +b.dataset.k; if (bk === q[2]) b.classList.add('ok'); else if (bk === k) b.classList.add('no'); });
+        var fb = $('ch-fb'); fb.hidden = false;
+        fb.innerHTML = '<p class="ch-verdict ' + (good ? 'ok' : 'no') + '">' + (good ? 'Correct' : 'Not quite') + '</p><p>' + esc(q[3]) + '</p><button type="button" class="ch-primary" id="ch-next">' + (qz.i < 9 ? 'Next question' : 'See my score') + '</button>';
+        fb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+      function grade(s) { return s <= 3 ? 'Apprentice' : s <= 5 ? 'Technician' : s <= 7 ? 'Senior Technician' : s <= 9 ? 'Engineer' : 'Megohm Master'; }
+      function qText() { return { text: 'I scored ' + qz.score + '/10 (' + grade(qz.score) + ') on the CIE Instrument Quiz. Can you beat it?', url: location.origin + location.pathname + '?mode=quiz&beat=' + qz.score }; }
+      function endQuiz() {
+        var prev = parseInt(store('cie-quiz-best'), 10), best = isNaN(prev) || qz.score > prev ? qz.score : prev;
+        store('cie-quiz-best', String(best));
+        var vs = beatScore === null ? '' : qz.score > beatScore ? '<p class="ch-verdict ok">You beat the ' + beatScore + '/10 you were challenged with.</p>' : qz.score === beatScore ? '<p class="ch-verdict ok">You matched the ' + beatScore + '/10 you were challenged with.</p>' : '<p class="ch-verdict no">The challenge was ' + beatScore + '/10. Go again?</p>';
+        stage.innerHTML = '<div class="ch-card ch-end">' + pips(10, -1, qz.res) + '<p class="ch-kicker">Your result</p><h2>' + qz.score + '/10 <span>' + grade(qz.score) + '</span></h2>' + vs +
+          '<p class="ch-setup">Your best on this device: ' + best + '/10.</p><div class="ch-row"><button type="button" class="ch-wa" id="ch-wa">Challenge a colleague on WhatsApp</button><button type="button" class="ch-ghost" id="ch-copy">Copy challenge text</button></div>' +
+          '<div class="ch-row"><button type="button" class="ch-primary" id="ch-again">New set of questions</button><button type="button" class="ch-ghost" id="ch-tocases">Try the find-the-fault cases</button></div>' +
+          '<div class="ch-links"><a href="' + esc(LK.kv) + '">Insulation test voltage selector →</a><a href="' + esc(LK.accuracy) + '">Multimeter accuracy calculator →</a></div></div>';
+      }
+      function shareText(t, url) { (navigator.clipboard ? navigator.clipboard.writeText(t + ' ' + url) : Promise.reject()).then(function () { say('Copied'); }, function () { say('Copy not available here'); }); }
+
+      setMode(qs.get('mode') === 'quiz' ? 'quiz' : 'cases');
+    })();
+  </script>
+</Base>
+
+<style is:global>
+  .ch-crumbs .text-ink { color: #fff; }
+  .ch-beta { display: inline-block; vertical-align: middle; margin-left: .4rem; padding: .2rem .6rem; font-size: .8rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #fbbf24; background: rgba(245,158,11,.16); border: 1px solid rgba(245,158,11,.5); border-radius: 999px; }
+  .ch-tabs { display: inline-flex; gap: .3rem; padding: .3rem; border: 1px solid rgba(255,255,255,.16); border-radius: .9rem; background: rgba(255,255,255,.05); }
+  .ch-tabs button { padding: .6rem 1.1rem; font-size: .92rem; font-weight: 700; color: #cbd5e1; border-radius: .65rem; cursor: pointer; transition: all .15s; }
+  .ch-tabs button i { font-style: normal; font-weight: 500; font-size: .74rem; font-family: var(--font-mono); opacity: .7; margin-left: .35rem; }
+  .ch-tabs button[aria-selected="true"] { background: var(--color-red); color: #fff; box-shadow: 0 2px 12px rgba(224,37,46,.4); }
+  .ch-tabs button:focus-visible, .ch-opt:focus-visible, .ch-primary:focus-visible, .ch-ghost:focus-visible, .ch-wa:focus-visible { outline: 2px solid var(--color-red); outline-offset: 2px; }
+
+  .ch-disc { padding: .9rem 1.1rem; font-size: .88rem; line-height: 1.55; color: #7c4a03; background: #fff7e6; border: 1px solid #f5c76b; border-left-width: 4px; border-radius: .75rem; }
+  .ch-disc strong { color: #5c3500; }
+  .ch-beat { margin-top: 1rem; padding: .8rem 1.1rem; border-radius: .75rem; background: #eef6ff; border: 1px solid #b9d7ff; color: #12315f; font-size: .92rem; }
+  .ch-beat[hidden] { display: none; }
+  .ch-stage { margin-top: 1.25rem; }
+  .ch-card { padding: 1.4rem; border: 1px solid var(--color-border); border-radius: 1.2rem; background: #fff; box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 16px 40px -22px rgba(16,24,40,.22); }
+  @media (min-width: 640px) { .ch-card { padding: 2rem; } }
+  .ch-pips { display: flex; gap: .35rem; margin-bottom: 1.1rem; }
+  .ch-pips i { flex: 1; height: .32rem; border-radius: 999px; background: var(--color-border); }
+  .ch-pips i.cur { background: var(--color-ink); }
+  .ch-pips i.ok { background: #10b981; } .ch-pips i.no { background: #ef4444; }
+  .ch-kicker { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--color-muted); margin: 0 0 .35rem; }
+  .ch-card h2 { margin: 0; font-size: 1.5rem; font-weight: 800; color: var(--color-ink); line-height: 1.2; }
+  .ch-card h2 span { display: inline-block; margin-left: .4rem; font-size: .5em; padding: .2rem .7rem; border-radius: 999px; background: var(--color-red); color: #fff; vertical-align: middle; }
+  .ch-qh { font-size: 1.25rem !important; }
+  .ch-setup { margin: .6rem 0 0; color: var(--color-muted); line-height: 1.6; }
+  .ch-viz { margin-top: 1.1rem; padding: 1rem; border-radius: 1rem; background: #0b1118; border: 1px solid #1b2530; }
+  .ch-q { margin: 1.3rem 0 .7rem; font-weight: 700; color: var(--color-ink); }
+  .ch-opts { display: grid; gap: .55rem; margin-top: 1rem; }
+  .ch-q + .ch-opts { margin-top: 0; }
+  .ch-opt { text-align: left; padding: .85rem 1rem; font-size: .94rem; line-height: 1.45; color: var(--color-ink); border: 1px solid var(--color-border); border-radius: .8rem; background: #fff; cursor: pointer; transition: all .15s; }
+  .ch-opt:hover:not(:disabled) { border-color: var(--color-red); background: #fff6f6; }
+  .ch-opt:disabled { cursor: default; }
+  .ch-opt.ok { border-color: #10b981; background: #ecfdf5; box-shadow: 0 0 0 3px rgba(16,185,129,.15); }
+  .ch-opt.no { border-color: #ef4444; background: #fef2f2; }
+  .ch-opt:disabled:not(.ok):not(.no) { opacity: .55; }
+  .ch-fb { margin-top: 1.1rem; padding: 1.1rem 1.2rem; border-radius: .9rem; background: var(--color-cloud); line-height: 1.6; color: var(--color-ink); font-size: .94rem; }
+  .ch-fb[hidden] { display: none; }
+  .ch-fb p { margin: 0 0 .6rem; }
+  .ch-verdict { font-weight: 800; } .ch-verdict.ok { color: #047857; } .ch-verdict.no { color: #b91c1c; }
+  .ch-links { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin: .4rem 0 .9rem; font-size: .88rem; font-weight: 600; }
+  .ch-links a { color: var(--color-red); } .ch-links a:hover { text-decoration: underline; }
+  .ch-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.1rem; }
+  .ch-primary, .ch-ghost, .ch-wa { padding: .75rem 1.3rem; font-size: .92rem; font-weight: 700; border-radius: .75rem; cursor: pointer; transition: all .15s; }
+  .ch-primary { background: var(--color-red); color: #fff; } .ch-primary:hover { filter: brightness(.92); }
+  .ch-ghost { border: 1px solid var(--color-border); background: #fff; color: var(--color-ink); } .ch-ghost:hover { border-color: var(--color-red); color: var(--color-red); }
+  .ch-wa { background: #16a34a; color: #fff; } .ch-wa:hover { filter: brightness(.92); }
+
+  /* data-viz inside the dark panel */
+  .ch-chart { display: block; width: 100%; height: auto; }
+  .ch-chart text { font-family: var(--font-mono); font-size: 10px; fill: #7b8794; }
+  .ch-chart .ax { font-size: 10.5px; fill: #94a3b8; }
+  .ch-chart .gl { stroke: rgba(255,255,255,.09); }
+  .ch-chart .ln { fill: none; stroke: #FF5A62; stroke-width: 2.5; stroke-linejoin: round; }
+  .ch-chart circle { fill: #fff; stroke: #FF5A62; stroke-width: 2; }
+  .ch-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: .6rem; margin-top: .8rem; }
+  .ch-tiles:first-child { margin-top: 0; }
+  .ch-lcd { padding: .7rem .9rem; border-radius: .7rem; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); }
+  .ch-lcd small { display: block; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: #7b8794; }
+  .ch-lcd b { display: block; margin-top: .2rem; font-family: var(--font-mono); font-size: 1.2rem; color: #fff; text-shadow: 0 0 14px rgba(224,37,46,.4); }
+  .ch-lcd span { display: block; margin-top: .15rem; font-size: .72rem; color: #94a3b8; }
+  .ch-lcd.ok b { text-shadow: 0 0 14px rgba(16,185,129,.5); }
+  .ch-bars { display: grid; gap: .5rem; }
+  .ch-bar { display: grid; grid-template-columns: 2rem 1fr 5rem; align-items: center; gap: .7rem; font-family: var(--font-mono); font-size: .8rem; color: #cbd5e1; }
+  .ch-bar > div { height: .9rem; border-radius: 999px; background: rgba(255,255,255,.1); overflow: hidden; }
+  .ch-bar i { display: block; height: 100%; background: linear-gradient(90deg, #FF5A62, #E0252E); border-radius: 999px; }
+  .ch-bar b { text-align: right; color: #fff; }
+
+  #ch-toast { position: fixed; left: 50%; bottom: 1.5rem; transform: translate(-50%, 1rem); padding: .6rem 1.1rem; border-radius: 999px; background: var(--color-ink); color: #fff; font-size: .85rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 60; }
+  #ch-toast.on { opacity: 1; transform: translate(-50%, 0); }
+</style>
