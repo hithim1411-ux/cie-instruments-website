@@ -1,0 +1,140 @@
+---
+interface Props { model: '2250' | '5410' }
+const { model } = Astro.props;
+const is5410 = model === '5410';
+// dial positions: counter-clockwise from the top, 24 degrees apart, centre (216,500), dots at radius 80
+const C = { x: 216, y: 500, r: 80 };
+const pos2250 = ['OFF', 'NCV/Live', '600/1000A~', '6/60A~', 'V~', 'V=', 'LowZ', 'Ω ·))', 'OFF'];
+const pos5410 = ['OFF', 'NCV/Live', '600/1000A≂', '60A≂', 'V≂', 'LowZ', 'Hz%', 'Ω ⊣⊢ ·))', '°C °F'];
+const labels = is5410 ? pos5410 : pos2250;
+const dots = labels.map((l, i) => {
+  const a = (-24 * i) * Math.PI / 180;
+  return { i, l, x: C.x + C.r * Math.sin(a), y: C.y - C.r * Math.cos(a) };
+});
+---
+<svg id="vi-svg" viewBox="0 0 300 1010" role="group" aria-label={`Virtual DCM ${model} TR clamp multimeter`} xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g-or" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9731a"/><stop offset=".25" stop-color="#f5a04a"/><stop offset=".75" stop-color="#f5a04a"/><stop offset="1" stop-color="#d36d16"/></linearGradient>
+    <linearGradient id="g-jaw" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e67f22"/><stop offset=".5" stop-color="#f7ab55"/><stop offset="1" stop-color="#e67f22"/></linearGradient>
+    <linearGradient id="g-face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2c30"/><stop offset="1" stop-color="#1c1e21"/></linearGradient>
+    <radialGradient id="g-knob" cx=".4" cy=".35" r=".85"><stop offset="0" stop-color="#383a40"/><stop offset="1" stop-color="#121316"/></radialGradient>
+    <linearGradient id="g-btn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#555961"/><stop offset="1" stop-color="#2f3237"/></linearGradient>
+    <radialGradient id="g-lcd" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#dfe3da"/><stop offset="1" stop-color="#c2c9bb"/></radialGradient>
+    <radialGradient id="g-lcd-bl" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#f3fbee"/><stop offset="1" stop-color="#cfe8c6"/></radialGradient>
+    <radialGradient id="g-sock" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#5a5d63"/><stop offset="1" stop-color="#0b0c0e"/></radialGradient>
+    <linearGradient id="g-beam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff7c2" stop-opacity=".9"/><stop offset="1" stop-color="#fff7c2" stop-opacity="0"/></linearGradient>
+    <filter id="f-shadow" x="-20%" y="-5%" width="140%" height="115%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity=".28"/></filter>
+  </defs>
+
+  <!-- Torch beam -->
+  <path id="beam" d="M 142 14 L 80 -60 L 220 -60 L 158 14 Z" fill="url(#g-beam)" opacity="0"/>
+
+  <!-- Fixed (left) jaw half -->
+  <g filter="url(#f-shadow)">
+    <path d="M 66 270 C 24 210 30 60 146 8" fill="none" stroke="#9c520f" stroke-width="44" stroke-linecap="butt"/>
+    <path d="M 66 270 C 24 210 30 60 146 8" fill="none" stroke="url(#g-jaw)" stroke-width="37" stroke-linecap="butt"/>
+  </g>
+  <text transform="translate(40 190) rotate(-90)" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="800" fill="#b86513" letter-spacing=".5">MAX 1000A~</text>
+
+  <!-- Window / conductors -->
+  <g id="cond"></g>
+
+  <!-- Movable (right) jaw half -->
+  <g id="jaw-r" style="transform-origin: 234px 270px; transition: transform .3s cubic-bezier(.3,1.3,.5,1);">
+    <path d="M 154 8 C 270 60 276 210 234 270" fill="none" stroke="#9c520f" stroke-width="44" stroke-linecap="butt"/>
+    <path d="M 154 8 C 270 60 276 210 234 270" fill="none" stroke="url(#g-jaw)" stroke-width="37" stroke-linecap="butt"/>
+    <text transform="translate(258 80) rotate(78)" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="800" fill="#b86513">600V CAT III</text>
+    <text transform="translate(262 150) rotate(86)" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="800" fill="#b86513">1000V CAT II</text>
+  </g>
+  <rect id="ncv-led" x="130" y="22" width="9" height="9" rx="4.5" fill="#4a1010" stroke="#222"/>
+  <rect id="torch-led" x="147" y="9" width="7" height="7" rx="3.5" fill="#d8d2a0" stroke="#7a7448"/>
+
+  <!-- Body -->
+  <path filter="url(#f-shadow)" fill="url(#g-or)" stroke="#9c520f" stroke-width="3" d="M 52 262 Q 26 300 32 362 L 32 440 Q 28 480 34 540 L 40 838 Q 44 900 104 904 L 198 904 Q 260 900 264 838 L 270 540 Q 274 340 250 262 Q 150 236 52 262 Z"/>
+  <g id="trigger" class="btn" tabindex="0" role="button" aria-label="Jaw trigger: open or close the jaw" style="cursor:pointer">
+    <path d="M 40 392 Q 6 400 8 436 Q 10 470 40 478 Z" fill="url(#g-or)" stroke="#9c520f" stroke-width="3"/>
+    <path d="M 14 420 l 14 0 M 14 432 l 14 0 M 14 444 l 14 0" stroke="#9c520f" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <rect x="62" y="318" width="192" height="568" rx="20" fill="url(#g-face)" stroke="#0c0d0f" stroke-width="2"/>
+
+  <!-- Title plate -->
+  <rect x="104" y="326" width="112" height="44" rx="8" fill="#0d0e10" stroke="#3a3c42" stroke-width="2"/>
+  <ellipse cx="136" cy="341" rx="15" ry="9" fill="none" stroke="#fff" stroke-width="1.8"/><text x="136" y="345" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fff">CIE</text>
+  <text x="160" y="362" text-anchor="middle" class="t-w" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="800">{`DCM ${model} TR`}</text>
+  <text x="76" y="404" font-family="Georgia, serif" font-size="22" fill="#fff">CE</text>
+  <g class="t-y" font-family="Inter, system-ui, sans-serif" font-size="9.5" font-weight="800" font-style="italic"><text x="70" y="496">TRUE</text><text x="70" y="508">RMS</text></g>
+  {is5410 && <g class="t-w" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="800"><text x="68" y="526">SELECT</text><text x="68" y="536">V.F.C</text></g>}
+
+  <!-- Dial scale -->
+  <g id="pos-ring" font-family="Inter, system-ui, sans-serif" font-size="11.5" font-weight="800">
+    {dots.map((d) => (
+      <g class="pos" data-i={d.i}>
+        <circle cx={d.x} cy={d.y} r="3.6" />
+        {d.l === 'OFF'
+          ? (<g><rect x={d.x - 17} y={d.y - 9} width="31" height="17" rx="2" fill="none" stroke="#fff" stroke-width="1.6" /><text x={d.x - 1.5} y={d.y + 4} text-anchor="middle" class="t-w" font-size="10.5">OFF</text></g>)
+          : (<text x={d.x - 10} y={d.y + 4} text-anchor="end" class="t-w">{d.l}</text>)}
+      </g>
+    ))}
+  </g>
+
+  <!-- Dial knob -->
+  <g id="dial" tabindex="0" role="slider" aria-label="Function dial" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" aria-valuetext="OFF">
+    <g id="knob">
+      <circle cx="216" cy="500" r="58" fill="url(#g-knob)" stroke="#06070a" stroke-width="3"/>
+      <circle cx="216" cy="500" r="51" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="2.5 3.5" opacity=".7"/>
+      <rect x="204" y="442" width="24" height="58" rx="10" fill="#0d0e10" stroke="#3a3c42" stroke-width="2"/>
+      <path d="M 216 448 l -7 14 h 14 z" fill="#f2992e"/>
+    </g>
+  </g>
+
+  <!-- Orange select button -->
+  <g id="btn-sel" class="btn" tabindex="0" role="button" aria-label="SELECT button" style="cursor:pointer"><rect x="72" y="546" width="26" height="30" rx="7" fill="#f08a24" stroke="#9c520f" stroke-width="2.5"/></g>
+
+  <!-- Grey buttons -->
+  <g id="buttons" font-family="Inter, system-ui, sans-serif" font-size="9.5" font-weight="800">
+    <g id="btn-a" class="btn" tabindex="0" role="button" aria-label={is5410 ? 'REL button. Hold for torch' : 'Torch button'} style="cursor:pointer"><rect x="90" y="606" width="46" height="40" rx="9" fill="url(#g-btn)" stroke="#111" stroke-width="2"/></g>
+    <g id="btn-b" class="btn" tabindex="0" role="button" aria-label="HOLD B/L button. Hold for backlight" style="cursor:pointer"><rect x="142" y="606" width="46" height="40" rx="9" fill="url(#g-btn)" stroke="#111" stroke-width="2"/></g>
+    <g id="btn-c" class="btn" tabindex="0" role="button" aria-label={is5410 ? 'ZERO/INR button' : 'MAX/MIN button'} style="cursor:pointer"><rect x="194" y="606" width="46" height="40" rx="9" fill="url(#g-btn)" stroke="#111" stroke-width="2"/></g>
+    {is5410
+      ? (<g class="t-w"><text x="113" y="662" text-anchor="middle">REL/</text><circle cx="130" cy="658" r="3" fill="#fff"/><text x="165" y="662" text-anchor="middle">HOLD B/L</text><text x="217" y="662" text-anchor="middle">ZERO/INR</text></g>)
+      : (<g class="t-w"><rect x="104" y="656" width="9" height="5" fill="#fff"/><path d="M114 657l8-3v10l-8-3z" fill="#fff"/><text x="165" y="662" text-anchor="middle">HOLD B/L</text><text x="217" y="662" text-anchor="middle">MAX/MIN</text></g>)}
+  </g>
+
+  <!-- LCD -->
+  <text x="162" y="684" text-anchor="middle" class="t-w" font-family="Inter, system-ui, sans-serif" font-size="8.5" font-weight="700">{is5410 ? 'AC/DC Clamp Meter' : 'AC Clamp Meter'}</text>
+  <rect x="90" y="690" width="148" height="112" rx="6" fill="#0d0e10" stroke="#3a3c42" stroke-width="2"/>
+  <rect id="lcd-glass" x="96" y="696" width="136" height="100" rx="3" fill="url(#g-lcd)"/>
+  <g id="lcd" font-family="Inter, system-ui, sans-serif" fill="#171b15">
+    <g id="lcd-main"></g>
+    <text id="an-auto" class="ann" x="100" y="708" font-size="8.5" font-weight="800">AUTO</text>
+    <text id="an-apo" class="ann" x="140" y="708" font-size="8.5" font-weight="800">APO</text>
+    <text id="an-hold" class="ann" x="170" y="708" font-size="8.5" font-weight="800">HOLD</text>
+    <text id="an-ac" class="ann" x="99" y="742" font-size="10" font-weight="800">AC</text>
+    <text id="an-dc" class="ann" x="99" y="754" font-size="10" font-weight="800">DC</text>
+    <text id="an-max" class="ann" x="100" y="786" font-size="8.5" font-weight="800">MAX</text>
+    <text id="an-min" class="ann" x="124" y="786" font-size="8.5" font-weight="800">MIN</text>
+    <text id="an-rel" class="ann" x="147" y="786" font-size="8.5" font-weight="800">REL</text>
+    <text id="an-inr" class="ann" x="170" y="786" font-size="8.5" font-weight="800">INR</text>
+    <text id="an-diode" class="ann" x="196" y="786" font-size="9" font-weight="800">▶|</text>
+    <text id="an-cont" class="ann" x="209" y="786" font-size="9" font-weight="800">·))</text>
+    <text id="lcd-unit" x="228" y="786" font-size="14" font-weight="800" text-anchor="end"></text>
+    <g id="ef-bars"><rect class="ann" id="bar1" x="150" y="764" width="12" height="5"/><rect class="ann" id="bar2" x="166" y="764" width="12" height="5"/><rect class="ann" id="bar3" x="182" y="764" width="12" height="5"/><rect class="ann" id="bar4" x="198" y="764" width="12" height="5"/></g>
+  </g>
+  <rect id="lcd-glow" x="96" y="696" width="136" height="100" rx="3" fill="#fff" opacity="0" pointer-events="none"/>
+
+  <!-- Sockets -->
+  <g font-family="Inter, system-ui, sans-serif" font-weight="800" text-anchor="middle" class="t-w">
+    <text x="114" y="818" font-size="12">COM</text>
+    <text x="214" y="818" font-size="11" class="t-y">{is5410 ? 'VΩ⊣⊢ Live' : 'VΩ Live'}</text>
+    {is5410 && <text x="214" y="808" font-size="8" class="t-y">°C°F</text>}
+    <text x="164" y="884" font-size="8.5">CAT III 600V</text>
+    <path d="M 164 836 v 8 M 156 844 h 16 M 159 848 h 10 M 162 852 h 4" stroke="#fff" stroke-width="1.8" fill="none"/>
+    <g fill="none" stroke="#f3b21b" stroke-width="2" stroke-linejoin="round"><path d="M 92 850 l 8 14 h -16 z"/><path d="M 236 850 l 8 14 h -16 z"/></g>
+  </g>
+  <g id="sockets">
+    <circle cx="114" cy="848" r="20" fill="url(#g-sock)" stroke="#000" stroke-width="2.5"/><circle cx="114" cy="848" r="9" fill="#050505" stroke="#888" stroke-width="1.5"/>
+    <circle cx="214" cy="848" r="20" fill="#7a1414" stroke="#000" stroke-width="2.5"/><circle cx="214" cy="848" r="9" fill="#050505" stroke="#c88" stroke-width="1.5"/>
+  </g>
+
+  <g id="leads" pointer-events="none"></g>
+</svg>

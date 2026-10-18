@@ -1,0 +1,366 @@
+---
+import VIShell from '../../components/VIShell.astro';
+import { u } from '../../utils/url';
+---
+
+<VIShell
+  slug="cie-444" model="CIE/444"
+  pageTitle="CIE/444 Virtual Instrument: Hand-Driven Insulation Tester Online"
+  description="Free interactive simulator of the CIE/444 hand-driven megger. Turn the crank, hold 160 rpm and watch the cross-coil pointer settle on a virtual motor or cable. Try any voltage and range."
+  h1="CIE/444, in your browser"
+  intro="Grab the crank and turn it. Hold the speed, watch the pointer climb and read the scale, just like a real hand-driven megger. Choose any of the 27 voltage and range versions."
+  productHref={u('/products/insulation-testers-hand/cie-444/')}
+  extraLink={{ href: u('/tools/ir-temperature-correction-calculator/'), label: 'IR temperature correction' }}
+  ctaBody="The CIE/444 is made by CIE in Howrah in the voltage and range you specify, with test certificate available on request."
+>
+  <Fragment slot="stage">
+    <svg id="vi-svg" viewBox="160 90 580 880" role="group" aria-label="Virtual CIE/444 hand-driven insulation tester" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g-red" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b80f19"/><stop offset=".2" stop-color="#e3202b"/><stop offset=".8" stop-color="#e3202b"/><stop offset="1" stop-color="#a80d16"/></linearGradient>
+        <linearGradient id="g-chrome" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcfcfc"/><stop offset=".5" stop-color="#a7abb2"/><stop offset="1" stop-color="#e9eaed"/></linearGradient>
+        <linearGradient id="g-grip" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#101012"/><stop offset=".35" stop-color="#3a3b40"/><stop offset="1" stop-color="#0c0c0e"/></linearGradient>
+        <radialGradient id="g-post" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#5a5d63"/><stop offset="1" stop-color="#0b0c0e"/></radialGradient>
+        <radialGradient id="g-postg" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#43d17a"/><stop offset="1" stop-color="#0a5d2a"/></radialGradient>
+        <radialGradient id="g-brass" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#fff1c2"/><stop offset="1" stop-color="#a97a2b"/></radialGradient>
+        <linearGradient id="g-win" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9ecf0"/></linearGradient>
+        <clipPath id="c-win"><rect x="326" y="405" width="286" height="110"/></clipPath>
+        <filter id="f-shadow" x="-20%" y="-10%" width="140%" height="130%"><feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#000" flood-opacity=".28"/></filter>
+      </defs>
+
+      <!-- Carry handles -->
+      <path d="M 330 268 L 262 246 Q 236 248 230 272 L 232 640 L 318 652" fill="none" stroke="#2a2c30" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M 330 268 L 262 246 Q 236 248 230 272 L 232 640 L 318 652" fill="none" stroke="url(#g-chrome)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="180" y="332" width="68" height="275" rx="12" fill="url(#g-grip)" stroke="#000" stroke-width="2"/>
+      <path d="M 620 268 L 680 236 Q 708 236 712 266 L 714 640 L 624 654" fill="none" stroke="#2a2c30" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M 620 268 L 680 236 Q 708 236 712 266 L 714 640 L 624 654" fill="none" stroke="url(#g-chrome)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Body -->
+      <path filter="url(#f-shadow)" fill="url(#g-red)" stroke="#7d0a11" stroke-width="3" d="M 322 262 Q 322 250 336 250 L 604 250 Q 618 250 618 262 L 618 372 L 642 380 L 642 748 Q 642 762 628 762 L 312 762 Q 298 762 298 748 L 298 380 L 322 372 Z"/>
+      <rect x="296" y="376" width="350" height="172" rx="8" fill="#d71d28" stroke="#7d0a11" stroke-width="2.5"/>
+      <rect x="433" y="264" width="60" height="56" fill="#f1f1f1" stroke="#9c9c9c" stroke-width="2"/><path d="M440 275h46M440 285h38M440 295h44M440 305h30" stroke="#b9b9b9" stroke-width="3"/>
+
+      <!-- Scale window -->
+      <rect x="320" y="399" width="298" height="122" rx="4" fill="#1a1a1c"/>
+      <rect x="326" y="405" width="286" height="110" fill="url(#g-win)"/>
+      <g id="scale" clip-path="url(#c-win)" font-family="Inter, system-ui, sans-serif"></g>
+      <g id="needle" clip-path="url(#c-win)"><line id="needle-l" x1="468" y1="545" x2="468" y2="440" stroke="#111" stroke-width="1.8" stroke-linecap="round"/></g>
+
+      <!-- Nameplate -->
+      <rect x="318" y="553" width="288" height="110" rx="4" fill="#0e0e10" stroke="#2a2a2e" stroke-width="2"/>
+      <rect x="326" y="561" width="272" height="42" fill="none" stroke="#fff" stroke-width="2"/>
+      <ellipse cx="364" cy="582" rx="22" ry="14" fill="none" stroke="#fff" stroke-width="2.5"/><text x="364" y="588" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="17" fill="#fff">CIE</text>
+      <text x="394" y="590" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="19" fill="#fff" letter-spacing=".3">INSULATION TESTER</text>
+      <rect x="326" y="611" width="272" height="42" fill="none" stroke="#fff" stroke-width="2"/>
+      <text x="462" y="637" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="13" fill="#fff" letter-spacing=".2">A CAMBRIDGE ENGINEERING PRODUCT</text>
+
+      <!-- Terminal panel -->
+      <rect x="316" y="668" width="308" height="94" fill="#0e0e10" stroke="#2a2a2e" stroke-width="2"/>
+      <g fill="#8d9096"><circle cx="336" cy="682" r="5"/><circle cx="336" cy="748" r="5"/><circle cx="604" cy="682" r="5"/><circle cx="604" cy="748" r="5"/></g>
+      <g font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">
+        <g><circle cx="378" cy="708" r="22" fill="url(#g-post)" stroke="#000" stroke-width="2"/><circle cx="378" cy="708" r="11" fill="url(#g-brass)" stroke="#5b3f10"/><circle cx="378" cy="708" r="4" fill="#1b1b1b"/><text x="378" y="748">EARTH</text></g>
+        <g id="guard-post"><circle cx="467" cy="708" r="22" fill="url(#g-postg)" stroke="#000" stroke-width="2"/><circle cx="467" cy="708" r="11" fill="url(#g-brass)" stroke="#5b3f10"/><circle cx="467" cy="708" r="4" fill="#1b1b1b"/><text x="467" y="748">GUARD</text></g>
+        <g><circle cx="565" cy="708" r="22" fill="url(#g-post)" stroke="#000" stroke-width="2"/><circle cx="565" cy="708" r="11" fill="url(#g-brass)" stroke="#5b3f10"/><circle cx="565" cy="708" r="4" fill="#1b1b1b"/><text x="565" y="748">LINE</text></g>
+      </g>
+      <rect id="inf-knob" x="446" y="760" width="44" height="14" rx="4" fill="#1a1a1c" stroke="#000" stroke-width="2"/>
+
+      <!-- Crank -->
+      <g id="crank">
+        <circle cx="470" cy="208" r="64" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="2" stroke-dasharray="3 6"/>
+        <line id="arm" x1="470" y1="208" x2="410" y2="208" stroke="#222428" stroke-width="18" stroke-linecap="round"/>
+        <line id="arm2" x1="470" y1="208" x2="410" y2="208" stroke="url(#g-chrome)" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="470" cy="208" r="20" fill="url(#g-chrome)" stroke="#2a2c30" stroke-width="3"/><circle cx="470" cy="208" r="7" fill="#33363b"/>
+        <rect id="grip" x="397" y="176" width="26" height="66" rx="11" fill="url(#g-grip)" stroke="#000" stroke-width="2"/>
+        <circle id="crank-hit" cx="470" cy="208" r="86" fill="transparent" style="cursor:grab" tabindex="0" role="slider" aria-label="Crank handle. Drag in circles, or use the auto-crank control."/>
+      </g>
+
+      <g id="leads" pointer-events="none"></g>
+    </svg>
+  </Fragment>
+  <Fragment slot="hint">Drag the crank handle round in circles (or use "Turn the crank for me"). Keys: <kbd>C</kbd> auto-crank on/off.</Fragment>
+
+  <Fragment slot="panels">
+    <section class="vi-card">
+      <h2 class="vi-h"><span>Try a scenario</span></h2>
+      <p class="vi-sub">One click picks the model, leads and test object. Then crank.</p>
+      <div class="vi-chips" id="scen"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>1</span>Choose the version</h2>
+      <p class="vi-sub">Each CIE/444 is built for one rated voltage and one range. Pick yours.</p>
+      <div class="vi-seg vi-seg--3" id="volt-seg" role="radiogroup" aria-label="Rated voltage"></div>
+      <div class="vi-qc" id="range-seg" role="radiogroup" aria-label="Insulation range"></div>
+      <p class="vi-note" id="ver-note"></p>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>2</span>Connect the test leads</h2>
+      <div class="vi-seg vi-seg--2" id="lead-seg" role="radiogroup" aria-label="Test leads">
+        <button type="button" data-v="no" role="radio">No leads</button>
+        <button type="button" data-v="yes" role="radio">Leads on the object<small>LINE + EARTH</small></button>
+      </div>
+      <label class="vi-check" id="guard-row"><input type="checkbox" id="guard" /> <span>Add a GUARD lead (bypasses surface leakage)</span></label>
+      <p class="vi-note" id="lead-note"></p>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>3</span>Choose the test object</h2>
+      <div class="vi-opts" id="obj-panel"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>4</span>Crank and adjust</h2>
+      <div class="vi-row"><span class="vi-lbl">Turn the crank for me</span><label class="vi-switch"><input type="checkbox" id="auto" /><span></span></label></div>
+      <div class="vi-slider"><label for="rpm">Auto-crank speed<output id="rpm-o"></output></label><input type="range" id="rpm" min="0" max="220" step="1"></div>
+      <div class="vi-slider" id="inf-wrap"><label for="inf">Infinity adjuster (screw below the terminals)<output id="inf-o"></output></label><input type="range" id="inf" min="-100" max="100" step="1"></div>
+      <div class="vi-row"><span class="vi-lbl">Test speed (absorption time)</span>
+        <div class="vi-seg vi-seg--sm" id="speed-seg" role="radiogroup" aria-label="Simulation speed"><button type="button" data-v="1" role="radio">1×</button><button type="button" data-v="10" role="radio">10×</button><button type="button" data-v="60" role="radio">60×</button></div></div>
+    </section>
+    <section class="vi-card vi-live">
+      <h2 class="vi-h"><span>5</span>What the instrument is doing</h2>
+      <div class="vi-status" id="status" aria-live="polite"></div>
+      <table class="vi-table" id="res-table"></table>
+      <div class="vi-spec" id="spec"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>6</span>Simulator settings</h2>
+      <div class="vi-row"><span class="vi-lbl">Reset everything</span><button type="button" class="vi-btn" id="reset">Reset</button></div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="about">
+    <ul>
+      <li><strong>No batteries:</strong> turning the crank drives a small generator. A centrifugal governor (clutch) holds the output voltage steady once you pass about 160 rpm, so a steady 160 rpm or more gives the rated test voltage whatever you do with the handle.</li>
+      <li><strong>Cross-coil pointer:</strong> there is no return spring. The pointer is driven by two coils whose current ratio depends on the insulation resistance, so it reads the resistance directly. With no cranking it simply floats.</li>
+      <li><strong>Crank first, then read:</strong> below the governor speed the voltage drops and the reading is not valid. Reach full speed, hold it and wait for the pointer to settle (about 3 seconds). On healthy insulation it then keeps creeping up as the absorption current fades.</li>
+      <li><strong>Guard terminal and infinity adjuster:</strong> versions of 1000 MΩ and above have a guard terminal and an infinity adjuster you can reach from outside. With the leads open, turn the screw until the pointer sits exactly on ∞.</li>
+      <li><strong>Discharge:</strong> the object stays charged after you stop. Keep the leads connected until it has discharged.</li>
+    </ul>
+    <p class="vi-fine">This is a training simulation. The 27 voltage and range versions come from the CIE/444 range list. The scale layout is generated automatically to show a typical arrangement; the printed scale on your instrument is the reference. Pointer movement, the governor and the test objects are idealised models. Never test live circuits.</p>
+  </Fragment>
+</VIShell>
+
+<script is:inline src="/js/vi-core.js"></script>
+<script is:inline>
+(function () {
+  var VI = window.VI, $ = VI.$, el = VI.el, OBJS = VI.OBJS, Rt = VI.Rt;
+  var svg = $('vi-svg');
+  var CX = 468, CY = 572, RAD = 140, SPAN = 52, PX = 470, PY = 208, CR = 62;
+  var VERS = { 100: ['0-20', '0-50', '0-100'], 250: ['0-50', '0-100', '0-250'], 500: ['0-100', '0-200', '0-500', '0-1000', '0-2000'], 1000: ['0-100', '0-200', '0-500', '0-1000', '0-2000'], 2500: ['0-1000', '0-2000', '0-2500', '0-5000', '0-10000', '0-20000', '50-50000'], 5000: ['0-5000', '0-10000', '0-20000', '50-50000'] };
+  var S;
+  function fresh() { return { v: 2500, rng: '0-5000', leads: false, guard: false, obj: 'motor-ok', auto: false, autoRpm: 180, rpm: 0, rpmDrag: 0, phi: -150, p: 1, vel: 0, teff: 0, inf: 0, err0: .3, speed: 10, vOut: 0, dis: 0, maxR: 5000, minR: 0, marks: [], touched: false }; }
+  S = fresh();
+  function parse() { var a = S.rng.split('-'); S.minR = +a[0]; S.maxR = +a[1]; }
+  function hasGuard() { return S.maxR >= 1000; }
+
+  /* ---------- scale ---------- */
+  function makeMarks(max, min) {
+    var cand = [], k, b; for (k = 6; k >= -3; k--) [5, 2, 1].forEach(function (m) { var v = m * Math.pow(10, k); if (v < max * .9999) cand.push(v); });
+    cand.sort(function (a, b) { return b - a; });
+    var out = [max];
+    for (var i = 0; i < cand.length && out.length < 8; i++) { if (min > 0 && cand[i] <= min) break; out.push(cand[i]); }
+    if (min > 0) out.push(min); else out.push(0);
+    return out;
+  }
+  function frac(R) {                         // resistance (MΩ) -> scale fraction 0 (right) .. 1 (left, infinity)
+    var m = S.marks, N = m.length;           // m = [max ... end]; positions: infinity at 0, m[i] at (i+1)
+    var n = N, fAt = function (i) { return 1 - (i + 1) / n; };   // fraction at m[i]
+    if (R >= m[0]) { var u = 1 - m[0] / R; if (!isFinite(R)) u = 1; return fAt(0) + (1 - fAt(0)) * u; }
+    for (var i = 0; i < N - 1; i++) {
+      if (R <= m[i] && R >= m[i + 1] && m[i + 1] > 0) { var t = (Math.log(R) - Math.log(m[i + 1])) / (Math.log(m[i]) - Math.log(m[i + 1])); return fAt(i + 1) + (fAt(i) - fAt(i + 1)) * t; }
+    }
+    var last = m[N - 1];
+    if (last === 0) { var lp = m[N - 2], t2 = Math.max(0, Math.min(1, R / lp)); return fAt(N - 2) * t2; }
+    return Math.max(-.02, fAt(N - 1) - .02 * (1 - R / last));
+  }
+  function inv(f) {                           // fraction -> resistance (MΩ), by bisection on the monotone map
+    if (f >= .999) return Infinity;
+    var lo = 0, hi = S.maxR * 1e4;
+    for (var i = 0; i < 80; i++) { var mid = Math.sqrt(Math.max(lo, 1e-6) * hi); if (frac(mid) < f) lo = mid; else hi = mid; }
+    return Math.sqrt(lo * hi);
+  }
+  function ang(f) { return SPAN * (1 - 2 * f); }
+  function polar(r, a) { var t = a * Math.PI / 180; return [CX + r * Math.sin(t), CY - r * Math.cos(t)]; }
+  function fmtV(v) { return v >= 100 ? (+v.toPrecision(3)) : (+v.toPrecision(2)); }
+  function drawScale() {
+    var g = $('scale'); g.innerHTML = '';
+    var m = S.marks, N = m.length;
+    var p0 = polar(RAD, -SPAN), p1 = polar(RAD, SPAN);
+    el('path', { d: 'M ' + p0[0] + ' ' + p0[1] + ' A ' + RAD + ' ' + RAD + ' 0 0 1 ' + p1[0] + ' ' + p1[1], fill: 'none', stroke: '#222', 'stroke-width': 1.6 }, g);
+    var q0 = polar(RAD - 9, -SPAN), q1 = polar(RAD - 9, SPAN);
+    el('path', { d: 'M ' + q0[0] + ' ' + q0[1] + ' A ' + (RAD - 9) + ' ' + (RAD - 9) + ' 0 0 1 ' + q1[0] + ' ' + q1[1], fill: 'none', stroke: '#222', 'stroke-width': .8 }, g);
+    function tick(f, len, w) { var a = ang(f), A = polar(RAD, a), B = polar(RAD - len, a); el('line', { x1: A[0], y1: A[1], x2: B[0], y2: B[1], stroke: '#222', 'stroke-width': w }, g); }
+    function label(f, txt, size) { var a = ang(f), P = polar(RAD - 22, a); var t = el('text', { x: P[0], y: P[1], 'text-anchor': 'middle', 'dominant-baseline': 'middle', 'font-size': size || 11, 'font-weight': 700, fill: '#1a1a1a', transform: 'rotate(' + a + ' ' + P[0] + ' ' + P[1] + ')' }, g); t.textContent = txt; }
+    // infinity
+    tick(1, 13, 2); label(1, '∞', 15);
+    for (var i = 0; i < N; i++) {
+      var f = 1 - (i + 1) / N; tick(f, 13, 2); label(f, m[i] >= 1000 && m[i] % 1000 === 0 ? m[i] : (+m[i].toPrecision(3)), 10);
+      var fn = i + 1 < N ? 1 - (i + 2) / N : null, prev = f + 1 / N;       // minor ticks between this mark and the one to its left
+      for (var j = 1; j < 4; j++) tick(f + (1 / N) * j / 4, 7, 1);
+    }
+    var t1 = el('text', { x: CX, y: CY - 102, 'text-anchor': 'middle', 'font-size': 16, 'font-weight': 800, fill: '#1a1a1a' }, g); t1.textContent = 'MΩ';
+    var t2 = el('text', { x: CX, y: CY - 84, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 800, fill: '#c81420' }, g); t2.textContent = S.v + 'V';
+    var t3 = el('text', { x: 336, y: 417, 'font-size': 9, 'font-weight': 700, fill: '#555' }, g); t3.textContent = 'CIE  IS:2992 1987';
+  }
+  function setNeedle(f) {
+    var a = ang(f), A = polar(34, a), B = polar(RAD + 4, a), n = $('needle-l');
+    n.setAttribute('x1', A[0]); n.setAttribute('y1', A[1]); n.setAttribute('x2', B[0]); n.setAttribute('y2', B[1]);
+  }
+
+  /* ---------- physics ---------- */
+  function curObj() {
+    if (!S.leads) return OBJS.open;
+    var o = OBJS[S.obj];
+    if (o.guard && S.guard && hasGuard()) return { r60: o.guard.r60, n: o.guard.n, vk: 0, tau: o.tau };
+    return o;
+  }
+  function gov() { return Math.min(1, S.rpm / 160); }
+  function trueR() { return Rt(curObj(), S.v, Math.max(S.teff, 1)); }
+  function step(dt) {
+    S.vOut = S.v * gov();
+    // absorption time counts only while the output is substantially up to voltage
+    if (S.rpm >= 100) S.teff += dt * S.speed;
+    var tgt = S.p, driven = S.rpm >= 5;
+    if (driven) {
+      var k = Math.max(0, Math.min(1, (S.rpm - 40) / 120)); k = k * k * (3 - 2 * k);
+      var R = trueR(), f = frac(R);
+      var e = hasGuard() ? (S.err0 + S.inf / 100 * .55) * .1 : 0;        // infinity-adjuster error, in scale fraction
+      var fa = Math.max(-.03, Math.min(1.02, f + e * Math.pow(Math.max(f, 0), 3)));
+      tgt = 1 + (fa - 1) * k;                                              // low speed: pointer is pushed back to the rest (infinity) end
+      var w = 2.3, z = .75;                                                // about 3 s settle
+      var n = Math.max(1, Math.ceil(dt / .02)), h = dt / n;
+      for (var i = 0; i < n; i++) { S.vel += (w * w * (tgt - S.p) - 2 * z * w * S.vel) * h; S.p += S.vel * h; }
+    } else { S.vel *= Math.exp(-dt / .15); S.p += S.vel * dt; S.p += (1 - S.p) * (1 - Math.exp(-dt / 25)); }   // no torque: floats very slowly towards infinity
+    S.p = Math.max(-.05, Math.min(1.04, S.p));
+    if (S.rpm < 5 && S.vOut < 1) { if (S.teff > 0) { S.dis = S.dis; } }
+  }
+
+  /* ---------- drawing ---------- */
+  function crankDraw() {
+    var a = S.phi * Math.PI / 180, hx = PX + CR * Math.cos(a), hy = PY + CR * Math.sin(a);
+    ['arm', 'arm2'].forEach(function (id) { $(id).setAttribute('x2', hx); $(id).setAttribute('y2', hy); });
+    var g = $('grip'); g.setAttribute('x', hx - 13); g.setAttribute('y', hy - 33);
+  }
+  function lead(g, path, col, sx, sy) {
+    el('path', { d: path, fill: 'none', stroke: '#050607', 'stroke-width': 13, 'stroke-linecap': 'round' }, g);
+    el('path', { d: path, fill: 'none', stroke: col, 'stroke-width': 8, 'stroke-linecap': 'round' }, g);
+    el('circle', { cx: sx, cy: sy, r: 20, fill: col, stroke: '#050607', 'stroke-width': 3 }, g);
+    el('circle', { cx: sx, cy: sy, r: 8, fill: '#0b0c0e', opacity: .55 }, g);
+  }
+  function clip(g, x, y, col) { var c = el('g', { transform: 'translate(' + x + ' ' + y + ')' }, g); el('rect', { x: -14, y: -30, width: 28, height: 34, rx: 7, fill: col, stroke: '#050607', 'stroke-width': 3 }, c); el('path', { d: 'M-10 -30 l5 -22 h10 l5 22 z', fill: '#c9ccd2', stroke: '#050607', 'stroke-width': 2.5, 'stroke-linejoin': 'round' }, c); }
+  function tag(g, x, y, txt) { el('rect', { x: x - 52, y: y - 13, width: 104, height: 22, rx: 6, fill: '#0b1118', stroke: '#334155' }, g); var t = el('text', { x: x, y: y + 3, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: '#e2e8f0', 'font-family': 'Inter, system-ui, sans-serif' }, g); t.textContent = txt; }
+  function drawLeads() {
+    var g = $('leads'), key = (S.leads ? 'y' : 'n') + (S.leads && S.guard && hasGuard() ? 'g' : '');
+    if (g.getAttribute('data-k') === key) return; g.setAttribute('data-k', key); g.innerHTML = '';
+    if (!S.leads) return;
+    lead(g, 'M378 708 C 360 820 300 850 280 920', '#17181b', 378, 708); clip(g, 280, 920, '#17181b'); tag(g, 280, 945, 'to earth / frame');
+    lead(g, 'M565 708 C 585 820 640 850 660 920', '#c8141f', 565, 708); clip(g, 660, 920, '#c8141f'); tag(g, 660, 945, 'to conductor');
+    if (S.guard && hasGuard()) { lead(g, 'M467 708 C 467 820 470 860 470 920', '#1f56d9', 467, 708); clip(g, 470, 920, '#1f56d9'); tag(g, 470, 945, 'guard ring'); }
+  }
+
+  var lastSig = '';
+  function panel() {
+    var sig = S.v + '|' + S.rng; if (sig !== lastSig) { lastSig = sig; buildVersion(); }
+    Array.prototype.forEach.call($('volt-seg').children, function (b) { b.setAttribute('aria-checked', +b.getAttribute('data-v') === S.v); });
+    Array.prototype.forEach.call($('range-seg').children, function (b) { b.setAttribute('aria-checked', b.getAttribute('data-v') === S.rng); });
+    Array.prototype.forEach.call($('lead-seg').children, function (b) { b.setAttribute('aria-checked', (b.getAttribute('data-v') === 'yes') === S.leads); });
+    Array.prototype.forEach.call($('speed-seg').children, function (b) { b.setAttribute('aria-checked', +b.getAttribute('data-v') === S.speed); });
+    $('guard-row').hidden = !(S.leads && hasGuard()); $('guard').checked = S.guard;
+    $('inf-wrap').hidden = !hasGuard(); $('inf').value = S.inf; $('inf-o').textContent = S.inf > 0 ? '+' + S.inf : S.inf;
+    $('auto').checked = S.auto; $('rpm').value = S.autoRpm; $('rpm-o').textContent = S.autoRpm + ' rpm';
+    Array.prototype.forEach.call(document.querySelectorAll('#obj-panel .vi-opt'), function (b) { b.setAttribute('aria-checked', S.obj === b.getAttribute('data-k')); });
+    $('lead-note').textContent = S.leads ? 'Black lead on EARTH, red lead on LINE' + (S.guard && hasGuard() ? ', blue lead on GUARD' : '') + '.' : 'No leads fitted. Connect the leads to test an object.';
+    $('ver-note').textContent = 'Selected: ' + S.v + ' V, ' + (S.minR ? S.minR + '–' + S.maxR : '0–' + S.maxR) + ' MΩ. Guard terminal ' + (hasGuard() ? 'provided' : 'not fitted') + '.';
+    $('guard-post').style.opacity = hasGuard() ? 1 : .15;
+    $('inf-knob').style.opacity = hasGuard() ? 1 : 0;
+    var f = S.p, e = inv(f), o = curObj(), R = trueR();
+    var rd = S.rpm >= 5 || S.p < .985 ? (e === Infinity ? '∞' : (+e.toPrecision(3)) + ' MΩ') : '-';
+    var h = '';
+    if (S.rpm < 5 && !S.touched) h += '<p>Ready. Drag the crank handle round, or switch on <strong>Turn the crank for me</strong>. Hold at least <strong>160 rpm</strong>.</p>';
+    else if (S.rpm < 5) h += '<p>Not cranking. The cross-coil pointer has no spring, so it just floats' + (S.vOut > 20 ? '' : '') + '.</p>';
+    else {
+      h += '<p>Cranking at <strong>' + Math.round(S.rpm) + ' rpm</strong>. Output <strong>' + Math.round(S.vOut) + ' V</strong> of ' + S.v + ' V.</p>';
+      if (S.rpm < 160) h += '<p class="warn">Below 160 rpm the governor has not reached full output. The reading is not valid, so speed up.</p>';
+      else h += '<p class="ok">Governor engaged: the output is steady at the rated voltage.</p>';
+      if (S.leads && R < S.v * .0007) h += '<p class="warn">Very low insulation: the generator is heavily loaded and the crank feels heavy.</p>';
+      if (S.leads && isFinite(R) && R > S.maxR) h += '<p>The insulation is better than the end of the scale (' + S.maxR + ' MΩ). The pointer goes to the ∞ end.</p>';
+      else if (!S.leads) h += '<p>Open leads: the pointer should sit on ∞.</p>';
+      else if (o.n >= .3) h += '<p>Pointer is <strong class="ok">still creeping up</strong> as the absorption current fades: healthy insulation. Wait for it to settle.</p>';
+    }
+    if (hasGuard() && !S.leads === false && false) h += '';
+    $('status').innerHTML = h;
+    var tr = '<tr><th>Item</th><th style="text-align:right">Value</th></tr>';
+    tr += '<tr><td>Crank speed</td><td>' + Math.round(S.rpm) + ' rpm</td></tr><tr><td>Voltage at the terminals</td><td>' + Math.round(S.vOut) + ' V</td></tr>';
+    tr += '<tr><td>Pointer reads</td><td>' + rd + '</td></tr>';
+    tr += '<tr><td>Actual insulation resistance</td><td>' + (S.rpm >= 100 ? (isFinite(R) ? (+R.toPrecision(3)) + ' MΩ' : '∞') : '-') + '</td></tr>';
+    if (hasGuard() && !S.leads === false) { var open = S.p > .985; }
+    $('res-table').innerHTML = tr;
+    var errInf = hasGuard() ? Math.abs(S.err0 + S.inf / 100 * .55) : 0;
+    $('spec').textContent = hasGuard() ? (errInf < .08 ? 'Infinity adjuster set correctly.' : 'With the leads open the pointer is off the ∞ mark: turn the infinity adjuster.') : 'This version has no guard terminal or infinity adjuster.';
+  }
+  function buildVersion() {
+    parse(); S.marks = makeMarks(S.maxR, S.minR); drawScale();
+    var vs = [100, 250, 500, 1000, 2500, 5000];
+    $('volt-seg').innerHTML = vs.map(function (v) { return '<button type="button" role="radio" data-v="' + v + '">' + v + ' V</button>'; }).join('');
+    $('range-seg').innerHTML = VERS[S.v].map(function (r) { var a = r.split('-'); return '<button type="button" role="radio" data-v="' + r + '">' + (+a[0] ? a[0] + '–' + (+a[1]).toLocaleString('en-IN') : '0–' + (+a[1]).toLocaleString('en-IN')) + ' MΩ</button>'; }).join('');
+    Array.prototype.forEach.call($('range-seg').children, function (b) { b.style.cssText = ''; });
+  }
+  $('obj-panel').innerHTML = Object.keys(OBJS).map(function (k) { return VI.opt('obj', k, OBJS[k].name, OBJS[k].desc); }).join('');
+
+  function render() {
+    parse(); if (!S.marks.length || S.marks[0] !== S.maxR) { S.marks = makeMarks(S.maxR, S.minR); drawScale(); }
+    setNeedle(S.p); crankDraw(); drawLeads(); panel();
+  }
+
+  /* ---------- interaction ---------- */
+  var drag = false, lastA = null, lastT = 0;
+  (function () {
+    var h = $('crank-hit');
+    function a(ev) { var pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY; var p = pt.matrixTransform(svg.getScreenCTM().inverse()); return Math.atan2(p.y - PY, p.x - PX) * 180 / Math.PI; }
+    h.addEventListener('pointerdown', function (ev) { ev.preventDefault(); VI.ctx(); drag = true; S.touched = true; S.auto = false; lastA = a(ev); lastT = performance.now(); h.style.cursor = 'grabbing'; try { h.setPointerCapture(ev.pointerId); } catch (e) {} });
+    h.addEventListener('pointermove', function (ev) {
+      if (!drag) return; var na = a(ev), now = performance.now(), d = na - lastA; if (d > 180) d -= 360; if (d < -180) d += 360;
+      var dt = Math.max(8, now - lastT) / 1000; S.phi += d; lastA = na; lastT = now;
+      var inst = Math.min(400, Math.abs(d) / dt / 6); S.rpmDrag = S.rpmDrag * .6 + inst * .4;
+    });
+    function end() { drag = false; h.style.cursor = 'grab'; }
+    h.addEventListener('pointerup', end); h.addEventListener('pointercancel', end);
+    h.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); S.auto = !S.auto; S.touched = true; render(); } });
+  })();
+  document.addEventListener('keydown', function (ev) { if (ev.target && /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName) || ev.metaKey || ev.ctrlKey) return; if (ev.key.toLowerCase() === 'c') { S.auto = !S.auto; S.touched = true; render(); } });
+  $('volt-seg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; S.v = +b.getAttribute('data-v'); if (VERS[S.v].indexOf(S.rng) < 0) S.rng = VERS[S.v][Math.min(2, VERS[S.v].length - 1)]; S.teff = 0; render(); });
+  $('range-seg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; S.rng = b.getAttribute('data-v'); S.teff = 0; render(); });
+  $('lead-seg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; S.leads = b.getAttribute('data-v') === 'yes'; S.teff = 0; $('leads').removeAttribute('data-k'); VI.tick(600, .04); render(); });
+  $('guard').addEventListener('change', function (e) { S.guard = e.target.checked; $('leads').removeAttribute('data-k'); render(); });
+  $('obj-panel').addEventListener('click', function (e) { var b = e.target.closest('.vi-opt'); if (!b) return; S.obj = b.getAttribute('data-k'); S.teff = 0; render(); });
+  $('auto').addEventListener('change', function (e) { S.auto = e.target.checked; S.touched = true; VI.ctx(); render(); });
+  $('rpm').addEventListener('input', function (e) { S.autoRpm = +e.target.value; render(); });
+  $('inf').addEventListener('input', function (e) { S.inf = +e.target.value; render(); });
+  $('speed-seg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; S.speed = +b.getAttribute('data-v'); render(); });
+  $('reset').addEventListener('click', function () { S = fresh(); lastSig = ''; $('leads').removeAttribute('data-k'); render(); });
+
+  var SCEN = [
+    ['Aged cable, 500 V', function () { S.v = 500; S.rng = '0-1000'; S.leads = true; S.obj = 'cable-aged'; }],
+    ['Healthy motor, 2500 V', function () { S.v = 2500; S.rng = '0-5000'; S.leads = true; S.obj = 'motor-ok'; }],
+    ['2500 V on a new cable', function () { S.v = 2500; S.rng = '0-20000'; S.leads = true; S.obj = 'cable-new'; }],
+    ['Damp winding', function () { S.v = 500; S.rng = '0-200'; S.leads = true; S.obj = 'motor-damp'; }],
+    ['Cranking too slowly', function () { S.v = 1000; S.rng = '0-2000'; S.leads = true; S.obj = 'cable-aged'; S.autoRpm = 80; }],
+    ['Earth fault', function () { S.v = 500; S.rng = '0-100'; S.leads = true; S.obj = 'fault'; }],
+    ['Surface leakage and GUARD', function () { S.v = 1000; S.rng = '0-2000'; S.leads = true; S.obj = 'surface'; S.guard = false; }],
+    ['Set infinity (open leads)', function () { S.v = 2500; S.rng = '0-5000'; S.leads = false; S.obj = 'open'; }]
+  ];
+  $('scen').innerHTML = SCEN.map(function (s, i) { return '<button type="button" class="vi-chip" data-s="' + i + '">' + s[0] + '</button>'; }).join('');
+  $('scen').addEventListener('click', function (e) { var b = e.target.closest('[data-s]'); if (!b) return; VI.ctx(); var si = +b.getAttribute('data-s'); S = fresh(); SCEN[si][1](); if (si !== 7) S.inf = -55; S.auto = true; S.touched = true; if (!S.autoRpm || S.autoRpm === 180 || true) S.autoRpm = S.autoRpm === 80 ? 80 : 180; $('leads').removeAttribute('data-k'); lastSig = ''; VI.tick(900, .05); render(); });
+
+  var lastTs = 0, lastDraw = 0, rpmSm = 0;
+  function frame(ts) {
+    if (!lastTs) lastTs = ts; var dt = Math.min((ts - lastTs) / 1000, .1); lastTs = ts;
+    if (drag) { if (performance.now() - lastT > 180) S.rpmDrag *= Math.exp(-dt / .12); } else S.rpmDrag *= Math.exp(-dt / .12);
+    var want = S.auto ? S.autoRpm : S.rpmDrag;
+    S.rpm += (want - S.rpm) * (1 - Math.exp(-dt / (S.auto ? .6 : .08)));
+    if (S.rpm < .5) S.rpm = 0;
+    if (S.auto) S.phi += S.rpm * 6 * dt; else if (!drag) S.phi += S.rpm * 6 * dt * 0;
+    S.phi = ((S.phi + 540) % 360) - 180;
+    step(dt);
+    if (ts - lastDraw > 50) { lastDraw = ts; render(); } else { setNeedle(S.p); crankDraw(); }
+    requestAnimationFrame(frame);
+  }
+  render(); requestAnimationFrame(frame);
+})();
+</script>

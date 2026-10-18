@@ -187,9 +187,9 @@ const relatedProducts = [
               Download Catalogue (PDF)
             </a>
           )}
-          {product.id === 'dit-2500' && (
-            <a href={u('/virtual-instruments/dit-2500/')} class="btn-secondary w-full text-ink">
-              Try the virtual DIT-2500
+          {['dit-2500', 'dit-5000', 'cie-444', 'det-2000', 'dcm-2250-tr', 'dcm-5410-tr'].includes(product.id) && (
+            <a href={u(`/virtual-instruments/${product.id}/`)} class="btn-secondary w-full text-ink">
+              Try the virtual {product.model}
             </a>
           )}
           <ConfigCatalogue productId={product.id} />

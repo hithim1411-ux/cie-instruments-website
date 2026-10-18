@@ -1,0 +1,33 @@
+---
+interface Props { model: '2250' | '5410' }
+const { model } = Astro.props;
+const is5410 = model === '5410';
+---
+<section class="vi-card">
+  <h2 class="vi-h"><span>Try a scenario</span></h2>
+  <p class="vi-sub">One click sets the dial, leads and the thing you are measuring.</p>
+  <div class="vi-chips" id="scen"></div>
+</section>
+<section class="vi-card">
+  <h2 class="vi-h"><span>1</span>Test leads</h2>
+  <div class={`vi-seg ${is5410 ? 'vi-seg--3' : 'vi-seg--2'}`} id="lead-seg" role="radiogroup" aria-label="Test leads">
+    <button type="button" data-v="none" role="radio">No leads</button>
+    <button type="button" data-v="leads" role="radio">Test leads<small>COM + VΩ</small></button>
+    {is5410 && <button type="button" data-v="probe" role="radio">K-type probe<small>temperature</small></button>}
+  </div>
+  <p class="vi-note" id="lead-note"></p>
+</section>
+<section class="vi-card">
+  <h2 class="vi-h"><span>2</span><b id="obj-title">What are you measuring?</b></h2>
+  <div id="obj-panel"></div>
+</section>
+<section class="vi-card vi-live">
+  <h2 class="vi-h"><span>3</span>What the instrument is doing</h2>
+  <div class="vi-status" id="status" aria-live="polite"></div>
+  <div class="vi-spec" id="spec"></div>
+</section>
+<section class="vi-card">
+  <h2 class="vi-h"><span>4</span>Simulator settings</h2>
+  <div class="vi-row"><span class="vi-lbl">Sound (buzzer, clicks)</span><label class="vi-switch"><input type="checkbox" id="sound" checked /><span></span></label></div>
+  <div class="vi-row"><span class="vi-lbl">Reset everything</span><button type="button" class="vi-btn" id="reset">Reset</button></div>
+</section>

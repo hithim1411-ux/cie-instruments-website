@@ -1,0 +1,36 @@
+---
+import VIShell from '../../components/VIShell.astro';
+import ClampFace from '../../components/vi/ClampFace.astro';
+import ClampPanels from '../../components/vi/ClampPanels.astro';
+import { u } from '../../utils/url';
+---
+
+<VIShell
+  slug="dcm-2250-tr" model="DCM 2250 TR"
+  pageTitle="DCM 2250 TR Virtual Instrument: True-RMS Clamp Meter Online"
+  description="Free interactive simulator of the CIE DCM 2250 TR True-RMS AC clamp multimeter: 1000 A, NCV, Low-Z volts, resistance and continuity. Open the jaw, clamp a cable and read the display."
+  h1="DCM 2250 TR, in your browser"
+  intro="Squeeze the trigger, clamp a conductor and read the current. Try the dial: AC current to 1000 A, voltage, Low-Z to beat ghost voltage, non-contact voltage detection, resistance and continuity."
+  productHref={u('/products/clamp-meters/dcm-2250-tr/')}
+  extraLink={{ href: u('/tools/three-phase-power-calculator/'), label: 'Three-phase power calculator' }}
+  ctaBody="The DCM 2250 TR is supplied by CIE in Howrah, with test certificate available on request."
+>
+  <Fragment slot="stage"><ClampFace model="2250" /></Fragment>
+  <Fragment slot="hint">Turn the dial, click the left trigger to open or close the jaw. Keys: <kbd>↑</kbd> <kbd>↓</kbd> dial, <kbd>J</kbd> jaw, <kbd>S</kbd> SELECT, <kbd>H</kbd> HOLD, <kbd>B</kbd> backlight, <kbd>M</kbd> MAX/MIN.</Fragment>
+  <Fragment slot="panels"><ClampPanels model="2250" /></Fragment>
+  <Fragment slot="about">
+    <ul>
+      <li><strong>Clamp one conductor:</strong> a clamp meter measures the magnetic field around a conductor. Close the jaw round a single live or neutral wire. Clamp a whole twin cable and the two currents cancel, so you read zero.</li>
+      <li><strong>AC current only:</strong> the DCM 2250 TR measures AC current in four ranges (6, 60, 600 and 1000 A). It does not measure DC current. For solar, battery and DC distribution work use the DCM 5410 TR.</li>
+      <li><strong>True-RMS:</strong> readings stay correct on distorted waveforms from drives and electronic loads.</li>
+      <li><strong>Ghost voltage and Low-Z:</strong> an unloaded cable beside a live one can show a large induced voltage on a normal high-impedance meter. Low-Z mode puts a load of 3 kΩ or less on the circuit, so the ghost collapses and only a real supply remains.</li>
+      <li><strong>NCV:</strong> the non-contact detector senses the field around a live conductor and warns with bars, a buzzer and an LED, without touching metal.</li>
+      <li><strong>Buttons:</strong> HOLD freezes the display (hold it down for backlight), MAX/MIN tracks extremes, the left button is the torch, and the orange SELECT button switches between resistance, diode and continuity.</li>
+    </ul>
+    <p class="vi-fine">This is a training simulation. Ranges and functions come from the DCM 2250 TR specification. The exact button behaviour, display layout and the continuity buzzer threshold of the physical meter are approximated, and the Live-wire probe test is not simulated. Always follow the instruction manual, use the correct CAT-rated leads and treat every circuit as live until proved dead.</p>
+  </Fragment>
+</VIShell>
+
+<script is:inline src="/js/vi-core.js"></script>
+<script is:inline>window.CLAMP_MODEL = '2250';</script>
+<script is:inline src="/js/vi-clamp.js"></script>

@@ -1,0 +1,346 @@
+---
+import VIShell from '../../components/VIShell.astro';
+import { u } from '../../utils/url';
+---
+
+<VIShell
+  slug="det-2000" model="DET-2000"
+  pageTitle="DET-2000 Virtual Instrument: Earth Resistance Tester Online"
+  description="Free interactive simulator of the CIE DET-2000 digital earth resistance tester. Wire the four terminals, plant the spikes, press TEST and see the fall-of-potential curve and soil resistivity."
+  h1="DET-2000, in your browser"
+  intro="Plant the test spikes, wire the four terminals, pick a range and press TEST. See why the potential spike must be in the right place, and measure soil resistivity with four spikes."
+  productHref={u('/products/earth-tester/det-2000/')}
+  extraLink={{ href: u('/tools/soil-resistivity-wenner-calculator/'), label: 'Soil resistivity calculator' }}
+  ctaBody="The DET-2000 is made and supported by CIE in Howrah, with test certificate available on request."
+>
+  <Fragment slot="stage">
+    <svg id="vi-svg" viewBox="230 70 440 900" role="group" aria-label="Virtual DET-2000 earth resistance tester" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g-case" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1b1d20"/><stop offset=".15" stop-color="#2a2d31"/><stop offset=".85" stop-color="#2a2d31"/><stop offset="1" stop-color="#17181b"/></linearGradient>
+        <linearGradient id="g-front" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34373d"/><stop offset="1" stop-color="#2b2e33"/></linearGradient>
+        <radialGradient id="g-lcd" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#c9cfc3"/><stop offset="1" stop-color="#b0b7a9"/></radialGradient>
+        <radialGradient id="g-lcd-bl" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#eaf8e2"/><stop offset="1" stop-color="#c6e5bd"/></radialGradient>
+        <radialGradient id="g-post" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#4a4d53"/><stop offset="1" stop-color="#0e0f11"/></radialGradient>
+        <radialGradient id="g-brass" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#fff1c2"/><stop offset="1" stop-color="#a97a2b"/></radialGradient>
+        <radialGradient id="g-chrome" cx=".4" cy=".3" r=".9"><stop offset="0" stop-color="#fafafa"/><stop offset="1" stop-color="#7d8189"/></radialGradient>
+        <filter id="f-shadow" x="-20%" y="-10%" width="140%" height="130%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity=".3"/></filter>
+      </defs>
+
+      <rect filter="url(#f-shadow)" x="262" y="92" width="374" height="680" rx="14" fill="url(#g-case)" stroke="#0b0c0e" stroke-width="3"/>
+      <!-- LCD window -->
+      <path d="M 296 136 L 598 136 L 598 292 L 296 292 Z" fill="#0f1114" stroke="#000" stroke-width="3"/>
+      <rect id="lcd-glass" x="338" y="181" width="206" height="80" rx="3" fill="url(#g-lcd)"/>
+      <g id="lcd" font-family="Inter, system-ui, sans-serif" fill="#1a1d18">
+        <g id="lcd-main"></g>
+        <text id="an-lobat" class="ann" x="346" y="255" font-size="10" font-weight="800">LO BAT</text>
+      </g>
+      <rect id="lcd-glow" x="338" y="181" width="206" height="80" rx="3" fill="#fff" opacity="0" pointer-events="none"/>
+      <text x="566" y="238" font-family="Inter, system-ui, sans-serif" font-size="40" font-weight="800" fill="#e8a317">Ω</text>
+
+      <!-- Front panel -->
+      <rect x="284" y="314" width="338" height="444" rx="4" fill="url(#g-front)" stroke="#16181b" stroke-width="2"/>
+      <ellipse cx="366" cy="352" rx="46" ry="26" fill="#f3c4e6" stroke="#b05a9c" stroke-width="3"/>
+      <text x="366" y="363" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="32" fill="#b3328f">CIE</text>
+      <circle id="chg-led" cx="571" cy="338" r="8" fill="#5a1313" stroke="#111" stroke-width="2"/>
+      <text x="571" y="357" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="700" fill="#e9b8d0">CHARGE</text>
+
+      <text x="332" y="448" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="44" font-style="italic" font-weight="700" fill="#3bb6e8">Digital</text>
+      <g font-family="Inter, system-ui, sans-serif" font-weight="900" font-size="35" fill="#e9d36a"><text x="320" y="492">EARTH</text><text x="320" y="530">RESISTANCE</text><text x="320" y="568">TESTER</text></g>
+      <text x="324" y="618" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="25" fill="#3bb6e8">DET - 2000</text>
+      <rect x="488" y="618" width="58" height="54" fill="#8d9096" stroke="#c9cbd0" stroke-width="3"/><rect x="493" y="623" width="48" height="44" fill="#5c6068"/><path d="M493 660 l16 -18 l11 11 l21 -24 v31 z" fill="#8a9a76" opacity=".7"/>
+
+      <!-- Range slide switch -->
+      <g id="sw" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="17">
+        <text x="522" y="402" text-anchor="end" fill="#f1c84b">1000 Ω</text>
+        <text x="524" y="428" text-anchor="end" fill="#ee9fd1">OFF</text>
+        <text x="518" y="454" text-anchor="end" fill="#f1c84b">10 Ω</text>
+        <path d="M526 396h8v8h8M526 422h18M526 448h8v-8h8" fill="none" stroke="#f1c84b" stroke-width="2.5"/>
+        <rect x="548" y="392" width="30" height="66" rx="5" fill="#0b0c0e" stroke="#4a4d53" stroke-width="2"/>
+        <g class="swpos" data-p="0"><rect x="540" y="390" width="46" height="22" fill="transparent"/></g>
+        <g class="swpos" data-p="1"><rect x="540" y="412" width="46" height="22" fill="transparent"/></g>
+        <g class="swpos" data-p="2"><rect x="540" y="434" width="46" height="26" fill="transparent"/></g>
+        <g id="swknob" tabindex="0" role="slider" aria-label="Range switch" aria-valuemin="0" aria-valuemax="2" aria-valuenow="1" aria-valuetext="OFF" style="cursor:grab;transition:transform .15s">
+          <rect x="551" y="396" width="24" height="26" rx="4" fill="url(#g-chrome)" stroke="#33363b" stroke-width="2"/><path d="M553 404h20M553 409h20M553 414h20" stroke="#4a4d53" stroke-width="2"/>
+        </g>
+      </g>
+
+      <!-- TEST pushbutton -->
+      <g id="btn-test" class="btn" tabindex="0" role="button" aria-label="TEST button: hold to measure">
+        <circle cx="565" cy="556" r="24" fill="#16181b"/><circle cx="565" cy="556" r="19" fill="url(#g-chrome)" stroke="#2e3035" stroke-width="2"/><circle cx="565" cy="556" r="9" fill="#0f1012" stroke="#6b6e75" stroke-width="2"/>
+      </g>
+      <text x="563" y="598" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="800" fill="#ee9fd1">TEST</text>
+
+      <!-- Terminals -->
+      <g id="posts" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="800" fill="#d5d8de" text-anchor="middle">
+        <g><circle cx="330" cy="705" r="30" fill="url(#g-post)" stroke="#000" stroke-width="3"/><circle cx="330" cy="705" r="15" fill="url(#g-brass)" stroke="#5b3f10" stroke-width="2"/><circle cx="330" cy="705" r="6" fill="#1b1b1b"/><text x="330" y="751">E1</text></g>
+        <g><circle cx="410" cy="705" r="30" fill="url(#g-post)" stroke="#000" stroke-width="3"/><circle cx="410" cy="705" r="15" fill="url(#g-brass)" stroke="#5b3f10" stroke-width="2"/><circle cx="410" cy="705" r="6" fill="#1b1b1b"/><text x="410" y="751">P1</text></g>
+        <g><circle cx="490" cy="705" r="30" fill="url(#g-post)" stroke="#000" stroke-width="3"/><circle cx="490" cy="705" r="15" fill="url(#g-brass)" stroke="#5b3f10" stroke-width="2"/><circle cx="490" cy="705" r="6" fill="#1b1b1b"/><text x="490" y="751">P2</text></g>
+        <g><circle cx="578" cy="705" r="30" fill="url(#g-post)" stroke="#000" stroke-width="3"/><circle cx="578" cy="705" r="15" fill="url(#g-brass)" stroke="#5b3f10" stroke-width="2"/><circle cx="578" cy="705" r="6" fill="#1b1b1b"/><text x="578" y="751">E2</text></g>
+      </g>
+
+      <g id="leads" pointer-events="none"></g>
+    </svg>
+  </Fragment>
+  <Fragment slot="hint">Click the range switch positions or drag the knob. Hold the TEST button (or <kbd>T</kbd>) to measure. Keys: <kbd>↑</kbd> <kbd>↓</kbd> range.</Fragment>
+
+  <Fragment slot="panels">
+    <section class="vi-card">
+      <h2 class="vi-h"><span>Try a scenario</span></h2>
+      <p class="vi-sub">One click sets up the field and the instrument. Then hold TEST.</p>
+      <div class="vi-chips" id="scen"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>1</span>What are you measuring?</h2>
+      <div class="vi-seg vi-seg--2" id="method-seg" role="radiogroup" aria-label="Measurement method">
+        <button type="button" data-v="earth" role="radio">Earth electrode<small>3 wire, fall of potential</small></button>
+        <button type="button" data-v="soil" role="radio">Soil resistivity<small>4 wire, Wenner</small></button>
+      </div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>2</span>Wire the terminals</h2>
+      <div class="vi-seg vi-seg--3" id="wire-seg" role="radiogroup" aria-label="Wiring">
+        <button type="button" data-v="none" role="radio">No leads</button>
+        <button type="button" data-v="ok" role="radio">Wired correctly</button>
+        <button type="button" data-v="bad" role="radio">Wired wrongly</button>
+      </div>
+      <p class="vi-note" id="wire-note"></p>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>3</span><b id="obj-title">Set up the ground</b></h2>
+      <div id="obj-panel"></div>
+    </section>
+    <section class="vi-card vi-live">
+      <h2 class="vi-h"><span>4</span>What the instrument is doing</h2>
+      <div class="vi-status" id="status" aria-live="polite"></div>
+      <div id="res-wrap" hidden><svg id="chart" viewBox="0 0 420 190" role="img" aria-label="Measured resistance against potential spike position"></svg></div>
+      <div class="vi-spec" id="spec"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>5</span>Simulator settings</h2>
+      <div class="vi-row"><span class="vi-lbl">Battery low (LO BAT)</span><label class="vi-switch"><input type="checkbox" id="lobat" /><span></span></label></div>
+      <div class="vi-row"><span class="vi-lbl">Charger connected (CHARGE LED)</span><label class="vi-switch"><input type="checkbox" id="charger" /><span></span></label></div>
+      <div class="vi-row"><span class="vi-lbl">Backlight on display</span><label class="vi-switch"><input type="checkbox" id="bl" /><span></span></label></div>
+      <div class="vi-row"><span class="vi-lbl">Reset everything</span><button type="button" class="vi-btn" id="reset">Reset</button></div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="about">
+    <ul>
+      <li><strong>Earth electrode (3 wire):</strong> join E1 and P1 and connect them to the electrode under test. P2 goes to a potential spike and E2 to a current spike driven into the ground further away. The tester pushes current through E1/E2 and measures the voltage at the P spike.</li>
+      <li><strong>Why spike position matters:</strong> the measured value changes as the P spike moves. Between the electrode and the far spike there is a flat plateau, around 62% of the way for a small electrode, where the reading equals the true earth resistance. Plant the spike too close or too far and the reading is wrong. The graph shows this live.</li>
+      <li><strong>Soil resistivity (4 wire):</strong> plant four spikes in a line at equal spacing <em>a</em> and wire them E1, P1, P2, E2. Soil resistivity is ρ = 2π × a × R, averaged to a depth of roughly <em>a</em>.</li>
+      <li><strong>Ranges:</strong> the switch selects 10 Ω or 1000 Ω. Use the 10 Ω range for low-resistance earths to get resolution; if the value is above the range the display shows an overload "1".</li>
+      <li><strong>Accuracy:</strong> ±3% in the first and last 10% of the range and ±1.5% in between, as in the specification.</li>
+    </ul>
+    <p class="vi-fine">This is a training simulation. Terminals are shown as E1, P1, P2, E2 as in the specification. The usual convention is E1 and P1 to the electrode, P2 to the potential spike and E2 to the current spike; check the instruction manual for your instrument. The ground is an idealised model (hemispherical electrode in uniform soil), so real readings will differ, and the exact button behaviour of the physical instrument is approximated. Never use an earth tester on a live system.</p>
+  </Fragment>
+</VIShell>
+
+<script is:inline src="/js/vi-core.js"></script>
+<script is:inline>
+(function () {
+  var VI = window.VI, $ = VI.$, el = VI.el;
+  var svg = $('vi-svg');
+  var dMain = VI.build($('lcd-main'), 4, 346, 192, 49, 35, 58, 8.5, 6);
+  var S;
+  function fresh() { return { rng: 1, method: 'earth', wiring: 'none', RE: 12, D: 40, x: 24.8, spike: 'good', rho: 100, a: 3, lobat: S ? S.lobat : false, charger: S ? S.charger : false, bl: S ? S.bl : false, pressed: false, touch: 0, val: 0, relAt: 0 }; }
+  S = fresh();
+  var FS = [1000, 10, 1000];          // index 0: 1000 Ω, 1: OFF, 2: 10 Ω  (value for 1 is unused)
+  function fs() { return S.rng === 0 ? 1000 : 10; }
+  var ELEC_R = .4;                    // equivalent radius of the electrode, metres
+
+  function fall(x, D) { return ELEC_R * (1 / ELEC_R - 1 / (D - ELEC_R) - 1 / x + 1 / (D - x)); }
+  function target() {
+    if (S.wiring !== 'ok') return Infinity;
+    if (S.method === 'earth') return S.RE * fall(Math.max(.6, Math.min(S.D - .6, S.x)), S.D);
+    return S.rho / (2 * Math.PI * S.a);
+  }
+  function jitter(t) { return S.spike === 'poor' ? 1 + .035 * Math.sin(t * 9.1) + .02 * Math.sin(t * 23.7) : 1; }
+
+  function model(now) {
+    var m = { off: S.rng === 1, main: '    ', dp: -1, spec: '', over: false };
+    if (m.off) return m;
+    var d = S.rng === 2 ? 2 : 0, v = S.val * jitter(now / 1000);
+    if (v > fs()) { m.main = '1   '; m.over = true; m.dp = d ? 1 : -1; if (d) { m.main = '1   '; } }
+    else { var r = VI.blank(VI.digits(v, d, 4)); m.main = r.s; m.dp = r.dp; }
+    var pos = v / fs();
+    m.spec = 'Range ' + (S.rng === 2 ? '10 Ω' : '1000 Ω') + ' full scale. Accuracy: ' + (pos < .1 || pos > .9 ? '±3%' : '±1.5%') + ' at this point of the range.';
+    return m;
+  }
+
+  function render(now) {
+    var m = model(now || 0);
+    $('lcd-glass').setAttribute('fill', S.bl && !m.off ? 'url(#g-lcd-bl)' : 'url(#g-lcd)');
+    VI.setDigits(dMain, m.off ? '    ' : m.main, m.off ? -1 : m.dp);
+    $('an-lobat').classList.toggle('on', S.lobat && !m.off);
+    $('chg-led').setAttribute('fill', S.charger ? '#ff3b3b' : '#5a1313'); $('chg-led').style.filter = S.charger ? 'drop-shadow(0 0 6px #ff3b3b)' : 'none';
+    $('swknob').style.transform = 'translateY(' + (S.rng * 22) + 'px)';
+    var k = $('swknob'); k.setAttribute('aria-valuenow', S.rng); k.setAttribute('aria-valuetext', ['1000 ohm', 'OFF', '10 ohm'][S.rng]);
+    $('btn-test').classList.toggle('down', S.pressed);
+    drawLeads(); panel(m);
+  }
+
+  /* leads */
+  function post(i) { return [330, 410, 490, 578][i]; }
+  function lead(g, i, path, col) {
+    el('path', { d: path, fill: 'none', stroke: '#050607', 'stroke-width': 11, 'stroke-linecap': 'round' }, g);
+    el('path', { d: path, fill: 'none', stroke: col, 'stroke-width': 7, 'stroke-linecap': 'round' }, g);
+    el('circle', { cx: post(i), cy: 705, r: 17, fill: col, stroke: '#050607', 'stroke-width': 3 }, g);
+    el('circle', { cx: post(i), cy: 705, r: 7, fill: '#0b0c0e', opacity: .55 }, g);
+  }
+  function tag(g, x, y, txt) { el('rect', { x: x - 50, y: y - 13, width: 100, height: 22, rx: 6, fill: '#0b1118', stroke: '#334155' }, g); var t = el('text', { x: x, y: y + 3, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: '#e2e8f0', 'font-family': 'Inter, system-ui, sans-serif' }, g); t.textContent = txt; }
+  function drawLeads() {
+    var g = $('leads'), key = S.wiring + S.method;
+    if (g.getAttribute('data-k') === key) return; g.setAttribute('data-k', key); g.innerHTML = '';
+    if (S.wiring === 'none') return;
+    var bad = S.wiring === 'bad', C = ['#c8141f', '#e6b800', '#17181b', '#1f56d9'];
+    if (S.method === 'earth') {
+      lead(g, 0, 'M330 705 C 330 800 290 850 270 925', C[0]);
+      el('path', { d: 'M330 705 C 345 650 395 650 410 705', fill: 'none', stroke: '#050607', 'stroke-width': 11, 'stroke-linecap': 'round' }, g);
+      el('path', { d: 'M330 705 C 345 650 395 650 410 705', fill: 'none', stroke: C[0], 'stroke-width': 7, 'stroke-linecap': 'round' }, g);
+      el('circle', { cx: 410, cy: 705, r: 17, fill: C[0], stroke: '#050607', 'stroke-width': 3 }, g);
+      lead(g, 2, bad ? 'M490 705 C 490 790 590 850 626 925' : 'M490 705 C 490 800 450 860 440 925', C[1]);
+      lead(g, 3, bad ? 'M578 705 C 578 790 480 850 440 925' : 'M578 705 C 578 800 600 860 626 925', C[2]);
+      tag(g, 270, 940, 'electrode'); tag(g, 440, 940, bad ? 'C spike (swapped)' : 'P spike'); tag(g, 626, 940, bad ? 'P spike (swapped)' : 'C spike');
+    } else {
+      lead(g, 0, 'M330 705 C 330 800 290 860 262 925', C[0]);
+      lead(g, 1, 'M410 705 C 410 800 380 860 358 925', C[1]);
+      lead(g, 2, bad ? 'M490 705 C 490 790 580 850 640 925' : 'M490 705 C 490 800 470 860 454 925', C[2]);
+      lead(g, 3, bad ? 'M578 705 C 578 790 520 850 550 925' : 'M578 705 C 578 800 590 860 646 925', C[3]);
+      tag(g, 262, 940, 'spike 1'); tag(g, 360, 940, 'spike 2'); tag(g, 454, 940, bad ? 'spike 4 (swapped)' : 'spike 3'); tag(g, 548, 940, 'spike 4');
+    }
+  }
+
+  /* panels */
+  var lastSig = '';
+  function panel(m) {
+    Array.prototype.forEach.call($('method-seg').children, function (b) { b.setAttribute('aria-checked', b.getAttribute('data-v') === S.method); });
+    Array.prototype.forEach.call($('wire-seg').children, function (b) { b.setAttribute('aria-checked', b.getAttribute('data-v') === S.wiring); });
+    $('lobat').checked = S.lobat; $('charger').checked = S.charger; $('bl').checked = S.bl;
+    var wn = '';
+    if (S.wiring === 'none') wn = 'No leads connected. The instrument sees an open circuit.';
+    else if (S.method === 'earth') wn = S.wiring === 'ok' ? 'E1 and P1 are linked to the electrode (red). P2 (yellow) goes to the potential spike, E2 (black) to the current spike.' : 'P2 and E2 are swapped, so the voltage is measured at the wrong spike.';
+    else wn = S.wiring === 'ok' ? 'Four spikes in a line, wired E1, P1, P2, E2 in order.' : 'Spikes 3 and 4 are swapped, so the measurement is invalid.';
+    $('wire-note').textContent = wn;
+    var fam = S.method; if (fam !== lastSig) { lastSig = fam; buildObj(fam); } syncObj();
+
+    var h = '';
+    if (m.off) h = '<p>The instrument is <strong>OFF</strong>. Slide the range switch to 10 Ω or 1000 Ω.</p>';
+    else {
+      var tgt = target();
+      h += '<p>Range <strong>' + (S.rng === 2 ? '10 Ω' : '1000 Ω') + '</strong>. ' + (S.pressed || performance.now() < S.relAt ? '<strong class="ok">Measuring...</strong>' : 'Hold <strong>TEST</strong> to measure.') + '</p>';
+      if (S.wiring !== 'ok') h += '<p class="warn">' + (S.wiring === 'none' ? 'No leads connected: the display overloads.' : 'Wiring is wrong: the display overloads.') + '</p>';
+      else if (tgt > fs()) h += '<p class="warn">The value is above the ' + (S.rng === 2 ? '10 Ω' : '1000 Ω') + ' range, so the display shows an overload "1". ' + (S.rng === 2 ? 'Switch to 1000 Ω.' : '') + '</p>';
+      else {
+        if (S.rng === 0 && tgt < 10) h += '<p class="warn">Reading is under 1% of the range, so resolution is only 1 Ω. Use the 10 Ω range for low earths.</p>';
+        if (S.method === 'earth') {
+          var ratio = tgt / S.RE, px = S.x / S.D;
+          h += Math.abs(ratio - 1) < .03 ? '<p class="ok">The P spike is on the plateau, so the reading matches the true earth resistance.</p>' : '<p class="warn">The reading is ' + (ratio > 1 ? 'high' : 'low') + ' by ' + Math.round(Math.abs(ratio - 1) * 100) + '% because the P spike is at ' + Math.round(px * 100) + '% of the distance. Move it to about 62%.</p>';
+        } else h += '<p>Soil resistivity ρ = 2π × a × R = <strong>' + (+(2 * Math.PI * S.a * tgt).toPrecision(3)) + ' Ω·m</strong>, averaged to a depth of about ' + S.a + ' m.</p>';
+        if (S.spike === 'poor') h += '<p class="warn">Poor spike contact (dry ground): the reading is unsteady. Wet the soil around the spikes or drive them deeper.</p>';
+      }
+    }
+    $('status').innerHTML = h; $('spec').textContent = m.spec || '';
+    $('res-wrap').hidden = !(S.method === 'earth' && !m.off);
+    if (S.method === 'earth') drawChart();
+  }
+  function drawChart() {
+    var c = $('chart'), W = 420, H = 190, L = 40, R = 12, T = 14, B = 28, D = S.D, ymax = S.RE * 1.8;
+    var X = function (x) { return L + (W - L - R) * x / D; }, Y = function (r) { return T + (H - T - B) * (1 - Math.min(r, ymax) / ymax); };
+    var s = '<rect x="' + X(.55 * D) + '" y="' + T + '" width="' + (X(.68 * D) - X(.55 * D)) + '" height="' + (H - T - B) + '" fill="rgba(52,211,153,.10)"/>';
+    s += '<line x1="' + L + '" y1="' + (H - B) + '" x2="' + (W - R) + '" y2="' + (H - B) + '" stroke="#334155"/><line x1="' + L + '" y1="' + T + '" x2="' + L + '" y2="' + (H - B) + '" stroke="#334155"/>';
+    s += '<line x1="' + L + '" y1="' + Y(S.RE) + '" x2="' + (W - R) + '" y2="' + Y(S.RE) + '" stroke="#34d399" stroke-dasharray="4 4"/><text x="' + (W - R) + '" y="' + (Y(S.RE) - 4) + '" text-anchor="end" fill="#34d399">true value ' + (+S.RE.toPrecision(3)) + ' Ω</text>';
+    var pts = [], i; for (i = 0; i <= 120; i++) { var x = .6 + (D - 1.2) * i / 120; pts.push(X(x).toFixed(1) + ',' + Y(S.RE * fall(x, D)).toFixed(1)); }
+    s += '<polyline points="' + pts.join(' ') + '" fill="none" stroke="#ff5a62" stroke-width="2.2"/>';
+    var xx = Math.max(.6, Math.min(D - .6, S.x)); s += '<line x1="' + X(xx) + '" y1="' + T + '" x2="' + X(xx) + '" y2="' + (H - B) + '" stroke="#fff" stroke-opacity=".5"/><circle cx="' + X(xx) + '" cy="' + Y(S.RE * fall(xx, D)) + '" r="4.5" fill="#fff"/>';
+    s += '<text x="' + L + '" y="' + (H - 10) + '">E</text><text x="' + (W - R) + '" y="' + (H - 10) + '" text-anchor="end">C spike (' + D + ' m)</text><text x="' + X(.62 * D) + '" y="' + (H - 10) + '" text-anchor="middle" fill="#34d399">62%</text><text x="' + (L + 4) + '" y="' + (T + 8) + '">measured R vs P spike position</text>';
+    c.innerHTML = s;
+  }
+  function buildObj(fam) {
+    var h = '', title;
+    if (fam === 'earth') {
+      title = 'Plant the spikes';
+      h = VI.slider('s-re', 'True earth resistance of the electrode (log scale)', 0, 1000, 1) + VI.slider('s-d', 'Distance to the current spike C', 10, 100, 1) + VI.slider('s-x', 'Distance to the potential spike P', 1, 99, .5) +
+        VI.qc('x', [['P at 62% (correct)', 'p62'], ['P too close (10%)', 'p10'], ['P too far (90%)', 'p90']]) +
+        '<div class="vi-slider"><label>Spike contact</label><div class="vi-seg vi-seg--2" id="spike-seg" role="radiogroup" aria-label="Spike contact"><button type="button" data-v="good" role="radio">Good, damp soil</button><button type="button" data-v="poor" role="radio">Poor, dry ground</button></div></div>';
+    } else {
+      title = 'Plant four spikes in a line';
+      h = '<div class="vi-opts">' + [['clay', 'Wet clay', 30], ['loam', 'Loam', 100], ['sand', 'Dry sand', 500], ['rock', 'Rocky ground', 2000]].map(function (q) { return VI.opt('soil', q[0], q[1], q[2] + ' Ω·m'); }).join('') + '</div>' +
+        VI.slider('s-rho', 'Soil resistivity (log scale)', 0, 1000, 1) + VI.slider('s-a', 'Spike spacing a', 1, 30, .5);
+    }
+    $('obj-title').textContent = title; $('obj-panel').innerHTML = h;
+  }
+  var SOILS = { clay: 30, loam: 100, sand: 500, rock: 2000 };
+  function syncObj() {
+    var q = function (id) { return $(id); };
+    if (q('s-re')) { q('s-re').value = VI.valToLog(S.RE, -1, 3); q('s-re-o').textContent = VI.eng(S.RE, 'Ω'); q('s-d').value = S.D; q('s-d-o').textContent = S.D + ' m'; q('s-x').max = S.D - 1; q('s-x').value = S.x; q('s-x-o').textContent = (+S.x.toFixed(1)) + ' m (' + Math.round(100 * S.x / S.D) + '%)';
+      Array.prototype.forEach.call(document.querySelectorAll('#spike-seg button'), function (b) { b.setAttribute('aria-checked', b.getAttribute('data-v') === S.spike); }); }
+    if (q('s-rho')) { q('s-rho').value = VI.valToLog(S.rho, 1, 3.7); q('s-rho-o').textContent = (+S.rho.toPrecision(3)) + ' Ω·m'; q('s-a').value = S.a; q('s-a-o').textContent = S.a + ' m';
+      Array.prototype.forEach.call(document.querySelectorAll('#obj-panel .vi-opt'), function (b) { b.setAttribute('aria-checked', SOILS[b.getAttribute('data-k')] === Math.round(S.rho)); }); }
+  }
+
+  /* interaction */
+  function setRng(i) { i = Math.max(0, Math.min(2, i)); if (i === S.rng) return; S.rng = i; S.val = 0; S.pressed = false; VI.tick(800, .04, .025); render(performance.now()); }
+  Array.prototype.forEach.call(document.querySelectorAll('.swpos'), function (p) { p.addEventListener('click', function () { VI.ctx(); setRng(+p.getAttribute('data-p')); }); });
+  (function () {
+    var k = $('swknob'), drag = false;
+    function go(ev) { var pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY; var p = pt.matrixTransform(svg.getScreenCTM().inverse()); setRng(Math.max(0, Math.min(2, Math.round((p.y - 409) / 22)))); }
+    k.addEventListener('pointerdown', function (ev) { ev.preventDefault(); VI.ctx(); drag = true; try { k.setPointerCapture(ev.pointerId); } catch (e) {} });
+    k.addEventListener('pointermove', function (ev) { if (drag) go(ev); });
+    k.addEventListener('pointerup', function () { drag = false; }); k.addEventListener('pointercancel', function () { drag = false; });
+    k.addEventListener('keydown', function (ev) { if (ev.key === 'ArrowDown') { ev.preventDefault(); setRng(S.rng + 1); } else if (ev.key === 'ArrowUp') { ev.preventDefault(); setRng(S.rng - 1); } });
+  })();
+  function press(on) { if (on === S.pressed) return; S.pressed = on; if (on) { S.since = performance.now(); VI.tick(700, .05); } else { S.relAt = Math.max(performance.now() + 2500, (S.since || 0) + 3000); } render(performance.now()); }
+  (function () {
+    var b = $('btn-test');
+    b.addEventListener('pointerdown', function (ev) { ev.preventDefault(); VI.ctx(); press(true); try { b.setPointerCapture(ev.pointerId); } catch (e) {} });
+    b.addEventListener('pointerup', function () { press(false); }); b.addEventListener('pointercancel', function () { press(false); });
+    b.addEventListener('keydown', function (ev) { if ((ev.key === 'Enter' || ev.key === ' ') && !ev.repeat) { ev.preventDefault(); press(true); } });
+    b.addEventListener('keyup', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') press(false); });
+  })();
+  document.addEventListener('keydown', function (ev) { if (ev.target && /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName)) return; if (ev.key.toLowerCase() === 't' && !ev.repeat && !ev.metaKey && !ev.ctrlKey) press(true); else if (ev.key === 'ArrowDown' && !(ev.target && ev.target.id === 'swknob')) setRng(S.rng + 1); else if (ev.key === 'ArrowUp' && !(ev.target && ev.target.id === 'swknob')) setRng(S.rng - 1); });
+  document.addEventListener('keyup', function (ev) { if (ev.key.toLowerCase() === 't') press(false); });
+
+  $('method-seg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; S.method = b.getAttribute('data-v'); S.val = 0; $('leads').removeAttribute('data-k'); VI.tick(600, .04); render(performance.now()); });
+  $('wire-seg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; S.wiring = b.getAttribute('data-v'); S.val = 0; $('leads').removeAttribute('data-k'); VI.tick(600, .04); render(performance.now()); });
+  $('lobat').addEventListener('change', function (e) { S.lobat = e.target.checked; render(performance.now()); });
+  $('charger').addEventListener('change', function (e) { S.charger = e.target.checked; render(performance.now()); });
+  $('bl').addEventListener('change', function (e) { S.bl = e.target.checked; render(performance.now()); });
+  $('reset').addEventListener('click', function () { S = fresh(); $('leads').removeAttribute('data-k'); lastSig = ''; render(performance.now()); });
+  $('obj-panel').addEventListener('click', function (e) {
+    var b = e.target.closest('.vi-opt'); if (b) { S.rho = SOILS[b.getAttribute('data-k')]; render(performance.now()); return; }
+    var sp = e.target.closest('#spike-seg button'); if (sp) { S.spike = sp.getAttribute('data-v'); render(performance.now()); return; }
+    var q = e.target.closest('[data-q]'); if (!q) return; var v = JSON.parse(q.getAttribute('data-val')); S.x = v === 'p62' ? .62 * S.D : v === 'p10' ? .1 * S.D : .9 * S.D; render(performance.now());
+  });
+  $('obj-panel').addEventListener('input', function (e) {
+    var id = e.target.id, v = +e.target.value;
+    if (id === 's-re') S.RE = VI.logToVal(v, -1, 3); else if (id === 's-d') { var f = S.x / S.D; S.D = v; S.x = Math.min(S.D - 1, f * S.D); } else if (id === 's-x') S.x = v;
+    else if (id === 's-rho') S.rho = VI.logToVal(v, 1, 3.7); else if (id === 's-a') S.a = v;
+    render(performance.now());
+  });
+
+  var SCEN = [
+    ['Home earth pit, correct set-up', function () { S.method = 'earth'; S.wiring = 'ok'; S.RE = 4.7; S.D = 40; S.x = 24.8; S.rng = 2; }],
+    ['P spike planted too close', function () { S.method = 'earth'; S.wiring = 'ok'; S.RE = 4.7; S.D = 40; S.x = 4; S.rng = 2; }],
+    ['Wrong range: 50 Ω earth on 10 Ω', function () { S.method = 'earth'; S.wiring = 'ok'; S.RE = 50; S.D = 40; S.x = 24.8; S.rng = 2; }],
+    ['Dry ground, poor spikes', function () { S.method = 'earth'; S.wiring = 'ok'; S.RE = 22; S.D = 40; S.x = 24.8; S.rng = 0; S.spike = 'poor'; }],
+    ['Soil resistivity, wet clay', function () { S.method = 'soil'; S.wiring = 'ok'; S.rho = 30; S.a = 5; S.rng = 2; }],
+    ['Leads swapped', function () { S.method = 'earth'; S.wiring = 'bad'; S.RE = 12; S.rng = 0; }]
+  ];
+  $('scen').innerHTML = SCEN.map(function (s, i) { return '<button type="button" class="vi-chip" data-s="' + i + '">' + s[0] + '</button>'; }).join('');
+  $('scen').addEventListener('click', function (e) { var b = e.target.closest('[data-s]'); if (!b) return; VI.ctx(); var k = [S.lobat, S.charger, S.bl]; S = fresh(); S.lobat = k[0]; S.charger = k[1]; S.bl = k[2]; SCEN[+b.getAttribute('data-s')][1](); $('leads').removeAttribute('data-k'); lastSig = ''; VI.tick(900, .05); render(performance.now()); });
+
+  var lastTs = 0, lastDraw = 0;
+  function frame(ts) {
+    if (!lastTs) lastTs = ts; var dt = Math.min((ts - lastTs) / 1000, .25); lastTs = ts;
+    var measuring = S.rng !== 1 && (S.pressed || performance.now() < S.relAt), tgt = target();
+    var want = measuring ? tgt : 0, was = S.val;
+    if (!isFinite(want)) want = measuring ? 1e6 : 0;
+    S.val += (want - S.val) * (1 - Math.exp(-dt / (measuring ? .35 : .15)));
+    if (Math.abs(S.val - want) < 1e-4) S.val = want;
+    if (S.val !== was || S.pressed || measuring || ts - lastDraw > 600) { if (ts - lastDraw > 70) { lastDraw = ts; render(performance.now()); } }
+    requestAnimationFrame(frame);
+  }
+  render(performance.now()); requestAnimationFrame(frame);
+})();
+</script>
