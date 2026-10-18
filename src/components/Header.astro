@@ -24,11 +24,11 @@ const otherNav = [
 const currentPath = Astro.url.pathname;
 const isHome      = currentPath === '/' || currentPath === u('/');
 const onProducts  = currentPath.startsWith(u('/products'));
-const onInsights  = currentPath.startsWith(u('/insights')) || currentPath.startsWith(u('/blog')) || currentPath.startsWith(u('/tools')) || currentPath.startsWith(u('/virtual-instruments'));
+const onInsights  = currentPath.startsWith(u('/insights')) || currentPath.startsWith(u('/blog')) || currentPath.startsWith(u('/tools')) || currentPath.startsWith(u('/playground'));
 const insightsLinks = [
   { label: 'Blog', sub: 'Guides and how-tos on testing', href: u('/blog/') },
   { label: 'Free Tools', sub: 'Calculators for engineers', href: u('/tools/') },
-  { label: 'Virtual Instruments', sub: 'Beta: try our testers in your browser', href: u('/virtual-instruments/') },
+  { label: 'Instrument Playground', sub: 'Beta: just for fun, play with our testers', href: u('/playground/') },
 ];
 
 // Generic mailto for header button

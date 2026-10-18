@@ -1,4 +1,4 @@
-/* Shared helpers for the CIE virtual instruments (window.VI). */
+/* Shared helpers for the CIE instrument playground (window.VI). */
 (function () {
   var NS = 'http://www.w3.org/2000/svg';
   var VI = { NS: NS };

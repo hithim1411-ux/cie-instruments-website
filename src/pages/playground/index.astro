@@ -5,50 +5,50 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { u } from '../../utils/url';
 ---
 
-<Base title="Virtual Instruments: Try CIE Testers Online" description="Interactive simulators of CIE instruments. Turn the dial, press the buttons and run tests on virtual motors and cables before you buy.">
+<Base title="Instrument Playground: Play with CIE Testers Online" description="A just-for-fun playground. Twist the dials, crank the handle and press the buttons on playful, beta versions of CIE instruments.">
   <div class="blueprint-bg bg-ink text-white pt-10 pb-12 lg:pb-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="vi-crumbs"><Breadcrumbs crumbs={[{ label: 'Virtual Instruments' }]} /></div>
-      <EyebrowLabel text="Try Before You Buy" class="mt-5 mb-3" />
-      <h1 class="text-[length:var(--text-display)] font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl">Virtual Instruments <span class="vi-beta">Beta</span></h1>
-      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Working simulators of CIE instruments, right in your browser. Learn the controls and see how a test runs before you pick one up.</p>
-      <p class="vi-disc vi-disc--dark mt-6 max-w-3xl" role="note"><strong>Beta, for illustration only.</strong> These simulators are beta versions meant to illustrate how each instrument works. The actual instruments can differ in appearance, display, button behaviour, ranges and readings, and all results are simulated. Always follow the instruction manual.</p>
+      <div class="vi-crumbs"><Breadcrumbs crumbs={[{ label: 'Instrument Playground' }]} /></div>
+      <EyebrowLabel text="Just for fun" class="mt-5 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl">Instrument Playground <span class="vi-beta">Beta</span></h1>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Play with our instruments right in your browser. Twist the dials, crank the handle, press the buttons and see what happens. No sign-up, nothing to install, and nothing to break.</p>
+      <p class="vi-disc vi-disc--dark mt-6 max-w-3xl" role="note"><strong>Beta, just for fun.</strong> These are playful beta versions, for illustration only. They are not training tools and not a substitute for the real instruments, which can differ in appearance, display, button behaviour, ranges and readings. Everything is simulated. Always follow the instruction manual.</p>
       <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <a href={u('/virtual-instruments/dit-2500/')} class="vi-hubcard">
+        <a href={u('/playground/dit-2500/')} class="vi-hubcard">
           <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> Insulation tester + multimeter</span>
           <span class="vi-hubname">DIT-2500</span>
           <span class="vi-hubbody">100 V to 2500 V insulation tests with DAR and PI, plus a True-RMS multimeter. Run a 10-minute test in ten seconds.</span>
-          <span class="vi-hubgo">Open simulator →</span>
+          <span class="vi-hubgo">Play with it →</span>
         </a>
-        <a href={u('/virtual-instruments/dit-5000/')} class="vi-hubcard">
+        <a href={u('/playground/dit-5000/')} class="vi-hubcard">
           <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> Digital insulation tester</span>
           <span class="vi-hubname">DIT-5000</span>
           <span class="vi-hubbody">Up to 5000 V and 200 GΩ. Watch the HV LED, the voltage collapse on a fault, and the effect of the guard lead.</span>
-          <span class="vi-hubgo">Open simulator →</span>
+          <span class="vi-hubgo">Play with it →</span>
         </a>
-        <a href={u('/virtual-instruments/cie-444/')} class="vi-hubcard">
+        <a href={u('/playground/cie-444/')} class="vi-hubcard">
           <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> Hand-driven insulation tester</span>
           <span class="vi-hubname">CIE/444</span>
           <span class="vi-hubbody">Turn the crank, hold 160 rpm and watch the cross-coil pointer. Choose any of the 27 voltage and range versions.</span>
-          <span class="vi-hubgo">Open simulator →</span>
+          <span class="vi-hubgo">Play with it →</span>
         </a>
-        <a href={u('/virtual-instruments/det-2000/')} class="vi-hubcard">
+        <a href={u('/playground/det-2000/')} class="vi-hubcard">
           <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> Earth resistance tester</span>
           <span class="vi-hubname">DET-2000</span>
           <span class="vi-hubbody">Plant the spikes, wire four terminals and see the fall-of-potential curve. Measure soil resistivity too.</span>
-          <span class="vi-hubgo">Open simulator →</span>
+          <span class="vi-hubgo">Play with it →</span>
         </a>
-        <a href={u('/virtual-instruments/dcm-2250-tr/')} class="vi-hubcard">
+        <a href={u('/playground/dcm-2250-tr/')} class="vi-hubcard">
           <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> True-RMS AC clamp multimeter</span>
           <span class="vi-hubname">DCM 2250 TR</span>
           <span class="vi-hubbody">Clamp a conductor up to 1000 A, beat ghost voltage with Low-Z, and find live cables with NCV.</span>
-          <span class="vi-hubgo">Open simulator →</span>
+          <span class="vi-hubgo">Play with it →</span>
         </a>
-        <a href={u('/virtual-instruments/dcm-5410-tr/')} class="vi-hubcard">
+        <a href={u('/playground/dcm-5410-tr/')} class="vi-hubcard">
           <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> True-RMS AC/DC clamp multimeter</span>
           <span class="vi-hubname">DCM 5410 TR</span>
           <span class="vi-hubbody">AC and DC current, zero the Hall offset, capture motor inrush, plus frequency, capacitance and temperature.</span>
-          <span class="vi-hubgo">Open simulator →</span>
+          <span class="vi-hubgo">Play with it →</span>
         </a>
       </div>
     </div>

@@ -21,10 +21,10 @@ const { slug, model, pageTitle, description, h1, intro, productHref, ctaBody, ab
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: `${model} Virtual Instrument`,
+  name: `${model} Playground`,
   description,
-  url: `https://www.cieinstruments.in/virtual-instruments/${slug}/`,
-  applicationCategory: 'EducationalApplication',
+  url: `https://www.cieinstruments.in/playground/${slug}/`,
+  applicationCategory: 'GameApplication',
   operatingSystem: 'Any',
   isAccessibleForFree: true,
   publisher: { '@id': 'https://www.cieinstruments.in/#organization' },
@@ -36,14 +36,14 @@ const schema = {
 
   <div class="blueprint-bg bg-ink text-white pt-10 pb-10 lg:pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="vi-crumbs"><Breadcrumbs crumbs={[{ label: 'Virtual Instruments', href: u('/virtual-instruments/') }, { label: model }]} /></div>
-      <EyebrowLabel text="Virtual Instrument" class="mt-5 mb-3" />
+      <div class="vi-crumbs"><Breadcrumbs crumbs={[{ label: 'Instrument Playground', href: u('/playground/') }, { label: model }]} /></div>
+      <EyebrowLabel text="Just for fun" class="mt-5 mb-3" />
       <h1 class="text-[length:var(--text-display)] font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl">{h1} <span class="vi-beta">Beta</span></h1>
       <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">{intro}</p>
       <div class="mt-6 flex flex-wrap gap-3">
         <a href={productHref} class="btn-primary">{model} product page</a>
         {extraLink && <a href={extraLink.href} class="vi-ghost">{extraLink.label}</a>}
-        <a href={u('/virtual-instruments/')} class="vi-ghost">All virtual instruments</a>
+        <a href={u('/playground/')} class="vi-ghost">Back to the playground</a>
       </div>
     </div>
   </div>
@@ -51,13 +51,13 @@ const schema = {
   <section class="bg-white section-pad-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="vi-disc" role="note">
-        <strong>Beta, for illustration only.</strong> This virtual instrument is a beta version and is meant only to illustrate how the {model} works. The actual instrument can differ in appearance, display, button behaviour, ranges, timings and readings. Test objects and results are simulated and are not measurements. Always follow the instruction manual and your site safety procedure.
+        <strong>Beta, just for fun.</strong> This is a playful beta, for illustration only. It is not a training tool and not a substitute for the real instrument. The actual {model} can differ in appearance, display, button behaviour, ranges, timings and readings. Everything here is simulated, so do not use it to judge a real measurement. Always follow the instruction manual and your site safety procedure.
       </div>
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 grid lg:grid-cols-[minmax(0,30rem)_minmax(0,1fr)] gap-8 lg:gap-12 items-start">
       <div class="vi-stage lg:sticky lg:top-24">
         <slot name="stage" />
-        <span class="vi-stagebeta">Beta · illustration only</span>
+        <span class="vi-stagebeta">Beta · just for fun</span>
         <p class="vi-hint"><slot name="hint" /></p>
       </div>
       <div class="vi-panels"><slot name="panels" /></div>

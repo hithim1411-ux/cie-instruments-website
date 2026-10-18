@@ -11,6 +11,13 @@ export default defineConfig({
   adapter: vercel(),
   trailingSlash: 'always',
   redirects: {
+    '/virtual-instruments/': '/playground/',
+    '/virtual-instruments/dit-2500/': '/playground/dit-2500/',
+    '/virtual-instruments/dit-5000/': '/playground/dit-5000/',
+    '/virtual-instruments/cie-444/': '/playground/cie-444/',
+    '/virtual-instruments/det-2000/': '/playground/det-2000/',
+    '/virtual-instruments/dcm-2250-tr/': '/playground/dcm-2250-tr/',
+    '/virtual-instruments/dcm-5410-tr/': '/playground/dcm-5410-tr/',
     '/products/oil-test-sets/cie-7100/': '/products/oil-test-sets/cie-7050/',
     '/products/oil-test-sets/cie-7120/': '/products/oil-test-sets/cie-7050/',
   },
