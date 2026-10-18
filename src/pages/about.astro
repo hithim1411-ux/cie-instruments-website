@@ -6,6 +6,11 @@ import CTABand from '../components/CTABand.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Icon from '../components/Icon.astro';
 import type { IconName } from '../utils/iconNames';
+import products from '../data/products.json';
+
+// Live counts so the stat strip never drifts from the catalogue.
+const cieProducts = (products as any[]).filter((p) => !String(p.categoryId).startsWith('vartech'));
+const cieCategories = new Set(cieProducts.map((p) => p.categoryId)).size;
 ---
 
 <Base
@@ -13,8 +18,9 @@ import type { IconName } from '../utils/iconNames';
   description="Cambridge Instruments & Engg. Co. (CIE) - established 1963, Howrah, West Bengal. Manufacturer and supplier of insulation testers, earth testers, relay test sets, oil BDV testers, HV test sets. Trusted by various State Electricity Boards, Indian Railways, and cement and metal industries."
 >
   <!-- ══ Hero: dark graphite with a heritage stat strip ══ -->
-  <div class="blueprint-bg bg-ink text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14 lg:pb-16">
+  <div class="blueprint-bg bg-ink text-white relative overflow-hidden">
+    <span class="about-mark" aria-hidden="true">1963</span>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-14 lg:pb-16">
       <nav aria-label="Breadcrumb" class="mb-7">
         <ol class="flex items-center gap-2 text-xs text-muted-dark font-mono">
           <li><a href={u('/')} class="hover:text-white transition-colors">Home</a></li>
@@ -23,15 +29,15 @@ import type { IconName } from '../utils/iconNames';
         </ol>
       </nav>
       <EyebrowLabel text="Est. 1963 · Howrah, India" class="mb-4" />
-      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.06] tracking-tight max-w-4xl">Cambridge Instruments &amp; Engg. Co.</h1>
+      <h1 class="text-[clamp(2rem,3.7vw,3.4rem)] font-extrabold leading-[1.06] tracking-tight">Cambridge Instruments &amp; Engg. Co.</h1>
       <p class="mt-4 text-lg text-gray-300 max-w-2xl font-medium">Also known as CIE Instruments - Instruments for Accuracy and Reliability since 1963.</p>
 
       <dl class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
         {[
           { k: '1963', v: 'Founded in Howrah' },
           { k: '60+', v: 'Years of service' },
-          { k: '2', v: 'Howrah works and Kolkata office' },
-          { k: 'CIE®', v: 'Registered trade mark' },
+          { k: String(cieProducts.length), v: `CIE instruments across ${cieCategories} categories` },
+          { k: '12', v: 'Month warranty on every instrument' },
         ].map((x) => (
           <div class="about-stat">
             <dt class="text-3xl lg:text-4xl font-extrabold tracking-tight">{x.k}</dt>
@@ -39,6 +45,7 @@ import type { IconName } from '../utils/iconNames';
           </div>
         ))}
       </dl>
+      <p class="mt-6 text-sm text-muted-dark max-w-3xl leading-relaxed">Preferred by various State Electricity Boards, Indian Railways and EPC contractors across India.</p>
     </div>
   </div>
 
@@ -263,6 +270,9 @@ import type { IconName } from '../utils/iconNames';
   .about-stat { padding: 1.1rem 1.25rem; border-radius: 1.25rem; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16);
     -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); box-shadow: inset 0 1px 0 rgba(255,255,255,.18); }
   .about-stat dt { color: #fff; }
+  .about-mark { position: absolute; right: -2rem; bottom: -4.5rem; font: 800 clamp(12rem, 26vw, 26rem)/1 var(--font-sans); letter-spacing: -.06em; color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255,255,255,.09); user-select: none; pointer-events: none; display: none; }
+  @media (min-width: 1024px) { .about-mark { display: block; } }
 
   .about-timeline { list-style: none; margin: 0; padding: 0 0 0 .25rem; position: relative; }
   .about-timeline::before { content: ''; position: absolute; left: 5.1rem; top: .5rem; bottom: .5rem; width: 2px; border-radius: 2px;
