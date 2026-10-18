@@ -49,7 +49,7 @@ export const GET: APIRoute = () => {
   L.push('');
   L.push(`- [Compare instruments side by side](${ORIGIN}/compare/): compare CIE and Vartech models`);
   for (const t of tools) L.push(`- [${t.name}](${ORIGIN}/tools/${t.slug}/): ${clean(t.body)}`);
-  L.push(`- [Test report forms (printable PDF)](${ORIGIN}/templates/): insulation resistance (IEEE 43), earth resistance and soil resistivity, and overcurrent relay injection forms with worksheets`);
+  L.push(`- [Test report forms (printable PDF)](${ORIGIN}/templates/): one page per form: insulation resistance (IEEE 43), earth resistance and soil resistivity, earth pit register, transformer oil BDV, transformer megger, cable insulation, micro-ohm contact resistance, AC hi-pot and overcurrent relay injection, each with a worksheet`);
   L.push(`- [Instrument Playground](${ORIGIN}/playground/): beta simulators of CIE instruments, plus find-the-fault challenges`);
   L.push('');
   L.push('## Guides and articles');

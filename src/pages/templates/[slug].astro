@@ -1,0 +1,95 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import TemplateCss from '../../components/TemplateCss.astro';
+import { u, downloadUrl } from '../../utils/url';
+import { templates, TEMPLATE_V as V } from '../../data/templates';
+
+export function getStaticPaths() {
+  return templates.map(t => ({ params: { slug: t.slug }, props: { t } }));
+}
+const { t } = Astro.props;
+const pdf = `${downloadUrl(`/downloads/templates/${t.file}`)}?v=${V}`;
+const others = templates.filter(x => x.slug !== t.slug).slice(0, 4);
+const url = `https://www.cieinstruments.in/templates/${t.slug}/`;
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: t.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+  { '@context': 'https://schema.org', '@type': 'WebPage', name: t.seoTitle, url, description: t.seoDesc, publisher: { '@type': 'Organization', name: 'Cambridge Instruments & Engg. Co.', url: 'https://www.cieinstruments.in/' } },
+];
+---
+
+<Base title={t.seoTitle} description={t.seoDesc}>
+  {schema.map(s => <script slot="head" type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+  <section class="blueprint-bg bg-ink text-white pt-10 pb-12 lg:pb-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="tpl-crumbs"><Breadcrumbs crumbs={[{ label: 'Tools', href: u('/tools/') }, { label: 'Test report forms', href: u('/templates/') }, { label: t.name }]} /></div>
+      <EyebrowLabel text={t.std} class="mt-5 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight max-w-4xl">{t.name} Format, Free PDF</h1>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">{t.summary}</p>
+      <ul class="mt-5 flex flex-wrap gap-2 text-xs text-muted-dark">
+        <li class="tpl-pill">Free</li><li class="tpl-pill">No sign-up</li><li class="tpl-pill">A4, {t.pages} pages</li><li class="tpl-pill">Formulas and limits included</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article class="tpl-card" id={t.slug}>
+        <div class="tpl-head">
+          <a href={pdf} class="tpl-thumb" rel="noopener" aria-label={`Open the ${t.name} PDF`}><img src={`${u(`/images/templates/${t.slug}.webp`)}?v=${V}`} alt={`Preview of the ${t.name} form`} width="720" height="1019" /></a>
+          <div class="tpl-main">
+            <a href={pdf} class="btn-primary tpl-dl" rel="noopener">Download the PDF form<span class="tpl-dl-sub">A4, {t.pages} pages</span></a>
+            <p class="tpl-sum">Print it at 100 % on A4. Page 1 is the form you fill in. The next page is the worksheet and reference.</p>
+            <p class="tpl-h mt-5">Need the instrument?</p>
+            <ul class="tpl-rel"><li><a href={u(t.product.href)}>{t.product.label} →</a></li></ul>
+          </div>
+        </div>
+        <div class="tpl-body">
+          <div>
+            <p class="tpl-h">What is inside</p>
+            <ul class="tpl-list">{t.inside.map(i => <li>{i}</li>)}</ul>
+          </div>
+          <div>
+            <p class="tpl-h">How it was checked</p>
+            <p class="tpl-text">{t.checks}</p>
+            <p class="tpl-h mt-4">Related</p>
+            <ul class="tpl-rel">{t.links.map(([l, h]) => <li><a href={u(h)}>{l} →</a></li>)}</ul>
+          </div>
+        </div>
+      </article>
+
+      <div class="tpl-faq">
+        <h2>Common questions</h2>
+        {t.faqs.map(([q, a]) => <details open><summary>{q}</summary><p>{a}</p></details>)}
+      </div>
+
+      <div class="tpl-notes">
+        <h2>Using the form</h2>
+        <ul>
+          <li>Limits and constants come from the standards named above, as commonly quoted. Check them against the edition you work to, and use the stricter of those and your specification.</li>
+          <li>Where a value is a common guide rather than a limit from a standard, the form says so.</li>
+          <li>This is a calculation aid for qualified people. It does not replace the standard, the instrument manual or your site safety procedure.</li>
+        </ul>
+      </div>
+
+      <div class="tpl-more">
+        <h2>More test report forms</h2>
+        <div class="tpl-grid">
+          {others.map(o => (
+            <a class="tpl-tile" href={u(`/templates/${o.slug}/`)}>
+              <h2>{o.name}</h2>
+              <p>{o.std}</p>
+            </a>
+          ))}
+        </div>
+        <p class="tpl-text mt-4"><a class="tpl-rel" style="color:var(--color-red);font-weight:700" href={u('/templates/')}>See all {templates.length} forms →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Need the instrument as well?" body="CIE supplies insulation testers, earth testers, oil BDV testers, micro-ohm meters and relay test sets, with test certificate available on request." />
+  <TemplateCss />
+</Base>
