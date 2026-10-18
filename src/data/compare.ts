@@ -16,7 +16,7 @@ import vThermo from './vartech-thermometers.json';
 import vCal from './vartech-calibrators.json';
 import vPsu from './vartech-dc-power-supplies.json';
 
-interface Def { id: string; label: string; blurb: string; cie?: string[]; vt?: { slug: string; data: any[] }[]; rows: Row[] }
+interface Def { id: string; label: string; blurb: string; cie?: string[]; vt?: { slug: string; data: any[] }[]; rows: Row[]; start?: string[] }
 
 const R = (label: string, re: string): Row => ({ label, re });
 const POWER = R('Power', '^(power|battery)');
@@ -30,13 +30,11 @@ const DEFS: Def[] = [
   { id: 'multimeters', label: 'Digital multimeters', blurb: 'Compare CIE and Vartech multimeters from pocket models to bench units.', cie: ['multimeters'], vt: [{ slug: 'multimeters', data: vMultimeters as any[] }],
     rows: [R('Display and ranging', '^(display|ranging)'), R('True RMS', 'true.?rms'), R('DC voltage', '^dc voltage|^dcv'), R('AC voltage', '^ac voltage'), R('DC current', '^dc current'), R('AC current', '^ac current'), R('Resistance', '^resistance'), R('Capacitance', '^capacitance'), R('Frequency', '^frequency'), R('Temperature', '^temperature'), POWER, DIMS, WARR],
      },
-  { id: 'digital-insulation-testers', label: 'Digital insulation testers', blurb: 'Test voltage, range and accuracy across the digital insulation testers.', cie: ['digital-insulation-testers'],
-    rows: [R('Test voltage', '^(insulation test voltage|output voltage)$'), R('Insulation range', '^insulation resistance( range)?$'), R('Ranges by test voltage', '^ranges available'), R('Accuracy', '^(accuracy|insulation accuracy)'), R('Short-circuit current', '^short circuit'), R('DAR and PI', '^(dar|pi)$'), R('Test timer', '^test timer'), R('Display', '^display'), POWER, DIMS, WARR],
-     },
-  { id: 'hand-driven-insulation-testers', label: 'Hand-driven and motorised insulation testers', blurb: 'The CIE/444, 555, 666 and 777 families, including multirange versions.', cie: ['insulation-testers-hand', 'multirange-insulation-hand', 'motor-operated-insulation', 'multirange-motorised-insulation', 'compact-insulation-testers'],
-    rows: [R('Body', '^body'), R('Generator or drive', '^(generator type|drive)'), R('Indicator or display', '^(indicator|display)'), R('Accuracy', '^accuracy'), R('Ranges', '^(range configuration|ranges available|series available)'), R('Continuity range', '^continuity'), R('Weight', '^weight'), R('Dimensions', '^dimensions'), R('Options', '^options$'), R('Ordering', '^ordering$'), WARR],
-     },
-  { id: 'earth-testers', label: 'Earth testers', blurb: 'Compare the earth resistance testers.', cie: ['earth-tester'], rows: [] },
+  { id: 'insulation-testers', label: 'Insulation testers (analog and digital)', blurb: 'Analog hand-driven and motor-operated testers alongside the digital insulation testers.',
+    cie: ['insulation-testers-hand', 'multirange-insulation-hand', 'motor-operated-insulation', 'multirange-motorised-insulation', 'compact-insulation-testers', 'digital-insulation-testers'],
+    start: ['cie-444', 'dit-2500'],
+    rows: [R('Type', '^type$'), R('Body', '^body'), R('Generator or drive', '^(generator type|drive)'), R('Test voltage', '^(insulation test voltage|output voltage)$'), R('Ranges', '^(insulation resistance( range)?|range configuration|ranges available|series available)$'), R('Continuity range', '^continuity'), R('Accuracy', '^(accuracy|insulation accuracy)'), R('Indicator or display', '^(indicator|display)'), R('Scale length', '^scale length'), R('Short-circuit current', '^short circuit'), R('DAR and PI', '^(dar|pi)$'), R('Test timer', '^test timer'), R('Power', '^(power|battery)'), R('Weight', '^weight'), R('Dimensions', '^dimensions'), R('Options', '^options$'), R('Ordering', '^ordering$'), WARR] },
+  { id: 'earth-testers', label: 'Earth testers (analog and digital)', blurb: 'The analog CIE/222M and the digital DET-2000.', cie: ['earth-tester'], rows: [R('Type', '^type$'), R('Body', '^body'), R('Generator or power', '^(generator type|power)'), R('Terminals', '^(terminal types|terminals)'), R('Display', '^display'), R('Scale length', '^scale length'), R('Accuracy', '^accuracy'), R('Ranges', '^(range configuration|ranges available)'), R('Weight', '^weight'), R('Dimensions', '^dimensions'), R('Options', '^options$'), R('Ordering', '^ordering$'), WARR] },
   { id: 'relay-test-sets', label: 'Relay test sets', blurb: 'Single-phase and three-phase relay test sets.', cie: ['relay-test-sets'], rows: [],
      },
   { id: 'phase-sequence-indicators', label: 'Phase sequence indicators', blurb: 'Compare the two phase sequence indicators.', cie: ['phase-sequence-indicators'], rows: [] },
@@ -63,10 +61,10 @@ const DEFS: Def[] = [
 
 /** products.json category -> compare group */
 const CATEGORY_GROUP: Record<string, string> = {
-  'clamp-meters': 'clamp-meters', multimeters: 'multimeters', 'digital-insulation-testers': 'digital-insulation-testers',
-  'insulation-testers-hand': 'hand-driven-insulation-testers', 'multirange-insulation-hand': 'hand-driven-insulation-testers',
-  'motor-operated-insulation': 'hand-driven-insulation-testers', 'multirange-motorised-insulation': 'hand-driven-insulation-testers',
-  'compact-insulation-testers': 'hand-driven-insulation-testers',
+  'clamp-meters': 'clamp-meters', multimeters: 'multimeters', 'digital-insulation-testers': 'insulation-testers',
+  'insulation-testers-hand': 'insulation-testers', 'multirange-insulation-hand': 'insulation-testers',
+  'motor-operated-insulation': 'insulation-testers', 'multirange-motorised-insulation': 'insulation-testers',
+  'compact-insulation-testers': 'insulation-testers',
   'earth-tester': 'earth-testers', 'relay-test-sets': 'relay-test-sets', 'phase-sequence-indicators': 'phase-sequence-indicators',
   'vartech-clamp-meters': 'clamp-meters', 'vartech-multimeters': 'multimeters', 'vartech-oscilloscopes': 'oscilloscopes',
   'vartech-sound-level-meters': 'environment-meters', 'vartech-anemometers': 'environment-meters', 'vartech-lux-meters': 'environment-meters', 'vartech-thermometers': 'environment-meters',
@@ -80,8 +78,15 @@ const ID_ALIAS: Record<string, string> = { 'v-8222h-lcr': 'v-8222h', 'ss-5150ds1
 const exists = (p: string) => fs.existsSync(`${process.cwd()}/public${p}`);
 const trim = (specs: any[]) => (specs || []).map((s: any) => ({ l: String(s.label), v: String(s.value) }));
 // Ranges, options and ordering notes live outside `specs` on CIE products; include them so nothing shown on the product page is missing here.
+const TYPE: Record<string, string> = {
+  'digital-insulation-testers': 'Digital (LCD display)', 'insulation-testers-hand': 'Analog (pointer scale)', 'multirange-insulation-hand': 'Analog (pointer scale)',
+  'motor-operated-insulation': 'Analog (pointer scale)', 'multirange-motorised-insulation': 'Analog (pointer scale)', 'compact-insulation-testers': 'Analog (pointer scale)',
+};
+const TYPE_BY_ID: Record<string, string> = { 'cie-222m': 'Analog (pointer scale)', 'det-2000': 'Digital (LCD display)' };
 const extras = (p: any) => {
   const out: { l: string; v: string }[] = [];
+  const ty = TYPE_BY_ID[p.id] ?? TYPE[p.categoryId];
+  if (ty) out.push({ l: 'Type', v: ty });
   const tables = (p.specTables || []).map((t: any) => (t.rows || []).map((r: any) => {
     const cells = (t.columns || []).map((_: any, i: number) => r['col' + i]).filter(Boolean);
     const [a, b, ...rest] = cells;
@@ -110,7 +115,7 @@ export function getGroups(): Group[] {
         items.push({ id: p.id, brand: 'Vartech', model: p.model, name: p.name, cat: `vartech-${v.slug}`, href: u(`/authorised-dealership/${v.slug}/${p.id}/`), img: f && exists(`/images/vartech/${v.slug}/${f}`) ? u(`/images/vartech/${v.slug}/${f}`) : '', specs: trim(p.specs) });
       }
     }
-    return { id: d.id, label: d.label, blurb: d.blurb, rows: d.rows, items };
+    return { id: d.id, label: d.label, blurb: d.blurb, rows: d.rows, start: d.start, items };
   }).filter(g => g.items.length >= 2);
   return built;
 }

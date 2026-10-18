@@ -5,7 +5,7 @@ export interface Item {
   id: string; brand: string; model: string; name: string; href: string; img: string; cat: string; specs: Spec[];
 }
 export interface Row { label: string; re: string }
-export interface Group { id: string; label: string; blurb: string; rows: Row[]; items: Item[] }
+export interface Group { id: string; label: string; blurb: string; rows: Row[]; start?: string[]; items: Item[] }
 export interface RowOut { label: string; vals: (string | null)[] }
 
 const cache: Record<string, RegExp> = {};
