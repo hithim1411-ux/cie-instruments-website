@@ -5,6 +5,9 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CTABand from '../components/CTABand.astro';
 import { u, downloadUrl } from '../utils/url';
 
+// Bump when a PDF or preview image changes, so browsers and CDNs fetch the new file instead of a cached copy.
+const V = '3';
+
 interface T { slug: string; file: string; pages: number; name: string; std: string; summary: string; inside: string[]; checks: string; links: [string, string][] }
 const templates: T[] = [
   {
@@ -89,12 +92,12 @@ const schema = {
         {templates.map(t => (
           <article class="tpl-card" id={t.slug}>
             <div class="tpl-head">
-              <a href={downloadUrl(`/downloads/templates/${t.file}`)} class="tpl-thumb" rel="noopener" aria-label={`Open the ${t.name} form`}><img src={u(`/images/templates/${t.slug}.webp`)} alt={`Preview of the ${t.name} form`} width="720" height="1019" loading="lazy" /></a>
+              <a href={`${downloadUrl(`/downloads/templates/${t.file}`)}?v=${V}`} class="tpl-thumb" rel="noopener" aria-label={`Open the ${t.name} form`}><img src={`${u(`/images/templates/${t.slug}.webp`)}?v=${V}`} alt={`Preview of the ${t.name} form`} width="720" height="1019" loading="lazy" /></a>
               <div class="tpl-main">
                 <p class="tpl-std">{t.std}</p>
                 <h2 class="tpl-name">{t.name}</h2>
                 <p class="tpl-sum">{t.summary}</p>
-                <a href={downloadUrl(`/downloads/templates/${t.file}`)} class="btn-primary tpl-dl" rel="noopener">Download the PDF form<span class="tpl-dl-sub">A4, {t.pages} pages</span></a>
+                <a href={`${downloadUrl(`/downloads/templates/${t.file}`)}?v=${V}`} class="btn-primary tpl-dl" rel="noopener">Download the PDF form<span class="tpl-dl-sub">A4, {t.pages} pages</span></a>
               </div>
             </div>
             <div class="tpl-body">
