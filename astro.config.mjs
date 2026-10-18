@@ -22,7 +22,7 @@ export default defineConfig({
     '/products/oil-test-sets/cie-7120/': '/products/oil-test-sets/cie-7050/',
   },
   build: {
-    inlineStylesheets: 'always',
+    inlineStylesheets: 'never',
   },
   integrations: [sitemap({
     serialize(item) {
