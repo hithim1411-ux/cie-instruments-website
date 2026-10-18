@@ -189,8 +189,9 @@ const relatedProducts = [
           )}
           {['dit-2500', 'dit-5000', 'cie-444', 'det-2000', 'dcm-2250-tr', 'dcm-5410-tr'].includes(product.id) && (
             <a href={u(`/virtual-instruments/${product.id}/`)} class="btn-secondary w-full text-ink">
-              Try the virtual {product.model}
+              Try the virtual {product.model} (Beta)
             </a>
+            <p class="text-xs text-muted leading-relaxed -mt-1">Beta, for illustration only. The actual instrument can differ in appearance, display, button behaviour and readings.</p>
           )}
           <ConfigCatalogue productId={product.id} />
           <a href={quoteMailto} class="btn-primary w-full">

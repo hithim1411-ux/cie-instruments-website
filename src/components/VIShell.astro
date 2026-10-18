@@ -38,7 +38,7 @@ const schema = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="vi-crumbs"><Breadcrumbs crumbs={[{ label: 'Virtual Instruments', href: u('/virtual-instruments/') }, { label: model }]} /></div>
       <EyebrowLabel text="Virtual Instrument" class="mt-5 mb-3" />
-      <h1 class="text-[length:var(--text-display)] font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl">{h1}</h1>
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl">{h1} <span class="vi-beta">Beta</span></h1>
       <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">{intro}</p>
       <div class="mt-6 flex flex-wrap gap-3">
         <a href={productHref} class="btn-primary">{model} product page</a>
@@ -49,9 +49,15 @@ const schema = {
   </div>
 
   <section class="bg-white section-pad-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[minmax(0,30rem)_minmax(0,1fr)] gap-8 lg:gap-12 items-start">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="vi-disc" role="note">
+        <strong>Beta, for illustration only.</strong> This virtual instrument is a beta version and is meant only to illustrate how the {model} works. The actual instrument can differ in appearance, display, button behaviour, ranges, timings and readings. Test objects and results are simulated and are not measurements. Always follow the instruction manual and your site safety procedure.
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 grid lg:grid-cols-[minmax(0,30rem)_minmax(0,1fr)] gap-8 lg:gap-12 items-start">
       <div class="vi-stage lg:sticky lg:top-24">
         <slot name="stage" />
+        <span class="vi-stagebeta">Beta · illustration only</span>
         <p class="vi-hint"><slot name="hint" /></p>
       </div>
       <div class="vi-panels"><slot name="panels" /></div>
@@ -69,6 +75,10 @@ const schema = {
 </Base>
 
 <style is:global>
+  .vi-beta { display: inline-block; vertical-align: middle; margin-left: .4rem; padding: .2rem .6rem; font-size: .8rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #fbbf24; background: rgba(245,158,11,.16); border: 1px solid rgba(245,158,11,.5); border-radius: 999px; }
+  .vi-disc { padding: .9rem 1.1rem; font-size: .9rem; line-height: 1.55; color: #7c4a03; background: #fff7e6; border: 1px solid #f5c76b; border-left-width: 4px; border-radius: .75rem; }
+  .vi-disc strong { color: #5c3500; }
+  .vi-stagebeta { display: block; margin-top: .6rem; text-align: center; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: #b45309; }
   .vi-crumbs .text-ink { color: #fff; }
   .vi-ghost { display: inline-flex; align-items: center; padding: .8rem 1.4rem; font-weight: 600; font-size: .95rem; color: #fff; border: 1px solid rgba(255,255,255,.28); border-radius: .75rem; transition: all .2s; }
   .vi-ghost:hover { border-color: var(--color-red); background: rgba(224,37,46,.16); }

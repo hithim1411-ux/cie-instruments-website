@@ -10,41 +10,42 @@ import { u } from '../../utils/url';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="vi-crumbs"><Breadcrumbs crumbs={[{ label: 'Virtual Instruments' }]} /></div>
       <EyebrowLabel text="Try Before You Buy" class="mt-5 mb-3" />
-      <h1 class="text-[length:var(--text-display)] font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl">Virtual Instruments</h1>
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl">Virtual Instruments <span class="vi-beta">Beta</span></h1>
       <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Working simulators of CIE instruments, right in your browser. Learn the controls and see how a test runs before you pick one up.</p>
+      <p class="vi-disc vi-disc--dark mt-6 max-w-3xl" role="note"><strong>Beta, for illustration only.</strong> These simulators are beta versions meant to illustrate how each instrument works. The actual instruments can differ in appearance, display, button behaviour, ranges and readings, and all results are simulated. Always follow the instruction manual.</p>
       <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <a href={u('/virtual-instruments/dit-2500/')} class="vi-hubcard">
-          <span class="vi-hubtag">Insulation tester + multimeter</span>
+          <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> Insulation tester + multimeter</span>
           <span class="vi-hubname">DIT-2500</span>
           <span class="vi-hubbody">100 V to 2500 V insulation tests with DAR and PI, plus a True-RMS multimeter. Run a 10-minute test in ten seconds.</span>
           <span class="vi-hubgo">Open simulator →</span>
         </a>
         <a href={u('/virtual-instruments/dit-5000/')} class="vi-hubcard">
-          <span class="vi-hubtag">Digital insulation tester</span>
+          <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> Digital insulation tester</span>
           <span class="vi-hubname">DIT-5000</span>
           <span class="vi-hubbody">Up to 5000 V and 200 GΩ. Watch the HV LED, the voltage collapse on a fault, and the effect of the guard lead.</span>
           <span class="vi-hubgo">Open simulator →</span>
         </a>
         <a href={u('/virtual-instruments/cie-444/')} class="vi-hubcard">
-          <span class="vi-hubtag">Hand-driven insulation tester</span>
+          <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> Hand-driven insulation tester</span>
           <span class="vi-hubname">CIE/444</span>
           <span class="vi-hubbody">Turn the crank, hold 160 rpm and watch the cross-coil pointer. Choose any of the 27 voltage and range versions.</span>
           <span class="vi-hubgo">Open simulator →</span>
         </a>
         <a href={u('/virtual-instruments/det-2000/')} class="vi-hubcard">
-          <span class="vi-hubtag">Earth resistance tester</span>
+          <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> Earth resistance tester</span>
           <span class="vi-hubname">DET-2000</span>
           <span class="vi-hubbody">Plant the spikes, wire four terminals and see the fall-of-potential curve. Measure soil resistivity too.</span>
           <span class="vi-hubgo">Open simulator →</span>
         </a>
         <a href={u('/virtual-instruments/dcm-2250-tr/')} class="vi-hubcard">
-          <span class="vi-hubtag">True-RMS AC clamp multimeter</span>
+          <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> True-RMS AC clamp multimeter</span>
           <span class="vi-hubname">DCM 2250 TR</span>
           <span class="vi-hubbody">Clamp a conductor up to 1000 A, beat ghost voltage with Low-Z, and find live cables with NCV.</span>
           <span class="vi-hubgo">Open simulator →</span>
         </a>
         <a href={u('/virtual-instruments/dcm-5410-tr/')} class="vi-hubcard">
-          <span class="vi-hubtag">True-RMS AC/DC clamp multimeter</span>
+          <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> True-RMS AC/DC clamp multimeter</span>
           <span class="vi-hubname">DCM 5410 TR</span>
           <span class="vi-hubbody">AC and DC current, zero the Hall offset, capture motor inrush, plus frequency, capacitance and temperature.</span>
           <span class="vi-hubgo">Open simulator →</span>
@@ -56,6 +57,10 @@ import { u } from '../../utils/url';
 
 <style is:global>
   .vi-crumbs .text-ink { color: #fff; }
+  .vi-beta { display: inline-block; vertical-align: middle; margin-left: .4rem; padding: .2rem .6rem; font-size: .8rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #fbbf24; background: rgba(245,158,11,.16); border: 1px solid rgba(245,158,11,.5); border-radius: 999px; }
+  .vi-disc--dark { padding: .9rem 1.1rem; font-size: .9rem; line-height: 1.55; color: #fde7b0; background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.4); border-radius: .75rem; }
+  .vi-disc--dark strong { color: #fbbf24; }
+  .vi-hubbeta { font-style: normal; margin-right: .4rem; padding: .1rem .45rem; border-radius: 999px; color: #fbbf24; border: 1px solid rgba(245,158,11,.5); }
   .vi-hubcard { display: flex; flex-direction: column; gap: .4rem; padding: 1.6rem; border-radius: 1.1rem; color: #fff; background: rgba(12,16,24,.94); border: 1px solid rgba(255,255,255,.1); transition: transform .3s var(--ease-premium), border-color .25s; }
   .vi-hubcard:hover { transform: translateY(-4px); border-color: var(--color-red); }
   .vi-hubtag { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: #7b8794; }
