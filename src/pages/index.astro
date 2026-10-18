@@ -7,6 +7,7 @@ import ProductCard from '../components/ProductCard.astro';
 import Badge from '../components/Badge.astro';
 import ArrowLink from '../components/ArrowLink.astro';
 import Icon from '../components/Icon.astro';
+import CompareAddButton from '../components/CompareAddButton.astro';
 import { categoryIcon } from '../utils/categoryIcons';
 import type { IconName } from '../utils/iconNames';
 import categories from '../data/categories.json';
@@ -419,6 +420,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
                   <Icon name="message-circle" class="w-4 h-4 shrink-0" />
                   Enquire on WhatsApp
                 </a>
+                <CompareAddButton categoryId={`vartech-${p.slug}`} id={p.id} />
               </div>
             </div>
           </article>
