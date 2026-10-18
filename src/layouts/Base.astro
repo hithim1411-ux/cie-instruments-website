@@ -385,5 +385,37 @@ const orgSchema = {
       revealTargets.forEach((el) => io.observe(el));
     }
   </script>
+  <script>
+    // ── Photo wells: product photos ship with a baked-in solid backdrop (CIE
+    // shots are #F1F1F1, Vartech shots are #FFFFFF). Sitting inside a lighter
+    // or darker glass well, that backdrop shows as a box inside a box. Sample
+    // the photo's corner colour and paint the well with it so the photo and its
+    // frame become one seamless tile. Transparent PNG/WebP cut-outs are skipped
+    // and keep the glass well.
+    function syncWell(img: HTMLImageElement) {
+      const well = img.closest<HTMLElement>('.bg-cloud');
+      if (!well || !img.naturalWidth) return;
+      try {
+        const c = document.createElement('canvas');
+        c.width = c.height = 1;
+        const x = c.getContext('2d', { willReadFrequently: true });
+        if (!x) return;
+        const W = img.naturalWidth, H = img.naturalHeight, k = 4;
+        // average a 4x4 patch at each corner of the ORIGINAL pixels (no whole-image resize blur)
+        const px = [[0, 0], [W - k, 0], [0, H - k], [W - k, H - k]].map(([a, b]) => {
+          x.clearRect(0, 0, 1, 1);
+          x.drawImage(img, a, b, k, k, 0, 0, 1, 1);
+          return Array.from(x.getImageData(0, 0, 1, 1).data);
+        });
+        const solid = px.every((p) => p[3] > 240);
+        const close = px.every((p) => Math.abs(p[0] - px[0][0]) < 8 && Math.abs(p[1] - px[0][1]) < 8 && Math.abs(p[2] - px[0][2]) < 8);
+        well.style.backgroundColor = solid && close ? `rgb(${px[0][0]}, ${px[0][1]}, ${px[0][2]})` : '';
+      } catch { /* cross-origin or decode failure: keep the CSS well */ }
+    }
+    document.querySelectorAll<HTMLImageElement>('.bg-cloud img[src*="/images/"]').forEach((img) => {
+      if (img.complete) syncWell(img);
+      img.addEventListener('load', () => syncWell(img));
+    });
+  </script>
 </body>
 </html>
