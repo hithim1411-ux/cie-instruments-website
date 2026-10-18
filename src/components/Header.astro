@@ -153,9 +153,9 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
           <a href={u('/insights/')}
              class={`inline-flex items-center gap-1 whitespace-nowrap text-[13.5px] font-medium tracking-wide transition-colors ${onInsights ? 'text-white' : 'text-muted-dark group-hover:text-white'}`}>
             Insights
-            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 group-has-[:focus-visible]:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </a>
-          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-200 ease-out">
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-has-[:focus-visible]:opacity-100 group-has-[:focus-visible]:visible group-has-[:focus-visible]:translate-y-0 transition-all duration-200 ease-out">
             <div class="bg-ink border border-white/10 rounded-2xl shadow-2xl p-2">
               {insightsLinks.map((l) => (
                 <a href={l.href} class="block rounded-xl px-4 py-3 hover:bg-white/5 transition-colors">
