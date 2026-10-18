@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { u } from '../../../utils/url';
 import EyebrowLabel from '../../../components/EyebrowLabel.astro';
 import ProductCard from '../../../components/ProductCard.astro';
+import CompareAddButton from '../../../components/CompareAddButton.astro';
 import CTABand from '../../../components/CTABand.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Badge from '../../../components/Badge.astro';
@@ -255,6 +256,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
                               <Icon name="message-circle" class="w-4 h-4 shrink-0" />
                               Enquire on WhatsApp
                             </a>
+                            <CompareAddButton categoryId={`vartech-${sec.slug}`} id={p.id} />
                           </div>
                         </div>
                       </article>
@@ -315,6 +317,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
                           <Icon name="message-circle" class="w-4 h-4 shrink-0" />
                           Enquire on WhatsApp
                         </a>
+                        <CompareAddButton categoryId={`vartech-${brandSlug}`} id={p.id} />
                       </div>
                     </div>
                   </article>

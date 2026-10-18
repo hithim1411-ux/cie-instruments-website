@@ -758,6 +758,11 @@ function esc(s: string) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').re
 
 // ── Expose openSearch globally (called by header button) ──────────────────
 (window as any).__openCIESearch = openSearch;
+// Open the assistant with a ready-made question (used by the compare tool)
+(window as any).__askCIESearch = (q: string) => {
+  openSearch();
+  setTimeout(() => { activeInput().value = q; onEnter(q); }, 150);
+};
 </script>
 
 <style>

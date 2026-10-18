@@ -5,6 +5,7 @@ import CTABand from '../../components/CTABand.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icon from '../../components/Icon.astro';
 import Badge from '../../components/Badge.astro';
+import CompareAddButton from '../../components/CompareAddButton.astro';
 import ArrowLink from '../../components/ArrowLink.astro';
 import { categoryIcon } from '../../utils/categoryIcons';
 import categories from '../../data/categories.json';
@@ -232,6 +233,7 @@ const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.leng
                     <Icon name="message-circle" class="w-4 h-4 shrink-0" />
                     Enquire on WhatsApp
                   </a>
+                  <CompareAddButton categoryId={p.categoryId} id={p.id} />
                 </div>
               </div>
             </article>

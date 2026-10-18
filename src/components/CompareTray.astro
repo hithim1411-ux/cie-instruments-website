@@ -1,0 +1,74 @@
+---
+import { u } from '../utils/url';
+const href = u('/compare/');
+---
+
+<div id="cmp-tray" class="cmp-tray" hidden data-href={href} role="region" aria-label="Instrument comparison">
+  <div class="cmp-tray-list" id="cmp-tray-list"></div>
+  <a id="cmp-tray-go" class="cmp-tray-go" href={href}>Compare now →</a>
+  <button type="button" id="cmp-tray-clear" class="cmp-tray-x" aria-label="Clear comparison">×</button>
+</div>
+
+<script>
+  const KEY = 'cie-compare', MAX = 3;
+  const tray = document.getElementById('cmp-tray') as HTMLElement | null;
+  if (tray && !location.pathname.startsWith('/compare')) {
+    type S = { g?: string; ids: string[]; m: Record<string, string> };
+    const read = (): S => { try { const s = JSON.parse(sessionStorage.getItem(KEY) || '{}'); return { g: s.g, ids: s.ids || [], m: s.m || {} }; } catch (e) { return { ids: [], m: {} }; } };
+    const write = (s: S) => { try { sessionStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* ignore */ } };
+    const list = document.getElementById('cmp-tray-list')!, go = document.getElementById('cmp-tray-go') as HTMLAnchorElement;
+
+    let toast: HTMLElement | null = null, timer: number;
+    function say(msg: string) {
+      if (!toast) { toast = document.createElement('div'); toast.className = 'cmp-tray-toast'; document.body.appendChild(toast); }
+      toast.textContent = msg; toast.classList.add('on'); clearTimeout(timer); timer = window.setTimeout(() => toast!.classList.remove('on'), 2200);
+    }
+    function paint() {
+      const s = read();
+      document.querySelectorAll<HTMLElement>('.cmp-add').forEach(b => {
+        const on = s.g === b.dataset.cmpG && s.ids.includes(b.dataset.cmpId!);
+        b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on));
+        (b.querySelector('.cmp-add-i') as HTMLElement).textContent = on ? '✓' : '+';
+        (b.querySelector('.cmp-add-t') as HTMLElement).textContent = on ? 'Added to compare' : 'Add to compare';
+      });
+      tray!.hidden = s.ids.length === 0;
+      list.innerHTML = s.ids.map(id => `<span class="cmp-tray-chip">${(s.m[id] || id).replace(/[<&]/g, '')}</span>`).join('') + (s.ids.length < 2 ? '<span class="cmp-tray-hint">Add one more to compare</span>' : '');
+      go.classList.toggle('off', s.ids.length < 2);
+      go.href = s.g ? `${tray!.dataset.href}?g=${s.g}&p=${s.ids.join(',')}` : tray!.dataset.href!;
+    }
+    document.addEventListener('click', e => {
+      const b = (e.target as HTMLElement).closest('.cmp-add') as HTMLElement | null; if (!b) return;
+      const g = b.dataset.cmpG!, id = b.dataset.cmpId!, model = b.dataset.cmpModel || id;
+      let s = read();
+      if (s.g && s.g !== g && s.ids.length) { s = { g, ids: [], m: {} }; say('Comparisons work within one type, so we started a new one'); }
+      s.g = g;
+      if (s.ids.includes(id)) s.ids = s.ids.filter(x => x !== id);
+      else if (s.ids.length >= MAX) { say('You can compare up to 3 models'); return; }
+      else { s.ids.push(id); s.m[id] = model; }
+      write(s); paint();
+    });
+    document.getElementById('cmp-tray-clear')!.addEventListener('click', () => { write({ ids: [], m: {} }); paint(); });
+    go.addEventListener('click', e => { if (go.classList.contains('off')) { e.preventDefault(); say('Pick at least two models first'); } });
+    paint();
+  }
+</script>
+
+<style is:global>
+  .cmp-tray { position: fixed; z-index: 45; left: 1rem; right: 5.5rem; bottom: 1rem; display: flex; align-items: center; gap: .6rem; padding: .6rem .7rem .6rem 1rem; border-radius: 999px; background: var(--color-ink); color: #fff; box-shadow: 0 12px 40px rgba(10,14,20,.4); border: 1px solid rgba(255,255,255,.14); }
+  .cmp-tray[hidden] { display: none; }
+  @media (min-width: 640px) { .cmp-tray { left: 50%; right: auto; transform: translateX(-50%); max-width: min(42rem, calc(100vw - 9rem)); } }
+  .cmp-tray-list { display: flex; flex-wrap: nowrap; align-items: center; gap: .4rem; overflow: hidden; min-width: 0; flex: 1; }
+  .cmp-tray-chip { padding: .2rem .65rem; font-size: .78rem; font-weight: 700; border-radius: 999px; background: rgba(255,255,255,.12); white-space: nowrap; }
+  .cmp-tray-hint { font-size: .76rem; color: #94a3b8; white-space: nowrap; }
+  .cmp-tray-go { flex: none; padding: .45rem .9rem; font-size: .82rem; font-weight: 800; border-radius: 999px; background: var(--color-red); color: #fff; white-space: nowrap; }
+  .cmp-tray-go.off { opacity: .45; }
+  .cmp-tray-x { flex: none; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: rgba(255,255,255,.1); color: #fff; cursor: pointer; line-height: 1; }
+  .cmp-tray-x:hover { background: rgba(255,255,255,.25); }
+  .cmp-tray-toast { position: fixed; left: 50%; bottom: 5rem; transform: translate(-50%, 1rem); max-width: calc(100vw - 2rem); padding: .6rem 1.1rem; border-radius: 999px; background: #fff; color: var(--color-ink); font-size: .84rem; font-weight: 600; border: 1px solid var(--color-border); box-shadow: 0 10px 30px rgba(0,0,0,.2); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 60; text-align: center; }
+  .cmp-tray-toast.on { opacity: 1; transform: translate(-50%, 0); }
+  .cmp-add { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; padding: .35rem .5rem; font-size: .82rem; font-weight: 700; color: var(--color-muted); border-radius: .5rem; cursor: pointer; transition: color .15s; }
+  .cmp-add:hover { color: var(--color-red); }
+  .cmp-add .cmp-add-i { display: inline-grid; place-items: center; width: 1.15rem; height: 1.15rem; border-radius: .3rem; border: 1.5px solid currentColor; font-size: .8rem; line-height: 1; }
+  .cmp-add.on { color: #047857; }
+  .cmp-add:focus-visible { outline: 2px solid var(--color-red); outline-offset: 2px; }
+</style>

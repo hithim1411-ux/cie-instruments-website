@@ -1,0 +1,11 @@
+---
+import { compareRef } from '../data/compare';
+interface Props { categoryId: string; id: string }
+const { categoryId, id } = Astro.props;
+const cmp = compareRef(categoryId, id);
+---
+{cmp && (
+  <button type="button" class="cmp-add" data-cmp-g={cmp.group.id} data-cmp-id={cmp.item.id} data-cmp-model={cmp.item.model} aria-pressed="false">
+    <span class="cmp-add-i" aria-hidden="true">+</span><span class="cmp-add-t">Add to compare</span>
+  </button>
+)}

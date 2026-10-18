@@ -14,6 +14,7 @@ import site from '../data/site.json';
 import { u } from '../utils/url';
 import Badge from './Badge.astro';
 import Icon from './Icon.astro';
+import CompareAddButton from './CompareAddButton.astro';
 const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${model} - ${name}`);
 // Vartech images live at /images/vartech/... not /images/products/vartech/...
 const imgSrc = image
@@ -80,6 +81,7 @@ const isVartech = categoryId.startsWith('vartech-');
         <Icon name="message-circle" class="w-4 h-4 shrink-0" />
         Enquire on WhatsApp
       </a>
+      <CompareAddButton categoryId={categoryId} id={id} />
     </div>
   </div>
 </article>

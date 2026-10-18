@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { u, downloadUrl } from '../../../utils/url';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Icon from '../../../components/Icon.astro';
+import CompareWidget from '../../../components/CompareWidget.astro';
 import CTABand from '../../../components/CTABand.astro';
 import ProductCard from '../../../components/ProductCard.astro';
 import site from '../../../data/site.json';
@@ -188,6 +189,8 @@ const productSchema = {
       </div>
     </div>
   </div>
+
+  <CompareWidget categoryId={'vartech-lcr-meters'} id={product.id} />
 
   {relatedProducts.length > 0 && (
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
