@@ -1,4 +1,5 @@
 ---
+import GalleryToggle from '../components/GalleryToggle.astro';
 import { tools as toolList } from '../data/tools';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
@@ -419,5 +420,6 @@ const orgSchema = {
       img.addEventListener('load', () => syncWell(img));
     });
   </script>
+  <GalleryToggle />
 </body>
 </html>
