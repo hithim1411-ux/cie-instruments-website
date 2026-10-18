@@ -13,7 +13,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'Instrument Comparison Tool',
-  description: 'Compare CIE and Vartech test instruments side by side, with a must-have checklist and plain-language differences.',
+  description: 'Compare CIE and Vartech test instruments side by side.',
   url: 'https://www.cieinstruments.in/compare/',
   applicationCategory: 'UtilitiesApplication',
   operatingSystem: 'Any',
@@ -22,7 +22,7 @@ const schema = {
 };
 ---
 
-<Base title="Compare Instruments Side by Side" description="Pick two or three CIE or Vartech instruments, tick your must-haves and see a side-by-side comparison with the differences explained: clamp meters, multimeters, insulation testers, oscilloscopes and more.">
+<Base title="Compare Instruments Side by Side" description="Pick two or three CIE or Vartech instruments and see their specifications side by side: clamp meters, multimeters, insulation testers, oscilloscopes and more.">
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <section class="blueprint-bg bg-ink text-white pt-10 pb-12 lg:pb-16 cmp-noprint">
@@ -30,7 +30,7 @@ const schema = {
       <div class="cmp-crumbs"><Breadcrumbs crumbs={[{ label: 'Compare' }]} /></div>
       <EyebrowLabel text="Free tool" class="mt-5 mb-3" />
       <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight max-w-4xl">Compare instruments side by side</h1>
-      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Choose a type, tell us what you must have, and see the models lined up with the differences explained in plain language.</p>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Choose a type, pick up to three models and see their specifications side by side.</p>
     </div>
   </section>
 
@@ -41,29 +41,21 @@ const schema = {
         <div class="cmp-pills" id="cmp-groups" role="group" aria-label="Instrument type"></div>
         <p class="cmp-blurb" id="cmp-blurb"></p>
 
-        <div id="cmp-needs-wrap" hidden>
-          <p class="cmp-step mt-7"><span>2</span> What must it have? <em>optional, tick any</em></p>
-          <div class="cmp-needs" id="cmp-needs"></div>
-        </div>
-
-        <p class="cmp-step mt-7"><span id="cmp-n3">3</span> Pick up to three models <em id="cmp-count"></em></p>
+        <p class="cmp-step mt-7"><span>2</span> Pick up to three models <em id="cmp-count"></em></p>
         <div class="cmp-picktools">
           <input type="search" id="cmp-find" placeholder="Search models" aria-label="Search models" />
-          <button type="button" class="cmp-btn cmp-btn--red" id="cmp-best" hidden>Pick the best matches for my must-haves</button>
         </div>
         <div class="cmp-picker" id="cmp-picker"></div>
 
         <div class="cmp-bar" id="cmp-bar" hidden>
           <label class="cmp-hl"><input type="checkbox" id="cmp-hl" checked /> Highlight differences</label>
           <button type="button" class="cmp-btn" id="cmp-share">Copy link</button>
-          <button type="button" class="cmp-btn" id="cmp-print">Print or save as PDF</button>
           <button type="button" class="cmp-btn" id="cmp-clear">Clear</button>
         </div>
       </div>
 
       <div class="cmp-empty cmp-noprint" id="cmp-empty">Tick at least two models above to see them side by side.</div>
 
-      <div id="cmp-insights" class="cmp-insights" hidden></div>
       <div class="cmp-wrap" id="cmp-wrap" hidden>
         <table class="cmp-table hl" id="cmp-table"></table>
       </div>
@@ -71,16 +63,13 @@ const schema = {
 
       <div class="cmp-help cmp-noprint" id="cmp-help" hidden>
         <div>
-          <p class="cmp-help-h">Still not sure which one?</p>
-          <p class="cmp-help-p">Ask our AI assistant, or message the team on WhatsApp with this comparison. We will recommend the right one for your application.</p>
+          <p class="cmp-help-h">Have questions about these models?</p>
+          <p class="cmp-help-p">Contact us on WhatsApp and we will help you choose.</p>
         </div>
-        <div class="cmp-help-btns">
-          <button type="button" class="cmp-btn cmp-btn--red" id="cmp-ai">Ask the AI assistant</button>
-          <a class="cmp-btn cmp-btn--wa" id="cmp-wa" href="#" target="_blank" rel="noopener noreferrer" data-wa={site.whatsapp}>WhatsApp us this comparison</a>
-        </div>
+        <a class="cmp-btn cmp-btn--wa" id="cmp-wa" href="#" target="_blank" rel="noopener noreferrer" data-wa={site.whatsapp}>Contact us on WhatsApp</a>
       </div>
 
-      <p class="cmp-note">Specifications come from the data on each product page. "Not listed" means that page does not state a value for that row, which does not mean the instrument lacks the feature. The "highest listed" and must-have notes only reflect what is written there. Ranges, accuracy and options can vary by version, so confirm against the datasheet before you order.</p>
+      <p class="cmp-note">Specifications are taken from each product page. Please confirm details with us before ordering.</p>
     </div>
   </section>
 
@@ -90,21 +79,19 @@ const schema = {
   <script type="application/json" id="cmp-data" set:html={json}></script>
 
   <script>
-    import { buildRows, hasNeed, insights, leaderIndex, rowDiffers } from '../utils/compareCore';
-    import type { Group, Item, Need, RowOut } from '../utils/compareCore';
+    import { buildRows, rowDiffers } from '../utils/compareCore';
+    import type { Group, Item, RowOut } from '../utils/compareCore';
 
     const DATA: Group[] = JSON.parse(document.getElementById('cmp-data')!.textContent || '[]');
     const MAX = 3, KEY = 'cie-compare';
     const $ = (id: string) => document.getElementById(id) as HTMLElement;
-    const state = { g: DATA[0].id, sel: [] as string[], needs: [] as string[], q: '' };
+    const state = { g: DATA[0].id, sel: [] as string[], q: '' };
     let showMore = false;
 
     const esc = (s: string) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' } as Record<string, string>)[c]);
     const group = () => DATA.find(g => g.id === state.g) || DATA[0];
     const byId = (g: Group, id: string) => g.items.find(i => i.id === id);
     const picked = () => state.sel.map(id => byId(group(), id)).filter(Boolean) as Item[];
-    const activeNeeds = (): Need[] => group().needs.filter(n => state.needs.includes(n.id));
-    const score = (it: Item) => activeNeeds().filter(n => hasNeed(it, n)).length;
 
     let toastTimer: number;
     function say(msg: string) { const t = $('cmp-toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastTimer); toastTimer = window.setTimeout(() => t.classList.remove('on'), 1800); }
@@ -114,7 +101,6 @@ const schema = {
       if (g && DATA.some(d => d.id === g)) state.g = g;
       const gr = group();
       const fromUrl = (q.get('p') || '').split(',').filter(Boolean).filter(id => byId(gr, id)).slice(0, MAX);
-      state.needs = (q.get('n') || '').split(',').filter(id => gr.needs.some(n => n.id === id));
       if (fromUrl.length) state.sel = fromUrl;
       else {
         let stored: { g?: string; ids?: string[] } = {};
@@ -128,7 +114,6 @@ const schema = {
     function url() {
       const p = new URLSearchParams(); p.set('g', state.g);
       if (state.sel.length) p.set('p', state.sel.join(','));
-      if (state.needs.length) p.set('n', state.needs.join(','));
       return location.origin + location.pathname + '?' + p.toString();
     }
     function sync() {
@@ -140,81 +125,51 @@ const schema = {
     function renderGroups() {
       $('cmp-groups').innerHTML = DATA.map(g => `<button type="button" class="cmp-pill" data-g="${esc(g.id)}" aria-pressed="${g.id === state.g}">${esc(g.label)} <i>${g.items.length}</i></button>`).join('');
       $('cmp-blurb').textContent = group().blurb;
-      const has = group().needs.length > 0;
-      $('cmp-needs-wrap').hidden = !has;
-      $('cmp-n3').textContent = has ? '3' : '2';
-      $('cmp-needs').innerHTML = group().needs.map(n => `<button type="button" class="cmp-need" data-n="${esc(n.id)}" aria-pressed="${state.needs.includes(n.id)}"><span aria-hidden="true">${state.needs.includes(n.id) ? '✓' : '+'}</span> ${esc(n.label)}</button>`).join('');
     }
     function renderPicker() {
-      const g = group(), needs = activeNeeds(), q = state.q.trim().toLowerCase();
-      let items = g.items.filter(i => !q || (i.model + ' ' + i.name + ' ' + i.brand).toLowerCase().includes(q));
-      if (needs.length) items = items.map((i, k) => ({ i, k, s: score(i) })).sort((a, b) => b.s - a.s || a.k - b.k).map(x => x.i);
+      const g = group(), q = state.q.trim().toLowerCase();
+      const items = g.items.filter(i => !q || (i.model + ' ' + i.name + ' ' + i.brand).toLowerCase().includes(q));
       $('cmp-count').textContent = `(${state.sel.length} of ${MAX} chosen)`;
-      ($('cmp-best') as HTMLButtonElement).hidden = !needs.length;
       $('cmp-picker').innerHTML = items.length ? items.map(i => {
         const on = state.sel.includes(i.id), full = !on && state.sel.length >= MAX;
-        const badge = needs.length ? `<span class="cmp-match${score(i) === needs.length ? ' all' : ''}">${score(i)}/${needs.length} must-haves</span>` : '';
         return `<button type="button" class="cmp-card${on ? ' on' : ''}" data-id="${esc(i.id)}" aria-pressed="${on}"${full ? ' disabled' : ''}>
           <span class="cmp-tick" aria-hidden="true">${on ? '✓' : ''}</span>
           ${i.img ? `<img src="${esc(i.img)}" alt="" width="64" height="64" loading="lazy" />` : '<span class="cmp-noimg"></span>'}
-          <span class="cmp-cm"><b>${esc(i.model)}</b><small>${esc(i.brand)}</small>${badge}</span></button>`;
+          <span class="cmp-cm"><b>${esc(i.model)}</b><small>${esc(i.brand)}</small></span></button>`;
       }).join('') : '<p class="cmp-none">No model matches that search.</p>';
       ($('cmp-find') as HTMLInputElement).style.display = g.items.length > 6 ? '' : 'none';
     }
 
-    function cell(v: string | null, extra = '') {
-      return v === null ? `<td class="cmp-na">Not listed</td>` : `<td${extra}>${esc(v).replace(/ \| /g, '<br>')}</td>`;
-    }
-    function tr(r: RowOut, items: Item[], cls = '') {
-      const li = leaderIndex(r), diff = rowDiffers(r.vals);
-      return `<tr class="${cls}${diff ? ' is-diff' : ''}"><th scope="row">${esc(r.label)}</th>${r.vals.map((v, i) => {
-        if (v === null) return cell(null);
-        return `<td>${esc(v).replace(/ \| /g, '<br>')}${i === li ? '<span class="cmp-lead">Highest listed</span>' : ''}</td>`;
-      }).join('')}</tr>`;
+    function tr(r: RowOut, cls = '') {
+      return `<tr class="${cls}${rowDiffers(r.vals) ? ' is-diff' : ''}"><th scope="row">${esc(r.label)}</th>${r.vals.map(v =>
+        v === null ? '<td class="cmp-na">-</td>' : `<td>${esc(v).replace(/ \| /g, '<br>')}</td>`).join('')}</tr>`;
     }
 
     function render() {
       const g = group(), items = picked(), ok = items.length >= 2;
       ['cmp-empty'].forEach(id => ($(id).hidden = ok));
       ['cmp-wrap', 'cmp-bar', 'cmp-help'].forEach(id => ($(id).hidden = !ok));
-      $('cmp-more').hidden = true; $('cmp-insights').hidden = true;
+      $('cmp-more').hidden = true;
       if (!ok) return;
 
       const { rows, more } = buildRows(g.rows, items);
       const keyRows = g.rows.length ? rows : more; // groups without tuned rows: everything is a key row
       const extra = g.rows.length ? more : [];
 
-      const needs = activeNeeds();
-      const needRows = needs.map(n => ({ n, got: items.map(it => hasNeed(it, n)) }));
-      const needBlock = needs.length
-        ? `<tbody class="cmp-musts"><tr class="cmp-musthead"><th scope="row">Your must-haves</th>${items.map((it, k) => { const c = needRows.filter(r => r.got[k]).length; return `<td class="${c === needs.length ? 'all' : ''}">${c} of ${needs.length} listed</td>`; }).join('')}</tr>` +
-          needRows.map(r => `<tr><th scope="row">${esc(r.n.label)}</th>${r.got.map(v => v ? '<td class="cmp-yes">✓ Listed</td>' : '<td class="cmp-no">Not listed</td>').join('')}</tr>`).join('') + '</tbody>'
-        : '';
-
       const head = `<thead><tr><th class="cmp-corner"></th>${items.map(it => `<th scope="col" class="cmp-h"><button type="button" class="cmp-x cmp-noprint" data-rm="${esc(it.id)}" aria-label="Remove ${esc(it.model)}">×</button>
         ${it.img ? `<img src="${esc(it.img)}" alt="${esc(it.model)}" width="120" height="120" />` : ''}
         <span class="cmp-brand">${esc(it.brand)}</span><a class="cmp-model" href="${esc(it.href)}">${esc(it.model)}</a><span class="cmp-name">${esc(it.name)}</span><a class="cmp-view cmp-noprint" href="${esc(it.href)}">View details →</a></th>`).join('')}</tr></thead>`;
 
-      $('cmp-table').innerHTML = head + needBlock + `<tbody>${keyRows.map(r => tr(r, items)).join('')}</tbody>` +
-        (extra.length ? `<tbody class="cmp-extra"${showMore ? '' : ' hidden'}>${extra.map(r => tr(r, items)).join('')}</tbody>` : '');
+      $('cmp-table').innerHTML = head + `<tbody>${keyRows.map(r => tr(r)).join('')}</tbody>` +
+        (extra.length ? `<tbody class="cmp-extra"${showMore ? '' : ' hidden'}>${extra.map(r => tr(r)).join('')}</tbody>` : '');
       ($('cmp-table') as HTMLElement).style.setProperty('--n', String(items.length));
-
-      const notes = insights(g, items, keyRows);
-      if (needs.length) {
-        const best = items.map((it, k) => ({ it, c: needRows.filter(r => r.got[k]).length }));
-        const top = Math.max(...best.map(b => b.c)), winners = best.filter(b => b.c === top);
-        notes.unshift(top === needs.length
-          ? `${winners.map(w => w.it.model).join(' and ')} list${winners.length === 1 ? 's' : ''} all ${needs.length} of your must-haves.`
-          : `${winners.map(w => w.it.model).join(' and ')} list${winners.length === 1 ? 's' : ''} the most of your must-haves (${top} of ${needs.length}).`);
-      }
-      if (notes.length) { $('cmp-insights').hidden = false; $('cmp-insights').innerHTML = `<p class="cmp-ins-h">What stands out</p><ul>${notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>`; }
 
       const mb = $('cmp-more');
       if (extra.length) { mb.hidden = false; mb.textContent = `${showMore ? 'Hide' : 'Show'} ${extra.length} more specification${extra.length === 1 ? '' : 's'}`; mb.setAttribute('aria-expanded', String(showMore)); }
 
       const names = items.map(i => i.model).join(', ');
       const wa = $('cmp-wa') as HTMLAnchorElement;
-      wa.href = `https://wa.me/${wa.dataset.wa}?text=${encodeURIComponent(`Hi, I am comparing ${names}${needs.length ? ' (must-haves: ' + needs.map(n => n.label).join(', ') + ')' : ''} and need help choosing. ${url()}`)}`;
+      wa.href = `https://wa.me/${wa.dataset.wa}?text=${encodeURIComponent(`Hi, I am comparing ${names} and have a question. ${url()}`)}`;
     }
 
     function all() { renderGroups(); renderPicker(); render(); sync(); }
@@ -222,17 +177,8 @@ const schema = {
 
     $('cmp-groups').addEventListener('click', e => {
       const b = (e.target as HTMLElement).closest('[data-g]') as HTMLElement | null; if (!b) return;
-      state.g = b.dataset.g!; state.needs = []; state.q = ''; ($('cmp-find') as HTMLInputElement).value = '';
+      state.g = b.dataset.g!; state.q = ''; ($('cmp-find') as HTMLInputElement).value = '';
       state.sel = group().items.slice(0, 2).map(i => i.id); showMore = false; all();
-    });
-    $('cmp-needs').addEventListener('click', e => {
-      const b = (e.target as HTMLElement).closest('[data-n]') as HTMLElement | null; if (!b) return;
-      const id = b.dataset.n!; state.needs = state.needs.includes(id) ? state.needs.filter(x => x !== id) : [...state.needs, id];
-      renderGroups(); light();
-    });
-    $('cmp-best').addEventListener('click', () => {
-      const ranked = group().items.map((i, k) => ({ i, k, s: score(i) })).sort((a, b) => b.s - a.s || a.k - b.k).slice(0, MAX);
-      state.sel = ranked.map(x => x.i.id); light(); say('Selected the closest matches');
     });
     $('cmp-find').addEventListener('input', e => { state.q = (e.target as HTMLInputElement).value; renderPicker(); });
     $('cmp-picker').addEventListener('click', e => {
@@ -246,17 +192,10 @@ const schema = {
       state.sel = state.sel.filter(id => id !== x.dataset.rm); light();
     });
     $('cmp-hl').addEventListener('change', e => $('cmp-table').classList.toggle('hl', (e.target as HTMLInputElement).checked));
-    $('cmp-clear').addEventListener('click', () => { state.sel = []; state.needs = []; renderGroups(); light(); });
+    $('cmp-clear').addEventListener('click', () => { state.sel = []; light(); });
     $('cmp-more').addEventListener('click', () => { showMore = !showMore; render(); });
-    $('cmp-print').addEventListener('click', () => window.print());
     $('cmp-share').addEventListener('click', () => {
       (navigator.clipboard ? navigator.clipboard.writeText(url()) : Promise.reject()).then(() => say('Link copied'), () => say('Link is in the address bar'));
-    });
-    $('cmp-ai').addEventListener('click', () => {
-      const items = picked(), needs = activeNeeds();
-      const q = `Compare ${items.map(i => i.model).join(' vs ')}.${needs.length ? ' My must-haves: ' + needs.map(n => n.label).join(', ') + '.' : ''} Which should I choose and why?`;
-      const ask = (window as any).__askCIESearch;
-      if (ask) ask(q); else say('Assistant is not available on this page');
     });
 
     load(); all();
@@ -268,7 +207,7 @@ const schema = {
   .cmp-step { display: flex; align-items: center; gap: .6rem; margin: 0 0 .8rem; font-weight: 700; color: var(--color-ink); font-size: 1.02rem; }
   .cmp-step span { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: .5rem; background: var(--color-red); color: #fff; font-family: var(--font-mono); font-size: .78rem; }
   .cmp-step em { font-style: normal; font-weight: 500; font-size: .85rem; color: var(--color-muted); }
-  .cmp-pills, .cmp-needs { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .cmp-pills { display: flex; flex-wrap: wrap; gap: .5rem; }
   .cmp-pill { padding: .55rem 1rem; font-size: .88rem; font-weight: 600; border: 1px solid var(--color-border); border-radius: 999px; background: #fff; color: var(--color-ink); cursor: pointer; transition: all .18s; }
   .cmp-pill i { font-style: normal; font-family: var(--font-mono); font-size: .72rem; opacity: .6; margin-left: .25rem; }
   .cmp-pill:hover { border-color: var(--color-red); }
@@ -294,12 +233,10 @@ const schema = {
   .cmp-cm { display: flex; flex-direction: column; min-width: 0; }
   .cmp-cm b { font-size: .92rem; color: var(--color-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .cmp-cm small { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--color-muted); }
-  .cmp-match { margin-top: .2rem; font-size: .68rem; font-weight: 700; color: #92400e; }
-  .cmp-match.all { color: #047857; }
   .cmp-tick { position: absolute; top: .45rem; right: .55rem; font-size: .8rem; font-weight: 800; color: var(--color-red); }
 
   .cmp-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin: 1.6rem 0 .8rem; }
-  .cmp-bar[hidden], .cmp-wrap[hidden], .cmp-more[hidden], .cmp-extra[hidden], .cmp-insights[hidden], .cmp-help[hidden], #cmp-needs-wrap[hidden], #cmp-best[hidden] { display: none; }
+  .cmp-bar[hidden], .cmp-wrap[hidden], .cmp-more[hidden], .cmp-extra[hidden], .cmp-help[hidden] { display: none; }
   .cmp-hl { display: inline-flex; align-items: center; gap: .5rem; font-size: .88rem; font-weight: 600; color: var(--color-ink); cursor: pointer; margin-right: .4rem; }
   .cmp-hl input { width: 1.05rem; height: 1.05rem; accent-color: var(--color-red); }
   .cmp-btn { display: inline-flex; align-items: center; padding: .5rem .95rem; font-size: .82rem; font-weight: 700; border: 1px solid var(--color-border); border-radius: .6rem; background: var(--color-cloud); color: var(--color-ink); cursor: pointer; }
@@ -311,9 +248,6 @@ const schema = {
   .cmp-empty { margin-top: 1.6rem; padding: 2rem; text-align: center; border: 1px dashed var(--color-border); border-radius: 1rem; color: var(--color-muted); }
   .cmp-empty[hidden] { display: none; }
 
-  .cmp-insights { margin: 1.4rem 0 1rem; padding: 1rem 1.2rem; border-radius: 1rem; background: #fff9ec; border: 1px solid #f5d28a; }
-  .cmp-ins-h { margin: 0 0 .4rem; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: #92400e; font-weight: 700; }
-  .cmp-insights ul { margin: 0; padding-left: 1.1rem; list-style: disc; font-size: .92rem; line-height: 1.6; color: var(--color-ink); }
 
   .cmp-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 1rem; background: #fff; -webkit-overflow-scrolling: touch; }
   .cmp-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: calc(7rem + var(--n, 2) * 13rem); table-layout: fixed; }
@@ -332,14 +266,8 @@ const schema = {
   .cmp-x { position: absolute; top: .35rem; right: .45rem; width: 1.5rem; height: 1.5rem; border-radius: 50%; font-size: 1rem; line-height: 1; color: var(--color-muted); background: var(--color-cloud); cursor: pointer; }
   .cmp-x:hover { background: var(--color-red); color: #fff; }
   .cmp-na { color: #9aa3af; font-style: italic; }
-  .cmp-lead { display: inline-block; margin-left: .4rem; padding: .05rem .45rem; border-radius: 999px; font-size: .66rem; font-weight: 700; color: #047857; background: #d1fae5; vertical-align: middle; white-space: nowrap; }
-  .cmp-musts .cmp-musthead th, .cmp-musts .cmp-musthead td { background: #f4f6fa; font-weight: 800; }
-  .cmp-musts .cmp-musthead td.all { color: #047857; }
-  .cmp-yes { color: #047857; font-weight: 700; }
-  .cmp-no { color: #b45309; }
   .cmp-table.hl tr.is-diff td { background: #fff9ec; }
   .cmp-table.hl tr.is-diff th { box-shadow: inset 3px 0 0 #f59e0b; }
-  .cmp-table.hl .cmp-musts td { background: inherit; }
   .cmp-more { margin-top: .9rem; padding: .6rem 1.1rem; font-size: .86rem; font-weight: 600; border: 1px solid var(--color-border); border-radius: .7rem; background: #fff; cursor: pointer; }
   .cmp-more:hover { border-color: var(--color-red); color: var(--color-red); }
   .cmp-help { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.6rem; padding: 1.2rem 1.4rem; border-radius: 1rem; background: var(--color-ink); color: #fff; }
@@ -351,12 +279,4 @@ const schema = {
   #cmp-toast { position: fixed; left: 50%; bottom: 1.5rem; transform: translate(-50%, 1rem); padding: .6rem 1.1rem; border-radius: 999px; background: var(--color-ink); color: #fff; font-size: .85rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 60; }
   #cmp-toast.on { opacity: 1; transform: translate(-50%, 0); }
   @media (max-width: 640px) { .cmp-table th, .cmp-table td { padding: .55rem .6rem; font-size: .8rem; } .cmp-table tbody th, .cmp-corner { width: 5.6rem; } .cmp-table { min-width: calc(5.6rem + var(--n, 2) * 11rem); } }
-  @media print {
-    body > :not(main), .cmp-noprint { display: none !important; }
-    main { padding-top: 0 !important; }
-    .cmp-wrap { overflow: visible; border: 0; }
-    .cmp-table { min-width: 0; }
-    .cmp-table tbody th, .cmp-corner { position: static; }
-    .cmp-extra[hidden] { display: none !important; }
-  }
 </style>
