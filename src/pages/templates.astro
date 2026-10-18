@@ -6,7 +6,7 @@ import CTABand from '../components/CTABand.astro';
 import { u, downloadUrl } from '../utils/url';
 
 // Bump when a PDF or preview image changes, so browsers and CDNs fetch the new file instead of a cached copy.
-const V = '3';
+const V = '4';
 
 interface T { slug: string; file: string; pages: number; name: string; std: string; summary: string; inside: string[]; checks: string; links: [string, string][] }
 const templates: T[] = [
