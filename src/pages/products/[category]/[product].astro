@@ -187,6 +187,11 @@ const relatedProducts = [
               Download Catalogue (PDF)
             </a>
           )}
+          {product.id === 'dit-2500' && (
+            <a href={u('/virtual-instruments/dit-2500/')} class="btn-secondary w-full text-ink">
+              Try the virtual DIT-2500
+            </a>
+          )}
           <ConfigCatalogue productId={product.id} />
           <a href={quoteMailto} class="btn-primary w-full">
             <Icon name="mail" class="w-4 h-4 shrink-0" />

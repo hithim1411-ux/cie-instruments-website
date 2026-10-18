@@ -1,0 +1,881 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import { u } from '../../utils/url';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'DIT-2500 Virtual Instrument',
+  description: 'Interactive simulator of the CIE DIT-2500 digital insulation tester and multimeter. Turn the dial, press the buttons, run DAR and PI tests on virtual motors and cables.',
+  url: 'https://www.cieinstruments.in/virtual-instruments/dit-2500/',
+  applicationCategory: 'EducationalApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  publisher: { '@id': 'https://www.cieinstruments.in/#organization' },
+};
+---
+
+<Base title="DIT-2500 Virtual Instrument: Try the Insulation Tester Online" description="Free interactive simulator of the CIE DIT-2500 digital insulation tester and multimeter. Turn the dial, press TEST, run DAR and PI tests on a virtual motor or cable, and try the multimeter modes.">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <div class="blueprint-bg bg-ink text-white pt-10 pb-10 lg:pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="vi-crumbs"><Breadcrumbs crumbs={[{ label: 'Virtual Instruments', href: u('/virtual-instruments/') }, { label: 'DIT-2500' }]} /></div>
+      <EyebrowLabel text="Virtual Instrument" class="mt-5 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl">DIT-2500, in your browser</h1>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Turn the dial, press the buttons and watch the display, exactly as on the bench. Connect the leads to a virtual motor or cable, run a 10-minute PI test in seconds, then switch to the multimeter side.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href={u('/products/digital-insulation-testers/dit-2500/')} class="btn-primary">DIT-2500 product page</a>
+        <a href={u('/tools/pi-dar-calculator/')} class="vi-ghost">PI and DAR calculator</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[minmax(0,30rem)_minmax(0,1fr)] gap-8 lg:gap-12 items-start">
+
+      <!-- ───────────── The instrument ───────────── -->
+      <div class="vi-stage lg:sticky lg:top-24">
+        <svg id="vi-svg" viewBox="240 60 750 1540" role="group" aria-label="Virtual DIT-2500 insulation tester" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g-boot" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b3121c"/><stop offset=".18" stop-color="#e5242e"/><stop offset=".82" stop-color="#e5242e"/><stop offset="1" stop-color="#a50f19"/></linearGradient>
+            <linearGradient id="g-face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e3138"/><stop offset="1" stop-color="#23262c"/></linearGradient>
+            <radialGradient id="g-knob" cx=".42" cy=".35" r=".8"><stop offset="0" stop-color="#34373d"/><stop offset="1" stop-color="#1a1c20"/></radialGradient>
+            <linearGradient id="g-lever" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b3f46"/><stop offset=".45" stop-color="#2a2d33"/><stop offset="1" stop-color="#202226"/></linearGradient>
+            <radialGradient id="g-sock" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#f1f1f1"/><stop offset="1" stop-color="#8d9096"/></radialGradient>
+            <linearGradient id="g-btn-red" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff3b44"/><stop offset="1" stop-color="#d1161f"/></linearGradient>
+            <linearGradient id="g-btn-amb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb83a"/><stop offset="1" stop-color="#f19a0c"/></linearGradient>
+            <radialGradient id="g-lcd" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#b9c4b0"/><stop offset="1" stop-color="#a3af9b"/></radialGradient>
+            <radialGradient id="g-lcd-bl" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#e4f6dc"/><stop offset="1" stop-color="#bfe0b6"/></radialGradient>
+            <filter id="f-shadow" x="-20%" y="-10%" width="140%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity=".28"/></filter>
+            <path id="p-arc-text" d="M 372 782 A 238 238 0 0 1 612 607"/>
+          </defs>
+
+          <!-- Boot and face -->
+          <path filter="url(#f-shadow)" fill="url(#g-boot)" stroke="#8f0f17" stroke-width="3" d="M 352 108 Q 605 62 858 108 Q 905 130 906 215 C 906 520 880 700 890 850 C 902 1000 935 1250 905 1400 Q 893 1445 850 1445 L 362 1445 Q 320 1445 308 1400 C 280 1250 308 1000 322 850 C 332 700 306 520 308 215 Q 310 130 352 108 Z"/>
+          <path fill="none" stroke="#ff6a72" stroke-opacity=".35" stroke-width="4" d="M 366 124 Q 605 82 846 124"/>
+          <rect x="350" y="138" width="516" height="1262" rx="34" fill="url(#g-face)" stroke="#14161a" stroke-width="3"/>
+
+          <!-- Title plate -->
+          <rect x="428" y="152" width="354" height="58" rx="4" fill="none" stroke="#4a4e57" stroke-width="2"/>
+          <ellipse cx="490" cy="181" rx="42" ry="22" fill="none" stroke="#fff" stroke-width="3"/>
+          <text x="490" y="190" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="29" fill="#fff">CIE</text>
+          <text x="673" y="180" text-anchor="middle" class="t-w" font-size="32" font-weight="800">DIT-2500</text>
+          <text x="673" y="201" text-anchor="middle" class="t-w" font-size="19" font-weight="600">Insulation Tester</text>
+
+          <!-- LCD -->
+          <rect x="358" y="222" width="504" height="242" rx="6" fill="#16181c" stroke="#0c0d0f" stroke-width="3"/>
+          <rect id="lcd-glass" x="382" y="236" width="446" height="212" rx="3" fill="url(#g-lcd)"/>
+          <g id="lcd" font-family="Inter, system-ui, sans-serif" fill="#171b15">
+            <g id="lcd-main"></g><g id="lcd-sec"></g><g id="lcd-timer"></g>
+            <text id="an-mode" class="ann" x="392" y="258" font-size="17" font-weight="800">DC</text>
+            <text id="an-sec" class="ann" x="590" y="262" font-size="18" font-weight="800">VDC</text>
+            <text id="an-dh" class="ann" x="590" y="288" font-size="18" font-weight="800">DH</text>
+            <text id="an-auto" class="ann" x="812" y="258" font-size="22" font-weight="800" text-anchor="end">AUTO</text>
+            <text id="lcd-unit" x="812" y="294" font-size="30" font-weight="800" text-anchor="end"></text>
+            <text id="an-test" class="ann" x="394" y="334" font-size="27" font-weight="800">TEST</text>
+            <text id="an-gt" class="ann" x="503" y="338" font-size="38" font-weight="800">&gt;</text>
+            <text id="an-dar" class="ann" x="394" y="364" font-size="14" font-weight="800">DAR</text>
+            <text id="an-pi" class="ann" x="430" y="364" font-size="14" font-weight="800">PI</text>
+            <text id="an-diode" class="ann" x="456" y="364" font-size="14" font-weight="800">DIODE</text>
+            <text id="an-cont" class="ann" x="502" y="364" font-size="14" font-weight="800">CONT</text>
+            <text id="an-time" class="ann" x="394" y="424" font-size="13" font-weight="800">TIME</text>
+            <text id="an-s" class="ann" x="522" y="428" font-size="16" font-weight="800">s</text>
+          </g>
+          <rect id="lcd-glow" x="382" y="236" width="446" height="212" rx="3" fill="#fff" opacity="0" pointer-events="none"/>
+
+          <!-- Buttons -->
+          <g id="buttons" font-family="Inter, system-ui, sans-serif">
+            <text x="661" y="493" text-anchor="middle" class="t-w" font-size="22" font-weight="700">SELECT</text>
+            <g class="btn" id="btn-test" tabindex="0" role="button" aria-label="TEST button: start or stop the insulation test"><rect x="372" y="500" width="96" height="68" rx="13" fill="url(#g-btn-red)" stroke="#6d0b11" stroke-width="3"/></g>
+            <g class="btn" id="btn-pidar" tabindex="0" role="button" aria-label="PI/DAR button: choose DAR or PI test"><rect x="494" y="500" width="96" height="68" rx="13" fill="url(#g-btn-amb)" stroke="#8a5500" stroke-width="3"/></g>
+            <g class="btn" id="btn-time" tabindex="0" role="button" aria-label="TIME button: choose timer. Also SELECT on multimeter ranges"><rect x="614" y="500" width="96" height="68" rx="13" fill="url(#g-btn-amb)" stroke="#8a5500" stroke-width="3"/></g>
+            <g class="btn" id="btn-hold" tabindex="0" role="button" aria-label="HOLD button: freeze the display. Hold for backlight"><rect x="738" y="500" width="96" height="68" rx="13" fill="url(#g-btn-amb)" stroke="#8a5500" stroke-width="3"/></g>
+            <text x="420" y="601" text-anchor="middle" class="t-w" font-size="23" font-weight="700">TEST</text>
+            <text x="542" y="601" text-anchor="middle" class="t-w" font-size="23" font-weight="700">PI/DAR</text>
+            <text x="662" y="601" text-anchor="middle" class="t-w" font-size="23" font-weight="700">TIME</text>
+            <text x="772" y="601" text-anchor="middle" class="t-w" font-size="23" font-weight="700">HOLD</text>
+            <g stroke="#fff" stroke-width="3" stroke-linecap="round"><circle cx="824" cy="592" r="6" fill="#fff"/><path d="M824 578v-5M824 606v5M810 592h-5M838 592h5M814 582l-3-3M834 582l3-3M814 602l-3 3M834 602l3 3"/></g>
+            <circle id="led" cx="806" cy="623" r="9" fill="#1b1d21" stroke="#0c0d0f" stroke-width="2"/>
+          </g>
+
+          <!-- Dial scale -->
+          <g font-family="Inter, system-ui, sans-serif" class="t-w" font-weight="700" font-size="21">
+            <path d="M 381 782 A 237 237 0 0 1 600 610" fill="none" stroke="#f3b21b" stroke-width="3.5"/>
+            <text font-size="19" font-weight="600" fill="#f3b21b" class="t-y"><textPath href="#p-arc-text" startOffset="6">Insulation Test V.Sel</textPath></text>
+            <path d="M393 640 l22 38 h-44 z" fill="none" stroke="#f3b21b" stroke-width="3.5" stroke-linejoin="round"/><path d="M393 652v14" stroke="#f3b21b" stroke-width="4"/><circle cx="393" cy="672" r="2.6" fill="#f3b21b"/>
+            <g id="pos-ring">
+              <g class="pos" data-i="0"><circle cx="425" cy="845" r="8"/><text x="368" y="853">OFF</text></g>
+              <g class="pos" data-i="1"><circle cx="435" cy="790" r="8"/><text x="396" y="780">100V</text></g>
+              <g class="pos" data-i="2"><circle cx="461" cy="741" r="8"/><text x="424" y="731">250V</text></g>
+              <g class="pos" data-i="3"><circle cx="499" cy="703" r="8"/><text x="460" y="692">500V</text></g>
+              <g class="pos" data-i="4"><circle cx="549" cy="678" r="8"/><text x="506" y="668">1000V</text></g>
+              <g class="pos" data-i="5"><circle cx="606" cy="669" r="8"/><text x="578" y="657">2500V</text></g>
+              <g class="pos" data-i="6"><circle cx="662" cy="678" r="8"/><text x="672" y="667">=V</text></g>
+              <g class="pos" data-i="7"><circle cx="713" cy="703" r="8"/><text x="724" y="698">~VHz</text></g>
+              <g class="pos" data-i="8"><circle cx="751" cy="741" r="8"/><text x="764" y="746">Ω</text><path d="M786 735v22M798 735v22M776 746h10M798 746h10" stroke="#fff" stroke-width="3" fill="none"/></g>
+              <g class="pos" data-i="9"><circle cx="777" cy="789" r="8"/><path d="M793 789h14M807 777v24l20-12zM829 777v24" stroke="#fff" stroke-width="3" fill="#fff" stroke-linejoin="round"/><path d="M836 780q8 9 0 18M846 776q12 13 0 26" stroke="#fff" stroke-width="3" fill="none"/></g>
+              <g class="pos" data-i="10"><circle cx="787" cy="845" r="8"/><text x="799" y="853">OFF</text></g>
+            </g>
+          </g>
+
+          <!-- Dial knob -->
+          <g id="dial" tabindex="0" role="slider" aria-label="Function dial" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" aria-valuetext="OFF">
+            <g id="knob">
+              <circle cx="607" cy="845" r="168" fill="url(#g-knob)" stroke="#0a0b0d" stroke-width="5"/>
+              <circle cx="607" cy="845" r="150" fill="none" stroke="#0b0c0e" stroke-width="3" opacity=".7"/>
+              <rect x="571" y="685" width="72" height="356" rx="34" fill="url(#g-lever)" stroke="#0a0b0d" stroke-width="4"/>
+              <path d="M607 700 l-17 52 h34 z" fill="none" stroke="#9aa0a8" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M582 760 v230" stroke="#fff" stroke-opacity=".08" stroke-width="6" stroke-linecap="round"/>
+            </g>
+          </g>
+
+          <!-- Static panel prints -->
+          <g font-family="Inter, system-ui, sans-serif" class="t-w">
+            <text x="375" y="995" font-size="35" font-style="italic" font-weight="700">True</text><text x="414" y="1031" font-size="35" font-style="italic" font-weight="700">RMS</text>
+            <text x="780" y="1026" text-anchor="middle" font-size="76" font-weight="500" font-family="Georgia, serif" letter-spacing="-2">CE</text>
+            <text x="490" y="1155" text-anchor="middle" font-size="31" font-weight="700">LINE</text>
+            <text x="606" y="1126" text-anchor="middle" font-size="21" font-weight="600">CATIII 1000V</text>
+            <text x="606" y="1152" text-anchor="middle" font-size="21" font-weight="600">CATIV   600V</text>
+            <text x="722" y="1127" text-anchor="middle" font-size="31" font-weight="700" class="t-y">VΩ</text>
+            <path d="M722 1138v22" stroke="#fff" stroke-width="3"/>
+            <text x="722" y="1172" text-anchor="middle" font-size="20" font-weight="700" class="t-y">MAX</text>
+            <text x="722" y="1196" text-anchor="middle" font-size="20" font-weight="700" class="t-y">1500V</text>
+            <path d="M722 1206v18" stroke="#fff" stroke-width="3"/>
+            <text x="722" y="1252" text-anchor="middle" font-size="31" font-weight="700">COM</text>
+            <path d="M690 1186h-28v16M652 1204h20M656 1210h12M660 1216h4" stroke="#fff" stroke-width="3" fill="none"/>
+            <text x="538" y="1322" text-anchor="middle" font-size="31" font-weight="700">EARTH</text>
+            <text x="672" y="1322" text-anchor="middle" font-size="31" font-weight="700">GUARD</text>
+            <g fill="none" stroke="#f3b21b" stroke-width="3.5" stroke-linejoin="round"><path d="M477 1188 l24 42 h-48 z"/><path d="M627 1188 l24 42 h-48 z"/></g>
+            <g fill="#f3b21b"><rect x="475" y="1202" width="4" height="14"/><circle cx="477" cy="1222" r="2.6"/><rect x="625" y="1202" width="4" height="14"/><circle cx="627" cy="1222" r="2.6"/></g>
+          </g>
+
+          <!-- Sockets -->
+          <g id="sockets">
+            <g class="sock"><circle cx="398" cy="1143" r="42" fill="url(#g-sock)" stroke="#2b2d31" stroke-width="4"/><circle cx="398" cy="1143" r="28" fill="#15171a"/><circle cx="398" cy="1143" r="10" fill="#6b6e75"/></g>
+            <g class="sock"><circle cx="812" cy="1143" r="42" fill="url(#g-sock)" stroke="#2b2d31" stroke-width="4"/><circle cx="812" cy="1143" r="28" fill="#15171a"/><circle cx="812" cy="1143" r="10" fill="#6b6e75"/></g>
+            <g class="sock"><circle cx="433" cy="1302" r="42" fill="url(#g-sock)" stroke="#2b2d31" stroke-width="4"/><circle cx="433" cy="1302" r="28" fill="#15171a"/><circle cx="433" cy="1302" r="10" fill="#6b6e75"/></g>
+            <g class="sock"><circle cx="780" cy="1302" r="42" fill="url(#g-sock)" stroke="#2b2d31" stroke-width="4"/><circle cx="780" cy="1302" r="28" fill="#15171a"/><circle cx="780" cy="1302" r="10" fill="#6b6e75"/></g>
+          </g>
+
+          <!-- Test leads (drawn by script) -->
+          <g id="leads" pointer-events="none"></g>
+        </svg>
+        <p class="vi-hint">Drag the dial, or click a position. Press the buttons. Keys: <kbd>←</kbd> <kbd>→</kbd> dial, <kbd>T</kbd> TEST, <kbd>P</kbd> PI/DAR, <kbd>I</kbd> TIME, <kbd>H</kbd> HOLD, <kbd>B</kbd> backlight.</p>
+      </div>
+
+      <!-- ───────────── Controls ───────────── -->
+      <div class="vi-panels">
+
+        <section class="vi-card">
+          <h2 class="vi-h"><span>Try a scenario</span></h2>
+          <p class="vi-sub">One click sets up the dial, leads and test object. Then press TEST on the instrument.</p>
+          <div class="vi-chips" id="scen"></div>
+        </section>
+
+        <section class="vi-card">
+          <h2 class="vi-h"><span>1</span>Connect the test leads</h2>
+          <div class="vi-seg" id="lead-seg" role="radiogroup" aria-label="Test lead sockets">
+            <button type="button" data-v="none" role="radio">No leads</button>
+            <button type="button" data-v="ins" role="radio">Insulation<small>LINE + EARTH</small></button>
+            <button type="button" data-v="dmm" role="radio">Multimeter<small>V&Omega; + COM</small></button>
+          </div>
+          <label class="vi-check" id="guard-row"><input type="checkbox" id="guard" /> <span>Add a lead to GUARD (bypasses surface leakage)</span></label>
+          <p class="vi-note" id="lead-note"></p>
+        </section>
+
+        <section class="vi-card">
+          <h2 class="vi-h"><span>2</span><b id="obj-title">What are you connecting to?</b></h2>
+          <div id="obj-panel"></div>
+        </section>
+
+        <section class="vi-card vi-live">
+          <h2 class="vi-h"><span>3</span>What the instrument is doing</h2>
+          <div class="vi-status" id="status" aria-live="polite"></div>
+          <div id="res-wrap" hidden>
+            <table class="vi-table" id="res-table"></table>
+            <svg id="chart" viewBox="0 0 420 170" role="img" aria-label="Insulation resistance against time"></svg>
+          </div>
+          <div class="vi-spec" id="spec"></div>
+        </section>
+
+        <section class="vi-card">
+          <h2 class="vi-h"><span>4</span>Simulator settings</h2>
+          <div class="vi-row">
+            <span class="vi-lbl">Test speed</span>
+            <div class="vi-seg vi-seg--sm" id="speed-seg" role="radiogroup" aria-label="Simulation speed">
+              <button type="button" data-v="1" role="radio">1×</button>
+              <button type="button" data-v="10" role="radio">10×</button>
+              <button type="button" data-v="60" role="radio">60×</button>
+            </div>
+          </div>
+          <div class="vi-row">
+            <span class="vi-lbl">Sound (buzzer, clicks)</span>
+            <label class="vi-switch"><input type="checkbox" id="sound" checked /><span></span></label>
+          </div>
+          <div class="vi-row">
+            <span class="vi-lbl">Reset everything</span>
+            <button type="button" class="vi-btn" id="reset">Reset</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cloud section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl vi-prose">
+      <h2>How the DIT-2500 works</h2>
+      <ul>
+        <li><strong>Insulation side (100 V to 2500 V):</strong> turn the dial to a test voltage, connect the leads to LINE and EARTH, and press TEST. The tester applies that DC voltage and reports the resistance, from 0.1 MΩ up to 50 GΩ depending on the voltage.</li>
+        <li><strong>Why the reading climbs:</strong> when you first apply voltage, a charging and absorption current flows. It decays over minutes, so the resistance rises. A dry, healthy winding climbs steadily. A damp or dirty one stays flat. That is the idea behind the DAR and PI tests.</li>
+        <li><strong>DAR and PI:</strong> DAR compares the 1-minute reading with the 15 s or 30 s reading. PI compares the 10-minute reading with the 1-minute reading. Use the speed setting to run a full 10-minute test in about ten seconds.</li>
+        <li><strong>Discharge:</strong> after any insulation test the object holds a charge. The display shows the voltage decaying. Keep the leads on until it reaches zero.</li>
+        <li><strong>Multimeter side:</strong> AC and DC voltage up to 1500 V (True-RMS on AC), resistance up to 60 MΩ, capacitance up to 100 mF, frequency, diode test and continuity buzzer.</li>
+      </ul>
+      <p class="vi-fine">This is a training simulation. The ranges, accuracy figures and test voltages come from the DIT-2500 specification. Test objects are idealised models, so real readings will differ. The exact button behaviour, display layout and timings of the physical instrument are approximated, so always follow the instruction manual and your site safety procedure. Never test live circuits.</p>
+    </div>
+  </section>
+
+  <CTABand heading="Want the real thing on your bench?" body="The DIT-2500 is made and supported by CIE in Howrah, with test certificate available on request." />
+</Base>
+
+<style is:global>
+  .vi-crumbs .text-ink { color: #fff; }
+  .vi-ghost { display: inline-flex; align-items: center; padding: .8rem 1.4rem; font-weight: 600; font-size: .95rem; color: #fff; border: 1px solid rgba(255,255,255,.28); border-radius: .75rem; transition: all .2s; }
+  .vi-ghost:hover { border-color: var(--color-red); background: rgba(224,37,46,.16); }
+
+  .vi-stage { padding: 1.25rem; border-radius: 1.4rem; background: radial-gradient(120% 90% at 50% 0%, #fff 0%, #eef0f4 60%, #e3e6ec 100%); border: 1px solid var(--color-border); box-shadow: 0 1px 2px rgba(16,24,40,.05), 0 20px 50px -22px rgba(16,24,40,.25); }
+  #vi-svg { display: block; width: 100%; height: auto; max-height: calc(100vh - 9.5rem); margin-inline: auto; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+  .vi-hint { margin: .75rem 0 0; font-size: .78rem; color: var(--color-muted); text-align: center; line-height: 1.7; }
+  .vi-hint kbd { font-family: var(--font-mono); font-size: .7rem; padding: .05rem .35rem; border: 1px solid #cdd3dd; border-bottom-width: 2px; border-radius: .3rem; background: #fff; color: var(--color-ink); }
+
+  /* SVG bits */
+  .t-w { fill: #fff; } .t-y { fill: #f3b21b; }
+  #vi-svg .btn { cursor: pointer; outline: none; transition: transform .07s; }
+  #vi-svg .btn.down { transform: translateY(6px); }
+  #vi-svg .btn:focus-visible rect { stroke: #fff; stroke-width: 5; }
+  #vi-svg .btn:hover rect { filter: brightness(1.08); }
+  #knob { transform-origin: 607px 845px; transition: transform .28s cubic-bezier(.3,1.5,.5,1); }
+  #dial { cursor: grab; outline: none; touch-action: none; } #dial.drag { cursor: grabbing; }
+  #dial:focus-visible circle:first-child { stroke: #fff; stroke-width: 7; }
+  .pos { cursor: pointer; } .pos circle { fill: #fff; transition: fill .2s, r .2s; } .pos text { fill: #fff; } .pos:hover circle { fill: #ffd27a; }
+  .pos.on circle { fill: #ffb83a; }
+  .seg { fill: #171b15; opacity: .065; transition: opacity .06s; } .seg.on { opacity: .92; }
+  .ann { opacity: .065; } .ann.on { opacity: .92; }
+  #lcd.bl-off { }
+  #led { transition: fill .2s; } #led.on { fill: #ff3b3b; filter: drop-shadow(0 0 8px #ff3b3b); }
+  .hv-glow { animation: vi-pulse .9s ease-in-out infinite; }
+  @keyframes vi-pulse { 50% { opacity: .35; } }
+
+  /* Panels */
+  .vi-panels { display: grid; gap: 1.1rem; min-width: 0; }
+  .vi-card { padding: 1.25rem 1.35rem; border: 1px solid var(--color-border); border-radius: 1.1rem; background: #fff; box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 10px 28px -16px rgba(16,24,40,.16); min-width: 0; }
+  .vi-h { display: flex; align-items: center; gap: .6rem; font-size: 1.02rem; font-weight: 700; color: var(--color-ink); margin: 0 0 .85rem; }
+  .vi-h > span { display: inline-grid; place-items: center; min-width: 1.6rem; height: 1.6rem; padding: 0 .4rem; border-radius: .5rem; font-size: .78rem; font-family: var(--font-mono); color: #fff; background: var(--color-red); }
+  .vi-h > span:only-child, .vi-h > span:first-child:not(:only-child) { }
+  .vi-h b { font-weight: 700; }
+  .vi-sub { margin: -.4rem 0 .8rem; font-size: .85rem; color: var(--color-muted); }
+  .vi-note { margin: .7rem 0 0; font-size: .82rem; color: var(--color-muted); line-height: 1.5; }
+  .vi-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .vi-chip { padding: .5rem .85rem; font-size: .84rem; font-weight: 600; color: var(--color-ink); background: var(--color-cloud); border: 1px solid var(--color-border); border-radius: 999px; cursor: pointer; transition: all .18s; text-align: left; }
+  .vi-chip:hover { border-color: var(--color-red); color: var(--color-red); background: #fff; }
+  .vi-chip:focus-visible, .vi-seg button:focus-visible, .vi-opt:focus-visible, .vi-btn:focus-visible { outline: 2px solid var(--color-red); outline-offset: 2px; }
+
+  .vi-seg { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .4rem; padding: .3rem; background: var(--color-cloud); border-radius: .8rem; }
+  .vi-seg button { padding: .6rem .4rem; font-size: .86rem; font-weight: 600; color: var(--color-muted); border-radius: .6rem; cursor: pointer; transition: all .15s; line-height: 1.2; }
+  .vi-seg button small { display: block; font-size: .68rem; font-family: var(--font-mono); font-weight: 500; opacity: .8; margin-top: .15rem; }
+  .vi-seg button[aria-checked="true"] { background: var(--color-ink); color: #fff; box-shadow: 0 2px 8px rgba(10,14,20,.25); }
+  .vi-seg--sm { max-width: 13rem; }
+  .vi-check { display: flex; align-items: center; gap: .6rem; margin-top: .8rem; font-size: .88rem; color: var(--color-ink); cursor: pointer; }
+  .vi-check input { width: 1.05rem; height: 1.05rem; accent-color: var(--color-red); }
+  .vi-check[hidden] { display: none; }
+
+  .vi-opts { display: grid; gap: .5rem; }
+  .vi-opt { display: flex; flex-direction: column; gap: .15rem; width: 100%; padding: .7rem .9rem; text-align: left; border: 1px solid var(--color-border); border-radius: .8rem; background: #fff; cursor: pointer; transition: all .15s; }
+  .vi-opt:hover { border-color: #b9c0cc; }
+  .vi-opt[aria-checked="true"] { border-color: var(--color-red); background: #fff6f6; box-shadow: 0 0 0 3px rgba(224,37,46,.12); }
+  .vi-opt strong { font-size: .92rem; color: var(--color-ink); }
+  .vi-opt span { font-size: .8rem; color: var(--color-muted); line-height: 1.4; }
+  .vi-slider { margin-top: .9rem; }
+  .vi-slider label { display: flex; justify-content: space-between; font-size: .84rem; font-weight: 600; color: var(--color-ink); margin-bottom: .35rem; }
+  .vi-slider label output { font-family: var(--font-mono); color: var(--color-red); }
+  .vi-slider input[type=range] { width: 100%; accent-color: var(--color-red); }
+  .vi-qc { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; }
+  .vi-qc button { padding: .3rem .65rem; font-size: .76rem; font-family: var(--font-mono); border: 1px solid var(--color-border); border-radius: 999px; background: var(--color-cloud); cursor: pointer; }
+  .vi-qc button:hover { border-color: var(--color-red); color: var(--color-red); }
+
+  .vi-live { background: #0b1118; border-color: #1b2530; color: #cbd5e1; }
+  .vi-live .vi-h { color: #fff; }
+  .vi-status { font-size: .92rem; line-height: 1.6; color: #cbd5e1; min-height: 4.5rem; }
+  .vi-status p { margin: 0 0 .55rem; } .vi-status p:last-child { margin: 0; }
+  .vi-status strong { color: #fff; }
+  .vi-status .warn { color: #ffb4b8; } .vi-status .ok { color: #7ee2b0; }
+  .vi-table { width: 100%; margin-top: .9rem; border-collapse: collapse; font-size: .84rem; }
+  .vi-table td, .vi-table th { padding: .38rem .5rem; border-bottom: 1px solid rgba(255,255,255,.09); text-align: left; font-weight: 500; }
+  .vi-table th { color: #7b8794; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
+  .vi-table td:last-child { font-family: var(--font-mono); color: #fff; text-align: right; }
+  .vi-badge { display: inline-block; margin-left: .45rem; padding: .08rem .5rem; font-size: .7rem; font-weight: 700; border-radius: 999px; font-family: var(--font-sans); }
+  .vi-badge.bad { background: rgba(224,37,46,.2); color: #ff9aa0; } .vi-badge.warn { background: rgba(245,158,11,.2); color: #fbbf24; } .vi-badge.good { background: rgba(16,185,129,.2); color: #34d399; }
+  #chart { display: block; width: 100%; height: auto; margin-top: .9rem; background: rgba(255,255,255,.03); border-radius: .7rem; }
+  #chart text { font-family: var(--font-mono); font-size: 9px; fill: #7b8794; }
+  .vi-spec { margin-top: .8rem; font-size: .76rem; font-family: var(--font-mono); color: #7b8794; line-height: 1.5; }
+
+  .vi-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .6rem 0; border-bottom: 1px solid var(--color-border); }
+  .vi-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .vi-lbl { font-size: .9rem; font-weight: 600; color: var(--color-ink); }
+  .vi-btn { padding: .45rem 1rem; font-size: .85rem; font-weight: 600; border: 1px solid var(--color-border); border-radius: .6rem; background: var(--color-cloud); cursor: pointer; }
+  .vi-btn:hover { border-color: var(--color-red); color: var(--color-red); }
+  .vi-switch { position: relative; width: 2.8rem; height: 1.6rem; display: inline-block; }
+  .vi-switch input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; margin: 0; z-index: 1; }
+  .vi-switch span { position: absolute; inset: 0; border-radius: 999px; background: #cdd3dd; transition: background .2s; }
+  .vi-switch span::after { content: ''; position: absolute; top: .2rem; left: .2rem; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #fff; transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,.3); }
+  .vi-switch input:checked + span { background: var(--color-red); } .vi-switch input:checked + span::after { transform: translateX(1.2rem); }
+  .vi-switch input:focus-visible + span { outline: 2px solid var(--color-red); outline-offset: 2px; }
+
+  .vi-prose h2 { font-size: 1.5rem; font-weight: 800; margin: 0 0 1rem; color: var(--color-ink); }
+  .vi-prose ul { display: grid; gap: .8rem; padding-left: 1.1rem; list-style: disc; line-height: 1.65; color: var(--color-muted); }
+  .vi-prose strong { color: var(--color-ink); }
+  .vi-fine { margin-top: 1.4rem; font-size: .84rem; line-height: 1.6; color: var(--color-muted); }
+
+  @media (prefers-reduced-motion: reduce) { #knob, #vi-svg .btn { transition: none; } .hv-glow { animation: none; } }
+</style>
+
+<script is:inline>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var NS = 'http://www.w3.org/2000/svg';
+  var svg = $('vi-svg');
+  function el(tag, attrs, parent) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+
+  /* ───────────── audio ───────────── */
+  var AC = null, buzzOsc = null, buzzGain = null;
+  function ctx() { if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { return null; } } if (AC.state === 'suspended') AC.resume(); return AC; }
+  function tick(f, dur, vol) {
+    if (!S.sound) return; var a = ctx(); if (!a) return;
+    var o = a.createOscillator(), g = a.createGain(); o.type = 'square'; o.frequency.value = f; g.gain.value = vol || .03;
+    o.connect(g); g.connect(a.destination); o.start(); g.gain.exponentialRampToValueAtTime(.0001, a.currentTime + dur); o.stop(a.currentTime + dur + .02);
+  }
+  function buzz(on) {
+    var a = AC;
+    if (on && S.sound) {
+      a = ctx(); if (!a) return;
+      if (!buzzOsc) { buzzOsc = a.createOscillator(); buzzGain = a.createGain(); buzzOsc.type = 'square'; buzzOsc.frequency.value = 2400; buzzGain.gain.value = .035; buzzOsc.connect(buzzGain); buzzGain.connect(a.destination); buzzOsc.start(); }
+    } else if (buzzOsc) { try { buzzOsc.stop(); } catch (e) {} buzzOsc.disconnect(); buzzGain.disconnect(); buzzOsc = null; }
+  }
+
+  /* ───────────── seven-segment display ───────────── */
+  var SEGMAP = { '0': 'abcdef', '1': 'bc', '2': 'abdeg', '3': 'abcdg', '4': 'bcfg', '5': 'acdfg', '6': 'acdefg', '7': 'abc', '8': 'abcdefg', '9': 'abcdfg', '-': 'g', ' ': '', 'L': 'def', 'O': 'abcdef', 'E': 'adefg', 'r': 'eg', 'n': 'ceg', 'o': 'cdeg', 'P': 'abefg', 'A': 'abcefg', 'F': 'aefg', 't': 'defg', 'U': 'bcdef' };
+  function poly(pts, parent) { return el('polygon', { 'class': 'seg', points: pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ') }, parent); }
+  function build(parent, n, x0, y0, pitch, w, h, t, skew) {
+    var g = el('g', { transform: 'translate(' + x0 + ' ' + y0 + ') skewX(' + (-skew) + ')' }, parent), out = [], gap = t * .55, mid = h / 2;
+    for (var i = 0; i < n; i++) {
+      var x = i * pitch, s = {};
+      var H = function (cy) { var xa = x + gap, xb = x + w - gap; return poly([[xa, cy], [xa + t / 2, cy - t / 2], [xb - t / 2, cy - t / 2], [xb, cy], [xb - t / 2, cy + t / 2], [xa + t / 2, cy + t / 2]], g); };
+      var V = function (cx, ya, yb) { return poly([[cx, ya], [cx + t / 2, ya + t / 2], [cx + t / 2, yb - t / 2], [cx, yb], [cx - t / 2, yb - t / 2], [cx - t / 2, ya + t / 2]], g); };
+      var u0 = t * .5 + gap * .7, u1 = mid - gap * .7, l0 = mid + gap * .7, l1 = h - t * .5 - gap * .7;
+      s.a = H(t / 2); s.d = H(h - t / 2); s.g = H(mid);
+      s.f = V(x + t / 2, u0, u1); s.b = V(x + w - t / 2, u0, u1); s.e = V(x + t / 2, l0, l1); s.c = V(x + w - t / 2, l0, l1);
+      s.dp = el('circle', { 'class': 'seg', cx: x + w + t * .75, cy: h - t * .35, r: t * .55 }, g);
+      out.push(s);
+    }
+    return out;
+  }
+  function setDigits(d, str, dp) {
+    for (var i = 0; i < d.length; i++) {
+      var on = SEGMAP[str.charAt(i) || ' '] || '';
+      'abcdefg'.split('').forEach(function (k) { d[i][k].classList.toggle('on', on.indexOf(k) >= 0); });
+      d[i].dp.classList.toggle('on', i === dp);
+    }
+  }
+  var dMain = build($('lcd-main'), 4, 546, 306, 67, 54, 128, 15, 9);
+  var dSec = build($('lcd-sec'), 4, 440, 246, 36, 27, 46, 6.5, 9);
+  var dTim = build($('lcd-timer'), 3, 440, 394, 26, 20, 36, 4.8, 9);
+
+  /* ───────────── physics / data ───────────── */
+  var DIAL = ['OFF', '100 V', '250 V', '500 V', '1000 V', '2500 V', '=V', '~VHz', 'Ω ⊣⊢', 'Diode / Continuity', 'OFF'];
+  var VOLT = [100, 250, 500, 1000, 2500];
+  var MINR = [0.1, 0.25, 0.5, 1, 2.5];                 // MΩ, lower end of range
+  var MAXR = [2000, 5000, 10000, 20000, 50000];        // MΩ, upper end of range
+  var OBJS = {
+    'motor-ok':   { name: 'Healthy motor winding', desc: 'Clean, dry winding. Resistance keeps climbing as the test runs.', r60: 3000, n: .5, vk: 0, tau: 3 },
+    'motor-damp': { name: 'Damp, dirty winding', desc: 'Moisture gives a low reading that barely rises. Poor DAR and PI.', r60: 45, n: .05, vk: .15, tau: 1.5 },
+    'cable-aged': { name: 'Aged cable', desc: 'Still serviceable but absorbing less. Middling DAR and PI.', r60: 600, n: .25, vk: .05, tau: 4 },
+    'cable-new':  { name: 'New XLPE cable, 100 m', desc: 'Excellent insulation. Reads off the top of the lower ranges.', r60: 60000, n: .35, vk: 0, tau: 6 },
+    'surface':    { name: 'Cable end with dirty surface', desc: 'Leakage across the surface hides a good cable. Add the GUARD lead and watch the reading jump.', r60: 12, n: .08, vk: .1, tau: 2, guard: { r60: 4000, n: .45 } },
+    'fault':      { name: 'Earth fault (failed insulation)', desc: 'A near short to earth. The tester cannot hold its voltage.', r60: .05, n: 0, vk: 0, tau: .5 },
+    'open':       { name: 'Nothing connected', desc: 'Open leads. Reads overrange, like the photo on the product page.', r60: Infinity, n: 0, vk: 0, tau: 1 }
+  };
+  var DIODES = {
+    si:   { name: 'Silicon diode, forward', desc: 'About 0.6 V drop', v: .62 },
+    sch:  { name: 'Schottky diode, forward', desc: 'About 0.25 V drop', v: .25 },
+    led:  { name: 'LED, forward', desc: 'About 1.8 V drop', v: 1.82 },
+    rev:  { name: 'Silicon diode, reversed', desc: 'Blocks: shows OL', v: Infinity },
+    shrt: { name: 'Shorted junction', desc: '0.000 V and the buzzer', v: 0 }
+  };
+  var CONTS = {
+    wire: { name: 'Short wire', desc: '0.4 Ω', r: .4 },
+    long: { name: 'Long cable run', desc: '28 Ω', r: 28 },
+    loose:{ name: 'Loose joint', desc: '180 Ω, too high for the buzzer', r: 180 },
+    open: { name: 'Broken conductor', desc: 'Open circuit', r: Infinity }
+  };
+
+  var S = null;
+  function fresh() {
+    return { dial: 0, leads: 'none', guard: false, obj: 'motor-ok', timerSel: 0, pd: 0, hold: false, bl: false, speed: 10, sound: S ? S.sound : true,
+      testing: false, t: 0, done: false, have: false, lastR: NaN, lastV: 0, dis: null, samples: [], res: {},
+      dcv: 12, acv: 230, hz: 50, rOhm: 1000, cap: 4.7e-6, ohmFn: 'R', dFn: 'D', dio: 'si', cont: 'wire', frozen: null };
+  }
+  S = fresh();
+  var TIMERS = [0, 15, 30, 60, 600], PDDUR = [0, 60, 60, 600], PDNAME = ['', 'DAR 1:15', 'DAR 1:30', 'PI 10:60'];
+
+  function isIns() { return S.dial >= 1 && S.dial <= 5; }
+  function vNom() { return VOLT[S.dial - 1]; }
+  function curObj() {
+    if (S.leads !== 'ins') return OBJS.open;
+    var o = OBJS[S.obj];
+    if (o.guard && S.guard) return { r60: o.guard.r60, n: o.guard.n, vk: 0, tau: o.tau };
+    return o;
+  }
+  function Rt(o, V, t) {
+    if (!isFinite(o.r60)) return Infinity;
+    if (t < 1) return NaN;
+    return o.r60 * Math.pow(500 / V, o.vk || 0) * Math.pow(t / 60, o.n);
+  }
+  function Vact(o, V, t) {
+    var r = Rt(o, V, Math.max(t, 1)), v = V * 1.007;
+    if (isFinite(r)) v = Math.min(v, 1.2e-3 * r * 1e6);
+    return v * Math.min(1, t / .8);
+  }
+  function testDur() { if (S.pd) return PDDUR[S.pd]; if (S.timerSel) return TIMERS[S.timerSel]; return Infinity; }
+
+  /* number formatting */
+  function digits(v, d) {            // -> {s:'0500', dp:2} 4-digit zero padded
+    var s = Math.abs(v).toFixed(d).replace('.', ''); while (s.length < 4) s = '0' + s; if (s.length > 4) s = s.slice(-4);
+    return { s: s, dp: d > 0 ? 3 - d : -1 };
+  }
+  function ladder(v, units) {          // 600/6/60 style ranges
+    for (var i = 0; i < units.length; i++) {
+      var sc = v / units[i].m;
+      if (sc < 6 && i > 0) return { v: sc, d: 3, u: units[i].u };
+      if (sc < 60 && i > 0) return { v: sc, d: 2, u: units[i].u };
+      if (sc < 600) return { v: sc, d: i === 0 ? 1 : 1, u: units[i].u };
+      if (i === 0) { /* move up */ }
+    }
+    var l = units[units.length - 1]; return { v: v / l.m, d: 1, u: l.u };
+  }
+  function ladderFix(v, units) {
+    // first unit: <600 shows d1; higher units use 6 / 60 / 600 limits
+    var r = ladder(v, units);
+    if (r.u === units[0].u && r.v >= 600) r = { v: v / units[1].m, d: 3, u: units[1].u };
+    return r;
+  }
+  function eng(v, base) {
+    if (!isFinite(v)) return 'open';
+    var p = [[1e9, 'G'], [1e6, 'M'], [1e3, 'k'], [1, ''], [1e-3, 'm'], [1e-6, 'µ'], [1e-9, 'n']];
+    var a = Math.abs(v); if (a === 0) return '0 ' + base;
+    for (var i = 0; i < p.length; i++) if (a >= p[i][0]) { var x = v / p[i][0]; return (+x.toPrecision(3)) + ' ' + p[i][1] + base; }
+    return (+(v / 1e-9).toPrecision(3)) + ' n' + base;
+  }
+  function insFmt(rm) {                 // MΩ -> display
+    if (rm < 4) return { v: rm, d: 3, u: 'MΩ' };
+    if (rm < 40) return { v: rm, d: 2, u: 'MΩ' };
+    if (rm < 400) return { v: rm, d: 1, u: 'MΩ' };
+    var g = rm / 1000;
+    if (g < 4) return { v: g, d: 3, u: 'GΩ' };
+    if (g < 40) return { v: g, d: 2, u: 'GΩ' };
+    return { v: g, d: 1, u: 'GΩ' };
+  }
+  function voltFmt(v) { return v < 6 ? { v: v, d: 3 } : v < 60 ? { v: v, d: 2 } : v < 600 ? { v: v, d: 1 } : { v: v, d: 0 }; }
+  function specIns(rm) { return rm <= 399.9 ? '±(3% + 5 digits)' : rm <= 2000 ? '±(5% + 5 digits)' : '±(10% + 5 digits)'; }
+
+  /* ───────────── display model ───────────── */
+  var RES_U = [{ u: 'Ω', m: 1 }, { u: 'kΩ', m: 1e3 }, { u: 'MΩ', m: 1e6 }];
+  var CAP_U = [{ u: 'nF', m: 1e-9 }, { u: 'µF', m: 1e-6 }, { u: 'mF', m: 1e-3 }];
+
+  function model() {
+    var m = { off: false, main: '    ', dp: -1, sec: null, secDp: -1, timer: null, unit: '', a: {}, beep: false, msg: [], spec: '' };
+    var d = S.dial, leadsDmm = S.leads === 'dmm';
+    if (d === 0 || d === 10) { m.off = true; m.msg.push('<p>The instrument is <strong>OFF</strong>. Turn the dial to a test voltage or a multimeter function.</p>'); return m; }
+
+    if (isIns()) {
+      var V = vNom(), o = curObj(), t = S.t, i = d - 1;
+      m.a.auto = true; m.a.sec = 'VDC';
+      if (S.pd) m.a[S.pd === 3 ? 'pi' : 'dar'] = true;
+      if (S.testing || S.have) {
+        m.a.time = true; m.a.s = true;
+        var tt = Math.floor(S.t); var dg = digits(tt, 0); m.timer = dg.s.slice(1);
+      } else if (S.pd || S.timerSel) {
+        m.a.time = true; m.a.s = true; m.timer = digits(S.pd ? PDDUR[S.pd] : TIMERS[S.timerSel], 0).s.slice(1);
+      }
+      var rm;
+      if (S.testing) {
+        m.a.test = true;
+        var va = Vact(o, V, t);
+        var dv = digits(va, 0); m.sec = dv.s;
+        rm = Rt(o, V, t);
+        if (isNaN(rm)) { m.main = '----'; }
+        else rm = rm * (1 + .0012 * Math.sin(t * 7.3) + .0008 * Math.sin(t * 2.9));
+        S.lastR = rm; S.lastV = va;
+      } else if (S.have) {
+        rm = S.lastR;
+        if (S.dis) { var dv2 = digits(S.dis.v, 0); m.sec = dv2.s; } else m.sec = '0000';
+      } else {
+        m.main = '----'; var dn = digits(V, 0); m.sec = dn.s;
+        rm = NaN; S.lastR = NaN;
+      }
+      if (S.have && !S.testing && S.done && S.pd && S.res.ratio !== undefined && isFinite(S.res.ratio)) {
+        var dr = digits(Math.min(S.res.ratio, 99.99), 2); m.main = dr.s; m.dp = dr.dp; m.unit = '';
+      } else if (rm !== undefined && !isNaN(rm)) {
+        if (rm > MAXR[i]) { rm = MAXR[i]; m.a.gt = true; }
+        var f = insFmt(rm), dd = digits(f.v, f.d); m.main = dd.s; m.dp = dd.dp; m.unit = f.u;
+        m.spec = 'Spec for this range: ' + MINR[i] + ' MΩ to ' + (MAXR[i] >= 1000 ? MAXR[i] / 1000 + ' GΩ' : MAXR[i] + ' MΩ') + ' at ' + V + ' V. Accuracy ' + specIns(rm) + '.';
+      }
+      if (S.hold && S.frozen) { m.main = S.frozen.main; m.dp = S.frozen.dp; m.unit = S.frozen.unit; }
+      return m;
+    }
+
+    /* multimeter functions */
+    m.a.auto = true;
+    var v;
+    if (d === 6) {                                   // DC volts
+      m.a.mode = 'DC'; v = leadsDmm ? S.dcv : 0;
+      if (v > 1500) { m.main = '  OL'; } else { var f1 = voltFmt(v), q = digits(f1.v, f1.d); m.main = q.s; m.dp = q.dp; }
+      m.unit = 'V'; m.spec = 'DC volts: 6–600 V ±(0.5% + 5), 1500 V ±(1% + 5). Max input 1500 V.';
+    } else if (d === 7) {                            // AC volts + Hz
+      m.a.mode = 'AC'; v = leadsDmm ? S.acv : 0;
+      if (v > 1500) { m.main = '  OL'; } else { var f2 = voltFmt(v), q2 = digits(f2.v, f2.d); m.main = q2.s; m.dp = q2.dp; }
+      m.unit = 'V';
+      if (leadsDmm && v >= 1 && v <= 600 && S.hz >= 10 && S.hz <= 20000) { var fh = S.hz >= 1000 ? { v: S.hz / 1000, u: 'kHz' } : { v: S.hz, u: 'Hz' }; var qs = digits(fh.v, fh.v < 10 ? 3 : fh.v < 100 ? 2 : 1); m.sec = qs.s; m.secDp = qs.dp; m.a.sec = fh.u; }
+      m.spec = 'True-RMS AC volts: 6–600 V ±(1.2% + 5), 1500 V ±(2% + 5), 40 Hz–1 kHz. Frequency 10 Hz–20 kHz on 1–600 V.';
+    } else if (d === 8) {                            // Ω / capacitance
+      if (S.ohmFn === 'R') {
+        var r = leadsDmm ? S.rOhm : Infinity;
+        if (r > 60e6) { m.main = '  OL'; } else { var rf = ladderFix(r, RES_U), qr = digits(rf.v, rf.d); m.main = qr.s; m.dp = qr.dp; m.unit = rf.u; }
+        m.spec = 'Resistance 600 Ω to 60 MΩ. Press TIME (SELECT) to switch to capacitance.';
+      } else {
+        var c = leadsDmm ? S.cap : 0;
+        if (c > .1) { m.main = '  OL'; } else { var cf = ladderFix(c, CAP_U), qc = digits(cf.v, cf.d); m.main = qc.s; m.dp = qc.dp; m.unit = cf.u; }
+        m.spec = 'Capacitance 10 nF to 100 mF. Press TIME (SELECT) to switch back to resistance. Discharge capacitors before connecting.';
+      }
+    } else if (d === 9) {                            // diode / continuity
+      if (S.dFn === 'D') {
+        m.a.diode = true; var dv3 = leadsDmm ? DIODES[S.dio].v : Infinity;
+        if (!isFinite(dv3)) { m.main = '  OL'; } else { var qd = digits(dv3, 3); m.main = qd.s; m.dp = qd.dp; }
+        m.unit = 'V'; m.spec = 'Diode test. Press TIME (SELECT) for continuity.';
+      } else {
+        m.a.cont = true; var rc = leadsDmm ? CONTS[S.cont].r : Infinity;
+        if (!isFinite(rc)) { m.main = '  OL'; } else { var qk = digits(rc, 1); m.main = qk.s; m.dp = qk.dp; m.unit = 'Ω'; }
+        if (isFinite(rc) && rc < 50) m.beep = true;
+        m.spec = 'Continuity buzzer sounds below approx. 50 Ω. Press TIME (SELECT) for diode test.';
+      }
+    }
+    if (S.hold && S.frozen) { m.main = S.frozen.main; m.dp = S.frozen.dp; m.unit = S.frozen.unit; m.sec = S.frozen.sec; m.secDp = S.frozen.secDp; m.a.sec = S.frozen.asec; }
+    return m;
+  }
+
+  /* ───────────── render ───────────── */
+  var annIds = ['auto', 'test', 'gt', 'dar', 'pi', 'diode', 'cont', 'time', 's', 'dh', 'mode', 'sec'];
+  function render() {
+    var m = model();
+    if (S.hold && !S.frozen) { S.frozen = { main: m.main, dp: m.dp, unit: m.unit, sec: m.sec, secDp: m.secDp, asec: m.a.sec }; }
+    if (!S.hold) S.frozen = null;
+    var glass = $('lcd-glass');
+    glass.setAttribute('fill', S.bl && !m.off ? 'url(#g-lcd-bl)' : 'url(#g-lcd)');
+    $('lcd-glow').setAttribute('opacity', '0');
+    setDigits(dMain, m.off ? '    ' : m.main, m.off ? -1 : m.dp);
+    setDigits(dSec, m.off || m.sec == null ? '    ' : m.sec, m.secDp);
+    setDigits(dTim, m.off || m.timer == null ? '   ' : m.timer, -1);
+    $('lcd-unit').textContent = m.off ? '' : m.unit;
+    $('lcd-unit').style.opacity = .92;
+    annIds.forEach(function (k) { var e = $('an-' + k); if (!e) return; var on = !m.off && !!m.a[k] || (k === 'dh' && S.hold && !m.off); e.classList.toggle('on', on); });
+    $('an-mode').textContent = m.a.mode || 'DC'; $('an-mode').classList.toggle('on', !!m.a.mode && !m.off);
+    $('an-sec').textContent = m.a.sec || 'VDC'; $('an-sec').classList.toggle('on', !!m.a.sec && !m.off);
+    $('led').classList.toggle('on', S.testing);
+    // dial
+    $('knob').style.transform = 'rotate(' + (-90 + 18 * S.dial) + 'deg)';
+    var dl = $('dial'); dl.setAttribute('aria-valuenow', S.dial); dl.setAttribute('aria-valuetext', DIAL[S.dial]);
+    Array.prototype.forEach.call(document.querySelectorAll('.pos'), function (p) { p.classList.toggle('on', +p.getAttribute('data-i') === S.dial); });
+    // buzzer
+    buzz(m.beep);
+    drawLeads();
+    panel(m);
+    S._m = m;
+  }
+
+  /* ───────────── leads ───────────── */
+  var COLS = { red: '#c8141f', black: '#17181b', blue: '#1f56d9' };
+  function lead(parent, x1, y1, path, col, tipCol, label) {
+    el('path', { d: path, fill: 'none', stroke: '#050607', 'stroke-width': 21, 'stroke-linecap': 'round' }, parent);
+    el('path', { d: path, fill: 'none', stroke: col, 'stroke-width': 14, 'stroke-linecap': 'round' }, parent);
+    el('circle', { cx: x1, cy: y1, r: 36, fill: col, stroke: '#050607', 'stroke-width': 5 }, parent);
+    el('circle', { cx: x1, cy: y1, r: 17, fill: '#0b0c0e', opacity: .5 }, parent);
+    el('circle', { cx: x1, cy: y1, r: 22, fill: 'none', stroke: '#fff', 'stroke-opacity': .22, 'stroke-width': 3 }, parent);
+  }
+  function clip(parent, x, y, col) {
+    var g = el('g', { transform: 'translate(' + x + ' ' + y + ')' }, parent);
+    el('rect', { x: -22, y: -6, width: 44, height: 56, rx: 10, fill: col, stroke: '#050607', 'stroke-width': 4 }, g);
+    el('path', { d: 'M-16 50 l8 30 h16 l8 -30 z', fill: '#c9ccd2', stroke: '#050607', 'stroke-width': 3, 'stroke-linejoin': 'round' }, g);
+  }
+  function drawLeads() {
+    var g = $('leads'), key = S.leads + (S.leads === 'ins' && S.guard ? 'g' : '');
+    if (g.getAttribute('data-k') === key) return; g.setAttribute('data-k', key); g.innerHTML = '';
+    if (S.leads === 'ins') {
+      lead(g, 398, 1143, 'M398 1143 C 320 1143 268 1260 276 1470 L 276 1500', COLS.red); clip(g, 276, 1498, COLS.red);
+      lead(g, 433, 1302, 'M433 1302 C 433 1420 420 1470 408 1500', COLS.black); clip(g, 408, 1498, COLS.black);
+      if (S.guard) { lead(g, 780, 1302, 'M780 1302 C 780 1420 790 1470 800 1500', COLS.blue); clip(g, 800, 1498, COLS.blue); }
+    } else if (S.leads === 'dmm') {
+      lead(g, 812, 1143, 'M812 1143 C 910 1143 940 1260 936 1470 L 936 1500', COLS.red); clip(g, 936, 1498, COLS.red);
+      lead(g, 433, 1302, 'M433 1302 C 433 1420 420 1470 408 1500', COLS.black); clip(g, 408, 1498, COLS.black);
+    }
+  }
+
+  /* ───────────── side panels ───────────── */
+  function fmtT(s) { return s >= 60 ? Math.floor(s / 60) + ' min ' + (Math.round(s % 60) ? Math.round(s % 60) + ' s' : '') : Math.round(s) + ' s'; }
+  function badge(c, t) { return '<span class="vi-badge ' + c + '">' + t + '</span>'; }
+  var lastSig = '';
+  function panel(m) {
+    // lead note + guard
+    $('guard-row').hidden = S.leads !== 'ins';
+    $('guard').checked = S.guard;
+    var ln = '';
+    if (S.leads === 'none') ln = 'No leads fitted. Choose a socket pair to connect to the test object.';
+    else if (S.leads === 'ins') ln = 'Red lead in LINE, black lead in EARTH. Use this pair for the 100 V to 2500 V insulation ranges.';
+    else ln = 'Red lead in VΩ, black lead in the EARTH/COM socket. Use this pair for volts, resistance, capacitance, diode and continuity.';
+    $('lead-note').textContent = ln;
+    Array.prototype.forEach.call($('lead-seg').children, function (b) { b.setAttribute('aria-checked', b.getAttribute('data-v') === S.leads); });
+    Array.prototype.forEach.call($('speed-seg').children, function (b) { b.setAttribute('aria-checked', +b.getAttribute('data-v') === S.speed); });
+
+    // object panel (rebuilt only when mode family changes)
+    var fam = isIns() ? 'ins' : S.dial === 6 ? 'dc' : S.dial === 7 ? 'ac' : S.dial === 8 ? 'ohm' + S.ohmFn : S.dial === 9 ? 'diode' + S.dFn : 'off';
+    var sig = fam;
+    if (sig !== lastSig) { lastSig = sig; buildObj(fam); }
+    syncObj();
+
+    // status
+    var h = '';
+    if (m.off) h = m.msg.join('');
+    else if (isIns()) h = insStatus(m);
+    else h = dmmStatus(m);
+    $('status').innerHTML = h;
+    $('spec').textContent = m.spec || '';
+    $('res-wrap').hidden = !(isIns() && (S.testing || S.have));
+    if (isIns() && (S.testing || S.have)) drawResults();
+  }
+
+  function insStatus(m) {
+    var V = vNom(), o = curObj(), h = '';
+    if (S.leads !== 'ins') h += '<p class="warn"><strong>Leads are not on LINE and EARTH.</strong> Without them nothing is connected to the test object, so the instrument sees an open circuit.</p>';
+    if (!S.testing && !S.have && !S.dis) {
+      h += '<p>Ready at <strong>' + V + ' V</strong>. Press <strong>TEST</strong> to apply the voltage.' + (S.pd ? ' Mode: <strong>' + PDNAME[S.pd] + '</strong> (runs ' + fmtT(PDDUR[S.pd]) + ').' : S.timerSel ? ' Timer: <strong>' + fmtT(TIMERS[S.timerSel]) + '</strong>.' : ' Press TEST again to stop.') + '</p>';
+    } else if (S.testing) {
+      var r = S.lastR, va = S.lastV;
+      h += '<p>Applying <strong>' + Math.round(va) + ' V DC</strong>, elapsed <strong>' + Math.floor(S.t) + ' s</strong>.</p>';
+      if (va < V * .9) h += '<p class="warn">The voltage has collapsed to ' + Math.round(va) + ' V because the insulation is drawing the tester\'s full short-circuit current (about 1 mA). Treat this as a failed insulation.</p>';
+      else if (isNaN(r)) h += '<p>Charging the capacitance of the object...</p>';
+      else if (!isFinite(r)) h += '<p>Reading is above the range limit: the insulation is better than the instrument can measure at this voltage, or nothing is connected.</p>';
+      else {
+        if (r < MINR[S.dial - 1]) h += '<p class="warn">Reading is below the specified range for ' + V + ' V (' + MINR[S.dial - 1] + ' MΩ).</p>';
+        h += '<p>' + (o.n >= .3 ? 'Resistance is <strong class="ok">rising</strong> as the absorption current fades. That is what dry, healthy insulation does.' : o.n >= .12 ? 'Resistance is rising only slowly.' : 'Resistance is <strong class="warn">nearly flat</strong>. Moisture or contamination is giving a steady leakage current.') + '</p>';
+      }
+    } else if (S.have) {
+      h += '<p>' + (S.done ? 'Test <strong>complete</strong>' : 'Test <strong>stopped</strong>') + ' after ' + Math.floor(S.t) + ' s. Final reading held on the display.</p>';
+      if (S.dis) h += '<p class="warn"><strong>Discharging:</strong> ' + Math.round(S.dis.v) + ' V remaining. Keep the leads connected until the display reads 0.</p>';
+      else h += '<p class="ok">Discharged. Safe to remove the leads.</p>';
+    }
+    if (S.hold) h += '<p>Display is on <strong>HOLD</strong>.</p>';
+    return h;
+  }
+  function dmmStatus(m) {
+    var h = '';
+    if (S.leads !== 'dmm') h += '<p class="warn"><strong>Leads are not in VΩ and COM.</strong> The multimeter inputs are open, so the display shows ' + (S.dial === 6 || S.dial === 7 ? '0' : S.dial === 9 && S.dFn === 'C' ? 'OL' : 'OL or 0') + '.</p>';
+    var d = S.dial;
+    if (d === 6) h += '<p>Measuring DC voltage: <strong>' + eng(S.dcv, 'V') + '</strong>.' + (S.dcv > 1000 && S.dcv <= 1500 ? ' Above the 1000 V CAT III rating, take care.' : '') + '</p>' + (S.dcv > 1500 ? '<p class="warn">Over 1500 V: the display shows OL. Disconnect. This exceeds the maximum input.</p>' : '');
+    if (d === 7) { h += '<p>Measuring True-RMS AC voltage: <strong>' + eng(S.acv, 'V') + '</strong> at <strong>' + eng(S.hz, 'Hz') + '</strong>.</p>'; if (S.hz < 40 || S.hz > 1000) h += '<p class="warn">Outside the 40 Hz to 1 kHz band where AC accuracy is specified.</p>'; if (S.acv > 1500) h += '<p class="warn">Over 1500 V: OL. Disconnect.</p>'; }
+    if (d === 8) h += S.ohmFn === 'R' ? '<p>Measuring resistance: <strong>' + eng(S.rOhm, 'Ω') + '</strong>' + (S.rOhm > 60e6 ? ' (above 60 MΩ, so OL)' : '') + '. Make sure the circuit is dead.</p>' : '<p>Measuring capacitance: <strong>' + eng(S.cap, 'F') + '</strong>.</p>';
+    if (d === 9) h += S.dFn === 'D' ? '<p>Diode test: <strong>' + DIODES[S.dio].name + '</strong>.</p>' : '<p>Continuity: <strong>' + CONTS[S.cont].name + '</strong>' + (m.beep ? ', buzzer <strong class="ok">ON</strong>.' : ', no buzzer.') + '</p>';
+    if (S.hold) h += '<p>Display is on <strong>HOLD</strong>.</p>';
+    return h;
+  }
+
+  function drawResults() {
+    var o = curObj(), V = vNom(), t = S.t, rows = [];
+    var pts = [15, 30, 60, 600], key = {};
+    pts.forEach(function (p) { if (t + 1e-6 >= p) { var r = Rt(o, V, p); key[p] = r > MAXR[S.dial - 1] ? Infinity : r; } });
+    function f(p) { if (key[p] === undefined) return '-'; var r = key[p]; if (!isFinite(r)) return '> ' + (MAXR[S.dial - 1] >= 1000 ? MAXR[S.dial - 1] / 1000 + ' GΩ' : MAXR[S.dial - 1] + ' MΩ'); r = Math.min(r, MAXR[S.dial - 1]); var q = insFmt(r); return (+q.v.toFixed(q.d)) + ' ' + q.u; }
+    var h = '<tr><th>Reading</th><th style="text-align:right">Value</th></tr>';
+    pts.forEach(function (p) { h += '<tr><td>' + (p === 15 ? 'IR at 15 s' : p === 30 ? 'IR at 30 s' : p === 60 ? 'IR at 1 min' : 'IR at 10 min') + '</td><td>' + f(p) + '</td></tr>'; });
+    function ratio(a, b) { return key[a] !== undefined && key[b] !== undefined && isFinite(key[a]) && isFinite(key[b]) && key[b] > 0 ? key[a] / key[b] : NaN; }
+    var d15 = ratio(60, 15), d30 = ratio(60, 30), pi = ratio(600, 60);
+    function darV(d) { return d < 1 ? badge('bad', 'Poor') : d < 1.25 ? badge('warn', 'Questionable') : d < 1.6 ? badge('good', 'Acceptable') : badge('good', 'Excellent'); }
+    if (isFinite(d15)) h += '<tr><td>DAR (1 min : 15 s)</td><td>' + d15.toFixed(2) + '</td></tr>';
+    if (isFinite(d30)) h += '<tr><td>DAR (1 min : 30 s)</td><td>' + d30.toFixed(2) + darV(d30) + '</td></tr>';
+    if (isFinite(pi)) h += '<tr><td>PI (10 min : 1 min)</td><td>' + pi.toFixed(2) + (pi < 1 ? badge('bad', 'Dangerous') : pi < 2 ? badge('warn', 'Questionable') : pi < 4 ? badge('good', 'Good') : badge('good', 'Excellent')) + '</td></tr>';
+    $('res-table').innerHTML = h;
+    S.res.ratio = S.pd === 1 ? d15 : S.pd === 2 ? d30 : S.pd === 3 ? pi : undefined;
+    drawChart(o, V);
+  }
+  function drawChart(o, V) {
+    var c = $('chart'), W = 420, H = 170, L = 38, Rr = 10, T = 12, B = 24;
+    var tmax = S.pd === 3 || S.t > 70 ? 600 : 60, vals = S.samples;
+    var ymax = 0; vals.forEach(function (p) { if (isFinite(p[1]) && p[1] > ymax) ymax = p[1]; });
+    var ymaxRange = MAXR[S.dial - 1]; if (!isFinite(o.r60)) ymax = ymaxRange;
+    ymax = Math.min(Math.max(ymax, .001) * 1.15, ymaxRange);
+    var X = function (t) { return L + (W - L - Rr) * Math.min(t, tmax) / tmax; }, Y = function (r) { return T + (H - T - B) * (1 - Math.min(r, ymax) / ymax); };
+    var s = '<line x1="' + L + '" y1="' + (H - B) + '" x2="' + (W - Rr) + '" y2="' + (H - B) + '" stroke="#334155"/><line x1="' + L + '" y1="' + T + '" x2="' + L + '" y2="' + (H - B) + '" stroke="#334155"/>';
+    (tmax === 600 ? [60, 600] : [15, 30, 60]).forEach(function (p) { if (p <= tmax) s += '<line x1="' + X(p) + '" y1="' + T + '" x2="' + X(p) + '" y2="' + (H - B) + '" stroke="#334155" stroke-dasharray="3 4"/><text x="' + X(p) + '" y="' + (H - 9) + '" text-anchor="middle">' + (p >= 60 ? p / 60 + 'm' : p + 's') + '</text>'; });
+    var q = insFmt(ymax); s += '<text x="' + (L - 4) + '" y="' + (T + 8) + '" text-anchor="end">' + (+q.v.toPrecision(2)) + q.u.charAt(0) + '</text><text x="' + (L - 4) + '" y="' + (H - B) + '" text-anchor="end">0</text>';
+    var pts = vals.filter(function (p) { return isFinite(p[1]); }).map(function (p) { return X(p[0]).toFixed(1) + ',' + Y(p[1]).toFixed(1); }).join(' ');
+    if (pts) s += '<polyline points="' + pts + '" fill="none" stroke="#ff5a62" stroke-width="2.2" stroke-linejoin="round"/>';
+    if (vals.length) { var lp = vals[vals.length - 1]; if (isFinite(lp[1])) s += '<circle cx="' + X(lp[0]).toFixed(1) + '" cy="' + Y(lp[1]).toFixed(1) + '" r="3.5" fill="#fff"/>'; }
+    s += '<text x="' + (W - Rr) + '" y="' + (T + 8) + '" text-anchor="end">IR vs time</text>';
+    c.innerHTML = s;
+  }
+
+  /* object / source panel */
+  function opt(group, key, name, desc) { return '<button type="button" class="vi-opt" role="radio" data-g="' + group + '" data-k="' + key + '"><strong>' + name + '</strong><span>' + desc + '</span></button>'; }
+  function slider(id, label, min, max, step) { return '<div class="vi-slider"><label for="' + id + '">' + label + '<output id="' + id + '-o"></output></label><input type="range" id="' + id + '" min="' + min + '" max="' + max + '" step="' + step + '"></div>'; }
+  function qc(id, items) { return '<div class="vi-qc">' + items.map(function (i) { return '<button type="button" data-q="' + id + '" data-val=\'' + JSON.stringify(i[1]) + '\'>' + i[0] + '</button>'; }).join('') + '</div>'; }
+  function buildObj(fam) {
+    var h = '', title = 'What are you connecting to?';
+    if (fam === 'ins') { title = 'Choose the test object'; h = '<div class="vi-opts">' + Object.keys(OBJS).map(function (k) { return opt('obj', k, OBJS[k].name, OBJS[k].desc); }).join('') + '</div>'; }
+    else if (fam === 'dc') { title = 'Set the DC source'; h = slider('s-dcv', 'DC voltage', 0, 1600, 1) + qc('dcv', [['1.5 V cell', 1.5], ['12 V battery', 12.6], ['24 V supply', 24.2], ['600 V DC bus', 600], ['1000 V PV string', 1000], ['1600 V (too high)', 1600]]); }
+    else if (fam === 'ac') { title = 'Set the AC source'; h = slider('s-acv', 'AC voltage (RMS)', 0, 1600, 1) + slider('s-hz', 'Frequency (log scale)', 0, 1000, 1) + qc('ac', [['230 V, 50 Hz', [230, 50]], ['415 V, 50 Hz', [415, 50]], ['110 V, 60 Hz', [110, 60]], ['12 V, 400 Hz', [12, 400]], ['24 V, 20 kHz', [24, 20000]]]); }
+    else if (fam === 'ohmR') { title = 'Set the resistance'; h = '<p class="vi-note" style="margin:0 0 .4rem">Function: <strong>Resistance</strong>. Press TIME (SELECT) on the instrument to switch to capacitance.</p>' + slider('s-r', 'Resistance (log scale)', 0, 1000, 1) + qc('r', [['10 Ω', 10], ['470 Ω', 470], ['4.7 kΩ', 4700], ['100 kΩ', 1e5], ['1 MΩ', 1e6], ['22 MΩ', 22e6], ['100 MΩ (over)', 1e8]]); }
+    else if (fam === 'ohmC') { title = 'Set the capacitor'; h = '<p class="vi-note" style="margin:0 0 .4rem">Function: <strong>Capacitance</strong>. Press TIME (SELECT) to switch back to resistance.</p>' + slider('s-c', 'Capacitance (log scale)', 0, 1000, 1) + qc('c', [['100 nF', 1e-7], ['4.7 µF', 4.7e-6], ['100 µF', 1e-4], ['4700 µF', 4.7e-3], ['47 mF', .047]]); }
+    else if (fam === 'diodeD') { title = 'Choose the component'; h = '<p class="vi-note" style="margin:0 0 .6rem">Function: <strong>Diode test</strong>. Press TIME (SELECT) for continuity.</p><div class="vi-opts">' + Object.keys(DIODES).map(function (k) { return opt('dio', k, DIODES[k].name, DIODES[k].desc); }).join('') + '</div>'; }
+    else if (fam === 'diodeC') { title = 'Choose the circuit'; h = '<p class="vi-note" style="margin:0 0 .6rem">Function: <strong>Continuity</strong>. Press TIME (SELECT) for diode test.</p><div class="vi-opts">' + Object.keys(CONTS).map(function (k) { return opt('cont', k, CONTS[k].name, CONTS[k].desc); }).join('') + '</div>'; }
+    else h = '<p class="vi-note" style="margin:0">Turn the dial to a function to see what you can connect.</p>';
+    $('obj-title').textContent = title; $('obj-panel').innerHTML = h;
+  }
+  function logToVal(v, lo, hi) { return Math.pow(10, lo + (hi - lo) * v / 1000); }
+  function valToLog(x, lo, hi) { return Math.round(1000 * (Math.log10(x) - lo) / (hi - lo)); }
+  function syncObj() {
+    Array.prototype.forEach.call(document.querySelectorAll('#obj-panel .vi-opt'), function (b) { b.setAttribute('aria-checked', S[b.getAttribute('data-g')] === b.getAttribute('data-k')); });
+    var q = function (id) { return $(id); };
+    if (q('s-dcv')) { q('s-dcv').value = S.dcv; q('s-dcv-o').textContent = eng(S.dcv, 'V'); }
+    if (q('s-acv')) { q('s-acv').value = S.acv; q('s-acv-o').textContent = eng(S.acv, 'V'); q('s-hz').value = valToLog(S.hz, 1, 4.3); q('s-hz-o').textContent = eng(S.hz, 'Hz'); }
+    if (q('s-r')) { q('s-r').value = valToLog(S.rOhm, 0, 8); q('s-r-o').textContent = eng(S.rOhm, 'Ω'); }
+    if (q('s-c')) { q('s-c').value = valToLog(S.cap, -9, -1); q('s-c-o').textContent = eng(S.cap, 'F'); }
+  }
+
+  /* ───────────── actions ───────────── */
+  function stopTest(done) {
+    if (!S.testing) return;
+    S.testing = false; S.done = !!done; S.have = true;
+    var o = curObj(); S.dis = { v: S.lastV || 0, tau: o.tau || 2 };
+    if (S.dis.v < 5) S.dis = null;
+    tick(520, .12);
+  }
+  function resetTestState() { S.testing = false; S.have = false; S.done = false; S.t = 0; S.dis = null; S.samples = []; S.res = {}; S.lastR = NaN; S.hold = false; S.frozen = null; }
+  function setDial(i, silent) {
+    i = Math.max(0, Math.min(10, i)); if (i === S.dial) return;
+    S.dial = i; resetTestState(); S.pd = 0; S.timerSel = 0;
+    if (!silent) tick(900, .04, .025);
+    render();
+  }
+  function pressTest() {
+    tick(700, .06);
+    if (!isIns()) return;
+    if (S.testing) { stopTest(false); render(); return; }
+    S.have = false; S.done = false; S.dis = null; S.t = 0; S.samples = []; S.res = {}; S.hold = false; S.frozen = null; S.testing = true; lastTs = 0; render();
+  }
+  function pressPD() { tick(700, .05); if (!isIns() || S.testing) return; S.pd = (S.pd + 1) % 4; if (S.pd) S.timerSel = 0; if (S.have) { resetTestState(); } render(); }
+  function pressTime() {
+    tick(700, .05);
+    if (isIns()) { if (S.testing) return; S.timerSel = (S.timerSel + 1) % 5; if (S.timerSel) S.pd = 0; if (S.have) resetTestState(); render(); return; }
+    if (S.dial === 8) { S.ohmFn = S.ohmFn === 'R' ? 'C' : 'R'; S.hold = false; S.frozen = null; render(); }
+    else if (S.dial === 9) { S.dFn = S.dFn === 'D' ? 'C' : 'D'; S.hold = false; S.frozen = null; render(); }
+  }
+  function pressHold() { tick(700, .05); if (S.dial === 0 || S.dial === 10) return; S.hold = !S.hold; S.frozen = null; render(); }
+  function backlight() { if (S.dial === 0 || S.dial === 10) return; S.bl = !S.bl; tick(1100, .05); render(); }
+
+  /* button wiring: press feedback, short vs long press */
+  [['btn-test', pressTest], ['btn-pidar', pressPD], ['btn-time', pressTime], ['btn-hold', pressHold]].forEach(function (b) {
+    var e = $(b[0]), timer = null, long = false, active = false;
+    e.addEventListener('pointerdown', function (ev) { ev.preventDefault(); active = true; long = false; e.classList.add('down'); ctx(); if (b[0] === 'btn-hold') timer = setTimeout(function () { long = true; backlight(); }, 750); });
+    function up(cancel) { if (!active) return; active = false; e.classList.remove('down'); clearTimeout(timer); if (!cancel && !long) b[1](); }
+    e.addEventListener('pointerup', function () { up(false); });
+    e.addEventListener('pointerleave', function () { up(true); });
+    e.addEventListener('pointercancel', function () { up(true); });
+    e.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); if (!ev.repeat) { e.classList.add('down'); b[1](); } } });
+    e.addEventListener('keyup', function () { e.classList.remove('down'); });
+  });
+
+  /* dial: drag, click, keys */
+  (function () {
+    var dial = $('dial'), dragging = false;
+    function ang(ev) { var pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY; var p = pt.matrixTransform(svg.getScreenCTM().inverse()); var a = Math.atan2(p.x - 607, -(p.y - 845)) * 180 / Math.PI; if (a > 90) a = 90; if (a < -90) a = -90; if (Math.hypot(p.x - 607, p.y - 845) < 25) return null; return a; }
+    dial.addEventListener('pointerdown', function (ev) { ev.preventDefault(); ctx(); dragging = true; dial.classList.add('drag'); try { dial.setPointerCapture(ev.pointerId); } catch (e) {} var a = ang(ev); if (a !== null) setDial(Math.round((a + 90) / 18)); });
+    dial.addEventListener('pointermove', function (ev) { if (!dragging) return; var a = ang(ev); if (a !== null) setDial(Math.round((a + 90) / 18)); });
+    function end() { dragging = false; dial.classList.remove('drag'); }
+    dial.addEventListener('pointerup', end); dial.addEventListener('pointercancel', end);
+    dial.addEventListener('keydown', function (ev) { if (ev.key === 'ArrowRight' || ev.key === 'ArrowUp') { ev.preventDefault(); setDial(S.dial + 1); } else if (ev.key === 'ArrowLeft' || ev.key === 'ArrowDown') { ev.preventDefault(); setDial(S.dial - 1); } else if (ev.key === 'Home') setDial(0); else if (ev.key === 'End') setDial(10); });
+    Array.prototype.forEach.call(document.querySelectorAll('.pos'), function (p) { p.addEventListener('click', function () { ctx(); setDial(+p.getAttribute('data-i')); }); });
+  })();
+  document.addEventListener('keydown', function (ev) {
+    if (ev.target && /INPUT|TEXTAREA|SELECT/.test(ev.target.tagName) || ev.metaKey || ev.ctrlKey || ev.altKey) return;
+    var k = ev.key.toLowerCase();
+    if (k === 't') pressTest(); else if (k === 'p') pressPD(); else if (k === 'i') pressTime(); else if (k === 'h') pressHold(); else if (k === 'b') backlight();
+    else if (ev.key === 'ArrowRight' && !(ev.target && ev.target.id === 'dial')) setDial(S.dial + 1); else if (ev.key === 'ArrowLeft' && !(ev.target && ev.target.id === 'dial')) setDial(S.dial - 1);
+  });
+
+  /* control panel wiring */
+  $('lead-seg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; S.leads = b.getAttribute('data-v'); if (S.testing) { stopTest(false); } tick(600, .04); render(); });
+  $('guard').addEventListener('change', function (e) { S.guard = e.target.checked; $('leads').removeAttribute('data-k'); render(); });
+  $('speed-seg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; S.speed = +b.getAttribute('data-v'); render(); });
+  $('sound').addEventListener('change', function (e) { S.sound = e.target.checked; if (!S.sound) buzz(false); render(); });
+  $('reset').addEventListener('click', function () { var snd = S.sound; S = fresh(); S.sound = snd; $('leads').removeAttribute('data-k'); lastSig = ''; render(); });
+  $('obj-panel').addEventListener('click', function (e) {
+    var b = e.target.closest('.vi-opt');
+    if (b) { S[b.getAttribute('data-g')] = b.getAttribute('data-k'); if (b.getAttribute('data-g') === 'obj' && (S.testing || S.have)) { if (S.testing) stopTest(false); } render(); return; }
+    var q = e.target.closest('[data-q]'); if (!q) return; var v = JSON.parse(q.getAttribute('data-val')), id = q.getAttribute('data-q');
+    if (id === 'dcv') S.dcv = v; else if (id === 'ac') { S.acv = v[0]; S.hz = v[1]; } else if (id === 'r') S.rOhm = v; else if (id === 'c') S.cap = v;
+    S.frozen = null; S.hold = false; render();
+  });
+  $('obj-panel').addEventListener('input', function (e) {
+    var id = e.target.id, v = +e.target.value; S.frozen = null; S.hold = false;
+    if (id === 's-dcv') S.dcv = v; else if (id === 's-acv') S.acv = v; else if (id === 's-hz') S.hz = logToVal(v, 1, 4.3); else if (id === 's-r') S.rOhm = logToVal(v, 0, 8); else if (id === 's-c') S.cap = logToVal(v, -9, -1);
+    render();
+  });
+
+  /* scenarios */
+  var SCEN = [
+    ['500 V test, healthy motor', function () { S.dial = 3; S.leads = 'ins'; S.obj = 'motor-ok'; S.pd = 0; S.timerSel = 0; S.speed = 10; }],
+    ['10-minute PI test', function () { S.dial = 4; S.leads = 'ins'; S.obj = 'motor-ok'; S.pd = 3; S.timerSel = 0; S.speed = 60; }],
+    ['Damp winding, DAR', function () { S.dial = 3; S.leads = 'ins'; S.obj = 'motor-damp'; S.pd = 2; S.timerSel = 0; S.speed = 10; }],
+    ['Open circuit at 2500 V', function () { S.dial = 5; S.leads = 'ins'; S.obj = 'open'; S.pd = 0; S.timerSel = 0; S.speed = 10; }],
+    ['Earth fault', function () { S.dial = 3; S.leads = 'ins'; S.obj = 'fault'; S.pd = 0; S.timerSel = 0; S.speed = 10; }],
+    ['Surface leakage and GUARD', function () { S.dial = 4; S.leads = 'ins'; S.obj = 'surface'; S.guard = false; S.pd = 0; S.timerSel = 2; S.speed = 10; }],
+    ['Mains voltage (AC)', function () { S.dial = 7; S.leads = 'dmm'; S.acv = 230; S.hz = 50; }],
+    ['Cable continuity', function () { S.dial = 9; S.leads = 'dmm'; S.dFn = 'C'; S.cont = 'wire'; }]
+  ];
+  $('scen').innerHTML = SCEN.map(function (s, i) { return '<button type="button" class="vi-chip" data-s="' + i + '">' + s[0] + '</button>'; }).join('');
+  $('scen').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-s]'); if (!b) return; ctx();
+    var bl = S.bl, snd = S.sound; S = fresh(); S.bl = bl; S.sound = snd; SCEN[+b.getAttribute('data-s')][1](); $('leads').removeAttribute('data-k'); lastSig = ''; tick(900, .05); render();
+  });
+
+  /* ───────────── loop ───────────── */
+  var lastTs = 0, lastDraw = 0, lastSample = -1;
+  function frame(ts) {
+    if (!lastTs) lastTs = ts;
+    var dt = Math.min((ts - lastTs) / 1000, .25) * S.speed; lastTs = ts;
+    var dirty = false;
+    if (S.testing) {
+      S.t += dt; dirty = true;
+      var dur = testDur();
+      if (S.t >= dur) { S.t = dur; stopTest(true); }
+      var floorT = Math.floor(S.t * 2) / 2;
+      if (floorT !== lastSample) { lastSample = floorT; var r = Rt(curObj(), vNom(), S.t); if (S.samples.length < 1300) S.samples.push([S.t, isNaN(r) ? NaN : Math.min(r, MAXR[S.dial - 1])]); }
+    } else lastSample = -1;
+    if (S.dis) { S.dis.v *= Math.exp(-dt / S.dis.tau); if (S.dis.v < 3) S.dis = null; dirty = true; }
+    if (dirty && ts - lastDraw > 90) { lastDraw = ts; render(); }
+    requestAnimationFrame(frame);
+  }
+  render();
+  requestAnimationFrame(frame);
+})();
+</script>
