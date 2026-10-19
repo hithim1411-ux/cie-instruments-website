@@ -1955,7 +1955,7 @@
       },
       {
         "label": "Accessories",
-        "value": "3 Nos. 1m testing leads (R/Y/B) with crocodile clips, and carrying case (supplied)"
+        "value": "3 Nos. 1m testing leads (R/Y/B) with crocodile clips (supplied)"
       },
       {
         "label": "Warranty",
@@ -1971,8 +1971,7 @@
     "datasheet": "psi-1.pdf",
     "image": "psi-1.webp",
     "includedWith": [
-      "3 Nos. 1m testing leads (R/Y/B) with crocodile clips",
-      "Carrying case"
+      "3 Nos. 1m testing leads (R/Y/B) with crocodile clips"
     ],
     "metaTitle": "PSI-1 Phase Sequence Indicator - Disc Rotating Type | Cambridge Instruments (CIE), Howrah",
     "metaDesc": "CIE PSI-1 disc-rotating phase sequence indicator: visually shows RYB or RBY rotation before energising motors or generators. Bakelite body. Cambridge Instruments & Engg. Co., Howrah.",
@@ -1985,7 +1984,7 @@
     "categoryId": "phase-sequence-indicators",
     "model": "PSI-2",
     "name": "Phase Sequence Indicator - ABS Moulded",
-    "tagline": "ABS moulded 96\u00d796 mm phase sequence indicator, 50\u2013500 V AC (position\u2013dependent). Supplied with case and leads.",
+    "tagline": "ABS moulded 96\u00d796 mm phase sequence indicator, 50\u2013500 V AC (position\u2013dependent). Supplied with test leads.",
     "description": "The PSI-2 is a phase sequence indicator in a compact ABS moulded enclosure (96\u00d796\u00d745 mm), suitable for panel mounting or handheld use. It verifies the phase rotation (RYB or RBY) of a 3-phase AC supply before motors, generators, or other rotating equipment are energised - incorrect phase sequence causes reverse motor rotation, which can damage connected machinery or create safety hazards. The PSI-2 is more compact than the disc-rotating PSI-1 and is preferred where a smaller form factor is needed. Used by commissioning engineers, electrical contractors, panel builders, and industrial maintenance teams across India.",
     "specs": [
       {
@@ -2022,7 +2021,7 @@
       },
       {
         "label": "Accessories",
-        "value": "Carrying case and test leads (supplied)"
+        "value": "Test leads (supplied)"
       },
       {
         "label": "Warranty",
@@ -2038,7 +2037,6 @@
     "datasheet": "psi-2.pdf",
     "image": "psi-2.webp",
     "includedWith": [
-      "Carrying case",
       "Test leads"
     ],
     "metaTitle": "PSI-2 Phase Sequence Indicator - Compact ABS Body | Cambridge Instruments (CIE), Howrah",
