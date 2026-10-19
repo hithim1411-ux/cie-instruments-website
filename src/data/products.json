@@ -1377,7 +1377,7 @@
     "model": "MR-253A",
     "name": "Digital Micro-Ohm Meter (4-Terminal Kelvin)",
     "tagline": "Bench-top digital micro-ohm meter with 4-terminal (Kelvin) measurement - 1999 \u00b5\u03a9 to 19.99 k\u03a9 across 8 ranges. 7-segment LED display.",
-    "description": "The MR-253A (formerly catalogued as MR-253) is a compact, precision bench-top micro-ohm meter for measuring low values of resistance - in cables, transformer and motor windings, switch and relay contact resistance, PCB track resistance, and ammeter shunt wire calibration. It uses a four-terminal (Kelvin) measurement technique that eliminates errors from lead and contact resistance, which is critical for accurate measurement in the microohm-to-kiloohm range. Displayed on a 3\u00bd-digit, 1999-count seven-segment LED display. Test current varies automatically by range, from 1 A (lowest resistance ranges) down to 0.01 mA (highest range). Accuracy: \u00b10.5% \u00b12 digits. Built using MOS LSI technology. Mains powered, 230 V, 50 Hz. Dimensions: 192 \u00d7 96 \u00d7 230 mm. Weight: 2.25 kg. Supplied with 2 pairs of test leads.",
+    "description": "The MR-253A (formerly catalogued as MR-253) is a compact, precision bench-top micro-ohm meter for measuring low values of resistance - in cables, transformer and motor windings, switch and relay contact resistance, PCB track resistance, and ammeter shunt wire calibration. It uses a four-terminal (Kelvin) measurement technique that eliminates errors from lead and contact resistance, which is critical for accurate measurement in the microohm-to-kiloohm range. Displayed on a 3\u00bd-digit, 1999-count seven-segment LED display. Test current varies automatically by range, from 2 A (lowest resistance range) down to 0.01 mA (highest range). Accuracy: \u00b10.5% \u00b12 digits. Built using MOS LSI technology. Mains powered, 230 V, 50 Hz. Dimensions: 285 \u00d7 210 \u00d7 100 mm. Weight: 2.8 kg. Supplied with 2 pairs of test leads.",
     "specs": [
       {
         "label": "Display",
@@ -1397,19 +1397,19 @@
       },
       {
         "label": "Test Current",
-        "value": "Automatically varies by range: 1 A (\u00b5\u03a9 ranges) down to 0.01 mA (k\u03a9 range)"
+        "value": "Automatically varies by range: 2 A (1999 \u00b5\u03a9 range), 1 A on the next two ranges, down to 0.01 mA (k\u03a9 range)"
       },
       {
         "label": "Power",
         "value": "230 V, 50 Hz, single phase"
       },
       {
-        "label": "Dimensions (W\u00d7H\u00d7D)",
-        "value": "192 \u00d7 96 \u00d7 230 mm (approx.)"
+        "label": "Dimensions",
+        "value": "285 \u00d7 210 \u00d7 100 mm (approx.)"
       },
       {
         "label": "Weight",
-        "value": "2.25 kg (approx.)"
+        "value": "2.8 kg (approx.)"
       },
       {
         "label": "Accessories",
@@ -1441,7 +1441,7 @@
           {
             "col0": "0\u20131999 \u00b5\u03a9",
             "col1": "1 \u00b5\u03a9",
-            "col2": "1 A"
+            "col2": "2 A"
           },
           {
             "col0": "0\u201319.99 m\u03a9",
