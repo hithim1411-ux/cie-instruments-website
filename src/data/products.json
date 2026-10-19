@@ -1028,7 +1028,7 @@
       },
       {
         "label": "Range Configuration",
-        "value": "Multiple range options available - specify at order"
+        "value": "4 standard ranges at 500 V or 1000 V (see table below); other ranges on request"
       },
       {
         "label": "Power",
@@ -1070,7 +1070,34 @@
     "metaTitle": "DIT-5005 Digital Insulation Tester - 500 V / 1000 V, Rechargeable | Cambridge Instruments (CIE)",
     "metaDesc": "DIT-5005 digital insulation tester: 3\u00bd-digit LCD, 500 V / 1000 V / 2000 M\u03a9, rechargeable Ni-Cd, ABS body. Conforms to IS 10656-1983. Cambridge Instruments & Engg. Co., Howrah, India.",
     "images": null,
-    "specTables": []
+    "specTables": [
+      {
+        "heading": "Available Ranges",
+        "note": "Any other range can be manufactured against specific requirements.",
+        "columns": [
+          "Rated Voltage",
+          "Rated Resistance Range"
+        ],
+        "rows": [
+          {
+            "col0": "500 V DC",
+            "col1": "0\u2013200 M\u03a9"
+          },
+          {
+            "col0": "500 V DC",
+            "col1": "0\u20131000 M\u03a9"
+          },
+          {
+            "col0": "1000 V DC",
+            "col1": "0\u2013200 M\u03a9"
+          },
+          {
+            "col0": "1000 V DC",
+            "col1": "0\u20132000 M\u03a9"
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "dit-2500",
