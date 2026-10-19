@@ -188,9 +188,9 @@ const relatedProducts = [
               Download Catalogue (PDF)
             </a>
           )}
-          {product.rangeGuide && (
+          {product.longForm && (
             <a
-              href={`${downloadUrl(`/downloads/cie/range-guides/${product.rangeGuide}`)}?v=${DATASHEET_V}`}
+              href={`${downloadUrl(`/downloads/cie/long-form/${product.longForm}`)}?v=${DATASHEET_V}`}
               target="_blank"
               rel="noopener noreferrer"
               class="btn-secondary w-full text-ink"
@@ -198,7 +198,7 @@ const relatedProducts = [
               <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h10"/>
               </svg>
-              All Ranges Guide (PDF)
+              Long-Form Catalogue, All Ranges (PDF)
             </a>
           )}
           <ConfigCatalogue productId={product.id} />
