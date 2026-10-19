@@ -58,6 +58,7 @@ const schema = {
                 <p class="mt-1 font-semibold leading-snug">{s.title}</p>
                 <p class="mt-3 text-sm text-muted">{s.covers}</p>
                 <p class="mt-2 text-sm text-muted"><strong class="text-ink">Instruments:</strong> {s.instruments}</p>
+                {s.note && <p class="mt-3 text-sm rounded-lg bg-cloud px-3 py-2 text-muted"><strong class="text-ink">Status:</strong> {s.note}</p>}
                 <ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
                   {s.guide && <li><a class="font-semibold text-red hover:underline" href={u(`/blog/${s.guide}/`)}>Read the guide &rarr;</a></li>}
                   {s.tool && <li><a class="hover:text-red hover:underline" href={u(`/tools/${s.tool}/`)}>{toolBySlug[s.tool].short} calculator</a></li>}
@@ -69,7 +70,7 @@ const schema = {
         </div>
       ))}
       <div class="rounded-xl bg-cloud p-5 text-sm text-muted max-w-4xl">
-        <p><strong class="text-ink">How to read this page.</strong> Each entry summarises scope only. We do not reproduce limits or clause text, because standards are revised and split into parts. Always quote the full designation and edition exactly as your specification gives it. Listing a standard here does not mean a particular instrument is certified to it; for the standards our own instruments conform to, see the <a class="text-red hover:underline" href={u('/blog/indian-standards-insulation-earth-oil-testers/')}>Indian standards guide</a> or ask us for the datasheet.</p>
+        <p><strong class="text-ink">How to read this page.</strong> Titles and status were checked against BIS, IEEE, IEC and national catalogue listings, but not against the standards' full text. Each entry summarises scope only. We do not reproduce limits or clause text, because standards are revised and split into parts. Always quote the full designation and edition exactly as your specification gives it. Listing a standard here does not mean a particular instrument is certified to it; for the standards our own instruments conform to, see the <a class="text-red hover:underline" href={u('/blog/indian-standards-insulation-earth-oil-testers/')}>Indian standards guide</a> or ask us for the datasheet.</p>
       </div>
     </div>
   </section>

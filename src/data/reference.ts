@@ -17,38 +17,43 @@ export interface Standard {
   guide?: string;
   tool?: string;
   category?: string;
+  note?: string; // status or edition caution, shown on the card
 }
 
 export const standardGroups: StandardGroup[] = ['Insulation and HV', 'Earthing', 'Wiring and installation', 'Instrument safety and ratings', 'Relays and protection', 'Calibration and accuracy'];
 
 export const standards: Standard[] = [
-  { code: 'IS 2992', title: 'Insulation resistance testers (generator type)', issuer: 'BIS (India)', group: 'Insulation and HV',
-    covers: 'Construction and accuracy of generator-type insulation testers, including the hand-driven megger.',
-    instruments: 'Hand-driven and motor-driven insulation testers', guide: 'indian-standards-insulation-earth-oil-testers', category: 'insulation-testers-hand' },
-  { code: 'IEEE 43', title: 'Testing insulation resistance of rotating machinery', issuer: 'IEEE', group: 'Insulation and HV',
-    covers: 'How to test and interpret insulation resistance, polarization index and related readings on motors and generators.',
+  { code: 'IS 2992', title: 'Insulation resistance testers, hand operated (magneto generator type)', issuer: 'BIS (India)', group: 'Insulation and HV',
+    covers: 'Construction and accuracy of hand-operated magneto generator insulation testers, the classic hand-cranked megger.',
+    instruments: 'Hand-driven insulation testers',
+    note: 'The 1987 edition is the one manufacturers still cite. BIS lists it as reaffirmed in 2015; check the BIS catalogue for its current status. Electronic insulation testers fall under a separate standard (IS 10656).', guide: 'indian-standards-insulation-earth-oil-testers', category: 'insulation-testers-hand' },
+  { code: 'IEEE 43', title: 'Recommended practice for testing insulation resistance of electric machinery', issuer: 'IEEE', group: 'Insulation and HV',
+    covers: 'How to test and interpret insulation resistance and polarization index on windings of rotating machines rated 750 W or more.',
+    note: 'The 2013 edition is listed by IEEE as inactive-reserved since 2024, though it is still widely cited. Check the IEEE site for the current status.',
     instruments: 'Insulation testers with 500 V to 5 kV ranges', guide: 'polarization-index-vs-dielectric-absorption-ratio', tool: 'motor-minimum-insulation-resistance', category: 'motor-operated-insulation' },
-  { code: 'IS 6792', title: 'Electrical strength of insulating oil', issuer: 'BIS (India)', group: 'Insulation and HV',
+  { code: 'IS 6792', title: 'Insulating liquids: determination of the breakdown voltage at power frequency, test method', issuer: 'BIS (India)', group: 'Insulation and HV',
     covers: 'The breakdown voltage test for transformer oil: test cell, electrode gap and procedure.',
+    note: 'The current edition (IS 6792:2023) is identical to IEC 60156:2018. Older editions were titled as a method for the electric strength of insulating oils.',
     instruments: 'Oil BDV test sets', guide: 'transformer-oil-bdv-standards-compared', category: 'oil-test-sets' },
-  { code: 'IEC 60156', title: 'Insulating liquids: breakdown voltage at power frequency', issuer: 'IEC', group: 'Insulation and HV',
+  { code: 'IEC 60156', title: 'Insulating liquids: determination of the breakdown voltage at power frequency, test method', issuer: 'IEC', group: 'Insulation and HV',
     covers: 'The IEC method for the breakdown voltage of insulating liquids, widely used outside India and in export specifications.',
     instruments: 'Oil BDV test sets', guide: 'transformer-oil-bdv-test', category: 'oil-test-sets' },
 
   { code: 'IS 3043', title: 'Code of practice for earthing', issuer: 'BIS (India)', group: 'Earthing',
     covers: 'Design, installation and maintenance of earthing systems. It tells you what to achieve; an earth tester proves it.',
     instruments: 'Earth testers', guide: 'how-low-should-earth-resistance-be', tool: 'earth-rod-resistance-calculator', category: 'earth-tester' },
-  { code: 'IS 9223', title: 'Direct-reading earth testers', issuer: 'BIS (India)', group: 'Earthing',
-    covers: 'Accuracy and construction expected of direct-reading earth resistance testers.',
-    instruments: 'Analog and digital earth testers', guide: 'indian-standards-insulation-earth-oil-testers', category: 'earth-tester' },
-  { code: 'IEEE 81', title: 'Measuring earth resistivity, ground impedance and surface potentials', issuer: 'IEEE', group: 'Earthing',
+  { code: 'IS 9223', title: 'Portable earth resistance meters', issuer: 'BIS (India)', group: 'Earthing',
+    covers: 'Accuracy and construction expected of portable earth resistance meters.',
+    instruments: 'Analog and digital earth testers',
+    note: 'The 1989 edition is still cited by manufacturers, but BIS records show it as withdrawn and point to IS/IEC 61557-5 (resistance to earth) for current practice. Check the BIS catalogue before quoting it in a tender.', guide: 'indian-standards-insulation-earth-oil-testers', category: 'earth-tester' },
+  { code: 'IEEE 81', title: 'Guide for measuring earth resistivity, ground impedance and earth surface potentials of a grounding system', issuer: 'IEEE', group: 'Earthing',
     covers: 'Field methods for soil resistivity (including the Wenner four-pin method) and ground system measurements.',
     instruments: 'Earth testers with four-terminal capability', guide: 'soil-resistivity-wenner-vs-schlumberger', tool: 'soil-resistivity-wenner-calculator', category: 'earth-tester' },
 
   { code: 'IS 732', title: 'Code of practice for electrical wiring installations', issuer: 'BIS (India)', group: 'Wiring and installation',
     covers: 'Wiring practice for buildings, including the tests carried out on a finished installation.',
     instruments: 'Insulation testers, earth testers, multimeters', guide: 'how-to-megger-test-house-wiring', category: 'digital-insulation-testers' },
-  { code: 'IEC 60364-6', title: 'Low-voltage electrical installations: verification', issuer: 'IEC', group: 'Wiring and installation',
+  { code: 'IEC 60364-6', title: 'Low-voltage electrical installations, Part 6: verification', issuer: 'IEC', group: 'Wiring and installation',
     covers: 'Initial and periodic verification of low-voltage installations, including insulation resistance tests.',
     instruments: 'Insulation testers, continuity and earth testers', guide: 'bs-7671-iec-60364-initial-verification-instruments', tool: 'insulation-test-voltage-selector', category: 'digital-insulation-testers' },
   { code: 'BS 7671', title: 'Requirements for electrical installations (IET Wiring Regulations)', issuer: 'BSI (UK)', group: 'Wiring and installation',
@@ -58,7 +63,7 @@ export const standards: Standard[] = [
   { code: 'IEC 61010-1', title: 'Safety requirements for measurement, control and laboratory equipment', issuer: 'IEC', group: 'Instrument safety and ratings',
     covers: 'General safety requirements for test and measurement equipment, including the CAT I to CAT IV measurement categories.',
     instruments: 'Multimeters, clamp meters and other hand-held instruments', guide: 'what-is-cat-rating', category: 'multimeters' },
-  { code: 'IEC 61557', title: 'Equipment for testing protective measures in LV systems (series)', issuer: 'IEC', group: 'Instrument safety and ratings',
+  { code: 'IEC 61557', title: 'Electrical safety in low voltage distribution systems up to 1000 V AC and 1500 V DC: equipment for testing, measuring or monitoring of protective measures (series)', issuer: 'IEC', group: 'Instrument safety and ratings',
     covers: 'Performance requirements for installation testers, split into parts for insulation, earth resistance, loop impedance and more.',
     instruments: 'Installation testers, insulation and earth testers', guide: 'bs-7671-iec-60364-initial-verification-instruments', category: 'digital-insulation-testers' },
   { code: 'IEC 60529', title: 'Degrees of protection provided by enclosures (IP code)', issuer: 'IEC', group: 'Instrument safety and ratings',
@@ -69,8 +74,9 @@ export const standards: Standard[] = [
     covers: 'Requirements and tests for protection relays, including the inverse-time characteristics used by IDMT relays.',
     instruments: 'Relay test sets', guide: 'idmt-relay-curves-explained', category: 'relay-test-sets' },
 
-  { code: 'IS 1248', title: 'Direct-acting indicating analogue electrical measuring instruments', issuer: 'BIS (India)', group: 'Calibration and accuracy',
-    covers: 'Accuracy classes and tests for analogue panel and portable meters.',
+  { code: 'IS 1248', title: 'Direct acting indicating analogue electrical measuring instruments and their accessories (multi-part)', issuer: 'BIS (India)', group: 'Calibration and accuracy',
+    covers: 'Accuracy classes and tests for analogue panel and portable meters, split into parts for ammeters and voltmeters, wattmeters, ohmmeters and more.',
+    note: 'The 2021 parts are aligned with the IEC 60051 series.',
     instruments: 'Analog meters and indicators', guide: 'indian-standards-insulation-earth-oil-testers' },
   { code: 'ISO/IEC 17025', title: 'Competence of testing and calibration laboratories', issuer: 'ISO/IEC', group: 'Calibration and accuracy',
     covers: 'The standard that laboratories (including NABL-accredited ones) are assessed against. It governs a lab, not an instrument.',
