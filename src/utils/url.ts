@@ -27,3 +27,7 @@ const DOWNLOADS_HOST = 'https://hithim1411-ux.github.io/cie-downloads';
 
 export const downloadUrl = (path: string): string =>
   `${DOWNLOADS_HOST}${path.replace(/^\/downloads/, '')}`;
+
+// Bump when any datasheet PDF in cie-downloads changes: GitHub Pages sends max-age=600, so unversioned links
+// keep showing a browser-cached old copy.
+export const DATASHEET_V = '20261019';

@@ -1,6 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import { u, downloadUrl } from '../../../utils/url';
+import { u, downloadUrl, DATASHEET_V } from '../../../utils/url';
 import EyebrowLabel from '../../../components/EyebrowLabel.astro';
 import SpecTable from '../../../components/SpecTable.astro';
 import CompareAddButton from '../../../components/CompareAddButton.astro';
@@ -177,7 +177,7 @@ const relatedProducts = [
         <div class="space-y-3">
           {product.datasheet && (
             <a
-              href={downloadUrl(`/downloads/cie/${product.datasheet}`)}
+              href={`${downloadUrl(`/downloads/cie/${product.datasheet}`)}?v=${DATASHEET_V}`}
               target="_blank"
               rel="noopener noreferrer"
               class="btn-secondary w-full text-ink"
