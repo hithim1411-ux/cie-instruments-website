@@ -1,0 +1,164 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="unit-converter"
+  title="Electrical Unit Converter: Prefixes, Power, Temperature, dB and AWG"
+  description="Free converter for electrical work: SI prefixes, kW to HP and BTU/h, Celsius and Fahrenheit, decibels (dBm, dBV) and AWG wire gauge to mm2."
+  h1="Electrical Unit Converter"
+  intro="Pick what you are converting, type a value and read the result. Everything is calculated in your browser."
+>
+  <Fragment slot="inputs">
+    <div class="tool-field"><span class="flabel">Convert</span>
+      <div class="seg" role="radiogroup" aria-label="Conversion type">
+        <label><input type="radio" name="mode" value="prefix" checked /><span>Prefix</span></label>
+        <label><input type="radio" name="mode" value="power" /><span>Power</span></label>
+        <label><input type="radio" name="mode" value="temp" /><span>Temp</span></label>
+        <label><input type="radio" name="mode" value="db" /><span>dB</span></label>
+        <label><input type="radio" name="mode" value="awg" /><span>AWG</span></label>
+      </div></div>
+
+    <div data-p="prefix">
+      <div class="tool-field"><label for="pv">Value</label><div class="input-wrap"><input id="pv" type="number" step="any" value="4.7" inputmode="decimal" /></div></div>
+      <div class="tool-field"><label for="pf">From</label>
+        <select id="pf"><option value="-12">pico (p)</option><option value="-9">nano (n)</option><option value="-6">micro (µ)</option><option value="-3">milli (m)</option><option value="0">base unit</option><option value="3" selected>kilo (k)</option><option value="6">mega (M)</option><option value="9">giga (G)</option></select></div>
+      <div class="tool-field"><label for="pt">To</label>
+        <select id="pt"><option value="-12">pico (p)</option><option value="-9">nano (n)</option><option value="-6">micro (µ)</option><option value="-3">milli (m)</option><option value="0" selected>base unit</option><option value="3">kilo (k)</option><option value="6">mega (M)</option><option value="9">giga (G)</option></select></div>
+    </div>
+
+    <div data-p="power" hidden>
+      <div class="tool-field"><label for="wv">Value</label><div class="input-wrap"><input id="wv" type="number" step="any" value="7.5" inputmode="decimal" /></div></div>
+      <div class="tool-field"><label for="wf">From</label>
+        <select id="wf"><option value="1">W</option><option value="1000">kW</option><option value="1000000">MW</option><option value="745.699872" selected>HP (mechanical, 745.7 W)</option><option value="735.49875">HP (metric, 735.5 W)</option><option value="0.29307107">BTU/h</option><option value="3516.8528">TR (ton of refrigeration)</option></select></div>
+    </div>
+
+    <div data-p="temp" hidden>
+      <div class="tool-field"><label for="tv">Value</label><div class="input-wrap"><input id="tv" type="number" step="any" value="40" inputmode="decimal" /></div></div>
+      <div class="tool-field"><label for="tf">From</label>
+        <select id="tf"><option value="C" selected>Celsius (°C)</option><option value="F">Fahrenheit (°F)</option><option value="K">Kelvin (K)</option></select></div>
+    </div>
+
+    <div data-p="db" hidden>
+      <div class="tool-field"><label for="dk">Quantity</label>
+        <select id="dk"><option value="v">Voltage ratio (dB)</option><option value="p">Power ratio (dB)</option><option value="dbm" selected>dBm (power vs 1 mW)</option><option value="dbv">dBV (voltage vs 1 V)</option><option value="dbuv">dBµV (voltage vs 1 µV)</option></select></div>
+      <div class="tool-field"><label for="dbv">Level</label><div class="input-wrap"><input id="dbv" type="number" step="any" value="20" inputmode="decimal" /><span class="unit">dB</span></div></div>
+      <div class="tool-field"><label for="dlin" id="dlinlab">Linear value</label><div class="input-wrap"><input id="dlin" type="number" step="any" min="0" inputmode="decimal" /><span class="unit" id="dlinu">mW</span></div>
+        <p class="hint">Edit either field; the other follows.</p></div>
+    </div>
+
+    <div data-p="awg" hidden>
+      <div class="tool-field"><label for="awgv">AWG number</label><div class="input-wrap"><input id="awgv" type="number" step="1" min="-3" max="40" value="14" inputmode="numeric" /><span class="unit">AWG</span></div>
+        <p class="hint">Use 0 for 1/0, -1 for 2/0, -2 for 3/0, -3 for 4/0.</p></div>
+      <div class="tool-field"><label for="awga">Or area</label><div class="input-wrap"><input id="awga" type="number" step="any" min="0" inputmode="decimal" /><span class="unit">mm²</span></div>
+        <p class="hint">Edit either field; the other follows (nearest AWG).</p></div>
+    </div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="readout-block">
+      <div class="lcd"><small id="rk">RESULT</small><span id="r1">-</span><span class="u" id="ru"></span></div>
+      <div class="stat-grid" id="rgrid"></div>
+      <div class="tool-callout" id="note"></div>
+    </div>
+  </Fragment>
+
+  <h2>Reference values</h2>
+  <ul>
+    <li>1 HP (mechanical) = 745.7 W. 1 metric HP (PS) = 735.5 W. Motor nameplates in India usually mean mechanical HP, with 0.7457 kW per HP.</li>
+    <li>1 TR = 12,000 BTU/h = 3.517 kW of heat removal.</li>
+    <li>dBm = 10 × log<sub>10</sub>(P / 1 mW). dBV = 20 × log<sub>10</sub>(V / 1 V). Voltage ratio dB = 20 × log<sub>10</sub>(V<sub>2</sub> / V<sub>1</sub>), and power ratio dB = 10 × log<sub>10</sub>(P<sub>2</sub> / P<sub>1</sub>).</li>
+    <li>AWG diameter = 0.127 mm × 92<sup>(36 − n) / 39</sup>. Each 6 AWG steps halves the diameter, and each 3 AWG steps halves the area.</li>
+  </ul>
+  <h2>Common AWG sizes</h2>
+  <table>
+    <thead><tr><th>AWG</th><th class="num">Diameter (mm)</th><th class="num">Area (mm²)</th></tr></thead>
+    <tbody id="awgtab"></tbody>
+  </table>
+  <p>The wire-gauge figures are the standard AWG formula values, not a current rating. To size a cable for a load see the <a href={u('/tools/voltage-drop-calculator/')}>voltage drop calculator</a>. For three-phase kW and kVA, use the <a href={u('/tools/three-phase-power-calculator/')}>three-phase power calculator</a>.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      // Compact formatter that stays readable for very small and very large values.
+      function f(v) {
+        if (v === null || v === undefined || !isFinite(v)) return '-';
+        if (v === 0) return '0';
+        var a = Math.abs(v);
+        if (a >= 1e9 || a < 1e-4) return v.toExponential(4).replace(/\.?0+e/, 'e');
+        return parseFloat(v.toPrecision(7)).toLocaleString('en-IN', { maximumFractionDigits: 8 });
+      }
+      function grid(items) {
+        $('rgrid').innerHTML = items.map(function (i) { return '<div class="stat"><div class="stat-k">' + i[0] + '</div><div class="stat-v"><span>' + f(i[1]) + '</span><i>' + i[2] + '</i></div></div>'; }).join('');
+      }
+      function head(k, v, u) { $('rk').textContent = k; $('r1').textContent = f(v); $('ru').textContent = u; }
+      var mode = 'prefix', lastDb = 'db', lastAwg = 'n';
+      var P = [['pico', -12], ['nano', -9], ['micro', -6], ['milli', -3], ['base unit', 0], ['kilo', 3], ['mega', 6], ['giga', 9]];
+      var DB = {
+        v:   { u: 'V/V', lab: 'Voltage ratio', toDb: function (x) { return 20 * Math.log10(x); }, fromDb: function (d) { return Math.pow(10, d / 20); } },
+        p:   { u: 'P/P', lab: 'Power ratio',   toDb: function (x) { return 10 * Math.log10(x); }, fromDb: function (d) { return Math.pow(10, d / 10); } },
+        dbm: { u: 'mW', lab: 'Power',          toDb: function (x) { return 10 * Math.log10(x); }, fromDb: function (d) { return Math.pow(10, d / 10); } },
+        dbv: { u: 'V', lab: 'Voltage',         toDb: function (x) { return 20 * Math.log10(x); }, fromDb: function (d) { return Math.pow(10, d / 20); } },
+        dbuv:{ u: 'µV', lab: 'Voltage',        toDb: function (x) { return 20 * Math.log10(x); }, fromDb: function (d) { return Math.pow(10, d / 20); } }
+      };
+      function awgDia(n) { return 0.127 * Math.pow(92, (36 - n) / 39); }
+      function awgArea(n) { var d = awgDia(n); return Math.PI / 4 * d * d; }
+
+      function run() {
+        $('note').textContent = '';
+        document.querySelectorAll('[data-p]').forEach(function (e) { e.hidden = e.getAttribute('data-p') !== mode; });
+        if (mode === 'prefix') {
+          var v = parseFloat($('pv').value), a = parseInt($('pf').value, 10), b = parseInt($('pt').value, 10);
+          var out = v * Math.pow(10, a - b);
+          head('PREFIX', out, '');
+          grid(P.map(function (p) { return ['in ' + p[0], v * Math.pow(10, a - p[1]), '']; }));
+        } else if (mode === 'power') {
+          var w = parseFloat($('wv').value) * parseFloat($('wf').value);
+          head('POWER', w / 1000, 'kW');
+          grid([['Watts', w, 'W'], ['Megawatts', w / 1e6, 'MW'], ['HP (mechanical)', w / 745.699872, 'HP'], ['HP (metric)', w / 735.49875, 'PS'], ['BTU/h', w / 0.29307107, 'BTU/h'], ['Refrigeration', w / 3516.8528, 'TR']]);
+        } else if (mode === 'temp') {
+          var t = parseFloat($('tv').value), fr = $('tf').value;
+          var c = fr === 'C' ? t : fr === 'F' ? (t - 32) * 5 / 9 : t - 273.15;
+          if (c < -273.15) { head('TEMP', null, ''); grid([]); $('note').textContent = 'That is below absolute zero.'; return; }
+          head('CELSIUS', c, '°C');
+          grid([['Fahrenheit', c * 9 / 5 + 32, '°F'], ['Kelvin', c + 273.15, 'K']]);
+        } else if (mode === 'db') {
+          var k = $('dk').value, d = DB[k];
+          $('dlinu').textContent = d.u; $('dlinlab').textContent = d.lab;
+          var db;
+          if (lastDb === 'db') { db = parseFloat($('dbv').value); $('dlin').value = isFinite(db) ? parseFloat(d.fromDb(db).toPrecision(7)) : ''; }
+          else { var lin = parseFloat($('dlin').value); if (lin > 0) { db = d.toDb(lin); $('dbv').value = parseFloat(db.toPrecision(7)); } else db = NaN; }
+          head(k === 'v' || k === 'p' ? 'LEVEL' : k.toUpperCase(), db, 'dB');
+          var lin2 = parseFloat($('dlin').value);
+          var items = [['Linear value', lin2, d.u]];
+          if (k === 'dbm') { items.push(['Watts', lin2 / 1000, 'W'], ['Volts across 50 Ω', Math.sqrt(lin2 / 1000 * 50), 'V rms'], ['Volts across 600 Ω', Math.sqrt(lin2 / 1000 * 600), 'V rms']); }
+          if (k === 'dbv') items.push(['Millivolts', lin2 * 1000, 'mV']);
+          grid(items);
+        } else if (mode === 'awg') {
+          var n;
+          if (lastAwg === 'n') { n = parseFloat($('awgv').value); $('awga').value = isFinite(n) ? parseFloat(awgArea(n).toPrecision(5)) : ''; }
+          else { var ar = parseFloat($('awga').value); if (ar > 0) { var dd = Math.sqrt(4 * ar / Math.PI); n = 36 - 39 * Math.log(dd / 0.127) / Math.log(92); $('awgv').value = Math.round(n); } else n = NaN; }
+          var nn = Math.round(n);
+          if (!isFinite(nn)) { head('AWG', null, ''); grid([]); return; }
+          head('AWG ' + (nn <= 0 ? (1 - nn) + '/0' : nn), awgArea(nn), 'mm²');
+          grid([['Diameter', awgDia(nn), 'mm'], ['Area', awgArea(nn), 'mm²'], ['Circular mils', Math.pow(awgDia(nn) / 0.0254, 2) / 1000, 'kcmil']]);
+          if (lastAwg === 'a' && Math.abs(n - nn) > 0.05) $('note').textContent = 'Your area falls between standard sizes. Nearest AWG shown (' + f(n) + ' exactly).';
+        }
+      }
+
+      document.querySelectorAll('input[name=mode]').forEach(function (e) { e.addEventListener('change', function () { mode = e.value; run(); }); });
+      ['pv', 'pf', 'pt', 'wv', 'wf', 'tv', 'tf'].forEach(function (id) { $(id).addEventListener('input', run); });
+      $('dk').addEventListener('change', function () { lastDb = 'db'; run(); });
+      $('dbv').addEventListener('input', function () { lastDb = 'db'; run(); });
+      $('dlin').addEventListener('input', function () { lastDb = 'lin'; run(); });
+      $('awgv').addEventListener('input', function () { lastAwg = 'n'; run(); });
+      $('awga').addEventListener('input', function () { lastAwg = 'a'; run(); });
+
+      var rows = [];
+      [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22].forEach(function (n) { rows.push('<tr><td>' + (n === 0 ? '1/0' : n) + '</td><td class="num">' + awgDia(n).toFixed(3) + '</td><td class="num">' + awgArea(n).toFixed(3) + '</td></tr>'); });
+      $('awgtab').innerHTML = rows.join('');
+      run();
+    })();
+  </script>
+</ToolShell>

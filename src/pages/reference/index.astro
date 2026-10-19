@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import { u } from '../../utils/url';
+import { standards, jobs } from '../../data/reference';
+
+const cards = [
+  { href: '/reference/standards/', title: 'Standards directory', body: `${standards.length} IS, IEC and IEEE standards used in insulation, earthing and installation testing, summarised by what each covers.` },
+  { href: '/reference/ratings/', title: 'IP and CAT ratings', body: 'Plain tables for the dust and water code and the measurement categories, so you can read any datasheet.' },
+  { href: '/tools/unit-converter/', title: 'Unit converter', body: 'SI prefixes, kW to HP, BTU/h and TR, temperature, decibels and AWG to mm2.' },
+  { href: '/guides/', title: 'Selection guide', body: `${jobs.length} common testing jobs matched to the right instrument and what to look for.` },
+  { href: '/templates/', title: 'Test report forms', body: 'Printable PDF forms with the formulas built in.' },
+  { href: '/compare/', title: 'Compare instruments', body: 'Put two or three models side by side with your must-haves highlighted.' },
+];
+---
+
+<Base title="Reference: Standards, Ratings and Converters" description="Reference pages for electrical test engineers: a standards directory, IP and CAT rating tables, a unit converter and an instrument selection guide.">
+  <section class="blueprint-bg bg-ink text-white pt-10 pb-12 lg:pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="crumbs-on-dark"><Breadcrumbs crumbs={[{ label: 'Insights', href: u('/insights/') }, { label: 'Reference' }]} /></div>
+      <EyebrowLabel text="Reference" class="mt-5 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight max-w-4xl">The reference shelf</h1>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">The tables, codes and converters a test engineer reaches for, in one place.</p>
+    </div>
+  </section>
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {cards.map((c) => (
+        <a href={u(c.href)} class="block rounded-xl border border-border p-6 hover:shadow-lg hover:border-red transition">
+          <h2 class="text-xl font-extrabold">{c.title}</h2>
+          <p class="mt-2 text-sm text-muted">{c.body}</p>
+          <p class="mt-4 text-sm font-semibold text-red">Open &rarr;</p>
+        </a>
+      ))}
+    </div>
+  </section>
+  <CTABand heading="Missing a reference you need?" body="Tell us which table or converter would save you time and we will consider adding it." primaryLabel="Suggest a reference" />
+</Base>

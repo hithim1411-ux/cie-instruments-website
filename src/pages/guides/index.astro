@@ -1,0 +1,115 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import { u } from '../../utils/url';
+import { jobs, jobGroups, standards } from '../../data/reference';
+import { tools } from '../../data/tools';
+import posts from '../../data/blog.json';
+import categories from '../../data/categories.json';
+
+// Build-time check: every link target must exist, so the page can never ship a dead link.
+const postBySlug = Object.fromEntries(posts.map((p: any) => [p.slug, p]));
+const toolBySlug = Object.fromEntries(tools.map((t) => [t.slug, t]));
+const catById = Object.fromEntries((categories as any[]).map((c) => [c.id, c]));
+const stdCodes = new Set(standards.map((s) => s.code));
+for (const j of jobs) {
+  if (!catById[j.category]) throw new Error(`guides: unknown category ${j.category}`);
+  if (!postBySlug[j.guide]) throw new Error(`guides: unknown guide ${j.guide}`);
+  if (j.tool && !toolBySlug[j.tool]) throw new Error(`guides: unknown tool ${j.tool}`);
+  if (j.standard && !stdCodes.has(j.standard)) throw new Error(`guides: unknown standard ${j.standard}`);
+}
+
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Which Instrument for Which Job',
+  url: 'https://www.cieinstruments.in/guides/',
+  description: `${jobs.length} common testing jobs matched to the right instrument type, what to look for, and the guide to read next.`,
+  isPartOf: { '@id': 'https://www.cieinstruments.in/#website' },
+};
+---
+
+<Base title="Which Instrument for Which Job" description={`${jobs.length} common electrical testing jobs matched to the right instrument, what to look for when choosing, and the guide, calculator and standard that go with it.`}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <section class="blueprint-bg bg-ink text-white pt-10 pb-12 lg:pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="crumbs-on-dark"><Breadcrumbs crumbs={[{ label: 'Insights', href: u('/insights/') }, { label: 'Selection Guide' }]} /></div>
+      <EyebrowLabel text="Selection guide" class="mt-5 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight max-w-4xl">Which instrument for which job</h1>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Start from the job you need to do. Each row names the instrument type, what to look for, and links to the guide, calculator and standard behind it.</p>
+
+      <div class="mt-8 max-w-xl">
+        <label for="sg-q" class="sr-only">Search jobs</label>
+        <input id="sg-q" type="search" autocomplete="off" placeholder={`Search ${jobs.length} jobs, e.g. earth pit, motor, 4-20 mA`}
+          class="w-full rounded-lg bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:border-white/60" />
+      </div>
+      <div class="mt-4 flex flex-wrap gap-2" role="group" aria-label="Filter by area" id="sg-chips">
+        <button type="button" class="sg-chip is-on" data-g="all">All</button>
+        {jobGroups.map((g) => <button type="button" class="sg-chip" data-g={slugify(g)}>{g}</button>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {jobGroups.map((g) => (
+        <div class="sg-group mb-12" data-g={slugify(g)}>
+          <h2 class="text-2xl font-extrabold tracking-tight mb-5">{g}</h2>
+          <div class="grid gap-4 md:grid-cols-2">
+            {jobs.filter((j) => j.group === g).map((j) => (
+              <article class="sg-card rounded-xl border border-border bg-white p-5" data-text={`${j.job} ${j.instrument} ${j.look} ${j.standard ?? ''}`.toLowerCase()}>
+                <h3 class="text-lg font-bold leading-snug">{j.job}</h3>
+                <p class="mt-1 text-sm font-mono uppercase tracking-wider text-red">{j.instrument}</p>
+                <p class="mt-3 text-sm text-muted"><strong class="text-ink">Look for:</strong> {j.look}.</p>
+                <ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                  <li><a class="font-semibold text-red hover:underline" href={u(`/products/${j.category}/`)}>{catById[j.category].shortName} &rarr;</a></li>
+                  <li><a class="hover:text-red hover:underline" href={u(`/blog/${j.guide}/`)}>Read the guide</a></li>
+                  {j.tool && <li><a class="hover:text-red hover:underline" href={u(`/tools/${j.tool}/`)}>{toolBySlug[j.tool].short} calculator</a></li>}
+                  {j.standard && <li><a class="hover:text-red hover:underline" href={`${u('/reference/standards/')}#${slugify(j.standard)}`}>{j.standard}</a></li>}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
+      <p class="sg-empty hidden text-muted" id="sg-empty">No jobs match that search. Try a shorter word, or ask us on WhatsApp.</p>
+      <p class="text-sm text-muted max-w-3xl">These are general selection pointers, not a substitute for your specification. Confirm ranges and ratings against the datasheet, or send us the job and we will confirm the right model.</p>
+    </div>
+  </section>
+
+  <CTABand heading="Not sure which one fits your job?" body="Tell us what you are testing and the voltage or range involved. We will point you to the right model." primaryLabel="Ask about your job" />
+
+  <style>
+    .sg-chip { padding: 6px 14px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .25); color: #fff; font-size: 13px; background: transparent; cursor: pointer; }
+    .sg-chip:hover { background: rgb(255 255 255 / .1); }
+    .sg-chip.is-on { background: #fff; color: #0A0E14; border-color: #fff; }
+    .sg-card:hover { box-shadow: 0 8px 24px rgb(10 14 20 / .08); }
+  </style>
+
+  <script is:inline>
+    (function () {
+      var q = document.getElementById('sg-q'), chips = document.querySelectorAll('.sg-chip'), g = 'all';
+      function run() {
+        var t = q.value.trim().toLowerCase(), shown = 0;
+        document.querySelectorAll('.sg-group').forEach(function (grp) {
+          var gOk = g === 'all' || grp.getAttribute('data-g') === g, any = 0;
+          grp.querySelectorAll('.sg-card').forEach(function (c) {
+            var ok = gOk && (!t || c.getAttribute('data-text').indexOf(t) > -1);
+            c.hidden = !ok; if (ok) any++;
+          });
+          grp.hidden = !any; shown += any;
+        });
+        document.getElementById('sg-empty').classList.toggle('hidden', shown > 0);
+      }
+      q.addEventListener('input', run);
+      chips.forEach(function (b) { b.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('is-on'); }); b.classList.add('is-on');
+        g = b.getAttribute('data-g'); run();
+      }); });
+    })();
+  </script>
+</Base>

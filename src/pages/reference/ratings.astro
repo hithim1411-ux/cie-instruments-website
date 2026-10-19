@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import { u } from '../../utils/url';
+
+const solids = [
+  ['0', 'No protection'], ['1', 'Objects over 50 mm (back of a hand)'], ['2', 'Objects over 12.5 mm (a finger)'],
+  ['3', 'Objects over 2.5 mm (tools, thick wire)'], ['4', 'Objects over 1 mm (thin wire)'],
+  ['5', 'Dust protected (limited ingress, no harmful deposit)'], ['6', 'Dust tight (no ingress)'],
+];
+const liquids = [
+  ['0', 'No protection'], ['1', 'Vertically dripping water'], ['2', 'Dripping water, enclosure tilted up to 15 degrees'],
+  ['3', 'Spraying water, up to 60 degrees from vertical'], ['4', 'Splashing water from any direction'],
+  ['5', 'Water jets (6.3 mm nozzle)'], ['6', 'Powerful water jets (12.5 mm nozzle)'],
+  ['7', 'Temporary immersion, up to 1 m for 30 minutes'], ['8', 'Continuous immersion, to conditions the maker states'],
+  ['9K', 'High-pressure, high-temperature water jets'],
+];
+const cats = [
+  ['CAT I', 'Protected electronic circuits and signal-level equipment', 'Circuits not directly connected to mains, or protected by limiting devices'],
+  ['CAT II', 'Single-phase receptacle-connected loads', 'Appliances, portable tools, socket outlets on long branch circuits'],
+  ['CAT III', 'Fixed installation, distribution level', 'Distribution boards, bus bars, feeders, motors on fixed wiring'],
+  ['CAT IV', 'Origin of the installation', 'Service entrance, meter, primary overcurrent protection, overhead and underground supply lines'],
+];
+const impulse = [
+  ['300 V', '2.5 kV', '4 kV', '6 kV'],
+  ['600 V', '4 kV', '6 kV', '8 kV'],
+  ['1000 V', '6 kV', '8 kV', '12 kV'],
+];
+---
+
+<Base title="IP and CAT Ratings Explained" description="Plain-English tables for IP codes (dust and water protection) and CAT I to CAT IV measurement categories, with where each applies when choosing a test instrument.">
+  <section class="blueprint-bg bg-ink text-white pt-10 pb-12 lg:pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="crumbs-on-dark"><Breadcrumbs crumbs={[{ label: 'Reference', href: u('/reference/') }, { label: 'IP and CAT Ratings' }]} /></div>
+      <EyebrowLabel text="Reference" class="mt-5 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight max-w-4xl">IP and CAT ratings explained</h1>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">Two codes on almost every instrument datasheet. One says how well it survives dust and water, the other says where on the electrical system it is safe to measure.</p>
+    </div>
+  </section>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+
+      <div id="ip" class="scroll-mt-28">
+        <h2 class="text-2xl font-extrabold tracking-tight">IP code (IEC 60529)</h2>
+        <p class="mt-2 text-muted">Written as IP followed by two digits, for example IP54. The first digit is protection against solid objects and dust (0 to 6). The second is protection against water (0 to 9K). An X replaces a digit that was not tested, as in IPX4.</p>
+        <div class="mt-6 grid gap-6 md:grid-cols-2">
+          <div class="overflow-x-auto">
+            <table class="spec-table w-full text-sm"><caption class="text-left font-bold mb-2">First digit: solids and dust</caption>
+              <thead><tr><th class="text-left">Digit</th><th class="text-left">Protected against</th></tr></thead>
+              <tbody>{solids.map(([d, t]) => <tr><td class="font-mono font-bold">{d}</td><td>{t}</td></tr>)}</tbody></table>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="spec-table w-full text-sm"><caption class="text-left font-bold mb-2">Second digit: water</caption>
+              <thead><tr><th class="text-left">Digit</th><th class="text-left">Protected against</th></tr></thead>
+              <tbody>{liquids.map(([d, t]) => <tr><td class="font-mono font-bold">{d}</td><td>{t}</td></tr>)}</tbody></table>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-muted">IP ratings describe the enclosure, not the whole instrument in use. A case that is rated closed may not be rated with the battery door open or a probe plugged in. See the <a class="text-red hover:underline" href={u('/blog/ip-rating-explained/')}>IP rating guide</a>.</p>
+      </div>
+
+      <div id="cat" class="scroll-mt-28">
+        <h2 class="text-2xl font-extrabold tracking-tight">CAT rating (IEC 61010-1)</h2>
+        <p class="mt-2 text-muted">The measurement category tells you how much energy sits behind the point you are measuring. The closer to the supply source, the higher the available fault current and the larger the transients, so the higher the category you need. A meter rated CAT III 600 V is built to survive the transients of that location at up to 600 V. It is not a CAT IV meter.</p>
+        <div class="mt-6 overflow-x-auto">
+          <table class="spec-table w-full text-sm"><caption class="sr-only">Measurement categories</caption>
+            <thead><tr><th class="text-left">Category</th><th class="text-left">Location</th><th class="text-left">Typical examples</th></tr></thead>
+            <tbody>{cats.map(([c, l, e]) => <tr><td class="font-mono font-bold whitespace-nowrap">{c}</td><td>{l}</td><td>{e}</td></tr>)}</tbody></table>
+        </div>
+        <h3 class="mt-8 text-lg font-bold">Impulse withstand by category and rated voltage</h3>
+        <p class="mt-1 text-sm text-muted">Peak transient the instrument is designed to survive, for the common rated voltages.</p>
+        <div class="mt-4 overflow-x-auto">
+          <table class="spec-table w-full text-sm"><caption class="sr-only">Impulse withstand voltages</caption>
+            <thead><tr><th class="text-left">Rated voltage</th><th class="text-left">CAT II</th><th class="text-left">CAT III</th><th class="text-left">CAT IV</th></tr></thead>
+            <tbody>{impulse.map(([v, a, b, c]) => <tr><td class="font-mono font-bold">{v}</td><td>{a}</td><td>{b}</td><td>{c}</td></tr>)}</tbody></table>
+        </div>
+        <p class="mt-4 text-sm text-muted">A higher voltage number does not make up for a lower category. CAT III 300 V withstands a smaller transient than CAT III 600 V, and CAT IV 300 V and CAT III 600 V both withstand 6 kV but are meant for different locations. Pick the category of the location first, then a voltage rating at or above the system voltage. Read the full <a class="text-red hover:underline" href={u('/blog/what-is-cat-rating/')}>CAT rating guide</a>.</p>
+      </div>
+
+      <div class="rounded-xl bg-cloud p-5 text-sm text-muted">
+        <p>Tables summarise the published codes. Check the marking on your own instrument and the current edition of the standard before relying on any rating for safety.</p>
+        <p class="mt-3"><a class="font-semibold text-red hover:underline" href={u('/reference/standards/')}>Browse the standards directory &rarr;</a> &nbsp; <a class="font-semibold text-red hover:underline" href={u('/products/multimeters/')}>Multimeters &rarr;</a> &nbsp; <a class="font-semibold text-red hover:underline" href={u('/products/clamp-meters/')}>Clamp meters &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Need the right rating for your site?" body="Tell us where you will measure and the system voltage. We will suggest a suitable model." primaryLabel="Ask about ratings" />
+</Base>

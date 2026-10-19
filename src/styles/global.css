@@ -875,3 +875,8 @@ section.bg-red, .bg-red.rounded-2xl { background-color: #CC1F29; }
 
 /* Header dropdown over the busy hero photo wall: near-opaque so text stays legible */
 #site-header[data-tone='dark'] .bg-ink { background-color: rgba(14, 18, 26, 0.96); }
+
+/* Breadcrumbs placed on a dark hero: the current page label and links need light text */
+.crumbs-on-dark .text-ink { color: #fff; }
+.crumbs-on-dark nav { color: var(--color-muted-dark); }
+.crumbs-on-dark a:hover { color: #fff; }

@@ -1,0 +1,78 @@
+---
+import Base from '../../layouts/Base.astro';
+import EyebrowLabel from '../../components/EyebrowLabel.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import { u } from '../../utils/url';
+import { standards, standardGroups } from '../../data/reference';
+import { tools } from '../../data/tools';
+import posts from '../../data/blog.json';
+import categories from '../../data/categories.json';
+
+const postBySlug = Object.fromEntries(posts.map((p: any) => [p.slug, p]));
+const toolBySlug = Object.fromEntries(tools.map((t) => [t.slug, t]));
+const catById = Object.fromEntries((categories as any[]).map((c) => [c.id, c]));
+for (const s of standards) {
+  if (s.guide && !postBySlug[s.guide]) throw new Error(`standards: unknown guide ${s.guide}`);
+  if (s.tool && !toolBySlug[s.tool]) throw new Error(`standards: unknown tool ${s.tool}`);
+  if (s.category && !catById[s.category]) throw new Error(`standards: unknown category ${s.category}`);
+}
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Electrical Testing Standards Directory',
+  url: 'https://www.cieinstruments.in/reference/standards/',
+  description: `${standards.length} Indian and international standards used in electrical testing, with what each covers and where to read more.`,
+  isPartOf: { '@id': 'https://www.cieinstruments.in/#website' },
+};
+---
+
+<Base title="Electrical Testing Standards Directory" description={`${standards.length} Indian (IS) and international (IEC, IEEE) standards used in insulation, earthing, installation and instrument testing, with a plain summary of what each covers.`}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <section class="blueprint-bg bg-ink text-white pt-10 pb-12 lg:pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="crumbs-on-dark"><Breadcrumbs crumbs={[{ label: 'Reference', href: u('/reference/') }, { label: 'Standards' }]} /></div>
+      <EyebrowLabel text="Reference" class="mt-5 mb-3" />
+      <h1 class="text-[length:var(--text-display)] font-extrabold leading-[1.1] tracking-tight max-w-4xl">Electrical testing standards directory</h1>
+      <p class="mt-3 text-muted-dark max-w-2xl text-body-lg">The standards that tenders and inspectors name most often, summarised by what they cover, with the instruments, guides and calculators that go with each.</p>
+      <div class="mt-6 flex flex-wrap gap-2" aria-label="Jump to group">
+        {standardGroups.map((g) => <a href={`#${slugify(g)}`} class="px-3 py-1.5 rounded-full border border-white/25 text-sm hover:bg-white/10">{g}</a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {standardGroups.map((g) => (
+        <div class="mb-12" id={slugify(g)}>
+          <h2 class="text-2xl font-extrabold tracking-tight mb-5 scroll-mt-28">{g}</h2>
+          <div class="grid gap-4 md:grid-cols-2">
+            {standards.filter((s) => s.group === g).map((s) => (
+              <article class="rounded-xl border border-border bg-white p-5 scroll-mt-28" id={slugify(s.code)}>
+                <div class="flex items-baseline justify-between gap-3">
+                  <h3 class="text-xl font-extrabold">{s.code}</h3>
+                  <span class="badge badge--neutral shrink-0">{s.issuer}</span>
+                </div>
+                <p class="mt-1 font-semibold leading-snug">{s.title}</p>
+                <p class="mt-3 text-sm text-muted">{s.covers}</p>
+                <p class="mt-2 text-sm text-muted"><strong class="text-ink">Instruments:</strong> {s.instruments}</p>
+                <ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                  {s.guide && <li><a class="font-semibold text-red hover:underline" href={u(`/blog/${s.guide}/`)}>Read the guide &rarr;</a></li>}
+                  {s.tool && <li><a class="hover:text-red hover:underline" href={u(`/tools/${s.tool}/`)}>{toolBySlug[s.tool].short} calculator</a></li>}
+                  {s.category && <li><a class="hover:text-red hover:underline" href={u(`/products/${s.category}/`)}>{catById[s.category].shortName}</a></li>}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
+      <div class="rounded-xl bg-cloud p-5 text-sm text-muted max-w-4xl">
+        <p><strong class="text-ink">How to read this page.</strong> Each entry summarises scope only. We do not reproduce limits or clause text, because standards are revised and split into parts. Always quote the full designation and edition exactly as your specification gives it. Listing a standard here does not mean a particular instrument is certified to it; for the standards our own instruments conform to, see the <a class="text-red hover:underline" href={u('/blog/indian-standards-insulation-earth-oil-testers/')}>Indian standards guide</a> or ask us for the datasheet.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Writing a specification or tender?" body="Send us the standard, range and quantity. We will confirm which models match." primaryLabel="Send your specification" />
+</Base>
