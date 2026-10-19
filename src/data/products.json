@@ -91,7 +91,7 @@
       "cie-444-2.webp"
     ],
     "specTables": [],
-    "longForm": "cie-444.pdf"
+    "techCatalogue": "cie-444.pdf"
   },
   {
     "id": "cie-666",
@@ -182,7 +182,7 @@
     "metaDesc": "CIE/666 hand-driven megger-type insulation tester in seasoned wooden body. Rated voltages: 100, 250, 500, 1000, 2500, 5000 and 10,000 V - widest hand-driven HV choice. IS 2992-1987. Cambridge Instruments & Engg. Co., Howrah.",
     "images": null,
     "specTables": [],
-    "longForm": "cie-666.pdf"
+    "techCatalogue": "cie-666.pdf"
   },
   {
     "id": "cie-444-mr",
@@ -266,7 +266,7 @@
       "cie-444-mr.webp",
       "cie-444-mr-2.webp"
     ],
-    "longForm": "cie-444.pdf"
+    "techCatalogue": "cie-444.pdf"
   },
   {
     "id": "cie-666-mr",
@@ -369,7 +369,7 @@
       "H.V. testing leads, 2m - special - at extra cost",
       "Any other range - on request"
     ],
-    "longForm": "cie-666.pdf"
+    "techCatalogue": "cie-666.pdf"
   },
   {
     "id": "cie-777",
@@ -452,7 +452,7 @@
     ],
     "images": null,
     "specTables": [],
-    "longForm": "cie-777.pdf"
+    "techCatalogue": "cie-777.pdf"
   },
   {
     "id": "cie-777-hm",
@@ -538,7 +538,7 @@
       "cie-777-hm-2.webp"
     ],
     "specTables": [],
-    "longForm": "cie-777-hm.pdf"
+    "techCatalogue": "cie-777-hm.pdf"
   },
   {
     "id": "cie-777-mr",
@@ -677,7 +677,7 @@
       "Timer - at extra cost",
       "Any other range - on request"
     ],
-    "longForm": "cie-777.pdf"
+    "techCatalogue": "cie-777.pdf"
   },
   {
     "id": "cie-777-hm-mr",
@@ -816,7 +816,7 @@
       "Timer - at extra cost",
       "Any other range - on request"
     ],
-    "longForm": "cie-777-hm.pdf"
+    "techCatalogue": "cie-777-hm.pdf"
   },
   {
     "id": "cie-555",
@@ -914,7 +914,7 @@
       "cie-555.webp"
     ],
     "specTables": [],
-    "longForm": "cie-555.pdf"
+    "techCatalogue": "cie-555.pdf"
   },
   {
     "id": "cie-222m",
@@ -994,7 +994,7 @@
     "metaDesc": "CIE/222M analog earth resistance tester: 3-terminal (earth resistance) and 4-terminal (soil resistivity), \u00b15% per IS 9223. Complete kit with spikes and wire spools. Cambridge Instruments, Howrah.",
     "images": null,
     "specTables": [],
-    "longForm": "cie-222m.pdf"
+    "techCatalogue": "cie-222m.pdf"
   },
   {
     "id": "dit-5005",
