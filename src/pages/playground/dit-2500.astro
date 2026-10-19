@@ -198,7 +198,7 @@ import { u } from '../../utils/url';
   </Fragment>
   <Fragment slot="about">
       <ul>
-        <li><strong>Insulation side (100 V to 2500 V):</strong> turn the dial to a test voltage, connect the leads to LINE and EARTH, and press TEST. The tester applies that DC voltage and reports the resistance, from 0.1 MΩ up to 50 GΩ depending on the voltage.</li>
+        <li><strong>Insulation side (100, 250, 500, 1000 and 2500 V):</strong> turn the dial to a test voltage, connect the leads to LINE and EARTH, and press TEST. The tester applies that DC voltage and reports the resistance, from 0.1 MΩ up to 50 GΩ depending on the voltage.</li>
         <li><strong>Why the reading climbs:</strong> when you first apply voltage, a charging and absorption current flows. It decays over minutes, so the resistance rises. A dry, healthy winding climbs steadily. A damp or dirty one stays flat. That is the idea behind the DAR and PI tests.</li>
         <li><strong>DAR and PI:</strong> DAR compares the 1-minute reading with the 15 s or 30 s reading. PI compares the 10-minute reading with the 1-minute reading. Use the speed setting to run a full 10-minute test in about ten seconds.</li>
         <li><strong>Discharge:</strong> after any insulation test the object holds a charge. The display shows the voltage decaying. Keep the leads on until it reaches zero.</li>
@@ -507,7 +507,7 @@ import { u } from '../../utils/url';
     $('guard').checked = S.guard;
     var ln = '';
     if (S.leads === 'none') ln = 'No leads fitted. Choose a socket pair to connect to the test object.';
-    else if (S.leads === 'ins') ln = 'Red lead in LINE, black lead in EARTH. Use this pair for the 100 V to 2500 V insulation ranges.';
+    else if (S.leads === 'ins') ln = 'Red lead in LINE, black lead in EARTH. Use this pair for the insulation ranges.';
     else ln = 'Red lead in VΩ, black lead in the EARTH/COM socket. Use this pair for volts, resistance, capacitance, diode and continuity.';
     $('lead-note').textContent = ln;
     Array.prototype.forEach.call($('lead-seg').children, function (b) { b.setAttribute('aria-checked', b.getAttribute('data-v') === S.leads); });

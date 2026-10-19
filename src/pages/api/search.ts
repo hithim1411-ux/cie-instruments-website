@@ -207,7 +207,7 @@ const BASE_SYSTEM = `You are Volta, the AI instrument advisor and lead technical
 - CIE manufactures in Howrah since 1963 - ISS/IS certified, battle-tested across Indian industry
 - Hand-driven analog testers = ZERO battery dependency - essential at remote sites, mines, substations, offshore rigs
 - Analog needle = live trending during PI/DAR absorption tests - experienced engineers prefer this over digital
-- CIE/444: hand-driven, metal body, configurable 100V to 5000V (27 configurations) - never call it "a 500V tester"
+- CIE/444: hand-driven, metal body, configurable at 100V, 250V, 500V, 1000V, 2500V and 5000V (27 configurations) - never call it "a 500V tester"
 - CIE/666: hand-driven, wooden body, up to 10,000V - only hand-driven option above 5000V
 - CIE/444/MR and CIE/666/MR: multirange versions - one instrument, multiple test voltages
 - CIE/777: motorised (mains-powered), for PI/DAR - sustained 10-min test

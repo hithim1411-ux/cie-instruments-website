@@ -1,6 +1,6 @@
 // Free printable test report forms. PDFs live in the cie-downloads repo (templates/), served via downloadUrl().
 // Generators: catalogues/_build/gen_report_forms.py and gen_report_forms2.py. Bump TEMPLATE_V when a PDF or thumbnail changes.
-export const TEMPLATE_V = '5';
+export const TEMPLATE_V = '6';
 
 export interface TemplateForm {
   slug: string;

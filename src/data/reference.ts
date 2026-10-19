@@ -30,7 +30,7 @@ export const standards: Standard[] = [
   { code: 'IEEE 43', title: 'Recommended practice for testing insulation resistance of electric machinery', issuer: 'IEEE', group: 'Insulation and HV',
     covers: 'How to test and interpret insulation resistance and polarization index on windings of rotating machines rated 750 W or more.',
     note: 'The 2013 edition is listed by IEEE as inactive-reserved since 2024, though it is still widely cited. Check the IEEE site for the current status.',
-    instruments: 'Insulation testers with 500 V to 5 kV ranges', guide: 'polarization-index-vs-dielectric-absorption-ratio', tool: 'motor-minimum-insulation-resistance', category: 'motor-operated-insulation' },
+    instruments: 'Insulation testers with 500, 1000, 2500 and 5000 V ranges', guide: 'polarization-index-vs-dielectric-absorption-ratio', tool: 'motor-minimum-insulation-resistance', category: 'motor-operated-insulation' },
   { code: 'IS 6792', title: 'Insulating liquids: determination of the breakdown voltage at power frequency, test method', issuer: 'BIS (India)', group: 'Insulation and HV',
     covers: 'The breakdown voltage test for transformer oil: test cell, electrode gap and procedure.',
     note: 'The current edition (IS 6792:2023) is identical to IEC 60156:2018. Older editions were titled as a method for the electric strength of insulating oils.',
