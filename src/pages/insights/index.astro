@@ -72,7 +72,11 @@ const TOPIC_CHIPS = ['insulation', 'earthing', 'multimeter', 'clamp meter', 'osc
 // Compact search index sent to the browser (titles + short excerpt for matching).
 const searchData = {
   base: u('/'),
-  guides: posts.map((p: any) => ({ t: p.title, u: `/blog/${p.slug}/`, c: p.category, s: shelfLabel[p.shelf] ?? '', x: (p.excerpt ?? '').slice(0, 140) })),
+  guides: [...posts.map((p: any) => ({ t: p.title, u: `/blog/${p.slug}/`, c: p.category, s: shelfLabel[p.shelf] ?? '', x: (p.excerpt ?? '').slice(0, 140) })),
+    { t: 'Which instrument for which job', u: '/guides/', c: 'Selection guide', s: 'Reference', x: 'Match a testing job to the right instrument, what to look for, and the guide to read next.' },
+    { t: 'Electrical testing standards directory', u: '/reference/standards/', c: 'Standards', s: 'Reference', x: 'IS, IEC and IEEE standards for insulation, earthing and installation testing, by scope.' },
+    { t: 'IP and CAT ratings explained', u: '/reference/ratings/', c: 'Ratings', s: 'Reference', x: 'Dust and water protection codes and measurement categories CAT I to IV.' },
+  ],
   tools: tools.map((t) => ({ t: t.name, u: `/tools/${t.slug}/`, c: t.category, x: t.body })),
 };
 

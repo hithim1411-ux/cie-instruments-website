@@ -49,6 +49,9 @@ export const GET: APIRoute = () => {
   L.push('');
   L.push(`- [Compare instruments side by side](${ORIGIN}/compare/): compare CIE and Vartech models`);
   for (const t of tools) L.push(`- [${t.name}](${ORIGIN}/tools/${t.slug}/): ${clean(t.body)}`);
+  L.push(`- [Which instrument for which job](${ORIGIN}/guides/): a selection guide matching common testing jobs to the right instrument type, what to look for, and the related guide, calculator and standard`);
+  L.push(`- [Electrical testing standards directory](${ORIGIN}/reference/standards/): IS, IEC and IEEE standards used in insulation, earthing and installation testing, summarised by scope`);
+  L.push(`- [IP and CAT ratings explained](${ORIGIN}/reference/ratings/): dust and water protection codes and measurement categories CAT I to CAT IV`);
   L.push(`- [Test report forms (printable PDF)](${ORIGIN}/templates/): one page per form: insulation resistance (IEEE 43), earth resistance and soil resistivity, earth pit register, transformer oil BDV, transformer megger, cable insulation, micro-ohm contact resistance, AC hi-pot and overcurrent relay injection, each with a worksheet`);
   L.push(`- [Instrument Playground](${ORIGIN}/playground/): beta simulators of CIE instruments, plus find-the-fault challenges`);
   L.push('');
