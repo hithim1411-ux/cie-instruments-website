@@ -1333,7 +1333,7 @@
       },
       {
         "label": "Range Configuration",
-        "value": "Multiple range options available - specify at order"
+        "value": "6 dual-range and 3 triple-range options (see table below); other ranges on request"
       },
       {
         "label": "Dimensions (L\u00d7W\u00d7H)",
@@ -1364,12 +1364,78 @@
       "Instruction Manual"
     ],
     "options": [
-      "Testing kit: 4 M.S. spikes (45 cm), 1 hammer, 4 cables (50 ft each), 1 plier, 1 screwdriver - in canvas bag. At extra cost."
+      "Testing kit: 4 M.S. spikes (45 cm long), 4 rolls of flexible wire wound on spool (10 m, 20 m, 20 m, 30 m), 1 hammer - all in one carrying bag. At extra cost."
     ],
     "metaTitle": "DET-2000 Digital Earth Resistance Tester - 4-Terminal | Cambridge Instruments (CIE), Howrah",
     "metaDesc": "DET-2000 digital earth tester: 3\u00bd-digit LCD, 4-terminal, earth resistance and soil resistivity, rechargeable Ni-Cd. \u00b11.5% accuracy per IS 9223. Cambridge Instruments & Engg. Co., Howrah.",
     "images": null,
-    "specTables": []
+    "specTables": [
+      {
+        "heading": "Available Ranges (\u03a9)",
+        "note": "Any other range can be manufactured against specific requirements.",
+        "columns": [
+          "Type",
+          "Range"
+        ],
+        "rows": [
+          {
+            "col0": "Dual range",
+            "col1": "0\u20135\u2013500 \u03a9"
+          },
+          {
+            "col0": "Dual range",
+            "col1": "0\u201310\u2013100 \u03a9"
+          },
+          {
+            "col0": "Dual range",
+            "col1": "0\u201320\u2013200 \u03a9"
+          },
+          {
+            "col0": "Dual range",
+            "col1": "0\u201310\u20131000 \u03a9"
+          },
+          {
+            "col0": "Dual range",
+            "col1": "0\u201320\u20132000 \u03a9"
+          },
+          {
+            "col0": "Dual range",
+            "col1": "0\u2013200\u20132000 \u03a9"
+          },
+          {
+            "col0": "Triple range",
+            "col1": "0\u20135\u201350\u2013500 \u03a9"
+          },
+          {
+            "col0": "Triple range",
+            "col1": "0\u201310\u2013100\u20131000 \u03a9"
+          },
+          {
+            "col0": "Triple range",
+            "col1": "0\u201320\u2013200\u20132000 \u03a9"
+          }
+        ]
+      }
+    ],
+    "procedure": {
+      "heading": "How to Measure",
+      "intro": "The DET-2000 has four terminals marked E1, P1, P2 and E2. Press the TEST switch to take each reading and read the value directly on the LCD.",
+      "steps": [
+        {
+          "title": "Earth resistance (3-terminal method)",
+          "text": "Short terminals E1 and P1 and connect them to the earth connection (earth plate) under test. Connect P2 to a test spike driven 50 to 70 ft from it, and E2 to a second spike a further 50 to 70 ft along the same line. Press TEST and note the reading on the LCD."
+        },
+        {
+          "title": "Soil resistivity (4-terminal method)",
+          "text": "To plan the position and depth of a proposed electrode system, bury all four spikes in one straight line with the same distance L between them (L between 50 and 70 ft), and connect them to E1, P1, P2 and E2 in order. Press TEST and read R in ohms, taking care of the range factor. Resistivity is \u03c1 = 2\u03c0LR, in ohm-cm when L is in cm (use L in metres for ohm-m)."
+        },
+        {
+          "title": "Resistance measurement (non-inductive, non-capacitive)",
+          "text": "Short E1 to P1 and connect them to one end of the unknown resistance. Short P2 to E2 and connect them to the other end. Press TEST and read the value directly on the LCD."
+        }
+      ],
+      "note": "Never connect the instrument to a live or energised circuit."
+    }
   },
   {
     "id": "mr-253a",
@@ -1826,7 +1892,7 @@
     "featured": false,
     "datasheet": "dm-321t.pdf",
     "metaTitle": "DM 321T True-RMS Digital Multimeter, Manual Ranging | Cambridge Instruments (CIE)",
-    "metaDesc": "DM 321T: 3½-digit True-RMS manual-ranging digital multimeter with capacitance, hFE transistor test, backlight and holster. Cambridge Instruments & Engg. Co., Howrah.",
+    "metaDesc": "DM 321T: 3\u00bd-digit True-RMS manual-ranging digital multimeter with capacitance, hFE transistor test, backlight and holster. Cambridge Instruments & Engg. Co., Howrah.",
     "includedWith": [
       "Test Leads",
       "User Manual",
