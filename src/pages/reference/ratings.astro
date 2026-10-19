@@ -15,7 +15,7 @@ const liquids = [
   ['3', 'Spraying water, up to 60 degrees from vertical'], ['4', 'Splashing water from any direction'],
   ['5', 'Water jets (6.3 mm nozzle)'], ['6', 'Powerful water jets (12.5 mm nozzle)'],
   ['7', 'Temporary immersion, up to 1 m for 30 minutes'], ['8', 'Continuous immersion, to conditions the maker states'],
-  ['9K', 'High-pressure, high-temperature water jets'],
+  ['9', 'High-pressure, high-temperature water jets (about 80 °C)'],
 ];
 const cats = [
   ['CAT I', 'Protected electronic circuits and signal-level equipment', 'Circuits not directly connected to mains, or protected by limiting devices'],
@@ -45,7 +45,7 @@ const impulse = [
 
       <div id="ip" class="scroll-mt-28">
         <h2 class="text-2xl font-extrabold tracking-tight">IP code (IEC 60529)</h2>
-        <p class="mt-2 text-muted">Written as IP followed by two digits, for example IP54. The first digit is protection against solid objects and dust (0 to 6). The second is protection against water (0 to 9K). An X replaces a digit that was not tested, as in IPX4.</p>
+        <p class="mt-2 text-muted">Written as IP followed by two digits, for example IP54. The first digit is protection against solid objects and dust (0 to 6). The second is protection against water (0 to 9). An X replaces a digit that was not tested, as in IPX4. The rating IPX9K or IP69K, often seen on wash-down equipment, comes from DIN 40050-9 and ISO 20653 (road vehicles), not from the base IEC 60529 table.</p>
         <div class="mt-6 grid gap-6 md:grid-cols-2">
           <div class="overflow-x-auto">
             <table class="spec-table w-full text-sm"><caption class="text-left font-bold mb-2">First digit: solids and dust</caption>
@@ -76,7 +76,7 @@ const impulse = [
             <thead><tr><th class="text-left">Rated voltage</th><th class="text-left">CAT II</th><th class="text-left">CAT III</th><th class="text-left">CAT IV</th></tr></thead>
             <tbody>{impulse.map(([v, a, b, c]) => <tr><td class="font-mono font-bold">{v}</td><td>{a}</td><td>{b}</td><td>{c}</td></tr>)}</tbody></table>
         </div>
-        <p class="mt-4 text-sm text-muted">A higher voltage number does not make up for a lower category. CAT III 300 V withstands a smaller transient than CAT III 600 V, and CAT IV 300 V and CAT III 600 V both withstand 6 kV but are meant for different locations. Pick the category of the location first, then a voltage rating at or above the system voltage. Read the full <a class="text-red hover:underline" href={u('/blog/what-is-cat-rating/')}>CAT rating guide</a>.</p>
+        <p class="mt-4 text-sm text-muted">The category tests also differ in source impedance (lower for CAT III and IV than for CAT II), so a CAT II 1000 V meter is not equivalent to a CAT III 600 V meter even where both quote 6 kV. A higher voltage number does not make up for a lower category. CAT III 300 V withstands a smaller transient than CAT III 600 V, and CAT IV 300 V and CAT III 600 V both withstand 6 kV but are meant for different locations. Pick the category of the location first, then a voltage rating at or above the system voltage. Read the full <a class="text-red hover:underline" href={u('/blog/what-is-cat-rating/')}>CAT rating guide</a>.</p>
       </div>
 
       <div class="rounded-xl bg-cloud p-5 text-sm text-muted">
