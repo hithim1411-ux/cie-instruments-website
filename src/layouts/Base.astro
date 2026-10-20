@@ -350,8 +350,11 @@ const orgSchema = {
     <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
   )}
 
-  <link rel="icon" type="image/png" href={u('/logo/cie-logo.png')} />
-  <link rel="apple-touch-icon" href={u('/logo/cie-logo.png')} />
+  <link rel="icon" href={u('/favicon.ico')} sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href={u('/favicon-48.png')} />
+  <link rel="icon" type="image/png" sizes="96x96" href={u('/favicon-96.png')} />
+  <link rel="icon" type="image/png" sizes="192x192" href={u('/favicon-192.png')} />
+  <link rel="apple-touch-icon" href={u('/apple-touch-icon.png')} />
 
   <!-- BreadcrumbList schema (computed in frontmatter) -->
   {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}

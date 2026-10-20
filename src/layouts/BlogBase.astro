@@ -37,7 +37,11 @@ const onInsights = currentPath.startsWith(u('/blog'));
   <meta property="og:image" content={new URL(ogImage, 'https://www.cieinstruments.in').toString()} />
   <meta property="og:type" content="article" />
 
-  <link rel="icon" type="image/png" href={u('/logo/cie-logo.png')} />
+  <link rel="icon" href={u('/favicon.ico')} sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href={u('/favicon-48.png')} />
+  <link rel="icon" type="image/png" sizes="96x96" href={u('/favicon-96.png')} />
+  <link rel="icon" type="image/png" sizes="192x192" href={u('/favicon-192.png')} />
+  <link rel="apple-touch-icon" href={u('/apple-touch-icon.png')} />
 </head>
 
 <body class="bg-white text-ink antialiased">
