@@ -1,6 +1,6 @@
 // Free printable test report forms. PDFs live in the cie-downloads repo (templates/), served via downloadUrl().
-// Generators: catalogues/_build/gen_report_forms.py and gen_report_forms2.py. Bump TEMPLATE_V when a PDF or thumbnail changes.
-export const TEMPLATE_V = '6';
+// Generators: catalogues/_build/gen_report_forms.py, gen_report_forms2.py and gen_report_forms3.py. Bump TEMPLATE_V when a PDF or thumbnail changes.
+export const TEMPLATE_V = '7';
 
 export interface TemplateForm {
   slug: string;
@@ -234,6 +234,77 @@ export const templates: TemplateForm[] = [
     ],
     links: [['Electrical panel testing', '/blog/electrical-panel-testing/'], ['How to test motor windings', '/blog/how-to-test-motor-windings/'], ['Insulation test voltage selector', '/tools/insulation-test-voltage-selector/']],
     product: { label: 'See the CIE HV test set', href: '/products/hv-phase-sequence/' },
+  },
+  {
+    slug: 'wiring-insulation-resistance-test-report',
+    file: 'CIE-Wiring-Insulation-Resistance-Test-Report-Form.pdf',
+    pages: 2,
+    name: 'Wiring Insulation Resistance Test Report',
+    seoTitle: 'House Wiring Insulation Resistance Test Report Format (Free PDF)',
+    seoDesc: 'Free printable wiring insulation resistance (megger) test report for houses, shops and buildings: circuit by circuit live-live, live-earth and neutral-earth readings. A4 PDF.',
+    std: 'Low-voltage final circuits, IEC 60364-6 values as commonly quoted',
+    summary: 'A circuit-by-circuit certificate for a new installation, an extension or a periodic check, with a reference page for test voltage, minimum values, method and a quick cause finder.',
+    inside: [
+      'Installation details, earthing system, test instrument and test voltage',
+      'A 14-circuit table with live-live, live-earth and neutral-earth readings, the minimum and pass or fail for each',
+      'A note on three-phase circuits and on disconnecting electronics before the test',
+      'Page 2: test voltage and minimum IR by circuit voltage, a five-step method, and a table of what a low reading usually means',
+    ],
+    checks: 'The test voltages (250 V, 500 V, 1000 V) and minimum values (0.5 and 1 MΩ) are as commonly quoted from IEC 60364-6 and are shown as guides. Local wiring rules or your supply company may ask for more, so use the strictest. The form has no calculations.',
+    faqs: [
+      ['What insulation resistance is acceptable for house wiring?', 'A commonly quoted minimum is 1 MΩ at 500 V DC for normal 230 / 415 V circuits. A healthy installation usually reads far higher, so treat 1 MΩ as a floor and watch for readings that fall between tests.'],
+      ['Do I need to disconnect appliances before a megger test?', 'Yes. Unplug appliances, remove lamps and disconnect electronic devices, dimmers and surge protectors, because the test voltage can damage them and a connected load gives a false low reading.'],
+    ],
+    links: [['How to megger test house wiring', '/blog/how-to-megger-test-house-wiring/'], ['Insulation test voltage selector', '/tools/insulation-test-voltage-selector/'], ['What is a megger', '/blog/what-is-a-megger/']],
+    product: { label: 'See CIE insulation testers', href: '/products/digital-insulation-testers/' },
+  },
+  {
+    slug: 'motor-winding-test-report',
+    file: 'CIE-Motor-Winding-Test-Report-Form.pdf',
+    pages: 2,
+    name: 'Motor Winding Test Report',
+    seoTitle: 'Motor Winding Test Report Format (Free PDF): IR, Resistance, Balance',
+    seoDesc: 'Free printable motor winding test report with insulation resistance and PI, winding resistance corrected to 75 C, resistance imbalance and no-load current. A4 PDF.',
+    std: 'IEEE 43-2013 insulation, winding resistance and balance',
+    summary: 'One sheet per motor: nameplate, insulation resistance with PI, winding resistance with correction to 75 °C and imbalance, and an optional no-load run. Page 2 has the formulas, a correction table and guide values.',
+    inside: [
+      'Nameplate and job details, winding material, connection and thermal class',
+      'Timed insulation resistance for U, V, W and all windings to earth, with PI',
+      'Winding resistance for U-V, V-W and W-U, corrected to 75 °C, with change against the factory or previous value and an imbalance box',
+      'An optional no-load current and voltage table',
+      'Page 2: copper and aluminium correction formulas, a correction factor table from 10 to 85 °C, and findings with likely causes',
+    ],
+    checks: 'The R75 / RT factors are calculated from the formula shown (constants 235 for copper, 225 for aluminium) and the worked example was checked by hand. The 2 % imbalance, minimum IR and PI values and the no-load current range are rules of thumb marked as guides. Use the factory report, the standard or your site limit.',
+    faqs: [
+      ['How do I correct winding resistance to 75 °C?', 'For copper, multiply the reading by (235 + 75) divided by (235 + T), where T is the winding temperature in °C when you measured. For aluminium use 225 instead of 235. The form includes a ready table.'],
+      ['What winding resistance imbalance is acceptable?', 'Imbalance is (highest minus lowest) divided by the average, times 100. About 2 % is a commonly used guide, but the factory report and the previous test are a better reference than a single number.'],
+    ],
+    links: [['How to test motor windings', '/blog/how-to-test-motor-windings/'], ['Motor minimum IR check', '/tools/motor-minimum-insulation-resistance/'], ['Motor insulation testing schedule', '/blog/motor-insulation-testing-schedule/']],
+    product: { label: 'See CIE insulation testers', href: '/products/digital-insulation-testers/' },
+  },
+  {
+    slug: 'lv-panel-maintenance-checklist',
+    file: 'CIE-LV-Panel-Maintenance-Checklist.pdf',
+    pages: 2,
+    name: 'LV Panel Preventive Maintenance Checklist',
+    seoTitle: 'LV Panel Preventive Maintenance Checklist (Free PDF Format)',
+    seoDesc: 'Free printable low-voltage panel preventive maintenance checklist with visual, connection and switching device checks, plus insulation, contact resistance and earthing test records. A4 PDF.',
+    std: 'Preventive maintenance checklist with test record',
+    summary: 'Page 1 is a tick-box checklist for the panel. Page 2 records the electrical tests that go with it: busbar insulation resistance, joint and contact resistance, and earthing.',
+    inside: [
+      'Panel details, last maintenance date and a permit and isolation check before work',
+      'Checks for the enclosure, busbars, labels, connections, breakers, relays and interlocks, each with OK, Fixed, Action or N/A',
+      'Insulation resistance table for phase to phase, phase to earth and neutral to earth, with previous values',
+      'Contact and joint resistance table with a previous-worst column, and an earthing table',
+      'Sign-off, next maintenance due and an actions-outstanding box',
+    ],
+    checks: 'The form has no calculated values. The 1.5 to 2 times joint resistance multiplier is a practical guide, and the note says to use the maker\'s limit if one is given. It also says that breaker main-contact tests normally need 100 A or more, so a low-current meter is for lugs and joints.',
+    faqs: [
+      ['How often should an LV panel be maintained?', 'Many sites do it once a year, with a quicker thermal or visual check more often. Follow the maker and your site procedure, and test again after a fault or after any work in the panel.'],
+      ['What tests go with panel maintenance?', 'Insulation resistance of the busbars, contact and joint resistance at the main connections, and earth continuity with the earth pit resistance. The form has a table for each.'],
+    ],
+    links: [['Electrical panel testing', '/blog/electrical-panel-testing/'], ['Continuity, insulation and contact resistance', '/blog/continuity-vs-insulation-vs-contact-resistance/']],
+    product: { label: 'See CIE micro-ohm meters', href: '/products/digital-earth-micro-ohm/' },
   },
 ];
 
