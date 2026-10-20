@@ -1059,7 +1059,6 @@
     "featured": false,
     "datasheet": "dit-5005.pdf",
     "buildToOrder": true,
-    "orderNote": "Custom ranges and configurations can also be built against specific requirements.",
     "includedWith": [
       "Carrying Case",
       "Charging Cord",
@@ -1394,7 +1393,6 @@
     "featured": false,
     "datasheet": "det-2000.pdf",
     "buildToOrder": true,
-    "orderNote": "Custom ranges and configurations can also be built against specific requirements.",
     "includedWith": [
       "Carrying Case",
       "Charging Cord",
