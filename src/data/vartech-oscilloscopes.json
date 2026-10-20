@@ -526,13 +526,15 @@
     "id": "ss-5100ds4",
     "model": "SS-5100DS4",
     "name": "100 MHz 4-Channel Digital Storage Oscilloscope",
-    "tagline": "100 MHz 4 CHANNEL OSCILLOSCOPE (DSO), 500 µV - 10 V / Div., 1 GS/S, USB Interface, 7\" TFT",
-    "description": "100 MHz 4 CHANNEL OSCILLOSCOPE (DSO), 500 µV - 10 V / Div., 1 GS/S, USB Interface, 7\" TFT Superior Quality High performance High reliability Probes Included.",
+    "tagline": "100 MHz four-channel digital storage oscilloscope, 1 GS/s, 7 inch TFT display, USB, probes included.",
+    "description": "The Vartech SS-5100DS4 is a 100 MHz digital storage oscilloscope with four channels, 1 GS/s sampling and a 7 inch TFT display. Vertical sensitivity runs from 500 µV to 10 V per division, a USB interface connects it to a PC, and probes are supplied. Four channels let you compare several signals at once, which helps on power electronics, motor drives and digital buses.",
     "features": [
-      "Superior Quality",
-      "High performance",
-      "High reliability",
-      "Probes Included."
+      "100 MHz bandwidth, 4 channels",
+      "1 GS/s sampling rate",
+      "500 µV to 10 V / div vertical sensitivity",
+      "7 inch TFT display",
+      "USB interface",
+      "Probes included"
     ],
     "specs": [
       {

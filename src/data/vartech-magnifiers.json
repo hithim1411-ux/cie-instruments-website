@@ -1,17 +1,16 @@
 [
   {
-    "id": "228-lxd",
-    "model": "228 LXD",
-    "name": "Dimmable LED Magnifying Lamp, 7\" Round Lens, Table Clamp",
-    "tagline": "Dimmable magnifier with Large round lens, table clamping, Light temperature selector (Warm & Cool white light)",
-    "description": "Dimmable magnifier with Large round lens, table clamping, Light temperature selector (Warm & Cool white light) Large 7\" Round lens, 5 Diopter. 72 Pcs., SMD LED, 12W Touch Dimmer, 1000 Lumens, 6000~7000 K.",
+    "id": "268-l",
+    "model": "268 L",
+    "name": "LED Magnifying Lamp, 90 mm Lens, Table Top",
+    "tagline": "LED magnifying lamp with a 90 mm lens and a 12 dioptre inset lens, tilting lens, folding arms, table top.",
+    "description": "The Vartech 268 L is a table-top LED magnifying lamp with a 90 mm round lens (3 dioptre) and a small built-in 12 dioptre lens for closer inspection. The lens tilts and rotates, a lid protects it when not in use, and the folding arms reach out to 450 mm. It runs from 220 V mains and weighs about 1 kg. A compact lamp for inspecting micro components and densely populated PCBs.",
     "features": [
-      "Large Round 7” lens",
-      "Dimmable, Warm white & Cool White light",
-      "Integration of Magnifying and Lighting",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel / Beautician to Light or Magnify"
+      "90 mm lens, 3 dioptre, with a built-in 12 dioptre small lens",
+      "Lens tilts and rotates; lid protects the lens",
+      "Folding arms, adjustable extent 450 mm",
+      "LED lighting, 220 V mains",
+      "About 1 kg"
     ],
     "specs": [
       {
@@ -19,327 +18,15 @@
         "value": "220 V AC, 60 / 50 Hz."
       },
       {
-        "label": "Lighting",
-        "value": "72 Pcs., SMD LED, 12W"
-      },
-      {
-        "label": "Lens Size",
-        "value": "7” Diameter"
-      },
-      {
-        "label": "Magnifications",
-        "value": "5 Dioptre"
-      },
-      {
-        "label": "Feature",
-        "value": "Table Clamping, folding arm, light temp., selector"
-      },
-      {
-        "label": "Weight",
-        "value": "Approx. 5 Kg."
-      }
-    ],
-    "images": [
-      "228-lxd.webp"
-    ],
-    "catalogue": "228-lxd.pdf"
-  },
-  {
-    "id": "228-lrd",
-    "model": "228 LRD",
-    "name": "Dimmable LED Magnifying Lamp, Rectangular Lens, Table Clamp",
-    "tagline": "Dimmable magnifier with rectangular lens table clamping, Light temperature selector",
-    "description": "Dimmable magnifier with rectangular lens table clamping, Light temperature selector Warm & Cool white light Rectangular large lens 7.5” x 6.2”, 5 Diopter. 144 Pcs., SMD LED 14W Max., (72 Pcs. Each Warm Light & Cool Light Selector), 900 Lumens, 6000~7000 K.",
-    "features": [
-      "Large Rectangular Lens 7.5” x 6.2”",
-      "Dimmable, Warm white & Cool White light",
-      "Integration of Magnifying and Lighting",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel / Beautician to Light or Magnify"
-    ],
-    "specs": [
-      {
-        "label": "Supply Voltage",
-        "value": "220 V AC, 60 / 50 Hz."
-      },
-      {
-        "label": "Lighting",
-        "value": "144 Pcs., L.E.D. 4W, Warm & Cool White light"
-      },
-      {
-        "label": "Lens Size",
-        "value": "7.5” x 6.2”"
-      },
-      {
-        "label": "Magnifications",
-        "value": "5 Dioptre"
-      },
-      {
-        "label": "Feature",
-        "value": "Table Clamping, folding arm, light temp., selector"
-      },
-      {
-        "label": "Weight",
-        "value": "Approx. 5 Kg."
-      }
-    ],
-    "images": [
-      "228-lrd.webp",
-      "228-lrd-2.webp"
-    ],
-    "catalogue": "228-lrd.pdf"
-  },
-  {
-    "id": "228-blr",
-    "model": "228 BLR",
-    "name": "LED Magnifying Lamp, Rectangular Lens, Table Top",
-    "tagline": "Magnifier lamp with rectangle lens, 7.5” x 6.2”.",
-    "description": "Magnifier lamp with rectangle lens, 7.5” x 6.2”. 220V AC, 56 Pcs., SMD LED, 9W, 604 Lumens, 6000~7000 K. Desk Top, With Folding Arms, Heavy Metal Base. 5 Diopter Magnification.",
-    "features": [
-      "Large Rectangular Lens 7.5” x 6.2”",
-      "Integration of Magnifying and Lighting",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel / Beautician to Light or Magnify",
-      "Heavy Metal Base"
-    ],
-    "specs": [
-      {
-        "label": "Supply Voltage",
-        "value": "220 V AC, 60 / 50 Hz."
-      },
-      {
-        "label": "Lighting",
-        "value": "56 Pcs., L.E.D. 9W."
-      },
-      {
-        "label": "Lens Size",
-        "value": "7.5” x 6.2”"
-      },
-      {
-        "label": "Magnifications",
-        "value": "5 Dioptre"
-      },
-      {
-        "label": "Feature",
-        "value": "Desk-top, folding arm"
-      },
-      {
-        "label": "Weight",
-        "value": "Approx. 7 Kg."
-      }
-    ],
-    "images": [
-      "228-blr.webp"
-    ],
-    "catalogue": "228-blr.pdf"
-  },
-  {
-    "id": "228-bl",
-    "model": "228 BL",
-    "name": "LED Magnifying Lamp, 125 mm Lens, Table Top, Heavy Base",
-    "tagline": "MAGNIFIER LAMP, 220V AC, 9 W L.E.D., Round, 125 mm Dia.",
-    "description": "MAGNIFIER LAMP, 220V AC, 9 W L.E.D., Round, 125 mm Dia. Lens, Desk Top, W/Folding Arms, Heavy Metal Base, 5 Diopter Magnification.",
-    "features": [
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality 5” Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel / Beautician to Light or Magnify",
-      "Heavy Metal Base"
-    ],
-    "specs": [
-      {
         "label": "Lens diameter",
-        "value": "Φ 127 mm"
-      },
-      {
-        "label": "Magnification",
-        "value": "5 Dioptre"
-      },
-      {
-        "label": "Lights",
-        "value": "9 W L.E.D. (56 pcs. S.M.D. L.E.D.s)"
-      },
-      {
-        "label": "Supply voltage",
-        "value": "AC 220 V, 50 Hz"
-      },
-      {
-        "label": "Weight",
-        "value": "About 6 Kg"
-      }
-    ],
-    "images": [
-      "228-bl.webp",
-      "228-bl-2.webp",
-      "228-bl-3.webp",
-      "228-bl-4.webp"
-    ],
-    "catalogue": "228-al-and-228-bl.pdf"
-  },
-  {
-    "id": "228-al",
-    "model": "228 AL",
-    "name": "LED Magnifying Lamp, 125 mm Lens, Desk Top, Vertical Rod",
-    "tagline": "MAGNIFIER LAMP, 220V AC, 9 W L.E.D., Round, 125 mm Dia.",
-    "description": "MAGNIFIER LAMP, 220V AC, 9 W L.E.D., Round, 125 mm Dia. Lens, Desk Top, With Vertical Rod, Heavy Metal Base, 5 Diopter Magnification.",
-    "features": [
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality 5” Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel / Beautician to Light or Magnify",
-      "Heavy Metal Base"
-    ],
-    "specs": [
-      {
-        "label": "Lens diameter",
-        "value": "Φ 127 mm"
-      },
-      {
-        "label": "Magnification",
-        "value": "5 Dioptre"
-      },
-      {
-        "label": "Lights",
-        "value": "9 W L.E.D. (56 pcs. S.M.D. L.E.D.s)"
-      },
-      {
-        "label": "Supply voltage",
-        "value": "AC 220 V, 50 Hz"
-      },
-      {
-        "label": "Weight",
-        "value": "About 5.25 Kg"
-      }
-    ],
-    "images": [
-      "228-al.webp",
-      "228-al-2.webp",
-      "228-al-3.webp"
-    ],
-    "catalogue": "228-al-and-228-bl.pdf"
-  },
-  {
-    "id": "228-l-ii",
-    "model": "228 L II",
-    "name": "LED Magnifying Lamp, 125 mm Lens, Table Clamp, External Arm Springs",
-    "tagline": "MAGNIFIER LAMP, 220V AC, 9 W L.E.D., Round, 125 mm Dia.",
-    "description": "MAGNIFIER LAMP, 220V AC, 9 W L.E.D., Round, 125 mm Dia. Lens, Table Clamping W/Folding Arms, Arm Springs - External. Arm length : 43 cm + 43 cm. Total 86 cm. High build quality. 5 Diopter & 8 Diopter Magnification variants. Superior Quality Model - 228 L (x5 & x8)",
-    "features": [
-      "Table clamping magnifying lamps",
-      "Integration of Magnifying and Lighting",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality 5” Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel / Beautician to Light or Magnify",
-      "Superior Quality"
-    ],
-    "specs": [
-      {
-        "label": "Lens diameter",
-        "value": "Φ 125 mm"
-      },
-      {
-        "label": "Magnification",
-        "value": "5 or 8 Dioptre (chosen when ordering)"
-      },
-      {
-        "label": "Lights",
-        "value": "9 W L.E.D. (56 pcs. S.M.D.)"
-      },
-      {
-        "label": "Supply voltage",
-        "value": "AC 220 V, 50 Hz"
-      },
-      {
-        "label": "Weight",
-        "value": "About 2 Kg"
-      }
-    ],
-    "images": [
-      "228-l-ii.webp",
-      "228-l-ii-2.webp"
-    ],
-    "catalogue": "228-l-and-228-l-ii.pdf"
-  },
-  {
-    "id": "228-l",
-    "model": "228 L",
-    "name": "LED Magnifying Lamp, 125 mm Lens, Table Clamp, Sturdy Arms",
-    "tagline": "MAGNIFIER LAMP, 220V AC, 9 W L.E.D., Round, 125 mm Dia.",
-    "description": "MAGNIFIER LAMP, 220V AC, 9 W L.E.D., Round, 125 mm Dia. Lens, Table Clamping with Folding Arms (Sturdy). Arm length : 46 cm + 46 cm. Total 92 cm. Superior build quality. 5 Diopter & 8 Diopter Magnification variants. Economical Model - 228 L II with external arm springs (x5 & x8)",
-    "features": [
-      "Table clamping magnifying lamps",
-      "Integration of Magnifying and Lighting",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality 5” Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel / Beautician to Light or Magnify",
-      "Superior Quality"
-    ],
-    "specs": [
-      {
-        "label": "Lens diameter",
-        "value": "Φ 125 mm"
-      },
-      {
-        "label": "Magnification",
-        "value": "5 or 8 Dioptre (chosen when ordering)"
-      },
-      {
-        "label": "Lights",
-        "value": "9 W L.E.D. (56 pcs. S.M.D.)"
-      },
-      {
-        "label": "Supply voltage",
-        "value": "AC 220 V, 50 Hz"
-      },
-      {
-        "label": "Weight",
-        "value": "About 3 Kg"
-      }
-    ],
-    "images": [
-      "228-l.webp",
-      "228-l-2.webp",
-      "228-l-3.webp",
-      "228-l-4.webp"
-    ],
-    "catalogue": "228-l-and-228-l-ii.pdf"
-  },
-  {
-    "id": "8093-ld",
-    "model": "8093 LD",
-    "name": "Dimmable LED Magnifying Lamp, Touch Dimmer, Table Top",
-    "tagline": "LED Magnifier lamp with 4” Lens, 3+12 Diopter Magnifications, 40 Pcs., SMD LED, 7W.",
-    "description": "LED Magnifier lamp with 4” Lens, 3+12 Diopter Magnifications, 40 Pcs., SMD LED, 7W. With Touch Dimmer. 430 Lumens, 6000~7000 K. Adjustable Extent : 450 mm Ultra Clear lens Sturdy & strong arms Bright and stable light Industrial Grade 8093 CFL 8093 LED",
-    "features": [
-      "Table Top magnifying lamp",
-      "Touch Dimmer",
-      "Lens can be tilted & rotated as required",
-      "Integration of Magnifying and Lighting",
-      "Ultra Clear lens",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel, Beauticians to Light or Magnify",
-      "Superior Quality"
-    ],
-    "specs": [
-      {
-        "label": "Supply Voltage",
-        "value": "220 V AC, 60 / 50 Hz."
-      },
-      {
-        "label": "Lighting",
-        "value": "40 Pcs., L.E.D. 7W, Dimmable."
-      },
-      {
-        "label": "Lens diameter",
-        "value": "100 mm"
+        "value": "90 mm"
       },
       {
         "label": "Magnifications",
         "value": "3 Dioptre Main lens & 12 Dioptre built in small lens"
       },
       {
-        "label": "Adjustable extent",
+        "label": "Adjustable Extent",
         "value": "450 mm"
       },
       {
@@ -348,84 +35,27 @@
       },
       {
         "label": "Weight",
-        "value": "Approx. 1.75 Kg."
+        "value": "Approx. 1 kg"
       }
     ],
     "images": [
-      "8093-ld.webp",
-      "8093-ld-2.webp",
-      "8093-ld-3.webp"
+      "268-l.webp",
+      "268-l-2.webp"
     ],
-    "catalogue": "8093-ld.pdf"
-  },
-  {
-    "id": "8093-led",
-    "model": "8093 LED",
-    "name": "LED Magnifying Lamp, 100 mm Lens, Table Top",
-    "tagline": "LED MAGNIFIER LAMP, 220V AC, Round, Lens With Lid, Tiltable, Folding Arms.",
-    "description": "LED MAGNIFIER LAMP, 220V AC, Round, Lens With Lid, Tiltable, Folding Arms. Lens diameter: 100 mm Magnifications: Main lens 3 Diopter Magnification, Built-in small lens 12 Diopter Magnification. Adjustable Extent : 450 mm Ultra Clear lens Sturdy & strong arms Bright and stable light Industrial Grade",
-    "features": [
-      "Table Top magnifying lamp",
-      "Lens can be tilted & rotated as required",
-      "Integration of Magnifying and Lighting",
-      "Ultra Clear lens",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel, Beauticians to Light or Magnify",
-      "Superior Quality"
-    ],
-    "specs": [
-      {
-        "label": "Supply voltage",
-        "value": "220 V AC, 60 / 50 Hz"
-      },
-      {
-        "label": "Lighting",
-        "value": "40 pcs. L.E.D., 6 W"
-      },
-      {
-        "label": "Lens diameter",
-        "value": "100 mm"
-      },
-      {
-        "label": "Magnifications",
-        "value": "3 Dioptre main lens and 12 Dioptre built-in small lens"
-      },
-      {
-        "label": "Adjustable extent",
-        "value": "450 mm"
-      },
-      {
-        "label": "Feature",
-        "value": "Desk-top, folding arm"
-      },
-      {
-        "label": "Weight",
-        "value": "Approx. 1.75 Kg"
-      }
-    ],
-    "images": [
-      "8093-led.webp",
-      "8093-led-2.webp",
-      "8093-led-3.webp"
-    ],
-    "catalogue": "8093-cfl-and-8093-led.pdf"
+    "catalogue": "268-l.pdf"
   },
   {
     "id": "8093",
     "model": "8093",
     "name": "Magnifying Lamp, 100 mm Lens, CFL, Table Top",
-    "tagline": "Magnifying Lamp, 100 mm Lens, CFL, Table Top",
-    "description": "Model: 8093, MAGNIFIER LAMP, 220V AC, Round, 100 mm Dia., Lens W/Lid, Tiltable, Folding Arms, CFL Lamp. 3 Diopter Magnification, Built-in small lens 12 Diopter Magnification. Adjustable Extent : 450 mm Ultra Clear lens Sturdy & strong arms Bright and stable light Industrial Grade",
+    "tagline": "Magnifying lamp with a 100 mm lens, 12 W circular CFL light, tilting lens, folding arms, table top.",
+    "description": "The Vartech 8093 is a table-top magnifying lamp with a 100 mm round lens (3 dioptre), a built-in 12 dioptre small lens and a 12 W circular CFL tube. The lens tilts and rotates and has a lid, and the folding arms extend to 450 mm. It runs from 220 V mains and weighs about 1.75 kg. For inspecting micro components and densely populated PCBs; the LED versions are the 8093 LED and the dimmable 8093 LD.",
     "features": [
-      "Table Top magnifying lamp",
-      "Lens can be tilted & rotated as required",
-      "Integration of Magnifying and Lighting",
-      "Ultra Clear lens",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel, Beauticians to Light or Magnify",
-      "Superior Quality"
+      "100 mm lens, 3 dioptre, with a built-in 12 dioptre small lens",
+      "12 W circular CFL lamp",
+      "Lens tilts and rotates; lid protects the lens",
+      "Folding arms, adjustable extent 450 mm",
+      "About 1.75 kg"
     ],
     "specs": [
       {
@@ -454,7 +84,7 @@
       },
       {
         "label": "Weight",
-        "value": "Approx. 1.75 Kg"
+        "value": "Approx. 1.75 kg"
       }
     ],
     "images": [
@@ -463,36 +93,37 @@
     "catalogue": "8093-cfl-and-8093-led.pdf"
   },
   {
-    "id": "268-l",
-    "model": "268 L",
-    "name": "LED Magnifying Lamp, 90 mm Lens, Table Top",
-    "tagline": "MAGNIFIER LAMP, 220 V AC, L.E.D.",
-    "description": "MAGNIFIER LAMP, 220 V AC, L.E.D. 6W 90 mm Dia, Round Lens With Lid, Tiltable, Folding Arms Crystal clear magnification with bright light. Main Lens 3 Diopter Magnification, In built small lens 12 Diopter Magnification",
+    "id": "8093-led",
+    "model": "8093 LED",
+    "name": "LED Magnifying Lamp, 100 mm Lens, Table Top",
+    "tagline": "LED magnifying lamp with a 100 mm lens, 40 LEDs, tilting lens, folding arms, table top.",
+    "description": "The Vartech 8093 LED is the LED version of the 8093: a table-top lamp with a 100 mm round lens (3 dioptre), a built-in 12 dioptre small lens and 40 LEDs drawing 6 W. The lens tilts and rotates and has a lid, and the folding arms extend to 450 mm. It runs from 220 V mains and weighs about 1.75 kg. For inspecting micro components and densely populated PCBs.",
     "features": [
-      "Table Top magnifying lamp",
-      "Lens can be tilted & rotated as required",
-      "Integration of Magnifying and Lighting",
-      "Ultra Clear lens",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel, Beauticians to Light or Magnify",
-      "Superior Quality"
+      "100 mm lens, 3 dioptre, with a built-in 12 dioptre small lens",
+      "40 LEDs, 6 W",
+      "Lens tilts and rotates; lid protects the lens",
+      "Folding arms, adjustable extent 450 mm",
+      "About 1.75 kg"
     ],
     "specs": [
       {
-        "label": "Supply Voltage",
-        "value": "220 V AC, 60 / 50 Hz."
+        "label": "Supply voltage",
+        "value": "220 V AC, 60 / 50 Hz"
+      },
+      {
+        "label": "Lighting",
+        "value": "40 pcs. LED, 6 W"
       },
       {
         "label": "Lens diameter",
-        "value": "90 mm"
+        "value": "100 mm"
       },
       {
         "label": "Magnifications",
-        "value": "3 Dioptre Main lens & 12 Dioptre built in small lens"
+        "value": "3 Dioptre main lens and 12 Dioptre built-in small lens"
       },
       {
-        "label": "Adjustable Extent",
+        "label": "Adjustable extent",
         "value": "450 mm"
       },
       {
@@ -501,27 +132,29 @@
       },
       {
         "label": "Weight",
-        "value": "Approx. 1 Kg."
+        "value": "Approx. 1.75 kg"
       }
     ],
     "images": [
-      "268-l.webp",
-      "268-l-2.webp"
+      "8093-led.webp",
+      "8093-led-2.webp",
+      "8093-led-3.webp"
     ],
-    "catalogue": "268-l.pdf"
+    "catalogue": "8093-cfl-and-8093-led.pdf"
   },
   {
-    "id": "228-lx",
-    "model": "228 LX",
-    "name": "LED Magnifying Lamp, 7\" Large Lens, Table Clamp",
-    "tagline": "Magnifier with 7\" Large lens, 12 W LED table clamping type, 5 Dioptre magnification.",
-    "description": "Magnifier with 7\" Large lens, 12 W LED table clamping type, 5 Dioptre magnification. 84 Pcs., SMD LED, 910 Lumens, 6000~7000 K.",
+    "id": "8093-ld",
+    "model": "8093 LD",
+    "name": "Dimmable LED Magnifying Lamp, Touch Dimmer, Table Top",
+    "tagline": "Dimmable LED magnifying lamp with a 100 mm lens, 40 LEDs and a touch dimmer, table top.",
+    "description": "The Vartech 8093 LD is a dimmable version of the 8093 LED, with 40 LEDs (7 W) controlled by a touch dimmer so the light can be set to suit the work. The 100 mm round lens is 3 dioptre with a built-in 12 dioptre small lens, tilts and rotates, and sits on folding arms that extend to 450 mm. It runs from 220 V mains and weighs about 1.75 kg. For inspecting micro components and densely populated PCBs.",
     "features": [
-      "Large Round Lens 7” Diameter",
-      "Integration of Magnifying and Lighting",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel / Beautician to Light or Magnify Weight                            :          Approx. 5 Kg."
+      "Touch dimmer - adjustable brightness",
+      "40 LEDs, 7 W",
+      "100 mm lens, 3 dioptre, with a built-in 12 dioptre small lens",
+      "Lens tilts and rotates",
+      "Folding arms, adjustable extent 450 mm",
+      "About 1.75 kg"
     ],
     "specs": [
       {
@@ -530,7 +163,223 @@
       },
       {
         "label": "Lighting",
-        "value": "84 Pcs., SMD LED, 12W, 910 Lumens, 6000~7000 K."
+        "value": "40 pcs LED 7 W, Dimmable."
+      },
+      {
+        "label": "Lens diameter",
+        "value": "100 mm"
+      },
+      {
+        "label": "Magnifications",
+        "value": "3 Dioptre Main lens & 12 Dioptre built in small lens"
+      },
+      {
+        "label": "Adjustable extent",
+        "value": "450 mm"
+      },
+      {
+        "label": "Feature",
+        "value": "Desk-top, folding arm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 1.75 kg"
+      }
+    ],
+    "images": [
+      "8093-ld.webp",
+      "8093-ld-2.webp",
+      "8093-ld-3.webp"
+    ],
+    "catalogue": "8093-ld.pdf"
+  },
+  {
+    "id": "228-l-ii",
+    "model": "228 L II",
+    "name": "LED Magnifying Lamp, 125 mm Lens, Table Clamp, External Arm Springs",
+    "tagline": "LED magnifying lamp with a 125 mm lens, table clamp, folding arms with external springs, 5 or 8 dioptre.",
+    "description": "The Vartech 228 L II is a table-clamp LED magnifying lamp with a 125 mm round lens, 9 W of SMD LEDs (56 pieces) and folding arms with external springs. The lens is 5 or 8 dioptre, chosen when ordering. The arms reach 43 + 43 cm (86 cm in total) and the lamp weighs about 2 kg. It is the lighter, more economical model of the 228 L, for inspecting micro components and densely populated PCBs.",
+    "features": [
+      "125 mm lens, 5 or 8 dioptre (chosen when ordering)",
+      "9 W, 56 SMD LEDs; 220 V mains",
+      "Table clamp mounting",
+      "Folding arms with external springs - 43 + 43 cm",
+      "About 2 kg"
+    ],
+    "specs": [
+      {
+        "label": "Lens diameter",
+        "value": "125 mm"
+      },
+      {
+        "label": "Magnification",
+        "value": "5 or 8 Dioptre (chosen when ordering)"
+      },
+      {
+        "label": "Lights",
+        "value": "9 W LED (56 pcs. SMD)"
+      },
+      {
+        "label": "Supply voltage",
+        "value": "AC 220 V, 50 Hz"
+      },
+      {
+        "label": "Weight",
+        "value": "About 2 kg"
+      }
+    ],
+    "images": [
+      "228-l-ii.webp",
+      "228-l-ii-2.webp"
+    ],
+    "catalogue": "228-l-and-228-l-ii.pdf"
+  },
+  {
+    "id": "228-l",
+    "model": "228 L",
+    "name": "LED Magnifying Lamp, 125 mm Lens, Table Clamp, Sturdy Arms",
+    "tagline": "LED magnifying lamp with a 125 mm lens, table clamp, sturdy folding arms, 5 or 8 dioptre.",
+    "description": "The Vartech 228 L is a table-clamp LED magnifying lamp with a 125 mm round lens, 9 W of SMD LEDs (56 pieces) and sturdy folding arms that reach 46 + 46 cm (92 cm in total). The lens is 5 or 8 dioptre, chosen when ordering. It weighs about 3 kg. A stronger-built alternative to the 228 L II, for inspecting micro components and densely populated PCBs.",
+    "features": [
+      "125 mm lens, 5 or 8 dioptre (chosen when ordering)",
+      "9 W, 56 SMD LEDs; 220 V mains",
+      "Table clamp mounting",
+      "Sturdy folding arms - 46 + 46 cm",
+      "About 3 kg"
+    ],
+    "specs": [
+      {
+        "label": "Lens diameter",
+        "value": "125 mm"
+      },
+      {
+        "label": "Magnification",
+        "value": "5 or 8 Dioptre (chosen when ordering)"
+      },
+      {
+        "label": "Lights",
+        "value": "9 W LED (56 pcs. SMD)"
+      },
+      {
+        "label": "Supply voltage",
+        "value": "AC 220 V, 50 Hz"
+      },
+      {
+        "label": "Weight",
+        "value": "About 3 kg"
+      }
+    ],
+    "images": [
+      "228-l.webp",
+      "228-l-2.webp",
+      "228-l-3.webp",
+      "228-l-4.webp"
+    ],
+    "catalogue": "228-l-and-228-l-ii.pdf"
+  },
+  {
+    "id": "228-al",
+    "model": "228 AL",
+    "name": "LED Magnifying Lamp, 125 mm Lens, Desk Top, Vertical Rod",
+    "tagline": "LED magnifying lamp with a 127 mm lens on a vertical rod and heavy metal base, 5 dioptre.",
+    "description": "The Vartech 228 AL is a desk-top LED magnifying lamp with a 127 mm round lens (5 dioptre), 9 W of SMD LEDs (56 pieces) and a vertical rod on a heavy metal base. It needs no clamp, so it can sit anywhere on the bench. It runs from 220 V mains and weighs about 5.25 kg. For inspecting micro components and densely populated PCBs.",
+    "features": [
+      "127 mm lens, 5 dioptre",
+      "9 W, 56 SMD LEDs; 220 V mains",
+      "Vertical rod on a heavy metal base - no clamp needed",
+      "About 5.25 kg"
+    ],
+    "specs": [
+      {
+        "label": "Lens diameter",
+        "value": "127 mm"
+      },
+      {
+        "label": "Magnification",
+        "value": "5 Dioptre"
+      },
+      {
+        "label": "Lights",
+        "value": "9 W LED (56 SMD LEDs)"
+      },
+      {
+        "label": "Supply voltage",
+        "value": "AC 220 V, 50 Hz"
+      },
+      {
+        "label": "Weight",
+        "value": "About 5.25 kg"
+      }
+    ],
+    "images": [
+      "228-al.webp",
+      "228-al-2.webp",
+      "228-al-3.webp"
+    ],
+    "catalogue": "228-al-and-228-bl.pdf"
+  },
+  {
+    "id": "228-bl",
+    "model": "228 BL",
+    "name": "LED Magnifying Lamp, 125 mm Lens, Table Top, Heavy Base",
+    "tagline": "LED magnifying lamp with a 127 mm lens on folding arms and a heavy metal base, 5 dioptre.",
+    "description": "The Vartech 228 BL is a desk-top LED magnifying lamp with a 127 mm round lens (5 dioptre), 9 W of SMD LEDs (56 pieces) and folding arms on a heavy metal base, so the lens can be positioned over the work. It runs from 220 V mains and weighs about 6 kg. For inspecting micro components and densely populated PCBs.",
+    "features": [
+      "127 mm lens, 5 dioptre",
+      "9 W, 56 SMD LEDs; 220 V mains",
+      "Folding arms on a heavy metal base",
+      "About 6 kg"
+    ],
+    "specs": [
+      {
+        "label": "Lens diameter",
+        "value": "127 mm"
+      },
+      {
+        "label": "Magnification",
+        "value": "5 Dioptre"
+      },
+      {
+        "label": "Lights",
+        "value": "9 W LED (56 SMD LEDs)"
+      },
+      {
+        "label": "Supply voltage",
+        "value": "AC 220 V, 50 Hz"
+      },
+      {
+        "label": "Weight",
+        "value": "About 6 kg"
+      }
+    ],
+    "images": [
+      "228-bl.webp",
+      "228-bl-2.webp",
+      "228-bl-3.webp",
+      "228-bl-4.webp"
+    ],
+    "catalogue": "228-al-and-228-bl.pdf"
+  },
+  {
+    "id": "228-lx",
+    "model": "228 LX",
+    "name": "LED Magnifying Lamp, 7\" Large Lens, Table Clamp",
+    "tagline": "LED magnifying lamp with a 7 inch round lens, 84 SMD LEDs, table clamp, 5 dioptre.",
+    "description": "The Vartech 228 LX is a table-clamp magnifying lamp with a large 7 inch round lens (5 dioptre) and 84 SMD LEDs (12 W, about 910 lumens, 6000 to 7000 K). The wide lens shows a larger area at once than the 125 mm models. It runs from 220 V mains and weighs about 5 kg. For inspecting micro components and densely populated PCBs.",
+    "features": [
+      "7 inch round lens, 5 dioptre",
+      "84 SMD LEDs, 12 W, 910 lumens, 6000 to 7000 K",
+      "Table clamp mounting",
+      "220 V mains; about 5 kg"
+    ],
+    "specs": [
+      {
+        "label": "Supply Voltage",
+        "value": "220 V AC, 60 / 50 Hz."
+      },
+      {
+        "label": "Lighting",
+        "value": "84 pcs SMD LED, 12 W, 910 lumens, 6000 to 7000 K."
       },
       {
         "label": "Lens Size",
@@ -545,5 +394,136 @@
       "228-lx.webp"
     ],
     "catalogue": "228-lx.pdf"
+  },
+  {
+    "id": "228-lxd",
+    "model": "228 LXD",
+    "name": "Dimmable LED Magnifying Lamp, 7\" Round Lens, Table Clamp",
+    "tagline": "Dimmable LED magnifying lamp with a 7 inch round lens, touch dimmer and warm/cool light selector.",
+    "description": "The Vartech 228 LXD adds dimming and a choice of light colour to the 7 inch lens format. It has a 7 inch round lens (5 dioptre) and 72 SMD LEDs (12 W) with a touch dimmer and a selector for warm or cool white light, on a table clamp with folding arm. It runs from 220 V mains and weighs about 5 kg. For inspecting micro components and densely populated PCBs.",
+    "features": [
+      "7 inch round lens, 5 dioptre",
+      "72 SMD LEDs, 12 W, with touch dimmer",
+      "Warm or cool white light selector",
+      "Table clamp with folding arm",
+      "220 V mains; about 5 kg"
+    ],
+    "specs": [
+      {
+        "label": "Supply Voltage",
+        "value": "220 V AC, 60 / 50 Hz."
+      },
+      {
+        "label": "Lighting",
+        "value": "72 pcs SMD LED, 12 W"
+      },
+      {
+        "label": "Lens Size",
+        "value": "7” Diameter"
+      },
+      {
+        "label": "Magnifications",
+        "value": "5 Dioptre"
+      },
+      {
+        "label": "Feature",
+        "value": "Table Clamping, folding arm, light temp., selector"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 5 kg"
+      }
+    ],
+    "images": [
+      "228-lxd.webp"
+    ],
+    "catalogue": "228-lxd.pdf"
+  },
+  {
+    "id": "228-lrd",
+    "model": "228 LRD",
+    "name": "Dimmable LED Magnifying Lamp, Rectangular Lens, Table Clamp",
+    "tagline": "Dimmable LED magnifying lamp with a 7.5 x 6.2 inch rectangular lens, warm/cool light, table clamp.",
+    "description": "The Vartech 228 LRD has a large rectangular lens (7.5 × 6.2 inch, 5 dioptre) that covers a wide strip of the board. 144 LEDs give warm and cool white light, selectable and dimmable, and the lamp mounts on a table clamp with a folding arm. It runs from 220 V mains and weighs about 5 kg. For inspecting micro components and densely populated PCBs.",
+    "features": [
+      "7.5 × 6.2 inch rectangular lens, 5 dioptre",
+      "144 LEDs, warm and cool white light, dimmable",
+      "Table clamp with folding arm",
+      "220 V mains; about 5 kg"
+    ],
+    "specs": [
+      {
+        "label": "Supply Voltage",
+        "value": "220 V AC, 60 / 50 Hz."
+      },
+      {
+        "label": "Lighting",
+        "value": "144 pcs LED 4 W, Warm & Cool White light"
+      },
+      {
+        "label": "Lens Size",
+        "value": "7.5” x 6.2”"
+      },
+      {
+        "label": "Magnifications",
+        "value": "5 Dioptre"
+      },
+      {
+        "label": "Feature",
+        "value": "Table Clamping, folding arm, light temp., selector"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 5 kg"
+      }
+    ],
+    "images": [
+      "228-lrd.webp",
+      "228-lrd-2.webp"
+    ],
+    "catalogue": "228-lrd.pdf"
+  },
+  {
+    "id": "228-blr",
+    "model": "228 BLR",
+    "name": "LED Magnifying Lamp, Rectangular Lens, Table Top",
+    "tagline": "LED magnifying lamp with a 7.5 x 6.2 inch rectangular lens on a heavy desk-top base, 5 dioptre.",
+    "description": "The Vartech 228 BLR is the desk-top version of the rectangular-lens lamp: a 7.5 × 6.2 inch lens (5 dioptre), 56 LEDs (9 W) and folding arms on a heavy base. It needs no clamp and runs from 220 V mains. It weighs about 7 kg. For inspecting micro components and densely populated PCBs.",
+    "features": [
+      "7.5 × 6.2 inch rectangular lens, 5 dioptre",
+      "56 LEDs, 9 W",
+      "Folding arms on a heavy desk-top base - no clamp needed",
+      "220 V mains; about 7 kg"
+    ],
+    "specs": [
+      {
+        "label": "Supply Voltage",
+        "value": "220 V AC, 60 / 50 Hz."
+      },
+      {
+        "label": "Lighting",
+        "value": "56 pcs LED 9 W."
+      },
+      {
+        "label": "Lens Size",
+        "value": "7.5” x 6.2”"
+      },
+      {
+        "label": "Magnifications",
+        "value": "5 Dioptre"
+      },
+      {
+        "label": "Feature",
+        "value": "Desk-top, folding arm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 7 kg"
+      }
+    ],
+    "images": [
+      "228-blr.webp"
+    ],
+    "catalogue": "228-blr.pdf"
   }
 ]

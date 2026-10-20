@@ -359,7 +359,98 @@ lcr.presets = [
     why: 'Inductor and capacitor values change with frequency. The bench models let you choose the test frequency.' },
 ];
 
-export const families: Family[] = [insulation, earth, multimeters, clamp, scopes, funcgens, lcr];
+
+const solder: Family = {
+  id: 'soldering-stations',
+  title: 'Soldering stations',
+  unit: 'soldering station',
+  heading: 'Find the right soldering station',
+  lead: 'Every Vartech soldering and de-soldering station in one place. Say what you need to do, then tick the features that matter.',
+  categories: ['vartech-soldering-stations'],
+  filters: [
+    { type: 'choice', key: 'job', label: 'What do you need to do?', options: [
+      { value: 'solder', label: 'Soldering' }, { value: 'desolder', label: 'De-soldering (vacuum, through-hole)' }] },
+    { type: 'min', key: 'watts', label: 'Heating power', unit: 'W', options: [60, 70, 80, 90], help: 'More power recovers faster on large joints and lead-free solder' },
+    { type: 'has', key: 'digital', label: 'Digital temperature display' },
+    { type: 'has', key: 'leadfree', label: 'Designed for lead-free solder' },
+    { type: 'has', key: 'low', label: 'Can be set to 100 °C or lower', hint: 'for heat-sensitive parts' },
+    { type: 'has', key: 'memory', label: 'Stored temperature memories' },
+    { type: 'has', key: 'lock', label: 'Lock on the temperature setting', hint: 'password, PIN or key card' },
+    { type: 'has', key: 'sleep', label: 'Auto sleep and auto shut-off' },
+  ],
+  models: [
+    { src: 'soldering-stations', id: '936-a', attrs: { job: ['solder'], watts: 60 }, chips: ['60 W, analog setting', '200 °C to 480 °C'] },
+    { src: 'soldering-stations', id: '936-ad', attrs: { job: ['solder'], watts: 70, digital: true, low: true, memory: true, lock: true }, chips: ['70 W, LED display', '100 °C to 480 °C, 3 memories'] },
+    { src: 'soldering-stations', id: '937-esd', attrs: { job: ['solder'], watts: 60, digital: true, lock: true }, chips: ['60 W, ceramic heater', 'Key-card lock, ±1 °C'] },
+    { src: 'soldering-stations', id: '236-esd', attrs: { job: ['solder'], watts: 90, digital: true, leadfree: true, low: true }, chips: ['90 W, ceramic heater', '80 °C to 480 °C'] },
+    { src: 'soldering-stations', id: '202-d', attrs: { job: ['solder'], watts: 80, digital: true, leadfree: true, low: true, lock: true, sleep: true }, chips: ['80 W, electromagnetic heater', 'Sensor at the tip, PIN lock'] },
+    { src: 'soldering-stations', id: '722', attrs: { job: ['solder', 'desolder'], watts: 90, digital: true, leadfree: true, lock: true }, chips: ['Soldering and de-soldering in one', 'Built-in vacuum pump'] },
+    { src: 'soldering-stations', id: '201-b', attrs: { job: ['desolder'], watts: 90, digital: true, lock: true }, chips: ['De-soldering only', 'Built-in vacuum pump'] },
+  ],
+  note: 'Tips are sold separately for every station, with a pointed tip supplied. See Soldering Spares for tips, heating elements and barrels.',
+};
+
+solder.presets = [
+  { label: 'Everyday PCB assembly and repair', set: { job: 'solder' },
+    why: 'The 936 A is the simple 60 W choice. The 937 ESD and 936 AD add a digital display and a lock.' },
+  { label: 'Lead-free production', set: { leadfree: true, watts: 80 },
+    why: 'Lead-free solder melts hotter. The 236 ESD, 202 D and 722 are the lead-free designs, at 80 W or 90 W.' },
+  { label: 'Remove through-hole parts', set: { job: 'desolder' },
+    why: 'The 722 solders and de-solders from one unit. The 201 B is the de-soldering station on its own.' },
+  { label: 'Shared bench, settings must not change', set: { lock: true },
+    why: 'The 936 AD uses a password, the 202 D a PIN, the 937 ESD a key card, and the 722 and 201 B a password.' },
+  { label: 'Switch between jobs quickly', set: { memory: true },
+    why: 'The 936 AD stores three temperatures so you can move between jobs without re-setting the dial.' },
+  { label: 'Heat-sensitive parts', set: { low: true },
+    why: 'The 936 AD goes down to 100 °C, and the 236 ESD and 202 D to 80 °C.' },
+  { label: 'Large joints and heavy boards', set: { watts: 90 },
+    why: 'The 90 W stations recover fastest when you solder large pads and thick wire.' },
+];
+
+const rework: Family = {
+  id: 'rework-stations',
+  title: 'SMD re-work stations',
+  unit: 're-work station',
+  heading: 'Find the right SMD re-work station',
+  lead: 'Hot-air re-work stations and the two 2-in-1 stations that add a soldering iron. Pick the power and the features you need.',
+  categories: ['vartech-rework-stations'],
+  filters: [
+    { type: 'min', key: 'hotW', label: 'Hot-air power', unit: 'W', options: [270, 320, 580, 1000], help: 'More power heats larger boards and parts faster' },
+    { type: 'min', key: 'air', label: 'Highest airflow', unit: 'L/min', options: [24, 50, 100, 120] },
+    { type: 'has', key: 'digital', label: 'Digital temperature display' },
+    { type: 'has', key: 'iron', label: 'Soldering iron built in' },
+    { type: 'has', key: 'chan', label: 'Stored channels for temperature and airflow' },
+    { type: 'has', key: 'leadfree', label: 'Designed for lead-free work' },
+    { type: 'has', key: 'sleep', label: 'Auto standby or sleep when idle' },
+    { type: 'has', key: 'lock', label: 'Password or key lock' },
+  ],
+  models: [
+    { src: 'rework-stations', id: '850-a', attrs: { hotW: 270, air: 24 }, chips: ['270 W, 100 °C to 420 °C', 'Analog setting'] },
+    { src: 'rework-stations', id: '850-d', attrs: { hotW: 320, air: 24, digital: true, sleep: true }, chips: ['320 W, 100 °C to 480 °C', 'PID control, auto cooling'] },
+    { src: 'rework-stations', id: '857-d', attrs: { hotW: 580, air: 100, digital: true, sleep: true }, chips: ['580 W, up to 100 L/min', 'Handle sensor, soft airflow'] },
+    { src: 'rework-stations', id: '861-dw', attrs: { hotW: 1000, air: 120, digital: true, chan: true, leadfree: true, sleep: true, lock: true }, chips: ['1000 W, 100 °C to 500 °C', '3 programmable channels'] },
+    { src: 'rework-stations', id: '700-esd', attrs: { hotW: 270, air: 24, iron: true }, chips: ['270 W hot air plus 50 W iron', 'Switched separately'] },
+    { src: 'rework-stations', id: '706', attrs: { hotW: 580, air: 50, digital: true, iron: true, sleep: true }, chips: ['580 W hot air plus 50 W iron', 'LED display, 1 °C resolution'] },
+  ],
+  note: 'For BGA work, add the 853 ESD pre-heater and the 800 L fixture, listed with the other tools under SMD Re-Work.',
+};
+
+rework.presets = [
+  { label: 'Small SMD parts and general repair', set: { hotW: 270 },
+    why: 'The 850 A is enough for QFP and SOP packages. The 850 D adds a digital display and auto cooling.' },
+  { label: 'One bench, soldering and hot air', set: { iron: true },
+    why: 'The 700 ESD and 706 put a 50 W soldering iron next to the hot-air section, switched separately.' },
+  { label: 'Large boards and lead-free work', set: { hotW: 1000, leadfree: true },
+    why: 'The 861 DW is the 1000 W lead-free station, with up to 120 L/min of airflow.' },
+  { label: 'Repeat jobs with stored settings', set: { chan: true },
+    why: 'The 861 DW stores three channels, each with its own temperature and airflow.' },
+  { label: 'High airflow', set: { air: 100 },
+    why: 'The 857 D (100 L/min) and 861 DW (120 L/min) move the most air.' },
+  { label: 'Station left running between jobs', set: { sleep: true },
+    why: 'The 850 D, 857 D, 861 DW and 706 go on standby or sleep when idle, and cool down automatically.' },
+];
+
+export const families: Family[] = [insulation, earth, multimeters, clamp, scopes, funcgens, lcr, solder, rework];
 
 export const familyById = (id: string) => families.find(f => f.id === id)!;
 export const familyForCategory = (categoryId: string) => families.find(f => f.categories.includes(categoryId));

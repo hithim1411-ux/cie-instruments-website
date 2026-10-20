@@ -3575,17 +3575,15 @@
     "id": "20005-sr",
     "model": "20005 SR",
     "name": "200 V 5 A SMPS DC Regulated Power Supply with PC Interface",
-    "tagline": "DC POWER SUPPLY - SMPS (Single O/P), 0~200 V, 0~5 A ,CV/CC, 4 Digit Displays with P.C.",
-    "description": "DC POWER SUPPLY - SMPS (Single O/P), 0~200 V, 0~5 A ,CV/CC, 4 Digit Displays with P.C. Interface High Accuracy, high stability and low ripple & noise make these an ideal solution for various industrial applications. Pre-Setting of Voltage & Current. With Output ON/OFF Switch. Applying advanced PWM control technology Compact design and light weight C/V & C/C operations with Auto CV/CC switch Coarse and Fine control for voltage and current Over voltage, over current, over temperature and over power protections Adjustable OVP range, OCP fixed 105% of Max. current range Intelligent temperature control cooling fan With PC Interface (RS232)",
+    "tagline": "0–200 V, 0–5 A SMPS bench power supply with CV/CC operation, presetting and RS232 PC interface.",
+    "description": "The Vartech 20005 SR is an SMPS-based DC regulated power supply with a single output of 0–200 V and 0–5 A and an RS232 PC interface. It operates in constant voltage or constant current, with voltage and current preset before the output is switched on, and shows both on four-digit displays. Over voltage, over current, over temperature and over power protection are built in. Low ripple and noise and good stability suit industrial test work.",
     "features": [
-      "High Accuracy, high stability and low ripple & noise make these an ideal solution for various industrial applications.",
-      "Pre-Setting of Voltage & Current. With Output ON/OFF Switch.",
-      "Applying advanced PWM control technology",
-      "Compact design and light weight",
-      "C/V & C/C operations with Auto CV/CC switch",
-      "Coarse and Fine control for voltage and current",
-      "Over voltage, over current, over temperature and over power protections",
-      "Adjustable OVP range, OCP fixed 105% of Max. current range"
+      "0–200 V, 0–5 A, single output",
+      "Auto CV/CC switching; voltage and current can be preset",
+      "Output on/off switch",
+      "Four-digit displays",
+      "RS232 PC interface",
+      "Over voltage, over current, over temperature and over power protection"
     ],
     "specs": [
       {
@@ -3622,16 +3620,15 @@
     "id": "15003-s",
     "model": "15003 S",
     "name": "150 V 3 A SMPS DC Regulated Power Supply",
-    "tagline": "150 V 3 A SMPS DC Regulated Power Supply",
-    "description": "D.C. POWER SUPPLY - SMPS (Single O/P), 0~150 V, 0~3 A ,CV/CC, 4 Digit Displays Applying advanced PWM control technology Compact design and light weight C/V & C/C operations with Auto CV/CC switch Coarse and Fine control for voltage and current Over voltage, over current, over temperature and over power protections Adjustable OVP range, OCP fixed 105% of Max. current range Intelligent temperature control cooling fan",
+    "tagline": "0–150 V, 0–3 A SMPS bench power supply with CV/CC operation and four-digit displays.",
+    "description": "The Vartech 15003 S is a compact SMPS-based DC regulated power supply with a single output of 0–150 V and 0–3 A. It switches automatically between constant voltage and constant current, uses coarse and fine controls for voltage and current, and shows both on four-digit displays. Over voltage, over current, over temperature and over power protection are built in; the over voltage limit is adjustable and the over current limit is fixed at 105% of the maximum current. A temperature-controlled fan cools it.",
     "features": [
-      "Applying advanced PWM control technology",
-      "Compact design and light weight",
-      "C/V & C/C operations with Auto CV/CC switch",
-      "Coarse and Fine control for voltage and current",
-      "Over voltage, over current, over temperature and over power protections",
-      "Adjustable OVP range, OCP fixed 105% of Max. current range",
-      "Intelligent temperature control cooling fan"
+      "0–150 V, 0–3 A, single output",
+      "Auto CV/CC switching; coarse and fine controls",
+      "Four-digit displays",
+      "Over voltage, over current, over temperature and over power protection",
+      "Adjustable OVP; OCP fixed at 105% of maximum current",
+      "Temperature-controlled cooling fan; compact, lightweight"
     ],
     "specs": [
       {

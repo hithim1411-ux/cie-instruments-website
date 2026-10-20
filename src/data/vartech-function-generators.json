@@ -462,10 +462,13 @@
     "id": "spa-10m",
     "model": "SPA-10M",
     "name": "Power Amplifier Module for Signal Generators, 10 MHz",
-    "tagline": "Power Amplifier Module for Signal Generators, 10 MHz",
-    "description": "Power Amp. Module for Signal Generator, 10 MHz, 25V p-p, 0.5A. 2 Ch. (5W x 2 Max.)",
+    "tagline": "Two-channel power amplifier module for signal generators, 10 MHz, 25 V p-p, 0.5 A.",
+    "description": "The Vartech SPA-10M is a power amplifier module that boosts the output of a signal generator for loads that need more drive. It has two channels (5 W each, maximum), a 10 MHz bandwidth and an output of 25 V p-p at up to 0.5 A, so it suits higher-frequency work than the SPA-100K.",
     "features": [
-      "2 Ch. (5W x 2 Max.)"
+      "2 channels - 5 W × 2 maximum",
+      "10 MHz frequency",
+      "Output 25 V p-p, 0.5 A",
+      "Higher frequency than the SPA-100K"
     ],
     "specs": [
       {
@@ -489,10 +492,13 @@
     "id": "spa-100k",
     "model": "SPA-100K",
     "name": "Power Amplifier Module for Signal Generators, 100 kHz",
-    "tagline": "Power Amplifier Module for Signal Generators, 100 kHz",
-    "description": "Power Amp. Module for Signal Generator, 100 KHz, 40V p-p, 1A. 2 Channel(10W x 2 Max.)",
+    "tagline": "Two-channel power amplifier module for signal generators, 100 kHz, 40 V p-p, 1 A.",
+    "description": "The Vartech SPA-100K is a power amplifier module that boosts the output of a signal generator so it can drive loads a generator cannot. It has two channels (10 W each, maximum), a 100 kHz bandwidth and an output of 40 V p-p at up to 1 A. Use it when a load needs more current than the generator output can supply.",
     "features": [
-      "2 Channel(10W x 2 Max.)"
+      "2 channels - 10 W × 2 maximum",
+      "100 kHz frequency",
+      "Output 40 V p-p, 1 A",
+      "Drives loads that need more power than a generator provides"
     ],
     "specs": [
       {

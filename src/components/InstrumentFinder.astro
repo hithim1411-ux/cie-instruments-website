@@ -11,6 +11,8 @@ import vtClamp from '../data/vartech-clamp-meters.json';
 import vtScopes from '../data/vartech-oscilloscopes.json';
 import vtFg from '../data/vartech-function-generators.json';
 import vtLcr from '../data/vartech-lcr-meters.json';
+import vtSolder from '../data/vartech-soldering-stations.json';
+import vtRework from '../data/vartech-rework-stations.json';
 import { familyById } from '../data/finders';
 
 interface Props { family: string; id?: string; heading?: string; lead?: string }
@@ -20,6 +22,7 @@ const fam = familyById(familyId);
 const vt: Record<string, any[]> = {
   multimeters: vtMultimeters, 'clamp-meters': vtClamp, oscilloscopes: vtScopes,
   'function-generators': vtFg, 'lcr-meters': vtLcr,
+  'soldering-stations': vtSolder, 'rework-stations': vtRework,
 };
 const cieById = new Map((products as any[]).map(p => [p.id, p]));
 

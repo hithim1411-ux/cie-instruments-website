@@ -15,8 +15,12 @@ import vLux from './vartech-lux-meters.json';
 import vThermo from './vartech-thermometers.json';
 import vCal from './vartech-calibrators.json';
 import vPsu from './vartech-dc-power-supplies.json';
+import vSolder from './vartech-soldering-stations.json';
+import vRework from './vartech-rework-stations.json';
+import vIrons from './vartech-soldering-irons.json';
+import vMag from './vartech-magnifiers.json';
 
-interface Def { id: string; label: string; blurb: string; cie?: string[]; vt?: { slug: string; data: any[] }[]; rows: Row[]; start?: string[] }
+interface Def { id: string; label: string; blurb: string; cie?: string[]; vt?: { slug: string; data: any[]; only?: string[] }[]; rows: Row[]; start?: string[] }
 
 const R = (label: string, re: string): Row => ({ label, re });
 const POWER = R('Power', '^(power|battery)');
@@ -56,6 +60,16 @@ const DEFS: Def[] = [
     rows: [R('Function', '^(function|measurands)'), R('Display', '^display'), R('Power', '^power'), DIMS] },
   { id: 'dc-power-supplies', label: 'DC power supplies', blurb: 'The full Vartech DC power supply range.', vt: [{ slug: 'dc-power-supplies', data: vPsu as any[] }],
     rows: [R('Output voltage', '^(output voltage|rated output|output$|variable output)'), R('Output current', '^output current'), R('Output power', '^(output power|rated power)'), R('Type', '^(type|mode|working mode)$'), R('Line regulation', 'line reg'), R('Load regulation', 'load reg'), R('Ripple and noise', '^ripple'), R('Protection', '^protection'), R('Display', '^display$'), R('PC interface', '^pc interface'), R('Power supply', '^power supply'), DIMS] },
+  { id: 'soldering-stations', label: 'Soldering and de-soldering stations', blurb: 'Vartech soldering stations and vacuum de-soldering stations.', vt: [{ slug: 'soldering-stations', data: vSolder as any[] }],
+    rows: [R('Power', '^(max\\. power|heating power)'), R('Temperature range', '^temperature range'), R('Temperature stability', '^temperature stability'), R('Heating element', '^heating element'), R('Vacuum pump', '^(pump|vacuum)'), R('Tip to ground', '^tip to ground'), R('Supply', '^(unit.s power|output voltage|power consumption)'), DIMS],
+    start: ['936-a', '936-ad'] },
+  { id: 'rework-stations', label: 'Hot-air SMD re-work stations', blurb: 'Vartech hot-air re-work stations and the two 2-in-1 re-work and soldering stations.', vt: [{ slug: 'rework-stations', data: vRework as any[], only: ['850-a', '850-d', '857-d', '861-dw', '700-esd', '706'] }],
+    rows: [R('Hot-air power', '^(power|smd re-work section)'), R('Temperature range', '^temperature range'), R('Air flow', '^(air ?flow)'), R('Programmable channels', '^channels'), R('Noise', '^noise'), R('Soldering section', '^soldering section'), R('Supplied as standard', '^supplied'), DIMS],
+    start: ['850-d', '857-d'] },
+  { id: 'soldering-irons', label: 'Soldering irons', blurb: 'The Vartech SI series of plain soldering irons, 25 W to 100 W.', vt: [{ slug: 'soldering-irons', data: vIrons as any[] }],
+    rows: [R('Power', '^power'), R('Supply', '^supply'), R('Heater', '^heater'), R('Body', '^body'), R('Tips', '^tips')] },
+  { id: 'magnifiers', label: 'Magnifying lamps', blurb: 'Vartech LED and CFL magnifying lamps, from compact table-top to 7 inch clamp models.', vt: [{ slug: 'magnifiers', data: vMag as any[] }],
+    rows: [R('Lens', '^(lens|lens size|lens diameter)'), R('Magnification', '^magnif'), R('Lighting', '^(lighting|lights)'), R('Mounting', '^feature'), R('Adjustable extent', '^adjustable'), R('Supply', '^supply'), R('Weight', '^weight')] },
   { id: 'hv-oil-micro-ohm', label: 'HV, oil and micro-ohm test sets', blurb: 'The CIE/5050A, CIE/7000 oil test set and MR-253A micro-ohm meter.', cie: ['hv-phase-sequence', 'oil-test-sets', 'digital-earth-micro-ohm'], rows: [] },
 ];
 
@@ -71,6 +85,7 @@ const CATEGORY_GROUP: Record<string, string> = {
   'vartech-calibrators': 'calibrators', 'vartech-dc-power-supplies': 'dc-power-supplies',
   'hv-phase-sequence': 'hv-oil-micro-ohm', 'oil-test-sets': 'hv-oil-micro-ohm', 'digital-earth-micro-ohm': 'hv-oil-micro-ohm',
   'vartech-function-generators': 'function-generators', 'vartech-lcr-meters': 'lcr-meters', 'vartech-dc-loads': 'dc-loads',
+  'vartech-soldering-stations': 'soldering-stations', 'vartech-rework-stations': 'rework-stations', 'vartech-soldering-irons': 'soldering-irons', 'vartech-magnifiers': 'magnifiers',
 };
 // A couple of SKUs use a different id in products.json than in the vartech-*.json files
 const ID_ALIAS: Record<string, string> = { 'v-8222h-lcr': 'v-8222h', 'ss-5150ds1bfg': 'ss-5150ds1b-fg' };
@@ -110,7 +125,7 @@ export function getGroups(): Group[] {
       }
     }
     for (const v of d.vt ?? []) {
-      for (const p of v.data) {
+      for (const p of v.data.filter((x: any) => !v.only || v.only.includes(x.id))) {
         const f = p.images && p.images[0];
         items.push({ id: p.id, brand: 'Vartech', model: p.model, name: p.name, cat: `vartech-${v.slug}`, href: u(`/authorised-dealership/${v.slug}/${p.id}/`), img: f && exists(`/images/vartech/${v.slug}/${f}`) ? u(`/images/vartech/${v.slug}/${f}`) : '', specs: trim(p.specs) });
       }
