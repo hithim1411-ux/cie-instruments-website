@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import InstrumentFinder from '../../components/InstrumentFinder.astro';
+import { families, familyById } from '../../data/finders';
+
+export function getStaticPaths() {
+  return families.map(f => ({ params: { family: f.id }, props: { id: f.id } }));
+}
+const { id } = Astro.props;
+const fam = familyById(id);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: `${fam.title} Finder`,
+  description: fam.lead,
+  url: `https://www.cieinstruments.in/finder/${fam.id}/`,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  publisher: { '@id': 'https://www.cieinstruments.in/#organization' },
+};
+---
+
+<Base title={`${fam.title} Finder - Which One Do I Need?`} description={fam.lead}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="bg-cloud border-b border-border py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Finders', href: '/finder/' }, { label: fam.title }]} />
+      <h1 class="mt-4 text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">{fam.heading}</h1>
+      <p class="mt-3 text-muted max-w-2xl leading-relaxed">{fam.lead}</p>
+    </div>
+  </div>
+  <InstrumentFinder family={fam.id} heading="Tell us what you need" lead="Pick options below and the matching models appear on the right." />
+  <CTABand />
+</Base>

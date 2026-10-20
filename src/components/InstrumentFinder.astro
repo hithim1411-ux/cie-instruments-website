@@ -1,0 +1,318 @@
+---
+// Generic instrument finder. The family config (src/data/finders.ts) lists the
+// models and which filters apply; this component renders the form, checks every
+// model against the answers, and ranks the results. Analog and digital versions
+// of the same instrument live in one family, so the visitor compares them directly.
+import { u, } from '../utils/url';
+import site from '../data/site.json';
+import products from '../data/products.json';
+import vtMultimeters from '../data/vartech-multimeters.json';
+import vtClamp from '../data/vartech-clamp-meters.json';
+import vtScopes from '../data/vartech-oscilloscopes.json';
+import vtFg from '../data/vartech-function-generators.json';
+import vtLcr from '../data/vartech-lcr-meters.json';
+import { familyById } from '../data/finders';
+
+interface Props { family: string; id?: string; heading?: string; lead?: string }
+const { family: familyId, id = 'finder', heading, lead } = Astro.props;
+const fam = familyById(familyId);
+
+const vt: Record<string, any[]> = {
+  multimeters: vtMultimeters, 'clamp-meters': vtClamp, oscilloscopes: vtScopes,
+  'function-generators': vtFg, 'lcr-meters': vtLcr,
+};
+const cieById = new Map((products as any[]).map(p => [p.id, p]));
+
+const models = fam.models.map(m => {
+  if (m.src === 'cie') {
+    const p: any = cieById.get(m.id);
+    if (!p) throw new Error(`finder ${fam.id}: unknown CIE product ${m.id}`);
+    return {
+      ...m, model: p.model, name: p.name, brand: 'CIE',
+      href: u(`/products/${p.categoryId}/${p.id}/`),
+      img: u(`/images/products/${p.image ?? `${p.id}.webp`}`),
+      bto: !!p.buildToOrder,
+    };
+  }
+  const p: any = (vt[m.src] ?? []).find(x => x.id === m.id);
+  if (!p) throw new Error(`finder ${fam.id}: unknown Vartech product ${m.src}/${m.id}`);
+  return {
+    ...m, model: p.model, name: p.name, brand: 'Vartech',
+    href: u(`/authorised-dealership/${m.src}/${p.id}/`),
+    img: p.images?.[0] ? u(`/images/vartech/${m.src}/${p.images[0]}`) : null,
+    bto: false,
+  };
+});
+
+const config = { family: { id: fam.id, title: fam.title, unit: fam.unit ?? fam.title.toLowerCase(), filters: fam.filters }, models, wa: site.whatsapp };
+const elId = `${id}-${fam.id}`;
+---
+
+<section id={id} class="scroll-mt-24 bg-white border-y border-border" aria-labelledby={`${elId}-title`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+    <div class="max-w-2xl mb-8">
+      <p class="eyebrow mb-3">{fam.title} Finder</p>
+      <h2 id={`${elId}-title`} class="text-2xl lg:text-3xl font-extrabold text-ink tracking-tight leading-tight">{heading ?? fam.heading}</h2>
+      <p class="mt-3 text-muted leading-relaxed">{lead ?? fam.lead}</p>
+    </div>
+
+    <div class="grid lg:grid-cols-[340px_1fr] gap-8 items-start" data-inf>
+      <form class="card p-5 sm:p-6 lg:sticky lg:top-24 space-y-6" novalidate onsubmit="return false" aria-label={`${fam.title} requirements`}>
+        <div data-inf-form class="space-y-6"></div>
+        <button type="button" data-inf-reset class="text-sm font-semibold text-muted hover:text-ink underline underline-offset-4">Clear and start again</button>
+      </form>
+
+      <div>
+        <div class="flex items-center justify-between gap-3 flex-wrap mb-4 min-h-[2rem]">
+          <p class="text-sm font-semibold text-ink" data-inf-summary aria-live="polite"></p>
+          <button type="button" data-inf-share class="hidden text-sm font-semibold text-red hover:underline">Copy link to these results</button>
+        </div>
+        <div data-inf-notice class="hidden mb-4 rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900 leading-relaxed"></div>
+        <div data-inf-results class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+        <p class="mt-8 text-xs text-muted leading-relaxed max-w-2xl">
+          Results are matched against each model's published specifications. Always check the full specification page before ordering, and contact us if you are unsure.
+        </p>
+      </div>
+    </div>
+
+    <script type="application/json" data-inf-config set:html={JSON.stringify(config).replace(/</g, '\\u003c')} />
+  </div>
+</section>
+
+<script>
+  type Filter =
+    | { type: 'choice'; key: string; label: string; options: { value: string; label: string }[] }
+    | { type: 'min'; key: string; label: string; unit: string; options: number[]; help?: string }
+    | { type: 'has'; key: string; label: string; hint?: string }
+    | { type: 'vr'; label: string; volts: number[]; ohms: { value: number; label: string }[] };
+  type Model = {
+    id: string; attrs: Record<string, any>; vr?: { v: number; max: number | null }[]; chips?: string[];
+    model: string; name: string; brand: string; href: string; img: string | null; bto: boolean;
+  };
+  type Cfg = { family: { id: string; title: string; unit: string; filters: Filter[] }; models: Model[]; wa: string };
+  type Eval = { m: Model; pass: string[]; fail: string[]; score: number };
+
+  const fmtNum = (n: number) => n.toLocaleString('en-IN');
+  const fmtOhm = (mohm: number) => (mohm >= 1000 ? `${Number((mohm / 1000).toFixed(1))} GΩ` : `${fmtNum(mohm)} MΩ`);
+  const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+
+  document.querySelectorAll<HTMLElement>('[data-inf]').forEach(root => {
+    const sec = root.closest('section') as HTMLElement;
+    const cfg: Cfg = JSON.parse(sec.querySelector('[data-inf-config]')!.textContent || '{}');
+    const q = <T extends HTMLElement>(s: string) => root.querySelector<T>(s)!;
+    const formBox = q('[data-inf-form]');
+    const summary = q('[data-inf-summary]');
+    const notice = q('[data-inf-notice]');
+    const results = q('[data-inf-results]');
+    const shareBtn = q<HTMLButtonElement>('[data-inf-share]');
+    const filters = cfg.family.filters;
+
+    // state: choice -> string, min -> number, has -> boolean, vr -> {v, r}
+    const state: Record<string, any> = {};
+    const reset = () => {
+      filters.forEach((f, i) => {
+        const k = f.type === 'vr' ? 'vr' : (f as any).key;
+        state[k] = f.type === 'choice' ? '' : f.type === 'min' ? 0 : f.type === 'has' ? false : { v: 0, r: 0 };
+      });
+    };
+    reset();
+
+    // ---- build the form ----
+    const chipCls = 'inf-chip text-sm font-medium rounded-lg border px-3 py-1.5 transition-colors';
+    const on = 'bg-ink text-white border-ink';
+    const off = 'bg-white text-ink border-border hover:border-ink/50';
+    function chip(label: string, active: boolean, attrs: string) {
+      return `<button type="button" ${attrs} aria-pressed="${active}" class="${chipCls} ${active ? on : off}">${esc(label)}</button>`;
+    }
+    function buildForm() {
+      const hasFilters = filters.filter(f => f.type === 'has') as Extract<Filter, { type: 'has' }>[];
+      const parts: string[] = [];
+      filters.forEach(f => {
+        if (f.type === 'has') return;
+        if (f.type === 'choice') {
+          parts.push(`<fieldset><legend class="text-sm font-semibold text-ink mb-2">${esc(f.label)}</legend><div class="flex flex-wrap gap-2">
+            ${chip('Either', !state[f.key], `data-c="${f.key}" data-v=""`)}
+            ${f.options.map(o => chip(o.label, state[f.key] === o.value, `data-c="${f.key}" data-v="${o.value}"`)).join('')}</div></fieldset>`);
+        } else if (f.type === 'min') {
+          parts.push(`<fieldset><legend class="text-sm font-semibold text-ink mb-1">${esc(f.label)}</legend>${f.help ? `<p class="text-xs text-muted mb-2">${esc(f.help)}</p>` : '<div class="mb-1"></div>'}<div class="flex flex-wrap gap-2">
+            ${chip('Any', !state[f.key], `data-m="${f.key}" data-v="0"`)}
+            ${f.options.map(n => chip(`${fmtNum(n)}+ ${f.unit}`, state[f.key] === n, `data-m="${f.key}" data-v="${n}"`)).join('')}</div></fieldset>`);
+        } else if (f.type === 'vr') {
+          parts.push(`<fieldset><legend class="text-sm font-semibold text-ink mb-2">${esc(f.label)}</legend>
+            <p class="text-xs text-muted mb-1.5">Test voltage</p>
+            <div class="flex flex-wrap gap-2 mb-3">${chip('Any', !state.vr.v, `data-vr="v" data-v="0"`)}${f.volts.map(v => chip(`${fmtNum(v)} V`, state.vr.v === v, `data-vr="v" data-v="${v}"`)).join('')}</div>
+            <p class="text-xs text-muted mb-1.5">Highest resistance you need to read</p>
+            <div class="flex flex-wrap gap-2">${chip('Any', !state.vr.r, `data-vr="r" data-v="0"`)}${f.ohms.map(o => chip(`Up to ${o.label}`, state.vr.r === o.value, `data-vr="r" data-v="${o.value}"`)).join('')}</div></fieldset>`);
+        }
+      });
+      if (hasFilters.length) {
+        parts.push(`<fieldset><legend class="text-sm font-semibold text-ink mb-2">Must have</legend><div class="space-y-2">
+          ${hasFilters.map(f => `<label class="flex items-start gap-3 cursor-pointer text-sm text-ink"><input type="checkbox" data-h="${f.key}" ${state[f.key] ? 'checked' : ''} class="mt-0.5 h-4 w-4 accent-[var(--color-red)]" /><span>${esc(f.label)}${f.hint ? ` <span class="text-muted">(${esc(f.hint)})</span>` : ''}</span></label>`).join('')}
+        </div></fieldset>`);
+      }
+      formBox.innerHTML = parts.join('');
+    }
+
+    // ---- matching ----
+    function evaluate(m: Model): Eval {
+      const pass: string[] = [], fail: string[] = [];
+      let score = 0;
+      for (const f of filters) {
+        if (f.type === 'choice') {
+          const want = state[f.key]; if (!want) continue;
+          const have = m.attrs[f.key];
+          const ok = Array.isArray(have) ? have.includes(want) : have === want;
+          const lbl = f.options.find(o => o.value === want)!.label;
+          if (ok) pass.push(lbl); else fail.push(`Not ${lbl.toLowerCase()}`);
+        } else if (f.type === 'min') {
+          const want = state[f.key]; if (!want) continue;
+          const have = m.attrs[f.key];
+          if (typeof have === 'number' && have >= want) {
+            pass.push(`${fmtNum(have)} ${f.unit}`);
+            score += Math.min(have / want - 1, 5);
+          } else fail.push(typeof have === 'number' ? `Only ${fmtNum(have)} ${f.unit}` : `No ${f.label.toLowerCase()}`);
+        } else if (f.type === 'has') {
+          if (!state[f.key]) continue;
+          if (m.attrs[f.key]) pass.push(f.label.replace(/ \(.*\)$/, '')); else fail.push(`No ${f.label.replace(/ \(.*\)$/, '').toLowerCase()}`);
+        } else if (f.type === 'vr') {
+          const { v, r } = state.vr; if (!v && !r) continue;
+          const opts = (m.vr ?? []).filter(o => !v || o.v === v);
+          if (!opts.length) { fail.push(v ? `No ${fmtNum(v)} V option` : 'No matching range'); continue; }
+          if (!r) { pass.push(`${fmtNum(v)} V`); continue; }
+          const hit = opts.filter(o => o.max === null || o.max >= r).sort((a, b) => (b.max ?? 1e12) - (a.max ?? 1e12))[0];
+          if (!hit) {
+            const best = Math.max(...opts.map(o => o.max ?? 0));
+            fail.push(`Reads only to ${fmtOhm(best)}${v ? ` at ${fmtNum(v)} V` : ''}`);
+          } else if (hit.max === null) {
+            pass.push(`${fmtNum(hit.v)} V (range: see datasheet)`);
+            score += 0.2;
+          } else {
+            pass.push(`${fmtNum(hit.v)} V, reads to ${fmtOhm(hit.max)}`);
+            score += Math.min(hit.max / (r || 1) - 1, 5) * 0.2;
+          }
+        }
+      }
+      return { m, pass, fail, score };
+    }
+
+    function selectionText(): string {
+      const bits: string[] = [];
+      for (const f of filters) {
+        if (f.type === 'choice' && state[f.key]) bits.push(f.options.find(o => o.value === state[f.key])!.label);
+        if (f.type === 'min' && state[f.key]) bits.push(`${fmtNum(state[f.key])}+ ${f.unit}`);
+        if (f.type === 'has' && state[f.key]) bits.push(f.label.replace(/ \(.*\)$/, ''));
+        if (f.type === 'vr') {
+          if (state.vr.v) bits.push(`${fmtNum(state.vr.v)} V`);
+          if (state.vr.r) bits.push(`up to ${fmtOhm(state.vr.r)}`);
+        }
+      }
+      return bits.join(' + ');
+    }
+
+    const anySelected = () => selectionText() !== '';
+
+    function card(e: Eval, rank: number, partial: boolean): string {
+      const m = e.m;
+      const sel = selectionText();
+      const msg = `Hi, I am looking for a ${cfg.family.unit}${sel ? ` (${sel})` : ''}. Is the ${m.brand} ${m.model} suitable?`;
+      const wa = `https://wa.me/${cfg.wa}?text=${encodeURIComponent(msg)}`;
+      const img = m.img ? `<img src="${m.img}" alt="${esc(m.model)}" width="240" height="240" loading="lazy" class="object-contain h-28 w-auto" onerror="this.style.display='none'" />` : '';
+      const badge = !partial && anySelected() && rank === 0 ? '<span class="badge badge--red absolute top-3 left-3">Best match</span>' : '';
+      const brand = m.brand === 'Vartech' ? '<span class="badge badge--emerald absolute top-3 right-3">Vartech</span>' : '<span class="badge badge--dark absolute top-3 right-3">CIE</span>';
+      const chips = [...(m.chips ?? []), ...(m.bto ? ['Built to order'] : [])];
+      return `
+      <article class="card overflow-hidden flex flex-col ${!partial && anySelected() && rank === 0 ? 'ring-2 ring-red/70' : ''}">
+        <div class="relative bg-cloud h-36 flex items-center justify-center">${badge}${brand}${img}</div>
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs font-mono ${m.brand === 'Vartech' ? 'text-emerald-600' : 'text-red'} mb-1">${esc(m.model)}</p>
+          <h3 class="text-base font-bold text-ink leading-snug">${esc(m.name)}</h3>
+          <div class="mt-3 flex flex-wrap gap-1.5">${chips.map(c => `<span class="badge badge--neutral !normal-case !tracking-normal !font-sans !font-medium">${esc(c)}</span>`).join('')}</div>
+          ${e.pass.length ? `<ul class="mt-3 space-y-1 text-sm text-ink">${e.pass.map(p => `<li class="flex gap-2"><span class="text-emerald-600 shrink-0" aria-hidden="true">&#10003;</span><span>${esc(p)}</span></li>`).join('')}</ul>` : ''}
+          ${e.fail.length ? `<ul class="mt-2 space-y-1 text-sm text-amber-800">${e.fail.map(p => `<li class="flex gap-2"><span class="shrink-0" aria-hidden="true">&#10007;</span><span>${esc(p)}</span></li>`).join('')}</ul>` : ''}
+          <div class="mt-auto pt-5 flex flex-col gap-2">
+            <a href="${m.href}" class="btn-primary btn-primary--sm">View specifications</a>
+            <a href="${wa}" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-secondary--sm text-ink">Ask about this model</a>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function render() {
+      const evals = cfg.models.map(evaluate);
+      const full = evals.filter(e => !e.fail.length);
+      notice.classList.add('hidden');
+      shareBtn.classList.toggle('hidden', !anySelected());
+
+      if (!anySelected()) {
+        summary.textContent = `All ${evals.length} models. Use the options to narrow them down.`;
+        results.innerHTML = evals.map((e, i) => card(e, i, false)).join('');
+        return;
+      }
+      if (full.length) {
+        full.sort((a, b) => a.score - b.score);
+        summary.textContent = `${full.length} of ${evals.length} models ${full.length === 1 ? 'matches' : 'match'}: ${selectionText()}.`;
+        results.innerHTML = full.map((e, i) => card(e, i, false)).join('');
+        return;
+      }
+      const near = evals.slice().sort((a, b) => a.fail.length - b.fail.length || a.score - b.score).slice(0, 3);
+      summary.textContent = `No model matches everything: ${selectionText()}.`;
+      notice.textContent = 'Nothing meets every requirement at once. These are the nearest options, with what each one is missing. Loosen one requirement to widen the search, or ask us if a special configuration is possible.';
+      notice.classList.remove('hidden');
+      results.innerHTML = near.map((e, i) => card(e, i, true)).join('');
+    }
+
+    // ---- URL state ----
+    function writeUrl() {
+      try {
+        const p = new URLSearchParams();
+        filters.forEach(f => {
+          if (f.type === 'choice' && state[f.key]) p.set(f.key, state[f.key]);
+          if (f.type === 'min' && state[f.key]) p.set(f.key, String(state[f.key]));
+          if (f.type === 'has' && state[f.key]) p.set(f.key, '1');
+          if (f.type === 'vr') { if (state.vr.v) p.set('volt', String(state.vr.v)); if (state.vr.r) p.set('ohm', String(state.vr.r)); }
+        });
+        const qs = p.toString();
+        history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+      } catch { /* ignore */ }
+    }
+    function readUrl() {
+      try {
+        const p = new URLSearchParams(location.search);
+        filters.forEach(f => {
+          if (f.type === 'choice') { const v = p.get(f.key); if (v && f.options.some(o => o.value === v)) state[f.key] = v; }
+          if (f.type === 'min') { const v = Number(p.get(f.key)); if (v && f.options.includes(v)) state[f.key] = v; }
+          if (f.type === 'has') state[f.key] = p.get(f.key) === '1';
+          if (f.type === 'vr') { const v = Number(p.get('volt')), r = Number(p.get('ohm')); if (f.volts.includes(v)) state.vr.v = v; if (f.ohms.some(o => o.value === r)) state.vr.r = r; }
+        });
+      } catch { /* ignore */ }
+    }
+
+    function refresh() { buildForm(); writeUrl(); render(); }
+
+    formBox.addEventListener('click', ev => {
+      const b = (ev.target as HTMLElement).closest<HTMLElement>('button[data-v]');
+      if (!b) return;
+      const val = b.dataset.v!;
+      if (b.dataset.c) state[b.dataset.c] = val;
+      else if (b.dataset.m) state[b.dataset.m] = Number(val);
+      else if (b.dataset.vr) state.vr[b.dataset.vr] = Number(val);
+      refresh();
+    });
+    formBox.addEventListener('change', ev => {
+      const c = (ev.target as HTMLElement).closest<HTMLInputElement>('input[data-h]');
+      if (!c) return;
+      state[c.dataset.h!] = c.checked;
+      writeUrl(); render();
+    });
+    q<HTMLButtonElement>('[data-inf-reset]').addEventListener('click', () => { reset(); refresh(); });
+    shareBtn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(location.href); shareBtn.textContent = 'Link copied'; }
+      catch { shareBtn.textContent = 'Copy the address bar link'; }
+      setTimeout(() => (shareBtn.textContent = 'Copy link to these results'), 2000);
+    });
+
+    readUrl();
+    buildForm();
+    render();
+  });
+</script>

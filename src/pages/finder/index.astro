@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import { families } from '../../data/finders';
+import { u } from '../../utils/url';
+
+const cards = [
+  ...families.map(f => ({ href: u(`/finder/${f.id}/`), title: f.title, text: f.lead, count: f.models.length })),
+  { href: u('/power-supply-finder/'), title: 'DC power supplies', text: 'Enter the voltage and current you need and see which Vartech DC power supplies fit.', count: 37 },
+];
+---
+
+<Base title="Instrument Finders - Which Instrument Do I Need?" description="Not sure which instrument to buy? Use a finder to compare analog and digital insulation testers, earth testers, multimeters, clamp meters, oscilloscopes, power supplies and more.">
+  <div class="bg-cloud border-b border-border py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Finders' }]} />
+      <h1 class="mt-4 text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Which instrument do I need?</h1>
+      <p class="mt-3 text-muted max-w-2xl leading-relaxed">Pick an instrument type. Analog and digital versions are compared together, so you see every option in one place.</p>
+    </div>
+  </div>
+  <section class="bg-white py-10 lg:py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {cards.map(c => (
+        <a href={c.href} class="card card-interactive p-6 flex flex-col group">
+          <p class="text-xs font-mono uppercase tracking-[0.14em] text-muted mb-2">{c.count} models</p>
+          <h2 class="text-lg font-bold text-ink">{c.title}</h2>
+          <p class="mt-2 text-sm text-muted leading-relaxed flex-1">{c.text}</p>
+          <span class="mt-4 text-sm font-semibold text-red">Open the finder &rarr;</span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <CTABand />
+</Base>

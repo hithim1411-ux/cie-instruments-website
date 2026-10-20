@@ -10,6 +10,8 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Badge from '../../../components/Badge.astro';
 import Icon from '../../../components/Icon.astro';
 import PowerSupplyFinder from '../../../components/PowerSupplyFinder.astro';
+import InstrumentFinder from '../../../components/InstrumentFinder.astro';
+import { familyForCategory } from '../../../data/finders';
 import ArrowLink from '../../../components/ArrowLink.astro';
 import categories from '../../../data/categories.json';
 import products from '../../../data/products.json';
@@ -64,6 +66,7 @@ const vartechSections = (vartechEquivalents ?? []).map(eq => ({
 }));
 
 // For pure Vartech brand pages (oscilloscopes, function-generators, etc.) - load products directly
+const finderFamily = familyForCategory(category.id);
 const isVartechBrand  = (category as any).brand === 'vartech';
 const brandSlug       = category.id.replace('vartech-', '');
 const vartechItems    = isVartechBrand ? (vartechDataMap[category.id] ?? []) : [];
@@ -151,8 +154,8 @@ const relatedArticles = (relatedArticleSlugs ?? [])
 
       <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">{category.name}</h1>
       <p class="mt-3 text-muted max-w-2xl leading-relaxed">{category.description}</p>
-      {category.id === 'vartech-dc-power-supplies' && (
-        <a href="#finder" class="mt-5 btn-primary btn-primary--sm !inline-flex">Not sure which one? Find your power supply</a>
+      {(category.id === 'vartech-dc-power-supplies' || finderFamily) && (
+        <a href="#finder" class="mt-5 btn-primary btn-primary--sm !inline-flex">{category.id === 'vartech-dc-power-supplies' ? 'Not sure which one? Find your power supply' : `Not sure which one? Find your ${finderFamily!.unit}`}</a>
       )}
       {compareGroup && (
         <a href={u(`/compare/?g=${compareGroup}`)} class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-red hover:underline">Compare models side by side →</a>
@@ -396,6 +399,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
   )}
 
   {category.id === 'vartech-dc-power-supplies' && <PowerSupplyFinder />}
+  {finderFamily && <InstrumentFinder family={finderFamily.id} />}
 
   <CTABand />
 </Base>
