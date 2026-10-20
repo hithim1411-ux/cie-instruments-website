@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { GROQ_API_KEY } from 'astro:env/server';
 import cieProducts from '../../data/products.json';
 import cieCategories from '../../data/categories.json';
 import vMM from '../../data/vartech-multimeters.json';
@@ -385,7 +386,7 @@ You are an AI. If asked who or what you are, say you are Volta, CIE's AI instrum
 
 
 export const POST: APIRoute = async ({ request }) => {
-  const groqKey = import.meta.env.GROQ_API_KEY;
+  const groqKey = GROQ_API_KEY;
   if (!groqKey) {
     return new Response(JSON.stringify({ error: 'AI search not configured.' }), {
       status: 503, headers: { 'Content-Type': 'application/json' },
