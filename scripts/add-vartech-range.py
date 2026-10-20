@@ -166,7 +166,7 @@ add('SI 25W S Slim', 'soldering-irons', 'si-25ws', 'SI-25WS', '25 W Slim Solderi
 # --- magnifying lamps
 MG = 'Magnifiers'
 add('228 LXD', 'magnifiers', '228-lxd', '228 LXD', 'Dimmable LED Magnifying Lamp, 7" Round Lens, Table Clamp', pdf=(ET_(f'{MG}/228_LXD.pdf'), '228-lxd.pdf'))
-add('228 LX', 'magnifiers', '228-lx', '228 LX', 'LED Magnifying Lamp, 7" Large Lens, Table Clamp', pdf=(ET_(f'{MG}/228_LX.pdf'), '228-lx.pdf'))
+add('228 LX LED', 'magnifiers', '228-lx', '228 LX', 'LED Magnifying Lamp, 7" Large Lens, Table Clamp', pdf=(ET_(f'{MG}/228_LX.pdf'), '228-lx.pdf'))
 add('228 LRD', 'magnifiers', '228-lrd', '228 LRD', 'Dimmable LED Magnifying Lamp, Rectangular Lens, Table Clamp', pdf=(ET_(f'{MG}/228_LRD.pdf'), '228-lrd.pdf'))
 add('228 BLR', 'magnifiers', '228-blr', '228 BLR', 'LED Magnifying Lamp, Rectangular Lens, Table Top', pdf=(ET_(f'{MG}/228_BLR.pdf'), '228-blr.pdf'))
 add('228 BL ', 'magnifiers', '228-bl', '228 BL', 'LED Magnifying Lamp, 125 mm Lens, Table Top, Heavy Base', pdf=(ET_(f'{MG}/228_Al_and_228_BL.pdf'), '228-al-and-228-bl.pdf'),

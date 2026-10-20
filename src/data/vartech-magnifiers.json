@@ -45,42 +45,6 @@
     "catalogue": "228-lxd.pdf"
   },
   {
-    "id": "228-lx",
-    "model": "228 LX",
-    "name": "LED Magnifying Lamp, 7\" Large Lens, Table Clamp",
-    "tagline": "Dimmable magnifier with Large round lens, table clamping, Light temperature selector (Warm & Cool white light)",
-    "description": "Dimmable magnifier with Large round lens, table clamping, Light temperature selector (Warm & Cool white light) Large 7\" Round lens, 5 Diopter. 72 Pcs., SMD LED, 12W Touch Dimmer, 1000 Lumens, 6000~7000 K.",
-    "features": [
-      "Large Round Lens 7” Diameter",
-      "Integration of Magnifying and Lighting",
-      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
-      "High Quality Crystal lens to relax the strain of eyesight after long term use",
-      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel / Beautician to Light or Magnify Weight                            :          Approx. 5 Kg."
-    ],
-    "specs": [
-      {
-        "label": "Supply Voltage",
-        "value": "220 V AC, 60 / 50 Hz."
-      },
-      {
-        "label": "Lighting",
-        "value": "84 Pcs., SMD LED, 12W, 910 Lumens, 6000~7000 K."
-      },
-      {
-        "label": "Lens Size",
-        "value": "7” Diameter"
-      },
-      {
-        "label": "Magnifications",
-        "value": "5 Dioptre"
-      }
-    ],
-    "images": [
-      "228-lx.webp"
-    ],
-    "catalogue": "228-lx.pdf"
-  },
-  {
     "id": "228-lrd",
     "model": "228 LRD",
     "name": "Dimmable LED Magnifying Lamp, Rectangular Lens, Table Clamp",
@@ -545,5 +509,41 @@
       "268-l-2.webp"
     ],
     "catalogue": "268-l.pdf"
+  },
+  {
+    "id": "228-lx",
+    "model": "228 LX",
+    "name": "LED Magnifying Lamp, 7\" Large Lens, Table Clamp",
+    "tagline": "Magnifier with 7\" Large lens, 12 W LED table clamping type, 5 Dioptre magnification.",
+    "description": "Magnifier with 7\" Large lens, 12 W LED table clamping type, 5 Dioptre magnification. 84 Pcs., SMD LED, 910 Lumens, 6000~7000 K.",
+    "features": [
+      "Large Round Lens 7” Diameter",
+      "Integration of Magnifying and Lighting",
+      "Bright and stable light, no flash feeling, not harmful to people's eyesight",
+      "High Quality Crystal lens to relax the strain of eyesight after long term use",
+      "Applications: For Electronic Engineers to view or check Micro Components or Densely Populated PCBs, or for Medical Personnel / Beautician to Light or Magnify Weight                            :          Approx. 5 Kg."
+    ],
+    "specs": [
+      {
+        "label": "Supply Voltage",
+        "value": "220 V AC, 60 / 50 Hz."
+      },
+      {
+        "label": "Lighting",
+        "value": "84 Pcs., SMD LED, 12W, 910 Lumens, 6000~7000 K."
+      },
+      {
+        "label": "Lens Size",
+        "value": "7” Diameter"
+      },
+      {
+        "label": "Magnifications",
+        "value": "5 Dioptre"
+      }
+    ],
+    "images": [
+      "228-lx.webp"
+    ],
+    "catalogue": "228-lx.pdf"
   }
 ]

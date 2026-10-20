@@ -55,6 +55,7 @@ def page(slug, c, kind):
     full = f"Vartech {c['name']}"
     src = src.replace('vartech-lux-meters.json', f'vartech-{slug}.json').replace('lux-meters', slug)
     src = src.replace('Vartech Digital Lux Meters', full).replace('Vartech® Digital Lux Meters', f"Vartech® {c['name']}")
+    src = src.replace(f'>{full}</h1>', f">{full.replace('&', '&amp;')}</h1>").replace(f"Vartech® {c['name']}</p>", f"Vartech® {c['name'].replace('&', '&amp;')}</p>")
     src = src.replace('All Vartech Lux Meters', f"All {full}")
     if kind == 'index':
         src = re.sub(r"const pageTitle = '.*?';", f"const pageTitle = '{full} - Authorised Distributor India | CIE Instruments';", src)

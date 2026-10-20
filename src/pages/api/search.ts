@@ -137,6 +137,10 @@ const CATEGORY_ROUTES: [RegExp, string[]][] = [
     ['HV Test Sets']],
   [/\bphase sequence|phase rotation|phase order|motor rotation direction/i,
     ['Phase Sequence Indicators']],
+  [/\bsolder|de-?solder|re-?work|\bsmd\b|\bbga\b|hot air|hot tweezer|fume|soldering (tip|bit)|heating element/i,
+    ['Soldering Stations','SMD Re-Work','Soldering Irons','Soldering Spares']],
+  [/\bmagnif|inspection lamp|loupe/i,
+    ['Magnifying Lamps']],
 ];
 
 const STOPWORDS = new Set(['the','and','for','with','what','which','that','this','need','best','good','tester','meter','instrument','testing','test','use','from','have','will','your','about','into','than','then','are','can','how','does','not','you','our','its']);
