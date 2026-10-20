@@ -277,18 +277,31 @@ const relatedProducts = [
                     </tr>
                   </thead>
                   <tbody>
-                    {(table.rows as any[]).map((row: any) => (
+                    {(table.rows as any[]).map((row: any, r: number, rows: any[]) => {
+                      // Merge consecutive identical first-column cells into one centred rowspan cell
+                      const first = row.col0;
+                      const mergeable = first && first !== 'N.A.' && first !== '✓';
+                      const isCont = mergeable && r > 0 && rows[r - 1].col0 === first;
+                      let span = 1;
+                      if (mergeable && !isCont) { while (r + span < rows.length && rows[r + span].col0 === first) span++; }
+                      return (
                       <tr>
                         {(table.columns as string[]).map((_: string, i: number) => (
-                          <td class:list={[
+                          (i === 0 && isCont) ? null : (
+                          <td
+                            rowspan={i === 0 && span > 1 ? span : undefined}
+                            class:list={[
                             row[`col${i}`] === 'N.A.' && 'text-muted italic',
                             row[`col${i}`] === '✓'    && 'text-[#16a34a] font-bold text-center',
+                            i === 0 && span > 1 && 'text-center align-middle font-semibold bg-white border-r border-border',
                           ]}>
                             {row[`col${i}`]}
                           </td>
+                          )
                         ))}
                       </tr>
-                    ))}
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
