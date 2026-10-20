@@ -249,8 +249,6 @@ const lcr: Family = {
 };
 
 
-insulation.note = 'Analog models are built to order: you choose the voltage and resistance range when you order, so tell us what you need and we will confirm the configuration.';
-earth.note = 'The analog tester is built to order: you choose the range and 3-terminal or 4-terminal type when you order.';
 
 insulation.presets = [
   { label: 'Home and building wiring', set: { volt: 500, ohm: 100 },
