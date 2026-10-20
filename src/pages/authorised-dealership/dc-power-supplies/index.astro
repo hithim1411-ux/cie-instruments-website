@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { u, downloadUrl } from '../../../utils/url';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CTABand from '../../../components/CTABand.astro';
+import PowerSupplyFinder from '../../../components/PowerSupplyFinder.astro';
 import products from '../../../data/vartech-dc-power-supplies.json';
 
 const pageTitle = 'Vartech DC Power Supplies - Authorised Distributor India | CIE Instruments';
@@ -57,6 +58,8 @@ const productSchema = {
       </p>
     </div>
   </div>
+
+  <PowerSupplyFinder />
 
   <section class="bg-white section-pad-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

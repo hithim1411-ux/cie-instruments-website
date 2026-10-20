@@ -1,0 +1,432 @@
+---
+// Vartech DC power supply finder: live, spec-driven picker.
+// The visitor enters the voltage and current their load needs; every one of the
+// 37 models is checked against that (plus outputs / PC control / protection),
+// then ranked by how closely it fits. All ratings come from ps-finder.ts, which
+// was read from vartech-dc-power-supplies.json. Nothing is guessed or invented.
+import { u } from '../utils/url';
+import site from '../data/site.json';
+import products from '../data/vartech-dc-power-supplies.json';
+import { psRows } from '../data/ps-finder';
+
+interface Props {
+  heading?: string;
+  id?: string;
+}
+const { heading = 'Find the right power supply', id = 'finder' } = Astro.props;
+
+const byId = new Map(products.map((p: any) => [p.id, p]));
+const models = psRows.map(r => {
+  const p: any = byId.get(r.id);
+  return {
+    ...r,
+    model: p.model,
+    name: p.name,
+    img: p.images?.[0] ?? null,
+  };
+});
+
+const config = {
+  models,
+  base: u('/authorised-dealership/dc-power-supplies/'),
+  imgBase: u('/images/vartech/dc-power-supplies/'),
+  wa: site.whatsapp,
+};
+---
+
+<section id={id} class="scroll-mt-24 bg-white border-y border-emerald-200" aria-labelledby={`${id}-title`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+    <div class="max-w-2xl mb-8">
+      <p class="eyebrow mb-3">Power Supply Finder</p>
+      <h2 id={`${id}-title`} class="text-2xl lg:text-3xl font-extrabold text-ink tracking-tight leading-tight">{heading}</h2>
+      <p class="mt-3 text-muted leading-relaxed">
+        Tell us the voltage and current your equipment needs. We check all {models.length} Vartech models and show the ones that fit, closest fit first.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-[360px_1fr] gap-8 items-start" data-psf>
+      <!-- INPUTS -->
+      <form class="card p-5 sm:p-6 lg:sticky lg:top-24" novalidate onsubmit="return false" aria-label="Power supply requirements">
+        <p class="text-xs font-mono uppercase tracking-[0.14em] text-muted mb-2">Typical starting points</p>
+        <div class="flex flex-wrap gap-2 mb-5" data-psf-presets></div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <label class="block">
+            <span class="block text-sm font-semibold text-ink mb-1.5">Voltage needed</span>
+            <span class="flex items-stretch rounded-lg border border-border focus-within:border-ink focus-within:ring-2 focus-within:ring-ink/10 bg-white overflow-hidden">
+              <input data-psf-v type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 24" class="w-full min-w-0 px-3 py-2.5 text-base outline-none bg-transparent" />
+              <span class="px-3 grid place-items-center bg-cloud text-sm font-mono text-muted">V</span>
+            </span>
+          </label>
+          <label class="block">
+            <span class="block text-sm font-semibold text-ink mb-1.5">Current needed</span>
+            <span class="flex items-stretch rounded-lg border border-border focus-within:border-ink focus-within:ring-2 focus-within:ring-ink/10 bg-white overflow-hidden">
+              <input data-psf-i type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 8" class="w-full min-w-0 px-3 py-2.5 text-base outline-none bg-transparent" />
+              <span class="px-3 grid place-items-center bg-cloud text-sm font-mono text-muted">A</span>
+            </span>
+          </label>
+        </div>
+        <p class="mt-2 text-xs text-muted leading-relaxed">Use the maximum your load draws (see its nameplate). Fill in one value if you only know one.</p>
+
+        <fieldset class="mt-5">
+          <legend class="text-sm font-semibold text-ink mb-2">How many outputs?</legend>
+          <div class="grid grid-cols-3 gap-2">
+            {[['1', 'One'], ['2', 'Two'], ['3', 'Three or more']].map(([val, label], idx) => (
+              <label class="cursor-pointer">
+                <input type="radio" name={`${id}-outs`} value={val} checked={idx === 0} class="peer sr-only" data-psf-outs />
+                <span class="block text-center text-sm font-medium rounded-lg border border-border px-2 py-2 leading-tight min-h-[2.75rem] grid place-items-center peer-checked:bg-ink peer-checked:text-white peer-checked:border-ink peer-focus-visible:ring-2 peer-focus-visible:ring-ink/30 hover:border-ink/40 transition-colors">{label}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset class="mt-5">
+          <legend class="text-sm font-semibold text-ink mb-2">Must have</legend>
+          <div class="space-y-2">
+            <label class="flex items-start gap-3 cursor-pointer text-sm text-ink">
+              <input type="checkbox" data-psf-pc class="mt-0.5 h-4 w-4 accent-[var(--color-red)]" />
+              <span>PC / software control <span class="text-muted">(USB, RS232 or RS485)</span></span>
+            </label>
+            <label class="flex items-start gap-3 cursor-pointer text-sm text-ink">
+              <input type="checkbox" data-psf-prog class="mt-0.5 h-4 w-4 accent-[var(--color-red)]" />
+              <span>Programmable <span class="text-muted">(memory sets, list mode)</span></span>
+            </label>
+            <label class="flex items-start gap-3 cursor-pointer text-sm text-ink">
+              <input type="checkbox" data-psf-ovp class="mt-0.5 h-4 w-4 accent-[var(--color-red)]" />
+              <span>Over-voltage and over-current protection <span class="text-muted">(for delicate loads)</span></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="mt-5">
+          <legend class="text-sm font-semibold text-ink mb-2">What matters most?</legend>
+          <div class="space-y-2">
+            {[['fit', 'Closest fit to my load'], ['quiet', 'Lowest ripple and noise (linear)'], ['compact', 'Light and compact (switch-mode)']].map(([val, label], idx) => (
+              <label class="flex items-center gap-3 cursor-pointer text-sm text-ink">
+                <input type="radio" name={`${id}-pri`} value={val} checked={idx === 0} data-psf-pri class="h-4 w-4 accent-[var(--color-red)]" />
+                <span>{label}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <button type="button" data-psf-reset class="mt-6 text-sm font-semibold text-muted hover:text-ink underline underline-offset-4">Clear and start again</button>
+      </form>
+
+      <!-- RESULTS -->
+      <div>
+        <div class="flex items-center justify-between gap-3 flex-wrap mb-4 min-h-[2rem]">
+          <p class="text-sm font-semibold text-ink" data-psf-summary aria-live="polite"></p>
+          <button type="button" data-psf-share class="hidden text-sm font-semibold text-red hover:underline">Copy link to these results</button>
+        </div>
+        <div data-psf-notice class="hidden mb-4 rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900 leading-relaxed"></div>
+        <div data-psf-results class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+        <div class="mt-6 hidden" data-psf-more-wrap>
+          <button type="button" data-psf-more class="btn-secondary btn-secondary--sm text-ink"></button>
+        </div>
+        <p class="mt-8 text-xs text-muted leading-relaxed max-w-2xl">
+          Tip: choose a model with about 20% spare voltage and current over your load, so it is not running at its limit. Ratings shown are the maximum output of the main variable channel. Check the full specification page before ordering.
+        </p>
+      </div>
+    </div>
+
+    <script type="application/json" data-psf-config set:html={JSON.stringify(config)} />
+  </div>
+</section>
+
+<script>
+  type Row = {
+    id: string; kind: 'linear' | 'smps' | 'prog' | 'auto'; v: number; i: number; ch: number;
+    aux?: string; sp?: boolean; cap?: number; pc?: string; prog?: boolean; ovp?: boolean;
+    model: string; name: string; img: string | null;
+  };
+  type Cfg = { models: Row[]; base: string; imgBase: string; wa: string };
+  type Hit = {
+    r: Row; mode: 'normal' | 'series' | 'parallel';
+    effV: number; effI: number; hv: number | null; hi: number | null;
+    tight: boolean; score: number;
+  };
+
+  const KIND: Record<Row['kind'], string> = {
+    linear: 'Linear',
+    smps: 'Switch-mode (SMPS)',
+    prog: 'Programmable SMPS',
+    auto: 'Auto-ranging programmable',
+  };
+  const PRESETS: { label: string; v: number; i: number }[] = [
+    { label: 'Hobby and school lab', v: 5, i: 2 },
+    { label: 'Electronics repair bench', v: 12, i: 3 },
+    { label: 'Car electronics (12 V / 24 V)', v: 28, i: 10 },
+    { label: 'Battery charging (12 V)', v: 15, i: 10 },
+    { label: 'Motors, relays, solenoids (24 V)', v: 24, i: 10 },
+    { label: 'Telecom (48 V)', v: 54, i: 10 },
+    { label: 'High current (plating, heaters)', v: 12, i: 30 },
+  ];
+  const PAGE = 6;
+
+  const fmt = (n: number) => String(Number(n.toFixed(1)));
+  const pct = (x: number) => Math.round(x * 100);
+
+  document.querySelectorAll<HTMLElement>('[data-psf]').forEach(root => {
+    const wrap = root.closest('section') as HTMLElement;
+    const cfg: Cfg = JSON.parse(wrap.querySelector('[data-psf-config]')!.textContent || '{}');
+    const q = <T extends HTMLElement>(s: string) => root.querySelector<T>(s)!;
+    const qa = <T extends HTMLElement>(s: string) => Array.from(root.querySelectorAll<T>(s));
+
+    const vIn = q<HTMLInputElement>('[data-psf-v]');
+    const iIn = q<HTMLInputElement>('[data-psf-i]');
+    const pcIn = q<HTMLInputElement>('[data-psf-pc]');
+    const progIn = q<HTMLInputElement>('[data-psf-prog]');
+    const ovpIn = q<HTMLInputElement>('[data-psf-ovp]');
+    const outsIn = qa<HTMLInputElement>('[data-psf-outs]');
+    const priIn = qa<HTMLInputElement>('[data-psf-pri]');
+    const summary = q('[data-psf-summary]');
+    const notice = q('[data-psf-notice]');
+    const results = q('[data-psf-results]');
+    const moreWrap = q('[data-psf-more-wrap]');
+    const moreBtn = q<HTMLButtonElement>('[data-psf-more]');
+    const shareBtn = q<HTMLButtonElement>('[data-psf-share]');
+    const presetBox = q('[data-psf-presets]');
+
+    let shown = PAGE;
+
+    const val = (el: HTMLInputElement) => {
+      const n = parseFloat(el.value);
+      return isFinite(n) && n > 0 ? n : 0;
+    };
+    const checked = (els: HTMLInputElement[]) => (els.find(e => e.checked)?.value ?? '');
+
+    // ---- core matching ----
+    function fitRow(r: Row, V: number, I: number, outs: number, pri: string): Hit | null {
+      const cands: { mode: Hit['mode']; vmax: number; imax: number }[] = [{ mode: 'normal', vmax: r.v, imax: r.i }];
+      if (r.sp && outs === 1) {
+        cands.push({ mode: 'series', vmax: r.v * 2, imax: r.i });
+        cands.push({ mode: 'parallel', vmax: r.v, imax: r.i * 2 });
+      }
+      let best: Hit | null = null;
+      for (const c of cands) {
+        if (V > c.vmax || I > c.imax) continue;
+        if (r.cap && V * I > r.cap) continue;
+        const hv = V ? c.vmax / V - 1 : null;
+        const hi = I ? c.imax / I - 1 : null;
+        const over = Math.min(hv ?? 0, 4) + Math.min(hi ?? 0, 4);
+        const tight = (hv !== null && hv < 0.1) || (hi !== null && hi < 0.1);
+        let score = over + (tight ? 0.5 : 0) + (c.mode === 'normal' ? 0.1 * Math.max(0, r.ch - outs) : 0.3);
+        if (pri === 'quiet' && r.kind === 'linear') score -= 3;
+        if (pri === 'compact' && r.kind !== 'linear') score -= 3;
+        const hit: Hit = { r, mode: c.mode, effV: c.vmax, effI: c.imax, hv, hi, tight, score };
+        if (!best || hit.score < best.score) best = hit;
+      }
+      return best;
+    }
+
+    function passesMust(r: Row, outs: number, pc: boolean, prog: boolean, ovp: boolean) {
+      if (r.ch < outs) return false;
+      if (pc && !r.pc) return false;
+      if (prog && !r.prog) return false;
+      if (ovp && !r.ovp) return false;
+      return true;
+    }
+
+    // ---- rendering ----
+    function reason(h: Hit, V: number, I: number): string {
+      const need = [V ? `${fmt(V)} V` : '', I ? `${fmt(I)} A` : ''].filter(Boolean).join(' / ');
+      if (h.mode === 'series') return `Run its two outputs in series for up to ${fmt(h.effV)} V. Covers ${need}.`;
+      if (h.mode === 'parallel') return `Run its two outputs in parallel for up to ${fmt(h.effI)} A. Covers ${need}.`;
+      if (h.tight) return `Covers ${need}, but with almost no spare capacity. Consider the next size up.`;
+      const room = (x: number, what: string) => (x > 1 ? `plenty of ${what}` : `${pct(x)}% ${what}`);
+      const parts: string[] = [];
+      if (h.hv !== null) parts.push(room(h.hv, 'voltage'));
+      if (h.hi !== null) parts.push(room(h.hi, 'current'));
+      let t = `Covers ${need} with ${parts.join(' and ')} to spare.`;
+      if (h.r.cap) t = `Covers ${need} inside its ${h.r.cap} W auto-ranging envelope.`;
+      return t;
+    }
+
+    function chips(r: Row): string[] {
+      const c = [KIND[r.kind]];
+      if (r.ch === 2) c.push('Dual output');
+      if (r.ch === 3) c.push('Triple output');
+      if (r.ch === 4) c.push('Quad output');
+      if (r.aux) c.push(r.aux);
+      if (r.pc) c.push(`PC: ${r.pc}`);
+      if (r.prog) c.push('Programmable');
+      if (r.ovp) c.push('OVP / OCP');
+      return c;
+    }
+
+    function bar(label: string, used: number) {
+      const w = Math.max(4, Math.min(100, used * 100));
+      const tone = used > 0.9 ? 'bg-amber-500' : 'bg-emerald-500';
+      return `<div class="flex items-center gap-2 text-[11px] text-muted"><span class="w-12 shrink-0">${label}</span><span class="h-1.5 flex-1 rounded-full bg-cloud overflow-hidden"><span class="block h-full rounded-full ${tone}" style="width:${w}%"></span></span><span class="w-9 text-right font-mono">${pct(used)}%</span></div>`;
+    }
+
+    function card(h: Hit, V: number, I: number, rank: number, note = ''): string {
+      const r = h.r;
+      const need = [V ? `${fmt(V)} V` : '', I ? `${fmt(I)} A` : ''].filter(Boolean).join(' / ');
+      const msg = `Hi, I need a DC power supply for ${need || 'my application'}. Is the Vartech ${r.model} suitable?`;
+      const wa = `https://wa.me/${cfg.wa}?text=${encodeURIComponent(msg)}`;
+      const img = r.img
+        ? `<img src="${cfg.imgBase}${r.img}" alt="${r.model}" width="240" height="240" loading="lazy" class="object-contain h-28 w-auto" onerror="this.style.display='none'" />`
+        : '';
+      const rating = h.mode === 'series' ? `${fmt(h.effV)} V / ${fmt(h.effI)} A` : h.mode === 'parallel' ? `${fmt(h.effV)} V / ${fmt(h.effI)} A` : `${fmt(r.v)} V / ${fmt(r.i)} A`;
+      const best = rank === 0 && !note
+        ? '<span class="badge badge--red absolute top-3 left-3">Best fit</span>'
+        : rank > 0 && !note && rank < 3 ? '<span class="badge badge--neutral absolute top-3 left-3">Also good</span>' : '';
+      const bars = (V ? bar('Voltage', V / h.effV) : '') + (I ? bar('Current', I / h.effI) : '');
+      return `
+      <article class="card overflow-hidden flex flex-col ${rank === 0 && !note ? 'ring-2 ring-red/70' : ''}">
+        <div class="relative bg-cloud h-36 flex items-center justify-center">${best}${img}</div>
+        <div class="p-5 flex flex-col flex-1">
+          <p class="text-xs font-mono text-emerald-600 mb-1">${r.model}</p>
+          <p class="text-xl font-extrabold text-ink tracking-tight">${rating}${h.mode !== 'normal' ? ' <span class="text-xs font-semibold text-muted">in ' + h.mode + '</span>' : ''}</p>
+          <h3 class="mt-1 text-sm font-semibold text-ink leading-snug">${r.name}</h3>
+          <div class="mt-3 flex flex-wrap gap-1.5">${chips(r).map(c => `<span class="badge badge--neutral !normal-case !tracking-normal !font-sans !font-medium">${c}</span>`).join('')}</div>
+          <p class="mt-3 text-sm ${note ? 'text-amber-800' : 'text-muted'} leading-relaxed">${note || reason(h, V, I)}</p>
+          ${note ? '' : `<div class="mt-3 space-y-1.5">${bars}</div>`}
+          <div class="flex flex-col gap-2 mt-auto pt-5">
+            <a href="${cfg.base}${r.id}/" class="btn-primary btn-primary--sm">View specifications</a>
+            <a href="${wa}" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-secondary--sm text-ink">Ask about this model</a>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function render() {
+      const V = val(vIn), I = val(iIn);
+      const outs = parseInt(checked(outsIn) || '1', 10);
+      const pri = checked(priIn) || 'fit';
+      const pc = pcIn.checked, prog = progIn.checked, ovp = ovpIn.checked;
+      notice.classList.add('hidden');
+      moreWrap.classList.add('hidden');
+      shareBtn.classList.add('hidden');
+
+      if (!V && !I) {
+        summary.textContent = `All ${cfg.models.length} models. Enter your voltage and current, or pick a starting point.`;
+        results.innerHTML = `
+          <div class="sm:col-span-2 xl:col-span-3 rounded-xl border border-dashed border-border bg-cloud/60 p-8 text-center">
+            <p class="font-semibold text-ink">Your matches will appear here</p>
+            <p class="mt-2 text-sm text-muted max-w-md mx-auto leading-relaxed">Type the voltage and current of the equipment you want to power, or tap one of the starting points on the left and adjust the numbers.</p>
+          </div>`;
+        return;
+      }
+
+      const strict: Hit[] = [];
+      const relaxed: Hit[] = [];
+      for (const r of cfg.models) {
+        if (r.ch < outs) continue;
+        const h = fitRow(r, V, I, outs, pri);
+        if (!h) continue;
+        (passesMust(r, outs, pc, prog, ovp) ? strict : relaxed).push(h);
+      }
+      strict.sort((a, b) => a.score - b.score);
+      relaxed.sort((a, b) => a.score - b.score);
+
+      const need = [V ? `${fmt(V)} V` : '', I ? `${fmt(I)} A` : ''].filter(Boolean).join(' / ');
+      shareBtn.classList.remove('hidden');
+
+      if (strict.length) {
+        summary.textContent = `${strict.length} ${strict.length === 1 ? 'model fits' : 'models fit'} ${need}. Closest fit first.`;
+        const list = strict.slice(0, shown);
+        results.innerHTML = list.map((h, k) => card(h, V, I, k)).join('');
+        if (strict.length > shown) {
+          moreBtn.textContent = `Show ${Math.min(PAGE, strict.length - shown)} more (${strict.length - shown} left)`;
+          moreWrap.classList.remove('hidden');
+        }
+        return;
+      }
+
+      // Nothing passes every must-have
+      if (relaxed.length) {
+        const wanted = [pc ? 'PC control' : '', prog ? 'programmable operation' : '', ovp ? 'OVP / OCP protection' : '', outs > 1 ? `${outs === 2 ? 'two' : 'three or more'} outputs` : ''].filter(Boolean);
+        summary.textContent = `No model has everything you ticked at ${need}.`;
+        notice.textContent = `${relaxed.length} ${relaxed.length === 1 ? 'model covers' : 'models cover'} ${need}, but none of them also gives ${wanted.join(' + ') || 'your other requirements'}. These are the nearest options. Untick a must-have to widen the search.`;
+        notice.classList.remove('hidden');
+        results.innerHTML = relaxed.slice(0, 3).map((h, k) => card(h, V, I, k, 'Fits your voltage and current, but is missing one of your must-haves.')).join('');
+        return;
+      }
+
+      // Nothing fits V/A at all: show the closest by shortfall
+      const near = cfg.models
+        .filter(r => r.ch >= outs)
+        .map(r => {
+          const sv = V ? Math.max(0, V / r.v - 1) : 0;
+          const si = I ? Math.max(0, I / r.i - 1) : 0;
+          return { r, short: sv + si, sv, si };
+        })
+        .sort((a, b) => a.short - b.short)
+        .slice(0, 3);
+      summary.textContent = `No single model reaches ${need}.`;
+      notice.textContent = `${need} is above what any single standard model gives${outs > 1 ? ' with that many outputs' : ''}. Below are the nearest models. Send us the requirement and we will suggest the closest practical option.`;
+      notice.classList.remove('hidden');
+      results.innerHTML = near.map((n, k) => {
+        const h: Hit = { r: n.r, mode: 'normal', effV: n.r.v, effI: n.r.i, hv: null, hi: null, tight: false, score: 0 };
+        const lack = [n.sv > 0 ? `${fmt(n.r.v)} V is below your ${fmt(V)} V` : '', n.si > 0 ? `${fmt(n.r.i)} A is below your ${fmt(I)} A` : ''].filter(Boolean).join(' and ');
+        return card(h, V, I, k, `Nearest option, but ${lack}.`);
+      }).join('');
+    }
+
+    // ---- URL state ----
+    function writeUrl() {
+      try {
+        const p = new URLSearchParams();
+        if (val(vIn)) p.set('v', String(val(vIn)));
+        if (val(iIn)) p.set('i', String(val(iIn)));
+        const o = checked(outsIn); if (o && o !== '1') p.set('o', o);
+        if (pcIn.checked) p.set('pc', '1');
+        if (progIn.checked) p.set('prog', '1');
+        if (ovpIn.checked) p.set('ovp', '1');
+        const pr = checked(priIn); if (pr && pr !== 'fit') p.set('pri', pr);
+        const qs = p.toString();
+        history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+      } catch { /* sandboxed or file preview: ignore */ }
+    }
+    function readUrl() {
+      try {
+        const p = new URLSearchParams(location.search);
+        if (p.get('v')) vIn.value = p.get('v')!;
+        if (p.get('i')) iIn.value = p.get('i')!;
+        const o = p.get('o'); if (o) outsIn.forEach(e => (e.checked = e.value === o));
+        pcIn.checked = p.get('pc') === '1';
+        progIn.checked = p.get('prog') === '1';
+        ovpIn.checked = p.get('ovp') === '1';
+        const pr = p.get('pri'); if (pr) priIn.forEach(e => (e.checked = e.value === pr));
+      } catch { /* ignore */ }
+    }
+
+    function update() { shown = PAGE; writeUrl(); render(); }
+
+    // presets
+    PRESETS.forEach(p => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'text-xs font-medium rounded-full border border-border px-3 py-1.5 text-ink hover:border-ink hover:bg-cloud transition-colors';
+      b.textContent = p.label;
+      b.addEventListener('click', () => {
+        vIn.value = String(p.v); iIn.value = String(p.i); update();
+        // On phones the results sit below the form: bring them into view
+        if (window.matchMedia('(max-width: 1023px)').matches) summary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      presetBox.appendChild(b);
+    });
+
+    [vIn, iIn].forEach(el => el.addEventListener('input', update));
+    [...outsIn, ...priIn, pcIn, progIn, ovpIn].forEach(el => el.addEventListener('change', update));
+    moreBtn.addEventListener('click', () => { shown += PAGE; render(); });
+    q<HTMLButtonElement>('[data-psf-reset]').addEventListener('click', () => {
+      vIn.value = ''; iIn.value = '';
+      pcIn.checked = progIn.checked = ovpIn.checked = false;
+      outsIn.forEach(e => (e.checked = e.value === '1'));
+      priIn.forEach(e => (e.checked = e.value === 'fit'));
+      update();
+    });
+    shareBtn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(location.href); shareBtn.textContent = 'Link copied'; }
+      catch { shareBtn.textContent = 'Copy the address bar link'; }
+      setTimeout(() => (shareBtn.textContent = 'Copy link to these results'), 2000);
+    });
+
+    readUrl();
+    render();
+  });
+</script>

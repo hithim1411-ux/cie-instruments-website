@@ -9,6 +9,7 @@ import CTABand from '../../../components/CTABand.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Badge from '../../../components/Badge.astro';
 import Icon from '../../../components/Icon.astro';
+import PowerSupplyFinder from '../../../components/PowerSupplyFinder.astro';
 import ArrowLink from '../../../components/ArrowLink.astro';
 import categories from '../../../data/categories.json';
 import products from '../../../data/products.json';
@@ -150,6 +151,9 @@ const relatedArticles = (relatedArticleSlugs ?? [])
 
       <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">{category.name}</h1>
       <p class="mt-3 text-muted max-w-2xl leading-relaxed">{category.description}</p>
+      {category.id === 'vartech-dc-power-supplies' && (
+        <a href="#finder" class="mt-5 btn-primary btn-primary--sm !inline-flex">Not sure which one? Find your power supply</a>
+      )}
       {compareGroup && (
         <a href={u(`/compare/?g=${compareGroup}`)} class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-red hover:underline">Compare models side by side →</a>
       )}
@@ -167,6 +171,8 @@ const relatedArticles = (relatedArticleSlugs ?? [])
       )}
     </div>
   </div>
+
+  {category.id === 'vartech-dc-power-supplies' && <PowerSupplyFinder />}
 
   {isCombined ? (
     /* ── COMBINED BRAND PAGE ────────────────────────────────────────────────── */

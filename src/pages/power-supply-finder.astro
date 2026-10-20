@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CTABand from '../components/CTABand.astro';
+import PowerSupplyFinder from '../components/PowerSupplyFinder.astro';
+import { u } from '../utils/url';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'DC Power Supply Finder',
+  description: 'Enter the voltage and current you need and see which Vartech DC power supplies fit.',
+  url: 'https://www.cieinstruments.in/power-supply-finder/',
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  publisher: { '@id': 'https://www.cieinstruments.in/#organization' },
+};
+---
+
+<Base title="DC Power Supply Finder - Which Power Supply Do I Need?" description="Enter the voltage and current your equipment needs and see which Vartech DC power supplies fit: linear, SMPS, programmable, multi-output and auto-ranging models.">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <div class="bg-emerald-50 border-b border-emerald-200 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[{ label: 'Power Supply Finder' }]} />
+      <h1 class="mt-4 text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Which DC power supply do I need?</h1>
+      <p class="mt-3 text-muted max-w-2xl leading-relaxed">
+        Vartech DC power supplies, supplied by CIE Instruments as authorised distributor. Pick a starting point or type your own voltage and current to see the models that fit.
+      </p>
+    </div>
+  </div>
+
+  <PowerSupplyFinder heading="Enter your load, see what fits" />
+
+  <section class="bg-white py-10 lg:py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-muted leading-relaxed space-y-4">
+      <h2 class="text-xl font-bold text-ink">Choosing between linear, switch-mode and programmable</h2>
+      <p><strong class="text-ink">Linear</strong> supplies are transformer-based. They are heavier but have the lowest ripple and noise, which suits sensitive analogue and audio work.</p>
+      <p><strong class="text-ink">Switch-mode (SMPS)</strong> supplies are light and compact for their power, and the SR series adds a PC interface for higher power loads.</p>
+      <p><strong class="text-ink">Programmable</strong> supplies add memory sets, list mode and software control for repeatable and automated testing.</p>
+      <p>
+        Want to read more first? See the <a class="text-red font-semibold hover:underline" href={u('/blog/linear-vs-smps-power-supply-explained/')}>linear vs SMPS guide</a> or browse the
+        <a class="text-red font-semibold hover:underline" href={u('/products/vartech-dc-power-supplies/')}>full DC power supply range</a>.
+      </p>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>
