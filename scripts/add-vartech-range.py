@@ -122,9 +122,6 @@ add('SPA-10M', 'function-generators', 'spa-10m', 'SPA-10M', 'Power Amplifier Mod
     specs=[('Frequency', '10 MHz'), ('Output', '25 V p-p, 0.5 A'), ('Channels', '2 (5 W × 2 max.)')])
 add('SPA-100K', 'function-generators', 'spa-100k', 'SPA-100K', 'Power Amplifier Module for Signal Generators, 100 kHz',
     specs=[('Frequency', '100 kHz'), ('Output', '40 V p-p, 1 A'), ('Channels', '2 (10 W × 2 max.)')])
-add('7150', 'clamp-meters', '7150', '7150', 'Pocket Analog Clamp Meter',
-    specs=[('Type', 'Analog, pocket size'), ('AC voltage', '500 V'), ('AC current', '5 / 25 / 50 A'), ('Power', 'No batteries needed'), ('Dimensions', '139 × 52 × 35 mm')])
-
 # --- soldering & de-soldering stations
 for pre, id_, model, name, pdf in [
     ('936 A Soldering', '936-a', '936 A', 'Soldering Station, 60 W, 200–480 °C', '936_A_6f474fc4-ce19-46a3-8c6b-a93f2db6c008.pdf'),

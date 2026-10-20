@@ -445,41 +445,5 @@
       "v-2002-plus-3.webp"
     ],
     "catalogue": "v-2001-plus-and-v-2002-plus.pdf"
-  },
-  {
-    "id": "7150",
-    "model": "7150",
-    "name": "Pocket Analog Clamp Meter",
-    "tagline": "Pocket size Analog clamp meter.",
-    "description": "Pocket size Analog clamp meter. 500 V ACV, 5/25/50A ACA. No batteries needed. Dimensions : 139 x 52 x 35 mm",
-    "features": [
-      "No batteries needed.",
-      "Dimensions : 139 x 52 x 35 mm"
-    ],
-    "specs": [
-      {
-        "label": "Type",
-        "value": "Analog, pocket size"
-      },
-      {
-        "label": "AC voltage",
-        "value": "500 V"
-      },
-      {
-        "label": "AC current",
-        "value": "5 / 25 / 50 A"
-      },
-      {
-        "label": "Power",
-        "value": "No batteries needed"
-      },
-      {
-        "label": "Dimensions",
-        "value": "139 × 52 × 35 mm"
-      }
-    ],
-    "images": [
-      "7150.webp"
-    ]
   }
 ]
