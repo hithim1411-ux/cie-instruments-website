@@ -26,13 +26,13 @@ const isHome      = currentPath === '/' || currentPath === u('/');
 const onProducts  = currentPath.startsWith(u('/products'));
 const onInsights  = currentPath.startsWith(u('/insights')) || currentPath.startsWith(u('/blog')) || currentPath.startsWith(u('/tools')) || currentPath.startsWith(u('/compare')) || currentPath.startsWith(u('/templates')) || currentPath.startsWith(u('/playground')) || currentPath.startsWith(u('/reference')) || currentPath.startsWith(u('/guides'));
 const insightsLinks = [
-  { label: 'Blog', sub: 'Guides and how-tos on testing', href: u('/blog/') },
-  { label: 'Selection Guide', sub: 'Which instrument for which job', href: u('/guides/') },
-  { label: 'Free Tools', sub: 'Calculators for engineers', href: u('/tools/') },
-  { label: 'Standards and Ratings', sub: 'IS, IEC, IEEE, IP and CAT explained', href: u('/reference/') },
-  { label: 'Test Report Forms', sub: 'Printable PDF forms with formulas', href: u('/templates/') },
-  { label: 'Compare Instruments', sub: 'Side by side, with your must-haves', href: u('/compare/') },
-  { label: 'Instrument Playground', sub: 'Beta: just for fun, play with our testers', href: u('/playground/') },
+  { label: 'Blog', icon: 'message-circle', sub: 'Guides and how-tos on testing', href: u('/blog/') },
+  { label: 'Selection Guide', icon: 'sliders', sub: 'Which instrument for which job', href: u('/guides/') },
+  { label: 'Free Tools', icon: 'wrench', sub: 'Calculators for engineers', href: u('/tools/') },
+  { label: 'Standards and Ratings', icon: 'shield-check', sub: 'IS, IEC, IEEE, IP and CAT explained', href: u('/reference/') },
+  { label: 'Test Report Forms', icon: 'clipboard-check', sub: 'Printable PDF forms with formulas', href: u('/templates/') },
+  { label: 'Compare Instruments', icon: 'activity', sub: 'Side by side, with your must-haves', href: u('/compare/') },
+  { label: 'Instrument Playground', icon: 'zap', sub: 'Just for fun: play with our testers', href: u('/playground/'), beta: true },
 ];
 
 // Generic mailto for header button
@@ -157,15 +157,26 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
             Insights
             <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180 group-has-[:focus-visible]:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
           </a>
-          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-has-[:focus-visible]:opacity-100 group-has-[:focus-visible]:visible group-has-[:focus-visible]:translate-y-0 transition-all duration-200 ease-out">
-            <div class="bg-ink border border-white/10 rounded-2xl shadow-2xl p-2">
-              {insightsLinks.map((l) => (
-                <a href={l.href} class="block rounded-xl px-4 py-3 hover:bg-white/5 transition-colors">
-                  <span class="flex items-center gap-2 text-[13px] font-semibold text-white">
-                    {l.label}
-                                      </span>
-                  <span class="block text-[11.5px] text-muted-dark mt-0.5">{l.sub}</span>
-                </a>
+          <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[340px] opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-has-[:focus-visible]:opacity-100 group-has-[:focus-visible]:visible group-has-[:focus-visible]:translate-y-0 transition-all duration-200 ease-out">
+            <div class="bg-ink border border-white/10 rounded-2xl shadow-2xl p-2 ring-1 ring-black/40">
+              <span class="block px-3 pt-2 pb-2 text-[10px] font-mono text-muted-dark uppercase tracking-[.18em]">Learn and explore</span>
+              {insightsLinks.map((l, i) => (
+                <>
+                  {l.beta && <div class="my-1.5 mx-3 h-px bg-white/10" />}
+                  <a href={l.href} class="group/i flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-white/[.06] transition-colors">
+                    <span class="grid place-items-center w-9 h-9 shrink-0 rounded-lg bg-white/[.06] text-muted-dark group-hover/i:bg-red group-hover/i:text-white transition-colors">
+                      <Icon name={l.icon} class="w-[18px] h-[18px]" />
+                    </span>
+                    <span class="min-w-0 flex-1">
+                      <span class="flex items-center gap-2 text-[13px] font-semibold text-white">
+                        {l.label}
+                        {l.beta && <span class="px-1.5 py-px text-[9px] font-bold uppercase tracking-wider rounded-full text-amber-300 border border-amber-400/40 bg-amber-400/10">Beta</span>}
+                      </span>
+                      <span class="block text-[11.5px] leading-snug text-muted-dark mt-0.5">{l.sub}</span>
+                    </span>
+                    <svg class="w-4 h-4 shrink-0 text-white/0 group-hover/i:text-white/70 -translate-x-1 group-hover/i:translate-x-0 transition-all" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  </a>
+                </>
               ))}
             </div>
           </div>
