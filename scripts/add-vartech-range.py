@@ -122,14 +122,6 @@ add('SPA-10M', 'function-generators', 'spa-10m', 'SPA-10M', 'Power Amplifier Mod
     specs=[('Frequency', '10 MHz'), ('Output', '25 V p-p, 0.5 A'), ('Channels', '2 (5 W × 2 max.)')])
 add('SPA-100K', 'function-generators', 'spa-100k', 'SPA-100K', 'Power Amplifier Module for Signal Generators, 100 kHz',
     specs=[('Frequency', '100 kHz'), ('Output', '40 V p-p, 1 A'), ('Channels', '2 (10 W × 2 max.)')])
-add('V M 890 G', 'multimeters', 'v-m-890-g', 'V M 890 G', 'Digital Multimeter 1000 V DC / 750 V AC, 20 A',
-    specs=[('Display', '3½ digits'), ('Ranging', 'Manual, with auto power off'), ('Voltage', '1000 V DC / 750 V AC'), ('Current', '20 A AC/DC'), ('Resistance', 'Up to 20 MΩ'), ('Tests', 'Continuity, diode, transistor (hFE), capacitance, frequency, temperature'), ('Supplied with', 'Holster')])
-add('7070 +', 'multimeters', '7070-plus', '7070+', 'Analog (Dial) Multimeter',
-    specs=[('Type', 'Analog (dial)'), ('Voltage', '600 V DC / AC'), ('Current', '10 A AC/DC'), ('Resistance', '0 ~ 20 MΩ'), ('Tests', 'Continuity, capacitance, frequency and temperature'), ('Other', 'Reverse polarity indication')])
-add('V 2101+', 'clamp-meters', 'v-2101-plus', 'V 2101+', 'True RMS Digital Clamp Multimeter, 1000 A AC/DC, 2000 V',
-    specs=[('Display', '3⅚ digits (6000 counts) HD display with backlight'), ('Current', '60 A / 600 A / 1000 A AC/DC'), ('Voltage', 'Up to 2000 V AC/DC, auto-ranging'), ('Ranging', 'True RMS, auto-ranging'), ('Other measurements', 'Capacitance, frequency, temperature, in-rush current'), ('Detection', 'NCV (non-contact voltage)'), ('Note', 'Also referred to as a solar clamp meter')])
-add('V 2266', 'clamp-meters', 'v-2266', 'V 2266', 'True RMS Auto-Ranging Digital Clamp Multimeter, 1000 A AC',
-    specs=[('Display', '6000 counts, HD display with backlight'), ('Current', '6 / 60 / 600 / 1000 A AC'), ('Voltage', '1000 / 750 V DC / AC, with Low-Z ACV'), ('Resistance', 'Up to 60 MΩ'), ('Ranging', 'True RMS, auto-ranging'), ('Tests', 'Continuity, diode, live wire, NCV'), ('Jaw opening', '40 mm'), ('Other', 'Data hold, Min/Max, auto power off, torch, carrying pouch')])
 add('7150', 'clamp-meters', '7150', '7150', 'Pocket Analog Clamp Meter',
     specs=[('Type', 'Analog, pocket size'), ('AC voltage', '500 V'), ('AC current', '5 / 25 / 50 A'), ('Power', 'No batteries needed'), ('Dimensions', '139 × 52 × 35 mm')])
 
