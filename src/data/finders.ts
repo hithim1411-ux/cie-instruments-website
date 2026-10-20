@@ -37,6 +37,7 @@ export interface Family {
   filters: FilterDef[];
   models: FinderModel[];
   categories: string[];           // category ids that embed this finder
+  note?: string;                  // shown once under the results
   presets?: Preset[];             // "what are you doing?" starting points that fill in the filters
   unit?: string;                  // singular noun for messages
 }
@@ -62,11 +63,11 @@ const insulation: Family = {
     { type: 'has', key: 'cont', label: 'Built-in continuity test' },
   ],
   models: [
-    { src: 'cie', id: 'cie-444', attrs: { display: 'analog', power: ['hand'] }, chips: ['Metal body', 'Single voltage, built to order'],
+    { src: 'cie', id: 'cie-444', attrs: { display: 'analog', power: ['hand'] }, chips: ['Metal body', 'Single voltage and range'],
       vr: [{ v: 100, max: 100 }, { v: 250, max: 250 }, { v: 500, max: 2000 }, { v: 1000, max: 2000 }, { v: 2500, max: 50000 }, { v: 5000, max: 50000 }] },
-    { src: 'cie', id: 'cie-666', attrs: { display: 'analog', power: ['hand'] }, chips: ['Wooden body', 'Single voltage, built to order'],
+    { src: 'cie', id: 'cie-666', attrs: { display: 'analog', power: ['hand'] }, chips: ['Wooden body', 'Single voltage and range'],
       vr: [{ v: 100, max: 100 }, { v: 250, max: 250 }, { v: 500, max: 2000 }, { v: 1000, max: 2000 }, { v: 2500, max: 50000 }, { v: 5000, max: 100000 }, { v: 10000, max: 100000 }] },
-    { src: 'cie', id: 'cie-555', attrs: { display: 'analog', power: ['hand'] }, chips: ['Compact bakelite body', 'Single voltage, built to order'],
+    { src: 'cie', id: 'cie-555', attrs: { display: 'analog', power: ['hand'] }, chips: ['Compact bakelite body', 'Single voltage and range'],
       vr: [{ v: 100, max: 20 }, { v: 250, max: 50 }, { v: 500, max: 500 }, { v: 1000, max: 500 }] },
     { src: 'cie', id: 'cie-444-mr', attrs: { display: 'analog', power: ['hand'], multivolt: true, cont: true }, chips: ['Metal body', 'Selector switch, up to 3 voltages'],
       vr: [{ v: 100, max: 200 }, { v: 250, max: 500 }, { v: 500, max: 1000 }, { v: 1000, max: 2000 }] },
@@ -106,7 +107,7 @@ const earth: Family = {
     { type: 'has', key: 'soil', label: 'Soil resistivity (4-terminal)' },
   ],
   models: [
-    { src: 'cie', id: 'cie-222m', attrs: { display: 'analog', power: ['hand'], maxOhm: 10000, soil: true }, chips: ['Metal body', '3-terminal or 4-terminal type', 'Built to order'] },
+    { src: 'cie', id: 'cie-222m', attrs: { display: 'analog', power: ['hand'], maxOhm: 10000, soil: true }, chips: ['Metal body', '3-terminal or 4-terminal type'] },
     { src: 'cie', id: 'det-2000', attrs: { display: 'digital', power: ['battery'], maxOhm: 2000, soil: true }, chips: ['575 g, handheld or bench', 'Dual and triple range options'] },
   ],
 };
@@ -247,6 +248,9 @@ const lcr: Family = {
   ],
 };
 
+
+insulation.note = 'Analog models are built to order: you choose the voltage and resistance range when you order, so tell us what you need and we will confirm the configuration.';
+earth.note = 'The analog tester is built to order: you choose the range and 3-terminal or 4-terminal type when you order.';
 
 insulation.presets = [
   { label: 'Home and building wiring', set: { volt: 500, ohm: 100 },
