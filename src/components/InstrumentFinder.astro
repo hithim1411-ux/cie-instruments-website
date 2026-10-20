@@ -44,7 +44,7 @@ const models = fam.models.map(m => {
   };
 });
 
-const config = { family: { id: fam.id, title: fam.title, unit: fam.unit ?? fam.title.toLowerCase(), filters: fam.filters }, models, wa: site.whatsapp };
+const config = { family: { id: fam.id, title: fam.title, unit: fam.unit ?? fam.title.toLowerCase(), filters: fam.filters, presets: fam.presets ?? [] }, models, wa: site.whatsapp };
 const elId = `${id}-${fam.id}`;
 ---
 
@@ -58,6 +58,12 @@ const elId = `${id}-${fam.id}`;
 
     <div class="grid lg:grid-cols-[340px_1fr] gap-8 items-start" data-inf>
       <form class="card p-5 sm:p-6 lg:sticky lg:top-24 space-y-6" novalidate onsubmit="return false" aria-label={`${fam.title} requirements`}>
+        <div data-inf-presets-wrap class="hidden">
+          <p class="text-sm font-semibold text-ink mb-2">What are you doing?</p>
+          <p class="text-xs text-muted mb-2">Tap your job and the options below fill in. Adjust anything afterwards.</p>
+          <div class="flex flex-wrap gap-2" data-inf-presets></div>
+          <p class="hidden mt-3 rounded-lg bg-cloud px-3 py-2 text-xs text-muted leading-relaxed" data-inf-why></p>
+        </div>
         <div data-inf-form class="space-y-6"></div>
         <button type="button" data-inf-reset class="text-sm font-semibold text-muted hover:text-ink underline underline-offset-4">Clear and start again</button>
       </form>
@@ -89,7 +95,8 @@ const elId = `${id}-${fam.id}`;
     id: string; attrs: Record<string, any>; vr?: { v: number; max: number | null }[]; chips?: string[];
     model: string; name: string; brand: string; href: string; img: string | null; bto: boolean;
   };
-  type Cfg = { family: { id: string; title: string; unit: string; filters: Filter[] }; models: Model[]; wa: string };
+  type Preset = { label: string; set: Record<string, string | number | boolean>; why: string };
+  type Cfg = { family: { id: string; title: string; unit: string; filters: Filter[]; presets: Preset[] }; models: Model[]; wa: string };
   type Eval = { m: Model; pass: string[]; fail: string[]; score: number };
 
   const fmtNum = (n: number) => n.toLocaleString('en-IN');
@@ -106,6 +113,10 @@ const elId = `${id}-${fam.id}`;
     const results = q('[data-inf-results]');
     const shareBtn = q<HTMLButtonElement>('[data-inf-share]');
     const filters = cfg.family.filters;
+    const presetsWrap = q('[data-inf-presets-wrap]');
+    const presetBox = q('[data-inf-presets]');
+    const whyBox = q('[data-inf-why]');
+    let activePreset = -1;
 
     // state: choice -> string, min -> number, has -> boolean, vr -> {v, r}
     const state: Record<string, any> = {};
@@ -287,8 +298,34 @@ const elId = `${id}-${fam.id}`;
       } catch { /* ignore */ }
     }
 
-    function refresh() { buildForm(); writeUrl(); render(); }
+    function buildPresets() {
+      const ps = cfg.family.presets;
+      if (!ps.length) return;
+      presetsWrap.classList.remove('hidden');
+      presetBox.innerHTML = ps.map((p, i) => chip(p.label, i === activePreset, `data-p="${i}"`)).join('');
+      const p = ps[activePreset];
+      whyBox.classList.toggle('hidden', !p);
+      whyBox.textContent = p ? p.why : '';
+    }
+    function applyPreset(i: number) {
+      const p = cfg.family.presets[i];
+      reset();
+      for (const [k, v] of Object.entries(p.set)) {
+        if (k === 'volt') state.vr.v = Number(v);
+        else if (k === 'ohm') state.vr.r = Number(v);
+        else state[k] = v;
+      }
+      activePreset = i;
+      refresh();
+      if (window.matchMedia('(max-width: 1023px)').matches) summary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
+    function refresh() { buildPresets(); buildForm(); writeUrl(); render(); }
+
+    presetBox.addEventListener('click', ev => {
+      const b = (ev.target as HTMLElement).closest<HTMLElement>('button[data-p]');
+      if (b) applyPreset(Number(b.dataset.p));
+    });
     formBox.addEventListener('click', ev => {
       const b = (ev.target as HTMLElement).closest<HTMLElement>('button[data-v]');
       if (!b) return;
@@ -296,15 +333,17 @@ const elId = `${id}-${fam.id}`;
       if (b.dataset.c) state[b.dataset.c] = val;
       else if (b.dataset.m) state[b.dataset.m] = Number(val);
       else if (b.dataset.vr) state.vr[b.dataset.vr] = Number(val);
+      activePreset = -1;
       refresh();
     });
     formBox.addEventListener('change', ev => {
       const c = (ev.target as HTMLElement).closest<HTMLInputElement>('input[data-h]');
       if (!c) return;
       state[c.dataset.h!] = c.checked;
+      activePreset = -1; buildPresets();
       writeUrl(); render();
     });
-    q<HTMLButtonElement>('[data-inf-reset]').addEventListener('click', () => { reset(); refresh(); });
+    q<HTMLButtonElement>('[data-inf-reset]').addEventListener('click', () => { reset(); activePreset = -1; refresh(); });
     shareBtn.addEventListener('click', async () => {
       try { await navigator.clipboard.writeText(location.href); shareBtn.textContent = 'Link copied'; }
       catch { shareBtn.textContent = 'Copy the address bar link'; }
@@ -312,6 +351,7 @@ const elId = `${id}-${fam.id}`;
     });
 
     readUrl();
+    buildPresets();
     buildForm();
     render();
   });

@@ -21,6 +21,14 @@ export interface FinderModel {
   chips?: string[];
 }
 
+// A real-world use case. `set` fills filters: choice -> option value, min -> one of its options,
+// has -> true, volt / ohm -> the insulation test voltage and resistance chips.
+export interface Preset {
+  label: string;
+  set: Record<string, string | number | boolean>;
+  why: string;
+}
+
 export interface Family {
   id: string;
   title: string;                  // "Insulation testers"
@@ -29,6 +37,7 @@ export interface Family {
   filters: FilterDef[];
   models: FinderModel[];
   categories: string[];           // category ids that embed this finder
+  presets?: Preset[];             // "what are you doing?" starting points that fill in the filters
   unit?: string;                  // singular noun for messages
 }
 
@@ -237,6 +246,116 @@ const lcr: Family = {
     { src: 'lcr-meters', id: 'lcr-2a', attrs: { form: 'bench', res: true, esr: true, freq: true }, chips: ['0.1% basic accuracy', '10 test frequencies, wider range'] },
   ],
 };
+
+
+insulation.presets = [
+  { label: 'Home and building wiring', set: { volt: 500, ohm: 100 },
+    why: 'IEC 60364-6 specifies a 500 V test for circuits up to 500 V. Readings are normally in the tens to hundreds of megohms, so a 100 MΩ scale is enough.' },
+  { label: 'LV motors and panels (up to 415 V)', set: { volt: 500, ohm: 1000 },
+    why: 'IEEE 43 recommends 500 V for windings rated 1000 V or less. Healthy motor windings often read well above 100 MΩ, so look for a 1 GΩ scale.' },
+  { label: 'HT motors and generators (6.6 kV, 11 kV)', set: { volt: 5000, ohm: 10000, pi: true },
+    why: 'IEEE 43 suggests 2500 to 5000 V for windings rated 5 to 12 kV. HT machines are judged on PI and DAR trends, which need a sustained test voltage, so motor-driven or digital with PI.' },
+  { label: 'Power transformers', set: { volt: 5000, ohm: 10000, pi: true },
+    why: 'HV windings are commonly tested at 5000 V with a 10-minute PI and DAR record, so you need a high voltage, a high resistance scale and a sustained test.' },
+  { label: 'HV cables and switchgear', set: { volt: 5000, ohm: 10000 },
+    why: 'Commonly tested at 5000 V with a high resistance scale. Some hand-driven and motor-driven models also go to 10,000 V for higher classes.' },
+  { label: 'Site with no mains supply', set: { power: 'hand' },
+    why: 'Hand-crank models need no battery and no mains, so they work anywhere. The motor-cum-hand (HM) versions give you the choice.' },
+  { label: 'Quick spot checks and appliances', set: { display: 'digital', volt: 500 },
+    why: 'A light digital tester with a direct LCD readout is fastest for repeat checks on appliances, switchboards and small equipment.' },
+  { label: 'Electronics and SELV circuits', set: { volt: 250, ohm: 100 },
+    why: 'IEC 60364-6 uses 250 V for SELV and PELV circuits. A low test voltage protects delicate equipment.' },
+];
+
+earth.presets = [
+  { label: 'House or building earth pit', set: { maxOhm: 100 },
+    why: 'Pit and electrode checks usually read from a few ohms to a few tens of ohms, so a 100 Ω range is plenty.' },
+  { label: 'Substation or plant earth grid', set: { maxOhm: 100, soil: true },
+    why: 'Grid design starts from soil resistivity, and grid readings are low. A 4-terminal instrument covers both jobs.' },
+  { label: 'Soil resistivity survey (new site)', set: { soil: true },
+    why: 'Soil resistivity needs the 4-terminal connection (Wenner method). Both testers offer it.' },
+  { label: 'Field work, no charging available', set: { power: 'hand' },
+    why: 'The hand-driven tester has no battery to charge, so it works on remote sites and long surveys.' },
+  { label: 'Fast repeat checks', set: { display: 'digital' },
+    why: 'Direct LCD readout and a light body make repeat visits to many earth pits quicker.' },
+];
+
+multimeters.presets = [
+  { label: 'Home and basic electrical repair', set: { counts: 2000, ncv: true },
+    why: 'A 2000-count meter covers household and general electrical work. Live-wire detection adds a safety check before you touch anything.' },
+  { label: 'Electrician: panels, VFDs and drives', set: { trms: true, vdc: 1000, ncv: true },
+    why: 'VFD and inverter outputs are not sine waves, so True RMS matters. 1000 V DC and live-wire detection suit panel work.' },
+  { label: 'Electronics bench and components', set: { counts: 6000, cap: true, freq: true, temp: true },
+    why: '6000 counts resolve small changes, and capacitance, frequency and temperature cover most bench checks.' },
+  { label: 'HVAC and refrigeration', set: { trms: true, cap: true, temp: true },
+    why: 'Motor capacitors and compressor currents need capacitance and True RMS. A temperature probe covers superheat and line checks.' },
+  { label: 'Motor and power capacitors', set: { cap: true, amax: 20 },
+    why: 'Capacitor testing needs capacitance ranges, and 20 A direct current lets you check motor running current.' },
+  { label: 'Chokes, coils and transformers', set: { ind: true },
+    why: 'Only the V 8222 H measures inductance, as a full multimeter with LCR.' },
+  { label: 'Lab and calibration checks', set: { counts: 20000, trms: true },
+    why: 'A 20,000-count meter resolves to five digits for reference-style readings.' },
+  { label: 'Production test and data logging', set: { pc: true },
+    why: 'Only the V 981+ has a PC interface for logging and reporting.' },
+];
+
+clamp.presets = [
+  { label: 'Motor and feeder currents (AC)', set: { maxA: 600, trms: true },
+    why: 'Motors on VFDs draw non-sine current, so True RMS reads correctly. Choose a range comfortably above the running current.' },
+  { label: 'Main incomers and large feeders', set: { maxA: 1000 },
+    why: 'Panel incomers and big feeders need the 1000 A models.' },
+  { label: 'Solar strings and battery circuits (DC)', set: { dc: true },
+    why: 'Only AC/DC clamps read DC current. A plain AC clamp reads zero on a DC cable.' },
+  { label: 'Earth leakage and RCD tripping', set: { leak: true },
+    why: 'Leakage is in the milliamp range, invisible on a 400 A or 1000 A clamp. Only the V 2002+ resolves from 600 mA.' },
+  { label: 'VFD and inverter outputs', set: { trms: true },
+    why: 'Switching waveforms need True RMS or the reading will be wrong.' },
+  { label: 'HVAC: capacitors and temperature', set: { cap: true, temp: true },
+    why: 'Check motor capacitors and line temperature with the same instrument.' },
+];
+
+scopes.presets = [
+  { label: 'Hobby and school lab', set: { kind: 'analog', bw: 20 },
+    why: 'A 20 MHz analog scope covers audio and basic digital work at low cost. As a rule, pick a bandwidth about five times your fastest signal.' },
+  { label: 'Audio and TV repair', set: { kind: 'analog', bw: 30 },
+    why: '30 MHz analog models include TV sync trigger. The SS-5030BC adds an in-circuit component tester.' },
+  { label: 'Microcontroller and embedded debugging', set: { kind: 'digital', bw: 80, usb: true },
+    why: 'Digital storage captures one-shot events and saves waveforms by USB. Pick bandwidth about five times your fastest clock edge.' },
+  { label: 'Bus protocols and multi-phase signals', set: { ch: 4 },
+    why: 'Looking at more than two signals at once needs four channels.' },
+  { label: 'Power electronics and SMPS', set: { kind: 'digital', bw: 100 },
+    why: 'Switching edges are fast. 100 MHz and deep memory help you see ringing and spikes.' },
+  { label: 'Need a signal source too', set: { fg: true },
+    why: 'The SS-5150DS1B FG has a 25 MHz function generator built in, so one bench instrument does both.' },
+  { label: 'Board repair and component checks', set: { comp: true },
+    why: 'The SS-5030BC shows I-V characteristics for R, L, C, diodes and transistors without powering the circuit.' },
+];
+
+funcgens.presets = [
+  { label: 'Audio and sensor testing', set: { mhz: 6 },
+    why: 'Audio and sensor work sits well below 6 MHz, so even the smallest model is enough.' },
+  { label: 'Digital and clock signals', set: { mhz: 30, pulse: true },
+    why: 'Clock and logic testing needs pulse and square waves at higher frequency.' },
+  { label: 'RF and wideband lab work', set: { mhz: 60, mod: true },
+    why: 'Higher frequency and full modulation (AM, FM, PM, ASK, FSK, PSK) suit RF and communication work.' },
+  { label: 'Custom and arbitrary waveforms', set: { custom: true },
+    why: 'The SGDA-60M and SGDA-80M let you define your own waveforms from the PC.' },
+  { label: 'Modulation tests', set: { mod: true },
+    why: 'Only the 60 MHz and 80 MHz models have the full modulation set.' },
+];
+
+lcr.presets = [
+  { label: 'Quick L and C checks in the field', set: { form: 'handheld' },
+    why: 'A handheld meter is fast for inductors and capacitors on a repair bench or on site.' },
+  { label: 'Component sorting and incoming inspection', set: { form: 'bench', esr: true },
+    why: 'D, Q, ESR and phase angle at a controlled test frequency are what incoming inspection needs.' },
+  { label: 'Capacitor quality (ESR)', set: { esr: true },
+    why: 'ESR and dissipation factor show an ageing capacitor that capacitance alone will not.' },
+  { label: 'One tool for the whole kit', set: { mm: true },
+    why: 'The V 8222 H is a full True RMS multimeter that also measures inductance and capacitance.' },
+  { label: 'Measure at specific frequencies', set: { freq: true },
+    why: 'Inductor and capacitor values change with frequency. The bench models let you choose the test frequency.' },
+];
 
 export const families: Family[] = [insulation, earth, multimeters, clamp, scopes, funcgens, lcr];
 
