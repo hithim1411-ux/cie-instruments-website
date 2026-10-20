@@ -30,4 +30,4 @@ export const downloadUrl = (path: string): string =>
 
 // Bump when any datasheet PDF in cie-downloads changes: GitHub Pages sends max-age=600, so unversioned links
 // keep showing a browser-cached old copy.
-export const DATASHEET_V = '20261020b';
+export const DATASHEET_V = '20261020c';
