@@ -30,7 +30,7 @@ const selectCls = 'w-full rounded-lg border border-border bg-white px-3 py-2.5 t
           <select class={`${selectCls} cc-grp`} disabled={!!cfg.levels}>
             <option value="">Measuring range</option>
             {!cfg.levels && Object.entries(cfg.data._).map(([g, rs]: any) => (
-              <optgroup label={g}>{rs.map((r: any) => <option value={r.file}>{r.range}{r.bto ? ' (built to order)' : ''}</option>)}</optgroup>
+              <optgroup label={g}>{rs.map((r: any) => <option value={r.file}>{r.range}</option>)}</optgroup>
             ))}
           </select>
         </label>
@@ -76,7 +76,7 @@ const selectCls = 'w-full rounded-lg border border-border bg-white px-3 py-2.5 t
     const dl = root.querySelector<HTMLAnchorElement>('.cc-dl')!;
     const setFile = (file: string | null) => {
       if (file) {
-        dl.href = base + file + '?v=20261017';
+        dl.href = base + file + '?v=20261020';
         dl.removeAttribute('aria-disabled');
         dl.classList.remove('pointer-events-none', 'opacity-50');
       } else {
@@ -99,7 +99,7 @@ const selectCls = 'w-full rounded-lg border border-border bg-white px-3 py-2.5 t
           const og = document.createElement('optgroup'); og.label = g;
           rs.forEach((r: any) => {
             const el = document.createElement('option');
-            el.value = r.file; el.textContent = r.range + (r.bto ? ' (built to order)' : ''); og.appendChild(el);
+            el.value = r.file; el.textContent = r.range; og.appendChild(el);
           });
           gSel.appendChild(og);
         });
