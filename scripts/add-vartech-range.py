@@ -74,7 +74,13 @@ def normalise(src, dst, S=990, box=800):
     corners = np.concatenate([a[:6, :6].reshape(-1, 3), a[:6, -6:].reshape(-1, 3), a[-6:, :6].reshape(-1, 3), a[-6:, -6:].reshape(-1, 3)])
     c = np.clip(np.median(corners, axis=0), 200, 255)
     a = np.clip(a * (255.0 / c), 0, 255)
-    ys, xs = np.where((255 - a.min(axis=2)) > 14)
+    import cv2
+    m = ((255 - a.min(axis=2)) > 14).astype(np.uint8)
+    m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+    n, lab, st, _ = cv2.connectedComponentsWithStats(m, connectivity=8)    # ignore specks smaller than the product
+    keep = [i for i in range(1, n) if st[i, cv2.CC_STAT_AREA] >= 120]
+    m = np.isin(lab, keep) if keep else m.astype(bool)
+    ys, xs = np.where(m)
     if len(ys):
         crop = Image.fromarray(a.astype(np.uint8)).crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1))
     else:
@@ -84,9 +90,20 @@ def normalise(src, dst, S=990, box=800):
     out = Image.new('RGB', (S, S), (255, 255, 255)); out.paste(crop, ((S - crop.width) // 2, (S - crop.height) // 2))
     out.save(dst, 'WEBP', quality=84, method=6)
 
+# Photos: var-tech.com's product photos, with the watermark removed by scripts/clean-vartech-photos.py (the five heating-element
+# shots). Marketing graphics that are not photos (tip charts, spec posters, diagrams) are skipped.
+SKIP_PHOTO = ('si-25ws-3.jpg', 'model-800-l', 'soldering-station-model-236-esd-2.jpg', 'digital-clamp-multimeter-model-v-2266-2.jpg',
+              'digital-clamp-multimeter-model-v-2266-3.jpg', 'bga-re-work-system-fixture-large-model-800-l-1.jpg')
 def shop_photos(p, n=4):
-    fps = [f"{STORE_SRC}/vartech-img/{p['handle'][:60]}-{i}.jpg" for i in range(len(p['images'][:n]))]
-    return [f for f in fps if os.path.exists(f) and os.path.getsize(f) > 2000]
+    out = []
+    for i in range(len(p['images'][:n])):
+        name = f"{p['handle'][:60]}-{i}.jpg"
+        if p['title'].startswith('Soldering station bit') and i >= 2: continue
+        if name in SKIP_PHOTO or name.endswith('800-l-1.jpg') and 'bga' in name: continue
+        f = f'{STORE_SRC}/vartech-img-clean/{name}'
+        if not os.path.exists(f): f = f'{STORE_SRC}/vartech-img/{name}'
+        if os.path.exists(f) and os.path.getsize(f) > 2000: out.append(f)
+    return out
 
 # ----------------------------------------------------------------------------- entries
 # (shop title prefix, category slug, id, model, name, catalogue PDF (src, dest name) | None, extra)
@@ -245,12 +262,12 @@ for e in E:
         local = [f'{PICS}/Soldering Stations/936 A Soldering station/{n}' for n in ('936AWeb.webp', '936ANew.webp', '936.2.webp')]
     if e['id'] == '989':
         local = [f'{PICS}/SMD Hot Tweezer/989 SMD Hot tweezer/989-square.webp']
-    srcs = [f for f in local if os.path.exists(f)]   # our own photos only (nothing taken from var-tech.com)
+    srcs = [f for f in local if os.path.exists(f)] or shop_photos(p)   # our own photo if we have one, else the watermark-free var-tech.com photo
     os.makedirs(f"{IMG}/{e['cat']}", exist_ok=True)
     for i, f in enumerate(srcs):
         name = f"{e['id']}.webp" if i == 0 else f"{e['id']}-{i + 1}.webp"
         normalise(f, f"{IMG}/{e['cat']}/{name}"); imgs.append(name)
-    ent['images'] = imgs or ['coming-soon.svg']
+    ent['images'] = imgs
     if e['pdf']:
         ent['catalogue'] = e['pdf'][1]
         if pdf_src:

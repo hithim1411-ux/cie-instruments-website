@@ -3614,7 +3614,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "20005-sr.webp",
+      "20005-sr-2.webp"
     ]
   },
   {
@@ -3651,7 +3652,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "15003-s.webp",
+      "15003-s-2.webp"
     ],
     "catalogue": "high-power-smps.pdf"
   }

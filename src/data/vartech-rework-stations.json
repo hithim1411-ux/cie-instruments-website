@@ -1,5 +1,53 @@
 [
   {
+    "id": "989",
+    "model": "989",
+    "name": "SMD Hot Tweezer for Soldering Station 937",
+    "tagline": "SMD Hot Tweezer for Soldering Station 937",
+    "description": "S.M.D. Hot Tweezer suitable for our model 937 Soldering Station only. Temperature range : 200 ºC ~ 400 ºC Previous generation 936 ESD stations are also compatible. 936 A & 936 AD are not compatible.",
+    "features": [
+      "Hot Tweezer attachment for Soldering station Model 937",
+      "For Soldering & De-soldering of S.M.D. Components",
+      "50 W Ceramic Heater (25W x 2) has a long lifetime",
+      "Twin Tube Heating Contacts the component directly without affecting the adjacent components in densely populated PCBs.",
+      "Remove Surface Mount Resistors, Capacitors & SOP Elements Safely",
+      "Light handle is suitable for long time of use",
+      "Precise, Stable, Rapid Heating & Instant Temp., Compensation",
+      "Various types of Tips are available",
+      "ESD safe design"
+    ],
+    "specs": [
+      {
+        "label": "Max. Power",
+        "value": "50 W (25 W x 2 : 24 V AC)"
+      },
+      {
+        "label": "Temperature Range",
+        "value": "200 ºC ~ 400 ºC"
+      },
+      {
+        "label": "Tip to Ground Resistance",
+        "value": "<2Ω"
+      },
+      {
+        "label": "Tip to Ground Potential",
+        "value": "< 2 mV"
+      },
+      {
+        "label": "Cord Length",
+        "value": "186 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "98 gms. Approx."
+      }
+    ],
+    "images": [
+      "989.webp"
+    ],
+    "catalogue": "989.pdf"
+  },
+  {
     "id": "850-a",
     "model": "850 A",
     "name": "SMD Re-Work Station, 270 W",
@@ -43,7 +91,10 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "850-a.webp",
+      "850-a-2.webp",
+      "850-a-3.webp",
+      "850-a-4.webp"
     ],
     "catalogue": "850-a.pdf"
   },
@@ -94,7 +145,10 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "850-d.webp",
+      "850-d-2.webp",
+      "850-d-3.webp",
+      "850-d-4.webp"
     ],
     "catalogue": "850-d.pdf"
   },
@@ -143,7 +197,10 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "857-d.webp",
+      "857-d-2.webp",
+      "857-d-3.webp",
+      "857-d-4.webp"
     ],
     "catalogue": "857-d.pdf"
   },
@@ -192,7 +249,10 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "861-dw.webp",
+      "861-dw-2.webp",
+      "861-dw-3.webp",
+      "861-dw-4.webp"
     ],
     "catalogue": "861-dw.pdf"
   },
@@ -238,7 +298,10 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "700-esd.webp",
+      "700-esd-2.webp",
+      "700-esd-3.webp",
+      "700-esd-4.webp"
     ],
     "catalogue": "700-esd.pdf"
   },
@@ -284,7 +347,10 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "706.webp",
+      "706-2.webp",
+      "706-3.webp",
+      "706-4.webp"
     ],
     "catalogue": "706.pdf"
   },
@@ -324,57 +390,12 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "493-esd.webp",
+      "493-esd-2.webp",
+      "493-esd-3.webp",
+      "493-esd-4.webp"
     ],
     "catalogue": "493-esd.pdf"
-  },
-  {
-    "id": "989",
-    "model": "989",
-    "name": "SMD Hot Tweezer for Soldering Station 937",
-    "tagline": "SMD Hot Tweezer for Soldering Station 937",
-    "description": "S.M.D. Hot Tweezer suitable for our model 937 Soldering Station only. Temperature range : 200 ºC ~ 400 ºC Previous generation 936 ESD stations are also compatible. 936 A & 936 AD are not compatible.",
-    "features": [
-      "Hot Tweezer attachment for Soldering station Model 937",
-      "For Soldering & De-soldering of S.M.D. Components",
-      "50 W Ceramic Heater (25W x 2) has a long lifetime",
-      "Twin Tube Heating Contacts the component directly without affecting the adjacent components in densely populated PCBs.",
-      "Remove Surface Mount Resistors, Capacitors & SOP Elements Safely",
-      "Light handle is suitable for long time of use",
-      "Precise, Stable, Rapid Heating & Instant Temp., Compensation",
-      "Various types of Tips are available",
-      "ESD safe design"
-    ],
-    "specs": [
-      {
-        "label": "Max. Power",
-        "value": "50 W (25 W x 2 : 24 V AC)"
-      },
-      {
-        "label": "Temperature Range",
-        "value": "200 ºC ~ 400 ºC"
-      },
-      {
-        "label": "Tip to Ground Resistance",
-        "value": "<2Ω"
-      },
-      {
-        "label": "Tip to Ground Potential",
-        "value": "< 2 mV"
-      },
-      {
-        "label": "Cord Length",
-        "value": "186 mm"
-      },
-      {
-        "label": "Weight",
-        "value": "98 gms. Approx."
-      }
-    ],
-    "images": [
-      "989.webp"
-    ],
-    "catalogue": "989.pdf"
   },
   {
     "id": "800-l",
@@ -407,7 +428,7 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "800-l.webp"
     ]
   },
   {
@@ -441,7 +462,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "853-esd.webp",
+      "853-esd-2.webp"
     ]
   }
 ]

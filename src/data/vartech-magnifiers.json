@@ -40,7 +40,7 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "228-lxd.webp"
     ],
     "catalogue": "228-lxd.pdf"
   },
@@ -76,7 +76,7 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "228-lx.webp"
     ],
     "catalogue": "228-lx.pdf"
   },
@@ -121,7 +121,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "228-lrd.webp",
+      "228-lrd-2.webp"
     ],
     "catalogue": "228-lrd.pdf"
   },
@@ -166,7 +167,7 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "228-blr.webp"
     ],
     "catalogue": "228-blr.pdf"
   },
@@ -205,7 +206,10 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "228-bl.webp",
+      "228-bl-2.webp",
+      "228-bl-3.webp",
+      "228-bl-4.webp"
     ],
     "catalogue": "228-al-and-228-bl.pdf"
   },
@@ -244,7 +248,9 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "228-al.webp",
+      "228-al-2.webp",
+      "228-al-3.webp"
     ],
     "catalogue": "228-al-and-228-bl.pdf"
   },
@@ -285,7 +291,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "228-l-ii.webp",
+      "228-l-ii-2.webp"
     ],
     "catalogue": "228-l-and-228-l-ii.pdf"
   },
@@ -326,7 +333,10 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "228-l.webp",
+      "228-l-2.webp",
+      "228-l-3.webp",
+      "228-l-4.webp"
     ],
     "catalogue": "228-l-and-228-l-ii.pdf"
   },
@@ -378,7 +388,9 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "8093-ld.webp",
+      "8093-ld-2.webp",
+      "8093-ld-3.webp"
     ],
     "catalogue": "8093-ld.pdf"
   },
@@ -429,7 +441,9 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "8093-led.webp",
+      "8093-led-2.webp",
+      "8093-led-3.webp"
     ],
     "catalogue": "8093-cfl-and-8093-led.pdf"
   },
@@ -480,7 +494,7 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "8093.webp"
     ],
     "catalogue": "8093-cfl-and-8093-led.pdf"
   },
@@ -527,7 +541,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "268-l.webp",
+      "268-l-2.webp"
     ],
     "catalogue": "268-l.pdf"
   }

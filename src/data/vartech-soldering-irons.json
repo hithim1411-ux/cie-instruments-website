@@ -28,7 +28,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "si-100w.webp",
+      "si-100w-2.webp"
     ]
   },
   {
@@ -60,7 +61,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "si-80w.webp",
+      "si-80w-2.webp"
     ]
   },
   {
@@ -92,7 +94,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "si-60w.webp",
+      "si-60w-2.webp"
     ]
   },
   {
@@ -124,7 +127,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "si-50w.webp",
+      "si-50w-2.webp"
     ]
   },
   {
@@ -156,7 +160,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "si-30w.webp",
+      "si-30w-2.webp"
     ]
   },
   {
@@ -188,7 +193,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "si-25w.webp",
+      "si-25w-2.webp"
     ]
   },
   {
@@ -223,7 +229,9 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "si-25ws.webp",
+      "si-25ws-2.webp",
+      "si-25ws-3.webp"
     ]
   }
 ]

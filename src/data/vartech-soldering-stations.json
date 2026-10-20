@@ -119,7 +119,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "936-ad.webp",
+      "936-ad-2.webp"
     ],
     "catalogue": "936-ad.pdf"
   },
@@ -180,7 +181,10 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "937-esd.webp",
+      "937-esd-2.webp",
+      "937-esd-3.webp",
+      "937-esd-4.webp"
     ],
     "catalogue": "937-esd.pdf"
   },
@@ -241,7 +245,8 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "236-esd.webp",
+      "236-esd-2.webp"
     ],
     "catalogue": "236-esd.pdf"
   },
@@ -318,7 +323,9 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "202-d.webp",
+      "202-d-2.webp",
+      "202-d-3.webp"
     ],
     "catalogue": "202-d.pdf"
   },
@@ -375,7 +382,9 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "722.webp",
+      "722-2.webp",
+      "722-3.webp"
     ],
     "catalogue": "722.pdf"
   },
@@ -432,7 +441,9 @@
       }
     ],
     "images": [
-      "coming-soon.svg"
+      "201-b.webp",
+      "201-b-2.webp",
+      "201-b-3.webp"
     ],
     "catalogue": "201-b.pdf"
   }
