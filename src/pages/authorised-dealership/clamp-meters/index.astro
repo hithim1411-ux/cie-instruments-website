@@ -111,6 +111,7 @@ const productSchema = {
                 >
                   View Details & Specs
                 </a>
+                {p.catalogue && (
                 <a
                   href={downloadUrl(`/downloads/vartech/clamp-meters/${p.catalogue}`)}
                   target="_blank"
@@ -122,6 +123,7 @@ const productSchema = {
                   </svg>
                   Download Catalogue
                 </a>
+)}
               </div>
             </div>
           </article>

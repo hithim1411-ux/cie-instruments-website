@@ -28,6 +28,11 @@ export const categoryIcons: Record<string, IconName> = {
   'vartech-calibrators': 'sliders',
   'vartech-lux-meters': 'sun',
   'vartech-thermometers': 'thermometer',
+  'vartech-soldering-stations': 'wrench',
+  'vartech-rework-stations': 'wind',
+  'vartech-soldering-irons': 'zap',
+  'vartech-magnifiers': 'circle-dot',
+  'vartech-soldering-accessories': 'settings',
   'vartech-dc-power-supplies': 'battery',
 };
 

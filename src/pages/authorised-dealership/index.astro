@@ -18,6 +18,11 @@ import calibrators from '../../data/vartech-calibrators.json';
 import luxMeters from '../../data/vartech-lux-meters.json';
 import thermometers from '../../data/vartech-thermometers.json';
 import dcPowerSupplies from '../../data/vartech-dc-power-supplies.json';
+import vartechSolderingStations from '../../data/vartech-soldering-stations.json';
+import vartechReworkStations from '../../data/vartech-rework-stations.json';
+import vartechSolderingIrons from '../../data/vartech-soldering-irons.json';
+import vartechMagnifiers from '../../data/vartech-magnifiers.json';
+import vartechSolderingAccessories from '../../data/vartech-soldering-accessories.json';
 
 const categories = [
   {
@@ -104,11 +109,46 @@ const categories = [
     count: dcPowerSupplies.length,
     description: 'Linear, SMPS and programmable DC regulated power supplies - 30 V to 200 V, up to 40 A, with PC interface.',
   },
+  {
+    label: 'Soldering Stations',
+    href: u('/authorised-dealership/soldering-stations/'),
+    iconId: 'vartech-soldering-stations',
+    count: vartechSolderingStations.length,
+    description: 'Digital and lead-free soldering stations (60–90 W) and 2-in-1 vacuum de-soldering stations.',
+  },
+  {
+    label: 'SMD Re-Work',
+    href: u('/authorised-dealership/rework-stations/'),
+    iconId: 'vartech-rework-stations',
+    count: vartechReworkStations.length,
+    description: 'Hot-air SMD re-work stations, 2-in-1 systems, BGA fixture and pre-heater, hot air gun, hot tweezer and fume extractor.',
+  },
+  {
+    label: 'Soldering Irons',
+    href: u('/authorised-dealership/soldering-irons/'),
+    iconId: 'vartech-soldering-irons',
+    count: vartechSolderingIrons.length,
+    description: 'Nichrome soldering irons from 25 W to 100 W and a slim 25 W ceramic-heater iron, 230 V.',
+  },
+  {
+    label: 'Magnifying Lamps',
+    href: u('/authorised-dealership/magnifiers/'),
+    iconId: 'vartech-magnifiers',
+    count: vartechMagnifiers.length,
+    description: 'LED and CFL magnifying lamps - table-clamp and desk-top, 5 and 8 dioptre, round and rectangular lenses, dimmable models.',
+  },
+  {
+    label: 'Soldering Spares',
+    href: u('/authorised-dealership/soldering-accessories/'),
+    iconId: 'vartech-soldering-accessories',
+    count: vartechSolderingAccessories.length,
+    description: 'Soldering bits, heating elements, barrels, nuts, iron assembly, tip thermometer, soldering tester and power supply cables.',
+  },
 ];
 
 const pageTitle = 'Authorised Distributor - Vartech Instruments | CIE Instruments';
 const pageDesc =
-  'CIE Instruments is an authorised distributor and distributor of Vartech precision digital test instruments in India - multimeters, clamp meters, oscilloscopes, function generators, LCR meters, DC loads, lux meters, anemometers, calibrators, thermometers and sound level meters. Expert support, pan-India supply from Howrah.';
+  'CIE Instruments is an authorised distributor and distributor of Vartech precision digital test instruments in India - multimeters, clamp meters, oscilloscopes, function generators, LCR meters, DC loads, lux meters, anemometers, calibrators, thermometers, sound level meters, soldering and de-soldering stations, SMD re-work systems, soldering irons, magnifying lamps and soldering spares. Expert support, pan-India supply from Howrah.';
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',

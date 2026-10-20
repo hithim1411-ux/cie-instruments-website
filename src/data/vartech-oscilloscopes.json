@@ -15,26 +15,83 @@
       "X-Y operation - sensitivity 5 mV to 5 V/div, X-axis bandwidth DC to 500 kHz"
     ],
     "specs": [
-      { "label": "CRT", "value": "6-inch rectangular, internal graticule 8×10 div (1 div = 1 cm), accelerating voltage 2 kV" },
-      { "label": "Bandwidth", "value": "DC (AC 10 Hz) ~ 20 MHz (−3 dB)" },
-      { "label": "Rise Time", "value": "≤17.5 nS" },
-      { "label": "Vertical Sensitivity", "value": "5 mV ~ 5 V / div  (±3%)" },
-      { "label": "Max. Input Voltage", "value": "400 V (DC + AC p-p)" },
-      { "label": "Input Coupling", "value": "AC, DC, GND" },
-      { "label": "Input Impedance", "value": "≈1 MΩ // 25 pF" },
-      { "label": "Vertical Mode", "value": "CH1, CH2, DUAL (ALT/CHOP), ADD, CH2 INV" },
-      { "label": "Sweep Time", "value": "0.2 µS ~ 0.5 S / div  (±3%);  ×10 Mag: 20 nS ~ 50 mS / div  (±5%)" },
-      { "label": "Sweep Magnification", "value": "×10  (max sweep time = 20 nS / div)" },
-      { "label": "Trigger Modes", "value": "AUTO, NORM, TV-V, TV-H" },
-      { "label": "Trigger Source", "value": "CH1, CH2, ALT, LINE, EXT" },
-      { "label": "Trigger Sensitivity", "value": "CH1/CH2: 0.5 div (20 Hz ~ 2 MHz) / 1.5 div (2 ~ 20 MHz);  EXT: 200 mV / 800 mV" },
-      { "label": "Calibrator Output", "value": "1 kHz square wave, 2 Vp-p  (±2%)" },
-      { "label": "X-Y Sensitivity", "value": "5 mV ~ 5 V / div  (±4%);  Phase error ≤3° (DC ~ 50 kHz);  X-axis bandwidth DC ~ 500 kHz" },
-      { "label": "Power Supply", "value": "AC 220 V ±10%, 50 Hz, ≈35 W" },
-      { "label": "Accessories", "value": "Operating manual, mains cord.  Probes (×1 / ×10) optional." },
-      { "label": "Dimensions & Weight", "value": "310 (W) × 150 (H) × 455 (D) mm  |  Approx. 8 Kg" }
+      {
+        "label": "CRT",
+        "value": "6-inch rectangular, internal graticule 8×10 div (1 div = 1 cm), accelerating voltage 2 kV"
+      },
+      {
+        "label": "Bandwidth",
+        "value": "DC (AC 10 Hz) ~ 20 MHz (−3 dB)"
+      },
+      {
+        "label": "Rise Time",
+        "value": "≤17.5 nS"
+      },
+      {
+        "label": "Vertical Sensitivity",
+        "value": "5 mV ~ 5 V / div  (±3%)"
+      },
+      {
+        "label": "Max. Input Voltage",
+        "value": "400 V (DC + AC p-p)"
+      },
+      {
+        "label": "Input Coupling",
+        "value": "AC, DC, GND"
+      },
+      {
+        "label": "Input Impedance",
+        "value": "≈1 MΩ // 25 pF"
+      },
+      {
+        "label": "Vertical Mode",
+        "value": "CH1, CH2, DUAL (ALT/CHOP), ADD, CH2 INV"
+      },
+      {
+        "label": "Sweep Time",
+        "value": "0.2 µS ~ 0.5 S / div  (±3%);  ×10 Mag: 20 nS ~ 50 mS / div  (±5%)"
+      },
+      {
+        "label": "Sweep Magnification",
+        "value": "×10  (max sweep time = 20 nS / div)"
+      },
+      {
+        "label": "Trigger Modes",
+        "value": "AUTO, NORM, TV-V, TV-H"
+      },
+      {
+        "label": "Trigger Source",
+        "value": "CH1, CH2, ALT, LINE, EXT"
+      },
+      {
+        "label": "Trigger Sensitivity",
+        "value": "CH1/CH2: 0.5 div (20 Hz ~ 2 MHz) / 1.5 div (2 ~ 20 MHz);  EXT: 200 mV / 800 mV"
+      },
+      {
+        "label": "Calibrator Output",
+        "value": "1 kHz square wave, 2 Vp-p  (±2%)"
+      },
+      {
+        "label": "X-Y Sensitivity",
+        "value": "5 mV ~ 5 V / div  (±4%);  Phase error ≤3° (DC ~ 50 kHz);  X-axis bandwidth DC ~ 500 kHz"
+      },
+      {
+        "label": "Power Supply",
+        "value": "AC 220 V ±10%, 50 Hz, ≈35 W"
+      },
+      {
+        "label": "Accessories",
+        "value": "Operating manual, mains cord.  Probes (×1 / ×10) optional."
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "310 (W) × 150 (H) × 455 (D) mm  |  Approx. 8 Kg"
+      }
     ],
-    "images": ["ss-5020b.webp", "ss-5020b-2.webp"],
+    "images": [
+      "ss-5020b.webp",
+      "ss-5020b-2.webp"
+    ],
     "catalogue": "ss-5020b.pdf"
   },
   {
@@ -52,26 +109,83 @@
       "Built-in 1 kHz calibrator output (2 Vp-p ±2%)"
     ],
     "specs": [
-      { "label": "CRT", "value": "6-inch rectangular, internal graticule 8×10 div (1 div = 1 cm), accelerating voltage 2 kV" },
-      { "label": "Bandwidth", "value": "DC (AC 10 Hz) ~ 30 MHz (−3 dB)" },
-      { "label": "Rise Time", "value": "≤17.5 nS" },
-      { "label": "Vertical Sensitivity", "value": "5 mV ~ 5 V / div  (±3%)" },
-      { "label": "Max. Input Voltage", "value": "400 V (DC + AC p-p)" },
-      { "label": "Input Coupling", "value": "AC, DC, GND" },
-      { "label": "Input Impedance", "value": "≈1 MΩ // 25 pF" },
-      { "label": "Vertical Mode", "value": "CH1, CH2, DUAL (ALT/CHOP), ADD, CH2 INV" },
-      { "label": "Sweep Time", "value": "0.2 µS ~ 0.5 S / div  (±3%);  ×10 Mag: 20 nS ~ 50 mS / div  (±5%)" },
-      { "label": "Sweep Magnification", "value": "×10  (max sweep time = 20 nS / div)" },
-      { "label": "Trigger Modes", "value": "AUTO, NORM, TV-V, TV-H" },
-      { "label": "Trigger Source", "value": "CH1, CH2, ALT, LINE, EXT" },
-      { "label": "Trigger Sensitivity", "value": "CH1/CH2: 0.5 div (20 Hz ~ 2 MHz) / 1.5 div (2 ~ 30 MHz);  EXT: 200 mV / 800 mV" },
-      { "label": "Calibrator Output", "value": "1 kHz square wave, 2 Vp-p  (±2%)" },
-      { "label": "X-Y Sensitivity", "value": "5 mV ~ 5 V / div  (±4%);  Phase error ≤3° (DC ~ 50 kHz);  X-axis bandwidth DC ~ 500 kHz" },
-      { "label": "Power Supply", "value": "AC 220 V ±10%, 50 Hz, ≈35 W" },
-      { "label": "Accessories", "value": "Operating manual, mains cord.  Probes (×1 / ×10) optional." },
-      { "label": "Dimensions & Weight", "value": "310 (W) × 150 (H) × 455 (D) mm  |  Approx. 8 Kg" }
+      {
+        "label": "CRT",
+        "value": "6-inch rectangular, internal graticule 8×10 div (1 div = 1 cm), accelerating voltage 2 kV"
+      },
+      {
+        "label": "Bandwidth",
+        "value": "DC (AC 10 Hz) ~ 30 MHz (−3 dB)"
+      },
+      {
+        "label": "Rise Time",
+        "value": "≤17.5 nS"
+      },
+      {
+        "label": "Vertical Sensitivity",
+        "value": "5 mV ~ 5 V / div  (±3%)"
+      },
+      {
+        "label": "Max. Input Voltage",
+        "value": "400 V (DC + AC p-p)"
+      },
+      {
+        "label": "Input Coupling",
+        "value": "AC, DC, GND"
+      },
+      {
+        "label": "Input Impedance",
+        "value": "≈1 MΩ // 25 pF"
+      },
+      {
+        "label": "Vertical Mode",
+        "value": "CH1, CH2, DUAL (ALT/CHOP), ADD, CH2 INV"
+      },
+      {
+        "label": "Sweep Time",
+        "value": "0.2 µS ~ 0.5 S / div  (±3%);  ×10 Mag: 20 nS ~ 50 mS / div  (±5%)"
+      },
+      {
+        "label": "Sweep Magnification",
+        "value": "×10  (max sweep time = 20 nS / div)"
+      },
+      {
+        "label": "Trigger Modes",
+        "value": "AUTO, NORM, TV-V, TV-H"
+      },
+      {
+        "label": "Trigger Source",
+        "value": "CH1, CH2, ALT, LINE, EXT"
+      },
+      {
+        "label": "Trigger Sensitivity",
+        "value": "CH1/CH2: 0.5 div (20 Hz ~ 2 MHz) / 1.5 div (2 ~ 30 MHz);  EXT: 200 mV / 800 mV"
+      },
+      {
+        "label": "Calibrator Output",
+        "value": "1 kHz square wave, 2 Vp-p  (±2%)"
+      },
+      {
+        "label": "X-Y Sensitivity",
+        "value": "5 mV ~ 5 V / div  (±4%);  Phase error ≤3° (DC ~ 50 kHz);  X-axis bandwidth DC ~ 500 kHz"
+      },
+      {
+        "label": "Power Supply",
+        "value": "AC 220 V ±10%, 50 Hz, ≈35 W"
+      },
+      {
+        "label": "Accessories",
+        "value": "Operating manual, mains cord.  Probes (×1 / ×10) optional."
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "310 (W) × 150 (H) × 455 (D) mm  |  Approx. 8 Kg"
+      }
     ],
-    "images": ["ss-5030b.webp", "ss-5030b-2.webp"],
+    "images": [
+      "ss-5030b.webp",
+      "ss-5030b-2.webp"
+    ],
     "catalogue": "ss-5030b.pdf"
   },
   {
@@ -88,25 +202,78 @@
       "5 mV to 5 V/div sensitivity, full trigger source selection"
     ],
     "specs": [
-      { "label": "CRT", "value": "6-inch rectangular, internal graticule 8×10 div (1 div = 1 cm), accelerating voltage 2 kV" },
-      { "label": "Bandwidth", "value": "DC (AC 10 Hz) ~ 30 MHz (−3 dB)" },
-      { "label": "Rise Time", "value": "≤17.5 nS" },
-      { "label": "Vertical Sensitivity", "value": "5 mV ~ 5 V / div  (±3%)" },
-      { "label": "Max. Input Voltage", "value": "400 V (DC + AC p-p)" },
-      { "label": "Input Coupling", "value": "AC, DC, GND" },
-      { "label": "Input Impedance", "value": "≈1 MΩ // 25 pF" },
-      { "label": "Vertical Mode", "value": "CH1, CH2, DUAL (ALT/CHOP), ADD, CH2 INV" },
-      { "label": "Component Tester", "value": "Built-in - I-V characteristic display on CRT for R, L, C, transistors and diodes" },
-      { "label": "Sweep Time", "value": "0.2 µS ~ 0.5 S / div  (±3%);  ×10 Mag: 20 nS ~ 50 mS / div  (±5%)" },
-      { "label": "Sweep Magnification", "value": "×10  (max sweep time = 20 nS / div)" },
-      { "label": "Trigger Modes", "value": "AUTO, NORM, TV-V, TV-H" },
-      { "label": "Trigger Source", "value": "CH1, CH2, ALT, LINE, EXT" },
-      { "label": "Calibrator Output", "value": "1 kHz square wave, 2 Vp-p  (±2%)" },
-      { "label": "Power Supply", "value": "AC 220 V ±10%, 50 Hz, ≈35 W" },
-      { "label": "Accessories", "value": "Operating manual, mains cord.  Probes (×1 / ×10) optional." },
-      { "label": "Dimensions & Weight", "value": "310 (W) × 150 (H) × 455 (D) mm  |  Approx. 8 Kg" }
+      {
+        "label": "CRT",
+        "value": "6-inch rectangular, internal graticule 8×10 div (1 div = 1 cm), accelerating voltage 2 kV"
+      },
+      {
+        "label": "Bandwidth",
+        "value": "DC (AC 10 Hz) ~ 30 MHz (−3 dB)"
+      },
+      {
+        "label": "Rise Time",
+        "value": "≤17.5 nS"
+      },
+      {
+        "label": "Vertical Sensitivity",
+        "value": "5 mV ~ 5 V / div  (±3%)"
+      },
+      {
+        "label": "Max. Input Voltage",
+        "value": "400 V (DC + AC p-p)"
+      },
+      {
+        "label": "Input Coupling",
+        "value": "AC, DC, GND"
+      },
+      {
+        "label": "Input Impedance",
+        "value": "≈1 MΩ // 25 pF"
+      },
+      {
+        "label": "Vertical Mode",
+        "value": "CH1, CH2, DUAL (ALT/CHOP), ADD, CH2 INV"
+      },
+      {
+        "label": "Component Tester",
+        "value": "Built-in - I-V characteristic display on CRT for R, L, C, transistors and diodes"
+      },
+      {
+        "label": "Sweep Time",
+        "value": "0.2 µS ~ 0.5 S / div  (±3%);  ×10 Mag: 20 nS ~ 50 mS / div  (±5%)"
+      },
+      {
+        "label": "Sweep Magnification",
+        "value": "×10  (max sweep time = 20 nS / div)"
+      },
+      {
+        "label": "Trigger Modes",
+        "value": "AUTO, NORM, TV-V, TV-H"
+      },
+      {
+        "label": "Trigger Source",
+        "value": "CH1, CH2, ALT, LINE, EXT"
+      },
+      {
+        "label": "Calibrator Output",
+        "value": "1 kHz square wave, 2 Vp-p  (±2%)"
+      },
+      {
+        "label": "Power Supply",
+        "value": "AC 220 V ±10%, 50 Hz, ≈35 W"
+      },
+      {
+        "label": "Accessories",
+        "value": "Operating manual, mains cord.  Probes (×1 / ×10) optional."
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "310 (W) × 150 (H) × 455 (D) mm  |  Approx. 8 Kg"
+      }
     ],
-    "images": ["ss-5030bc.webp"],
+    "images": [
+      "ss-5030bc.webp"
+    ],
     "catalogue": "ss-5030bc.pdf"
   },
   {
@@ -126,23 +293,72 @@
       "Built-in DVM function, USB host & device, auto setup"
     ],
     "specs": [
-      { "label": "Bandwidth", "value": "DC ~ 80 MHz  (−3 dB);  Rise time ≤4.4 nS" },
-      { "label": "Channels", "value": "4 (Four Channel)" },
-      { "label": "Real-Time Sampling Rate", "value": "1 GS/s  (50 GS/s equivalent)" },
-      { "label": "Vertical Deflection", "value": "500 µV / div ~ 10 V / div" },
-      { "label": "Sweep Time", "value": "100 S ~ 2 nS / div" },
-      { "label": "Record Length", "value": "64K sampling points" },
-      { "label": "Waveform Acquisition Rate", "value": "≥2000 wfms/s" },
-      { "label": "Display", "value": "7\" TFT LCD, 800×480 resolution" },
-      { "label": "Measurements", "value": "32 types of auto-measurement;  dual cursor (ΔV, ΔT, 1/ΔT)" },
-      { "label": "Math & Analysis", "value": "FFT, Maths;  DVM function built-in" },
-      { "label": "Interface", "value": "USB Host & USB Device" },
-      { "label": "Other Features", "value": "Auto Setup;  probe attenuation ratio setup per channel;  waveform & setup storage" },
-      { "label": "Power Supply", "value": "AC 100 ~ 240 V, 50 / 60 Hz" },
-      { "label": "Accessories", "value": "User's manual, mains cord;  ratio probes optional" },
-      { "label": "Dimensions & Weight", "value": "318 × 110 × 150 mm  |  Approx. 2.9 Kg" }
+      {
+        "label": "Bandwidth",
+        "value": "DC ~ 80 MHz  (−3 dB);  Rise time ≤4.4 nS"
+      },
+      {
+        "label": "Channels",
+        "value": "4 (Four Channel)"
+      },
+      {
+        "label": "Real-Time Sampling Rate",
+        "value": "1 GS/s  (50 GS/s equivalent)"
+      },
+      {
+        "label": "Vertical Deflection",
+        "value": "500 µV / div ~ 10 V / div"
+      },
+      {
+        "label": "Sweep Time",
+        "value": "100 S ~ 2 nS / div"
+      },
+      {
+        "label": "Record Length",
+        "value": "64K sampling points"
+      },
+      {
+        "label": "Waveform Acquisition Rate",
+        "value": "≥2000 wfms/s"
+      },
+      {
+        "label": "Display",
+        "value": "7\" TFT LCD, 800×480 resolution"
+      },
+      {
+        "label": "Measurements",
+        "value": "32 types of auto-measurement;  dual cursor (ΔV, ΔT, 1/ΔT)"
+      },
+      {
+        "label": "Math & Analysis",
+        "value": "FFT, Maths;  DVM function built-in"
+      },
+      {
+        "label": "Interface",
+        "value": "USB Host & USB Device"
+      },
+      {
+        "label": "Other Features",
+        "value": "Auto Setup;  probe attenuation ratio setup per channel;  waveform & setup storage"
+      },
+      {
+        "label": "Power Supply",
+        "value": "AC 100 ~ 240 V, 50 / 60 Hz"
+      },
+      {
+        "label": "Accessories",
+        "value": "User's manual, mains cord;  ratio probes optional"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "318 × 110 × 150 mm  |  Approx. 2.9 Kg"
+      }
     ],
-    "images": ["ss-5080ds4.webp", "ss-5080ds4-2.webp", "ss-5080ds4-3.webp"],
+    "images": [
+      "ss-5080ds4.webp",
+      "ss-5080ds4-2.webp",
+      "ss-5080ds4-3.webp"
+    ],
     "catalogue": "ss-5080ds4.pdf"
   },
   {
@@ -161,22 +377,66 @@
       "USB host & device - waveform and screenshot export"
     ],
     "specs": [
-      { "label": "Bandwidth", "value": "DC ~ 100 MHz  (−3 dB);  Rise time ≤3.5 nS" },
-      { "label": "Channels", "value": "2 (Dual Channel)" },
-      { "label": "Real-Time Sampling Rate", "value": "1 GS/s" },
-      { "label": "Vertical Deflection", "value": "2 mV / div ~ 10 V / div" },
-      { "label": "Sweep Time", "value": "100 S ~ 2 nS / div" },
-      { "label": "Record Length", "value": "4M max / channel  (8M total)" },
-      { "label": "Display", "value": "7\" TFT LCD, 800×480 resolution" },
-      { "label": "Measurements", "value": "32 types of auto-measurement;  cursor measurements (ΔV, ΔT, 1/ΔT)" },
-      { "label": "Math & Analysis", "value": "FFT, Maths" },
-      { "label": "Interface", "value": "USB Host & USB Device" },
-      { "label": "Other Features", "value": "Auto Setup;  probe attenuation ratio setup;  waveform & setup storage" },
-      { "label": "Power Supply", "value": "AC 100 ~ 240 V, 50 / 60 Hz" },
-      { "label": "Accessories", "value": "User's manual, mains cord;  ratio probes optional" },
-      { "label": "Dimensions & Weight", "value": "318 × 110 × 150 mm  |  Approx. 2 Kg" }
+      {
+        "label": "Bandwidth",
+        "value": "DC ~ 100 MHz  (−3 dB);  Rise time ≤3.5 nS"
+      },
+      {
+        "label": "Channels",
+        "value": "2 (Dual Channel)"
+      },
+      {
+        "label": "Real-Time Sampling Rate",
+        "value": "1 GS/s"
+      },
+      {
+        "label": "Vertical Deflection",
+        "value": "2 mV / div ~ 10 V / div"
+      },
+      {
+        "label": "Sweep Time",
+        "value": "100 S ~ 2 nS / div"
+      },
+      {
+        "label": "Record Length",
+        "value": "4M max / channel  (8M total)"
+      },
+      {
+        "label": "Display",
+        "value": "7\" TFT LCD, 800×480 resolution"
+      },
+      {
+        "label": "Measurements",
+        "value": "32 types of auto-measurement;  cursor measurements (ΔV, ΔT, 1/ΔT)"
+      },
+      {
+        "label": "Math & Analysis",
+        "value": "FFT, Maths"
+      },
+      {
+        "label": "Interface",
+        "value": "USB Host & USB Device"
+      },
+      {
+        "label": "Other Features",
+        "value": "Auto Setup;  probe attenuation ratio setup;  waveform & setup storage"
+      },
+      {
+        "label": "Power Supply",
+        "value": "AC 100 ~ 240 V, 50 / 60 Hz"
+      },
+      {
+        "label": "Accessories",
+        "value": "User's manual, mains cord;  ratio probes optional"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "318 × 110 × 150 mm  |  Approx. 2 Kg"
+      }
     ],
-    "images": ["ss-5100ds1b.webp"],
+    "images": [
+      "ss-5100ds1b.webp"
+    ],
     "catalogue": "ss-5100ds1b.pdf"
   },
   {
@@ -195,23 +455,117 @@
       "7-inch 800×480 TFT LCD, USB host & device"
     ],
     "specs": [
-      { "label": "Bandwidth", "value": "DC ~ 150 MHz  (−3 dB);  Rise time ≤3.5 nS" },
-      { "label": "Channels", "value": "2 (Dual Channel)" },
-      { "label": "Real-Time Sampling Rate", "value": "1 GS/s" },
-      { "label": "Vertical Deflection", "value": "2 mV / div ~ 10 V / div" },
-      { "label": "Sweep Time", "value": "100 S ~ 2 nS / div" },
-      { "label": "Record Length", "value": "4M max / channel  (8M total)" },
-      { "label": "Built-in AWG", "value": "1 channel - Sine, Square, Ramp, Exponential, Noise, DC, Arbitrary;  frequency: 0.1 Hz ~ 25 MHz (Sine);  output: 5 mV ~ 3.5 Vpp (into 50 Ω)" },
-      { "label": "Display", "value": "7\" TFT LCD, 800×480 resolution" },
-      { "label": "Measurements", "value": "32 types of auto-measurement;  cursor measurements (ΔV, ΔT, 1/ΔT)" },
-      { "label": "Math & Analysis", "value": "FFT, Maths" },
-      { "label": "Interface", "value": "USB Host & USB Device" },
-      { "label": "Other Features", "value": "Auto Setup;  waveform & setup storage" },
-      { "label": "Power Supply", "value": "AC 100 ~ 240 V, 50 / 60 Hz" },
-      { "label": "Accessories", "value": "User's manual, mains cord;  ratio probes optional" },
-      { "label": "Dimensions & Weight", "value": "318 × 110 × 150 mm  |  Approx. 2 Kg" }
+      {
+        "label": "Bandwidth",
+        "value": "DC ~ 150 MHz  (−3 dB);  Rise time ≤3.5 nS"
+      },
+      {
+        "label": "Channels",
+        "value": "2 (Dual Channel)"
+      },
+      {
+        "label": "Real-Time Sampling Rate",
+        "value": "1 GS/s"
+      },
+      {
+        "label": "Vertical Deflection",
+        "value": "2 mV / div ~ 10 V / div"
+      },
+      {
+        "label": "Sweep Time",
+        "value": "100 S ~ 2 nS / div"
+      },
+      {
+        "label": "Record Length",
+        "value": "4M max / channel  (8M total)"
+      },
+      {
+        "label": "Built-in AWG",
+        "value": "1 channel - Sine, Square, Ramp, Exponential, Noise, DC, Arbitrary;  frequency: 0.1 Hz ~ 25 MHz (Sine);  output: 5 mV ~ 3.5 Vpp (into 50 Ω)"
+      },
+      {
+        "label": "Display",
+        "value": "7\" TFT LCD, 800×480 resolution"
+      },
+      {
+        "label": "Measurements",
+        "value": "32 types of auto-measurement;  cursor measurements (ΔV, ΔT, 1/ΔT)"
+      },
+      {
+        "label": "Math & Analysis",
+        "value": "FFT, Maths"
+      },
+      {
+        "label": "Interface",
+        "value": "USB Host & USB Device"
+      },
+      {
+        "label": "Other Features",
+        "value": "Auto Setup;  waveform & setup storage"
+      },
+      {
+        "label": "Power Supply",
+        "value": "AC 100 ~ 240 V, 50 / 60 Hz"
+      },
+      {
+        "label": "Accessories",
+        "value": "User's manual, mains cord;  ratio probes optional"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "318 × 110 × 150 mm  |  Approx. 2 Kg"
+      }
     ],
-    "images": ["ss-5150ds1bfg.webp", "ss-5150ds1bfg-2.webp"],
+    "images": [
+      "ss-5150ds1bfg.webp",
+      "ss-5150ds1bfg-2.webp"
+    ],
     "catalogue": "ss-5150ds1b-fg.pdf"
+  },
+  {
+    "id": "ss-5100ds4",
+    "model": "SS-5100DS4",
+    "name": "100 MHz 4-Channel Digital Storage Oscilloscope",
+    "tagline": "100 MHz 4 CHANNEL OSCILLOSCOPE (DSO), 500 µV - 10 V / Div., 1 GS/S, USB Interface, 7\" TFT",
+    "description": "100 MHz 4 CHANNEL OSCILLOSCOPE (DSO), 500 µV - 10 V / Div., 1 GS/S, USB Interface, 7\" TFT Superior Quality High performance High reliability Probes Included.",
+    "features": [
+      "Superior Quality",
+      "High performance",
+      "High reliability",
+      "Probes Included."
+    ],
+    "specs": [
+      {
+        "label": "Bandwidth",
+        "value": "100 MHz"
+      },
+      {
+        "label": "Channels",
+        "value": "4"
+      },
+      {
+        "label": "Vertical sensitivity",
+        "value": "500 µV – 10 V / Div."
+      },
+      {
+        "label": "Sampling rate",
+        "value": "1 GS/s"
+      },
+      {
+        "label": "Display",
+        "value": "7\" TFT"
+      },
+      {
+        "label": "Interface",
+        "value": "USB"
+      },
+      {
+        "label": "Probes",
+        "value": "Included"
+      }
+    ],
+    "images": [
+      "ss-5100ds4.webp"
+    ]
   }
 ]

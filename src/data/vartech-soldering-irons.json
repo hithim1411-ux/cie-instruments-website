@@ -1,0 +1,238 @@
+[
+  {
+    "id": "si-100w",
+    "model": "SI-100W",
+    "name": "100 W Soldering Iron",
+    "tagline": "100 W Soldering Iron",
+    "description": "Model: SI-100 Watt SOLDERING IRON, 100 W / 230 V, 2 Pin. With Regular Tip High reliability Nichrome heater Various type of tips / bits available",
+    "features": [
+      "High reliability Nichrome heater",
+      "Various type of tips / bits available"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "100 W"
+      },
+      {
+        "label": "Supply",
+        "value": "230 V, 2 pin"
+      },
+      {
+        "label": "Heater",
+        "value": "High reliability nichrome heater"
+      },
+      {
+        "label": "Tips",
+        "value": "Various types of tips / bits available"
+      }
+    ],
+    "images": [
+      "si-100w.webp",
+      "si-100w-2.webp"
+    ]
+  },
+  {
+    "id": "si-80w",
+    "model": "SI-80W",
+    "name": "80 W Soldering Iron",
+    "tagline": "SI 80 Watt SOLDERING IRON, 80 W / 230 V, 2 Pin.",
+    "description": "SI 80 Watt SOLDERING IRON, 80 W / 230 V, 2 Pin. With Regular Tip High reliability Nichrome heater Various type of tips / bits available",
+    "features": [
+      "High reliability Nichrome heater",
+      "Various type of tips / bits available"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "80 W"
+      },
+      {
+        "label": "Supply",
+        "value": "230 V, 2 pin"
+      },
+      {
+        "label": "Heater",
+        "value": "High reliability nichrome heater"
+      },
+      {
+        "label": "Tips",
+        "value": "Various types of tips / bits available"
+      }
+    ],
+    "images": [
+      "si-80w.webp",
+      "si-80w-2.webp"
+    ]
+  },
+  {
+    "id": "si-60w",
+    "model": "SI-60W",
+    "name": "60 W Soldering Iron",
+    "tagline": "SI 60 Watt SOLDERING IRON, 60 W / 230 V, 2 Pin.",
+    "description": "SI 60 Watt SOLDERING IRON, 60 W / 230 V, 2 Pin. High reliability Nichrome heater Various type of tips / bits available",
+    "features": [
+      "High reliability Nichrome heater",
+      "Various type of tips / bits available"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "60 W"
+      },
+      {
+        "label": "Supply",
+        "value": "230 V, 2 pin"
+      },
+      {
+        "label": "Heater",
+        "value": "High reliability nichrome heater"
+      },
+      {
+        "label": "Tips",
+        "value": "Various types of tips / bits available"
+      }
+    ],
+    "images": [
+      "si-60w.webp",
+      "si-60w-2.webp"
+    ]
+  },
+  {
+    "id": "si-50w",
+    "model": "SI-50W",
+    "name": "50 W Soldering Iron",
+    "tagline": "SI 50 Watt SOLDERING IRON, 50 W / 230 V, 2 Pin.",
+    "description": "SI 50 Watt SOLDERING IRON, 50 W / 230 V, 2 Pin. High reliability Nichrome heater Various type of tips / bits available",
+    "features": [
+      "High reliability Nichrome heater",
+      "Various type of tips / bits available"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "50 W"
+      },
+      {
+        "label": "Supply",
+        "value": "230 V, 2 pin"
+      },
+      {
+        "label": "Heater",
+        "value": "High reliability nichrome heater"
+      },
+      {
+        "label": "Tips",
+        "value": "Various types of tips / bits available"
+      }
+    ],
+    "images": [
+      "si-50w.webp",
+      "si-50w-2.webp"
+    ]
+  },
+  {
+    "id": "si-30w",
+    "model": "SI-30W",
+    "name": "30 W Soldering Iron",
+    "tagline": "SI 30W, SOLDERING IRON, 30 W / 230 V, 2 Pin.",
+    "description": "SI 30W, SOLDERING IRON, 30 W / 230 V, 2 Pin. High reliability Nichrome heater Various type of tips / bits available",
+    "features": [
+      "High reliability Nichrome heater",
+      "Various type of tips / bits available"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "30 W"
+      },
+      {
+        "label": "Supply",
+        "value": "230 V, 2 pin"
+      },
+      {
+        "label": "Heater",
+        "value": "High reliability nichrome heater"
+      },
+      {
+        "label": "Tips",
+        "value": "Various types of tips / bits available"
+      }
+    ],
+    "images": [
+      "si-30w.webp",
+      "si-30w-2.webp"
+    ]
+  },
+  {
+    "id": "si-25w",
+    "model": "SI-25W",
+    "name": "25 W Soldering Iron",
+    "tagline": "SI 25 Watt SOLDERING IRON, 25 W / 230 V, 2 Pin.",
+    "description": "SI 25 Watt SOLDERING IRON, 25 W / 230 V, 2 Pin. High reliability Nichrome heater Various type of tips / bits available",
+    "features": [
+      "High reliability Nichrome heater",
+      "Various type of tips / bits available"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "25 W"
+      },
+      {
+        "label": "Supply",
+        "value": "230 V, 2 pin"
+      },
+      {
+        "label": "Heater",
+        "value": "High reliability nichrome heater"
+      },
+      {
+        "label": "Tips",
+        "value": "Various types of tips / bits available"
+      }
+    ],
+    "images": [
+      "si-25w.webp",
+      "si-25w-2.webp"
+    ]
+  },
+  {
+    "id": "si-25ws",
+    "model": "SI-25WS",
+    "name": "25 W Slim Soldering Iron, Ceramic Heater",
+    "tagline": "SI 25 Watt Slim body, SOLDERING IRON (Slim Type), 25 W / 230 V, 2 Pin, With Long Life Ceramic Heating Element.",
+    "description": "SI 25 Watt Slim body, SOLDERING IRON (Slim Type), 25 W / 230 V, 2 Pin, With Long Life Ceramic Heating Element. Superior quality, High performance, Rapid heating, High temperature stability. Various types of bits available.",
+    "features": [
+      "Various types of bits available."
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "25 W"
+      },
+      {
+        "label": "Supply",
+        "value": "230 V, 2 pin"
+      },
+      {
+        "label": "Heater",
+        "value": "Long-life ceramic heating element"
+      },
+      {
+        "label": "Body",
+        "value": "Slim type"
+      },
+      {
+        "label": "Tips",
+        "value": "Various types of tips / bits available"
+      }
+    ],
+    "images": [
+      "si-25ws.webp",
+      "si-25ws-2.webp",
+      "si-25ws-3.webp",
+      "si-25ws-4.webp"
+    ]
+  }
+]

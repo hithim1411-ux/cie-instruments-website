@@ -21,6 +21,11 @@ import vartechSoundLevelMeters from '../../data/vartech-sound-level-meters.json'
 import vartechAnemometers from '../../data/vartech-anemometers.json';
 import vartechCalibrators from '../../data/vartech-calibrators.json';
 import vartechLuxMeters from '../../data/vartech-lux-meters.json';
+import vartechSolderingStations from '../../data/vartech-soldering-stations.json';
+import vartechReworkStations from '../../data/vartech-rework-stations.json';
+import vartechSolderingIrons from '../../data/vartech-soldering-irons.json';
+import vartechMagnifiers from '../../data/vartech-magnifiers.json';
+import vartechSolderingAccessories from '../../data/vartech-soldering-accessories.json';
 import vartechThermometers from '../../data/vartech-thermometers.json';
 import vartechDcPowerSupplies from '../../data/vartech-dc-power-supplies.json';
 
@@ -112,9 +117,44 @@ const vartechCategories = [
     count: vartechDcPowerSupplies.length,
     description: 'Linear, SMPS and programmable DC supplies - 30 V to 200 V, up to 40 A, with PC interface.',
   },
+  {
+    label: 'Soldering Stations',
+    href: u('/authorised-dealership/soldering-stations/'),
+    iconId: 'vartech-soldering-stations',
+    count: vartechSolderingStations.length,
+    description: 'Digital and lead-free soldering stations (60–90 W) and 2-in-1 vacuum de-soldering stations.',
+  },
+  {
+    label: 'SMD Re-Work',
+    href: u('/authorised-dealership/rework-stations/'),
+    iconId: 'vartech-rework-stations',
+    count: vartechReworkStations.length,
+    description: 'Hot-air SMD re-work stations, 2-in-1 systems, BGA fixture and pre-heater, hot air gun, hot tweezer and fume extractor.',
+  },
+  {
+    label: 'Soldering Irons',
+    href: u('/authorised-dealership/soldering-irons/'),
+    iconId: 'vartech-soldering-irons',
+    count: vartechSolderingIrons.length,
+    description: 'Nichrome soldering irons from 25 W to 100 W and a slim 25 W ceramic-heater iron, 230 V.',
+  },
+  {
+    label: 'Magnifying Lamps',
+    href: u('/authorised-dealership/magnifiers/'),
+    iconId: 'vartech-magnifiers',
+    count: vartechMagnifiers.length,
+    description: 'LED and CFL magnifying lamps - table-clamp and desk-top, 5 and 8 dioptre, round and rectangular lenses, dimmable models.',
+  },
+  {
+    label: 'Soldering Spares',
+    href: u('/authorised-dealership/soldering-accessories/'),
+    iconId: 'vartech-soldering-accessories',
+    count: vartechSolderingAccessories.length,
+    description: 'Soldering bits, heating elements, barrels, nuts, iron assembly, tip thermometer, soldering tester and power supply cables.',
+  },
 ];
 
-const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.length + vartechOscilloscopes.length + vartechFunctionGenerators.length + vartechLcrMeters.length + vartechDcLoads.length + vartechSoundLevelMeters.length + vartechAnemometers.length + vartechCalibrators.length + vartechLuxMeters.length + vartechThermometers.length + vartechDcPowerSupplies.length;
+const totalVartechProducts = vartechMultimeters.length + vartechClampMeters.length + vartechOscilloscopes.length + vartechFunctionGenerators.length + vartechLcrMeters.length + vartechDcLoads.length + vartechSoundLevelMeters.length + vartechAnemometers.length + vartechCalibrators.length + vartechLuxMeters.length + vartechThermometers.length + vartechDcPowerSupplies.length + vartechSolderingStations.length + vartechReworkStations.length + vartechSolderingIrons.length + vartechMagnifiers.length + vartechSolderingAccessories.length;
 ---
 
 <Base

@@ -1,0 +1,639 @@
+[
+  {
+    "id": "191-ad",
+    "model": "191 AD",
+    "name": "Soldering Tip Temperature Thermometer, 0–800 °C",
+    "tagline": "Soldering Tip Temperature Thermometer for measuring Soldering Iron Tip Temperature 0~800 °C, 3 1/2 Digits, °C & °F, Max.",
+    "description": "Soldering Tip Temperature Thermometer for measuring Soldering Iron Tip Temperature 0~800 °C, 3 1/2 Digits, °C & °F, Max. Hold. External Sensor connection provided along with Bead type probe enabling external measurements.",
+    "features": [
+      "External Sensor connection provided along with Bead type probe enabling external measurements."
+    ],
+    "specs": [
+      {
+        "label": "Range",
+        "value": "0 ~ 800 °C"
+      },
+      {
+        "label": "Display",
+        "value": "3½ digits, °C & °F"
+      },
+      {
+        "label": "Function",
+        "value": "Max. hold"
+      },
+      {
+        "label": "Sensor",
+        "value": "External sensor connection with bead type probe"
+      }
+    ],
+    "images": [
+      "191-ad.webp"
+    ]
+  },
+  {
+    "id": "192",
+    "model": "192",
+    "name": "Multifunction Soldering Tester",
+    "tagline": "SOLDERING TESTER, Tip Temp., Leakage 'V' & Ground Res., Meas., 1º C/F Res.",
+    "description": "SOLDERING TESTER, Tip Temp., Leakage 'V' & Ground Res., Meas., 1º C/F Res. Sensitive sensors ensure accurate measurement (temperature, resistance, voltage). Accurately measures tip temperature, leak voltage, and ground resistance",
+    "features": [
+      "Sensitive sensors ensure accurate measurement (temperature, resistance, voltage).",
+      "Accurately measures tip temperature, leak voltage, and ground resistance"
+    ],
+    "specs": [
+      {
+        "label": "Measures",
+        "value": "Tip temperature, leakage voltage and ground resistance"
+      },
+      {
+        "label": "Temperature resolution",
+        "value": "1 ºC / ºF"
+      }
+    ],
+    "images": [
+      "192.webp"
+    ]
+  },
+  {
+    "id": "907a",
+    "model": "907A",
+    "name": "Soldering Iron Assembly for 936 A, 706, 700",
+    "tagline": "Spare part, Soldering iron full assembly for Models 936 A, 706 and 700.",
+    "description": "Spare part, Soldering iron full assembly for Models 936 A, 706 and 700. Soldering Iron assembly includes Heating element, Pointed tip, Barrel, Nut, Grip, Chord & Connector.",
+    "features": [
+      "Soldering Iron assembly includes Heating element, Pointed tip, Barrel, Nut, Grip, Chord & Connector."
+    ],
+    "specs": [
+      {
+        "label": "Part No.",
+        "value": "907A"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 706, 700"
+      },
+      {
+        "label": "Includes",
+        "value": "Heating element, pointed tip, barrel, nut, grip, cord & connector"
+      }
+    ],
+    "images": [
+      "907a.webp"
+    ]
+  },
+  {
+    "id": "he-857a",
+    "model": "HE-857 A",
+    "name": "Heating element (coil) for 857 D, 706 series SMD re-work stations",
+    "tagline": "Heating coil / Heating element for 857 D and 706 series SMD re-work stations / Hot air soldering stations with sensor.",
+    "description": "Heating coil / Heating element for 857 D and 706 series SMD re-work stations / Hot air soldering stations with sensor. Use Vartech Original spare parts for long life and optimum heat transfer. Heating element will be inside the handle unit of the SMD re-work station.",
+    "features": [
+      "Use Vartech Original spare parts for long life and optimum heat transfer.",
+      "Heating element will be inside the handle unit of the SMD re-work station."
+    ],
+    "specs": [
+      {
+        "label": "Part No.",
+        "value": "HE-857 A"
+      },
+      {
+        "label": "Fits",
+        "value": "857 D, 706 series SMD re-work stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "he-857a.webp"
+    ]
+  },
+  {
+    "id": "a-1146",
+    "model": "A 1146",
+    "name": "Heating element (coil) for 850 A, 700 series SMD re-work stations",
+    "tagline": "Heating coil / Heating element for 850 A and 700 series SMD re-work stations / Hot air soldering stations.",
+    "description": "Heating coil / Heating element for 850 A and 700 series SMD re-work stations / Hot air soldering stations. Use Vartech Original spare parts for long life and optimum heat transfer. Heating element will be inside the handle unit of the SMD re-work station.",
+    "features": [
+      "Use Vartech Original spare parts for long life and optimum heat transfer.",
+      "Heating element will be inside the handle unit of the SMD re-work station."
+    ],
+    "specs": [
+      {
+        "label": "Part No.",
+        "value": "A 1146"
+      },
+      {
+        "label": "Fits",
+        "value": "850 A, 700 series SMD re-work stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "a-1146.webp"
+    ]
+  },
+  {
+    "id": "a-1321",
+    "model": "A 1321",
+    "name": "Ceramic heating element for 937, 236 soldering stations",
+    "tagline": "Ceramic Heater Strip / Heating element for 937 and 236 Series Soldering Stations.",
+    "description": "Ceramic Heater Strip / Heating element for 937 and 236 Series Soldering Stations. Rapid heating and high temperature stability. Use Vartech Original spare parts for long life and optimum heat transfer. Heating element will be inside the soldering iron of the soldering station unit.",
+    "features": [
+      "Use Vartech Original spare parts for long life and optimum heat transfer.",
+      "Heating element will be inside the soldering iron of the soldering station unit."
+    ],
+    "specs": [
+      {
+        "label": "Part No.",
+        "value": "A 1321"
+      },
+      {
+        "label": "Fits",
+        "value": "937, 236 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "a-1321.webp"
+    ]
+  },
+  {
+    "id": "h1901r",
+    "model": "H1901R",
+    "name": "Heating element for 936 AD soldering station",
+    "tagline": "Heater Strip / Heating element for 936 AD Soldering Station, Heavy Duty metal heating element.",
+    "description": "Heater Strip / Heating element for 936 AD Soldering Station, Heavy Duty metal heating element. Use Vartech Original spare parts for long life and optimum heat transfer. Heating element will be inside the soldering iron of the soldering station unit.",
+    "features": [
+      "Use Vartech Original spare parts for long life and optimum heat transfer.",
+      "Heating element will be inside the soldering iron of the soldering station unit."
+    ],
+    "specs": [
+      {
+        "label": "Part No.",
+        "value": "H1901R"
+      },
+      {
+        "label": "Fits",
+        "value": "936 AD soldering station"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "h1901r.webp"
+    ]
+  },
+  {
+    "id": "a-1321a",
+    "model": "A 1321 A",
+    "name": "Heating element for 936 A, 706, 700 soldering stations",
+    "tagline": "Heater Strip / Heating element for 936 A, 706, 700 Series Soldering Stations, Heavy Duty metal heating element.",
+    "description": "Heater Strip / Heating element for 936 A, 706, 700 Series Soldering Stations, Heavy Duty metal heating element. Use Vartech Original spare parts for long life and optimum heat transfer. Heating element will be inside the soldering iron of the soldering station unit.",
+    "features": [
+      "Use Vartech Original spare parts for long life and optimum heat transfer.",
+      "Heating element will be inside the soldering iron of the soldering station unit."
+    ],
+    "specs": [
+      {
+        "label": "Part No.",
+        "value": "A 1321 A"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 706, 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "a-1321a.webp"
+    ]
+  },
+  {
+    "id": "b-936ad",
+    "model": "B-936AD",
+    "name": "Barrel (with vents) for 936 AD soldering station",
+    "tagline": "Barrel (With Vents) spare part for 936 AD soldering station.",
+    "description": "Barrel (With Vents) spare part for 936 AD soldering station. Pack of 1 (Barrel Only).",
+    "features": [],
+    "specs": [
+      {
+        "label": "Part No.",
+        "value": "B-936AD"
+      },
+      {
+        "label": "Fits",
+        "value": "936 AD soldering station"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "b-936ad.webp",
+      "b-936ad-2.webp"
+    ]
+  },
+  {
+    "id": "b-937",
+    "model": "B-937",
+    "name": "Barrel (with vents) for 937 and 236 soldering stations",
+    "tagline": "Barrel (With Vents) spare part for 937 & 236 soldering stations.",
+    "description": "Barrel (With Vents) spare part for 937 & 236 soldering stations. Pack of 1 (Barrel Only).",
+    "features": [],
+    "specs": [
+      {
+        "label": "Part No.",
+        "value": "B-937"
+      },
+      {
+        "label": "Fits",
+        "value": "937 and 236 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "b-937.webp",
+      "b-937-2.webp"
+    ]
+  },
+  {
+    "id": "b-936",
+    "model": "B-936",
+    "name": "Barrel for 936, 706 and 700 soldering stations",
+    "tagline": "Barrel spare part for 936, 706 & 700 soldering stations.",
+    "description": "Barrel spare part for 936, 706 & 700 soldering stations. Pack of 1 (Barrel Only).",
+    "features": [],
+    "specs": [
+      {
+        "label": "Part No.",
+        "value": "B-936"
+      },
+      {
+        "label": "Fits",
+        "value": "936, 706 and 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "b-936.webp",
+      "b-936-2.webp"
+    ]
+  },
+  {
+    "id": "nu-936",
+    "model": "Nu-936",
+    "name": "Nut for 936 A, 936 AD, 937, 236, 706, 700 soldering stations",
+    "tagline": "Nut spare part for 936, 706 & 700 soldering stations.",
+    "description": "Nut spare part for 936, 706 & 700 soldering stations. Pack of 1 (Nut Only).",
+    "features": [],
+    "specs": [
+      {
+        "label": "Part No.",
+        "value": "Nu-936"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 936 AD, 937, 236, 706, 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "nu-936.webp",
+      "nu-936-2.webp"
+    ]
+  },
+  {
+    "id": "t-1-2-ld",
+    "model": "T-1.2 LD",
+    "name": "Long Double-Sided Soldering Bit",
+    "tagline": "Pointed Type (T-1.2 LD Type) Long Double sided Soldering bit.",
+    "description": "Pointed Type (T-1.2 LD Type) Long Double sided Soldering bit. Superior quality soldering tips ensures Long life and efficient heat transfer. Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models.",
+    "features": [
+      "Superior quality soldering tips ensures Long life and efficient heat transfer.",
+      "Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models."
+    ],
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Pointed, long double-sided"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 937, 236, 706 and 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "t-1-2-ld.webp",
+      "t-1-2-ld-2.webp",
+      "t-1-2-ld-3.webp",
+      "t-1-2-ld-4.webp"
+    ]
+  },
+  {
+    "id": "t-lb",
+    "model": "T-LB",
+    "name": "Long Pencil Soldering Bit",
+    "tagline": "Pencil Type (T-LB, Long Blunted - Less sharp) Soldering bit.",
+    "description": "Pencil Type (T-LB, Long Blunted - Less sharp) Soldering bit. Superior quality soldering tips ensures Long life and efficient heat transfer. Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models.",
+    "features": [
+      "Superior quality soldering tips ensures Long life and efficient heat transfer.",
+      "Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models."
+    ],
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Pencil, long blunted"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 937, 236, 706 and 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "t-lb.webp",
+      "t-lb-2.webp",
+      "t-lb-3.webp",
+      "t-lb-4.webp"
+    ]
+  },
+  {
+    "id": "t-j",
+    "model": "T-J",
+    "name": "Bent Pointed Soldering Bit",
+    "tagline": "Pointed Type (J Type) Bent Soldering bit.",
+    "description": "Pointed Type (J Type) Bent Soldering bit. Superior quality soldering tips ensures Long life and efficient heat transfer. Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models.",
+    "features": [
+      "Superior quality soldering tips ensures Long life and efficient heat transfer.",
+      "Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models."
+    ],
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Pointed, bent"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 937, 236, 706 and 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "t-j.webp",
+      "t-j-2.webp",
+      "t-j-3.webp",
+      "t-j-4.webp"
+    ]
+  },
+  {
+    "id": "t-sk",
+    "model": "T-SK",
+    "name": "Small Knife-Type Soldering Bit, 4 mm",
+    "tagline": "Knife Type (K Type 4 mm tip) Soldering bit.",
+    "description": "Knife Type (K Type 4 mm tip) Soldering bit. Part # T-SK (Small K type) Superior quality soldering tips ensures Long life and efficient heat transfer. Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models.",
+    "features": [
+      "Part # T-SK (Small K type)",
+      "Superior quality soldering tips ensures Long life and efficient heat transfer.",
+      "Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models."
+    ],
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Knife, 4 mm"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 937, 236, 706 and 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "t-sk.webp",
+      "t-sk-2.webp",
+      "t-sk-3.webp",
+      "t-sk-4.webp"
+    ]
+  },
+  {
+    "id": "t-d-series",
+    "model": "T-D Series",
+    "name": "Double-Sided Chisel Soldering Bit",
+    "tagline": "Double sided Type (T-D Series, Chisel type) Soldering bit.",
+    "description": "Double sided Type (T-D Series, Chisel type) Soldering bit. Superior quality soldering tips ensures Long life and efficient heat transfer. Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models. Choose the required Tip sizes in T-D series from the dropdown. (0.8 mm, 1.2 mm, 1.6 mm, 2.4mm, etc.)",
+    "features": [
+      "Superior quality soldering tips ensures Long life and efficient heat transfer.",
+      "Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models.",
+      "Choose the required Tip sizes in T-D series from the dropdown. (0.8 mm, 1.2 mm, 1.6 mm, 2.4mm, etc.)"
+    ],
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Double-sided chisel; 0.8D, 1.2D, 1.6D, 2.4D, 3.2D, 4.2D, 5D"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 937, 236, 706 and 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "t-d-series.webp",
+      "t-d-series-2.webp",
+      "t-d-series-3.webp",
+      "t-d-series-4.webp"
+    ]
+  },
+  {
+    "id": "t-c-series",
+    "model": "T-C Series",
+    "name": "Single-Sided Spade Soldering Bit",
+    "tagline": "T-C Series tips, Single sided Soldering bit - Spade type.",
+    "description": "T-C Series tips, Single sided Soldering bit - Spade type. Superior quality soldering tips ensures Long life and efficient heat transfer. Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models. Choose the required Tip sizes in T-C series from the dropdown. (0.5 mm, 0.8 mm, 1mm, 2mm, etc.)",
+    "features": [
+      "Superior quality soldering tips ensures Long life and efficient heat transfer.",
+      "Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models.",
+      "Choose the required Tip sizes in T-C series from the dropdown. (0.5 mm, 0.8 mm, 1mm, 2mm, etc.)"
+    ],
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Single-sided spade; 0.5C, 0.8C, 1C, 2C, 3C, 4C, 5C"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 937, 236, 706 and 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "t-c-series.webp",
+      "t-c-series-2.webp",
+      "t-c-series-3.webp",
+      "t-c-series-4.webp"
+    ]
+  },
+  {
+    "id": "t-b",
+    "model": "T-B",
+    "name": "Pencil Soldering Bit",
+    "tagline": "Pencil Type (T-B, Blunted - Less sharp) Soldering bit.",
+    "description": "Pencil Type (T-B, Blunted - Less sharp) Soldering bit. Superior quality soldering tips ensures Long life and efficient heat transfer. Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models.",
+    "features": [
+      "Superior quality soldering tips ensures Long life and efficient heat transfer.",
+      "Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models."
+    ],
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Pencil, blunted"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 937, 236, 706 and 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "t-b.webp",
+      "t-b-2.webp",
+      "t-b-3.webp",
+      "t-b-4.webp"
+    ]
+  },
+  {
+    "id": "t-i",
+    "model": "T-I",
+    "name": "Pointed Soldering Bit",
+    "tagline": "Pointed Type (I Type) Soldering bit.",
+    "description": "Pointed Type (I Type) Soldering bit. Superior quality soldering tips ensures Long life and efficient heat transfer. Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models.",
+    "features": [
+      "Superior quality soldering tips ensures Long life and efficient heat transfer.",
+      "Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models."
+    ],
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Pointed"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 937, 236, 706 and 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "t-i.webp",
+      "t-i-2.webp",
+      "t-i-3.webp",
+      "t-i-4.webp"
+    ]
+  },
+  {
+    "id": "t-k",
+    "model": "T-K",
+    "name": "Knife-Type Soldering Bit, 8 mm",
+    "tagline": "Knife Type (K Type 8 mm tip) Soldering bit.",
+    "description": "Knife Type (K Type 8 mm tip) Soldering bit. Superior quality soldering tips ensures Long life and efficient heat transfer. Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models.",
+    "features": [
+      "Superior quality soldering tips ensures Long life and efficient heat transfer.",
+      "Soldering station tips suitable for 936 A, 937, 236, 706 & 700 soldering station models."
+    ],
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Knife, 8 mm"
+      },
+      {
+        "label": "Fits",
+        "value": "936 A, 937, 236, 706 and 700 soldering stations"
+      },
+      {
+        "label": "Pack",
+        "value": "Pack of 1"
+      }
+    ],
+    "images": [
+      "t-k.webp",
+      "t-k-2.webp",
+      "t-k-3.webp",
+      "t-k-4.webp"
+    ]
+  },
+  {
+    "id": "ps-cables-5a",
+    "model": "Banana-2CC",
+    "name": "Power Supply Cables, Banana to Crocodile Clips, 5 A",
+    "tagline": "Power supply cables Banana - 2CC, 5A Max.",
+    "description": "Power supply cables Banana - 2CC, 5A Max. - 53 cms (End to End / Tip to Tip).",
+    "features": [],
+    "specs": [
+      {
+        "label": "Current",
+        "value": "5 A max."
+      },
+      {
+        "label": "Length",
+        "value": "53 cm (end to end)"
+      },
+      {
+        "label": "Ends",
+        "value": "Banana plug to crocodile clip"
+      },
+      {
+        "label": "Colours",
+        "value": "Red and black pair"
+      }
+    ],
+    "images": [
+      "ps-cables-5a.webp"
+    ]
+  }
+]

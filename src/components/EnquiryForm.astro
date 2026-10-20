@@ -15,6 +15,11 @@ import vartechAnemometers from '../data/vartech-anemometers.json';
 import vartechCalibrators from '../data/vartech-calibrators.json';
 import vartechLuxMeters from '../data/vartech-lux-meters.json';
 import vartechThermometers from '../data/vartech-thermometers.json';
+import vartechSolderingStations from '../data/vartech-soldering-stations.json';
+import vartechReworkStations from '../data/vartech-rework-stations.json';
+import vartechSolderingIrons from '../data/vartech-soldering-irons.json';
+import vartechMagnifiers from '../data/vartech-magnifiers.json';
+import vartechSolderingAccessories from '../data/vartech-soldering-accessories.json';
 import vartechDcPowerSupplies from '../data/vartech-dc-power-supplies.json';
 
 interface Props {
@@ -34,6 +39,11 @@ const vartechByCategory: Record<string, {id: string, model: string, name: string
   'vartech-calibrators':          vartechCalibrators.map(p => ({ id: p.id, model: p.model, name: p.name })),
   'vartech-lux-meters':           vartechLuxMeters.map(p => ({ id: p.id, model: p.model, name: p.name })),
   'vartech-thermometers':         vartechThermometers.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'vartech-soldering-stations': vartechSolderingStations.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'vartech-rework-stations': vartechReworkStations.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'vartech-soldering-irons': vartechSolderingIrons.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'vartech-magnifiers': vartechMagnifiers.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'vartech-soldering-accessories': vartechSolderingAccessories.map(p => ({ id: p.id, model: p.model, name: p.name })),
   'vartech-dc-power-supplies':    vartechDcPowerSupplies.map(p => ({ id: p.id, model: p.model, name: p.name })),
 };
 

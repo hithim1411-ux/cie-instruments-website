@@ -621,5 +621,85 @@
       "vartech-high-power-smps-power-supply-guide",
       "vartech-linear-bench-power-supply-guide"
     ]
+  },
+  {
+    "id": "vartech-soldering-stations",
+    "brand": "vartech",
+    "name": "Soldering & De-Soldering Stations",
+    "shortName": "Soldering Stations",
+    "eyebrow": "Vartech® · Soldering & De-Soldering Stations",
+    "description": "Digital and lead-free soldering stations (60–90 W) and 2-in-1 vacuum de-soldering stations.",
+    "icon": "🔧",
+    "metaTitle": "Vartech Soldering & De-Soldering Stations | CIE Instruments, India",
+    "metaDesc": "Buy Vartech soldering and de-soldering stations in India - 936 A, 936 AD, 937 ESD, 236 ESD, 202 D, 722 and 201 B. CIE Instruments is an authorised Vartech distributor supplying workshops, labs and production lines across India from Howrah.",
+    "seoContent": [
+      "The Vartech 936 A is the long-running 60 W (unit) station with a 200 ºC to 480 ºC range, while the 936 AD adds a digital display, a 70 W heater, 100 ºC to 480 ºC control, three memory channels and password lock. The 937 ESD uses an industrial-grade ceramic heating element with ± 1 ºC stability.",
+      "For lead-free work, the 236 ESD (90 W, 80 ºC to 480 ºC) and the 202 D (80 W, electromagnetic heating, 80 ºC to 480 ºC) are digital stations built for the higher temperatures lead-free solder needs. The 722 combines a lead-free soldering iron and a de-soldering gun with a built-in vacuum pump in one unit; the 201 B is the de-soldering-only version."
+    ],
+    "relatedArticles": []
+  },
+  {
+    "id": "vartech-rework-stations",
+    "brand": "vartech",
+    "name": "SMD Re-Work Systems & Tools",
+    "shortName": "SMD Re-Work",
+    "eyebrow": "Vartech® · SMD Re-Work Systems & Tools",
+    "description": "Hot-air SMD re-work stations, 2-in-1 systems, BGA fixture and pre-heater, hot air gun, hot tweezer and fume extractor.",
+    "icon": "🔥",
+    "metaTitle": "Vartech SMD Re-Work Systems & Tools | CIE Instruments, India",
+    "metaDesc": "Buy Vartech SMD re-work stations in India - 850 A, 850 D, 857 D, 861 DW, 700 ESD, 706, 885 hot air gun, 989 hot tweezer, BGA tools and 493 ESD smoke absorber. CIE Instruments, authorised Vartech distributor, Howrah.",
+    "seoContent": [
+      "The hot-air stations scale from the 270 W 850 A and 320 W digital 850 D, through the 580 W 857 D, up to the 1000 W lead-free 861 DW with three programmable channels for temperature and air flow. The 700 ESD and 706 combine a hot-air re-work section with a classic 50 W soldering iron in one unit, with separate on/off switches.",
+      "For BGA work, the 800 L fixture holds the PCB while an 850-series station is connected at the top and the 853 ESD pre-heater sits underneath. The 989 hot tweezer is an attachment for the 937 station, and the 493 ESD removes solder fumes at the bench."
+    ],
+    "relatedArticles": []
+  },
+  {
+    "id": "vartech-soldering-irons",
+    "brand": "vartech",
+    "name": "Soldering Irons",
+    "shortName": "Soldering Irons",
+    "eyebrow": "Vartech® · Soldering Irons",
+    "description": "Nichrome soldering irons from 25 W to 100 W and a slim 25 W ceramic-heater iron, 230 V.",
+    "icon": "⚡",
+    "metaTitle": "Vartech Soldering Irons | CIE Instruments, India",
+    "metaDesc": "Buy Vartech soldering irons in India - SI-25W, 30W, 50W, 60W, 80W, 100W and the slim SI-25WS ceramic heater iron, 230 V. CIE Instruments is an authorised Vartech distributor, Howrah.",
+    "seoContent": [
+      "The Vartech SI series covers 25 W, 30 W, 50 W, 60 W, 80 W and 100 W irons with a high-reliability nichrome heater, for 230 V supply with a 2-pin plug. Various types of tips and bits are available separately.",
+      "The SI-25WS is a slim-body 25 W iron with a long-life ceramic heating element for fine work."
+    ],
+    "relatedArticles": []
+  },
+  {
+    "id": "vartech-magnifiers",
+    "brand": "vartech",
+    "name": "Magnifying Lamps",
+    "shortName": "Magnifying Lamps",
+    "eyebrow": "Vartech® · Magnifying Lamps",
+    "description": "LED and CFL magnifying lamps - table-clamp and desk-top, 5 and 8 dioptre, round and rectangular lenses, dimmable models.",
+    "icon": "🔍",
+    "metaTitle": "Vartech Magnifying Lamps | CIE Instruments, India",
+    "metaDesc": "Buy Vartech magnifying lamps in India - 228 L, 228 L II, 228 AL, 228 BL, 228 LX, 228 LXD, 228 LRD, 228 BLR, 8093, 8093 LED, 8093 LD and 268 L. CIE Instruments, authorised Vartech distributor, Howrah.",
+    "seoContent": [
+      "The 228 series uses a 125 mm round crystal lens (5 or 8 dioptre on the 228 L and 228 L II), with table-clamp arms or a heavy desk-top base. The 228 LX and 228 LXD have a 7 inch lens, and the 228 LRD and 228 BLR use a large 7.5 x 6.2 inch rectangular lens; the LXD and LRD are dimmable with warm and cool white light.",
+      "The 8093 family and the 268 L are lighter table-top lamps with a 3 dioptre main lens and a built-in 12 dioptre small lens, available with LED or CFL lighting; the 8093 LD adds a touch dimmer."
+    ],
+    "relatedArticles": []
+  },
+  {
+    "id": "vartech-soldering-accessories",
+    "brand": "vartech",
+    "name": "Soldering Spares & Accessories",
+    "shortName": "Soldering Spares",
+    "eyebrow": "Vartech® · Soldering Spares & Accessories",
+    "description": "Soldering bits, heating elements, barrels, nuts, iron assembly, tip thermometer, soldering tester and power supply cables.",
+    "icon": "🧰",
+    "metaTitle": "Vartech Soldering Spares & Accessories | CIE Instruments, India",
+    "metaDesc": "Buy Vartech soldering bits, heating elements, barrels, 907A iron assembly, 191 AD tip thermometer and 192 soldering tester in India. CIE Instruments is an authorised Vartech distributor, Howrah.",
+    "seoContent": [
+      "Soldering bits (tips) are available in pointed, pencil, bent, chisel, spade and knife types for the 936 A, 937, 236, 706 and 700 stations. Heating elements, barrels, nuts and a complete 907A iron assembly are listed against the station models they fit.",
+      "The 191 AD thermometer and the 192 multifunction soldering tester measure soldering tip temperature, leakage voltage and ground resistance to check that a station is working correctly."
+    ],
+    "relatedArticles": []
   }
 ]

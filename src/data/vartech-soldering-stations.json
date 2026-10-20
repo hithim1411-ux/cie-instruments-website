@@ -1,0 +1,451 @@
+[
+  {
+    "id": "936-a",
+    "model": "936 A",
+    "name": "Soldering Station, 60 W, 200–480 °C",
+    "tagline": "The original 936 A & India's Most popular & Trusted soldering station.",
+    "description": "The original 936 A & India's Most popular & Trusted soldering station. 936 A Ensures Unparalleled Quality Reliability & Economy. Vartech 936A is a very popular and proven Industrial Grade soldering station in India (Heavy duty) Simple and easy to use economical soldering station with a power of 60 W (Unit) 50W (Iron). Temperature adjustment from 200 °C to 480 °C, high temperature stability (±2 °C). Fast heating and rapid thermal recovery. Long lifetime heater. Temperature can be calibrated directly from the front panel. Easy tip replacement. Compatible with various types of soldering iron tips available as accessories. Economical, Industrial Grade soldering station. Pointed Tip (I) included. Various other types of tips are available separately.",
+    "features": [
+      "The Original 936 A",
+      "Superior Quality Heating element",
+      "Rapid heating",
+      "Instant Temp., compensation",
+      "Rapid Thermal recovery",
+      "Light weight ergonomic handle",
+      "Calibrate Temperature Directly from Front Panel",
+      "Precise & Stable temperature adjustment",
+      "ESD safe design",
+      "Unparalleled Quality, Reliability and Economy"
+    ],
+    "specs": [
+      {
+        "label": "Max. Power",
+        "value": "60 W (Unit, Max.). S.Iron 50 W"
+      },
+      {
+        "label": "Temperature Range",
+        "value": "200 ºC ~ 480 ºC (392 °F ~ 896 °F)"
+      },
+      {
+        "label": "Temperature Stability",
+        "value": "± 2 ºC (Stationary air, no load)"
+      },
+      {
+        "label": "Tip to Ground Resistance",
+        "value": "<2Ω"
+      },
+      {
+        "label": "Tip to Ground Potential",
+        "value": "< 2 mV"
+      },
+      {
+        "label": "Unit’s Power Consumption",
+        "value": "220 V AC, 50 Hz"
+      },
+      {
+        "label": "Dimensions",
+        "value": "170 * 120 * 90 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "1.5 Kg Apprx"
+      },
+      {
+        "label": "Supplied as standard",
+        "value": "Pointed Bit as standard. All other Tips must be purchased separately"
+      }
+    ],
+    "images": [
+      "936-a.webp",
+      "936-a-2.webp",
+      "936-a-3.webp"
+    ],
+    "catalogue": "936-a.pdf"
+  },
+  {
+    "id": "936-ad",
+    "model": "936 AD",
+    "name": "Digital Soldering Station, 70 W, 3-Channel Memory",
+    "tagline": "Newest soldering station with a 70W heating element.",
+    "description": "Newest soldering station with a 70W heating element. Temperature adjustment from 100 °C to 480 °C, high temperature stability. Features: Compact design Upgraded power up to 70W, Faster & easier soldering Metal heating element, sturdy and durable, split design, low cost of consumables Uses high temperature resistant silicone cable and accessories LED display Password control Three channel memory storage for temperature Digital temperature calibration",
+    "features": [
+      "New Generation Digital Soldering station",
+      "Digital Display & Temp., Control",
+      "3 Channel Memory to save Temp.,",
+      "Password lock function",
+      "Rapid heating",
+      "Rapid Thermal recovery",
+      "ESD safe design",
+      "Unparalleled Quality, Reliability & Economy",
+      "Light weight ergonomic handle",
+      "Calibrate Temperature Directly from Front Panel"
+    ],
+    "specs": [
+      {
+        "label": "Max. Power",
+        "value": "70 W"
+      },
+      {
+        "label": "Temperature Range",
+        "value": "100 ºC ~ 480 ºC (212 °F ~ 896 °F)"
+      },
+      {
+        "label": "Temperature Stability",
+        "value": "± 2 ºC (Stationary air, no load)"
+      },
+      {
+        "label": "Tip to Ground Resistance",
+        "value": "<2Ω"
+      },
+      {
+        "label": "Tip to Ground Potential",
+        "value": "< 2 mV"
+      },
+      {
+        "label": "Unit’s Power Consumption",
+        "value": "220 V AC, 50 Hz"
+      },
+      {
+        "label": "Dimensions",
+        "value": "140 * 85 * 120 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "1.5 Kg Apprx"
+      },
+      {
+        "label": "Supplied as standard",
+        "value": "Pointed Bit as standard. All other Tips must be purchased separately"
+      }
+    ],
+    "images": [
+      "936-ad.webp",
+      "936-ad-2.webp"
+    ],
+    "catalogue": "936-ad.pdf"
+  },
+  {
+    "id": "937-esd",
+    "model": "937 ESD",
+    "name": "Digital Soldering Station, Ceramic Heater",
+    "tagline": "With high quality CERAMIC HEATER which promises Long Life.",
+    "description": "With high quality CERAMIC HEATER which promises Long Life. Heavy Duty Highly reliable station Super fast heating 200 ºC ~ 480 ºC (392 °F ~ 896 °F), Precise, Stable, Rapid Heating & Instant Temp., Compensation, Temperature Stability : ± 1 ºC (Stationary air, no load), Tip to Ground Resistance : < 2 Ω, Tip to Ground Potential : < 2 mV Max. Power : 60 W (Unit, Max.). Sold. Iron : 50 W (24 V AC) Soft Touch Up/Down Keys ensure precise setting of Temperature and a key card which helps users to protect their settings. S.M.D. Hot Tweezer, Model 989 ESD Available Separately. Pointed Tip (I) included. Various other types of tips are available separately.",
+    "features": [
+      "Heavy Duty Soldering station",
+      "Digital Display & Temp., Control",
+      "Ceramic Heating element (Industrial Grade)",
+      "Super fast heating",
+      "Rapid Thermal recovery",
+      "ESD safe design",
+      "Unparalleled Quality, Reliability & Economy",
+      "Key Card Lock - Temp. Cannot be changed without inserting the Key Card",
+      "SMD Hot tweezer (989) available separately",
+      "Light weight ergonomic handle"
+    ],
+    "specs": [
+      {
+        "label": "Max. Power",
+        "value": "60 W (Unit, Max.). S.Iron 50 W"
+      },
+      {
+        "label": "Temperature Range",
+        "value": "200 ºC ~ 480 ºC (392 °F ~ 896 °F)"
+      },
+      {
+        "label": "Temperature Stability",
+        "value": "± 1 ºC (Stationary air, no load)"
+      },
+      {
+        "label": "Tip to Ground Resistance",
+        "value": "<2Ω"
+      },
+      {
+        "label": "Tip to Ground Potential",
+        "value": "< 2 mV"
+      },
+      {
+        "label": "Unit’s Power Consumption",
+        "value": "220 V AC, 50 Hz"
+      },
+      {
+        "label": "Dimensions",
+        "value": "170 * 120 * 90 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "1.5 Kg Apprx"
+      },
+      {
+        "label": "Supplied as standard",
+        "value": "Pointed Bit as standard. All other Tips must be purchased separately"
+      }
+    ],
+    "images": [
+      "937-esd.webp",
+      "937-esd-2.webp",
+      "937-esd-3.webp",
+      "937-esd-4.webp"
+    ],
+    "catalogue": "937-esd.pdf"
+  },
+  {
+    "id": "236-esd",
+    "model": "236 ESD",
+    "name": "Lead-Free Soldering Station, 90 W",
+    "tagline": "236 ESD SOLDERING STATION, Lead Free, 90 W",
+    "description": "236 ESD SOLDERING STATION, Lead Free, 90 W Digital Temperature control 80 ~ 480 °C, Heavy Duty. ESD safe and powerful (90W) Lead Free soldering station Temperature adjustment from 80 °C to 480 °C, high temperature stability (±2 °C). Lead free stations have a faster heating time and are non hazardous to our environment. Fast heating and rapid thermal recovery. Superior Quality Ceramic heater ensures long lifetime Temperature sensor inside the heater. PID temperature control Pointed Tip (I) included. Various other types of tips are available separately",
+    "features": [
+      "Heavy Duty Lead free Soldering station",
+      "Digital Display & Temp., Control",
+      "Heavy Duty Ceramic heater",
+      "Super Fast heating",
+      "Rapid Thermal recovery",
+      "ESD safe design",
+      "Unparalleled Quality, Reliability & Economy",
+      "Light weight ergonomic handle",
+      "Digital Temperature calibration",
+      "Precise & Stable temperature"
+    ],
+    "specs": [
+      {
+        "label": "Max. Power",
+        "value": "90 W"
+      },
+      {
+        "label": "Temperature Range",
+        "value": "80 ºC ~ 480 ºC"
+      },
+      {
+        "label": "Temperature Stability",
+        "value": "± 2 ºC (Stationary air, no load)"
+      },
+      {
+        "label": "Tip to Ground Resistance",
+        "value": "<2Ω"
+      },
+      {
+        "label": "Tip to Ground Potential",
+        "value": "< 2 mV"
+      },
+      {
+        "label": "Unit’s Power Consumption",
+        "value": "220 V AC, 50 Hz"
+      },
+      {
+        "label": "Dimensions",
+        "value": "160 * 105 * 125 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "2.6 Kg Apprx"
+      },
+      {
+        "label": "Supplied as standard",
+        "value": "Pointed Bit as standard. All other Tips must be purchased separately"
+      }
+    ],
+    "images": [
+      "236-esd.webp",
+      "236-esd-2.webp",
+      "236-esd-3.webp"
+    ],
+    "catalogue": "236-esd.pdf"
+  },
+  {
+    "id": "202-d",
+    "model": "202 D",
+    "name": "Lead-Free Soldering Station, 80 W, Electromagnetic Heating",
+    "tagline": "SOLDERING STATION Lead Free, 80 W / 36 V, Digital T/C, 80 ~ 480 °C",
+    "description": "SOLDERING STATION Lead Free, 80 W / 36 V, Digital T/C, 80 ~ 480 °C Vartech 202D is an Intelligent Soldering station with the highest Accuracy and precision. Temperature adjustment from 80 °C to 480 °C, high temperature stability (±2 °C). Sensor at the tip which ensures high temperature accuracy & stability Professional soldering station with ESD safe design. Fast heating and rapid thermal recovery. Easy tip replacement PID temperature control. Easy, digital temperature calibration. Station parameters interlock by means of PIN code. LCD display. Auto sleeping and auto shut-off mode.",
+    "features": [
+      "Flagship Lead free Soldering station",
+      "Digital Display & Temp., Control",
+      "Electromagnetic Heating element",
+      "Large power, Sensor closer to tip",
+      "Very high accuracy",
+      "Micro computer Digital PID temperature control",
+      "Short circuit protection, Overheating protection, Overpowering protection",
+      "Power output will not vary in case of voltage fluctuation",
+      "Calibrate temperature digitally and easily",
+      "Temperature warning facility with alarm"
+    ],
+    "specs": [
+      {
+        "label": "Temperature Range",
+        "value": "80 ºC ~ 480 ºC"
+      },
+      {
+        "label": "Temperature Stability",
+        "value": "± 2 ºC (Stationary air, no load)"
+      },
+      {
+        "label": "Output Voltage / Freq.",
+        "value": "AC 36 V, 400 KHz"
+      },
+      {
+        "label": "Max. Power",
+        "value": "80 W"
+      },
+      {
+        "label": "Tip to Ground Resistance",
+        "value": "<2Ω"
+      },
+      {
+        "label": "Tip to Ground Potential",
+        "value": "< 2 mV"
+      },
+      {
+        "label": "Heating element",
+        "value": "Electromagnetic Element"
+      },
+      {
+        "label": "Handle wire",
+        "value": "1.4 Mtrs."
+      },
+      {
+        "label": "Handle Length (W/o Power cord)",
+        "value": "180 mm"
+      },
+      {
+        "label": "Unit’s Power Consumption",
+        "value": "220 V, 90W"
+      },
+      {
+        "label": "Max Ambient Temperature",
+        "value": "40 ºC"
+      },
+      {
+        "label": "Dimensions",
+        "value": "15.5 * 7.8 * 12 cm"
+      },
+      {
+        "label": "Weight",
+        "value": "1.2 Kg Approx."
+      }
+    ],
+    "images": [
+      "202-d.webp",
+      "202-d-2.webp",
+      "202-d-3.webp"
+    ],
+    "catalogue": "202-d.pdf"
+  },
+  {
+    "id": "722",
+    "model": "722",
+    "name": "2-in-1 Soldering and De-Soldering Station, Lead-Free",
+    "tagline": "Trusted by hundreds of industries for its performance and reliability.",
+    "description": "Trusted by hundreds of industries for its performance and reliability. 90 W / 12 V, Temperature Controlled LEAD FREE Soldering (90W) & DE-SOLDERING (90W) For PTH Components. 200~480 °C, Digital Display. Digital display and controls High efficiency Japanese technology Rapid heating Password lock ESD safe & lead free",
+    "features": [
+      "Powerful Built-In Vacuum Pump Imported From Japan",
+      "Sensor closed-loop temperature control for heating system",
+      "Precise temperature",
+      "Long Life Heater 36V powered fully isolated from mains Safe and reliable",
+      "LED digital display, ESD Safe",
+      "Temperature calibrates digitally",
+      "Auto sleeping available and optional",
+      "Suction nozzles and heater are specially designed. High efficiency, Long Life",
+      "Heat resistant vacuum hose used",
+      "Lead free soldering design for main unit; Lead free de-soldering can be achieved as long as the lead free de-soldering gun is equipped"
+    ],
+    "specs": [
+      {
+        "label": "Pump",
+        "value": "Diaphragm Type, 12V, 2A"
+      },
+      {
+        "label": "Vacuum Pressure",
+        "value": "600 mm Hg"
+      },
+      {
+        "label": "Heating Power",
+        "value": "90 W (Soldering & De-soldering)"
+      },
+      {
+        "label": "Temperature Range",
+        "value": "200 °C ~ 480 °C (Soldering & De-soldering)"
+      },
+      {
+        "label": "Tip to Ground Potential",
+        "value": "≤ 2 mV (Soldering & De-soldering)"
+      },
+      {
+        "label": "Tip to Ground Resistance",
+        "value": "≤ 2 Ω (Soldering & De-soldering)"
+      },
+      {
+        "label": "Dimensions",
+        "value": "105 (L) * 250 (W) * 165 (H) mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 5.0 Kgs."
+      }
+    ],
+    "images": [
+      "722.webp",
+      "722-2.webp",
+      "722-3.webp"
+    ],
+    "catalogue": "722.pdf"
+  },
+  {
+    "id": "201-b",
+    "model": "201 B",
+    "name": "De-Soldering Station",
+    "tagline": "Trusted by hundreds of industries for its performance and reliability.",
+    "description": "Trusted by hundreds of industries for its performance and reliability. DE-SOLDERING TOOL, 90 W / 12 V, Temp. Controlled, 200~480 °C, Digital Display of Temp. Heavy Duty High precision De-soldering station Digital display and controls High efficiency Japanese technology Rapid heating Password lock ESD safe & lead free",
+    "features": [
+      "Powerful Built-In Vacuum Pump Imported From Japan",
+      "Sensor closed-loop temperature control for heating system",
+      "Precise temperature",
+      "Long Life Heater 36V powered fully isolated from mains Safe and reliable",
+      "LED digital display, ESD Safe",
+      "Temperature calibrates digitally",
+      "Auto sleeping available and optional",
+      "Suction nozzles and heater are specially designed. High efficiency, Long Life",
+      "Heat resistant vacuum hose used",
+      "Lead free soldering design for main unit; Lead free de-soldering can be achieved as long as the lead free de-soldering gun is equipped"
+    ],
+    "specs": [
+      {
+        "label": "Pump",
+        "value": "Diaphragm Type, 12V, 2A"
+      },
+      {
+        "label": "Heating Power",
+        "value": "90 W"
+      },
+      {
+        "label": "Temperature Range",
+        "value": "200 °C ~ 480 °C"
+      },
+      {
+        "label": "Vacuum Pressure",
+        "value": "600 mm Hg"
+      },
+      {
+        "label": "Tip to Ground Potential",
+        "value": "≤ 2 mV"
+      },
+      {
+        "label": "Tip to Ground Resistance",
+        "value": "≤ 2Ω"
+      },
+      {
+        "label": "Dimensions",
+        "value": "105 (L) * 250 (W) * 165 (H) mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 4.0 Kgs."
+      }
+    ],
+    "images": [
+      "201-b.webp",
+      "201-b-2.webp",
+      "201-b-3.webp"
+    ],
+    "catalogue": "201-b.pdf"
+  }
+]

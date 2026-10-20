@@ -12,6 +12,11 @@ import vANE  from '../data/vartech-anemometers.json';
 import vCAL  from '../data/vartech-calibrators.json';
 import vLUX  from '../data/vartech-lux-meters.json';
 import vTHM  from '../data/vartech-thermometers.json';
+import vartechSolderingStations from '../data/vartech-soldering-stations.json';
+import vartechReworkStations from '../data/vartech-rework-stations.json';
+import vartechSolderingIrons from '../data/vartech-soldering-irons.json';
+import vartechMagnifiers from '../data/vartech-magnifiers.json';
+import vartechSolderingAccessories from '../data/vartech-soldering-accessories.json';
 import vPS   from '../data/vartech-dc-power-supplies.json';
 
 
@@ -38,6 +43,11 @@ const vartechSections: { slug: string; label: string; items: any[] }[] = [
   { slug: 'calibrators',        label: 'Calibrators',          items: vCAL },
   { slug: 'lux-meters',         label: 'Lux Meters',           items: vLUX },
   { slug: 'thermometers',       label: 'Thermometers',         items: vTHM },
+  { slug: 'soldering-stations', label: 'Soldering Stations', items: vartechSolderingStations },
+  { slug: 'rework-stations', label: 'SMD Re-Work', items: vartechReworkStations },
+  { slug: 'soldering-irons', label: 'Soldering Irons', items: vartechSolderingIrons },
+  { slug: 'magnifiers', label: 'Magnifying Lamps', items: vartechMagnifiers },
+  { slug: 'soldering-accessories', label: 'Soldering Spares', items: vartechSolderingAccessories },
   { slug: 'dc-power-supplies',  label: 'DC Power Supplies',    items: vPS  },
 ];
 

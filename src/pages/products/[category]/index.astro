@@ -28,6 +28,11 @@ import vartechCalibrators from '../../../data/vartech-calibrators.json';
 import vartechLuxMeters from '../../../data/vartech-lux-meters.json';
 import vartechThermometers from '../../../data/vartech-thermometers.json';
 import vartechDcPowerSupplies from '../../../data/vartech-dc-power-supplies.json';
+import vartechSolderingStations from '../../../data/vartech-soldering-stations.json';
+import vartechReworkStations from '../../../data/vartech-rework-stations.json';
+import vartechSolderingIrons from '../../../data/vartech-soldering-irons.json';
+import vartechMagnifiers from '../../../data/vartech-magnifiers.json';
+import vartechSolderingAccessories from '../../../data/vartech-soldering-accessories.json';
 import site from '../../../data/site.json';
 
 const vartechDataMap: Record<string, any[]> = {
@@ -43,6 +48,11 @@ const vartechDataMap: Record<string, any[]> = {
   'vartech-lux-meters':           vartechLuxMeters,
   'vartech-thermometers':         vartechThermometers,
   'vartech-dc-power-supplies':   vartechDcPowerSupplies,
+  'vartech-soldering-stations': vartechSolderingStations,
+  'vartech-rework-stations': vartechReworkStations,
+  'vartech-soldering-irons': vartechSolderingIrons,
+  'vartech-magnifiers': vartechMagnifiers,
+  'vartech-soldering-accessories': vartechSolderingAccessories,
 };
 
 export async function getStaticPaths() {

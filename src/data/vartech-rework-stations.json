@@ -1,0 +1,509 @@
+[
+  {
+    "id": "850-a",
+    "model": "850 A",
+    "name": "SMD Re-Work Station, 270 W",
+    "tagline": "The Original 850 A & India's Most popular & Trusted S.M.D.",
+    "description": "The Original 850 A & India's Most popular & Trusted S.M.D. re-work station. Unparalleled Quality, Reliability & Economy. Vartech 850A has been the choice of Engineers and Technicians in India when it comes to SMD rework stations. Proven product with Industrial Grade Quality, Accuracy and Reliability Power Consumption : 270 W / 220 V, Air Flow : 24 L / Min. (Max.), Temp. Range : 100 ºC ~ 420 ºC High accuracy and reliability Industrial Grade Components, Powerful starting, Rapid Heating & Air volume linearly adjustable Enclosure for the Pump which ensures low noise & high performance",
+    "features": [
+      "The Original 850 A",
+      "Very popular and Reliable",
+      "Powerful starting",
+      "Rapid Heating",
+      "Air volume linear adjustable",
+      "ESD Safe",
+      "Suitable for QFP & SOP I.C.s.",
+      "Various types of Nozzles & Tips available for different applications",
+      "Enclosure for pump ensures very low noise"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "270 W, 220 V AC, 50 Hz"
+      },
+      {
+        "label": "Air flow",
+        "value": "24 L / Min. (max.)"
+      },
+      {
+        "label": "Temperature range",
+        "value": "100 ºC ~ 420 ºC"
+      },
+      {
+        "label": "Dimensions",
+        "value": "185 × 135 × 245 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 4 Kg"
+      },
+      {
+        "label": "Supplied as standard",
+        "value": "3 nozzles"
+      }
+    ],
+    "images": [
+      "850-a.webp",
+      "850-a-2.webp",
+      "850-a-3.webp",
+      "850-a-4.webp"
+    ],
+    "catalogue": "850-a.pdf"
+  },
+  {
+    "id": "850-d",
+    "model": "850 D",
+    "name": "Digital SMD Re-Work Station, 320 W",
+    "tagline": "Digital SMD Re-Work Station, 320 W",
+    "description": "850 D, S.M.D. RE-WORK STATION, Digital 320 W / 220 V, Temp. Cont., 100~480 °C. Heavy duty Digital Temperature Control 100~480 °C High precision & reliability Auto Cooling System Auto Sleep Function Soft Touch Keys",
+    "features": [
+      "Heavy Duty S.M.D. Re-work station suitable for very long hours of usage",
+      "Digital Indicator (3 Digits) with PID Controlled closed loop thermocouple sensor ensures stable & precise Temperature.",
+      "Soft Touch Up/Down Buttons ensure accuratev setting of Temperature",
+      "Powerful starting, Rapid Heating & Air Volume linear adjustable",
+      "Suitable for Soldering & De-Soldering of BGA, CSP, QFP, PLCC, SOP & Other S.M., I.C.s",
+      "Intelligent Cooling Systems, Deferred Air Delivery & Auto Power Off (When Temp., < 100 °C)",
+      "Various types of Nozzles & Tips available for different applications",
+      "Enclosure for pump ensures very low noise"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "320 W, 220 V AC, 50 Hz"
+      },
+      {
+        "label": "Air flow",
+        "value": "24 L / Min. (max.)"
+      },
+      {
+        "label": "Pump",
+        "value": "Diaphragm type, low noise"
+      },
+      {
+        "label": "Temperature range",
+        "value": "100 ºC ~ 480 ºC"
+      },
+      {
+        "label": "Dimensions",
+        "value": "187 × 135 × 245 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 4 Kg"
+      },
+      {
+        "label": "Supplied as standard",
+        "value": "3 nozzles"
+      }
+    ],
+    "images": [
+      "850-d.webp",
+      "850-d-2.webp",
+      "850-d-3.webp",
+      "850-d-4.webp"
+    ],
+    "catalogue": "850-d.pdf"
+  },
+  {
+    "id": "857-d",
+    "model": "857 D",
+    "name": "Digital SMD Re-Work Station, 580 W",
+    "tagline": "Digital SMD Re-Work Station, 580 W",
+    "description": "S.M.D. RE-WORK STATION, Digital, 580 W / 220 V, Temp. Cont., 100~450 °C. Vartech 857 D WITH 3 DIGITS L.E.D DISPLAY. INTELLIGENT SYSTEM Power Consumption : 580 W Air Flow : 100 L / Min. (Max.) Temp. Range : 100 ºC - 450 ºC Air volume linearly adjustable. It remains stable even when supporting voltage varies. Double vortex blower; Rotating and soft air without wallop. Rapid heating only 3 second heating time, Automatic cooling System, User detection function, Induction switch inside the handle. The system enters working modes quickly only by holding the holder & It will enter standby status when not used for long.",
+    "features": [
+      "3 Digit LED Display",
+      "Advanced S.M.D. Re-work station",
+      "Very safe to work on fragile Components & PCBs",
+      "Air volume linear adjustable",
+      "Very Stable & Reliable",
+      "Double vortex blower",
+      "Rotating and soft air without wallop",
+      "Rapid heating ; Only 3 seconds to v   reach the set temperature",
+      "Intelligent induction, Auto cooling and Sleep function",
+      "The system enters working modes quickly only by holding holder & It will enter standby status when not used for long"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "580 W"
+      },
+      {
+        "label": "Temperature range",
+        "value": "100 ºC ~ 450 ºC"
+      },
+      {
+        "label": "Air flow",
+        "value": "100 L / Min. (max.)"
+      },
+      {
+        "label": "Noise",
+        "value": "< 78 dB"
+      },
+      {
+        "label": "Dimensions",
+        "value": "17 × 10.5 × 24 cm"
+      },
+      {
+        "label": "Weight",
+        "value": "2.5 Kg"
+      }
+    ],
+    "images": [
+      "857-d.webp",
+      "857-d-2.webp",
+      "857-d-3.webp",
+      "857-d-4.webp"
+    ],
+    "catalogue": "857-d.pdf"
+  },
+  {
+    "id": "861-dw",
+    "model": "861 DW",
+    "name": "Lead-Free SMD Re-Work Station, 1000 W",
+    "tagline": "Advanced Hot Air SMD Rework Station with a 1000 W heating power.",
+    "description": "Advanced Hot Air SMD Rework Station with a 1000 W heating power. Temperature adjustment from 100 °C to 500 °C. Three programmable channels CH1, CH2 and CH3 (for air volume and temperature parameters). Password protection and button lock function available. Magnetic switch in a stand can automatically puts the station into sleep mode when not in use. Easy real-time operation, auto sleeping function available, parameters can be set in sleeping mode. Closed loop sensor, temperature controlled by micro-computer zero trigger, large power, rapid temperature rising, temperature can be easily and accurately adjusted, not affected by airflow. Brushless vortex fan, wide range of airflow adjustable, suitable for many applications. Auto cooling function available, long lifetime ceramic heater.",
+    "features": [
+      "Flagship Lead free S.M.D. Re-work station",
+      "Three regular channels : \"CH1\", \"CH2\" and \"CH3\"",
+      "Each channel's Temperature & Airflow can be set",
+      "Digital Display & Temp., Control",
+      "Password protection and key-lock functions",
+      "Real time operating magnetic switch Unit enters sleeping mode when handle is placed on holder",
+      "Auto sleeping function. Parameters can be set in sleeping state",
+      "Closed loop sensor : Temperature can be controlled by zero voltage triggering modes, adjusted conveniently, accurate & is stable (not affected by airflow)",
+      "Large power, rapid heating, 220 V AC Operating Voltage",
+      "Brushless whirlpool motor, wide range and step-less adjustable airflow"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "1000 W"
+      },
+      {
+        "label": "Temperature range",
+        "value": "100 ºC ~ 500 ºC"
+      },
+      {
+        "label": "Airflow range",
+        "value": "1 ~ 120 L/min"
+      },
+      {
+        "label": "Channels",
+        "value": "Three programmable channels (CH1, CH2, CH3)"
+      },
+      {
+        "label": "Dimensions",
+        "value": "188 (L) × 245 (D) × 135 (H) mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 4 Kg"
+      }
+    ],
+    "images": [
+      "861-dw.webp",
+      "861-dw-2.webp",
+      "861-dw-3.webp",
+      "861-dw-4.webp"
+    ],
+    "catalogue": "861-dw.pdf"
+  },
+  {
+    "id": "700-esd",
+    "model": "700 ESD",
+    "name": "2-in-1 Soldering and SMD Re-Work Station, 270 W + 50 W",
+    "tagline": "Vartech 700 is the Perfect Combination of 936A Soldering Station and 850A S.M.D.",
+    "description": "Vartech 700 is the Perfect Combination of 936A Soldering Station and 850A S.M.D. Re-Work Station which are the best in their own category. Multifunction rework system which has the Best of both Worlds. 100 ºC ~ 420 ºC (S.M.D) & 200 ºC - 480 ºC (Soldering) 270 W (S.M.D.) & 50 W (Soldering) Industrial Grade Construction & Components Soldering & Hot air both can be used simultaneously or separately switched ON/OFF. Best in class performance & Reliability Enclosed pump results is very low noise Powerful starting, Rapid Heating & Air volume linearly adjustable. Various types of Nozzles & Tips available for different applications. ESD SAFE. This is a Heavy Duty 2 in 1 Station which can be used for very long hours continuously especially in assembly lines.",
+    "features": [
+      "2 in 1 Soldering system",
+      "Both can be used together & separately switched On/Off",
+      "Powerful starting",
+      "Rapid Heating",
+      "Air volume linear adjustable",
+      "ESD Safe",
+      "Various types of Nozzles & Tips available for different applications"
+    ],
+    "specs": [
+      {
+        "label": "SMD re-work section",
+        "value": "270 W; air flow 24 L / Min. (max.); 100 ºC ~ 420 ºC"
+      },
+      {
+        "label": "Soldering section",
+        "value": "50 W; 200 ºC ~ 480 ºC; stability ± 2 ºC"
+      },
+      {
+        "label": "Operation",
+        "value": "220 V AC, 50 Hz"
+      },
+      {
+        "label": "Dimensions",
+        "value": "225 × 165 × 145 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 5 Kg"
+      },
+      {
+        "label": "Supplied as standard",
+        "value": "3 nozzles and 1 pointed tip"
+      }
+    ],
+    "images": [
+      "700-esd.webp",
+      "700-esd-2.webp",
+      "700-esd-3.webp",
+      "700-esd-4.webp"
+    ],
+    "catalogue": "700-esd.pdf"
+  },
+  {
+    "id": "706",
+    "model": "706",
+    "name": "2-in-1 Soldering and SMD Re-Work Station, 580 W + 50 W",
+    "tagline": "Multifunction rework system.",
+    "description": "Multifunction rework system. Device includes 50 W soldering station 200 ºC ~ 480 ºC (classic soldering iron) and 580 W hot-air soldering station 100 ºC ~ 450 º. Features: Separate switches allow Individual / simultaneous operation. Long lifetime heater. Auto sleep/ OFF function available. Digital temperature calibration, easy operation. Compatible with various types of soldering iron tips and nozzles. Brushless vortex fan, stepless and wide range of air volume, suitable for various applications. Automatic cooling system can prolong the lifetime of heating element and protect the hot air handle. Precise temperature controlled by closed-loop sensor. Light soldering iron handle, easy to use.",
+    "features": [
+      "2 in 1 Soldering system",
+      "With Digital Display",
+      "Japanese Technology, ESD Safe",
+      "Both can be used together & separately switched On/Off",
+      "Powerful starting, Rapid Heating",
+      "Air volume linear adjustable",
+      "Various types of Nozzles & Tips available for different applications"
+    ],
+    "specs": [
+      {
+        "label": "SMD re-work section",
+        "value": "580 W; air flow 50 L / Min. (max.); 100 ºC ~ 450 ºC; soft air rotary pump; LED digital display (1 ºC resolution)"
+      },
+      {
+        "label": "Soldering section",
+        "value": "50 W; 200 ºC ~ 480 ºC; stability ± 2 ºC; tip to ground resistance 2 Ω, potential 2 mV"
+      },
+      {
+        "label": "Operation",
+        "value": "220 V AC, 50 Hz"
+      },
+      {
+        "label": "Dimensions",
+        "value": "160 × 200 × 150 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "Approx. 3 Kg"
+      },
+      {
+        "label": "Supplied as standard",
+        "value": "3 nozzles and 1 pointed tip"
+      }
+    ],
+    "images": [
+      "706.webp",
+      "706-2.webp",
+      "706-3.webp",
+      "706-4.webp"
+    ],
+    "catalogue": "706.pdf"
+  },
+  {
+    "id": "493-esd",
+    "model": "493 ESD",
+    "name": "Smoke Absorber / Solder Fume Extractor",
+    "tagline": "Solder fume extractor, Bench Top.",
+    "description": "Solder fume extractor, Bench Top. 16 W / 220 V, ~1 Cu.M/Min. Superior quality and performance. Absorption Capacity 0.93 - 1.07 Cu.M/Min. Removes noxious fumes quickly, safely, and efficiently Angle may be adjusted & easy to place or move Low noise and long life fan The replaceable filter is made by combining a specific urethane with refined, activated high absorption carbon Anti-electrostatic type (ESD SAFE) With 2 spare filters. This filter must be replaced periodically depending on usage. A must have tool for technicians & engineers to be safe from harmful fumes during soldering.",
+    "features": [
+      "Removes noxious fumes quickly, safely, and efficiently",
+      "Angle may be adjusted at will and easy to place and move",
+      "Low noise and long life fan",
+      "The replaceable filter is made by joining a specific urethane with refined, activated high absorption carbon",
+      "Anti-electrostatic type (ESD SAFE)"
+    ],
+    "specs": [
+      {
+        "label": "Power Consumption",
+        "value": "14 W (60Hz) / 16 W (50Hz)"
+      },
+      {
+        "label": "Absorption Capacity",
+        "value": "0.93 - 1.07 M3 / min."
+      },
+      {
+        "label": "Outer Dimension",
+        "value": "167 x 101 x 182 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "1.5 Kg."
+      },
+      {
+        "label": "Accessories",
+        "value": "Filter - 3 Pcs."
+      }
+    ],
+    "images": [
+      "493-esd.webp",
+      "493-esd-2.webp",
+      "493-esd-3.webp",
+      "493-esd-4.webp"
+    ],
+    "catalogue": "493-esd.pdf"
+  },
+  {
+    "id": "989",
+    "model": "989",
+    "name": "SMD Hot Tweezer for Soldering Station 937",
+    "tagline": "SMD Hot Tweezer for Soldering Station 937",
+    "description": "S.M.D. Hot Tweezer suitable for our model 937 Soldering Station only. Temperature range : 200 ºC ~ 400 ºC Previous generation 936 ESD stations are also compatible. 936 A & 936 AD are not compatible.",
+    "features": [
+      "Hot Tweezer attachment for Soldering station Model 937",
+      "For Soldering & De-soldering of S.M.D. Components",
+      "50 W Ceramic Heater (25W x 2) has a long lifetime",
+      "Twin Tube Heating Contacts the component directly without affecting the adjacent components in densely populated PCBs.",
+      "Remove Surface Mount Resistors, Capacitors & SOP Elements Safely",
+      "Light handle is suitable for long time of use",
+      "Precise, Stable, Rapid Heating & Instant Temp., Compensation",
+      "Various types of Tips are available",
+      "ESD safe design"
+    ],
+    "specs": [
+      {
+        "label": "Max. Power",
+        "value": "50 W (25 W x 2 : 24 V AC)"
+      },
+      {
+        "label": "Temperature Range",
+        "value": "200 ºC ~ 400 ºC"
+      },
+      {
+        "label": "Tip to Ground Resistance",
+        "value": "<2Ω"
+      },
+      {
+        "label": "Tip to Ground Potential",
+        "value": "< 2 mV"
+      },
+      {
+        "label": "Cord Length",
+        "value": "186 mm"
+      },
+      {
+        "label": "Weight",
+        "value": "98 gms. Approx."
+      }
+    ],
+    "images": [
+      "989.webp"
+    ],
+    "catalogue": "989.pdf"
+  },
+  {
+    "id": "885",
+    "model": "885",
+    "name": "Hot Air Gun, 50–650 °C, 3-Digit LCD",
+    "tagline": "Heavy-duty hot air gun, 50–650 °C, 400 L/min max., 3-digit LCD display.",
+    "description": "Heavy-duty hot air gun with a 3-digit LCD temperature display, 50 to 650 °C and up to 400 L/min air flow, for SMD re-work, heat-shrink and general hot air soldering work.",
+    "features": [
+      "Heavy duty",
+      "3-digit LCD temperature display",
+      "50 ~ 650 °C temperature control",
+      "400 L/min max. air flow"
+    ],
+    "specs": [
+      {
+        "label": "Temperature range",
+        "value": "50 ~ 650 °C"
+      },
+      {
+        "label": "Air flow",
+        "value": "400 L/min max."
+      },
+      {
+        "label": "Display",
+        "value": "3-digit LCD"
+      },
+      {
+        "label": "Supply",
+        "value": "220 V"
+      },
+      {
+        "label": "Build",
+        "value": "Heavy duty"
+      }
+    ],
+    "images": [
+      "885.webp",
+      "885-2.webp"
+    ]
+  },
+  {
+    "id": "800-l",
+    "model": "800 L",
+    "name": "BGA Re-Work System Fixture (Large)",
+    "tagline": "BGA Re-Work System Fixture (Large)",
+    "description": "Model: 800 L, B.G.A. RE-WORK SYSTEM FIXTURE (Large), Outer Dimensions 350 x 250 mm Approx. Height (Adjustable) Fixture Dimension 400 x 300 x 117 mm P.C.B. Usable (Max.) 305 mm x Open Side Other Model Model : 800 S - Smaller One for small P.C.B.s Also Available. Fixture for B.G.A Re-Work System which can hold PCBs for B.G.A Re-work. 850 Series S.M.D Re-work Stations/Systems can be connected at the top and 853 Pre-Heater can be placed below the PCB. Vacuum Pickup Model 381 A can be used to pickup/hold the components.",
+    "features": [
+      "Holds PCBs for BGA re-work",
+      "850 series SMD re-work stations connect at the top and the 853 pre-heater sits below the PCB",
+      "Vacuum pickup Model 381 A can pick up and hold components",
+      "Smaller Model 800 S also available for small PCBs"
+    ],
+    "specs": [
+      {
+        "label": "Outer dimensions",
+        "value": "350 × 250 mm (approx.)"
+      },
+      {
+        "label": "Height",
+        "value": "365 mm (adjustable)"
+      },
+      {
+        "label": "Fixture dimension",
+        "value": "400 × 300 × 117 mm"
+      },
+      {
+        "label": "PCB usable (max.)",
+        "value": "305 mm × open side"
+      }
+    ],
+    "images": [
+      "800-l.webp",
+      "800-l-2.webp"
+    ]
+  },
+  {
+    "id": "853-esd",
+    "model": "853 ESD",
+    "name": "Pre-Heater for BGA Re-Work System, Temperature Controlled",
+    "tagline": "Pre-Heater for BGA Re-Work System, Temperature Controlled",
+    "description": "Model: 853 ESD, PRE-HEATER FOR B.G.A. RE-WORK SYSTEM, Temp., Controlled. 460 W, 120 ℃ ~ 250 ℃ 1. Rapid heating, only 10s to reach 250 ℃. 2. Built-in temperature sensor, stable output temperature. 3. Cool or hot air can be selected to pre-heat or cool chips. 4. The preheater can be used with rework stations to process BGA or other flake ICs. Fixture for B.G.A Re-Work System which can hold PCBs for B.G.A Re-work. 850 Series S.M.D Re-work Stations/Systems can be connected at the top and 853 Pre-Heater can be placed below the PCB. Vacuum Pickup Model 381 A can be used to pickup/hold the components.",
+    "features": [
+      "Rapid heating: only 10 s to reach 250 ℃",
+      "Built-in temperature sensor for stable output temperature",
+      "Cool or hot air selectable to pre-heat or cool chips",
+      "Works with re-work stations to process BGA and other flat ICs"
+    ],
+    "specs": [
+      {
+        "label": "Power",
+        "value": "460 W"
+      },
+      {
+        "label": "Temperature range",
+        "value": "120 ℃ ~ 250 ℃"
+      },
+      {
+        "label": "Heat-up",
+        "value": "10 s to reach 250 ℃"
+      },
+      {
+        "label": "Pre-heat / cool",
+        "value": "Cool or hot air selectable"
+      }
+    ],
+    "images": [
+      "853-esd.webp",
+      "853-esd-2.webp"
+    ]
+  }
+]

@@ -16,32 +16,106 @@
       "Frequency accuracy ±5 ppm (0–50 °C);  frequency stability ±3 ppm/year"
     ],
     "specs": [
-      { "label": "Channels", "value": "2 (Dual Channel)" },
-      { "label": "Sine Wave Frequency Range", "value": "1 nHz ~ 80 MHz" },
-      { "label": "Square Wave Frequency Range", "value": "1 nHz ~ 30 MHz" },
-      { "label": "Triangle Wave Frequency Range", "value": "1 nHz ~ 50 MHz" },
-      { "label": "Pulse Wave Frequency Range", "value": "1 nHz ~ 30 MHz" },
-      { "label": "Arbitrary Wave Frequency Range", "value": "1 nHz ~ 50 MHz" },
-      { "label": "Sampling Rate", "value": "300 MSa/s" },
-      { "label": "Vertical Resolution", "value": "14 bits;  8192 points/channel" },
-      { "label": "Frequency Resolution", "value": "1 nHz" },
-      { "label": "Frequency Accuracy", "value": "±5 ppm (0 ~ 50 °C);  Stability ±3 ppm/year" },
-      { "label": "Amplitude - Sine (≤1 MHz)", "value": "2 mVpp ~ 25 Vpp" },
-      { "label": "Amplitude - Sine (1 ~ 11 MHz)", "value": "2 mVpp ~ 10 Vpp" },
-      { "label": "Amplitude - Sine (11 ~ 60 MHz)", "value": "2 mVpp ~ 5 Vpp" },
-      { "label": "Amplitude - Sine (60 ~ 80 MHz)", "value": "2 mVpp ~ 3.6 Vpp" },
-      { "label": "DC Offset Range", "value": "−9.99 V ~ +15.00 V;  Resolution: 0.01 V" },
-      { "label": "Modulation", "value": "AM, FM, PM, ASK, FSK, PSK, PWM, BURST" },
-      { "label": "Sweep", "value": "Frequency, Amplitude, Duty  (Linear / Logarithmic;  Increment / Decrement / Round trip);  Sweep time: 0.01 S ~ 640 S" },
-      { "label": "Frequency Counter", "value": "1 Hz ~ 100 MHz;  input amplitude 2 Vpp ~ 20 Vpp" },
-      { "label": "Output Impedance", "value": "50 Ω (typical);  short-circuit protection" },
-      { "label": "Display", "value": "3.5\" TFT colour LCD, 320×480, 64K colours" },
-      { "label": "Interface", "value": "USB (serial);  TTL extension port" },
-      { "label": "Storage", "value": "100 groups (waveform & setup);  99 arbitrary waveform storage locations" },
-      { "label": "Power Supply", "value": "AC 85 ~ 264 V, 47 ~ 63 Hz;  Power consumption <30 W" },
-      { "label": "Dimensions & Weight", "value": "219 × 103 × 240 mm  |  2.5 Kg" }
+      {
+        "label": "Channels",
+        "value": "2 (Dual Channel)"
+      },
+      {
+        "label": "Sine Wave Frequency Range",
+        "value": "1 nHz ~ 80 MHz"
+      },
+      {
+        "label": "Square Wave Frequency Range",
+        "value": "1 nHz ~ 30 MHz"
+      },
+      {
+        "label": "Triangle Wave Frequency Range",
+        "value": "1 nHz ~ 50 MHz"
+      },
+      {
+        "label": "Pulse Wave Frequency Range",
+        "value": "1 nHz ~ 30 MHz"
+      },
+      {
+        "label": "Arbitrary Wave Frequency Range",
+        "value": "1 nHz ~ 50 MHz"
+      },
+      {
+        "label": "Sampling Rate",
+        "value": "300 MSa/s"
+      },
+      {
+        "label": "Vertical Resolution",
+        "value": "14 bits;  8192 points/channel"
+      },
+      {
+        "label": "Frequency Resolution",
+        "value": "1 nHz"
+      },
+      {
+        "label": "Frequency Accuracy",
+        "value": "±5 ppm (0 ~ 50 °C);  Stability ±3 ppm/year"
+      },
+      {
+        "label": "Amplitude - Sine (≤1 MHz)",
+        "value": "2 mVpp ~ 25 Vpp"
+      },
+      {
+        "label": "Amplitude - Sine (1 ~ 11 MHz)",
+        "value": "2 mVpp ~ 10 Vpp"
+      },
+      {
+        "label": "Amplitude - Sine (11 ~ 60 MHz)",
+        "value": "2 mVpp ~ 5 Vpp"
+      },
+      {
+        "label": "Amplitude - Sine (60 ~ 80 MHz)",
+        "value": "2 mVpp ~ 3.6 Vpp"
+      },
+      {
+        "label": "DC Offset Range",
+        "value": "−9.99 V ~ +15.00 V;  Resolution: 0.01 V"
+      },
+      {
+        "label": "Modulation",
+        "value": "AM, FM, PM, ASK, FSK, PSK, PWM, BURST"
+      },
+      {
+        "label": "Sweep",
+        "value": "Frequency, Amplitude, Duty  (Linear / Logarithmic;  Increment / Decrement / Round trip);  Sweep time: 0.01 S ~ 640 S"
+      },
+      {
+        "label": "Frequency Counter",
+        "value": "1 Hz ~ 100 MHz;  input amplitude 2 Vpp ~ 20 Vpp"
+      },
+      {
+        "label": "Output Impedance",
+        "value": "50 Ω (typical);  short-circuit protection"
+      },
+      {
+        "label": "Display",
+        "value": "3.5\" TFT colour LCD, 320×480, 64K colours"
+      },
+      {
+        "label": "Interface",
+        "value": "USB (serial);  TTL extension port"
+      },
+      {
+        "label": "Storage",
+        "value": "100 groups (waveform & setup);  99 arbitrary waveform storage locations"
+      },
+      {
+        "label": "Power Supply",
+        "value": "AC 85 ~ 264 V, 47 ~ 63 Hz;  Power consumption <30 W"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "219 × 103 × 240 mm  |  2.5 Kg"
+      }
     ],
-    "images": ["sgda-80m.webp"],
+    "images": [
+      "sgda-80m.webp"
+    ],
     "catalogue": "sgda-80m.pdf"
   },
   {
@@ -60,27 +134,86 @@
       "Built-in frequency counter"
     ],
     "specs": [
-      { "label": "Channels", "value": "2 (Dual Channel)" },
-      { "label": "Sine Wave Frequency Range", "value": "1 nHz ~ 60 MHz" },
-      { "label": "Square Wave Frequency Range", "value": "1 nHz ~ 15 MHz" },
-      { "label": "Triangle Wave Frequency Range", "value": "1 nHz ~ 15 MHz" },
-      { "label": "Sampling Rate", "value": "275 MSa/s" },
-      { "label": "Vertical Resolution", "value": "14 bits;  8192 points/channel" },
-      { "label": "Frequency Resolution", "value": "1 nHz" },
-      { "label": "Rise / Fall Time", "value": "20 nS" },
-      { "label": "Amplitude - Sine (≤1 MHz)", "value": "2 mVpp ~ 25 Vpp" },
-      { "label": "Amplitude - Sine (≤11 MHz)", "value": "2 mVpp ~ 10 Vpp" },
-      { "label": "Amplitude - Sine (≤60 MHz)", "value": "2 mVpp ~ 5 Vpp" },
-      { "label": "DC Offset Range", "value": "−9.99 V ~ +12.00 V;  Resolution: 0.01 V" },
-      { "label": "Output Impedance", "value": "50 Ω (typical)" },
-      { "label": "Modulation", "value": "AM, FM, PM, ASK, FSK, PSK, PWM;  Burst (Manual / CH2 / External AC / External DC)" },
-      { "label": "Sweep / VCO", "value": "Frequency, Amplitude, Duty sweep;  VCO voltage-controlled scanning (0 V ~ 5 V)" },
-      { "label": "Frequency Counter", "value": "Built-in" },
-      { "label": "Arbitrary Waveforms", "value": "99 user-defined sets" },
-      { "label": "Display", "value": "2.8\" Colour Screen" },
-      { "label": "Power Supply", "value": "Mains (220 V AC)" }
+      {
+        "label": "Channels",
+        "value": "2 (Dual Channel)"
+      },
+      {
+        "label": "Sine Wave Frequency Range",
+        "value": "1 nHz ~ 60 MHz"
+      },
+      {
+        "label": "Square Wave Frequency Range",
+        "value": "1 nHz ~ 15 MHz"
+      },
+      {
+        "label": "Triangle Wave Frequency Range",
+        "value": "1 nHz ~ 15 MHz"
+      },
+      {
+        "label": "Sampling Rate",
+        "value": "275 MSa/s"
+      },
+      {
+        "label": "Vertical Resolution",
+        "value": "14 bits;  8192 points/channel"
+      },
+      {
+        "label": "Frequency Resolution",
+        "value": "1 nHz"
+      },
+      {
+        "label": "Rise / Fall Time",
+        "value": "20 nS"
+      },
+      {
+        "label": "Amplitude - Sine (≤1 MHz)",
+        "value": "2 mVpp ~ 25 Vpp"
+      },
+      {
+        "label": "Amplitude - Sine (≤11 MHz)",
+        "value": "2 mVpp ~ 10 Vpp"
+      },
+      {
+        "label": "Amplitude - Sine (≤60 MHz)",
+        "value": "2 mVpp ~ 5 Vpp"
+      },
+      {
+        "label": "DC Offset Range",
+        "value": "−9.99 V ~ +12.00 V;  Resolution: 0.01 V"
+      },
+      {
+        "label": "Output Impedance",
+        "value": "50 Ω (typical)"
+      },
+      {
+        "label": "Modulation",
+        "value": "AM, FM, PM, ASK, FSK, PSK, PWM;  Burst (Manual / CH2 / External AC / External DC)"
+      },
+      {
+        "label": "Sweep / VCO",
+        "value": "Frequency, Amplitude, Duty sweep;  VCO voltage-controlled scanning (0 V ~ 5 V)"
+      },
+      {
+        "label": "Frequency Counter",
+        "value": "Built-in"
+      },
+      {
+        "label": "Arbitrary Waveforms",
+        "value": "99 user-defined sets"
+      },
+      {
+        "label": "Display",
+        "value": "2.8\" Colour Screen"
+      },
+      {
+        "label": "Power Supply",
+        "value": "Mains (220 V AC)"
+      }
     ],
-    "images": ["sgda-60m.webp"],
+    "images": [
+      "sgda-60m.webp"
+    ],
     "catalogue": "sgda-60m.pdf"
   },
   {
@@ -98,24 +231,76 @@
       "2.4-inch TFT LCD;  USB & TTL external interface"
     ],
     "specs": [
-      { "label": "Channels", "value": "2 (Dual Channel)" },
-      { "label": "Frequency - Sine", "value": "30 MHz  (0.01 µHz resolution)" },
-      { "label": "Frequency - Square & Triangle", "value": "25 MHz" },
-      { "label": "Frequency - Pulse, TTL & Arbitrary", "value": "6 MHz" },
-      { "label": "Sampling Rate", "value": "266 MSa/s  (14-bit vertical resolution)" },
-      { "label": "Amplitude - Sine (≤11 MHz)", "value": "2 mVpp ~ 20 Vpp" },
-      { "label": "Amplitude - Sine (≥11 MHz)", "value": "2 mVpp ~ 10 Vpp" },
-      { "label": "Amplitude - Square & Triangle (≤10 MHz)", "value": "2 mVpp ~ 20 Vpp" },
-      { "label": "Amplitude - Square & Triangle (≥10 MHz)", "value": "2 mVpp ~ 5 Vpp" },
-      { "label": "Waveforms", "value": "Sine, Square, Pulse, Triangle, CMOS, DC Level, Partial Sine, Half Wave, Full Wave, Positive Staircase, Anti-Ladder, Noise, Exponential Rise/Drop, Multisonic, Symplectic Pulse, Lorenz Pulse + 60 Arbitrary" },
-      { "label": "Frequency Counter", "value": "1 Hz ~ 100 MHz" },
-      { "label": "Other Functions", "value": "DC Offset, Sweep (Lin / Log), Burst, Settings Store/Recall" },
-      { "label": "Display", "value": "2.4\" TFT LCD" },
-      { "label": "Interface", "value": "USB & TTL External" },
-      { "label": "Power Supply", "value": "DC 5V ±0.5V via adaptor  (adaptor for 220 V AC ±10%, 50 Hz provided)" },
-      { "label": "Accessories", "value": "Power adaptor, user manual, S/W, USB cable, BNC cables" }
+      {
+        "label": "Channels",
+        "value": "2 (Dual Channel)"
+      },
+      {
+        "label": "Frequency - Sine",
+        "value": "30 MHz  (0.01 µHz resolution)"
+      },
+      {
+        "label": "Frequency - Square & Triangle",
+        "value": "25 MHz"
+      },
+      {
+        "label": "Frequency - Pulse, TTL & Arbitrary",
+        "value": "6 MHz"
+      },
+      {
+        "label": "Sampling Rate",
+        "value": "266 MSa/s  (14-bit vertical resolution)"
+      },
+      {
+        "label": "Amplitude - Sine (≤11 MHz)",
+        "value": "2 mVpp ~ 20 Vpp"
+      },
+      {
+        "label": "Amplitude - Sine (≥11 MHz)",
+        "value": "2 mVpp ~ 10 Vpp"
+      },
+      {
+        "label": "Amplitude - Square & Triangle (≤10 MHz)",
+        "value": "2 mVpp ~ 20 Vpp"
+      },
+      {
+        "label": "Amplitude - Square & Triangle (≥10 MHz)",
+        "value": "2 mVpp ~ 5 Vpp"
+      },
+      {
+        "label": "Waveforms",
+        "value": "Sine, Square, Pulse, Triangle, CMOS, DC Level, Partial Sine, Half Wave, Full Wave, Positive Staircase, Anti-Ladder, Noise, Exponential Rise/Drop, Multisonic, Symplectic Pulse, Lorenz Pulse + 60 Arbitrary"
+      },
+      {
+        "label": "Frequency Counter",
+        "value": "1 Hz ~ 100 MHz"
+      },
+      {
+        "label": "Other Functions",
+        "value": "DC Offset, Sweep (Lin / Log), Burst, Settings Store/Recall"
+      },
+      {
+        "label": "Display",
+        "value": "2.4\" TFT LCD"
+      },
+      {
+        "label": "Interface",
+        "value": "USB & TTL External"
+      },
+      {
+        "label": "Power Supply",
+        "value": "DC 5V ±0.5V via adaptor  (adaptor for 220 V AC ±10%, 50 Hz provided)"
+      },
+      {
+        "label": "Accessories",
+        "value": "Power adaptor, user manual, S/W, USB cable, BNC cables"
+      }
     ],
-    "images": ["sgda-30m.webp", "sgda-30m-2.webp", "sgda-30m-3.webp"],
+    "images": [
+      "sgda-30m.webp",
+      "sgda-30m-2.webp",
+      "sgda-30m-3.webp"
+    ],
     "catalogue": "sgda-30m.pdf"
   },
   {
@@ -133,23 +318,72 @@
       "2.4-inch TFT LCD;  USB & TTL external interface"
     ],
     "specs": [
-      { "label": "Channels", "value": "2 (Dual Channel)" },
-      { "label": "Frequency - Sine, Square & Triangle", "value": "15 MHz  (0.01 µHz resolution)" },
-      { "label": "Frequency - Pulse, TTL & Arbitrary", "value": "6 MHz" },
-      { "label": "Sampling Rate", "value": "266 MSa/s  (14-bit vertical resolution)" },
-      { "label": "Amplitude - Sine (≤11 MHz)", "value": "2 mVpp ~ 20 Vpp" },
-      { "label": "Amplitude - Sine (≥11 MHz)", "value": "2 mVpp ~ 10 Vpp" },
-      { "label": "Amplitude - Square & Triangle (≤10 MHz)", "value": "2 mVpp ~ 20 Vpp" },
-      { "label": "Amplitude - Square & Triangle (≥10 MHz)", "value": "2 mVpp ~ 5 Vpp" },
-      { "label": "Waveforms", "value": "Sine, Square, Pulse, Triangle, CMOS, DC Level, Partial Sine, Half Wave, Full Wave, Positive Staircase, Anti-Ladder, Noise, Exponential Rise/Drop, Multisonic, Symplectic Pulse, Lorenz Pulse + 60 Arbitrary" },
-      { "label": "Frequency Counter", "value": "1 Hz ~ 100 MHz" },
-      { "label": "Other Functions", "value": "DC Offset, Sweep (Lin / Log), Burst, Settings Store/Recall" },
-      { "label": "Display", "value": "2.4\" TFT LCD" },
-      { "label": "Interface", "value": "USB & TTL External" },
-      { "label": "Power Supply", "value": "DC 5V ±0.5V via adaptor  (adaptor for 220 V AC ±10%, 50 Hz provided)" },
-      { "label": "Accessories", "value": "Power adaptor, user manual, S/W, USB cable, BNC cables" }
+      {
+        "label": "Channels",
+        "value": "2 (Dual Channel)"
+      },
+      {
+        "label": "Frequency - Sine, Square & Triangle",
+        "value": "15 MHz  (0.01 µHz resolution)"
+      },
+      {
+        "label": "Frequency - Pulse, TTL & Arbitrary",
+        "value": "6 MHz"
+      },
+      {
+        "label": "Sampling Rate",
+        "value": "266 MSa/s  (14-bit vertical resolution)"
+      },
+      {
+        "label": "Amplitude - Sine (≤11 MHz)",
+        "value": "2 mVpp ~ 20 Vpp"
+      },
+      {
+        "label": "Amplitude - Sine (≥11 MHz)",
+        "value": "2 mVpp ~ 10 Vpp"
+      },
+      {
+        "label": "Amplitude - Square & Triangle (≤10 MHz)",
+        "value": "2 mVpp ~ 20 Vpp"
+      },
+      {
+        "label": "Amplitude - Square & Triangle (≥10 MHz)",
+        "value": "2 mVpp ~ 5 Vpp"
+      },
+      {
+        "label": "Waveforms",
+        "value": "Sine, Square, Pulse, Triangle, CMOS, DC Level, Partial Sine, Half Wave, Full Wave, Positive Staircase, Anti-Ladder, Noise, Exponential Rise/Drop, Multisonic, Symplectic Pulse, Lorenz Pulse + 60 Arbitrary"
+      },
+      {
+        "label": "Frequency Counter",
+        "value": "1 Hz ~ 100 MHz"
+      },
+      {
+        "label": "Other Functions",
+        "value": "DC Offset, Sweep (Lin / Log), Burst, Settings Store/Recall"
+      },
+      {
+        "label": "Display",
+        "value": "2.4\" TFT LCD"
+      },
+      {
+        "label": "Interface",
+        "value": "USB & TTL External"
+      },
+      {
+        "label": "Power Supply",
+        "value": "DC 5V ±0.5V via adaptor  (adaptor for 220 V AC ±10%, 50 Hz provided)"
+      },
+      {
+        "label": "Accessories",
+        "value": "Power adaptor, user manual, S/W, USB cable, BNC cables"
+      }
     ],
-    "images": ["sgda-15m.webp", "sgda-15m-2.webp", "sgda-15m-3.webp"],
+    "images": [
+      "sgda-15m.webp",
+      "sgda-15m-2.webp",
+      "sgda-15m-3.webp"
+    ],
     "catalogue": "sgda-15m.pdf"
   },
   {
@@ -168,20 +402,114 @@
       "16×2 backlit LCD;  USB & TTL external interface"
     ],
     "specs": [
-      { "label": "Channels", "value": "2 (Dual Channel)" },
-      { "label": "Frequency Range", "value": "6 MHz  (10 mHz resolution)" },
-      { "label": "Sampling Rate", "value": "200 MSa/s  (12-bit vertical resolution)" },
-      { "label": "Waveforms", "value": "Sine, Square, Triangle, Sawtooth, TTL Digital Signal Wave + 16 Arbitrary Waveforms" },
-      { "label": "Amplitude", "value": "5 mVpp ~ 20 Vpp;  −20 dB attenuation facility" },
-      { "label": "Frequency Counter", "value": "0.1 Hz ~ 60 MHz" },
-      { "label": "Other Functions", "value": "DC Offset, Sweep (Lin / Log), Burst, Invert, Settings Store/Recall" },
-      { "label": "Display", "value": "16×2 LCD with Backlight" },
-      { "label": "Interface", "value": "USB & TTL External" },
-      { "label": "Power Supply", "value": "DC 5V ±0.5V via adaptor  (adaptor for 220 V AC ±10%, 50 Hz provided)" },
-      { "label": "Accessories", "value": "Power adaptor, user manual, S/W CD, USB cable, BNC cable" },
-      { "label": "Dimensions & Weight", "value": "180 × 190 × 71 mm  |  Approx. 600 g  (+450 g adaptor)" }
+      {
+        "label": "Channels",
+        "value": "2 (Dual Channel)"
+      },
+      {
+        "label": "Frequency Range",
+        "value": "6 MHz  (10 mHz resolution)"
+      },
+      {
+        "label": "Sampling Rate",
+        "value": "200 MSa/s  (12-bit vertical resolution)"
+      },
+      {
+        "label": "Waveforms",
+        "value": "Sine, Square, Triangle, Sawtooth, TTL Digital Signal Wave + 16 Arbitrary Waveforms"
+      },
+      {
+        "label": "Amplitude",
+        "value": "5 mVpp ~ 20 Vpp;  −20 dB attenuation facility"
+      },
+      {
+        "label": "Frequency Counter",
+        "value": "0.1 Hz ~ 60 MHz"
+      },
+      {
+        "label": "Other Functions",
+        "value": "DC Offset, Sweep (Lin / Log), Burst, Invert, Settings Store/Recall"
+      },
+      {
+        "label": "Display",
+        "value": "16×2 LCD with Backlight"
+      },
+      {
+        "label": "Interface",
+        "value": "USB & TTL External"
+      },
+      {
+        "label": "Power Supply",
+        "value": "DC 5V ±0.5V via adaptor  (adaptor for 220 V AC ±10%, 50 Hz provided)"
+      },
+      {
+        "label": "Accessories",
+        "value": "Power adaptor, user manual, S/W CD, USB cable, BNC cable"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "180 × 190 × 71 mm  |  Approx. 600 g  (+450 g adaptor)"
+      }
     ],
-    "images": ["sgd-6m.webp", "sgd-6m-2.webp", "sgd-6m-3.webp"],
+    "images": [
+      "sgd-6m.webp",
+      "sgd-6m-2.webp",
+      "sgd-6m-3.webp"
+    ],
     "catalogue": "sgd-6m.pdf"
+  },
+  {
+    "id": "spa-10m",
+    "model": "SPA-10M",
+    "name": "Power Amplifier Module for Signal Generators, 10 MHz",
+    "tagline": "Power Amplifier Module for Signal Generators, 10 MHz",
+    "description": "Power Amp. Module for Signal Generator, 10 MHz, 25V p-p, 0.5A. 2 Ch. (5W x 2 Max.)",
+    "features": [
+      "2 Ch. (5W x 2 Max.)"
+    ],
+    "specs": [
+      {
+        "label": "Frequency",
+        "value": "10 MHz"
+      },
+      {
+        "label": "Output",
+        "value": "25 V p-p, 0.5 A"
+      },
+      {
+        "label": "Channels",
+        "value": "2 (5 W × 2 max.)"
+      }
+    ],
+    "images": [
+      "spa-10m.webp"
+    ]
+  },
+  {
+    "id": "spa-100k",
+    "model": "SPA-100K",
+    "name": "Power Amplifier Module for Signal Generators, 100 kHz",
+    "tagline": "Power Amplifier Module for Signal Generators, 100 kHz",
+    "description": "Power Amp. Module for Signal Generator, 100 KHz, 40V p-p, 1A. 2 Channel(10W x 2 Max.)",
+    "features": [
+      "2 Channel(10W x 2 Max.)"
+    ],
+    "specs": [
+      {
+        "label": "Frequency",
+        "value": "100 kHz"
+      },
+      {
+        "label": "Output",
+        "value": "40 V p-p, 1 A"
+      },
+      {
+        "label": "Channels",
+        "value": "2 (10 W × 2 max.)"
+      }
+    ],
+    "images": [
+      "spa-100k.webp"
+    ]
   }
 ]

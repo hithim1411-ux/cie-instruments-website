@@ -1,0 +1,139 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { u, downloadUrl } from '../../../utils/url';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CTABand from '../../../components/CTABand.astro';
+import products from '../../../data/vartech-magnifiers.json';
+
+const pageTitle = 'Vartech Magnifying Lamps - Authorised Distributor India | CIE Instruments';
+const pageDesc =
+  'Buy Vartech magnifying lamps in India - 228 L, 228 L II, 228 AL, 228 BL, 228 LX, 228 LXD, 228 LRD, 228 BLR, 8093, 8093 LED, 8093 LD and 268 L. CIE Instruments, authorised Vartech distributor, Howrah.';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.cieinstruments.in/' },
+    { '@type': 'ListItem', position: 2, name: 'Authorised Distributor', item: 'https://www.cieinstruments.in/authorised-dealership/' },
+    { '@type': 'ListItem', position: 3, name: 'Vartech Magnifying Lamps', item: 'https://www.cieinstruments.in/authorised-dealership/magnifiers/' },
+  ],
+};
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Vartech Magnifying Lamps',
+  numberOfItems: products.length,
+  itemListElement: products.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Product',
+      name: `${p.model} - ${p.name}`,
+      description: p.description,
+      image: `https://www.cieinstruments.in/images/vartech/magnifiers/${p.images[0]}`,
+      brand: { '@type': 'Brand', name: 'Vartech' },
+    },
+  })),
+};
+---
+
+<Base title={pageTitle} description={pageDesc} ogImage={u('/images/vartech/vartech-logo.avif')} rawTitle canonicalOverride="https://www.cieinstruments.in/products/vartech-magnifiers/">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  </Fragment>
+
+  <div class="bg-cloud border-b border-border py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[
+        { label: 'Authorised Distributor', href: u('/authorised-dealership/') },
+        { label: 'Vartech Magnifying Lamps' },
+      ]} />
+      <p class="eyebrow mt-4 mb-3">Vartech® Magnifying Lamps</p>
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Vartech Magnifying Lamps</h1>
+      <p class="mt-3 text-muted max-w-2xl leading-relaxed">
+        CIE Instruments supplies the Vartech magnifying lamp range - the 228 series (round and rectangular lenses, table clamp and desk-top, including dimmable models), the 8093 and 8093 LD, and the 268 L - for PCB inspection, rework and fine assembly.
+      </p>
+    </div>
+  </div>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-lg font-bold text-ink">{products.length} Vartech product{products.length !== 1 ? 's' : ''}</h2>
+        <a href={u('/authorised-dealership/')} class="text-sm text-muted hover:text-ink transition-colors">← Authorised Distributor</a>
+      </div>
+
+      <div class="product-slider gap-5">
+        {products.map(p => (
+          <article class="card card-interactive group overflow-hidden flex flex-col">
+            <div class="bg-cloud h-52 flex items-center justify-center relative overflow-hidden">
+              <img
+                src={u(`/images/vartech/magnifiers/${p.images[0]}`)}
+                alt={`${p.model} - ${p.name}`}
+                width="400" height="400"
+                class="object-contain h-40 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+              />
+              <div class="hidden absolute inset-0 flex-col items-center justify-center gap-2 text-muted/60">
+                <svg class="w-12 h-12 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/>
+                  <path d="M3 9l4-4 4 4 4-4 4 4" stroke-width="1.5"/>
+                </svg>
+                <span class="text-xs font-mono uppercase tracking-wider opacity-50">Image coming soon</span>
+              </div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <p class="model-code text-xs mb-1">{p.model}</p>
+              <h3 class="font-bold text-ink text-base mb-2 leading-snug">{p.name}</h3>
+              <p class="text-sm text-muted mb-4 flex-1 line-clamp-3">{p.tagline}</p>
+              <div class="flex flex-col gap-2 mt-auto">
+                <a href={u(`/authorised-dealership/magnifiers/${p.id}/`)}
+                  class="btn-primary btn-primary--sm">
+                  View Details & Specs
+                </a>
+                {p.catalogue && (<a href={downloadUrl(`/downloads/vartech/magnifiers/${p.catalogue}`)}
+                  target="_blank" rel="noopener noreferrer"
+                  class="btn-secondary btn-secondary--sm text-ink">
+                  <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a1 1 0 001 1h16a1 1 0 001-1v-3"/>
+                  </svg>
+                  Download Catalogue
+                </a>)}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cloud section-pad-sm border-t border-border">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-ink mb-6">About Vartech Magnifying Lamps</h2>
+      <div class="space-y-4 text-sm text-muted leading-relaxed">
+        <p>
+          The 228 series uses a 125 mm round crystal lens (5 or 8 dioptre on the 228 L and 228 L II), with table-clamp arms or a heavy desk-top base. The 228 LX and 228 LXD have a 7 inch lens, and the 228 LRD and 228 BLR use a large 7.5 x 6.2 inch rectangular lens; the LXD and LRD are dimmable with warm and cool white light.
+        </p>
+        <p>
+          The 8093 family and the 268 L are lighter table-top lamps with a 3 dioptre main lens and a built-in 12 dioptre small lens, available with LED or CFL lighting; the 8093 LD adds a touch dimmer.
+        </p>
+        <p>
+          CIE Instruments (Cambridge Instruments &amp; Engg. Co., Howrah) is an authorised Vartech distributor for India. We supply Vartech instruments and tools to electronics labs, service workshops, production lines, colleges and R&amp;D teams across India - including Kolkata, Howrah, Bhubaneswar, Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Ahmedabad, Pune, Lucknow and Chandigarh.
+        </p>
+        <p>
+          For pricing and availability, <a href="/contact/" class="text-ink hover:underline font-medium">contact our team</a> or enquire via WhatsApp.
+        </p>
+      </div>
+      <div class="mt-8 pt-6 border-t border-border">
+        <p class="text-xs text-muted">
+          Cambridge Instruments &amp; Engg. Co. (CIE) - manufacturer of precision electrical test instruments in Howrah since 1963, and authorised distributor for Vartech.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>

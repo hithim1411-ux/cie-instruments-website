@@ -1,0 +1,139 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { u, downloadUrl } from '../../../utils/url';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CTABand from '../../../components/CTABand.astro';
+import products from '../../../data/vartech-soldering-accessories.json';
+
+const pageTitle = 'Vartech Soldering Spares & Accessories - Authorised Distributor India | CIE Instruments';
+const pageDesc =
+  'Buy Vartech soldering bits, heating elements, barrels, 907A iron assembly, 191 AD tip thermometer and 192 soldering tester in India. CIE Instruments is an authorised Vartech distributor, Howrah.';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.cieinstruments.in/' },
+    { '@type': 'ListItem', position: 2, name: 'Authorised Distributor', item: 'https://www.cieinstruments.in/authorised-dealership/' },
+    { '@type': 'ListItem', position: 3, name: 'Vartech Soldering Spares & Accessories', item: 'https://www.cieinstruments.in/authorised-dealership/soldering-accessories/' },
+  ],
+};
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Vartech Soldering Spares & Accessories',
+  numberOfItems: products.length,
+  itemListElement: products.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Product',
+      name: `${p.model} - ${p.name}`,
+      description: p.description,
+      image: `https://www.cieinstruments.in/images/vartech/soldering-accessories/${p.images[0]}`,
+      brand: { '@type': 'Brand', name: 'Vartech' },
+    },
+  })),
+};
+---
+
+<Base title={pageTitle} description={pageDesc} ogImage={u('/images/vartech/vartech-logo.avif')} rawTitle canonicalOverride="https://www.cieinstruments.in/products/vartech-soldering-accessories/">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  </Fragment>
+
+  <div class="bg-cloud border-b border-border py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Breadcrumbs crumbs={[
+        { label: 'Authorised Distributor', href: u('/authorised-dealership/') },
+        { label: 'Vartech Soldering Spares & Accessories' },
+      ]} />
+      <p class="eyebrow mt-4 mb-3">Vartech® Soldering Spares & Accessories</p>
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Vartech Soldering Spares & Accessories</h1>
+      <p class="mt-3 text-muted max-w-2xl leading-relaxed">
+        CIE Instruments supplies original Vartech spares and accessories for its soldering and re-work stations - soldering bits, heating elements, barrels, nuts, the 907A iron assembly, the 191 AD tip thermometer and 192 soldering tester, and power supply cables.
+      </p>
+    </div>
+  </div>
+
+  <section class="bg-white section-pad-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-lg font-bold text-ink">{products.length} Vartech product{products.length !== 1 ? 's' : ''}</h2>
+        <a href={u('/authorised-dealership/')} class="text-sm text-muted hover:text-ink transition-colors">← Authorised Distributor</a>
+      </div>
+
+      <div class="product-slider gap-5">
+        {products.map(p => (
+          <article class="card card-interactive group overflow-hidden flex flex-col">
+            <div class="bg-cloud h-52 flex items-center justify-center relative overflow-hidden">
+              <img
+                src={u(`/images/vartech/soldering-accessories/${p.images[0]}`)}
+                alt={`${p.model} - ${p.name}`}
+                width="400" height="400"
+                class="object-contain h-40 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105"
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+              />
+              <div class="hidden absolute inset-0 flex-col items-center justify-center gap-2 text-muted/60">
+                <svg class="w-12 h-12 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/>
+                  <path d="M3 9l4-4 4 4 4-4 4 4" stroke-width="1.5"/>
+                </svg>
+                <span class="text-xs font-mono uppercase tracking-wider opacity-50">Image coming soon</span>
+              </div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <p class="model-code text-xs mb-1">{p.model}</p>
+              <h3 class="font-bold text-ink text-base mb-2 leading-snug">{p.name}</h3>
+              <p class="text-sm text-muted mb-4 flex-1 line-clamp-3">{p.tagline}</p>
+              <div class="flex flex-col gap-2 mt-auto">
+                <a href={u(`/authorised-dealership/soldering-accessories/${p.id}/`)}
+                  class="btn-primary btn-primary--sm">
+                  View Details & Specs
+                </a>
+                {p.catalogue && (<a href={downloadUrl(`/downloads/vartech/soldering-accessories/${p.catalogue}`)}
+                  target="_blank" rel="noopener noreferrer"
+                  class="btn-secondary btn-secondary--sm text-ink">
+                  <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a1 1 0 001 1h16a1 1 0 001-1v-3"/>
+                  </svg>
+                  Download Catalogue
+                </a>)}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cloud section-pad-sm border-t border-border">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-bold text-ink mb-6">About Vartech Soldering Spares & Accessories</h2>
+      <div class="space-y-4 text-sm text-muted leading-relaxed">
+        <p>
+          Soldering bits (tips) are available in pointed, pencil, bent, chisel, spade and knife types for the 936 A, 937, 236, 706 and 700 stations. Heating elements, barrels, nuts and a complete 907A iron assembly are listed against the station models they fit.
+        </p>
+        <p>
+          The 191 AD thermometer and the 192 multifunction soldering tester measure soldering tip temperature, leakage voltage and ground resistance to check that a station is working correctly.
+        </p>
+        <p>
+          CIE Instruments (Cambridge Instruments &amp; Engg. Co., Howrah) is an authorised Vartech distributor for India. We supply Vartech instruments and tools to electronics labs, service workshops, production lines, colleges and R&amp;D teams across India - including Kolkata, Howrah, Bhubaneswar, Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Ahmedabad, Pune, Lucknow and Chandigarh.
+        </p>
+        <p>
+          For pricing and availability, <a href="/contact/" class="text-ink hover:underline font-medium">contact our team</a> or enquire via WhatsApp.
+        </p>
+      </div>
+      <div class="mt-8 pt-6 border-t border-border">
+        <p class="text-xs text-muted">
+          Cambridge Instruments &amp; Engg. Co. (CIE) - manufacturer of precision electrical test instruments in Howrah since 1963, and authorised distributor for Vartech.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>

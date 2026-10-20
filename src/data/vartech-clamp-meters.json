@@ -15,20 +15,59 @@
       "ISO 9001 certified manufacturing - consistent quality across every unit; simple, robust and built for daily field use"
     ],
     "specs": [
-      { "label": "Display", "value": "3½ Digits, 2000 Counts" },
-      { "label": "Ranging", "value": "Manual" },
-      { "label": "Jaw Opening", "value": "50 mm" },
-      { "label": "AC Current", "value": "200 A / 1000 A  |  Accuracy: ±(3% rdg + 5 digits)  |  ≥800 A: unspecified (reference only)  |  Freq. response: 50–60 Hz" },
-      { "label": "DC Voltage", "value": "1000 V  |  Accuracy: ±(0.8% rdg + 1 digit)  |  Input impedance: 9 MΩ" },
-      { "label": "AC Voltage", "value": "750 V  |  Accuracy: ±(1.2% rdg + 4 digits)  |  Freq. response: 50–400 Hz  |  Input impedance: 9 MΩ" },
-      { "label": "Resistance", "value": "200 Ω  |  Accuracy: ±(1% rdg + 3 digits)  /  20 KΩ  |  Accuracy: ±(1% rdg + 1 digit)" },
-      { "label": "Insulation Resistance (optional ext. unit)", "value": "20 MΩ  |  ±(2% rdg + 2 digits)  /  2000 MΩ  |  ≤500 MΩ: ±(4% rdg + 2 digits)  /  ≥500 MΩ: ±(5% rdg + 2 digits)" },
-      { "label": "Other Functions", "value": "Continuity Test (buzzer <75 Ω), Data Hold" },
-      { "label": "Power", "value": "9 V (6F22)" },
-      { "label": "Accessories", "value": "Test leads, operating manual, carrying case, battery" },
-      { "label": "Dimensions & Weight", "value": "230 × 70 × 37 mm  |  ~310 g (including battery)" }
+      {
+        "label": "Display",
+        "value": "3½ Digits, 2000 Counts"
+      },
+      {
+        "label": "Ranging",
+        "value": "Manual"
+      },
+      {
+        "label": "Jaw Opening",
+        "value": "50 mm"
+      },
+      {
+        "label": "AC Current",
+        "value": "200 A / 1000 A  |  Accuracy: ±(3% rdg + 5 digits)  |  ≥800 A: unspecified (reference only)  |  Freq. response: 50–60 Hz"
+      },
+      {
+        "label": "DC Voltage",
+        "value": "1000 V  |  Accuracy: ±(0.8% rdg + 1 digit)  |  Input impedance: 9 MΩ"
+      },
+      {
+        "label": "AC Voltage",
+        "value": "750 V  |  Accuracy: ±(1.2% rdg + 4 digits)  |  Freq. response: 50–400 Hz  |  Input impedance: 9 MΩ"
+      },
+      {
+        "label": "Resistance",
+        "value": "200 Ω  |  Accuracy: ±(1% rdg + 3 digits)  /  20 KΩ  |  Accuracy: ±(1% rdg + 1 digit)"
+      },
+      {
+        "label": "Insulation Resistance (optional ext. unit)",
+        "value": "20 MΩ  |  ±(2% rdg + 2 digits)  /  2000 MΩ  |  ≤500 MΩ: ±(4% rdg + 2 digits)  /  ≥500 MΩ: ±(5% rdg + 2 digits)"
+      },
+      {
+        "label": "Other Functions",
+        "value": "Continuity Test (buzzer <75 Ω), Data Hold"
+      },
+      {
+        "label": "Power",
+        "value": "9 V (6F22)"
+      },
+      {
+        "label": "Accessories",
+        "value": "Test leads, operating manual, carrying case, battery"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "230 × 70 × 37 mm  |  ~310 g (including battery)"
+      }
     ],
-    "images": ["v-266.webp", "v-266-2.webp"],
+    "images": [
+      "v-266.webp",
+      "v-266-2.webp"
+    ],
     "catalogue": "v-266.pdf"
   },
   {
@@ -47,18 +86,52 @@
       "NCV, diode test, continuity and data hold - the complete set of daily-use field functions"
     ],
     "specs": [
-      { "label": "Display", "value": "3¾ Digits, 4000 Counts" },
-      { "label": "Ranging", "value": "Manual" },
-      { "label": "DC Voltage", "value": "4 V / 40 V / 600 V  |  Accuracy: ±(0.8% rdg + 2 digits)" },
-      { "label": "AC Voltage", "value": "4 V / 40 V / 600 V  |  Accuracy: ±(1% rdg + 10 digits)" },
-      { "label": "AC Current", "value": "40 A / 400 A / 1000 A  |  Accuracy: ±(2.5% rdg + 10 digits)" },
-      { "label": "Resistance", "value": "400 Ω / 4 KΩ / 40 KΩ / 400 KΩ / 4 MΩ / 40 MΩ  |  Accuracy: ±(1.2% rdg + 2 digits)" },
-      { "label": "Other Functions", "value": "NCV Test, Diode Test, Continuity Test, Torch, Data Hold, Low Battery Indication" },
-      { "label": "Power", "value": "2 × 1.5 V AAA batteries (optional)" },
-      { "label": "Accessories", "value": "Test leads, carrying pouch, user manual, battery" },
-      { "label": "Dimensions & Weight", "value": "222 × 90 × 35 mm  |  ~220 g (including battery)" }
+      {
+        "label": "Display",
+        "value": "3¾ Digits, 4000 Counts"
+      },
+      {
+        "label": "Ranging",
+        "value": "Manual"
+      },
+      {
+        "label": "DC Voltage",
+        "value": "4 V / 40 V / 600 V  |  Accuracy: ±(0.8% rdg + 2 digits)"
+      },
+      {
+        "label": "AC Voltage",
+        "value": "4 V / 40 V / 600 V  |  Accuracy: ±(1% rdg + 10 digits)"
+      },
+      {
+        "label": "AC Current",
+        "value": "40 A / 400 A / 1000 A  |  Accuracy: ±(2.5% rdg + 10 digits)"
+      },
+      {
+        "label": "Resistance",
+        "value": "400 Ω / 4 KΩ / 40 KΩ / 400 KΩ / 4 MΩ / 40 MΩ  |  Accuracy: ±(1.2% rdg + 2 digits)"
+      },
+      {
+        "label": "Other Functions",
+        "value": "NCV Test, Diode Test, Continuity Test, Torch, Data Hold, Low Battery Indication"
+      },
+      {
+        "label": "Power",
+        "value": "2 × 1.5 V AAA batteries (optional)"
+      },
+      {
+        "label": "Accessories",
+        "value": "Test leads, carrying pouch, user manual, battery"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "222 × 90 × 35 mm  |  ~220 g (including battery)"
+      }
     ],
-    "images": ["v-266-plus.webp", "v-266-plus-2.webp", "v-266-plus-3.webp"],
+    "images": [
+      "v-266-plus.webp",
+      "v-266-plus-2.webp",
+      "v-266-plus-3.webp"
+    ],
     "catalogue": "v-266-plus-and-v-266-c.pdf"
   },
   {
@@ -77,21 +150,64 @@
       "Superior quality - ISO 9001 certified manufacturing"
     ],
     "specs": [
-      { "label": "Display", "value": "3⅚ Digits, 6000 Counts, Backlight" },
-      { "label": "Ranging", "value": "Manual" },
-      { "label": "DC Voltage", "value": "60 mV / 600 mV / 6 V / 60 V / 600 V  |  Accuracy: ±(0.8% rdg + 2 digits)" },
-      { "label": "AC Voltage", "value": "600 mV / 6 V / 60 V / 600 V  |  Accuracy: ±(1% rdg + 10 digits)" },
-      { "label": "AC Current", "value": "60 A / 400 A / 1000 A  |  Accuracy: ±(2.5% rdg + 10 digits)" },
-      { "label": "Resistance", "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(1.2% rdg + 2 digits)" },
-      { "label": "Capacitance", "value": "60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6 mF / 60 mF" },
-      { "label": "Frequency", "value": "10 Hz – 1 KHz (measured in ACV range)" },
-      { "label": "Temperature", "value": "Provided (probe included)" },
-      { "label": "Other Functions", "value": "NCV Test, Diode Test, Continuity Test, Torch, Backlight, Data Hold, Low Battery Indication" },
-      { "label": "Power", "value": "2 × 1.5 V AAA batteries (optional)" },
-      { "label": "Accessories", "value": "Test leads, carrying pouch, user manual, battery, temperature probe" },
-      { "label": "Dimensions & Weight", "value": "222 × 90 × 35 mm  |  ~220 g (including battery)" }
+      {
+        "label": "Display",
+        "value": "3⅚ Digits, 6000 Counts, Backlight"
+      },
+      {
+        "label": "Ranging",
+        "value": "Manual"
+      },
+      {
+        "label": "DC Voltage",
+        "value": "60 mV / 600 mV / 6 V / 60 V / 600 V  |  Accuracy: ±(0.8% rdg + 2 digits)"
+      },
+      {
+        "label": "AC Voltage",
+        "value": "600 mV / 6 V / 60 V / 600 V  |  Accuracy: ±(1% rdg + 10 digits)"
+      },
+      {
+        "label": "AC Current",
+        "value": "60 A / 400 A / 1000 A  |  Accuracy: ±(2.5% rdg + 10 digits)"
+      },
+      {
+        "label": "Resistance",
+        "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(1.2% rdg + 2 digits)"
+      },
+      {
+        "label": "Capacitance",
+        "value": "60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6 mF / 60 mF"
+      },
+      {
+        "label": "Frequency",
+        "value": "10 Hz – 1 KHz (measured in ACV range)"
+      },
+      {
+        "label": "Temperature",
+        "value": "Provided (probe included)"
+      },
+      {
+        "label": "Other Functions",
+        "value": "NCV Test, Diode Test, Continuity Test, Torch, Backlight, Data Hold, Low Battery Indication"
+      },
+      {
+        "label": "Power",
+        "value": "2 × 1.5 V AAA batteries (optional)"
+      },
+      {
+        "label": "Accessories",
+        "value": "Test leads, carrying pouch, user manual, battery, temperature probe"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "222 × 90 × 35 mm  |  ~220 g (including battery)"
+      }
     ],
-    "images": ["v-266-c.webp", "v-266-c-2.webp", "v-266-c-3.webp"],
+    "images": [
+      "v-266-c.webp",
+      "v-266-c-2.webp",
+      "v-266-c-3.webp"
+    ],
     "catalogue": "v-266-plus-and-v-266-c.pdf"
   },
   {
@@ -110,21 +226,64 @@
       "Auto Power Off and Relative measurement - intelligent field-ready features that save battery and simplify comparative measurements on large cable runs"
     ],
     "specs": [
-      { "label": "Display", "value": "3⅚ Digits, 6000 Counts, Backlight" },
-      { "label": "True RMS", "value": "Yes" },
-      { "label": "Ranging", "value": "Auto / Manual" },
-      { "label": "DC Voltage", "value": "600 mV / 6 V / 60 V / 600 V / 1000 V  |  Accuracy: ±(0.5% rdg + 3 digits)" },
-      { "label": "AC Voltage (True RMS)", "value": "600 mV / 6 V / 60 V / 600 V / 750 V  |  Accuracy: ±(0.8% rdg + 5 digits)" },
-      { "label": "AC & DC Current (True RMS AC)", "value": "600 µA / 6000 µA / 60 A / 600 A / 1000 A  |  Accuracy: ±(0.8% rdg + 10 digits)  |  Note: µA ranges measured via test leads" },
-      { "label": "Resistance", "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(0.8% rdg + 5 digits)" },
-      { "label": "Capacitance", "value": "60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6000 µF" },
-      { "label": "Frequency", "value": "10 Hz / 100 Hz / 1 KHz / 10 KHz / 100 KHz / 1 MHz / 20 MHz  |  Hz/Duty button for switching during ACV & ACA measurement" },
-      { "label": "Temperature", "value": "−20 °C to 1000 °C  (0 °F to 1832 °F)" },
-      { "label": "Other Functions", "value": "Diode Test, Continuity Test, Data Hold, Relative Measurement, Auto Power Off, Torch" },
-      { "label": "Accessories", "value": "Test leads, carrying pouch, temperature probe, user manual, battery" },
-      { "label": "Dimensions & Weight", "value": "280 × 70 × 45 mm  |  ~300 g (including battery)" }
+      {
+        "label": "Display",
+        "value": "3⅚ Digits, 6000 Counts, Backlight"
+      },
+      {
+        "label": "True RMS",
+        "value": "Yes"
+      },
+      {
+        "label": "Ranging",
+        "value": "Auto / Manual"
+      },
+      {
+        "label": "DC Voltage",
+        "value": "600 mV / 6 V / 60 V / 600 V / 1000 V  |  Accuracy: ±(0.5% rdg + 3 digits)"
+      },
+      {
+        "label": "AC Voltage (True RMS)",
+        "value": "600 mV / 6 V / 60 V / 600 V / 750 V  |  Accuracy: ±(0.8% rdg + 5 digits)"
+      },
+      {
+        "label": "AC & DC Current (True RMS AC)",
+        "value": "600 µA / 6000 µA / 60 A / 600 A / 1000 A  |  Accuracy: ±(0.8% rdg + 10 digits)  |  Note: µA ranges measured via test leads"
+      },
+      {
+        "label": "Resistance",
+        "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(0.8% rdg + 5 digits)"
+      },
+      {
+        "label": "Capacitance",
+        "value": "60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6000 µF"
+      },
+      {
+        "label": "Frequency",
+        "value": "10 Hz / 100 Hz / 1 KHz / 10 KHz / 100 KHz / 1 MHz / 20 MHz  |  Hz/Duty button for switching during ACV & ACA measurement"
+      },
+      {
+        "label": "Temperature",
+        "value": "−20 °C to 1000 °C  (0 °F to 1832 °F)"
+      },
+      {
+        "label": "Other Functions",
+        "value": "Diode Test, Continuity Test, Data Hold, Relative Measurement, Auto Power Off, Torch"
+      },
+      {
+        "label": "Accessories",
+        "value": "Test leads, carrying pouch, temperature probe, user manual, battery"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "280 × 70 × 45 mm  |  ~300 g (including battery)"
+      }
     ],
-    "images": ["m-2101.webp", "m-2101-2.webp", "m-2101-3.webp"],
+    "images": [
+      "m-2101.webp",
+      "m-2101-2.webp",
+      "m-2101-3.webp"
+    ],
     "catalogue": "m-2101.pdf"
   },
   {
@@ -143,21 +302,64 @@
       "Display brightness adjustment - adapt the display to direct sunlight or dark panel environments without a separate backlight toggle"
     ],
     "specs": [
-      { "label": "Display", "value": "3⅚ Digits, 6000 Counts" },
-      { "label": "True RMS", "value": "Yes" },
-      { "label": "Ranging", "value": "Fully Automatic" },
-      { "label": "DC Voltage", "value": "600 mV / 6 V / 60 V / 600 V / 1000 V  |  Accuracy: ±(0.5% rdg + 3 digits)" },
-      { "label": "AC Voltage (True RMS)", "value": "6 V / 60 V / 600 V / 750 V  |  Accuracy: ±(0.8% rdg + 3 digits)" },
-      { "label": "AC Current (True RMS)", "value": "6 A / 60 A / 200 A  |  Accuracy: ±(2% rdg + 30 digits)" },
-      { "label": "Resistance", "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(0.8% rdg + 5 digits)" },
-      { "label": "Capacitance", "value": "6 nF / 60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6 mF / 60 mF" },
-      { "label": "Temperature", "value": "−20 °C to 1000 °C  (−4 °F to 1832 °F)" },
-      { "label": "Other Functions", "value": "NCV Test, Live Wire Test, Diode Test, Continuity Test, Display Brightness Adjustment, Auto Power Off, Data Hold, Low Battery Indication" },
-      { "label": "Battery", "value": "Built-in rechargeable, Type-C USB charging" },
-      { "label": "Accessories", "value": "Test leads, temperature probe, carrying pouch, user manual, battery charging cable" },
-      { "label": "Dimensions & Weight", "value": "170 × 64 × 26 mm  |  ~150 g (including battery)" }
+      {
+        "label": "Display",
+        "value": "3⅚ Digits, 6000 Counts"
+      },
+      {
+        "label": "True RMS",
+        "value": "Yes"
+      },
+      {
+        "label": "Ranging",
+        "value": "Fully Automatic"
+      },
+      {
+        "label": "DC Voltage",
+        "value": "600 mV / 6 V / 60 V / 600 V / 1000 V  |  Accuracy: ±(0.5% rdg + 3 digits)"
+      },
+      {
+        "label": "AC Voltage (True RMS)",
+        "value": "6 V / 60 V / 600 V / 750 V  |  Accuracy: ±(0.8% rdg + 3 digits)"
+      },
+      {
+        "label": "AC Current (True RMS)",
+        "value": "6 A / 60 A / 200 A  |  Accuracy: ±(2% rdg + 30 digits)"
+      },
+      {
+        "label": "Resistance",
+        "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(0.8% rdg + 5 digits)"
+      },
+      {
+        "label": "Capacitance",
+        "value": "6 nF / 60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6 mF / 60 mF"
+      },
+      {
+        "label": "Temperature",
+        "value": "−20 °C to 1000 °C  (−4 °F to 1832 °F)"
+      },
+      {
+        "label": "Other Functions",
+        "value": "NCV Test, Live Wire Test, Diode Test, Continuity Test, Display Brightness Adjustment, Auto Power Off, Data Hold, Low Battery Indication"
+      },
+      {
+        "label": "Battery",
+        "value": "Built-in rechargeable, Type-C USB charging"
+      },
+      {
+        "label": "Accessories",
+        "value": "Test leads, temperature probe, carrying pouch, user manual, battery charging cable"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "170 × 64 × 26 mm  |  ~150 g (including battery)"
+      }
     ],
-    "images": ["v-2001-plus.webp", "v-2001-plus-2.webp", "v-2001-plus-3.webp"],
+    "images": [
+      "v-2001-plus.webp",
+      "v-2001-plus-2.webp",
+      "v-2001-plus-3.webp"
+    ],
     "catalogue": "v-2001-plus-and-v-2002-plus.pdf"
   },
   {
@@ -176,23 +378,213 @@
       "Type-C rechargeable battery - no disposable cells; same platform and charging cable as the V 2001+"
     ],
     "specs": [
-      { "label": "Display", "value": "3⅚ Digits, 6000 Counts" },
-      { "label": "True RMS", "value": "Yes" },
-      { "label": "Ranging", "value": "Fully Automatic" },
-      { "label": "DC Voltage", "value": "600 mV / 6 V / 60 V / 600 V / 1000 V  |  Accuracy: ±(0.5% rdg + 3 digits)" },
-      { "label": "AC Voltage (True RMS)", "value": "6 V / 60 V / 600 V / 750 V  |  Accuracy: ±(0.8% rdg + 3 digits)" },
-      { "label": "AC Current (True RMS) - Leakage", "value": "600 mA / 6 A / 60 A  |  Accuracy: ±(4% rdg + 20 digits) for 200–600 mA range" },
-      { "label": "DC Current", "value": "6 A / 60 A  |  Accuracy: ±(2% rdg + 30 digits)" },
-      { "label": "Resistance", "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(0.8% rdg + 5 digits)" },
-      { "label": "Capacitance", "value": "6 nF / 60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6 mF / 60 mF" },
-      { "label": "Frequency / Duty Cycle", "value": "6 Hz – 10 MHz  |  Max. input: 250 V" },
-      { "label": "Temperature", "value": "−20 °C to 1000 °C  (−4 °F to 1832 °F)" },
-      { "label": "Other Functions", "value": "NCV Test, Live Wire Test, Diode Test, Continuity Test, REL Measurement, Display Brightness Adjustment, Auto Power Off, Data Hold, Low Battery Indication" },
-      { "label": "Battery", "value": "Built-in rechargeable, Type-C USB charging" },
-      { "label": "Accessories", "value": "Test leads, temperature probe, carrying pouch, user manual, battery charging cable" },
-      { "label": "Dimensions & Weight", "value": "170 × 64 × 26 mm  |  ~150 g (including battery)" }
+      {
+        "label": "Display",
+        "value": "3⅚ Digits, 6000 Counts"
+      },
+      {
+        "label": "True RMS",
+        "value": "Yes"
+      },
+      {
+        "label": "Ranging",
+        "value": "Fully Automatic"
+      },
+      {
+        "label": "DC Voltage",
+        "value": "600 mV / 6 V / 60 V / 600 V / 1000 V  |  Accuracy: ±(0.5% rdg + 3 digits)"
+      },
+      {
+        "label": "AC Voltage (True RMS)",
+        "value": "6 V / 60 V / 600 V / 750 V  |  Accuracy: ±(0.8% rdg + 3 digits)"
+      },
+      {
+        "label": "AC Current (True RMS) - Leakage",
+        "value": "600 mA / 6 A / 60 A  |  Accuracy: ±(4% rdg + 20 digits) for 200–600 mA range"
+      },
+      {
+        "label": "DC Current",
+        "value": "6 A / 60 A  |  Accuracy: ±(2% rdg + 30 digits)"
+      },
+      {
+        "label": "Resistance",
+        "value": "600 Ω / 6 KΩ / 60 KΩ / 600 KΩ / 6 MΩ / 60 MΩ  |  Accuracy: ±(0.8% rdg + 5 digits)"
+      },
+      {
+        "label": "Capacitance",
+        "value": "6 nF / 60 nF / 600 nF / 6 µF / 60 µF / 600 µF / 6 mF / 60 mF"
+      },
+      {
+        "label": "Frequency / Duty Cycle",
+        "value": "6 Hz – 10 MHz  |  Max. input: 250 V"
+      },
+      {
+        "label": "Temperature",
+        "value": "−20 °C to 1000 °C  (−4 °F to 1832 °F)"
+      },
+      {
+        "label": "Other Functions",
+        "value": "NCV Test, Live Wire Test, Diode Test, Continuity Test, REL Measurement, Display Brightness Adjustment, Auto Power Off, Data Hold, Low Battery Indication"
+      },
+      {
+        "label": "Battery",
+        "value": "Built-in rechargeable, Type-C USB charging"
+      },
+      {
+        "label": "Accessories",
+        "value": "Test leads, temperature probe, carrying pouch, user manual, battery charging cable"
+      },
+      {
+        "label": "Dimensions & Weight",
+        "value": "170 × 64 × 26 mm  |  ~150 g (including battery)"
+      }
     ],
-    "images": ["v-2002-plus.webp", "v-2002-plus-2.webp", "v-2002-plus-3.webp"],
+    "images": [
+      "v-2002-plus.webp",
+      "v-2002-plus-2.webp",
+      "v-2002-plus-3.webp"
+    ],
     "catalogue": "v-2001-plus-and-v-2002-plus.pdf"
+  },
+  {
+    "id": "v-2101-plus",
+    "model": "V 2101+",
+    "name": "True RMS Digital Clamp Multimeter, 1000 A AC/DC, 2000 V",
+    "tagline": "New AC DC Digital Clamp Multimeter, True RMS, 3 5/6 Digits (6000 Counts) HD Display with backlight, Superior Build quality, High precision instrument.",
+    "description": "New AC DC Digital Clamp Multimeter, True RMS, 3 5/6 Digits (6000 Counts) HD Display with backlight, Superior Build quality, High precision instrument. With High Voltage Test socket for 1000V+ Measurements. This instrument is also referred as a Solar clamp meter. 60 / 600 A / 1000 A AC/DC 2000 V AC DC Auto Ranging Capacitance, Frequency & Temperature Measurements NCV (Non-contact voltage detection), In Rush current measurement, Variable Freq., signal measurement, etc.",
+    "features": [
+      "With High Voltage Test socket for 1000V+ Measurements.",
+      "This instrument is also referred as a Solar clamp meter.",
+      "60 / 600 A / 1000 A AC/DC",
+      "2000 V AC DC",
+      "Auto Ranging",
+      "Capacitance, Frequency & Temperature Measurements",
+      "NCV (Non-contact voltage detection), In Rush current measurement, Variable Freq., signal measurement, etc."
+    ],
+    "specs": [
+      {
+        "label": "Display",
+        "value": "3⅚ digits (6000 counts) HD display with backlight"
+      },
+      {
+        "label": "Current",
+        "value": "60 A / 600 A / 1000 A AC/DC"
+      },
+      {
+        "label": "Voltage",
+        "value": "Up to 2000 V AC/DC, auto-ranging"
+      },
+      {
+        "label": "Ranging",
+        "value": "True RMS, auto-ranging"
+      },
+      {
+        "label": "Other measurements",
+        "value": "Capacitance, frequency, temperature, in-rush current"
+      },
+      {
+        "label": "Detection",
+        "value": "NCV (non-contact voltage)"
+      },
+      {
+        "label": "Note",
+        "value": "Also referred to as a solar clamp meter"
+      }
+    ],
+    "images": [
+      "v-2101-plus.webp",
+      "v-2101-plus-2.webp",
+      "v-2101-plus-3.webp",
+      "v-2101-plus-4.webp"
+    ]
+  },
+  {
+    "id": "v-2266",
+    "model": "V 2266",
+    "name": "True RMS Auto-Ranging Digital Clamp Multimeter, 1000 A AC",
+    "tagline": "Digital clamp multimeter, 6000 Counts, TRMS, A/R, B/L, NCV, Live Wire, Torch, APO, 6/60/600/1000A AC, 1000/750 V DC/AC, Low Z ACV, 60MΩ Res., Cont./Diode Test, D.H., Min.",
+    "description": "Digital clamp multimeter, 6000 Counts, TRMS, A/R, B/L, NCV, Live Wire, Torch, APO, 6/60/600/1000A AC, 1000/750 V DC/AC, Low Z ACV, 60MΩ Res., Cont./Diode Test, D.H., Min./Max., W/C.P. New generation clamp meter with NCV, flashlight, Overload protection, Low impedance measurement Auto ranging, True RMS, 6000 counts HD Display with backlight, 1000 A AC, 1000 / 750 V DC / AC Auto power off, Data hold, Diode, Continuity, Live tests, Min / Max, Ergonomic design and Sturdy construction 40 mm jaw opening, High stability High accuracy",
+    "features": [
+      "New generation clamp meter with NCV, flashlight, Overload protection, Low impedance measurement",
+      "Auto ranging, True RMS, 6000 counts HD Display with backlight, 1000 A AC, 1000 / 750 V DC / AC",
+      "Auto power off, Data hold, Diode, Continuity, Live tests, Min / Max, Ergonomic design and Sturdy construction",
+      "40 mm jaw opening, High stability High accuracy"
+    ],
+    "specs": [
+      {
+        "label": "Display",
+        "value": "6000 counts, HD display with backlight"
+      },
+      {
+        "label": "Current",
+        "value": "6 / 60 / 600 / 1000 A AC"
+      },
+      {
+        "label": "Voltage",
+        "value": "1000 / 750 V DC / AC, with Low-Z ACV"
+      },
+      {
+        "label": "Resistance",
+        "value": "Up to 60 MΩ"
+      },
+      {
+        "label": "Ranging",
+        "value": "True RMS, auto-ranging"
+      },
+      {
+        "label": "Tests",
+        "value": "Continuity, diode, live wire, NCV"
+      },
+      {
+        "label": "Jaw opening",
+        "value": "40 mm"
+      },
+      {
+        "label": "Other",
+        "value": "Data hold, Min/Max, auto power off, torch, carrying pouch"
+      }
+    ],
+    "images": [
+      "v-2266.webp",
+      "v-2266-2.webp",
+      "v-2266-3.webp",
+      "v-2266-4.webp"
+    ]
+  },
+  {
+    "id": "7150",
+    "model": "7150",
+    "name": "Pocket Analog Clamp Meter",
+    "tagline": "Pocket size Analog clamp meter.",
+    "description": "Pocket size Analog clamp meter. 500 V ACV, 5/25/50A ACA. No batteries needed. Dimensions : 139 x 52 x 35 mm",
+    "features": [
+      "No batteries needed.",
+      "Dimensions : 139 x 52 x 35 mm"
+    ],
+    "specs": [
+      {
+        "label": "Type",
+        "value": "Analog, pocket size"
+      },
+      {
+        "label": "AC voltage",
+        "value": "500 V"
+      },
+      {
+        "label": "AC current",
+        "value": "5 / 25 / 50 A"
+      },
+      {
+        "label": "Power",
+        "value": "No batteries needed"
+      },
+      {
+        "label": "Dimensions",
+        "value": "139 × 52 × 35 mm"
+      }
+    ],
+    "images": [
+      "7150.webp"
+    ]
   }
 ]
