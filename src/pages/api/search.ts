@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { GROQ_API_KEY } from 'astro:env/server';
+import { env } from 'cloudflare:workers';
 import cieProducts from '../../data/products.json';
 import cieCategories from '../../data/categories.json';
 import vMM from '../../data/vartech-multimeters.json';
@@ -387,11 +388,6 @@ You are an AI. If asked who or what you are, say you are Volta, CIE's AI instrum
 
 export const POST: APIRoute = async ({ request }) => {
   const groqKey = GROQ_API_KEY;
-  if (!groqKey) {
-    return new Response(JSON.stringify({ error: 'AI search not configured.' }), {
-      status: 503, headers: { 'Content-Type': 'application/json' },
-    });
-  }
 
   let body: { query: string; history?: { role: string; parts: string }[] };
   try {
@@ -427,46 +423,71 @@ export const POST: APIRoute = async ({ request }) => {
     { role: 'user', content: query.slice(0, 600) },
   ];
 
-  const groqModels = [
-    'openai/gpt-oss-120b',
-    'openai/gpt-oss-20b',
-    'qwen/qwen3.6-27b',
-  ];
+  const textHeaders = { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' };
+  const clean = (raw: string) => raw.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
 
-  for (const model of groqModels) {
-    try {
-      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${groqKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model, messages, stream: false, temperature: 0.25,
-          // Reasoning models spend part of this budget thinking; 350 truncated answers.
-          max_tokens: 1400,
-          ...(model.startsWith('openai/gpt-oss') ? { reasoning_effort: 'medium' } : {}),
-        }),
-      });
-
-      if (res.ok) {
-        const json = await res.json();
-        const raw: string = json.choices?.[0]?.message?.content ?? '';
-        const text = raw.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
-        if (!text) { console.warn(`Groq ${model} returned empty content`); continue; }
-        return new Response(text, {
-          headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' },
-        });
+  // Workers AI replies in different shapes depending on the model; dig the final text out of any of them.
+  const extract = (r: any): string => {
+    if (!r) return '';
+    if (typeof r === 'string') return r;
+    if (typeof r.response === 'string') return r.response;
+    const c = r.choices?.[0]?.message?.content;
+    if (typeof c === 'string') return c;
+    if (Array.isArray(r.output)) {
+      const parts: string[] = [];
+      for (const o of r.output) {
+        if (o?.type === 'message' && Array.isArray(o.content)) {
+          for (const p of o.content) if (typeof p?.text === 'string') parts.push(p.text);
+        }
       }
+      if (parts.length) return parts.join('');
+    }
+    return '';
+  };
 
-      const errText = await res.text();
-      console.warn(`Groq ${model} failed ${res.status}: ${errText.slice(0, 200)}`);
+  // 1) Cloudflare Workers AI: free daily allowance, no API key to manage.
+  const aiModels = ['@cf/openai/gpt-oss-120b', '@cf/openai/gpt-oss-20b'];
+  for (const model of aiModels) {
+    try {
+      const r: any = await (env as any).AI.run(model, { messages, max_tokens: 1400, temperature: 0.25 });
+      const text = clean(extract(r));
+      if (text) return new Response(text, { headers: textHeaders });
+      console.warn(`Workers AI ${model} returned no text. Shape: ${JSON.stringify(r).slice(0, 300)}`);
     } catch (err: any) {
-      console.warn(`Groq fetch error (${model}): ${err?.message || err}`);
+      console.warn(`Workers AI error (${model}): ${err?.message || err}`);
     }
   }
 
-  return new Response(JSON.stringify({ error: 'AI temporarily unavailable. Please try again in a moment.' }), {
-    status: 503, headers: { 'Content-Type': 'application/json' },
-  });
+  // 2) Groq, only if a working key is configured.
+  if (groqKey) {
+    const groqModels = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b'];
+    for (const model of groqModels) {
+      try {
+        const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${groqKey}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model, messages, stream: false, temperature: 0.25, max_tokens: 1400,
+            reasoning_effort: 'medium',
+          }),
+        });
+        if (res.ok) {
+          const json: any = await res.json();
+          const text = clean(json.choices?.[0]?.message?.content ?? '');
+          if (text) return new Response(text, { headers: textHeaders });
+          console.warn(`Groq ${model} returned empty content`);
+          continue;
+        }
+        console.warn(`Groq ${model} failed ${res.status}: ${(await res.text()).slice(0, 200)}`);
+      } catch (err: any) {
+        console.warn(`Groq fetch error (${model}): ${err?.message || err}`);
+      }
+    }
+  }
+
+  // 3) Never show an error box: point the visitor to the catalogue and the team.
+  return new Response(
+    "Volta, our AI advisor, is busy right now. You can browse every instrument in the [product catalogue](https://www.cieinstruments.in/products/), or [contact CIE](https://www.cieinstruments.in/contact/) and we will help you choose.",
+    { headers: textHeaders },
+  );
 };
