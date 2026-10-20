@@ -438,7 +438,15 @@ export const POST: APIRoute = async ({ request }) => {
   ];
 
   const textHeaders = { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' };
-  const clean = (raw: string) => raw.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+  // gpt-oss can hand back its reasoning ("analysis...") ahead of, or instead of, the answer. Keep only the final answer; if the
+  // reply is reasoning with no answer (token budget used up while thinking), return '' so the next model / fallback message is used.
+  const clean = (raw: string) => {
+    let t = raw.replace(/<think>[\s\S]*?<\/think>/g, '');
+    const fin = t.match(/(?:assistantfinal|<\|channel\|>\s*final\s*<\|message\|>)([\s\S]*)$/i);
+    if (fin) t = fin[1];
+    else if (/^\s*(?:<\|channel\|>\s*)?analysis/i.test(t)) return '';
+    return t.replace(/<\|[^|]*\|>/g, '').trim();
+  };
 
   // Workers AI replies in different shapes depending on the model; dig the final text out of any of them.
   const extract = (r: any): string => {
@@ -463,7 +471,7 @@ export const POST: APIRoute = async ({ request }) => {
   const aiModels = ['@cf/openai/gpt-oss-120b', '@cf/openai/gpt-oss-20b'];
   for (const model of aiModels) {
     try {
-      const r: any = await (env as any).AI.run(model, { messages, max_tokens: 1400, temperature: 0.25 });
+      const r: any = await (env as any).AI.run(model, { messages, max_tokens: 2600, temperature: 0.25 });
       const text = clean(extract(r));
       if (text) return new Response(text, { headers: textHeaders });
       console.warn(`Workers AI ${model} returned no text. Shape: ${JSON.stringify(r).slice(0, 300)}`);
