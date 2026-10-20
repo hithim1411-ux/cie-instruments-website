@@ -43,10 +43,7 @@
       }
     ],
     "images": [
-      "850-a.webp",
-      "850-a-2.webp",
-      "850-a-3.webp",
-      "850-a-4.webp"
+      "coming-soon.svg"
     ],
     "catalogue": "850-a.pdf"
   },
@@ -97,10 +94,7 @@
       }
     ],
     "images": [
-      "850-d.webp",
-      "850-d-2.webp",
-      "850-d-3.webp",
-      "850-d-4.webp"
+      "coming-soon.svg"
     ],
     "catalogue": "850-d.pdf"
   },
@@ -149,10 +143,7 @@
       }
     ],
     "images": [
-      "857-d.webp",
-      "857-d-2.webp",
-      "857-d-3.webp",
-      "857-d-4.webp"
+      "coming-soon.svg"
     ],
     "catalogue": "857-d.pdf"
   },
@@ -201,10 +192,7 @@
       }
     ],
     "images": [
-      "861-dw.webp",
-      "861-dw-2.webp",
-      "861-dw-3.webp",
-      "861-dw-4.webp"
+      "coming-soon.svg"
     ],
     "catalogue": "861-dw.pdf"
   },
@@ -250,10 +238,7 @@
       }
     ],
     "images": [
-      "700-esd.webp",
-      "700-esd-2.webp",
-      "700-esd-3.webp",
-      "700-esd-4.webp"
+      "coming-soon.svg"
     ],
     "catalogue": "700-esd.pdf"
   },
@@ -299,10 +284,7 @@
       }
     ],
     "images": [
-      "706.webp",
-      "706-2.webp",
-      "706-3.webp",
-      "706-4.webp"
+      "coming-soon.svg"
     ],
     "catalogue": "706.pdf"
   },
@@ -342,10 +324,7 @@
       }
     ],
     "images": [
-      "493-esd.webp",
-      "493-esd-2.webp",
-      "493-esd-3.webp",
-      "493-esd-4.webp"
+      "coming-soon.svg"
     ],
     "catalogue": "493-esd.pdf"
   },
@@ -398,45 +377,6 @@
     "catalogue": "989.pdf"
   },
   {
-    "id": "885",
-    "model": "885",
-    "name": "Hot Air Gun, 50–650 °C, 3-Digit LCD",
-    "tagline": "Heavy-duty hot air gun, 50–650 °C, 400 L/min max., 3-digit LCD display.",
-    "description": "Heavy-duty hot air gun with a 3-digit LCD temperature display, 50 to 650 °C and up to 400 L/min air flow, for SMD re-work, heat-shrink and general hot air soldering work.",
-    "features": [
-      "Heavy duty",
-      "3-digit LCD temperature display",
-      "50 ~ 650 °C temperature control",
-      "400 L/min max. air flow"
-    ],
-    "specs": [
-      {
-        "label": "Temperature range",
-        "value": "50 ~ 650 °C"
-      },
-      {
-        "label": "Air flow",
-        "value": "400 L/min max."
-      },
-      {
-        "label": "Display",
-        "value": "3-digit LCD"
-      },
-      {
-        "label": "Supply",
-        "value": "220 V"
-      },
-      {
-        "label": "Build",
-        "value": "Heavy duty"
-      }
-    ],
-    "images": [
-      "885.webp",
-      "885-2.webp"
-    ]
-  },
-  {
     "id": "800-l",
     "model": "800 L",
     "name": "BGA Re-Work System Fixture (Large)",
@@ -467,8 +407,7 @@
       }
     ],
     "images": [
-      "800-l.webp",
-      "800-l-2.webp"
+      "coming-soon.svg"
     ]
   },
   {
@@ -502,8 +441,7 @@
       }
     ],
     "images": [
-      "853-esd.webp",
-      "853-esd-2.webp"
+      "coming-soon.svg"
     ]
   }
 ]

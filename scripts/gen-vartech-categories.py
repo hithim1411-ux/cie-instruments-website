@@ -21,9 +21,9 @@ CATS = {
            'Tips, heating elements and other spares for these stations are listed under Vartech Soldering Spares & Accessories.']),
  'rework-stations': dict(
     name='SMD Re-Work Systems & Tools', short='SMD Re-Work', icon='wind', emoji='🔥',
-    card='Hot-air SMD re-work stations, 2-in-1 systems, BGA fixture and pre-heater, hot air gun, hot tweezer and fume extractor.',
-    intro='CIE Instruments supplies the Vartech SMD re-work range - the 850 A, 850 D, 857 D and 861 DW hot-air stations, the 700 ESD and 706 2-in-1 systems, the 885 hot air gun, the 800 L and 853 ESD BGA tools, the 989 hot tweezer and the 493 ESD fume extractor.',
-    desc='Buy Vartech SMD re-work stations in India - 850 A, 850 D, 857 D, 861 DW, 700 ESD, 706, 885 hot air gun, 989 hot tweezer, BGA tools and 493 ESD smoke absorber. CIE Instruments, authorised Vartech distributor, Howrah.',
+    card='Hot-air SMD re-work stations, 2-in-1 systems, BGA fixture and pre-heater, hot tweezer and fume extractor.',
+    intro='CIE Instruments supplies the Vartech SMD re-work range - the 850 A, 850 D, 857 D and 861 DW hot-air stations, the 700 ESD and 706 2-in-1 systems, the 800 L and 853 ESD BGA tools, the 989 hot tweezer and the 493 ESD fume extractor.',
+    desc='Buy Vartech SMD re-work stations in India - 850 A, 850 D, 857 D, 861 DW, 700 ESD, 706, 989 hot tweezer, BGA tools and 493 ESD smoke absorber. CIE Instruments, authorised Vartech distributor, Howrah.',
     about=['The hot-air stations scale from the 270 W 850 A and 320 W digital 850 D, through the 580 W 857 D, up to the 1000 W lead-free 861 DW with three programmable channels for temperature and air flow. The 700 ESD and 706 combine a hot-air re-work section with a classic 50 W soldering iron in one unit, with separate on/off switches.',
            'For BGA work, the 800 L fixture holds the PCB while an 850-series station is connected at the top and the 853 ESD pre-heater sits underneath. The 989 hot tweezer is an attachment for the 937 station, and the 493 ESD removes solder fumes at the bench.',
            'Heating elements and other spares for these stations are listed under Vartech Soldering Spares & Accessories.']),

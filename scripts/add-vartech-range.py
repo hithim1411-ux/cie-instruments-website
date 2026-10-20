@@ -143,11 +143,6 @@ add('706 Soldering', 'rework-stations', '706', '706', '2-in-1 Soldering and SMD 
     specs=[('SMD re-work section', '580 W; air flow 50 L / Min. (max.); 100 ºC ~ 450 ºC; soft air rotary pump; LED digital display (1 ºC resolution)'), ('Soldering section', '50 W; 200 ºC ~ 480 ºC; stability ± 2 ºC; tip to ground resistance 2 Ω, potential 2 mV'), ('Operation', '220 V AC, 50 Hz'), ('Dimensions', '160 × 200 × 150 mm'), ('Weight', 'Approx. 3 Kg'), ('Supplied as standard', '3 nozzles and 1 pointed tip')])
 add('493 ESD', 'rework-stations', '493-esd', '493 ESD', 'Smoke Absorber / Solder Fume Extractor', pdf=(ET_(f'{RW}/493_Smoke_absorber.pdf'), '493-esd.pdf'))
 add('989', 'rework-stations', '989', '989', 'SMD Hot Tweezer for Soldering Station 937', pdf=(ET_('SMD Hot Tweezers/989.pdf'), '989.pdf'))
-add('885', 'rework-stations', '885', '885', 'Hot Air Gun, 50–650 °C, 3-Digit LCD',
-    tagline='Heavy-duty hot air gun, 50–650 °C, 400 L/min max., 3-digit LCD display.',
-    desc='Heavy-duty hot air gun with a 3-digit LCD temperature display, 50 to 650 °C and up to 400 L/min air flow, for SMD re-work, heat-shrink and general hot air soldering work.',
-    features=['Heavy duty', '3-digit LCD temperature display', '50 ~ 650 °C temperature control', '400 L/min max. air flow'],
-    specs=[('Temperature range', '50 ~ 650 °C'), ('Air flow', '400 L/min max.'), ('Display', '3-digit LCD'), ('Supply', '220 V'), ('Build', 'Heavy duty')])
 add('800 L', 'rework-stations', '800-l', '800 L', 'BGA Re-Work System Fixture (Large)',
     features=['Holds PCBs for BGA re-work', '850 series SMD re-work stations connect at the top and the 853 pre-heater sits below the PCB', 'Vacuum pickup Model 381 A can pick up and hold components', 'Smaller Model 800 S also available for small PCBs'],
     specs=[('Outer dimensions', '350 × 250 mm (approx.)'), ('Height', '365 mm (adjustable)'), ('Fixture dimension', '400 × 300 × 117 mm'), ('PCB usable (max.)', '305 mm × open side')])
@@ -250,12 +245,12 @@ for e in E:
         local = [f'{PICS}/Soldering Stations/936 A Soldering station/{n}' for n in ('936AWeb.webp', '936ANew.webp', '936.2.webp')]
     if e['id'] == '989':
         local = [f'{PICS}/SMD Hot Tweezer/989 SMD Hot tweezer/989-square.webp']
-    srcs = [f for f in local if os.path.exists(f)] or shop_photos(p)
+    srcs = [f for f in local if os.path.exists(f)]   # our own photos only (nothing taken from var-tech.com)
     os.makedirs(f"{IMG}/{e['cat']}", exist_ok=True)
     for i, f in enumerate(srcs):
         name = f"{e['id']}.webp" if i == 0 else f"{e['id']}-{i + 1}.webp"
         normalise(f, f"{IMG}/{e['cat']}/{name}"); imgs.append(name)
-    ent['images'] = imgs
+    ent['images'] = imgs or ['coming-soon.svg']
     if e['pdf']:
         ent['catalogue'] = e['pdf'][1]
         if pdf_src:

@@ -492,10 +492,7 @@
       }
     ],
     "images": [
-      "v-2101-plus.webp",
-      "v-2101-plus-2.webp",
-      "v-2101-plus-3.webp",
-      "v-2101-plus-4.webp"
+      "coming-soon.svg"
     ]
   },
   {
@@ -545,10 +542,7 @@
       }
     ],
     "images": [
-      "v-2266.webp",
-      "v-2266-2.webp",
-      "v-2266-3.webp",
-      "v-2266-4.webp"
+      "coming-soon.svg"
     ]
   },
   {
@@ -584,7 +578,7 @@
       }
     ],
     "images": [
-      "7150.webp"
+      "coming-soon.svg"
     ]
   }
 ]
