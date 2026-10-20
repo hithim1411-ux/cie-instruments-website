@@ -19,8 +19,7 @@ import { u } from '../../utils/url';
         <span class="vi-hubbody">Six site cases to diagnose from the readings, then a quiz you can send to a colleague to beat. Insulation, earthing, clamp meters and multimeters.</span>
         <span class="vi-hubgo">Take the challenge →</span>
       </a>
-      <h2 class="vi-hubh">CIE instruments</h2>
-      <p class="vi-hubp">Made by CIE in Howrah.</p>
+      <div class="vi-brand"><img src={u('/logo/cie-logo-transparent.webp')} alt="CIE" height="48" /></div>
       <div class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <a href={u('/playground/dit-2500/')} class="vi-hubcard">
           <span class="vi-hubtag"><em class="vi-hubbeta">Beta</em> Insulation tester + multimeter</span>
@@ -71,8 +70,7 @@ import { u } from '../../utils/url';
           <span class="vi-hubgo">Play with it →</span>
         </a>
       </div>
-      <h2 class="vi-hubh">Vartech instruments</h2>
-      <p class="vi-hubp">Bench and field instruments from Vartech, supplied in India by CIE.</p>
+      <div class="vi-brand"><img src={u('/images/vartech/vartech-logo.avif')} alt="Vartech" height="40" /></div>
       <div class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <a href={u('/playground/ss-5100ds1b/')} class="vi-hubcard">
           <span class="vi-hubtag"><em class="vi-hubbeta">New</em> Vartech 100 MHz digital oscilloscope</span>
@@ -106,6 +104,8 @@ import { u } from '../../utils/url';
   .vi-hubcard { display: flex; flex-direction: column; gap: .4rem; padding: 1.6rem; border-radius: 1.1rem; color: #fff; background: rgba(12,16,24,.94); border: 1px solid rgba(255,255,255,.1); transition: transform .3s var(--ease-premium), border-color .25s; }
   .vi-hubcard--wide { border-color: rgba(224,37,46,.5); background: linear-gradient(120deg, rgba(224,37,46,.16), rgba(12,16,24,.94) 60%); }
   .vi-hubcard:hover { transform: translateY(-4px); border-color: var(--color-red); }
+  .vi-brand { display: inline-flex; margin-top: 2.6rem; padding: .6rem 1.1rem; background: #fff; border-radius: .8rem; }
+  .vi-brand img { height: 2.6rem; width: auto; object-fit: contain; }
   .vi-hubh { margin-top: 2.6rem; font-size: 1.6rem; font-weight: 800; color: #fff; }
   .vi-hubp { margin-top: .3rem; color: #a3adb8; }
   .vi-hubtag { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: #7b8794; }
