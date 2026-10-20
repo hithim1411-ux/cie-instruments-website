@@ -5,6 +5,7 @@ import Icon from '../../components/Icon.astro';
 import { u } from '../../utils/url';
 import { tools } from '../../data/tools';
 import posts from '../../data/blog.json';
+import { templates } from '../../data/templates';
 
 const sorted = [...posts].sort((a, b) => b.publishDate.localeCompare(a.publishDate));
 const bySlug = Object.fromEntries(posts.map((p) => [p.slug, p]));
@@ -75,6 +76,11 @@ const searchData = {
   guides: [...posts.map((p: any) => ({ t: p.title, u: `/blog/${p.slug}/`, c: p.category, s: shelfLabel[p.shelf] ?? '', x: (p.excerpt ?? '').slice(0, 140) })),
     { t: 'Which instrument for which job', u: '/guides/', c: 'Selection guide', s: 'Reference', x: 'Match a testing job to the right instrument, what to look for, and the guide to read next.' },
     { t: 'Electrical testing standards directory', u: '/reference/standards/', c: 'Standards', s: 'Reference', x: 'IS, IEC and IEEE standards for insulation, earthing and installation testing, by scope.' },
+    ...templates.map((f) => ({ t: `${f.name} form (free PDF)`, u: `/templates/${f.slug}/`, c: 'Test report form', s: 'Downloads', x: f.summary.slice(0, 140) })),
+    { t: 'Free printable test report forms', u: '/templates/', c: 'Test report forms', s: 'Downloads', x: 'Printable PDF forms for insulation, earth, transformer, cable, relay, motor, wiring and panel tests.' },
+    { t: 'Instrument Playground', u: '/playground/', c: 'Playground', s: 'Interactive', x: 'Twist the dials and press the buttons on playful online versions of CIE instruments.' },
+    { t: 'Playground challenges', u: '/playground/challenges/', c: 'Playground', s: 'Interactive', x: 'Test your instrument reading skills with short challenges.' },
+    { t: 'Compare instruments side by side', u: '/compare/', c: 'Compare', s: 'Interactive', x: 'Pick two or three instruments and compare specifications.' },
     { t: 'IP and CAT ratings explained', u: '/reference/ratings/', c: 'Ratings', s: 'Reference', x: 'Dust and water protection codes and measurement categories CAT I to IV.' },
   ],
   tools: tools.map((t) => ({ t: t.name, u: `/tools/${t.slug}/`, c: t.category, x: t.body })),
@@ -85,14 +91,14 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'Insights - Technical Guides and Free Calculators',
   url: 'https://www.cieinstruments.in/insights/',
-  description: `${posts.length} technical guides and ${tools.length} free calculators from Cambridge Instruments & Engg. Co., Howrah.`,
+  description: `${posts.length} technical guides and ${tools.length} free calculators and ${templates.length} test report forms from Cambridge Instruments & Engg. Co., Howrah.`,
   isPartOf: { '@id': 'https://www.cieinstruments.in/#website' },
 };
 ---
 
 <Base
   title="Insights - Technical Guides and Free Calculators"
-  description={`${posts.length} technical guides on test instruments and ${tools.length} free electrical testing calculators, plus the CIE podcast, from the team that has built insulation and earth testers in Howrah since 1963.`}
+  description={`${posts.length} technical guides on test instruments and ${tools.length} free electrical testing calculators, ${templates.length} printable test report forms, plus the CIE podcast, from the team that has built insulation and earth testers in Howrah since 1963.`}
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
   <script id="ins-data" type="application/json" set:html={JSON.stringify(searchData)} />
@@ -116,7 +122,7 @@ const schema = {
             <span class="text-muted-dark">Then measure it right.</span>
           </h1>
           <p class="mt-5 text-gray-300 text-body-lg max-w-xl leading-relaxed">
-            Practical guides, free calculators and a podcast from the people who have been building test instruments in Howrah since 1963.
+            Practical guides, free calculators, printable test report forms and a podcast from the people who have been building test instruments in Howrah since 1963.
           </p>
 
           <!-- Live search -->
@@ -362,6 +368,32 @@ const schema = {
             <h3 class="mt-4 text-h4 font-bold text-ink leading-snug group-hover:text-red transition-colors">{p.title}</h3>
             <p class="mt-2 text-small text-muted leading-relaxed line-clamp-3">{p.excerpt}</p>
             <p class="mt-auto pt-5 font-mono text-[11px] text-muted">{fmt(p.publishDate)} · {p.readTime}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ More free resources ══ -->
+  <section class="section-pad-sm pt-0 lg:pt-0" id="resources">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-8">
+        <p class="eyebrow mb-3">More free resources</p>
+        <h2 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Forms, finders and a playground</h2>
+        <p class="mt-3 text-muted leading-relaxed">Print a test report form for site, find the right instrument, compare models, or play with the dials.</p>
+      </div>
+      <div class="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
+        {[
+          { href: '/templates/', icon: 'box', label: 'Download', title: 'Test report forms', body: `${templates.length} printable PDF forms with worksheets: insulation, earth, transformer, cable, relay, motor, wiring and panel.` },
+          { href: '/finder/', icon: 'gauge', label: 'Choose', title: 'Instrument finders', body: 'Answer a few questions and see which insulation tester, earth tester or meter fits your job.' },
+          { href: '/compare/', icon: 'activity', label: 'Compare', title: 'Compare side by side', body: 'Put two or three CIE or Vartech instruments next to each other and read the specifications.' },
+          { href: '/playground/', icon: 'zap', label: 'Play', title: 'Instrument playground', body: 'Twist dials, crank the handle and take readings on playful online versions of CIE testers.' },
+        ].map((r) => (
+          <a href={u(r.href)} class="card card-interactive group flex flex-col p-6">
+            <span class="grid place-items-center w-10 h-10 rounded-xl bg-ink/[0.06] text-ink group-hover:bg-red group-hover:text-white transition-colors"><Icon name={r.icon as any} class="w-5 h-5" /></span>
+            <p class="mt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-red">{r.label}</p>
+            <h3 class="mt-1 text-h4 font-bold text-ink leading-snug group-hover:text-red transition-colors">{r.title}</h3>
+            <p class="mt-2 text-small text-muted leading-relaxed">{r.body}</p>
           </a>
         ))}
       </div>
