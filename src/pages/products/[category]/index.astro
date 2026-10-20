@@ -172,8 +172,6 @@ const relatedArticles = (relatedArticleSlugs ?? [])
     </div>
   </div>
 
-  {category.id === 'vartech-dc-power-supplies' && <PowerSupplyFinder />}
-
   {isCombined ? (
     /* ── COMBINED BRAND PAGE ────────────────────────────────────────────────── */
     <div>
@@ -396,6 +394,8 @@ const relatedArticles = (relatedArticleSlugs ?? [])
       </div>
     </section>
   )}
+
+  {category.id === 'vartech-dc-power-supplies' && <PowerSupplyFinder />}
 
   <CTABand />
 </Base>
