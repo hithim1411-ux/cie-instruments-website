@@ -102,6 +102,39 @@
     e.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); if (!ev.repeat) { e.classList.add('down'); if (onShort) onShort(); } } });
     e.addEventListener('keyup', function () { e.classList.remove('down'); });
   };
+
+  /* ---- rotary knob with detents (SVG). opt: cx, cy, r, n (steps), v (start), fmt(i), label, onChange(i), a0, a1 (deg), cap ---- */
+  VI.knob = function (parent, o) {
+    var a0 = o.a0 == null ? -135 : o.a0, a1 = o.a1 == null ? 135 : o.a1, n = o.n, v = o.v || 0, r = o.r;
+    var g = VI.el('g', { 'class': 'vi-knob', tabindex: 0, role: 'slider', 'aria-label': o.label || 'Knob', 'aria-valuemin': 0, 'aria-valuemax': n - 1 }, parent);
+    g.style.cursor = 'grab'; g.style.outline = 'none'; g.style.touchAction = 'none';
+    if (n <= 30) for (var i = 0; i < n; i++) { var a = (a0 + (a1 - a0) * i / (n - 1)) * Math.PI / 180, x1 = o.cx + Math.sin(a) * (r + 4), y1 = o.cy - Math.cos(a) * (r + 4), x2 = o.cx + Math.sin(a) * (r + 9), y2 = o.cy - Math.cos(a) * (r + 9); VI.el('line', { x1: x1, y1: y1, x2: x2, y2: y2, stroke: o.tick || '#9aa3af', 'stroke-width': 2, 'stroke-linecap': 'round' }, g); }
+    VI.el('circle', { cx: o.cx, cy: o.cy, r: r + 2, fill: '#0b0c0e' }, g);
+    var rot = VI.el('g', {}, g); rot.style.transformOrigin = o.cx + 'px ' + o.cy + 'px'; rot.style.transition = 'transform .12s ease-out';
+    VI.el('circle', { cx: o.cx, cy: o.cy, r: r, fill: o.cap || 'url(#g-knob)', stroke: '#2e3035', 'stroke-width': 2 }, rot);
+    VI.el('circle', { cx: o.cx, cy: o.cy, r: r * .7, fill: 'none', stroke: 'rgba(0,0,0,.25)', 'stroke-width': 1.5 }, rot);
+    VI.el('line', { x1: o.cx, y1: o.cy - r * .28, x2: o.cx, y2: o.cy - r * .92, stroke: o.ptr || '#fff', 'stroke-width': Math.max(3, r * .12), 'stroke-linecap': 'round' }, rot);
+    var api = { get: function () { return v; }, set: function (i, quiet) { i = Math.max(0, Math.min(n - 1, Math.round(i))); var ch = i !== v; v = i; rot.style.transform = 'rotate(' + (a0 + (a1 - a0) * v / (n - 1)) + 'deg)'; g.setAttribute('aria-valuenow', v); g.setAttribute('aria-valuetext', o.fmt ? o.fmt(v) : String(v)); if (ch && !quiet && o.onChange) o.onChange(v); }, el: g };
+    var drag = null;
+    g.addEventListener('pointerdown', function (e) { e.preventDefault(); try { g.setPointerCapture(e.pointerId); } catch (x) {} drag = { x: e.clientX, y: e.clientY, v0: v, moved: false }; g.style.cursor = 'grabbing'; VI.ctx && 0; });
+    g.addEventListener('pointermove', function (e) { if (!drag) return; var dx = e.clientX - drag.x, dy = e.clientY - drag.y; if (Math.abs(dx) + Math.abs(dy) > 4) drag.moved = true; var per = o.per || Math.max(3, 140 / Math.min(n, 40)); api.set(drag.v0 + (dx - dy) / per); });
+    function end(e) { if (!drag) return; var d = drag; drag = null; g.style.cursor = 'grab'; if (!d.moved) { var bb = g.getBoundingClientRect(); api.set(v + (e.clientX < bb.left + bb.width / 2 ? -1 : 1)); } }
+    g.addEventListener('pointerup', end); g.addEventListener('pointercancel', function () { drag = null; });
+    g.addEventListener('wheel', function (e) { e.preventDefault(); api.set(v + (e.deltaY < 0 ? 1 : -1)); }, { passive: false });
+    g.addEventListener('keydown', function (e) { var k = e.key, m = { ArrowUp: 1, ArrowRight: 1, ArrowDown: -1, ArrowLeft: -1, PageUp: 5, PageDown: -5 }; if (m[k]) { e.preventDefault(); api.set(v + m[k]); } else if (k === 'Home') { e.preventDefault(); api.set(0); } else if (k === 'End') { e.preventDefault(); api.set(n - 1); } });
+    g.addEventListener('focus', function () { g.firstChild; }); 
+    api.set(v, true);
+    return api;
+  };
+  /* segmented-control helper: wires a .vi-seg container of buttons[data-v] */
+  VI.seg = function (box, get, set) {
+    var bs = [].slice.call(box.querySelectorAll('button'));
+    function paint() { var cur = String(get()); bs.forEach(function (b) { b.setAttribute('aria-checked', b.getAttribute('data-v') === cur ? 'true' : 'false'); }); }
+    bs.forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-v')); paint(); }); });
+    paint(); return paint;
+  };
+  VI.rafLoop = function (fn) { var last = performance.now(), raf = /viTimer/.test(location.search) ? function (cb) { setTimeout(function () { cb(performance.now()); }, 33); } : requestAnimationFrame.bind(window); function f(t) { var dt = Math.min(.1, (t - last) / 1000); last = t; fn(dt, t / 1000); raf(f); } raf(f); };
+  VI.rand = function () { return Math.random() + Math.random() + Math.random() - 1.5; };
   /* common settings card wiring: #speed-seg (optional), #sound, #reset */
   window.VI = VI;
 })();

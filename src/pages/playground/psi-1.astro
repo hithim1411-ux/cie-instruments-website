@@ -1,0 +1,195 @@
+---
+import VIShell from '../../components/VIShell.astro';
+import { u } from '../../utils/url';
+---
+
+<VIShell
+  slug="psi-1" model="PSI-1"
+  pageTitle="PSI-1 Phase Sequence Indicator Playground: Check Phase Rotation Online"
+  description="Just for fun: a free interactive playground version of the CIE PSI-1 disc-rotating phase sequence indicator. Connect the R, Y and B leads to a three-phase supply, watch the disc turn, swap two leads and see why a motor would run backwards."
+  h1="PSI-1 phase sequence indicator, in your browser"
+  intro="Connect the three leads to a three-phase supply and watch the disc. Swap two leads, lose a phase, drop the voltage, or tilt the instrument, and see what a motor would do on that supply."
+  productHref={u('/products/phase-sequence-indicators/psi-1/')}
+  extraLink={{ href: u('/tools/three-phase-power-calculator/'), label: 'Three-phase power calculator' }}
+  ctaBody="The PSI-1 is made and supplied by CIE in Howrah, with test certificate available on request."
+  aboutTitle="How a phase sequence indicator works"
+>
+  <Fragment slot="stage">
+    <svg id="vi-svg" viewBox="0 0 400 580" role="group" aria-label="Interactive PSI-1 disc rotating phase sequence indicator" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="g-bk" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#2d2f33"/><stop offset="1" stop-color="#0c0d0e"/></radialGradient>
+        <radialGradient id="g-disc" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#e9edf2"/><stop offset="1" stop-color="#8a919b"/></radialGradient>
+        <radialGradient id="g-glass" cx=".35" cy=".25" r=".9"><stop offset="0" stop-color="#ffffff" stop-opacity=".22"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient>
+        <radialGradient id="g-pin" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#777"/></radialGradient>
+        <filter id="f-shadow" x="-10%" y="-5%" width="120%" height="115%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".35"/></filter>
+      </defs>
+      <g id="body" filter="url(#f-shadow)">
+        <rect x="104" y="30" width="192" height="180" rx="22" fill="url(#g-bk)" stroke="#000" stroke-width="3"/>
+        <circle cx="200" cy="360" r="182" fill="url(#g-bk)" stroke="#000" stroke-width="3"/>
+        <circle cx="200" cy="360" r="170" fill="none" stroke="#1f2124" stroke-width="2"/>
+      </g>
+      <!-- terminals -->
+      <g id="posts" font-family="Inter, system-ui, sans-serif" font-weight="800" text-anchor="middle">
+        <g><circle cx="140" cy="70" r="26" fill="#c62a2a" stroke="#600" stroke-width="3"/><circle cx="140" cy="70" r="11" fill="#111" stroke="#999" stroke-width="2"/><text id="tag-R" x="140" y="26" font-size="15" fill="#374151"></text></g>
+        <g><circle cx="200" cy="58" r="26" fill="#f0a91a" stroke="#6b4300" stroke-width="3"/><circle cx="200" cy="58" r="11" fill="#111" stroke="#999" stroke-width="2"/><text id="tag-Y" x="200" y="16" font-size="15" fill="#374151"></text></g>
+        <g><circle cx="260" cy="70" r="26" fill="#2f7fd0" stroke="#0a2f5c" stroke-width="3"/><circle cx="260" cy="70" r="11" fill="#111" stroke="#999" stroke-width="2"/><text id="tag-B" x="260" y="26" font-size="15" fill="#374151"></text></g>
+      </g>
+      <g font-family="Georgia, serif" font-size="20" fill="#b8bcc4" text-anchor="middle">
+        <circle cx="128" cy="214" r="15" fill="none" stroke="#b8bcc4" stroke-width="2"/><text x="128" y="221">R</text>
+        <circle cx="178" cy="206" r="15" fill="none" stroke="#b8bcc4" stroke-width="2"/><text x="178" y="213">Y</text>
+        <circle cx="228" cy="206" r="15" fill="none" stroke="#b8bcc4" stroke-width="2"/><text x="228" y="213">B</text>
+      </g>
+      <path d="M143 214 L163 208 M193 206 H213 M243 206 L283 218" stroke="#b8bcc4" stroke-width="2" fill="none" stroke-dasharray="3 4"/>
+      <path d="M283 218 l-12 -3 l6 -8 z" fill="#b8bcc4"/>
+      <!-- window -->
+      <circle cx="200" cy="360" r="112" fill="#08090a" stroke="#222" stroke-width="6"/>
+      <g id="discwrap"><g id="disc">
+        <circle cx="200" cy="360" r="98" fill="url(#g-disc)" stroke="#555a62" stroke-width="3"/>
+        <g stroke="#3a3f47" stroke-width="2.5" opacity=".85"><path d="M200 262 V300 M200 420 V458 M102 360 H140 M260 360 H298 M131 291 l27 27 M242 402 l27 27 M269 291 l-27 27 M158 402 l-27 27"/></g>
+        <path d="M200 360 L200 270 A90 90 0 0 1 252 288 Z" fill="#c62a2a" opacity=".9"/>
+        <circle cx="200" cy="360" r="62" fill="none" stroke="#4a4f57" stroke-width="1.5" stroke-dasharray="4 6"/>
+      </g></g>
+      <!-- arrows on glass (fixed) -->
+      <g fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".92">
+        <path d="M160 335 Q200 292 244 318"/><path d="M244 318 l-20 -4 M244 318 l-6 18" stroke-width="6"/>
+        <path d="M240 392 Q200 430 156 402"/><path d="M156 402 l20 4 M156 402 l6 -18" stroke-width="6"/>
+      </g>
+      <circle cx="200" cy="360" r="11" fill="url(#g-pin)" stroke="#444" stroke-width="2"/>
+      <circle cx="200" cy="360" r="112" fill="url(#g-glass)"/>
+      <g font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="800" fill="#9aa0a8">
+        <text transform="translate(46 380) rotate(-62)">25~ ··· 65~</text>
+        <text transform="translate(326 280) rotate(62)">100V ··· 500V</text>
+      </g>
+      <ellipse cx="200" cy="520" rx="38" ry="18" fill="none" stroke="#b8bcc4" stroke-width="2.5"/><text x="200" y="527" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="22" fill="#b8bcc4">CIE</text>
+    </svg>
+  </Fragment>
+  <Fragment slot="hint">Use the panel to connect the leads. Keys: <kbd>S</kbd> swap two leads.</Fragment>
+
+  <Fragment slot="panels">
+    <section class="vi-card">
+      <h2 class="vi-h"><span>Try a scenario</span></h2>
+      <div class="vi-chips" id="scen"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>1</span>The supply you are checking</h2>
+      <div class="vi-seg vi-seg--2" id="seq-seg" role="radiogroup" aria-label="Supply phase sequence">
+        <button type="button" data-v="fwd" role="radio">Normal<small>L1 → L2 → L3</small></button>
+        <button type="button" data-v="rev" role="radio">Reversed at source<small>L1 → L3 → L2</small></button>
+      </div>
+      <div id="sup-sl"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>2</span>Connect the leads</h2>
+      <div class="vi-cols" style="grid-template-columns:repeat(3,1fr)">
+        <div><label for="w-R">R (red) to</label><select class="vi-sel" id="w-R"></select></div>
+        <div><label for="w-Y">Y (yellow) to</label><select class="vi-sel" id="w-Y"></select></div>
+        <div><label for="w-B">B (blue) to</label><select class="vi-sel" id="w-B"></select></div>
+      </div>
+      <div class="vi-row" style="margin-top:.6rem"><span class="vi-lbl">Swap two leads</span><button type="button" class="vi-btn" id="swap">Swap Y and B</button></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>3</span>How you hold it</h2>
+      <div class="vi-seg vi-seg--2" id="pos-seg" role="radiogroup" aria-label="Instrument position">
+        <button type="button" data-v="flat" role="radio">Flat, face up<small>horizontal</small></button>
+        <button type="button" data-v="tilt" role="radio">Held upright<small>vertical</small></button>
+      </div>
+    </section>
+    <section class="vi-card vi-live">
+      <h2 class="vi-h"><span>4</span>What it is telling you</h2>
+      <div class="vi-status" id="status" aria-live="polite"></div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-top:1rem">
+        <svg id="motor" viewBox="0 0 80 80" width="80" height="80" role="img" aria-label="Motor on this supply"><circle cx="40" cy="40" r="36" fill="#18212b" stroke="#2b3744" stroke-width="3"/><g id="fan"><path d="M40 40 L40 10 A30 30 0 0 1 66 25 Z" fill="#5ad1ff"/><path d="M40 40 L66 55 A30 30 0 0 1 40 70 Z" fill="#5ad1ff"/><path d="M40 40 L14 55 A30 30 0 0 1 14 25 Z" fill="#5ad1ff"/></g><circle cx="40" cy="40" r="5" fill="#fff"/></svg>
+        <div class="vi-status" id="motor-txt" style="min-height:0"></div>
+      </div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>5</span>Simulator settings</h2>
+      <div class="vi-row"><span class="vi-lbl">Reset everything</span><button type="button" class="vi-btn" id="reset">Reset</button></div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="about">
+    <ul>
+      <li><strong>What it checks:</strong> the order in which the three phases of a supply reach their peak, called the phase sequence. Connect a motor to the wrong sequence and it runs backwards, which can damage pumps, fans, compressors and conveyors.</li>
+      <li><strong>How the disc works:</strong> three coils produce a magnetic field that rotates in step with the supply. The rotating field drags the lightweight metal disc around with it, and the direction of the disc shows the direction of the field. In this simulator, clockwise means R, Y, B (the normal, positive sequence) and anticlockwise means R, B, Y.</li>
+      <li><strong>Swap two leads and the disc reverses.</strong> That is the quick fix at a motor terminal box too: swapping any two supply leads reverses the motor.</li>
+      <li><strong>Lose a phase or short two leads together:</strong> there is no rotating field, so the disc does not turn steadily. A motor on that supply would hum and overheat.</li>
+      <li><strong>Voltage and frequency:</strong> the PSI-1 works from 100 to 500 V AC and 25 to 65 Hz. Below 100 V the torque is too small to turn the disc reliably.</li>
+      <li><strong>Hold it flat:</strong> the instrument is made to be used horizontally. Held upright the disc leans on its bearing and does not turn properly.</li>
+      <li><strong>Safety:</strong> you are connecting to live three-phase supply. Use insulated leads and clips, and follow your site's safe working procedure.</li>
+    </ul>
+    <p class="vi-fine">This is a playful beta simulation. Which way the real disc turns for a given sequence, and the exact speed, depend on the instrument and are approximated here (clockwise shown for R, Y, B). Always follow the instruction manual and the markings on your instrument.</p>
+  </Fragment>
+</VIShell>
+
+<script is:inline src="/js/vi-core.js"></script>
+<script is:inline>
+(function () {
+  var VI = window.VI, $ = VI.$;
+  function fresh() { return { seq: 'fwd', V: 415, f: 50, w: { R: 'L1', Y: 'L2', B: 'L3' }, pos: 'flat', ang: 0, om: 0, mang: 0 }; }
+  var S = fresh();
+  ['R', 'Y', 'B'].forEach(function (k) { $('w-' + k).innerHTML = ['L1', 'L2', 'L3', '-'].map(function (v) { return '<option value="' + v + '">' + (v === '-' ? 'Not connected' : 'Phase ' + v) + '</option>'; }).join(''); $('w-' + k).addEventListener('change', function () { S.w[k] = $('w-' + k).value; sync(); }); });
+  $('sup-sl').innerHTML = VI.slider('sl-v', 'Supply voltage (line to line)', 0, 600, 5) + VI.slider('sl-f', 'Supply frequency', 20, 70, 1);
+  function bind(id, get, set, fmt) { var s = $(id), o = $(id + '-o'); s.addEventListener('input', function () { set(+s.value); sync(); }); s._sync = function () { s.value = get(); o.textContent = fmt(+s.value); }; }
+  bind('sl-v', function () { return S.V; }, function (v) { S.V = v; }, function (v) { return v + ' V'; });
+  bind('sl-f', function () { return S.f; }, function (v) { S.f = v; }, function (v) { return v + ' Hz'; });
+  var segs = [VI.seg($('seq-seg'), function () { return S.seq; }, function (v) { S.seq = v; sync(); }), VI.seg($('pos-seg'), function () { return S.pos; }, function (v) { S.pos = v; sync(); })];
+  $('swap').addEventListener('click', swap); function swap() { var t = S.w.Y; S.w.Y = S.w.B; S.w.B = t; sync(); }
+  $('reset').addEventListener('click', function () { S = fresh(); sync(); });
+  document.addEventListener('keydown', function (e) { if (/INPUT|SELECT|TEXTAREA/.test((e.target || {}).tagName || '')) return; if (e.key === 's' || e.key === 'S') swap(); });
+  var SC = [
+    ['Normal supply', function () { }],
+    ['Reversed supply', function () { S.seq = 'rev'; }],
+    ['Swapped two leads', function () { S.w.Y = 'L3'; S.w.B = 'L2'; }],
+    ['A phase is missing', function () { S.w.B = '-'; }],
+    ['Two leads on one phase', function () { S.w.B = 'L2'; }],
+    ['Low voltage (60 V)', function () { S.V = 60; }],
+    ['Held upright', function () { S.pos = 'tilt'; }]
+  ];
+  var sc = $('scen'); SC.forEach(function (s) { var b = document.createElement('button'); b.type = 'button'; b.className = 'vi-chip'; b.textContent = s[0]; b.addEventListener('click', function () { S = fresh(); s[1](); sync(); }); sc.appendChild(b); });
+
+  /* direction: +1 clockwise (RYB), -1 anticlockwise, 0 no rotating field */
+  var ANG = { fwd: { L1: 0, L2: -120, L3: -240 }, rev: { L1: 0, L2: -240, L3: -120 } };
+  function mod(a) { return ((a % 360) + 360) % 360; }
+  function dirOf() {
+    var w = S.w; if (w.R === '-' || w.Y === '-' || w.B === '-') return 0;
+    if (w.R === w.Y || w.Y === w.B || w.R === w.B) return 0;
+    var a = ANG[S.seq], aR = a[w.R], aY = a[w.Y], d = mod(aY - aR);
+    return Math.abs(d - 240) < 1 ? 1 : -1;
+  }
+  function target() {
+    var d = dirOf(), v = S.V, f = S.f; if (!d) return { d: 0, om: 0 };
+    if (S.pos === 'tilt') return { d: d, om: 0, rub: true };
+    if (v < 100) return { d: d, om: 0 };
+    var om = .9 * Math.pow(Math.min(v, 650) / 415, 2) * (f >= 25 && f <= 65 ? 1 : .35);
+    return { d: d, om: d * om };
+  }
+  function sync() {
+    ['R', 'Y', 'B'].forEach(function (k) { $('w-' + k).value = S.w[k]; $('tag-' + k).textContent = S.w[k] === '-' ? '' : S.w[k]; });
+    ['sl-v', 'sl-f'].forEach(function (i) { $(i)._sync(); }); segs.forEach(function (f) { f(); });
+    var d = dirOf(), t = target(), h = '', mt = '';
+    if (d === 0) {
+      h = '<p class="warn"><strong>No steady rotation.</strong> ' + ((S.w.R === '-' || S.w.Y === '-' || S.w.B === '-') ? 'A lead is not connected, so a phase is missing.' : 'Two leads are on the same phase, so there is no rotating field.') + ' The disc only twitches.</p>';
+      mt = 'A motor on this supply would hum, draw heavy current and overheat. Do not run it.';
+    } else if (t.rub) { h = '<p class="warn"><strong>Hold it flat.</strong> The PSI-1 is meant to be used horizontally. Held upright the disc leans on its bearing and will not turn properly.</p>'; mt = 'No reading, so nothing to conclude about the supply.'; }
+    else if (S.V < 100) { h = '<p class="warn"><strong>Voltage too low.</strong> ' + S.V + ' V is below the 100 V minimum for the PSI-1, so the disc does not turn reliably.</p>'; mt = 'No reliable reading.'; }
+    else {
+      h = '<p class="' + (d > 0 ? 'ok' : 'warn') + '"><strong>Disc turns ' + (d > 0 ? 'clockwise: R, Y, B' : 'anticlockwise: R, B, Y') + '.</strong> ' + (d > 0 ? 'This is the sequence the arrow on the instrument marks as correct.' : 'The sequence is the opposite way round.') + '</p>';
+      mt = d > 0 ? 'A motor wired U, V, W to R, Y, B would run forward.' : 'A motor wired U, V, W to R, Y, B would run backwards. Swap any two supply leads to correct it.';
+      if (S.V > 500) h += '<p class="warn">Above the 500 V rating of the instrument. Do not connect it.</p>';
+      if (S.f < 25 || S.f > 65) h += '<p class="warn">' + S.f + ' Hz is outside the 25 to 65 Hz range, so the disc is sluggish.</p>';
+    }
+    $('status').innerHTML = h; $('motor-txt').innerHTML = '<p>' + mt + '</p>'; mdir = d && !t.rub && S.V >= 100 ? d : 0;
+  }
+  var mdir = 0;
+  VI.rafLoop(function (dt) {
+    var t = target(), rate = t.d === 0 || t.rub ? 0 : 1; var tgt = t.om;
+    S.om += (tgt - S.om) * Math.min(1, dt * 2.2);
+    if (t.d === 0 && S.V >= 100 && S.pos === 'flat') { S.ang += Math.sin(performance.now() / 55) * 1.1; } else if (t.rub && S.V >= 100) { S.ang += Math.sin(performance.now() / 90) * .4; }
+    S.ang += S.om * 360 * dt; $('disc').setAttribute('transform', 'rotate(' + S.ang.toFixed(2) + ' 200 360)');
+    S.mang += mdir * Math.min(1, S.V / 415) * 540 * dt; $('fan').setAttribute('transform', 'rotate(' + S.mang.toFixed(1) + ' 40 40)');
+    $('discwrap').style.transform = S.pos === 'tilt' ? 'translate(0,4px)' : '';
+  });
+  sync();
+})();
+</script>

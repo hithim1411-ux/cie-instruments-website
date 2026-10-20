@@ -1,0 +1,209 @@
+---
+import VIShell from '../../components/VIShell.astro';
+import { u } from '../../utils/url';
+---
+
+<VIShell
+  slug="v-6700-b" model="Vartech V 6700 B"
+  pageTitle="V 6700 B Sound Level Meter Playground: Measure Noise Online"
+  description="Just for fun: a free interactive playground version of the Vartech V 6700 B digital sound level meter. Choose a noise scene or switch on your own microphone, then try A-weighting, Fast and Slow response, Max hold and the 85 dB line."
+  h1="V 6700 B sound level meter, in your browser"
+  intro="Measure the noise of a quiet room, an office, a factory floor or an angle grinder. Or switch on your own microphone and shout, clap and whistle. Try Fast and Slow response, Max hold and the range switch."
+  productHref={u('/authorised-dealership/sound-level-meters/v-6700-b/')}
+  extraLink={{ href: u('/blog/vartech-v-6700-b-sound-level-meter-guide/'), label: 'Read the V 6700 B guide' }}
+  ctaBody="The Vartech V 6700 B is supplied by CIE Instruments, authorised distributor for Vartech in India."
+  aboutTitle="How a sound level meter works"
+>
+  <Fragment slot="stage">
+    <svg id="vi-svg" viewBox="0 0 320 700" role="group" aria-label="Interactive V 6700 B digital sound level meter" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g-body" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#23262b"/><stop offset=".5" stop-color="#34383f"/><stop offset="1" stop-color="#1d2024"/></linearGradient>
+        <linearGradient id="g-mic" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c828c"/><stop offset=".5" stop-color="#e4e7ec"/><stop offset="1" stop-color="#6b717b"/></linearGradient>
+        <radialGradient id="g-lcd" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#c9cfc3"/><stop offset="1" stop-color="#aeb5a7"/></radialGradient>
+        <radialGradient id="g-lcd-bl" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#eaf8e2"/><stop offset="1" stop-color="#c6e5bd"/></radialGradient>
+        <radialGradient id="g-knob" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#5a5f68"/><stop offset="1" stop-color="#181a1d"/></radialGradient>
+        <filter id="f-shadow" x="-20%" y="-5%" width="140%" height="115%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".3"/></filter>
+      </defs>
+      <rect filter="url(#f-shadow)" x="70" y="96" width="180" height="590" rx="26" fill="url(#g-body)" stroke="#0b0c0e" stroke-width="3"/>
+      <!-- microphone -->
+      <rect x="127" y="18" width="66" height="96" rx="30" fill="url(#g-mic)" stroke="#3a3f47" stroke-width="3"/>
+      <g stroke="#555b64" stroke-width="1.6" opacity=".6"><path d="M137 36h46M133 46h54M133 56h54M133 66h54M133 76h54M137 86h46"/></g>
+      <rect x="116" y="106" width="88" height="14" rx="4" fill="#161819"/>
+      <!-- LCD -->
+      <rect x="86" y="134" width="148" height="140" rx="8" fill="#0f1114" stroke="#000" stroke-width="3"/>
+      <rect id="lcd-glass" x="94" y="142" width="132" height="124" rx="4" fill="url(#g-lcd)"/>
+      <g id="lcd" font-family="Inter, system-ui, sans-serif" fill="#1a1d18">
+        <g id="lcd-main"></g>
+        <text id="an-fast" class="ann" x="100" y="164" font-size="11" font-weight="800">FAST</text>
+        <text id="an-slow" class="ann" x="100" y="178" font-size="11" font-weight="800">SLOW</text>
+        <text id="an-max" class="ann" x="150" y="164" font-size="11" font-weight="800">MAX</text>
+        <text id="an-over" class="ann" x="188" y="164" font-size="10" font-weight="800">OVER</text>
+        <text id="an-under" class="ann" x="186" y="178" font-size="10" font-weight="800">UNDER</text>
+        <text id="an-dba" class="ann" x="194" y="254" font-size="14" font-weight="800">dBA</text>
+        <text id="an-rng" class="ann" x="100" y="254" font-size="11" font-weight="800"></text>
+      </g>
+      <rect id="lcd-glow" x="94" y="142" width="132" height="124" rx="4" fill="#fff" opacity="0" pointer-events="none"/>
+      <!-- buttons -->
+      <g font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="800" fill="#cfd5de" text-anchor="middle">
+        <g id="b-pow" class="btn" tabindex="0" role="button" aria-label="Power"><circle cx="122" cy="340" r="24" fill="#111"/><circle cx="122" cy="340" r="19" fill="#b02c2c" stroke="#2a0d0d" stroke-width="2"/></g><text x="122" y="382">POWER</text>
+        <g id="b-rng" class="btn" tabindex="0" role="button" aria-label="Range"><circle cx="198" cy="340" r="24" fill="#111"/><circle cx="198" cy="340" r="19" fill="url(#g-knob)" stroke="#2a2d33" stroke-width="2"/></g><text x="198" y="382">RANGE</text>
+        <g id="b-fs" class="btn" tabindex="0" role="button" aria-label="Fast or Slow"><circle cx="122" cy="440" r="24" fill="#111"/><circle cx="122" cy="440" r="19" fill="url(#g-knob)" stroke="#2a2d33" stroke-width="2"/></g><text x="122" y="482">FAST/SLOW</text>
+        <g id="b-max" class="btn" tabindex="0" role="button" aria-label="Max hold"><circle cx="198" cy="440" r="24" fill="#111"/><circle cx="198" cy="440" r="19" fill="url(#g-knob)" stroke="#2a2d33" stroke-width="2"/></g><text x="198" y="482">MAX</text>
+        <text x="160" y="548" font-size="14" fill="#e6e9ee" letter-spacing="1">VARTECH</text>
+        <text x="160" y="572" font-size="12" fill="#9aa3af">Digital Sound Level Meter</text>
+        <text x="160" y="592" font-size="12" font-family="'IBM Plex Mono', monospace" fill="#9aa3af">V 6700 B</text>
+        <text x="160" y="632" font-size="10" fill="#7b8490">30-130 dBA · A-weighting</text>
+      </g>
+    </svg>
+  </Fragment>
+  <Fragment slot="hint">Press the round buttons. Keys: <kbd>P</kbd> power, <kbd>R</kbd> range, <kbd>F</kbd> fast/slow, <kbd>M</kbd> max hold.</Fragment>
+
+  <Fragment slot="panels">
+    <section class="vi-card">
+      <h2 class="vi-h"><span>1</span>What is the meter listening to?</h2>
+      <div class="vi-seg vi-seg--2" id="mode-seg" role="radiogroup" aria-label="Sound source">
+        <button type="button" data-v="scene" role="radio">A noise scene<small>simulated</small></button>
+        <button type="button" data-v="mic" role="radio">My microphone<small>live, in your browser</small></button>
+      </div>
+      <div id="scene-box" style="margin-top:1rem"><div class="vi-chips" id="scen"></div></div>
+      <div id="mic-box" style="margin-top:1rem" hidden>
+        <p class="vi-note" id="mic-note" style="margin-top:0"></p>
+        <div id="cal-sl"></div>
+        <div class="vi-row"><span class="vi-lbl">Calibrate</span><button type="button" class="vi-btn" id="cal94">Set reading to 94.0 dB</button></div>
+        <p class="vi-note">Phone and laptop microphones are not calibrated, so the numbers are only a rough guide. Use a real 94 dB calibrator with a real sound level meter for measurements that matter. Your audio is processed in your browser only and is never recorded or sent anywhere.</p>
+      </div>
+    </section>
+    <section class="vi-card vi-live">
+      <h2 class="vi-h"><span>2</span>What the meter is telling you</h2>
+      <div class="vi-status" id="status" aria-live="polite"></div>
+      <svg id="chart" viewBox="0 0 420 170" role="img" aria-label="Sound level over the last thirty seconds"></svg>
+      <div class="vi-spec">Last 30 seconds, 30 to 130 dB. Dashed line: 85 dB, a commonly used 8-hour action level.</div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>3</span>Simulator settings</h2>
+      <div class="vi-row"><span class="vi-lbl">Backlight on display</span><label class="vi-switch"><input type="checkbox" id="bl" /><span></span></label></div>
+      <div class="vi-row"><span class="vi-lbl">Reset everything</span><button type="button" class="vi-btn" id="reset">Reset</button></div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="about">
+    <ul>
+      <li><strong>Decibels:</strong> the scale is logarithmic. Every 3 dB is double the sound energy, and about 10 dB sounds roughly twice as loud. Two machines at 85 dB together make 88 dB, not 170.</li>
+      <li><strong>A-weighting:</strong> the ear is less sensitive to low and very high frequencies, so the meter filters the sound to match. That is the "A" in dBA. The simulator applies a real A-weighting filter to your microphone.</li>
+      <li><strong>Fast and Slow:</strong> Fast averages over about a quarter of a second and follows changes quickly. Slow averages over a second and gives a steadier number. Fast suits speech and bangs, Slow suits steady machine noise.</li>
+      <li><strong>Max hold:</strong> keeps the highest reading since you switched it on, so you can catch the loudest moment of a shout or a press stroke.</li>
+      <li><strong>Range and warnings:</strong> the meter covers 30 to 130 dBA, in ranges of about 50 dB. If the sound is above the selected range it shows OVER, and if it is below, UNDER. Change the range to bring the reading back.</li>
+      <li><strong>Where you stand matters:</strong> hold the meter at arm's length, away from your body, and point the microphone at the source. Walls and your own body reflect sound.</li>
+    </ul>
+    <p class="vi-fine">This is a playful beta simulation. The scenes are made-up levels. The ranges (30-80, 50-100 and 80-130 dB), response times and display of the real V 6700 B are approximated, and the instrument's 1/2-inch condenser microphone is very different from a phone microphone. Do not use this to assess real noise exposure, and follow your site's noise rules and the instruction manual.</p>
+  </Fragment>
+</VIShell>
+
+<script is:inline src="/js/vi-core.js"></script>
+<script is:inline>
+(function () {
+  var VI = window.VI, $ = VI.$, el = VI.el;
+  var RANGES = [[30, 80], [50, 100], [80, 130]];
+  var SCENES = [['Quiet room', 35, 1.5], ['Office', 55, 3], ['Conversation', 65, 5], ['Busy road', 75, 4], ['Factory floor', 88, 3], ['Angle grinder', 100, 2], ['Rock concert', 112, 3], ['Siren', 122, 1]];
+  function fresh() { return { on: true, rng: 1, fast: true, max: false, mode: 'scene', scene: 1, bl: false, cal: 110, maxV: 0, disp: 55, ms: 1e-9, hist: [], t2: 0 }; }
+  var S = fresh(), disp = VI.build($('lcd-main'), 4, 100, 186, 30, 24, 52, 5.5, 6), inst = 0, simT = 0, simBurst = 0;
+  var mic = { on: false, ctx: null, an: null, buf: null, stream: null, msg: '' };
+
+  function micStart() {
+    mic.on = true; mic.msg = 'Asking for your microphone...'; note();
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { mic.on = false; mic.msg = 'Microphone not available in this browser. Using a noise scene instead.'; S.mode = 'scene'; note(); sync(); return; }
+    navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } }).then(function (st) {
+      if (S.mode !== 'mic') { st.getTracks().forEach(function (t) { t.stop(); }); return; }
+      var AC = window.AudioContext || window.webkitAudioContext, c = new AC(), src = c.createMediaStreamSource(st);
+      function bq(type, f, qdb) { var b = c.createBiquadFilter(); b.type = type; b.frequency.value = f; b.Q.value = qdb; return b; }
+      var f1 = bq('highpass', 20.6, -6.02), f2 = bq('highpass', 281.9, -9.54), f3 = bq('lowpass', 12194, -6.02), g = c.createGain(); g.gain.value = 1.2589;
+      var an = c.createAnalyser(); an.fftSize = 2048;
+      src.connect(f1); f1.connect(f2); f2.connect(f3); f3.connect(g); g.connect(an);
+      mic.ctx = c; mic.an = an; mic.buf = new Float32Array(2048); mic.stream = st; mic.msg = 'Live from your microphone, with an A-weighting filter. Clap, talk, whistle.'; note();
+    }).catch(function () { mic.on = false; mic.msg = 'Microphone was blocked. Using a noise scene instead.'; S.mode = 'scene'; note(); sync(); });
+  }
+  function micStop() {
+    if (mic.stream) mic.stream.getTracks().forEach(function (t) { t.stop(); });
+    if (mic.ctx) { try { mic.ctx.close(); } catch (e) {} }
+    mic.on = false; mic.ctx = null; mic.an = null; mic.stream = null; mic.msg = ''; note();
+  }
+  function note() { $('mic-note').textContent = mic.msg; }
+
+  function sceneMs(dt) {
+    var sc = SCENES[S.scene]; simT += dt; simBurst -= dt;
+    if (simBurst <= 0 && Math.random() < dt * .25) simBurst = .15 + Math.random() * .3;
+    var L = sc[1] + sc[2] * Math.sin(simT * .7) * .5 + VI.rand() * 1.2 + (simBurst > 0 ? 7 : 0);
+    var ms = Math.pow(10, L / 10) * (1 + 1.1 * VI.rand());
+    return Math.max(ms, 1e-12) * Math.pow(10, -(S.cal - 110) / 10 * 0);
+  }
+  function micMs(dt) {
+    if (!mic.an) return null;
+    mic.an.getFloatTimeDomainData(mic.buf); var n = Math.max(64, Math.min(2048, Math.round(dt * mic.ctx.sampleRate))), s = 0, b = mic.buf;
+    for (var i = b.length - n; i < b.length; i++) s += b[i] * b[i];
+    return Math.max(s / n, 1e-14) * Math.pow(10, (S.cal - 110) / 10) * 1;
+  }
+  function level(ms, isMic) { return 10 * Math.log10(ms) + (isMic ? 110 : 0); }
+
+  function render() {
+    var r = RANGES[S.rng], v = S.disp, over = v > r[1] + .05, under = v < r[0] - .05;
+    var shown = S.max ? S.maxV : v; shown = Math.max(0, Math.min(shown, over ? r[1] : 999.9));
+    if (S.on) { var d = VI.digits(Math.min(130, Math.max(0, shown)), 1, 4); VI.setDigits(disp, d.s.charAt(0) === '0' && shown < 100 ? ' ' + d.s.slice(1) : d.s, d.dp); } else VI.setDigits(disp, '    ', -1);
+    function an(id, on) { $(id).classList.toggle('on', S.on && on); }
+    an('an-fast', S.fast); an('an-slow', !S.fast); an('an-max', S.max); an('an-over', over); an('an-under', under); an('an-dba', true);
+    $('an-rng').textContent = r[0] + '-' + r[1]; an('an-rng', true);
+    $('lcd-glass').setAttribute('fill', S.bl && S.on ? 'url(#g-lcd-bl)' : 'url(#g-lcd)');
+  }
+  function status() {
+    var r = RANGES[S.rng], v = S.disp, h = '';
+    if (!S.on) h = '<p><strong>The meter is off.</strong> Press POWER.</p>';
+    else {
+      h += '<p><strong>' + v.toFixed(1) + ' dBA</strong> now, ' + (S.fast ? 'Fast (125 ms)' : 'Slow (1 s)') + ' response' + (S.max ? ', Max hold ' + S.maxV.toFixed(1) + ' dBA' : '') + '.</p>';
+      if (v > r[1] + .05) h += '<p class="warn"><strong>OVER range.</strong> The sound is above ' + r[1] + ' dB. Switch to a higher range.</p>';
+      else if (v < r[0] - .05) h += '<p class="warn"><strong>UNDER range.</strong> The sound is below ' + r[0] + ' dB. Switch to a lower range.</p>';
+      if (v >= 85) h += '<p class="warn">At or above 85 dBA: many workplaces require hearing protection and limit the daily exposure time at this level.</p>';
+      else if (v >= 70) h += '<p>Loud enough to make talking uncomfortable over a long time.</p>';
+    }
+    $('status').innerHTML = h;
+  }
+  function sync() {
+    $('scene-box').hidden = S.mode !== 'scene'; $('mic-box').hidden = S.mode !== 'mic'; paintMode();
+    document.querySelectorAll('#scen button').forEach(function (b, i) { b.style.borderColor = i === S.scene ? 'var(--color-red)' : ''; b.style.color = i === S.scene ? 'var(--color-red)' : ''; });
+    $('bl').checked = S.bl; var cs = $('sl-cal'); cs.value = S.cal; $('sl-cal-o').textContent = (S.cal - 110 >= 0 ? '+' : '') + (S.cal - 110) + ' dB'; render();
+  }
+  var paintMode = VI.seg($('mode-seg'), function () { return S.mode; }, function (v) { S.mode = v; if (v === 'mic') micStart(); else micStop(); sync(); });
+  $('cal-sl').innerHTML = VI.slider('sl-cal', 'Calibration offset', 70, 150, 1);
+  $('sl-cal').addEventListener('input', function () { S.cal = +$('sl-cal').value; sync(); });
+  $('cal94').addEventListener('click', function () { var L = 10 * Math.log10(Math.max(S.ms, 1e-14)) + (mic.an ? 110 : 0); S.cal = Math.round(Math.max(70, Math.min(150, S.cal + 94 - L))); S.maxV = 0; sync(); });
+  var sc = $('scen'); SCENES.forEach(function (s, i) { var b = document.createElement('button'); b.type = 'button'; b.className = 'vi-chip'; b.textContent = s[0] + ' (' + s[1] + ' dBA)'; b.addEventListener('click', function () { S.scene = i; S.maxV = 0; sync(); }); sc.appendChild(b); });
+  function pow() { S.on = !S.on; S.maxV = 0; sync(); }
+  function rng() { S.rng = (S.rng + 1) % 3; S.maxV = 0; sync(); }
+  function fsw() { S.fast = !S.fast; sync(); }
+  function mx() { S.max = !S.max; S.maxV = 0; sync(); }
+  VI.wireButton($('b-pow'), function () { VI.tick(1500, .05); pow(); });
+  VI.wireButton($('b-rng'), function () { VI.tick(1200, .05); rng(); });
+  VI.wireButton($('b-fs'), function () { VI.tick(1200, .05); fsw(); });
+  VI.wireButton($('b-max'), function () { VI.tick(1200, .05); mx(); });
+  $('bl').addEventListener('change', function () { S.bl = $('bl').checked; render(); });
+  $('reset').addEventListener('click', function () { micStop(); S = fresh(); sync(); });
+  document.addEventListener('keydown', function (e) { if (/INPUT|SELECT|TEXTAREA/.test((e.target || {}).tagName || '')) return; var k = e.key.toLowerCase(); if (k === 'p') pow(); else if (k === 'r') rng(); else if (k === 'f') fsw(); else if (k === 'm') mx(); });
+  window.addEventListener('pagehide', micStop);
+
+  /* chart */
+  var ch = $('chart'), line = el('path', { fill: 'none', stroke: '#5ad1ff', 'stroke-width': 2 }, ch);
+  [30, 55, 80, 105, 130].forEach(function (d) { var y = 160 - (d - 30) / 100 * 150; el('line', { x1: 0, x2: 420, y1: y, y2: y, stroke: 'rgba(255,255,255,.08)' }, ch); var t = el('text', { x: 3, y: y - 2 }, ch); t.textContent = d; });
+  el('line', { x1: 0, x2: 420, y1: 160 - 55 / 100 * 150, y2: 160 - 55 / 100 * 150, stroke: '#ff9b3a', 'stroke-dasharray': '5 5', 'stroke-width': 1.3 }, ch);
+  var upd = 0, stc = 0;
+  VI.rafLoop(function (dt, now) {
+    var ms = S.mode === 'mic' && mic.an ? micMs(dt) : (S.mode === 'scene' ? sceneMs(dt) : null);
+    if (ms === null) ms = S.ms;
+    var tau = S.fast ? .125 : 1; S.ms += (ms - S.ms) * (1 - Math.exp(-dt / tau));
+    var isMic = S.mode === 'mic' && !!mic.an, L = 10 * Math.log10(Math.max(S.ms, 1e-14)) + (isMic ? 110 : 0);
+    if (isMic) { /* mic path: ms already includes cal offset */ }
+    if (S.on && L > S.maxV) S.maxV = L;
+    upd += dt; if (upd >= .5) { upd = 0; S.disp = Math.round(L * 10) / 10; if (S.disp < 0) S.disp = 0; render(); }
+    S.t2 += dt; if (S.t2 >= .15) { S.t2 = 0; S.hist.push(L); if (S.hist.length > 200) S.hist.shift(); var d = ''; S.hist.forEach(function (v, i) { d += (i ? 'L' : 'M') + (i / 199 * 420).toFixed(1) + ' ' + (160 - Math.max(0, Math.min(100, v - 30)) / 100 * 150).toFixed(1); }); line.setAttribute('d', d); }
+    if (++stc % 15 === 0) status();
+  });
+  sync(); status();
+})();
+</script>

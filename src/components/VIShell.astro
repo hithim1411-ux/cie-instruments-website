@@ -181,5 +181,12 @@ const schema = {
   .vi-prose strong { color: var(--color-ink); }
   .vi-fine { margin-top: 1.4rem; font-size: .84rem; line-height: 1.6; color: var(--color-muted); }
 
+  .vi-knob:focus-visible { filter: drop-shadow(0 0 5px #ffb83a); }
+  .vi-sel { width: 100%; padding: .55rem .7rem; font-size: .88rem; font-weight: 600; color: var(--color-ink); background: #fff; border: 1px solid var(--color-border); border-radius: .6rem; }
+  .vi-sel:focus-visible { outline: 2px solid var(--color-red); outline-offset: 2px; }
+  .vi-cols { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+  .vi-cols label { display: block; font-size: .72rem; font-family: var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--color-muted); margin-bottom: .3rem; }
+  .vi-seg--5 { grid-template-columns: repeat(5, minmax(0,1fr)); }
+  .vi-live .vi-seg { background: rgba(255,255,255,.07); } .vi-live .vi-seg button { color: #9aa6b4; } .vi-live .vi-seg button[aria-checked="true"] { background: #fff; color: #0b1118; }
   @media (prefers-reduced-motion: reduce) { #knob, #vi-svg .btn { transition: none; } .hv-glow { animation: none; } }
 </style>

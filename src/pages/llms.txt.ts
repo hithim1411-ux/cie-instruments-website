@@ -53,7 +53,7 @@ export const GET: APIRoute = () => {
   L.push(`- [Electrical testing standards directory](${ORIGIN}/reference/standards/): IS, IEC and IEEE standards used in insulation, earthing and installation testing, summarised by scope`);
   L.push(`- [IP and CAT ratings explained](${ORIGIN}/reference/ratings/): dust and water protection codes and measurement categories CAT I to CAT IV`);
   L.push(`- [Test report forms (printable PDF)](${ORIGIN}/templates/): one page per form: insulation resistance (IEEE 43), earth resistance and soil resistivity, earth pit register, transformer oil BDV, transformer megger, cable insulation, micro-ohm contact resistance, AC hi-pot and overcurrent relay injection, each with a worksheet`);
-  L.push(`- [Instrument Playground](${ORIGIN}/playground/): beta simulators of CIE instruments, plus find-the-fault challenges`);
+  L.push(`- [Instrument Playground](${ORIGIN}/playground/): beta simulators of CIE and Vartech instruments (insulation and earth testers, clamp meters, oil BDV tester, phase sequence indicator, oscilloscope, bench power supply, sound level meter), plus find-the-fault challenges`);
   L.push('');
   L.push('## Guides and articles');
   L.push('');

@@ -1,0 +1,258 @@
+---
+import VIShell from '../../components/VIShell.astro';
+import { u } from '../../utils/url';
+---
+
+<VIShell
+  slug="vartech-3005-b" model="Vartech 3005 B"
+  pageTitle="Vartech 3005 B Power Supply Playground: CV and CC Simulator"
+  description="Just for fun: a free interactive playground version of the Vartech 3005 B 30 V / 5 A linear bench power supply. Set the voltage and current limit, switch the output on, and watch it flip between constant voltage and constant current on a resistor, an LED, a lamp, a battery or a short circuit."
+  h1="Vartech 3005 B power supply, in your browser"
+  intro="Set the voltage and the current limit, switch the output on and connect a load. See the supply flip between constant voltage (CV) and constant current (CC), save an LED, light a lamp, charge a battery and short the output on purpose."
+  productHref={u('/authorised-dealership/dc-power-supplies/3005-b/')}
+  extraLink={{ href: u('/power-supply-finder/'), label: 'Power supply finder' }}
+  ctaBody="The Vartech 3005 B and the rest of the Vartech power supply range are supplied by CIE Instruments, authorised distributor for Vartech in India."
+  aboutTitle="How a bench power supply works"
+>
+  <Fragment slot="stage">
+    <svg id="vi-svg" viewBox="0 0 480 650" role="group" aria-label="Interactive 3005 B bench power supply" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g-case" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4048"/><stop offset="1" stop-color="#272b31"/></linearGradient>
+        <radialGradient id="g-knob" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#6a7078"/><stop offset="1" stop-color="#1c1e22"/></radialGradient>
+        <radialGradient id="g-post" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#4a4d53"/><stop offset="1" stop-color="#0e0f11"/></radialGradient>
+        <radialGradient id="g-glow"><stop offset="0" stop-color="#fff6c0" stop-opacity="1"/><stop offset="1" stop-color="#ffb02e" stop-opacity="0"/></radialGradient>
+        <radialGradient id="g-ledglow"><stop offset="0" stop-color="#ff7a7a" stop-opacity="1"/><stop offset="1" stop-color="#ff1d1d" stop-opacity="0"/></radialGradient>
+        <filter id="f-shadow" x="-10%" y="-5%" width="120%" height="115%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".3"/></filter>
+      </defs>
+      <style>
+        #vi-svg .ledseg { fill: #ff3b30; } #vi-svg .ledseg.gr { fill: #35ff7a; }
+        #vi-svg .ledseg { opacity: .07; } #vi-svg .ledseg.on { opacity: 1; filter: drop-shadow(0 0 3px currentColor); }
+        #vi-svg .flow { stroke-dasharray: 5 9; }
+      </style>
+      <rect filter="url(#f-shadow)" x="10" y="10" width="460" height="630" rx="16" fill="url(#g-case)" stroke="#111316" stroke-width="3"/>
+      <text x="34" y="40" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="800" fill="#e6e9ee" letter-spacing="1">VARTECH</text>
+      <text x="446" y="40" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-size="12" fill="#9aa3af">3005 B · 0-30 V · 0-5 A</text>
+
+      <!-- displays -->
+      <rect x="26" y="58" width="208" height="100" rx="6" fill="#050608" stroke="#000" stroke-width="3"/>
+      <rect x="246" y="58" width="208" height="100" rx="6" fill="#050608" stroke="#000" stroke-width="3"/>
+      <g id="dv"></g><g id="di"></g>
+      <g font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="800">
+        <text x="216" y="152" text-anchor="end" fill="#35ff7a">V</text><text x="436" y="152" text-anchor="end" fill="#ff3b30">A</text>
+      </g>
+      <text id="pause-note" x="240" y="176" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="#e9b34a">OUTPUT OFF: showing the settings</text>
+
+      <!-- mode LEDs -->
+      <g font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="800" fill="#cfd5de" text-anchor="middle">
+        <circle id="led-cv" cx="190" cy="208" r="8" fill="#0f3a1c" stroke="#111" stroke-width="2"/><text x="190" y="234">CV</text>
+        <circle id="led-cc" cx="290" cy="208" r="8" fill="#4a0f0f" stroke="#111" stroke-width="2"/><text x="290" y="234">CC</text>
+      </g>
+
+      <!-- knobs -->
+      <g font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="800" fill="#cfd5de" text-anchor="middle">
+        <text x="110" y="258">VOLTAGE</text><text x="370" y="258">CURRENT LIMIT</text>
+      </g>
+      <g id="knobs"></g>
+      <g id="btn-out" class="btn" tabindex="0" role="button" aria-label="Output on or off">
+        <rect class="face" x="200" y="290" width="80" height="34" rx="7" fill="#2d3239" stroke="#111" stroke-width="2"/>
+        <circle id="out-led" cx="222" cy="307" r="6" fill="#4a0f0f" stroke="#111" stroke-width="1.5"/>
+        <text x="256" y="312" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="800" fill="#e6e9ee">OUTPUT</text>
+      </g>
+
+      <!-- terminals -->
+      <g font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="800" text-anchor="middle">
+        <circle cx="150" cy="400" r="22" fill="url(#g-post)" stroke="#000" stroke-width="3"/><circle cx="150" cy="400" r="11" fill="#1a1a1a" stroke="#555" stroke-width="2"/><circle cx="150" cy="400" r="4" fill="#0a0a0a"/><text x="150" y="440" fill="#9aa3af">- (black)</text>
+        <circle cx="240" cy="400" r="16" fill="url(#g-post)" stroke="#000" stroke-width="3"/><circle cx="240" cy="400" r="6" fill="#2f9a47"/><text x="240" y="432" fill="#9aa3af">GND</text>
+        <circle cx="330" cy="400" r="22" fill="url(#g-post)" stroke="#000" stroke-width="3"/><circle cx="330" cy="400" r="11" fill="#c52a2a" stroke="#555" stroke-width="2"/><circle cx="330" cy="400" r="4" fill="#0a0a0a"/><text x="330" y="440" fill="#9aa3af">+ (red)</text>
+      </g>
+
+      <!-- wires and loads -->
+      <g id="wires" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path id="wp" d="M330 450 V470 Q330 560 290 560" stroke="#d63a3a"/>
+        <path id="wn" d="M150 450 V470 Q150 560 190 560" stroke="#3a3f48"/>
+        <path id="wp2" d="M330 450 V470 Q330 560 290 560" stroke="#ffd2a0" class="flow" opacity="0"/>
+        <path id="wn2" d="M150 450 V470 Q150 560 190 560" stroke="#ffd2a0" class="flow" opacity="0"/>
+      </g>
+      <g id="loads" font-family="Inter, system-ui, sans-serif" text-anchor="middle">
+        <g id="L-res"><path d="M190 560 h10 l6 -16 l12 32 l12 -32 l12 32 l12 -32 l12 32 l6 -16 h10" fill="none" stroke="#cfd5de" stroke-width="3.5"/></g>
+        <g id="L-led">
+          <path d="M190 560 h28 M262 560 h28" stroke="#cfd5de" stroke-width="3.5" fill="none"/>
+          <path d="M218 540 V580 L262 560 Z" fill="#7a1111" stroke="#cfd5de" stroke-width="3"/><path d="M262 540 V580" stroke="#cfd5de" stroke-width="3.5"/>
+          <circle id="led-g" cx="240" cy="560" r="44" fill="url(#g-ledglow)" opacity="0"/>
+        </g>
+        <g id="L-lamp">
+          <circle id="lamp-g" cx="240" cy="560" r="60" fill="url(#g-glow)" opacity="0"/>
+          <circle cx="240" cy="560" r="30" fill="rgba(255,255,255,.08)" stroke="#cfd5de" stroke-width="3"/>
+          <path d="M190 560 h20 M270 560 h20 M222 568 l6 -12 l6 12 l6 -12 l6 12 l6 -12" stroke="#cfd5de" stroke-width="3" fill="none"/>
+        </g>
+        <g id="L-batt"><path d="M190 560 h30 M260 560 h30" stroke="#cfd5de" stroke-width="3.5"/><path d="M220 538 V582 M232 548 V572 M244 538 V582 M256 548 V572" stroke="#cfd5de" stroke-width="4.5"/></g>
+        <g id="L-short"><path d="M190 560 H290" stroke="#e0252e" stroke-width="7" stroke-linecap="round"/></g>
+        <g id="L-open"><path d="M190 560 h20 M270 560 h20" stroke="#cfd5de" stroke-width="3.5"/><path d="M210 560 l22 -18" stroke="#cfd5de" stroke-width="3.5"/></g>
+        <text id="load-label" x="240" y="618" font-size="14" font-weight="700" fill="#e6e9ee"></text>
+      </g>
+    </svg>
+  </Fragment>
+  <Fragment slot="hint">Drag, scroll or click the knobs (left half is down, right half is up). <kbd>O</kbd> switches the output on and off.</Fragment>
+
+  <Fragment slot="panels">
+    <section class="vi-card">
+      <h2 class="vi-h"><span>Try a scenario</span></h2>
+      <p class="vi-sub">One click sets up the supply and the load.</p>
+      <div class="vi-chips" id="scen"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>1</span>Set the supply</h2>
+      <div id="set-sl"></div>
+      <div class="vi-row"><span class="vi-lbl">Output</span><label class="vi-switch"><input type="checkbox" id="out" /><span></span></label></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>2</span>Connect a load</h2>
+      <div class="vi-opts" id="load-opts" role="radiogroup" aria-label="Load"></div>
+      <div id="load-sl"></div>
+    </section>
+    <section class="vi-card vi-live">
+      <h2 class="vi-h"><span>3</span>What the supply is doing</h2>
+      <div class="vi-status" id="status" aria-live="polite"></div>
+      <svg id="chart" viewBox="0 0 420 150" role="img" aria-label="Output voltage and current over the last ten seconds"></svg>
+      <div class="vi-spec">Green: voltage (0-30 V). Orange: current (0-5 A). Last 10 seconds.</div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>4</span>Simulator settings</h2>
+      <div class="vi-row"><span class="vi-lbl">Reset everything</span><button type="button" class="vi-btn" id="reset">Reset</button></div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="about">
+    <ul>
+      <li><strong>Constant voltage (CV):</strong> the supply holds the voltage you set and lets the load decide the current. This is the normal mode for most loads. Lower the resistance and the current goes up.</li>
+      <li><strong>Constant current (CC):</strong> once the load would draw more than the current limit, the supply stops raising the current and lets the voltage fall instead. It protects the load and the supply. The CC lamp lights.</li>
+      <li><strong>Always set the current limit first.</strong> Short the output, turn the current knob to the limit you want, then connect the load. That is the safest way to power an LED, a charger circuit or an unknown board. Try the "burn out an LED" scenario to see why.</li>
+      <li><strong>Output on and off:</strong> the output can be switched off while you adjust the voltage, so you can pre-set it before connecting the load. In this simulator the display then shows the settings, and the measured values when the output is on.</li>
+      <li><strong>Linear supply:</strong> the 3005 B is a transformer-based linear supply, which gives very low ripple and noise, with a spec of 10 mV rms or less in CV mode.</li>
+      <li><strong>A lamp is not a resistor:</strong> a cold filament has a very low resistance, so it draws a surge until it warms up. Watch it ride the current limit, then settle into constant voltage.</li>
+    </ul>
+    <p class="vi-fine">This is a playful beta simulation. The loads are idealised models (a lamp with a thermal time constant, an LED with a fixed forward voltage, a battery with a small internal resistance) and the display and button behaviour of the real 3005 B are approximated. Never connect a supply to mains-referenced circuits or batteries you do not understand, and follow the instruction manual.</p>
+  </Fragment>
+</VIShell>
+
+<script is:inline src="/js/vi-core.js"></script>
+<script is:inline>
+(function () {
+  var VI = window.VI, $ = VI.$, el = VI.el;
+  var VMAX = 30, IMAX = 5;
+  var LOADS = {
+    res:   { name: 'Resistor', desc: 'A plain resistor. Current follows Ohm\'s law until the current limit takes over.' },
+    led:   { name: 'LED with a series resistor', desc: 'A red LED (about 2 V) in series with a resistor. Easy to destroy without a current limit.' },
+    lamp:  { name: '12 V, 5 W lamp', desc: 'The cold filament draws a surge, then the resistance rises as it heats.' },
+    batt:  { name: '12 V lead-acid battery (about 12.6 V)', desc: 'Charging a battery: the supply only pushes current once its voltage is above the battery\'s.' },
+    short: { name: 'Short circuit', desc: 'A dead short across the output. Used to set the current limit safely.' },
+    open:  { name: 'Nothing connected', desc: 'Open output. Only the voltage shows.' }
+  };
+  function fresh() { return { vset: 5, iset: 1, out: false, load: 'open', R: 10, Rs: 200, T: 0, dmg: 0, dead: false, flash: 0, hist: [] }; }
+  var S = fresh(), flow = 0;
+  var dv = VI.build($('dv'), 4, 40, 74, 46, 34, 64, 7, 6, 'seg ledseg gr'), di = VI.build($('di'), 4, 260, 74, 46, 34, 64, 7, 6, 'seg ledseg');
+  var kn = {};
+  kn.v = VI.knob($('knobs'), { cx: 110, cy: 330 + 0, r: 38, n: 301, v: 50, label: 'Voltage', fmt: function (i) { return (i / 10).toFixed(1) + ' V'; }, per: 1.4, ptr: '#35ff7a', onChange: function (i) { S.vset = i / 10; sync(true); } });
+  kn.i = VI.knob($('knobs'), { cx: 370, cy: 330, r: 38, n: 501, v: 100, label: 'Current limit', fmt: function (i) { return (i / 100).toFixed(2) + ' A'; }, per: 1, ptr: '#ff9b3a', onChange: function (i) { S.iset = i / 100; sync(true); } });
+
+  function Rlamp() { return 2.5 + (28.8 - 2.5) * S.T; }
+  function solve() {
+    var r = { V: 0, I: 0, mode: 'off' };
+    if (!S.out) return r;
+    var L = S.load, v = S.vset, i = S.iset, R;
+    if (L === 'open') return { V: v, I: 0, mode: 'cv' };
+    if (L === 'led' && S.dead) return { V: v, I: 0, mode: 'cv' };
+    if (L === 'res' || L === 'short' || L === 'lamp') { R = L === 'res' ? S.R : L === 'short' ? .01 : Rlamp(); if (v / R <= i) return { V: v, I: v / R, mode: 'cv' }; return { V: i * R, I: i, mode: 'cc' }; }
+    if (L === 'led') { var rr = S.Rs + 5, Vf = 2.0, I0 = Math.max(0, (v - Vf) / rr); if (I0 <= i) return { V: v, I: I0, mode: 'cv' }; return { V: Vf + i * rr, I: i, mode: 'cc' }; }
+    if (L === 'batt') { var E = 12.6, rb = .15; if (v <= E) return { V: E, I: 0, mode: 'cv' }; var Ib = (v - E) / rb; if (Ib <= i) return { V: v, I: Ib, mode: 'cv' }; return { V: E + i * rb, I: i, mode: 'cc' }; }
+    return r;
+  }
+  var cur = { V: 0, I: 0, mode: 'off' };
+  function drawDisp() {
+    var showV, showI;
+    if (!S.out) { showV = S.vset; showI = S.iset; } else { showV = Math.max(0, cur.V + (cur.V > 0 ? VI.rand() * .004 : 0)); showI = Math.max(0, cur.I + (cur.I > 0 ? VI.rand() * .0015 : 0)); }
+    var a = VI.blank(VI.digits(showV, 2, 4)), b = VI.blank(VI.digits(showI, 3, 4));
+    VI.setDigits(dv, a.s, a.dp); VI.setDigits(di, b.s, b.dp);
+    $('pause-note').style.display = S.out ? 'none' : '';
+    $('led-cv').setAttribute('fill', cur.mode === 'cv' ? '#35ff7a' : '#0f3a1c'); $('led-cc').setAttribute('fill', cur.mode === 'cc' ? '#ff3b30' : '#4a0f0f');
+    $('out-led').setAttribute('fill', S.out ? '#35ff7a' : '#4a0f0f');
+  }
+  function drawLoad() {
+    ['res', 'led', 'lamp', 'batt', 'short', 'open'].forEach(function (k) { $('L-' + k).style.display = S.load === k ? '' : 'none'; });
+    var t = LOADS[S.load].name; if (S.load === 'res') t = 'Resistor, ' + VI.eng(S.R, 'Ω'); if (S.load === 'led') t = S.dead ? 'LED destroyed' : 'LED + ' + VI.eng(S.Rs, 'Ω') + ' resistor';
+    $('load-label').textContent = t;
+    var led = $('L-led').querySelector('path:nth-of-type(2)'); if (led) led.setAttribute('fill', S.dead ? '#222' : '#7a1111');
+  }
+  function glow() {
+    $('led-g').setAttribute('opacity', S.dead ? 0 : Math.min(1, cur.I / .02) * (S.flash > 0 ? 1 : 1));
+    $('lamp-g').setAttribute('opacity', Math.min(1, (cur.V * cur.I) / 5));
+    var on = cur.I > .001; ['wp2', 'wn2'].forEach(function (id) { $(id).setAttribute('opacity', on ? .8 : 0); $(id).setAttribute('stroke-dashoffset', -flow); });
+    $('wn2').setAttribute('stroke-dashoffset', flow);
+  }
+
+  function status() {
+    var h = '', L = S.load;
+    if (!S.out) h += '<p><strong>Output is off.</strong> The display shows your settings: ' + S.vset.toFixed(2) + ' V and a current limit of ' + S.iset.toFixed(3) + ' A. Nothing reaches the load.</p>';
+    else if (cur.mode === 'cc') h += '<p class="warn"><strong>Constant current (CC).</strong> The load wants more than the ' + S.iset.toFixed(3) + ' A limit, so the supply holds the current and lets the voltage fall to ' + cur.V.toFixed(2) + ' V.</p>';
+    else if (L === 'open') h += '<p><strong>Constant voltage, no current.</strong> The output sits at ' + cur.V.toFixed(2) + ' V with nothing connected.</p>';
+    else if (L === 'batt' && cur.I === 0) h += '<p class="warn"><strong>No charge current.</strong> The set voltage is not above the battery voltage (about 12.6 V), so nothing flows. Raise the voltage.</p>';
+    else h += '<p class="ok"><strong>Constant voltage (CV).</strong> Holding ' + cur.V.toFixed(2) + ' V and the load draws ' + cur.I.toFixed(3) + ' A (' + (cur.V * cur.I).toFixed(2) + ' W).</p>';
+    if (L === 'led' && S.dead) h += '<p class="warn"><strong>The LED has failed.</strong> Too much current for too long. Press Reset load to fit a new one, and set the current limit first next time.</p>';
+    else if (L === 'led' && S.out && cur.I > .025) h += '<p class="warn"><strong>Danger for the LED.</strong> ' + (cur.I * 1000).toFixed(0) + ' mA is more than a small LED can take. Lower the current limit now.</p>';
+    if (L === 'lamp' && S.out && S.T < .9 && cur.mode === 'cc') h += '<p>The filament is cold and its resistance is low, so it is riding the current limit while it warms up.</p>';
+    $('status').innerHTML = h;
+  }
+
+  function sync(fromKnob) {
+    if (!fromKnob) { kn.v.set(Math.round(S.vset * 10), true); kn.i.set(Math.round(S.iset * 100), true); }
+    ['sl-v', 'sl-i', 'sl-r', 'sl-rs'].forEach(function (i) { var s = $(i); if (s && s._sync) s._sync(); });
+    $('out').checked = S.out;
+    document.querySelectorAll('#load-opts .vi-opt').forEach(function (b) { b.setAttribute('aria-checked', b.getAttribute('data-k') === S.load ? 'true' : 'false'); });
+    $('sl-r').closest('.vi-slider').style.display = S.load === 'res' ? '' : 'none'; $('sl-rs').closest('.vi-slider').style.display = S.load === 'led' ? '' : 'none';
+    $('rl-wrap').style.display = S.load === 'led' && S.dead ? '' : 'none';
+    drawLoad();
+  }
+
+  $('set-sl').innerHTML = VI.slider('sl-v', 'Voltage setting', 0, 3000, 1) + VI.slider('sl-i', 'Current limit', 0, 5000, 1);
+  $('load-opts').innerHTML = Object.keys(LOADS).map(function (k) { return VI.opt('load', k, LOADS[k].name, LOADS[k].desc); }).join('');
+  $('load-sl').innerHTML = VI.slider('sl-r', 'Resistance', 0, 1000, 1) + VI.slider('sl-rs', 'Series resistor', 0, 1000, 1) + '<div id="rl-wrap" style="margin-top:.8rem;display:none"><button type="button" class="vi-btn" id="rl">Reset load (new LED)</button></div>';
+  function bind(id, get, set, fmt) { var s = $(id), o = $(id + '-o'); s.addEventListener('input', function () { set(+s.value); o.textContent = fmt(+s.value); sync(false); }); s._sync = function () { s.value = get(); o.textContent = fmt(+s.value); }; }
+  bind('sl-v', function () { return Math.round(S.vset * 100); }, function (v) { S.vset = v / 100; }, function (v) { return (v / 100).toFixed(2) + ' V'; });
+  bind('sl-i', function () { return Math.round(S.iset * 1000); }, function (v) { S.iset = v / 1000; }, function (v) { return (v / 1000).toFixed(3) + ' A'; });
+  bind('sl-r', function () { return VI.valToLog(S.R, -1, 3); }, function (v) { S.R = +VI.logToVal(v, -1, 3).toPrecision(3); }, function (v) { return VI.eng(+VI.logToVal(v, -1, 3).toPrecision(3), 'Ω'); });
+  bind('sl-rs', function () { return VI.valToLog(S.Rs, 1, 3); }, function (v) { S.Rs = Math.round(VI.logToVal(v, 1, 3)); }, function (v) { return Math.round(VI.logToVal(v, 1, 3)) + ' Ω'; });
+  document.getElementById('sl-r').max = 1000; $('sl-rs').max = 1000;
+  document.querySelectorAll('#load-opts .vi-opt').forEach(function (b) { b.addEventListener('click', function () { S.load = b.getAttribute('data-k'); S.T = 0; S.dead = false; S.dmg = 0; sync(false); }); });
+  $('out').addEventListener('change', function () { S.out = $('out').checked; sync(false); });
+  $('rl').addEventListener('click', function () { S.dead = false; S.dmg = 0; sync(false); });
+  VI.wireButton($('btn-out'), function () { S.out = !S.out; sync(false); });
+  document.addEventListener('keydown', function (e) { if (/INPUT|SELECT|TEXTAREA/.test((e.target || {}).tagName || '')) return; if (e.key === 'o' || e.key === 'O') { S.out = !S.out; sync(false); } });
+  $('reset').addEventListener('click', function () { S = fresh(); sync(false); });
+
+  var SC = [
+    ['Light an LED safely', function () { S.load = 'led'; S.Rs = 200; S.vset = 5; S.iset = .02; S.out = true; }],
+    ['Burn out an LED', function () { S.load = 'led'; S.Rs = 20; S.vset = 5; S.iset = 3; S.out = true; }],
+    ['Short the output, set the limit', function () { S.load = 'short'; S.vset = 12; S.iset = 1.5; S.out = true; }],
+    ['12 V lamp: watch the surge', function () { S.load = 'lamp'; S.vset = 12; S.iset = .5; S.out = true; }],
+    ['Charge a 12 V battery', function () { S.load = 'batt'; S.vset = 14.4; S.iset = 1; S.out = true; }],
+    ['Resistor hits current limit', function () { S.load = 'res'; S.R = 10; S.vset = 20; S.iset = 1; S.out = true; }]
+  ];
+  var sc = $('scen'); SC.forEach(function (s) { var b = document.createElement('button'); b.type = 'button'; b.className = 'vi-chip'; b.textContent = s[0]; b.addEventListener('click', function () { S = fresh(); s[1](); sync(false); }); sc.appendChild(b); });
+
+  /* chart */
+  var ch = $('chart'), pV = el('path', { fill: 'none', stroke: '#35ff7a', 'stroke-width': 2 }, ch), pI = el('path', { fill: 'none', stroke: '#ff9b3a', 'stroke-width': 2 }, ch);
+  [0, 1, 2, 3].forEach(function (i) { var l = el('line', { x1: 0, x2: 420, y1: 12 + i * 42, y2: 12 + i * 42, stroke: 'rgba(255,255,255,.08)' }, ch); ch.insertBefore(l, pV); });
+  var acc = 0, sCount = 0;
+  VI.rafLoop(function (dt) {
+    var tgt = (S.load === 'lamp' && S.out) ? Math.min(1, cur.V * cur.I / 5) : 0; S.T += (tgt - S.T) * Math.min(1, dt / .45);
+    cur = solve();
+    if (S.load === 'led' && !S.dead && cur.I > .03) { S.dmg += (cur.I / .03 - 1) * dt * .9; if (S.dmg >= 1) { S.dead = true; S.flash = .6; cur = solve(); sync(false); } } else if (S.dmg > 0) S.dmg = Math.max(0, S.dmg - dt * .1);
+    if (S.flash > 0) S.flash -= dt;
+    flow = (flow + cur.I * 90 * dt) % 14;
+    drawDisp(); glow();
+    acc += dt; if (acc > .05) { acc = 0; S.hist.push([cur.V, cur.I]); if (S.hist.length > 200) S.hist.shift(); var a = '', b = ''; S.hist.forEach(function (p, i) { var x = (i / 199) * 420; a += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + (138 - p[0] / VMAX * 126).toFixed(1); b += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + (138 - p[1] / IMAX * 126).toFixed(1); }); pV.setAttribute('d', a); pI.setAttribute('d', b); }
+    if (++sCount % 8 === 0) status();
+  });
+  sync(false);
+})();
+</script>

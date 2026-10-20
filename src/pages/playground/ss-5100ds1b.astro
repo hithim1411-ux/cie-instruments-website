@@ -1,0 +1,479 @@
+---
+import VIShell from '../../components/VIShell.astro';
+import { u } from '../../utils/url';
+---
+
+<VIShell
+  slug="ss-5100ds1b" model="SS-5100DS1B"
+  pageTitle="SS-5100DS1B Oscilloscope Playground: Free Online Scope Simulator"
+  description="Just for fun: a free interactive playground version of the Vartech SS-5100DS1B 100 MHz digital storage oscilloscope. Turn the knobs, trigger on a signal, spot the x10 probe mistake, tune probe compensation, or look at your own voice through your microphone."
+  h1="SS-5100DS1B oscilloscope, in your browser"
+  intro="Turn the V/div, time/div and trigger knobs. Look at a sine, a square wave, switch-mode ripple, or your own voice through the microphone. Then try the classic mistakes: a wrong probe setting and a badly compensated probe."
+  productHref={u('/authorised-dealership/oscilloscopes/ss-5100ds1b/')}
+  extraLink={{ href: u('/authorised-dealership/oscilloscopes/'), label: 'All Vartech oscilloscopes' }}
+  ctaBody="The Vartech SS-5100DS1B is supplied by CIE Instruments, authorised distributor for Vartech in India."
+  aboutTitle="How an oscilloscope works"
+>
+  <Fragment slot="stage">
+    <svg id="vi-svg" viewBox="0 0 640 720" role="group" aria-label="Interactive SS-5100DS1B digital storage oscilloscope" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g-case" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3f48"/><stop offset="1" stop-color="#262a31"/></linearGradient>
+        <radialGradient id="g-knob" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#6a7078"/><stop offset="1" stop-color="#1c1e22"/></radialGradient>
+        <radialGradient id="g-bnc" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#f1f3f6"/><stop offset="1" stop-color="#7d8189"/></radialGradient>
+        <clipPath id="clip-grid"><rect x="56" y="84" width="528" height="352"/></clipPath>
+        <filter id="f-shadow" x="-10%" y="-5%" width="120%" height="115%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".3"/></filter>
+      </defs>
+      <rect filter="url(#f-shadow)" x="10" y="10" width="620" height="700" rx="18" fill="url(#g-case)" stroke="#111316" stroke-width="3"/>
+      <text x="34" y="36" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="800" fill="#e6e9ee" letter-spacing="1">VARTECH</text>
+      <text x="606" y="36" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-size="12" fill="#9aa3af">SS-5100DS1B · 100 MHz · 1 GS/s</text>
+
+      <!-- screen -->
+      <rect x="38" y="46" width="564" height="456" rx="8" fill="#0a0b0d" stroke="#000" stroke-width="3"/>
+      <rect x="46" y="54" width="548" height="440" fill="#05080b"/>
+      <g id="scr-top" font-family="'IBM Plex Mono', monospace" font-size="11">
+        <text id="t-run" x="58" y="75" font-weight="700" fill="#38e07b">RUN</text>
+        <text id="t-trg" x="108" y="75" font-weight="700" fill="#ffd23f">AUTO</text>
+        <text id="t-sa" x="330" y="75" text-anchor="middle" fill="#9fb2c4"></text>
+        <text id="t-tl" x="582" y="75" text-anchor="end" fill="#ffd23f"></text>
+      </g>
+      <g id="grid" stroke="#27424a" stroke-width="1"></g>
+      <g clip-path="url(#clip-grid)">
+        <path id="w1g" fill="none" stroke="#ffd23f" stroke-width="4.5" stroke-opacity=".22" stroke-linejoin="round"/>
+        <path id="w1" fill="none" stroke="#ffd23f" stroke-width="1.6" stroke-linejoin="round"/>
+        <path id="w2g" fill="none" stroke="#3fd5ff" stroke-width="4.5" stroke-opacity=".22" stroke-linejoin="round"/>
+        <path id="w2" fill="none" stroke="#3fd5ff" stroke-width="1.6" stroke-linejoin="round"/>
+      </g>
+      <polygon id="mk1" fill="#ffd23f"/><polygon id="mk2" fill="#3fd5ff"/>
+      <polygon id="mkt" fill="#ffd23f" opacity=".9"/>
+      <g id="scr-bot" font-family="'IBM Plex Mono', monospace" font-size="11">
+        <text id="r1" x="58" y="454" fill="#ffd23f"></text>
+        <text id="r2" x="212" y="454" fill="#3fd5ff"></text>
+        <text id="rt" x="366" y="454" fill="#e6e9ee"></text>
+        <text id="rt2" x="582" y="454" text-anchor="end" fill="#9fb2c4"></text>
+        <text id="m1" x="58" y="471" fill="#ffd23f"></text>
+        <text id="m2" x="58" y="487" fill="#3fd5ff"></text>
+      </g>
+
+      <!-- controls -->
+      <g font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="#aeb6c2" text-anchor="middle">
+        <text x="90" y="528">CH1 V/DIV</text><text x="220" y="528">CH2 V/DIV</text><text x="350" y="528">TIME/DIV</text><text x="480" y="528">TRIG LEVEL</text>
+      </g>
+      <g id="knobs"></g>
+      <g font-family="'IBM Plex Mono', monospace" font-size="11" fill="#e6e9ee" text-anchor="middle">
+        <text id="kv1" x="90" y="622"></text><text id="kv2" x="220" y="622"></text><text id="kvt" x="350" y="622"></text><text id="kvl" x="480" y="622"></text>
+      </g>
+      <g id="btns" font-family="Inter, system-ui, sans-serif" font-size="10.5" font-weight="800" text-anchor="middle"></g>
+      <g id="bncs" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#aeb6c2" text-anchor="start">
+        <circle cx="556" cy="562" r="16" fill="url(#g-bnc)" stroke="#16181b" stroke-width="3"/><circle cx="556" cy="562" r="8" fill="#0b0c0e"/><circle cx="556" cy="562" r="2.5" fill="#caa24a"/><text x="592" y="566">CH1</text>
+        <circle cx="556" cy="610" r="16" fill="url(#g-bnc)" stroke="#16181b" stroke-width="3"/><circle cx="556" cy="610" r="8" fill="#0b0c0e"/><circle cx="556" cy="610" r="2.5" fill="#caa24a"/><text x="592" y="614">CH2</text>
+      </g>
+    </svg>
+  </Fragment>
+  <Fragment slot="hint">Drag, scroll or click the knobs (left half is down, right half is up). Keys: focus a knob and use <kbd>↑</kbd> <kbd>↓</kbd>. Press <kbd>A</kbd> for Auto Set, <kbd>Space</kbd> for Run/Stop.</Fragment>
+
+  <Fragment slot="panels">
+    <section class="vi-card">
+      <h2 class="vi-h"><span>Try a scenario</span></h2>
+      <p class="vi-sub">One click sets up the signal and the scope. Then play with the knobs.</p>
+      <div class="vi-chips" id="scen"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>1</span>What is connected?</h2>
+      <div class="vi-cols">
+        <div><label for="src1">Channel 1 input</label><select class="vi-sel" id="src1"></select></div>
+        <div><label for="src2">Channel 2 input</label><select class="vi-sel" id="src2"></select></div>
+      </div>
+      <div id="fg-box" style="margin-top:1rem">
+        <p class="vi-sub" style="margin:0 0 .5rem">Function generator (shown when connected)</p>
+        <div class="vi-seg vi-seg--3" id="shape-seg" role="radiogroup" aria-label="Waveform shape">
+          <button type="button" data-v="sine" role="radio">Sine</button>
+          <button type="button" data-v="square" role="radio">Square</button>
+          <button type="button" data-v="tri" role="radio">Triangle</button>
+        </div>
+        <div id="fg-sl"></div>
+      </div>
+      <div id="comp-box" style="margin-top:1rem" hidden>
+        <div id="comp-sl"></div>
+      </div>
+      <p class="vi-note" id="mic-note" hidden></p>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>2</span>Probe</h2>
+      <div class="vi-cols">
+        <div><label>Physical probe switch</label>
+          <div class="vi-seg vi-seg--2" id="phys-seg" role="radiogroup" aria-label="Physical probe attenuation"><button type="button" data-v="1" role="radio">×1</button><button type="button" data-v="10" role="radio">×10</button></div></div>
+        <div><label>Scope probe setting</label>
+          <div class="vi-seg vi-seg--2" id="setp-seg" role="radiogroup" aria-label="Scope probe setting"><button type="button" data-v="1" role="radio">×1</button><button type="button" data-v="10" role="radio">×10</button></div></div>
+      </div>
+      <p class="vi-note" id="probe-note"></p>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>3</span>Trigger and acquisition</h2>
+      <div class="vi-cols">
+        <div><label>Trigger source</label><div class="vi-seg vi-seg--2" id="tsrc-seg" role="radiogroup" aria-label="Trigger source"><button type="button" data-v="0" role="radio">CH1</button><button type="button" data-v="1" role="radio">CH2</button></div></div>
+        <div><label>Slope</label><div class="vi-seg vi-seg--2" id="slope-seg" role="radiogroup" aria-label="Trigger slope"><button type="button" data-v="1" role="radio">Rising</button><button type="button" data-v="-1" role="radio">Falling</button></div></div>
+      </div>
+      <div style="margin-top:.8rem"><label class="vi-lbl" style="display:block;margin-bottom:.3rem;font-size:.72rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted)">Trigger mode</label>
+        <div class="vi-seg vi-seg--3" id="mode-seg" role="radiogroup" aria-label="Trigger mode"><button type="button" data-v="auto" role="radio">Auto</button><button type="button" data-v="normal" role="radio">Normal</button><button type="button" data-v="single" role="radio">Single</button></div></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>4</span>Vertical: coupling and position</h2>
+      <div class="vi-cols">
+        <div><label>CH1 coupling</label><div class="vi-seg vi-seg--3" id="cpl1-seg" role="radiogroup" aria-label="CH1 coupling"><button type="button" data-v="dc" role="radio">DC</button><button type="button" data-v="ac" role="radio">AC</button><button type="button" data-v="gnd" role="radio">GND</button></div></div>
+        <div><label>CH2 coupling</label><div class="vi-seg vi-seg--3" id="cpl2-seg" role="radiogroup" aria-label="CH2 coupling"><button type="button" data-v="dc" role="radio">DC</button><button type="button" data-v="ac" role="radio">AC</button><button type="button" data-v="gnd" role="radio">GND</button></div></div>
+      </div>
+      <div id="pos-sl"></div>
+    </section>
+    <section class="vi-card vi-live">
+      <h2 class="vi-h"><span>5</span>What the scope is telling you</h2>
+      <div class="vi-status" id="status" aria-live="polite"></div>
+      <div class="vi-row" style="border-color:rgba(255,255,255,.1)"><span class="vi-lbl" style="color:#e6e9ee">Run / Stop</span><button type="button" class="vi-btn" id="runstop">Stop</button></div>
+      <div class="vi-row" style="border-color:rgba(255,255,255,.1)"><span class="vi-lbl" style="color:#e6e9ee">Auto Set</span><button type="button" class="vi-btn" id="autoset">Auto Set</button></div>
+      <div class="vi-row" style="border-color:rgba(255,255,255,.1)"><span class="vi-lbl" style="color:#e6e9ee">Reset everything</span><button type="button" class="vi-btn" id="reset">Reset</button></div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="about">
+    <ul>
+      <li><strong>What you see:</strong> a graph of voltage (up) against time (across). The grid has 12 divisions across and 8 up. The V/div knob sets how many volts each square is worth; the time/div knob sets how much time each square is worth.</li>
+      <li><strong>Trigger:</strong> the scope waits until the signal crosses the trigger level in the chosen direction, then draws from that point, so a repeating signal lands on the same spot every sweep and looks steady. Move the trigger level outside the signal and it loses sync: Auto mode then free-runs and smears, Normal mode waits and keeps the last picture, Single catches one event and stops.</li>
+      <li><strong>Coupling:</strong> DC shows everything. AC blocks the steady part so you can zoom in on small ripple riding on a big DC level, like the switch-mode supply output. GND shows the zero line.</li>
+      <li><strong>Probe setting:</strong> a ×10 probe divides the signal by ten. If the scope is not told, every reading is ten times too small. Set the scope to match the probe. That single mismatch is one of the most common scope mistakes.</li>
+      <li><strong>Probe compensation:</strong> a ×10 probe has a small trimmer. Connect it to the scope's square-wave test output and adjust until the corners are square. Rounded corners mean under-compensated, a spike means over-compensated.</li>
+      <li><strong>Clipping:</strong> if the signal is bigger than the screen, the scope clips it and the measurements are wrong. The simulator marks clipped measurements with a star.</li>
+      <li><strong>Bandwidth:</strong> the SS-5100DS1B is a 100 MHz scope (−3 dB), and a ×1 probe is limited to a few MHz. Push the function generator to its highest frequencies and watch the amplitude fall.</li>
+    </ul>
+    <p class="vi-fine">This is a playful beta simulation. The signals are idealised, the front panel layout is simplified, and the real SS-5100DS1B has more controls, menus and 32 automatic measurements. The test source, probe behaviour and microphone input are simulated or illustrative. Your microphone, if you choose to enable it, is processed only inside your browser and nothing is recorded or sent. Always follow the instruction manual and use correct, rated probes on live circuits.</p>
+  </Fragment>
+</VIShell>
+
+<style is:global>
+  #vi-svg .btn rect.face { transition: fill .15s; }
+  #vi-svg .btn:hover rect.face { fill: #4a515c; }
+  #vi-svg .btn.lit rect.face { fill: #6b4a12; stroke: #ffb83a; }
+  #vi-svg .btn.down { transform: translateY(2px); }
+  #vi-svg #btns .btn { cursor: pointer; }
+</style>
+
+<script is:inline src="/js/vi-core.js"></script>
+<script is:inline>
+(function () {
+  var VI = window.VI, $ = VI.$, el = VI.el;
+  var GX = 56, GY = 84, GW = 528, GH = 352, DX = GW / 12, DY = GH / 8, CX = GX + GW / 2, CY = GY + GH / 2;
+  var TD = [20e-9, 50e-9, 100e-9, 200e-9, 500e-9, 1e-6, 2e-6, 5e-6, 10e-6, 20e-6, 50e-6, 100e-6, 200e-6, 500e-6, 1e-3, 2e-3, 5e-3, 10e-3, 20e-3, 50e-3, 100e-3, 200e-3, 500e-3, 1];
+  var VD = [2e-3, 5e-3, 10e-3, 20e-3, 50e-3, 100e-3, 200e-3, 500e-3, 1, 2, 5, 10];
+  var PI2 = Math.PI * 2, CLIP = 5;
+  var SRC = [['off', 'Nothing (open)'], ['fg', 'Function generator'], ['fgb', 'Function generator, second output (phase shifted)'], ['comp', 'Probe compensation test output (1 kHz)'], ['pwm', 'Microcontroller PWM pin (5 V, 1 kHz, 25%)'], ['smps', 'Switch-mode supply output (12 V, 100 kHz)'], ['batt', '9 V battery'], ['mic', 'My microphone (or a simulated voice)']];
+
+  function fresh() { return { run: true, mode: 'auto', armed: false, tdi: 14, vi: [8, 8], cpl: ['dc', 'dc'], pos: [0, 0], src: ['fg', 'off'], tsrc: 0, slope: 1, tl: 0, phys: 1, setp: 1, fg: { shape: 'sine', f: 1000, a: 4, off: 0, duty: 50, phase: 60 }, comp: 0 }; }
+  var S = fresh(), last = { p1: '', p2: '', trig: 'AUTO' }, dirty = true, M = [null, null];
+
+  /* ---------- microphone ---------- */
+  var mic = { on: false, ctx: null, an: null, buf: null, stream: null, fs: 48000, sim: true, t0: 0, msg: '' };
+  function micStart() {
+    if (mic.on) return; mic.on = true; mic.sim = true; mic.msg = 'Asking for your microphone...';
+    mic.buf = new Float32Array(16384); noteMic();
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { mic.msg = 'Microphone not available in this browser, so a simulated voice is shown instead.'; noteMic(); return; }
+    navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } }).then(function (st) {
+      if (!mic.on) { st.getTracks().forEach(function (t) { t.stop(); }); return; }
+      var AC = window.AudioContext || window.webkitAudioContext; mic.ctx = new AC(); mic.fs = mic.ctx.sampleRate; mic.stream = st;
+      mic.an = mic.ctx.createAnalyser(); mic.an.fftSize = 16384; mic.ctx.createMediaStreamSource(st).connect(mic.an); mic.sim = false;
+      mic.msg = 'Live from your microphone. Whistle, clap or speak. Nothing is recorded or sent anywhere.'; noteMic();
+    }).catch(function () { mic.msg = 'Microphone was blocked, so a simulated voice is shown instead.'; noteMic(); });
+  }
+  function micStop() {
+    if (!mic.on) return; mic.on = false;
+    if (mic.stream) mic.stream.getTracks().forEach(function (t) { t.stop(); });
+    if (mic.ctx) { try { mic.ctx.close(); } catch (e) {} }
+    mic.stream = null; mic.ctx = null; mic.an = null; mic.sim = true; mic.msg = ''; noteMic();
+  }
+  function micFill(now) {
+    if (!mic.on) return;
+    if (!mic.sim && mic.an) { mic.an.getFloatTimeDomainData(mic.buf); mic.fs = mic.ctx.sampleRate; return; }
+    mic.fs = 48000; var b = mic.buf, f0 = 140 + 40 * Math.sin(now * 1.3), env = .5 + .5 * Math.sin(now * 2.1);
+    for (var i = 0; i < b.length; i++) { var t = i / mic.fs + now, ph = f0 * t; b[i] = env * (.22 * Math.sin(PI2 * ph) + .13 * Math.sin(PI2 * 2 * ph + 1) + .09 * Math.sin(PI2 * 3 * ph + 2) + .05 * Math.sin(PI2 * 5 * ph)) + .004 * (Math.random() - .5); }
+  }
+  function noteMic() { var n = $('mic-note'); n.hidden = !mic.msg || !(S.src[0] === 'mic' || S.src[1] === 'mic'); n.textContent = mic.msg; }
+  function micVal(t) { var i = t * mic.fs; if (i < 0 || i >= mic.buf.length - 1) return 0; var k = i | 0, f = i - k; return .5 * (mic.buf[k] * (1 - f) + mic.buf[k + 1] * f); }
+
+  /* ---------- signals (volts at the probe tip) ---------- */
+  function cl(x, a, b) { return x < a ? a : x > b ? b : x; }
+  function ph1(t, f) { var p = (t * f) % 1; return p < 0 ? p + 1 : p; }
+  function pulse(p, T, d, tr) { return cl(p * T / tr, 0, 1) - cl((p - d) * T / tr, 0, 1); }
+  function fgWave(t, phase) {
+    var g = S.fg, f = g.f, p = ph1(t + phase / 360 / f, f), bw = 1 / Math.sqrt(1 + Math.pow(f / 100e6, 2)), v;
+    if (g.shape === 'sine') v = Math.sin(PI2 * p) * bw;
+    else if (g.shape === 'tri') v = (p < .5 ? 4 * p - 1 : 3 - 4 * p) * bw;
+    else v = (pulse(p, 1 / f, g.duty / 100, 4e-9) * 2 - 1) * bw;
+    return g.off + g.a / 2 * v;
+  }
+  function raw(src, t) {
+    switch (src) {
+      case 'fg': return fgWave(t, 0);
+      case 'fgb': return fgWave(t, S.fg.phase);
+      case 'comp': { var p = ph1(t, 1000), k = S.comp; var y = p < .5 ? 1 + k * Math.exp(-p * 1e-3 / 30e-6) : -k * Math.exp(-(p - .5) * 1e-3 / 30e-6); return 3 * y; }
+      case 'pwm': return 5 * pulse(ph1(t, 1000), 1e-3, .25, 20e-9);
+      case 'smps': { var T = 1e-5, p2 = ph1(t, 1e5), a = p2 * T, b = ((p2 - .4) % 1 + 1) % 1 * T; return 12 + .04 * (p2 < .5 ? 4 * p2 - 1 : 3 - 4 * p2) + .3 * Math.exp(-a / 60e-9) * Math.cos(PI2 * 8e6 * a) + .12 * Math.exp(-b / 60e-9) * Math.cos(PI2 * 8e6 * b); }
+      case 'batt': return 9.0;
+      case 'mic': return micVal(t);
+    }
+    return 0;
+  }
+  function period(src) { return src === 'fg' || src === 'fgb' ? 1 / S.fg.f : src === 'comp' || src === 'pwm' ? 1e-3 : src === 'smps' ? 1e-5 : 0; }
+  function freqOf(src) { return src === 'fg' || src === 'fgb' ? S.fg.f : 0; }
+  /* labelled volts: probe attenuation and the scope's probe setting combine into one factor */
+  function kf() { return S.setp / S.phys; }
+  function bwf(src) { if (S.phys !== 1) return 1; var f = src === 'fg' || src === 'fgb' ? S.fg.f : src === 'pwm' || src === 'comp' ? 1e5 : src === 'smps' ? 2e6 : 0; return 1 / Math.sqrt(1 + Math.pow(f / 6e6, 2)); }
+  function valFn(ch) {
+    var src = S.src[ch], c = S.cpl[ch], k = kf(), mean = M[ch] ? M[ch].rawMean : 0;
+    if (src === 'off' || c === 'gnd') return function () { return 0; };
+    var b = bwf(src), ac = c === 'ac';
+    return function (t) { var v = raw(src, t); if (src === 'smps' || src === 'pwm' || src === 'comp') { v = mean + (v - mean) * b; } else if (b < 1) { v = mean + (v - mean) * b; } return (ac ? v - mean : v) * k; };
+  }
+
+  /* ---------- measurements ---------- */
+  function stats(ch) {
+    var src = S.src[ch], P = period(src), k = kf(), N = 360, mn = 1e9, mx = -1e9, s = 0, s2 = 0, i, v;
+    var out = { src: src, P: P, rawMean: 0, vpp: 0, vrms: 0, mean: 0, clip: false, f: 0, ok: false };
+    if (src === 'off') return out;
+    var t0 = 0, span = P || 12 * TD[S.tdi];
+    if (src === 'mic') { span = Math.min(mic.buf ? mic.buf.length / mic.fs : .1, .2); }
+    var vals = new Array(N);
+    for (i = 0; i < N; i++) { vals[i] = raw(src, t0 + span * i / N); s += vals[i]; }
+    out.rawMean = s / N; if (src === 'mic') out.rawMean = 0;
+    var ac = S.cpl[ch] === 'ac', gnd = S.cpl[ch] === 'gnd', b = bwf(src); s = 0; s2 = 0;
+    for (i = 0; i < N; i++) { v = out.rawMean + (vals[i] - out.rawMean) * b; if (ac) v -= out.rawMean; if (gnd) v = 0; v *= k; vals[i] = v; }
+    var lim = CLIP * VD[S.vi[ch]];
+    for (i = 0; i < N; i++) { v = vals[i]; if (v > lim) { v = lim; out.clip = true; } else if (v < -lim) { v = -lim; out.clip = true; } if (v < mn) mn = v; if (v > mx) mx = v; s += v; s2 += v * v; }
+    out.vpp = mx - mn; out.mean = s / N; out.vrms = Math.sqrt(s2 / N);
+    var cyc = P ? 12 * TD[S.tdi] / P : 0;
+    out.ok = !!P && !gnd && cyc >= 1.5 && cyc <= 500 && (S.cpl[ch] === 'gnd' ? false : true);
+    out.f = P ? 1 / P : 0; out.min = mn; out.max = mx;
+    return out;
+  }
+  function fv(x, u) { if (!isFinite(x)) return '---'; var a = Math.abs(x); if (a < 1e-9) return '0' + u; if (a >= 1e6) return (x / 1e6).toFixed(3) + 'M' + u; if (a >= 1e3) return (x / 1e3).toFixed(3) + 'k' + u; if (a >= 1) return x.toFixed(3) + u; if (a >= 1e-3) return (x * 1e3).toFixed(2) + 'm' + u; if (a >= 1e-6) return (x * 1e6).toFixed(1) + 'µ' + u; return (x * 1e9).toFixed(0) + 'n' + u; }
+  function fs(x, u) { var a = Math.abs(x); if (a === 0) return '0' + u; if (a >= 1) return +x.toPrecision(3) + u; if (a >= 1e-3) return +(x * 1e3).toPrecision(3) + 'm' + u; if (a >= 1e-6) return +(x * 1e6).toPrecision(3) + 'µ' + u; return +(x * 1e9).toPrecision(3) + 'n' + u; }
+  function ts(x) { return x >= 1 ? x + 's' : x >= 1e-3 ? +(x * 1e3).toPrecision(3) + 'ms' : x >= 1e-6 ? +(x * 1e6).toPrecision(3) + 'µs' : +(x * 1e9).toPrecision(3) + 'ns'; }
+
+  /* ---------- trigger ---------- */
+  function findTrigger() {
+    var ch = S.tsrc, src = S.src[ch], vf = valFn(ch), lvl = S.tl * VD[S.vi[ch]], P = period(src), want = S.slope, i, a, b;
+    if (src === 'off' || S.cpl[ch] === 'gnd') return null;
+    var t0, t1, N = 500;
+    if (P) { t0 = 0; t1 = P * 1.02; }
+    else if (src === 'mic') { var tw = 6 * TD[S.tdi]; t0 = Math.min(tw, mic.buf.length / mic.fs * .5); t1 = Math.max(t0 + .001, mic.buf.length / mic.fs - tw); N = 900; }
+    else return null;
+    var dt = (t1 - t0) / N; a = vf(t0);
+    for (i = 1; i <= N; i++) {
+      var tb = t0 + i * dt; b = vf(tb);
+      if ((want > 0 && a < lvl && b >= lvl) || (want < 0 && a > lvl && b <= lvl)) {
+        var lo = tb - dt, hi = tb;
+        for (var j = 0; j < 28; j++) { var mid = (lo + hi) / 2, vm = vf(mid); if ((want > 0) ? vm < lvl : vm > lvl) lo = mid; else hi = mid; }
+        return (lo + hi) / 2;
+      }
+      a = b;
+    }
+    return null;
+  }
+
+  /* ---------- drawing ---------- */
+  var gridG = $('grid');
+  (function buildGrid() {
+    var i, d = '';
+    for (i = 0; i <= 12; i++) d += 'M' + (GX + i * DX) + ' ' + GY + 'V' + (GY + GH);
+    for (i = 0; i <= 8; i++) d += 'M' + GX + ' ' + (GY + i * DY) + 'H' + (GX + GW);
+    el('path', { d: d, stroke: '#1f363d', 'stroke-width': 1, fill: 'none' }, gridG);
+    var t = '';
+    for (i = 0; i <= 60; i++) { var x = GX + i * DX / 5, y = CY; t += 'M' + x + ' ' + (y - 3) + 'V' + (y + 3); }
+    for (i = 0; i <= 40; i++) { var y2 = GY + i * DY / 5, x2 = CX; t += 'M' + (x2 - 3) + ' ' + y2 + 'H' + (x2 + 3); }
+    el('path', { d: t, stroke: '#3b5c66', 'stroke-width': 1, fill: 'none' }, gridG);
+    el('path', { d: 'M' + GX + ' ' + CY + 'H' + (GX + GW) + 'M' + CX + ' ' + GY + 'V' + (GY + GH), stroke: '#335058', 'stroke-width': 1.2, fill: 'none' }, gridG);
+    el('rect', { x: GX, y: GY, width: GW, height: GH, fill: 'none', stroke: '#3b5c66', 'stroke-width': 1.5 }, gridG);
+  })();
+  function yOf(v, ch) { var d = v / VD[S.vi[ch]] + S.pos[ch]; return CY - cl(d, -12, 12) * DY; }
+  function buildPath(ch, tr) {
+    var src = S.src[ch]; if (src === 'off') return '';
+    var vf = valFn(ch), N = 528, td = TD[S.tdi], win = 12 * td, dtc = win / N, P = period(src), K = 1, d = '', i, j, prevY = null;
+    if (P && dtc > P / 40) K = 6; else if (src === 'mic' && dtc > 2 / mic.fs) K = 4;
+    for (i = 0; i < N; i++) {
+      var tc = tr + (i / N - .5) * win, x = GX + i + .5, y1, y2;
+      if (K === 1) { y1 = yOf(vf(tc), ch); d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y1.toFixed(1); }
+      else {
+        var lo = 1e9, hi = -1e9;
+        for (j = 0; j < K; j++) { var v = vf(tc + dtc * j / K); if (v < lo) lo = v; if (v > hi) hi = v; }
+        y1 = yOf(lo, ch); y2 = yOf(hi, ch);
+        if (prevY !== null && Math.abs(prevY - y2) < Math.abs(prevY - y1)) { var tmp = y1; y1 = y2; y2 = tmp; }
+        d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y1.toFixed(1) + 'L' + x.toFixed(1) + ' ' + y2.toFixed(1); prevY = y2;
+      }
+      if (K === 1) prevY = y1;
+    }
+    return d;
+  }
+  function tri(poly, pts) { poly.setAttribute('points', pts); }
+  function markers() {
+    var y1 = CY - S.pos[0] * DY, y2 = CY - S.pos[1] * DY;
+    tri($('mk1'), (GX - 12) + ',' + (y1 - 6) + ' ' + (GX - 1) + ',' + y1 + ' ' + (GX - 12) + ',' + (y1 + 6));
+    tri($('mk2'), (GX - 12) + ',' + (y2 - 6) + ' ' + (GX - 1) + ',' + y2 + ' ' + (GX - 12) + ',' + (y2 + 6));
+    $('mk1').style.display = S.src[0] === 'off' ? 'none' : ''; $('mk2').style.display = S.src[1] === 'off' ? 'none' : '';
+    var yt = CY - (S.tl + S.pos[S.tsrc]) * DY; yt = cl(yt, GY + 4, GY + GH - 4);
+    tri($('mkt'), (GX + GW + 1) + ',' + yt + ' ' + (GX + GW + 12) + ',' + (yt - 6) + ' ' + (GX + GW + 12) + ',' + (yt + 6));
+    $('mkt').setAttribute('fill', S.tsrc ? '#3fd5ff' : '#ffd23f');
+  }
+  function readouts() {
+    function chtxt(ch) { if (S.src[ch] === 'off') return ''; return (ch + 1) + ' ' + fs(VD[S.vi[ch]], 'V') + ' ' + S.cpl[ch].toUpperCase() + ' ' + S.setp + 'X'; }
+    $('r1').textContent = chtxt(0); $('r2').textContent = chtxt(1);
+    $('rt').textContent = 'M ' + ts(TD[S.tdi]); $('rt2').textContent = 'T ' + (S.slope > 0 ? '↑' : '↓') + ' CH' + (S.tsrc + 1) + ' ' + fs(S.tl * VD[S.vi[S.tsrc]], 'V');
+    $('t-tl').textContent = ''; $('t-sa').textContent = 'Sa ' + (function () { var sa = Math.min(1e9, 4e6 / (12 * TD[S.tdi])); return sa >= 1e9 ? '1GSa/s' : sa >= 1e6 ? Math.round(sa / 1e6) + 'MSa/s' : Math.round(sa / 1e3) + 'kSa/s'; })() + '  4M';
+    function mtxt(ch) {
+      var m = M[ch]; if (!m || m.src === 'off') return ''; var st = m.clip ? '*' : '';
+      return 'CH' + (ch + 1) + '  f ' + (m.ok ? fv(m.f, 'Hz') : '---') + '  Vpp ' + fv(m.vpp, 'V') + st + '  Vrms ' + fv(m.vrms, 'V') + st + '  Vmean ' + fv(m.mean, 'V');
+    }
+    $('m1').textContent = mtxt(0); $('m2').textContent = mtxt(1);
+    var r = $('t-run'); r.textContent = S.run ? 'RUN' : 'STOP'; r.setAttribute('fill', S.run ? '#38e07b' : '#ff5a5f');
+    var tg = $('t-trg'); tg.textContent = last.trig; tg.setAttribute('fill', last.trig === "TRIG'D" ? '#38e07b' : last.trig === 'WAIT' ? '#ff9b3a' : '#ffd23f');
+    $('kv1').textContent = fs(VD[S.vi[0]], 'V'); $('kv2').textContent = fs(VD[S.vi[1]], 'V'); $('kvt').textContent = ts(TD[S.tdi]); $('kvl').textContent = fs(S.tl * VD[S.vi[S.tsrc]], 'V');
+  }
+
+  /* ---------- frame ---------- */
+  var ctrR = 0;
+  function frame(dt, now) {
+    micFill(now);
+    if (!S.run && !dirty) return;
+    for (var c = 0; c < 2; c++) M[c] = stats(c);
+    var live = S.run;
+    if (live || dirty) {
+      var tr = findTrigger(), trigOK = tr !== null, p1, p2;
+      if (S.run) {
+        if (trigOK) { last.trig = "TRIG'D"; last.tr = tr; if (S.mode === 'single' && S.armed) { S.armed = false; S.run = false; syncRun(); } }
+        else if (S.mode === 'auto') { last.trig = 'AUTO'; last.tr = Math.random() * (period(S.src[S.tsrc]) || .02); }
+        else { last.trig = 'WAIT'; last.tr = null; }
+      } else if (last.tr == null) { last.tr = 0; }
+      if (S.run && S.mode === 'single' && !S.armed && last.trig !== "TRIG'D") S.armed = true;
+      if (last.tr != null && (last.trig !== 'WAIT' || dirty)) {
+        p1 = buildPath(0, last.tr); p2 = buildPath(1, last.tr);
+        $('w1').setAttribute('d', p1); $('w1g').setAttribute('d', p1); $('w2').setAttribute('d', p2); $('w2g').setAttribute('d', p2);
+      }
+      if (S.run && S.mode === 'normal' && !trigOK && dirty) { /* keep last */ }
+    }
+    markers(); readouts(); dirty = false; if (!(++ctrR % 6)) status();
+  }
+  function syncRun() { $('runstop').textContent = S.run ? 'Stop' : 'Run'; dirty = true; }
+
+  /* ---------- panel status ---------- */
+  function status() {
+    var h = '', m = M[0] && M[0].src !== 'off' ? M[0] : M[1];
+    var k = kf();
+    if (S.setp !== S.phys) h += '<p class="warn"><strong>Probe mismatch:</strong> the physical probe is ×' + S.phys + ' but the scope is set to ×' + S.setp + ', so every reading is ' + (k > 1 ? k + ' times too big' : (1 / k) + ' times too small') + '. Set both to the same value.</p>';
+    if (last.trig === 'WAIT') h += '<p><strong>Waiting for a trigger.</strong> The signal never crosses the trigger level (the small marker on the right of the screen). Move the trigger knob into the signal, or switch to Auto.</p>';
+    else if (last.trig === 'AUTO' && (S.src[S.tsrc] !== 'off' && S.cpl[S.tsrc] !== 'gnd')) h += '<p class="warn"><strong>Not triggered.</strong> The picture is free-running and will smear. Put the trigger level inside the signal. Press Auto Set to let the scope do it.</p>';
+    if (M[0] && M[0].clip || M[1] && M[1].clip) h += '<p class="warn"><strong>Clipped.</strong> The signal is bigger than the screen, so the measurements marked * are wrong. Turn V/div up.</p>';
+    if (m && m.vpp > 0 && m.vpp < 1.2 * VD[S.vi[M[0] && M[0].src !== 'off' ? 0 : 1]]) h += '<p>The signal is tiny on the screen (under 1.2 divisions). Turn V/div down for a better view.</p>';
+    if (S.cpl[0] === 'gnd') h += '<p>CH1 is on GND, so you are seeing the zero line, not the signal.</p>';
+    if (!h) h = '<p class="ok"><strong>Looks good.</strong> A steady, triggered trace that fits the screen.</p>';
+    $('status').innerHTML = h;
+    var pn = $('probe-note');
+    pn.textContent = S.src.indexOf('comp') >= 0 ? (S.phys === 10 ? 'Adjust the compensation trimmer until the corners of the square wave are square.' : 'Compensation only matters on a ×10 probe. Switch the physical probe to ×10 to see it.') : 'A ×10 probe divides the signal by ten and needs the scope set to ×10 as well. A ×1 probe loads the circuit more and has a lower bandwidth.';
+  }
+
+  /* ---------- controls ---------- */
+  var kn = {}, gk = $('knobs');
+  kn.v1 = VI.knob(gk, { cx: 90, cy: 576, r: 26, n: VD.length, v: S.vi[0], label: 'CH1 volts per division', fmt: function (i) { return fs(VD[i], 'V') + '/div'; }, ptr: '#ffd23f', onChange: function (i) { S.vi[0] = i; dirty = true; } });
+  kn.v2 = VI.knob(gk, { cx: 220, cy: 576, r: 26, n: VD.length, v: S.vi[1], label: 'CH2 volts per division', fmt: function (i) { return fs(VD[i], 'V') + '/div'; }, ptr: '#3fd5ff', onChange: function (i) { S.vi[1] = i; dirty = true; } });
+  kn.td = VI.knob(gk, { cx: 350, cy: 576, r: 26, n: TD.length, v: S.tdi, label: 'Time per division', fmt: function (i) { return ts(TD[i]) + '/div'; }, ptr: '#fff', onChange: function (i) { S.tdi = i; dirty = true; } });
+  kn.tl = VI.knob(gk, { cx: 480, cy: 576, r: 26, n: 81, v: 40, label: 'Trigger level', fmt: function (i) { return ((i - 40) / 10) + ' div'; }, ptr: '#ff9b3a', per: 2.2, onChange: function (i) { S.tl = (i - 40) / 10; dirty = true; } });
+
+  var BT = [['RUN/STOP', function () { S.run = !S.run; if (S.run && S.mode === 'single') S.armed = true; syncRun(); }, 'run'], ['SINGLE', function () { S.mode = 'single'; S.armed = true; S.run = true; syncAll(); }, 'single'], ['AUTO SET', function () { autoset(); }, 'auto'], ['CH1 CPL', function () { cyc(0); }, 'c1'], ['CH2 CPL', function () { cyc(1); }, 'c2']];
+  var btnEl = {};
+  BT.forEach(function (b, i) {
+    var x = 40 + i * 114, g = el('g', { 'class': 'btn', tabindex: 0, role: 'button', 'aria-label': b[0] }, $('btns'));
+    el('rect', { 'class': 'face', x: x, y: 650, width: 104, height: 28, rx: 5, fill: '#2f343c', stroke: '#14161a', 'stroke-width': 2 }, g);
+    var t = el('text', { x: x + 52, y: 668, fill: '#e6e9ee' }, g); t.textContent = b[0];
+    VI.wireButton(g, b[1]); btnEl[b[2]] = g;
+  });
+  function cyc(ch) { var o = ['dc', 'ac', 'gnd']; S.cpl[ch] = o[(o.indexOf(S.cpl[ch]) + 1) % 3]; syncAll(); }
+
+  /* ---------- panel wiring ---------- */
+  function selInit(id, ch) { var s = $(id); s.innerHTML = SRC.map(function (o) { return '<option value="' + o[0] + '">' + o[1] + '</option>'; }).join(''); s.addEventListener('change', function () { setSrc(ch, s.value); }); }
+  selInit('src1', 0); selInit('src2', 1);
+  function setSrc(ch, v) {
+    S.src[ch] = v; if (v === 'mic') { S.src[1 - ch] === 'mic' && (S.src[1 - ch] = 'off'); micStart(); } else if (S.src.indexOf('mic') < 0) micStop();
+    if (ch === 1 && v !== 'off' && S.src[0] === 'off') { } syncAll();
+  }
+  var fgSl = $('fg-sl');
+  fgSl.innerHTML = VI.slider('sl-f', 'Frequency', 0, 1000, 1) + VI.slider('sl-a', 'Amplitude (peak to peak)', 0, 1000, 1) + VI.slider('sl-o', 'DC offset', -100, 100, 1) + '<div id="duty-w">' + VI.slider('sl-d', 'Duty cycle (square)', 5, 95, 1) + '</div>' + VI.slider('sl-p', 'Phase of second output', 0, 360, 5);
+  $('comp-sl').innerHTML = VI.slider('sl-c', 'Compensation trimmer', -100, 100, 1);
+  $('pos-sl').innerHTML = VI.slider('sl-p1', 'CH1 vertical position', -40, 40, 1) + VI.slider('sl-p2', 'CH2 vertical position', -40, 40, 1);
+  function bindSl(id, get, set, fmt) { var s = $(id), o = $(id + '-o'); s.addEventListener('input', function () { set(+s.value); o.textContent = fmt(+s.value); dirty = true; }); s._sync = function () { s.value = get(); o.textContent = fmt(+s.value); }; }
+  var FL = Math.log10(1), FH = Math.log10(25e6);
+  bindSl('sl-f', function () { return VI.valToLog(S.fg.f, FL, FH); }, function (v) { S.fg.f = Math.round(VI.logToVal(v, FL, FH) * 100) / 100; }, function (v) { return fv(Math.round(VI.logToVal(v, FL, FH) * 100) / 100, 'Hz'); });
+  bindSl('sl-a', function () { return Math.round(S.fg.a / 20 * 1000); }, function (v) { S.fg.a = v / 1000 * 20; }, function (v) { return (v / 1000 * 20).toFixed(2) + ' V'; });
+  bindSl('sl-o', function () { return Math.round(S.fg.off * 10); }, function (v) { S.fg.off = v / 10; }, function (v) { return (v / 10).toFixed(1) + ' V'; });
+  bindSl('sl-d', function () { return S.fg.duty; }, function (v) { S.fg.duty = v; }, function (v) { return v + ' %'; });
+  bindSl('sl-p', function () { return S.fg.phase; }, function (v) { S.fg.phase = v; }, function (v) { return v + '°'; });
+  bindSl('sl-c', function () { return Math.round(S.comp * 100 / .6); }, function (v) { S.comp = v * .6 / 100; }, function (v) { return v === 0 ? 'perfect' : v > 0 ? 'over (+' + v + ')' : 'under (' + v + ')'; });
+  bindSl('sl-p1', function () { return Math.round(S.pos[0] * 10); }, function (v) { S.pos[0] = v / 10; }, function (v) { return (v / 10).toFixed(1) + ' div'; });
+  bindSl('sl-p2', function () { return Math.round(S.pos[1] * 10); }, function (v) { S.pos[1] = v / 10; }, function (v) { return (v / 10).toFixed(1) + ' div'; });
+  var segs = [
+    VI.seg($('shape-seg'), function () { return S.fg.shape; }, function (v) { S.fg.shape = v; syncAll(); }),
+    VI.seg($('phys-seg'), function () { return S.phys; }, function (v) { S.phys = +v; syncAll(); }),
+    VI.seg($('setp-seg'), function () { return S.setp; }, function (v) { S.setp = +v; syncAll(); }),
+    VI.seg($('tsrc-seg'), function () { return S.tsrc; }, function (v) { S.tsrc = +v; syncAll(); }),
+    VI.seg($('slope-seg'), function () { return S.slope; }, function (v) { S.slope = +v; syncAll(); }),
+    VI.seg($('mode-seg'), function () { return S.mode; }, function (v) { S.mode = v; S.armed = v === 'single'; if (v === 'single') S.run = true; syncAll(); }),
+    VI.seg($('cpl1-seg'), function () { return S.cpl[0]; }, function (v) { S.cpl[0] = v; syncAll(); }),
+    VI.seg($('cpl2-seg'), function () { return S.cpl[1]; }, function (v) { S.cpl[1] = v; syncAll(); })
+  ];
+  function syncAll() {
+    $('src1').value = S.src[0]; $('src2').value = S.src[1];
+    var usesFg = S.src.indexOf('fg') >= 0 || S.src.indexOf('fgb') >= 0;
+    $('fg-box').hidden = !usesFg; $('comp-box').hidden = S.src.indexOf('comp') < 0; $('duty-w').hidden = S.fg.shape !== 'square';
+    ['sl-f', 'sl-a', 'sl-o', 'sl-d', 'sl-p', 'sl-c', 'sl-p1', 'sl-p2'].forEach(function (i) { $(i)._sync(); });
+    segs.forEach(function (f) { f(); });
+    kn.v1.set(S.vi[0], true); kn.v2.set(S.vi[1], true); kn.td.set(S.tdi, true); kn.tl.set(Math.round(S.tl * 10) + 40, true);
+    btnEl.c1.classList.toggle('lit', S.cpl[0] !== 'dc'); btnEl.c2.classList.toggle('lit', S.cpl[1] !== 'dc'); btnEl.single.classList.toggle('lit', S.mode === 'single'); btnEl.run.classList.toggle('lit', !S.run);
+    noteMic(); $('runstop').textContent = S.run ? 'Stop' : 'Run'; dirty = true; status();
+  }
+  function autoset() {
+    S.run = true; S.mode = 'auto'; S.armed = false;
+    var ch = S.src[0] !== 'off' ? 0 : S.src[1] !== 'off' ? 1 : -1; if (ch < 0) { syncAll(); return; }
+    S.tsrc = ch; S.cpl[ch] = S.cpl[ch] === 'gnd' ? 'dc' : S.cpl[ch];
+    var m = stats(ch), P = m.P, k = kf();
+    if (P) { var want = 3.2 * P / 12, i; for (i = 0; i < TD.length - 1 && TD[i] < want; i++); S.tdi = i; }
+    else if (m.src === 'mic') S.tdi = 17;
+    /* vertical */
+    var src = S.src[ch], vals = [], n = 300, t0 = 0, span = P || .02, mn = 1e9, mx = -1e9, s = 0;
+    for (var j = 0; j < n; j++) { var v = raw(src, span * j / n) * k; vals.push(v); s += v; }
+    var mean = s / n; vals.forEach(function (v) { if (v < mn) mn = v; if (v > mx) mx = v; });
+    var vpp = Math.max(mx - mn, 1e-4);
+    if (Math.abs(mean) > 2 * vpp && src !== 'mic') S.cpl[ch] = 'ac'; else if (src !== 'batt') S.cpl[ch] = 'dc';
+    if (src === 'batt') { S.cpl[ch] = 'dc'; vpp = Math.abs(mean) * 1.2; }
+    var vp2 = S.cpl[ch] === 'ac' ? vpp : Math.max(Math.abs(mx), Math.abs(mn));
+    var vi = 0; for (vi = 0; vi < VD.length - 1 && VD[vi] * (S.cpl[ch] === 'ac' ? 6 : 3.6) < vp2; vi++);
+    S.vi[ch] = vi; S.pos[ch] = 0;
+    S.tl = S.cpl[ch] === 'ac' ? 0 : cl(Math.round(((mx + mn) / 2 / VD[vi]) * 10) / 10, -4, 4);
+    if (ch === 0 && S.src[1] !== 'off') { S.vi[1] = vi; S.pos[1] = 0; if (S.src[1] === 'fgb') S.cpl[1] = S.cpl[0]; }
+    syncAll();
+  }
+
+  /* scenarios */
+  var SC = [
+    ['A 1 kHz sine', function () { S.src = ['fg', 'off']; S.fg = { shape: 'sine', f: 1000, a: 4, off: 0, duty: 50, phase: 60 }; S.tdi = 14; S.vi[0] = 9; S.cpl[0] = 'dc'; S.tl = 0; S.mode = 'auto'; S.run = true; }],
+    ['100 kHz square wave', function () { S.src = ['fg', 'off']; S.fg = { shape: 'square', f: 100e3, a: 5, off: 2.5, duty: 50, phase: 60 }; S.tdi = 8; S.vi[0] = 9; S.tl = 1; S.mode = 'auto'; S.run = true; }],
+    ['Probe compensation', function () { S.src = ['comp', 'off']; S.phys = 10; S.setp = 10; S.comp = .36; S.tdi = 14; S.vi[0] = 8; S.cpl[0] = 'dc'; S.tl = 1.5; S.mode = 'auto'; S.run = true; }],
+    ['x10 probe mistake', function () { S.src = ['fg', 'off']; S.fg = { shape: 'sine', f: 1000, a: 4, off: 0, duty: 50, phase: 60 }; S.phys = 10; S.setp = 1; S.tdi = 14; S.vi[0] = 9; S.tl = 0; S.mode = 'auto'; S.run = true; }],
+    ['Supply ripple', function () { S.src = ['smps', 'off']; S.cpl[0] = 'ac'; S.tdi = 8; S.vi[0] = 5; S.tl = 0; S.mode = 'auto'; S.run = true; }],
+    ['Phase difference', function () { S.src = ['fg', 'fgb']; S.fg = { shape: 'sine', f: 1000, a: 4, off: 0, duty: 50, phase: 60 }; S.tdi = 14; S.vi = [9, 9]; S.cpl = ['dc', 'dc']; S.tl = 0; S.mode = 'auto'; S.run = true; }],
+    ['Speak into it', function () { S.src = ['mic', 'off']; S.cpl[0] = 'ac'; S.tdi = 17; S.vi[0] = 4; S.tl = 0; S.mode = 'auto'; S.run = true; micStart(); }],
+    ['Lose the trigger', function () { S.src = ['fg', 'off']; S.fg = { shape: 'sine', f: 1000, a: 4, off: 0, duty: 50, phase: 60 }; S.tdi = 14; S.vi[0] = 9; S.tl = 3.5; S.mode = 'auto'; S.run = true; }]
+  ];
+  var sc = $('scen'); SC.forEach(function (s) { var b = document.createElement('button'); b.type = 'button'; b.className = 'vi-chip'; b.textContent = s[0]; b.addEventListener('click', function () { S = fresh(); s[1](); if (S.src.indexOf('mic') < 0) micStop(); S.armed = false; S.pos = [0, 0]; syncAll(); }); sc.appendChild(b); });
+
+  $('runstop').addEventListener('click', function () { S.run = !S.run; if (S.run && S.mode === 'single') S.armed = true; syncAll(); });
+  $('autoset').addEventListener('click', autoset);
+  $('reset').addEventListener('click', function () { micStop(); S = fresh(); syncAll(); });
+  document.addEventListener('keydown', function (e) { if (/INPUT|SELECT|TEXTAREA/.test((e.target || {}).tagName || '')) return; if (e.key === 'a' || e.key === 'A') autoset(); else if (e.key === ' ' && !(e.target && e.target.getAttribute && e.target.getAttribute('role') === 'button')) { e.preventDefault(); S.run = !S.run; syncAll(); } });
+  window.addEventListener('pagehide', micStop);
+
+  syncAll(); autoset(); VI.rafLoop(frame);
+})();
+</script>

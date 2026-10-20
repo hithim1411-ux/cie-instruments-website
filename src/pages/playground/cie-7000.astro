@@ -1,0 +1,273 @@
+---
+import VIShell from '../../components/VIShell.astro';
+import { u } from '../../utils/url';
+---
+
+<VIShell
+  slug="cie-7000" model="CIE/7000 Series"
+  pageTitle="CIE/7000 Transformer Oil BDV Tester Playground: Online Simulator"
+  description="Just for fun: a free interactive playground version of the CIE/7000 series transformer oil BDV tester. Pour a sample, wait for the bubbles to settle, raise the voltage at 2 kV per second and catch the breakdown. Six tests, a mean value and the interlocks."
+  h1="CIE/7000 oil BDV tester, in your browser"
+  intro="Pour an oil sample, let the bubbles settle, close the door and raise the voltage until the oil breaks down. Do six tests, read the mean, and see why wet and dirty oil fails early."
+  productHref={u('/products/oil-test-sets/cie-7050/')}
+  extraLink={{ href: u('/products/oil-test-sets/'), label: 'All oil test sets' }}
+  ctaBody="The CIE/7000 series is made and supplied by CIE in Howrah, with test certificate available on request."
+  aboutTitle="How a transformer oil BDV test works"
+>
+  <Fragment slot="stage">
+    <svg id="vi-svg" viewBox="0 0 480 700" role="group" aria-label="Interactive CIE/7000 transformer oil BDV tester" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g-red" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cf2e35"/><stop offset="1" stop-color="#a11f25"/></linearGradient>
+        <radialGradient id="g-knob" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#6a7078"/><stop offset="1" stop-color="#1c1e22"/></radialGradient>
+        <radialGradient id="g-brass" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#fff1c2"/><stop offset=".6" stop-color="#d9a441"/><stop offset="1" stop-color="#8a5f17"/></radialGradient>
+        <radialGradient id="g-flash"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#9ad0ff" stop-opacity="0"/></radialGradient>
+        <filter id="f-shadow" x="-10%" y="-5%" width="120%" height="115%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".3"/></filter>
+        <clipPath id="clip-oil"><rect x="170" y="414" width="140" height="232" rx="6"/></clipPath>
+      </defs>
+      <rect filter="url(#f-shadow)" x="10" y="10" width="460" height="680" rx="14" fill="#eceeef" stroke="#9aa0a6" stroke-width="3"/>
+      <rect x="26" y="26" width="428" height="340" rx="8" fill="url(#g-red)" stroke="#6e1216" stroke-width="2"/>
+      <!-- meter -->
+      <rect x="44" y="44" width="244" height="196" rx="6" fill="#f6f6f2" stroke="#222" stroke-width="3"/>
+      <g id="scale" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" fill="#222" text-anchor="middle"></g>
+      <text x="166" y="132" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="800" fill="#222">kV</text>
+      <text x="166" y="228" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#555">CIE · OIL TEST SET</text>
+      <g id="memn"><line x1="166" y1="205" x2="166" y2="86" stroke="#2fa44a" stroke-width="2.5" stroke-linecap="round"/></g>
+      <g id="needle"><line x1="166" y1="214" x2="166" y2="82" stroke="#111" stroke-width="2.4" stroke-linecap="round"/></g>
+      <circle cx="166" cy="205" r="8" fill="#111"/>
+      <!-- lamps -->
+      <g font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="800" fill="#fff">
+        <circle id="l-mains" cx="318" cy="64" r="9" fill="#123a1c" stroke="#222" stroke-width="2"/><text x="334" y="68">MAINS ON</text>
+        <circle id="l-zero" cx="318" cy="96" r="9" fill="#123a1c" stroke="#222" stroke-width="2"/><text x="334" y="100">ZERO START</text>
+        <circle id="l-door" cx="318" cy="128" r="9" fill="#123a1c" stroke="#222" stroke-width="2"/><text x="334" y="132">DOOR CLOSED</text>
+        <circle id="l-ht" cx="318" cy="160" r="9" fill="#4a0f0f" stroke="#222" stroke-width="2"/><text x="334" y="164">H.T. ON</text>
+        <circle id="l-trip" cx="318" cy="192" r="9" fill="#4a3208" stroke="#222" stroke-width="2"/><text x="334" y="196">TRIPPED</text>
+        <circle id="l-mem" cx="318" cy="224" r="9" fill="#123a1c" stroke="#222" stroke-width="2"/><text x="334" y="228">MEMORY</text>
+      </g>
+      <!-- buttons -->
+      <g font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">
+        <g id="b-mains" class="btn" tabindex="0" role="button" aria-label="Mains on or off"><rect class="face" x="44" y="268" width="84" height="34" rx="6" fill="#222" stroke="#000" stroke-width="2"/><text x="86" y="290">MAINS</text></g>
+        <g id="b-hton" class="btn" tabindex="0" role="button" aria-label="H.T. on"><rect class="face" x="140" y="268" width="84" height="34" rx="6" fill="#222" stroke="#000" stroke-width="2"/><text x="182" y="290">H.T. ON</text></g>
+        <g id="b-htoff" class="btn" tabindex="0" role="button" aria-label="H.T. off"><rect class="face" x="236" y="268" width="84" height="34" rx="6" fill="#222" stroke="#000" stroke-width="2"/><text x="278" y="290">H.T. OFF</text></g>
+        <text x="86" y="324" fill="#ffd9d9" font-size="10">Mains on</text><text x="182" y="324" fill="#ffd9d9" font-size="10">Zero start only</text><text x="278" y="324" fill="#ffd9d9" font-size="10">Trips output</text>
+        <text id="read" x="166" y="352" font-size="14" fill="#fff" font-family="'IBM Plex Mono', monospace">0.0 kV  0.0 kV/s</text>
+      </g>
+      <g id="reg-man"><g font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="800" fill="#fff" text-anchor="middle"><text x="396" y="270">REGULATOR</text></g><g id="knobs"></g></g>
+      <g id="reg-mot" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">
+        <g id="b-up" class="btn" tabindex="0" role="button" aria-label="Raise voltage, hold"><rect class="face" x="352" y="262" width="88" height="38" rx="6" fill="#222" stroke="#000" stroke-width="2"/><text x="396" y="286">▲ RAISE</text></g>
+        <g id="b-dn" class="btn" tabindex="0" role="button" aria-label="Lower voltage, hold"><rect class="face" x="352" y="308" width="88" height="38" rx="6" fill="#222" stroke="#000" stroke-width="2"/><text x="396" y="332">▼ LOWER</text></g>
+      </g>
+
+      <!-- test cell -->
+      <text x="240" y="392" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="800" fill="#444">OIL TEST CELL · gap <tspan id="gaplbl">2.5 mm</tspan> (not to scale)</text>
+      <rect x="164" y="404" width="152" height="248" rx="8" fill="rgba(210,235,255,.35)" stroke="#8aa3b5" stroke-width="3"/>
+      <g clip-path="url(#clip-oil)">
+        <rect id="oil" x="170" y="440" width="140" height="206" fill="#e8c46a" opacity=".55"/>
+        <g id="bubbles"></g><g id="parts"></g>
+      </g>
+      <g id="electrodes">
+        <rect x="236" y="404" width="8" height="70" fill="#b98a2e" stroke="#6d4b0c"/>
+        <rect id="eRod" x="236" y="540" width="8" height="112" fill="#b98a2e" stroke="#6d4b0c"/>
+        <circle id="eTop" cx="240" cy="486" r="12" fill="url(#g-brass)" stroke="#6d4b0c" stroke-width="2"/>
+        <circle id="eBot" cx="240" cy="520" r="12" fill="url(#g-brass)" stroke="#6d4b0c" stroke-width="2"/>
+      </g>
+      <circle id="corona" cx="240" cy="508" r="56" fill="url(#g-flash)" opacity="0"/>
+      <polyline id="spark" points="" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" opacity="0"/>
+      <polyline id="spark2" points="" fill="none" stroke="#9ad0ff" stroke-width="7" stroke-linejoin="round" opacity="0"/>
+      <!-- door -->
+      <g id="door" class="btn" tabindex="0" role="button" aria-label="Test chamber door: open or close">
+        <rect id="door-r" x="156" y="396" width="168" height="264" rx="10" fill="rgba(255,255,255,.1)" stroke="#a11f25" stroke-width="6"/>
+        <rect id="door-t" x="190" y="660" width="100" height="22" rx="5" fill="#a11f25"/><text id="door-lbl" x="240" y="676" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="800" fill="#fff">DOOR: CLOSED</text>
+      </g>
+    </svg>
+  </Fragment>
+  <Fragment slot="hint">Click the door to open and close it. Motorised: hold <kbd>↑</kbd> to raise, <kbd>↓</kbd> to lower. <kbd>H</kbd> = H.T. ON, <kbd>X</kbd> = H.T. OFF.</Fragment>
+
+  <Fragment slot="panels">
+    <section class="vi-card">
+      <h2 class="vi-h"><span>Try a scenario</span></h2>
+      <div class="vi-chips" id="scen"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>1</span>Pick the oil and the set</h2>
+      <div class="vi-opts" id="oil-opts" role="radiogroup" aria-label="Oil sample"></div>
+      <div class="vi-cols" style="margin-top:1rem">
+        <div><label>Electrode gap</label><div class="vi-seg vi-seg--2" id="gap-seg" role="radiogroup" aria-label="Gap"><button type="button" data-v="2.5" role="radio">2.5 mm</button><button type="button" data-v="4" role="radio">4 mm</button></div></div>
+        <div><label>Model</label><div class="vi-seg vi-seg--2" id="drive-seg" role="radiogroup" aria-label="Drive"><button type="button" data-v="mot" role="radio">Motorised</button><button type="button" data-v="man" role="radio">Manual</button></div></div>
+      </div>
+      <div style="margin-top:.9rem"><label for="tier" style="display:block;font-size:.72rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted);margin-bottom:.3rem">Output range</label><select class="vi-sel" id="tier"></select></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>2</span>Run the test</h2>
+      <ol class="vi-steps" id="steps"></ol>
+      <div class="vi-row"><span class="vi-lbl">Stir the oil gently</span><button type="button" class="vi-btn" id="stir">Stir</button></div>
+      <div class="vi-row"><span class="vi-lbl">Skip the waiting</span><button type="button" class="vi-btn" id="ff">Fast-forward</button></div>
+      <div class="vi-row"><span class="vi-lbl">Pour a fresh sample</span><button type="button" class="vi-btn" id="pour">Pour</button></div>
+    </section>
+    <section class="vi-card vi-live">
+      <h2 class="vi-h"><span>3</span>Results</h2>
+      <div class="vi-status" id="status" aria-live="polite"></div>
+      <table class="vi-table" id="tbl"><thead><tr><th>Test</th><th>Breakdown</th></tr></thead><tbody></tbody></table>
+      <div class="vi-spec" id="sumline"></div>
+    </section>
+    <section class="vi-card">
+      <h2 class="vi-h"><span>4</span>Simulator settings</h2>
+      <div class="vi-row"><span class="vi-lbl">Sound</span><label class="vi-switch"><input type="checkbox" id="snd" checked /><span></span></label></div>
+      <div class="vi-row"><span class="vi-lbl">Reset everything</span><button type="button" class="vi-btn" id="reset">Reset</button></div>
+    </section>
+  </Fragment>
+
+  <Fragment slot="about">
+    <ul>
+      <li><strong>What BDV means:</strong> breakdown voltage is the voltage at which the oil between two electrodes stops insulating and a spark jumps across. Clean, dry oil holds a high voltage. Water, dust, fibres and sludge make it fail at a much lower voltage. It is one of the quickest checks on the health of the oil in a transformer or circuit breaker.</li>
+      <li><strong>The procedure (IS 6792 style):</strong> fill the cell, let it stand for a few minutes so air bubbles rise out, close the door, and raise the voltage steadily at about 2 kV per second until breakdown. The set trips and remembers the reading. Stir gently, wait, and repeat. Six breakdowns give a mean value.</li>
+      <li><strong>Interlocks:</strong> the set cannot be energised with the test chamber door open, and the H.T. only starts if the regulator is at zero, so you cannot switch onto a high voltage by accident. Opening the door during a test trips the set.</li>
+      <li><strong>Why wait:</strong> tiny air bubbles lower the breakdown voltage. Test too soon after filling, or straight after a spark, and the result reads low.</li>
+      <li><strong>Why six tests:</strong> breakdown is a random event. Even good oil scatters from one test to the next, so a single reading proves little. The mean of several is much more reliable.</li>
+      <li><strong>Range:</strong> the CIE/7000 series covers 50, 60, 70, 75, 80, 90, 100 and 120 kV, each in manual and motorised versions. If the oil is stronger than the range of your set, it will not break down at full scale.</li>
+    </ul>
+    <p class="vi-fine">This is a playful beta simulation. Breakdown values for each oil type are made up for illustration, and the lamps, button behaviour, lowering speed and tripping of the real set are approximated. Real oil testing involves lethal high voltage and must follow the standard, the instruction manual and your site safety procedures. Never operate a real set with the interlocks bypassed.</p>
+  </Fragment>
+</VIShell>
+
+<style is:global>
+  .vi-steps { list-style: none; margin: 0 0 .8rem; padding: 0; display: grid; gap: .45rem; counter-reset: s; }
+  .vi-steps li { display: flex; gap: .6rem; align-items: flex-start; font-size: .88rem; color: var(--color-ink); line-height: 1.4; }
+  .vi-steps li::before { content: ''; flex: none; width: 1.05rem; height: 1.05rem; margin-top: .1rem; border-radius: 50%; border: 2px solid #cdd3dd; background: #fff; }
+  .vi-steps li.done::before { background: #1fa45a; border-color: #1fa45a; box-shadow: inset 0 0 0 3px #fff; }
+  .vi-steps li.done { color: var(--color-muted); }
+</style>
+
+<script is:inline src="/js/vi-core.js"></script>
+<script is:inline>
+(function () {
+  var VI = window.VI, $ = VI.$, el = VI.el;
+  var CX = 166, CY = 205, SW = 50;
+  var OILS = {
+    fresh:   { name: 'Fresh, filtered, dry oil', desc: 'New oil, dehydrated and filtered. Holds a high voltage.', mean: 62, sd: 6, col: '#f1dc8a' },
+    service: { name: 'Service-aged oil', desc: 'Some years in a transformer. Still serviceable.', mean: 46, sd: 7, col: '#d9a54a' },
+    dirty:   { name: 'Oil with dust and fibres', desc: 'Particles bridge the gap. Wide scatter from test to test.', mean: 32, sd: 12, col: '#c28a3e', parts: true },
+    wet:     { name: 'Oil with dissolved water', desc: 'Moisture makes it break down early.', mean: 22, sd: 6, col: '#cfa55a', haze: true },
+    tired:   { name: 'Badly aged, sludgy oil', desc: 'Dark, acidic oil near the end of its life.', mean: 16, sd: 5, col: '#6a4721', parts: true }
+  };
+  var TIERS = [50, 60, 70, 75, 80, 90, 100, 120];
+  function fresh() { return { oil: 'fresh', gap: 2.5, drive: 'mot', vmax: 50, mains: false, door: true, ht: false, r: 0, V: 0, rate: 0, vbd: 0, mem: null, tripped: false, rest: 180, stirred: true, res: [], bub: true, spark: 0, up: false, dn: false, msg: '', snd: true }; }
+  var S = fresh(), prevV = 0, rateS = 0, hold = 0;
+
+  /* ---------- scale ---------- */
+  function buildScale() {
+    var g = $('scale'); g.innerHTML = '';
+    var step = S.vmax <= 60 ? 10 : 20, a0 = -52, a1 = 52, R = 124;
+    function pos(v, r) { var a = (a0 + (a1 - a0) * v / S.vmax) * Math.PI / 180; return [CX + Math.sin(a) * r, CY - Math.cos(a) * r]; }
+    var d = ''; for (var v = 0; v <= S.vmax; v += step / 2) { var p1 = pos(v, R), p2 = pos(v, R - (v % step ? 6 : 12)); d += 'M' + p1[0].toFixed(1) + ' ' + p1[1].toFixed(1) + 'L' + p2[0].toFixed(1) + ' ' + p2[1].toFixed(1); }
+    el('path', { d: d, stroke: '#222', 'stroke-width': 1.6, fill: 'none' }, g);
+    var arc = [pos(0, R), pos(S.vmax, R)]; el('path', { d: 'M' + arc[0][0] + ' ' + arc[0][1] + 'A' + R + ' ' + R + ' 0 0 1 ' + arc[1][0] + ' ' + arc[1][1], stroke: '#222', 'stroke-width': 1.6, fill: 'none' }, g);
+    for (var w = 0; w <= S.vmax; w += step) { var q = pos(w, R - 24), t = el('text', { x: q[0], y: q[1] + 4 }, g); t.textContent = w; }
+  }
+  function needleAngle(v) { return -52 + 104 * Math.max(0, Math.min(1, v / S.vmax)); }
+
+  /* ---------- sound ---------- */
+  function crack() { if (!S.snd) return; VI.sound = true; VI.tick(220, .08, .07); setTimeout(function () { VI.tick(90, .22, .09); }, 30); }
+
+  /* ---------- controls ---------- */
+  var knob = VI.knob($('knobs'), { cx: 396, cy: 318, r: 34, n: 201, v: 0, label: 'Regulator (autotransformer)', fmt: function (i) { return (i / 2) + ' %'; }, per: 1.2, ptr: '#ffd23f', onChange: function (i) { if (S.drive === 'man') { S.r = i / 200; } } });
+  var steps = $('steps');
+  function mkBtn(id, down, up) { var e = $(id); function d(ev) { ev.preventDefault(); e.classList.add('down'); down(); } function u2() { e.classList.remove('down'); up && up(); } e.addEventListener('pointerdown', d); e.addEventListener('pointerup', u2); e.addEventListener('pointerleave', u2); e.addEventListener('pointercancel', u2); }
+  mkBtn('b-up', function () { S.up = true; }, function () { S.up = false; });
+  mkBtn('b-dn', function () { S.dn = true; }, function () { S.dn = false; });
+  VI.wireButton($('b-mains'), function () { S.mains = !S.mains; if (!S.mains) S.ht = false; sync(); });
+  VI.wireButton($('b-hton'), htOn);
+  VI.wireButton($('b-htoff'), function () { S.ht = false; sync(); });
+  VI.wireButton($('door'), function () { S.door = !S.door; if (!S.door && S.ht) { S.ht = false; S.tripped = true; S.msg = 'Opening the door tripped the set.'; } sync(); });
+  function htOn() {
+    if (!S.mains) { S.msg = 'Switch the mains on first.'; return sync(); }
+    if (!S.door) { S.msg = 'Interlock: close the test chamber door first.'; return sync(); }
+    if (S.r > .005) { S.msg = 'Zero-start interlock: bring the regulator back to zero first.'; return sync(); }
+    if (S.ht) return;
+    S.ht = true; S.tripped = false; S.mem = null; S.msg = '';
+    var o = OILS[S.oil], gf = S.gap === 4 ? 1.3 : 1, z = VI.rand() * 1.15, base = o.mean * gf * Math.max(.3, 1 + o.sd / o.mean * z);
+    if (S.rest > 0) base *= .6; else if (!S.stirred) base *= .82;
+    S.vbd = base; S.rate = 0; rateS = 0; sync();
+  }
+  function trip(broke) {
+    S.ht = false; S.tripped = true; S.V = 0;
+    if (broke) {
+      var rateF = Math.pow(Math.max(.2, rateS) / 2, .06), v = Math.round(S.vbd * rateF * 10) / 10; S.mem = v; S.res.push(v); S.spark = .5; S.rest = 120; S.stirred = false; crack();
+      S.msg = 'Breakdown at ' + v.toFixed(1) + ' kV (rate ' + rateS.toFixed(1) + ' kV/s). Bring the regulator back to zero, stir, then wait.';
+    }
+    sync();
+  }
+  $('stir').addEventListener('click', function () { S.stirred = true; for (var i = 0; i < 6; i++) addBubble(true); S.msg = 'Stirred gently.'; sync(); });
+  $('ff').addEventListener('click', function () { S.rest = 0; S.msg = ''; sync(); });
+  $('pour').addEventListener('click', pour); function pour() { S.res = []; S.mem = null; S.rest = 180; S.stirred = true; S.tripped = false; S.msg = 'Poured a fresh sample. Wait for the bubbles to rise.'; sync(); }
+  document.addEventListener('keydown', function (e) { if (/INPUT|SELECT|TEXTAREA/.test((e.target || {}).tagName || '')) return; var k = e.key; if (k === 'ArrowUp' && S.drive === 'mot') { S.up = true; e.preventDefault(); } else if (k === 'ArrowDown' && S.drive === 'mot') { S.dn = true; e.preventDefault(); } else if (k === 'h' || k === 'H') htOn(); else if (k === 'x' || k === 'X') { S.ht = false; sync(); } });
+  document.addEventListener('keyup', function (e) { if (e.key === 'ArrowUp') S.up = false; if (e.key === 'ArrowDown') S.dn = false; });
+  $('snd').addEventListener('change', function () { S.snd = $('snd').checked; });
+  $('reset').addEventListener('click', function () { S = fresh(); prevV = 0; rateS = 0; knob.set(0, true); buildScale(); sync(); });
+
+  /* panel */
+  $('oil-opts').innerHTML = Object.keys(OILS).map(function (k) { return VI.opt('oil', k, OILS[k].name, OILS[k].desc); }).join('');
+  document.querySelectorAll('#oil-opts .vi-opt').forEach(function (b) { b.addEventListener('click', function () { S.oil = b.getAttribute('data-k'); pour(); }); });
+  $('tier').innerHTML = TIERS.map(function (t) { return '<option value="' + t + '">0 to ' + t + ' kV (CIE/7' + (t < 100 ? ('0' + t).slice(-2) : t === 100 ? '100' : '120') + ')</option>'; }).join('');
+  $('tier').addEventListener('change', function () { S.vmax = +$('tier').value; buildScale(); sync(); });
+  var segs = [VI.seg($('gap-seg'), function () { return S.gap; }, function (v) { S.gap = +v; S.ht = false; sync(); }), VI.seg($('drive-seg'), function () { return S.drive; }, function (v) { S.drive = v; S.r = 0; knob.set(0, true); S.up = S.dn = false; sync(); })];
+  var SC = [
+    ['Good oil, a normal test', function () { S.oil = 'fresh'; S.rest = 0; S.mains = true; }],
+    ['Wet oil fails early', function () { S.oil = 'wet'; S.rest = 0; S.mains = true; }],
+    ['Dirty oil: wide scatter', function () { S.oil = 'dirty'; S.rest = 0; S.mains = true; S.res = [31.2, 18.4, 40.9]; }],
+    ['Strong oil, small set', function () { S.oil = 'fresh'; S.vmax = 50; S.gap = 4; S.rest = 0; S.mains = true; }],
+    ['Test too soon after pouring', function () { S.oil = 'fresh'; S.rest = 150; S.mains = true; }]
+  ];
+  var sc = $('scen'); SC.forEach(function (s) { var b = document.createElement('button'); b.type = 'button'; b.className = 'vi-chip'; b.textContent = s[0]; b.addEventListener('click', function () { S = fresh(); s[1](); knob.set(0, true); buildScale(); sync(); }); sc.appendChild(b); });
+
+  /* ---------- visuals ---------- */
+  var bubG = $('bubbles'), partG = $('parts'), bubs = [];
+  function addBubble(burst) { var b = { x: 178 + Math.random() * 124, y: burst ? 470 + Math.random() * 160 : 640 + Math.random() * 10, r: 1.4 + Math.random() * 2.6, v: 14 + Math.random() * 22, el: el('circle', { r: 2, fill: 'rgba(255,255,255,.7)' }, bubG) }; bubs.push(b); }
+  var partKey = ''; function drawParts() { if (partKey === S.oil) return; partKey = S.oil; partG.innerHTML = ''; var o = OILS[S.oil]; if (o.parts) for (var i = 0; i < 38; i++) el('circle', { cx: 176 + Math.random() * 128, cy: 450 + Math.random() * 190, r: .8 + Math.random() * 1.6, fill: S.oil === 'tired' ? '#2a1a0a' : '#5b4a33', opacity: .8 }, partG); if (o.haze) for (var j = 0; j < 24; j++) el('circle', { cx: 176 + Math.random() * 128, cy: 450 + Math.random() * 190, r: 1 + Math.random() * 2, fill: '#fff', opacity: .35 }, partG); }
+  function zig(x0, y0, x1, y1) { var p = [[x0, y0]], n = 6; for (var i = 1; i < n; i++) p.push([x0 + (x1 - x0) * i / n + (Math.random() - .5) * 26, y0 + (y1 - y0) * i / n]); p.push([x1, y1]); return p.map(function (q) { return q[0].toFixed(1) + ',' + q[1].toFixed(1); }).join(' '); }
+  function sync() {
+    var o = OILS[S.oil], gp = S.gap === 4 ? 24 : 14, by = 486 + 24 + gp;
+    $('oil').setAttribute('fill', o.col); $('gaplbl').textContent = S.gap + ' mm';
+    $('eBot').setAttribute('cy', by); $('eRod').setAttribute('y', by + 6);
+    $('reg-man').style.display = S.drive === 'man' ? '' : 'none'; $('reg-mot').style.display = S.drive === 'mot' ? '' : 'none';
+    $('door-r').setAttribute('stroke-dasharray', S.door ? '' : '10 8'); $('door-r').setAttribute('stroke', S.door ? '#a11f25' : '#e08a00'); $('door-lbl').textContent = 'DOOR: ' + (S.door ? 'CLOSED' : 'OPEN (click)');
+    function lamp(id, on, c1, c0) { $(id).setAttribute('fill', on ? c1 : c0); }
+    lamp('l-mains', S.mains, '#35ff7a', '#123a1c'); lamp('l-zero', S.r <= .005, '#35ff7a', '#123a1c'); lamp('l-door', S.door, '#35ff7a', '#123a1c'); lamp('l-ht', S.ht, '#ff3b30', '#4a0f0f'); lamp('l-trip', S.tripped, '#ffb020', '#4a3208'); lamp('l-mem', S.mem != null, '#35ff7a', '#123a1c');
+    $('memn').setAttribute('transform', 'rotate(' + needleAngle(S.mem == null ? 0 : S.mem) + ' ' + CX + ' ' + CY + ')'); $('memn').style.display = S.mem == null ? 'none' : '';
+    $('tier').value = S.vmax; $('oil-opts').querySelectorAll('.vi-opt').forEach(function (b) { b.setAttribute('aria-checked', b.getAttribute('data-k') === S.oil ? 'true' : 'false'); }); segs.forEach(function (f) { f(); });
+    drawParts();
+    var items = [[S.mains, 'Switch the mains on'], [S.rest <= 0, 'Let the oil rest so the bubbles rise (' + (S.rest > 0 ? Math.ceil(S.rest / 60) + ' min left' : 'done') + ')'], [S.door, 'Close the test chamber door'], [S.r <= .005 && S.mains, 'Regulator at zero, then press H.T. ON'], [S.ht, 'Raise the voltage at about 2 kV per second'], [S.res.length >= 6, 'Repeat until you have six breakdowns']];
+    steps.innerHTML = items.map(function (i) { return '<li class="' + (i[0] ? 'done' : '') + '">' + i[1] + '</li>'; }).join('');
+    var h = S.msg ? '<p class="' + (/Interlock|first|tripped/.test(S.msg) ? 'warn' : '') + '">' + S.msg + '</p>' : '';
+    if (S.ht && S.rest > 0) h += '<p class="warn">The oil has not rested. Air bubbles will make this one read low.</p>';
+    else if (S.ht && !S.stirred) h += '<p class="warn">You did not stir after the last spark, so carbon from it is still in the gap.</p>';
+    if (S.ht && S.V >= S.vmax * .995 && S.V < S.vbd) h += '<p>Full scale reached with no breakdown. This oil is stronger than the ' + S.vmax + ' kV range of this set.</p>';
+    if (!h) h = '<p>Follow the steps. Results appear below after each breakdown.</p>';
+    $('status').innerHTML = h;
+    var tb = $('tbl').tBodies[0]; tb.innerHTML = S.res.map(function (v, i) { return '<tr><td>Test ' + (i + 1) + '</td><td>' + v.toFixed(1) + ' kV</td></tr>'; }).join('');
+    var n = S.res.length, sum = $('sumline');
+    if (n) { var mean = S.res.reduce(function (a, b) { return a + b; }, 0) / n, mn = Math.min.apply(null, S.res), mx = Math.max.apply(null, S.res); sum.innerHTML = 'Mean of ' + n + ': <b style="color:#fff">' + mean.toFixed(1) + ' kV</b>   min ' + mn.toFixed(1) + '   max ' + mx.toFixed(1) + (n >= 6 ? '<br>' + (mean >= 50 ? 'Strong: good dielectric strength.' : mean >= 30 ? 'Fair: usable, but watch it, and consider filtering.' : 'Weak: dry, filter or replace the oil.') + ' Illustrative guide only. Real limits depend on the equipment and your standard.' : '<br>Do six tests for a reliable mean.'); } else sum.textContent = '';
+  }
+
+  /* ---------- loop ---------- */
+  var flash = 0;
+  VI.rafLoop(function (dt) {
+    if (S.drive === 'mot') { if (S.up && !S.dn) S.r = Math.min(1, S.r + (2 / S.vmax) * dt); else if (S.dn) S.r = Math.max(0, S.r - (8 / S.vmax) * dt); knob.set(Math.round(S.r * 200), true); }
+    else S.r = knob.get() / 200;
+    var tgt = S.ht && S.mains && S.door ? S.r * S.vmax : 0; if (!S.ht) tgt = 0;
+    if (!S.ht) S.V += (0 - S.V) * Math.min(1, dt * 12); else S.V = tgt;
+    var rt = (S.V - prevV) / Math.max(dt, .001); prevV = S.V; if (S.ht) rateS += (rt - rateS) * Math.min(1, dt * 3); else rateS = 0;
+    if (S.ht && S.V >= S.vbd && S.V > 0) trip(true);
+    if (S.rest > 0) { var was = S.rest; S.rest = Math.max(0, S.rest - dt * 20); if (was > 0 && S.rest === 0) sync(); else if (((was / 20) | 0) !== ((S.rest / 20) | 0)) sync(); }
+    var hold2 = S.ht && S.V > 0.5;
+    var na = needleAngle(S.V); $('needle').setAttribute('transform', 'rotate(' + na.toFixed(2) + ' ' + CX + ' ' + CY + ')');
+    $('read').textContent = S.V.toFixed(1).padStart(5, ' ') + ' kV  ' + Math.max(0, rateS).toFixed(1) + ' kV/s';
+    $('l-zero').setAttribute('fill', S.r <= .005 ? '#35ff7a' : '#123a1c');
+    $('corona').setAttribute('opacity', S.ht ? Math.min(.55, S.V / S.vmax * .6) * (S.oil === 'wet' ? 1.2 : 1) : 0);
+    if (S.spark > 0) { S.spark -= dt; var gp = S.gap === 4 ? 24 : 14, y0 = 486 + 11, y1 = 486 + 24 + gp - 11; $('spark').setAttribute('points', zig(240, y0, 240, y1 + 2)); $('spark2').setAttribute('points', $('spark').getAttribute('points')); $('spark').setAttribute('opacity', 1); $('spark2').setAttribute('opacity', .8); $('corona').setAttribute('opacity', Math.max(0, S.spark * 2)); }
+    else { $('spark').setAttribute('opacity', 0); $('spark2').setAttribute('opacity', 0); }
+    var want = S.rest > 0 ? 3 : S.stirred ? 0 : 0; if (Math.random() < dt * (S.rest > 0 ? 22 : 0)) addBubble(false);
+    bubs = bubs.filter(function (b) { b.y -= b.v * dt; b.x += Math.sin(b.y / 9) * .25; if (b.y < 444) { b.el.remove(); return false; } b.el.setAttribute('cx', b.x); b.el.setAttribute('cy', b.y); b.el.setAttribute('r', b.r); return true; });
+  });
+  buildScale(); sync();
+})();
+</script>
