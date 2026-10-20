@@ -1,0 +1,10 @@
+{
+  "name": "cie-website",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "compatibility_date": "2026-09-01",
+  "assets": { "binding": "ASSETS", "directory": "./dist" },
+  "routes": [{ "pattern": "www.cieinstruments.in", "custom_domain": true }],
+  "workers_dev": false,
+  "ai": { "binding": "AI" },
+  "observability": { "enabled": true }
+}

@@ -8,7 +8,6 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 import CallButton from '../components/CallButton.astro';
 import CompareTray from '../components/CompareTray.astro';
 import Search from '../components/Search.astro';
-import Analytics from '@vercel/analytics/astro';
 import { u } from '../utils/url';
 
 interface Props {
@@ -373,7 +372,6 @@ const orgSchema = {
   <CallButton />
   <Search />
   <CompareTray />
-  <Analytics />
 
   <script>
     // ── Scroll-reveal: fade+slide any [data-reveal] element (or stagger the

@@ -1,14 +1,19 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel';
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   site: 'https://www.cieinstruments.in',
   base: '/',
   output: 'static',
-  adapter: vercel(),
+  adapter: cloudflare({ imageService: 'passthrough' }),
+  env: {
+    schema: {
+      GROQ_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
+    },
+  },
   trailingSlash: 'always',
   redirects: {
     '/virtual-instruments/': '/playground/',
