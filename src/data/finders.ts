@@ -138,7 +138,6 @@ const multimeters: Family = {
     { src: 'multimeters', id: 'v-mas-830-lb', attrs: { counts: 2000, vdc: 600, amax: 10 }, chips: ['Vartech, backlit', 'Everyday electrical work'] },
     { src: 'multimeters', id: 'v-830-l-plus', attrs: { counts: 2000, vdc: 600, amax: 10, trms: true, ncv: true }, chips: ['Vartech', '200 MΩ resistance'] },
     { src: 'multimeters', id: 'm-890', attrs: { counts: 2000, vdc: 1000, amax: 10, trms: true, ncv: true, cap: true }, chips: ['Vartech', 'Full-function'] },
-    { src: 'multimeters', id: 'v-890-d', attrs: { counts: 2000, vdc: 1000, amax: 20, trms: true, ncv: true, cap: true }, chips: ['Vartech', 'Capacitance to 20 mF'] },
     { src: 'multimeters', id: 'v-8222-g', attrs: { counts: 2000, vdc: 1000, amax: 20, trms: true, ncv: true, cap: true, freq: true, temp: true }, chips: ['Vartech', '1000 V AC and DC'] },
     { src: 'multimeters', id: 'v-8222-h', attrs: { counts: 2000, vdc: 1000, amax: 20, trms: true, cap: true, freq: true, temp: true, ind: true }, chips: ['Vartech', 'Measures inductance too'] },
     { src: 'multimeters', id: 'v-68', attrs: { counts: 4000, vdc: 1000, amax: 10, trms: true, auto: true, ncv: true, cap: true, freq: true, temp: true }, chips: ['Vartech', 'Frequency to 20 MHz'] },
