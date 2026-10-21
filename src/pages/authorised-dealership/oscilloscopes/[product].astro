@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import { u, downloadUrl } from '../../../utils/url';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Icon from '../../../components/Icon.astro';
+import OhmKartButton from '../../../components/OhmKartButton.astro';
 import CompareAddButton from '../../../components/CompareAddButton.astro';
 import CTABand from '../../../components/CTABand.astro';
 import ProductCard from '../../../components/ProductCard.astro';
@@ -130,6 +131,7 @@ const productSchema = {
             <Icon name="mail" class="w-4 h-4 shrink-0" />
             Request a Quote
           </a>
+          <OhmKartButton id={product.id} />
           <a href={`https://wa.me/${site.whatsapp}?text=${waMsg}`} target="_blank" rel="noopener noreferrer"
             class="btn-secondary w-full text-ink">
             <Icon name="message-circle" class="w-4 h-4 shrink-0" />

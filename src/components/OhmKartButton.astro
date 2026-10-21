@@ -1,0 +1,15 @@
+---
+// "Buy online" link to the matching OhmKart product page. Renders only for products that OhmKart actually lists
+// (ids are copied from the store catalogue into ohmkart-ids.json by deploy-all.sh), so a link can never 404.
+import ids from '../data/ohmkart-ids.json';
+import Icon from './Icon.astro';
+interface Props { id: string; class?: string }
+const { id, class: cls = '' } = Astro.props;
+const listed = (ids as string[]).includes(id);
+---
+{listed && (
+  <a href={`https://ohmkart.cieinstruments.in/product/${id}`} class={`btn-secondary w-full text-ink ${cls}`}>
+    <Icon name="arrow" class="w-4 h-4 shrink-0" />
+    Buy online on OhmKart
+  </a>
+)}
