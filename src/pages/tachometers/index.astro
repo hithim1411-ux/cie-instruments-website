@@ -15,7 +15,6 @@ const faqs = [
   { q: 'What is a tachometer used for?', a: 'A tachometer measures how fast something rotates, in revolutions per minute (RPM). Maintenance teams use it on motors, fans, pumps, gearboxes, belts and machine spindles. With a wheel tip it can also read surface speed in metres per minute for conveyors, rollers and winders.' },
   { q: 'Which type of tachometer should I buy?', a: 'Choose a handheld contact tachometer (HTM 590) for accessible shafts and surface speed, a handheld non-contact tachometer (HTM 560) for guarded, small or very fast shafts, or the combined HTM 890 if your work varies. For a permanent display on a panel, choose a panel mount tachometer (TM-801 to TM-804) with the matching sensor.' },
   { q: 'What is the difference between a handheld and a panel tachometer?', a: 'A handheld tachometer is a portable instrument you carry to the machine for spot checks. A panel mount tachometer is fixed into a control panel and shows the speed continuously, fed by a sensor on the machine: a tachogenerator, magnetic pick-up, proximity switch or photo-reflective sensor.' },
-  { q: 'Who supplies Systems Tech tachometers in India?', a: 'CIE Instruments (Cambridge Instruments & Engg. Co.), Howrah and Kolkata, is an authorised distributor of Systems Tech tachometers and sensors for India. Contact our team for price and availability, or order handheld models online on the OhmKart store.' },
   { q: 'How accurate are the handheld digital tachometers?', a: 'The HTM 590, HTM 560 and HTM 890 use a quartz crystal time base with an accuracy of 0.05% + 1 digit, a 5-digit LED display and automatic last, maximum and minimum memory.' },
 ];
 
@@ -51,9 +50,9 @@ const STORE = 'https://ohmkart.cieinstruments.in/c/handheld-tachometers';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[{ label: 'Tachometers' }]} />
       <p class="eyebrow mt-4 mb-3">Authorised Distributor - Systems Tech</p>
-      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Digital Tachometers in India</h1>
+      <h1 class="text-[length:var(--text-display)] font-extrabold text-ink leading-[1.1] tracking-tight">Digital Tachometers</h1>
       <p class="mt-3 text-muted max-w-2xl leading-relaxed">
-        Handheld contact and non-contact RPM meters, panel mount tachometers and speed sensors from Systems Tech, supplied by CIE Instruments to factories, workshops, power plants, labs and colleges across India. Buy direct from us, from Howrah and Kolkata.
+        Handheld contact and non-contact RPM meters, panel mount tachometers and speed sensors from Systems Tech.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
         <a href={u('/products/systems-tech-handheld-tachometers/')} class="btn-primary">Handheld Tachometers</a>
@@ -134,5 +133,5 @@ const STORE = 'https://ohmkart.cieinstruments.in/c/handheld-tachometers';
     </div>
   </section>
 
-  <CTABand heading="Need a tachometer? Buy it from CIE." body="Tell us the machine, the speed range and whether the shaft is guarded. We will suggest the model and send a quote." primaryLabel="Request a Quote" primaryHref={u('/contact/')} />
+  <CTABand heading="Need help choosing a tachometer?" body="Tell us the machine, the speed range and whether the shaft is guarded, and we will suggest the model." primaryLabel="Request a Quote" primaryHref={u('/contact/')} />
 </Base>
