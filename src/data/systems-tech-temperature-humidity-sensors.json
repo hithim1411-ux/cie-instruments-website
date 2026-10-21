@@ -4,7 +4,10 @@
     "model": "TS-200",
     "name": "Wireless Temperature Sensor",
     "images": [
-      "ts-200.webp"
+      "ts-200.webp",
+      "ts-200-2.webp",
+      "ts-200-3.webp",
+      "ts-200-4.webp"
     ],
     "tagline": "WiFi enabled temperature sensor, -55 °C to +125 °C, on-device alarm, stick-on mounting.",
     "description": "The Systems Tech TS-200 is a wireless, WiFi enabled temperature sensor for monitoring refrigeration units and similar equipment. A flat ribbon probe measures from -55 °C to +125 °C with 0.0625 °C resolution, and the unit sticks on the outside of the equipment with a double-sided sticker. It sounds a 70 dB audible alarm and flashes an alarm icon when the maximum or minimum threshold is crossed, and live readings can be integrated into other systems through the API. A LoRaWAN version is also available.",

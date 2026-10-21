@@ -158,6 +158,25 @@ IMGMAP = {
                         'tm-804-photo-reflective.webp': 'Photo-Reflective-Sensor-1.png', 'tm-802-unf-magnetic-pickup.webp': 'IMG4-scaled.png'},
  'temperature-humidity-sensors': {'ts-200.webp': 'Group-622.png', 'ts-201.webp': 'Group-735.png'},
 }
+
+# ---- extra gallery photos (syscon-tech.com product galleries; scratchpad gal/<wooId>_<k>.png). Left out: the last image on handheld, panel
+# and TM-802/TM-804 sensor galleries (a poster carrying Systems Tech phone, email and website) and two infographics with Make in India / ZED badges.
+GAL_IMG = os.environ.get('GAL_IMG', os.path.join(os.path.dirname(SRC_IMG), 'gal'))
+GAL = {  # our id: (woo id, [gallery indices to use])
+ 'htm-590': (2333, [1, 2, 4, 5]), 'htm-560': (2369, [1, 2, 3, 4, 6, 7]), 'htm-890': (2360, [1, 2, 3, 4, 5, 6, 7]),
+ 'tm-801': (2378, [1, 2, 3, 4, 5, 6, 7, 8]), 'tm-802': (2380, [1, 2, 3, 4, 5, 6, 7, 8]), 'tm-803': (2384, [1, 2, 3, 4, 5, 6, 7, 8]),
+ 'tm-804': (2385, [1, 2, 3, 4, 5, 6, 7, 8]), 'tm-801-tachogenerator': (2376, [1, 2, 3]), 'tm-802-magnetic-pickup': (2370, [1, 2, 3, 4, 5]),
+ 'tm-803-proximity-switch': (2372, [1, 2]), 'tm-804-photo-reflective': (2374, [1, 2, 3, 4, 5]), 'ts-200': (2387, [1, 2, 3]),
+}
+GALSRC = {}
+for slug, items in DATA.items():
+    for it in items:
+        if it['id'] in GAL:
+            wid, idxs = GAL[it['id']]
+            base = it['images'][0][:-5]
+            for n, k in enumerate(idxs, start=2):
+                fn = f'{base}-{n}.webp'; it['images'].append(fn); GALSRC[(slug, fn)] = os.path.join(GAL_IMG, f'{wid}_{k}.png')
+
 def webp(src, dst, maxw=900):
     from PIL import Image
     im = Image.open(src).convert('RGBA')
@@ -171,6 +190,8 @@ for slug, items in DATA.items():
     d = P('public/images', BR, slug); os.makedirs(d, exist_ok=True)
     for out, srcname in IMGMAP[slug].items():
         if not os.path.exists(f'{d}/{out}'): webp(os.path.join(SRC_IMG, srcname), f'{d}/{out}')
+    for (sl, fn), fp in GALSRC.items():
+        if sl == slug and not os.path.exists(f'{d}/{fn}'): webp(fp, f'{d}/{fn}')
 logo = P('public/images', BR, 'systems-tech-logo.webp')
 if not os.path.exists(logo):
     from PIL import Image

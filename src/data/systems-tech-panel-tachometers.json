@@ -4,7 +4,15 @@
     "model": "TM-801",
     "name": "Digital Panel Mount Tachometer with Digital Tachogenerator",
     "images": [
-      "tm-801.webp"
+      "tm-801.webp",
+      "tm-801-2.webp",
+      "tm-801-3.webp",
+      "tm-801-4.webp",
+      "tm-801-5.webp",
+      "tm-801-6.webp",
+      "tm-801-7.webp",
+      "tm-801-8.webp",
+      "tm-801-9.webp"
     ],
     "tagline": "96 mm square panel RPM indicator, 60 to 50,000 RPM, supplied with a 60 PPR digital tachogenerator.",
     "description": "The Systems Tech TM-801 is a digital panel mount tachometer supplied with a digital tachogenerator (optical encoder). The tachogenerator is coupled to the shaft of the drive, gives 60 pulses per revolution (TTL compatible) and the meter converts this to a 5-digit RPM reading from 60 to 50,000 RPM. It is used to monitor motors, mixers, pumps and other rotary equipment, and is supplied with the tachogenerator, a 3 metre shielded cable with connectors and an instruction manual.",
@@ -64,7 +72,15 @@
     "model": "TM-802",
     "name": "Digital Panel Mount Tachometer with Magnetic Pick-up",
     "images": [
-      "tm-802.webp"
+      "tm-802.webp",
+      "tm-802-2.webp",
+      "tm-802-3.webp",
+      "tm-802-4.webp",
+      "tm-802-5.webp",
+      "tm-802-6.webp",
+      "tm-802-7.webp",
+      "tm-802-8.webp",
+      "tm-802-9.webp"
     ],
     "tagline": "96 mm square panel RPM indicator, 60 to 50,000 RPM, supplied with a magnetic pick-up sensor.",
     "description": "The Systems Tech TM-802 is a digital panel mount tachometer supplied with a magnetic pick-up. The probe is mounted 1.5 to 2.0 mm from a 60-tooth pulsor disc or wheel on the rotating shaft and generates 60 pulses per revolution as ferrous teeth pass it. The meter shows speed from 60 to 50,000 RPM on a 5-digit LED display. It is supplied with the pick-up, a 3 metre shielded cable with connectors and an instruction manual.",
@@ -128,7 +144,15 @@
     "model": "TM-803",
     "name": "Digital Panel Mount Tachometer with Proximity Switch",
     "images": [
-      "tm-803.webp"
+      "tm-803.webp",
+      "tm-803-2.webp",
+      "tm-803-3.webp",
+      "tm-803-4.webp",
+      "tm-803-5.webp",
+      "tm-803-6.webp",
+      "tm-803-7.webp",
+      "tm-803-8.webp",
+      "tm-803-9.webp"
     ],
     "tagline": "96 mm square panel RPM indicator, 60 to 50,000 RPM, supplied with an inductive proximity switch sensor.",
     "description": "The Systems Tech TM-803 is a digital panel mount tachometer supplied with an inductive proximity switch (PNP or NPN). The 18 mm threaded probe is mounted 3.0 to 5.0 mm from a bolt, tooth or pulsor disc on the rotating shaft and gives one pulse per revolution, which the meter converts to RPM from 60 to 50,000 on a 5-digit LED display. It is supplied with the sensor, a 3 metre shielded cable with connectors and an instruction manual.",
@@ -192,7 +216,15 @@
     "model": "TM-804",
     "name": "Digital Panel Mount Tachometer with Photo-Reflective Sensor",
     "images": [
-      "tm-804.webp"
+      "tm-804.webp",
+      "tm-804-2.webp",
+      "tm-804-3.webp",
+      "tm-804-4.webp",
+      "tm-804-5.webp",
+      "tm-804-6.webp",
+      "tm-804-7.webp",
+      "tm-804-8.webp",
+      "tm-804-9.webp"
     ],
     "tagline": "96 mm square panel RPM indicator, 60 to 50,000 RPM, supplied with a photo-reflective probe and reflective tape.",
     "description": "The Systems Tech TM-804 is a digital panel mount tachometer supplied with a photo-reflective probe. A light beam from the probe is aligned with a reflective strip applied to the rotating shaft or disc at a distance of 4 to 12 inches, and the meter times the reflected pulses to show RPM from 60 to 50,000 on a 5-digit LED display. It suits applications where nothing can be fitted to the shaft but a strip of tape. It is supplied with the probe, a 3 metre shielded cable, 12 x 1000 mm reflective tape and an instruction manual.",

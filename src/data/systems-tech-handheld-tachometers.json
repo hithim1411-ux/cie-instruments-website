@@ -4,7 +4,11 @@
     "model": "HTM 590",
     "name": "Contact Type Digital Tachometer",
     "images": [
-      "htm-590.webp"
+      "htm-590.webp",
+      "htm-590-2.webp",
+      "htm-590-3.webp",
+      "htm-590-4.webp",
+      "htm-590-5.webp"
     ],
     "tagline": "Handheld contact tachometer, 60 to 50,000 RPM and 6 to 5000 m/min surface speed, 5-digit LED display.",
     "description": "The Systems Tech HTM 590 is a handheld contact type digital tachometer. Pressed against the end of a rotating shaft with a rubber contact tip, it reads speed from 60 to 50,000 RPM, and with the peripheral tip it reads surface speed from 6 to 5000 m/min. A 5-digit red LED display, quartz crystal time base and automatic last, maximum and minimum memory make it a dependable service and maintenance tool for motors, fans, pumps and belts. It is supplied with male, female and peripheral rubber contact tips, reflective tape, a padded carrying case and a user manual.",
@@ -79,7 +83,13 @@
     "model": "HTM 560",
     "name": "Non-Contact Type Digital Tachometer",
     "images": [
-      "htm-560.webp"
+      "htm-560.webp",
+      "htm-560-2.webp",
+      "htm-560-3.webp",
+      "htm-560-4.webp",
+      "htm-560-5.webp",
+      "htm-560-6.webp",
+      "htm-560-7.webp"
     ],
     "tagline": "Handheld photo tachometer, 60 to 1,00,000 RPM from 75 to 300 mm away, 5-digit LED display.",
     "description": "The Systems Tech HTM 560 is a handheld non-contact digital tachometer that reads speed with a light beam, so there is nothing to touch on the rotating part. A strip of reflective tape is fixed on the shaft, the unit is held 75 mm to 300 mm away, and it reads from 60 up to 1,00,000 RPM with 0.1 RPM resolution up to 1000 RPM. It has a 5-digit red LED display, quartz crystal time base, automatic last, maximum and minimum memory, and comes with reflective tape and a padded carrying case.",
@@ -158,7 +168,14 @@
     "model": "HTM 890",
     "name": "Photo Contact Digital Tachometer",
     "images": [
-      "htm-890.webp"
+      "htm-890.webp",
+      "htm-890-2.webp",
+      "htm-890-3.webp",
+      "htm-890-4.webp",
+      "htm-890-5.webp",
+      "htm-890-6.webp",
+      "htm-890-7.webp",
+      "htm-890-8.webp"
     ],
     "tagline": "Two-in-one handheld tachometer: contact side to 50,000 RPM and surface speed, photo side to 1,00,000 RPM.",
     "description": "The Systems Tech HTM 890 combines a contact tachometer and a photo (non-contact) tachometer in one handheld body. The contact side reads 60 to 50,000 RPM and surface speed from 6 to 5000 m/min using rubber contact tips; the photo side reads 60 to 1,00,000 RPM from 75 mm to 300 mm using reflective tape. It has a 5-digit red LED display, quartz crystal time base, automatic last, maximum and minimum memory, and is supplied with contact tips, reflective tape, a padded carrying case and a user manual - a single tool for motor and machine performance checks.",
