@@ -59,7 +59,8 @@
         "label": "Alarm",
         "value": "Audio 70 dB (min) sweep tone, flashing screen with alarm icon"
       }
-    ]
+    ],
+    "catalogue": "ts-200.pdf"
   },
   {
     "id": "ts-201",
@@ -106,6 +107,7 @@
         "label": "Data storage",
         "value": "200 samples on the device"
       }
-    ]
+    ],
+    "catalogue": "ts-201.pdf"
   }
 ]

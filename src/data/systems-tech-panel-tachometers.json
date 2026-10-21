@@ -65,7 +65,8 @@
         "label": "Standard accessories",
         "value": "Tachogenerator sensor with 3.0 m shielded cable and connectors, instruction manual"
       }
-    ]
+    ],
+    "catalogue": "tm-801.pdf"
   },
   {
     "id": "tm-802",
@@ -137,7 +138,8 @@
         "label": "Standard accessories",
         "value": "Magnetic pick-up sensor with 3.0 m shielded cable and connectors, instruction manual"
       }
-    ]
+    ],
+    "catalogue": "tm-802.pdf"
   },
   {
     "id": "tm-803",
@@ -209,7 +211,8 @@
         "label": "Standard accessories",
         "value": "Proximity switch sensor with 3.0 m shielded cable and connectors, instruction manual"
       }
-    ]
+    ],
+    "catalogue": "tm-803.pdf"
   },
   {
     "id": "tm-804",
@@ -281,6 +284,7 @@
         "label": "Standard accessories",
         "value": "Photo-reflective sensor with 3.0 m shielded cable, 12 x 1000 mm reflective tape, instruction manual"
       }
-    ]
+    ],
+    "catalogue": "tm-804.pdf"
   }
 ]

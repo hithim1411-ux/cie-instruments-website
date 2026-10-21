@@ -62,7 +62,8 @@
         "label": "Weight (approx.)",
         "value": "300 g"
       }
-    ]
+    ],
+    "catalogue": "tm-801-tachogenerator.pdf"
   },
   {
     "id": "tm-802-magnetic-pickup",
@@ -129,7 +130,8 @@
         "label": "Weight (approx.)",
         "value": "100 g"
       }
-    ]
+    ],
+    "catalogue": "tm-802-magnetic-pickup.pdf"
   },
   {
     "id": "tm-803-proximity-switch",
@@ -197,7 +199,8 @@
         "label": "Weight (approx.)",
         "value": "100 g"
       }
-    ]
+    ],
+    "catalogue": "tm-803-proximity-switch.pdf"
   },
   {
     "id": "tm-804-photo-reflective",
@@ -264,7 +267,8 @@
         "label": "Weight (approx.)",
         "value": "150 g"
       }
-    ]
+    ],
+    "catalogue": "tm-804-photo-reflective.pdf"
   },
   {
     "id": "tm-802-unf-magnetic-pickup",

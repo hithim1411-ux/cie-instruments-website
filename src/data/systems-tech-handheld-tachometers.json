@@ -76,7 +76,8 @@
         "label": "Standard accessories",
         "value": "Male rubber contact tip x 2, female rubber contact tip x 2, peripheral rubber contact tip, reflective tape, padded carrying case, user manual"
       }
-    ]
+    ],
+    "catalogue": "htm-590.pdf"
   },
   {
     "id": "htm-560",
@@ -161,7 +162,8 @@
         "label": "Standard accessories",
         "value": "Reflective tape 1000 x 12 mm x 1, padded carrying case"
       }
-    ]
+    ],
+    "catalogue": "htm-560.pdf"
   },
   {
     "id": "htm-890",
@@ -248,6 +250,7 @@
         "label": "Standard accessories",
         "value": "Male rubber contact tip x 2, female rubber contact tip x 2, peripheral rubber contact tip, reflective tape 1000 x 12 mm, padded carrying case, user manual"
       }
-    ]
+    ],
+    "catalogue": "htm-890.pdf"
   }
 ]

@@ -150,6 +150,12 @@ DATA = {
        specs=S(('Working range', '-40 °C to +125 °C; 0% to 100% RH'), ('Accuracy', '+/- 0.2 °C and +/- 2% RH'), ('Long term drift', '< 0.02 °C/year and < 0.25 %RH/year'), ('Display', 'OLED, 80 dB alarm'), ('Power supply', '5 V DC micro USB'), ('Battery backup', 'Optional, 8 hours'), ('Data storage', '200 samples on the device'))),
  ],
 }
+# datasheet PDFs made by make-systems-tech-catalogues.py (cie-downloads/systems-tech/<slug>/<id>.pdf)
+HAS_PDF = {'htm-560', 'htm-590', 'htm-890', 'tm-801', 'tm-802', 'tm-803', 'tm-804', 'tm-801-tachogenerator', 'tm-802-magnetic-pickup',
+           'tm-803-proximity-switch', 'tm-804-photo-reflective', 'ts-200', 'ts-201'}
+for _items in DATA.values():
+    for _it in _items:
+        if _it['id'] in HAS_PDF: _it['catalogue'] = _it['id'] + '.pdf'
 # which source png feeds which image
 IMGMAP = {
  'handheld-tachometers': {'htm-590.webp': 'Group-631.png', 'htm-560.webp': 'Group-632.png', 'htm-890.webp': 'Group-634.png'},
