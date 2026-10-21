@@ -93,7 +93,8 @@ const heroBig = new Set(['cie-444', 'rts-33']);
 let seed = 7;
 const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
 const heroSingles = (heroTileData as any[]).filter((t) => !heroBig.has(t.id))
-  .map((t) => ({ t, k: rnd() })).sort((a, b) => a.k - b.k).map((x) => x.t);
+  .map((t) => ({ t, k: rnd() })).sort((a, b) => a.k - b.k).map((x) => x.t)
+  .sort((a, b) => Number(b.brand === 'systems-tech') - Number(a.brand === 'systems-tech')); // tachometers first (stable)
 const heroBigTiles = (heroTileData as any[]).filter((t) => heroBig.has(t.id));
 
 // Priority lines pinned first in the Flagship slider (stock push), then the rest of the featured set.

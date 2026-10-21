@@ -32,22 +32,6 @@
   "src": "/images/hero/cie-777.webp"
  },
  {
-  "id": "cie-777-hm",
-  "brand": "cie",
-  "label": "CIE/777 HM",
-  "note": "Motor-cum-Hand Driven Insulation Tester",
-  "href": "/products/motor-operated-insulation/cie-777-hm/",
-  "src": "/images/hero/cie-777-hm.webp"
- },
- {
-  "id": "cie-555",
-  "brand": "cie",
-  "label": "CIE/555",
-  "note": "Insulation Tester (Hand Driven Generator Type, Bakelite Body)",
-  "href": "/products/compact-insulation-testers/cie-555/",
-  "src": "/images/hero/cie-555.webp"
- },
- {
   "id": "cie-222m",
   "brand": "cie",
   "label": "CIE/222M",
@@ -86,14 +70,6 @@
   "note": "Digital Earth Resistance Tester",
   "href": "/products/earth-tester/det-2000/",
   "src": "/images/hero/det-2000.webp"
- },
- {
-  "id": "mr-253a",
-  "brand": "cie",
-  "label": "MR-253A",
-  "note": "Digital Micro-Ohm Meter (4-Terminal Kelvin)",
-  "href": "/products/digital-earth-micro-ohm/mr-253a/",
-  "src": "/images/hero/mr-253a.webp"
  },
  {
   "id": "dcm-2250-tr",
@@ -142,14 +118,6 @@
   "note": "Phase Sequence Indicator - Disc Rotating Type",
   "href": "/products/phase-sequence-indicators/psi-1/",
   "src": "/images/hero/psi-1.webp"
- },
- {
-  "id": "psi-2",
-  "brand": "cie",
-  "label": "PSI-2",
-  "note": "Phase Sequence Indicator - ABS Moulded",
-  "href": "/products/phase-sequence-indicators/psi-2/",
-  "src": "/images/hero/psi-2.webp"
  },
  {
   "id": "cie-7050",
@@ -382,5 +350,37 @@
   "note": "200V / 10A SMPS DC Regulated Power Supply with RS232 Interface (2000W)",
   "href": "/authorised-dealership/dc-power-supplies/20010-sr/",
   "src": "/images/hero/20010-sr.webp"
+ },
+ {
+  "id": "htm-890",
+  "brand": "systems-tech",
+  "label": "HTM 890",
+  "note": "Photo Contact Digital Tachometer",
+  "href": "/authorised-dealership/handheld-tachometers/htm-890/",
+  "src": "/images/hero/htm-890.webp"
+ },
+ {
+  "id": "htm-590",
+  "brand": "systems-tech",
+  "label": "HTM 590",
+  "note": "Contact Type Digital Tachometer",
+  "href": "/authorised-dealership/handheld-tachometers/htm-590/",
+  "src": "/images/hero/htm-590.webp"
+ },
+ {
+  "id": "htm-560",
+  "brand": "systems-tech",
+  "label": "HTM 560",
+  "note": "Non-Contact Type Digital Tachometer",
+  "href": "/authorised-dealership/handheld-tachometers/htm-560/",
+  "src": "/images/hero/htm-560.webp"
+ },
+ {
+  "id": "tm-802",
+  "brand": "systems-tech",
+  "label": "TM-802",
+  "note": "Digital Panel Mount Tachometer with Magnetic Pick-up",
+  "href": "/authorised-dealership/panel-tachometers/tm-802/",
+  "src": "/images/hero/tm-802.webp"
  }
 ]
