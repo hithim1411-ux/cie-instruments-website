@@ -34,6 +34,10 @@ export const categoryIcons: Record<string, IconName> = {
   'vartech-magnifiers': 'circle-dot',
   'vartech-soldering-accessories': 'settings',
   'vartech-dc-power-supplies': 'battery',
+  'systems-tech-handheld-tachometers': 'gauge',
+  'systems-tech-panel-tachometers': 'gauge',
+  'systems-tech-tachometer-sensors': 'radio',
+  'systems-tech-temperature-humidity-sensors': 'thermometer',
 };
 
 export function categoryIcon(id: string): IconName {

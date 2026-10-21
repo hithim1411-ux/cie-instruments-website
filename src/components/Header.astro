@@ -13,8 +13,9 @@ const { transparentHero = false } = Astro.props;
 // Nav dropdown: split CIE-manufactured vs Vartech authorised-distributor categories.
 // vartech-multimeters and vartech-clamp-meters excluded (CIE already covers those types).
 const DROPDOWN_EXCLUDE = new Set(['vartech-multimeters', 'vartech-clamp-meters']);
-const cieCategories     = categories.filter((c: any) => (!c.brand || c.brand !== 'vartech') && !DROPDOWN_EXCLUDE.has(c.id));
+const cieCategories     = categories.filter((c: any) => (!c.brand || (c.brand !== 'vartech' && c.brand !== 'systems-tech')) && !DROPDOWN_EXCLUDE.has(c.id));
 const vartechCategories = categories.filter((c: any) => c.brand === 'vartech' && !DROPDOWN_EXCLUDE.has(c.id));
+const systemsTechCategories = categories.filter((c: any) => c.brand === 'systems-tech');
 
 const otherNav = [
   { label: 'About Us',  href: u('/about')   },
@@ -143,6 +144,17 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
                     class="inline-block mt-4 text-xs font-semibold text-emerald-400 hover:text-white transition-colors">
                     All Vartech →
                   </a>
+                  <span class="block text-[11px] font-mono text-muted-dark uppercase tracking-widest mt-6 mb-4">Systems Tech - Authorised Distributor</span>
+                  <ul class="space-y-1.5" role="menu">
+                    {systemsTechCategories.map((cat) => (
+                      <li role="none">
+                        <a href={u(`/products/${cat.id}/`)} role="menuitem" data-dropdown-item tabindex="-1"
+                          class="block text-[12.5px] font-medium text-muted-dark hover:text-white leading-tight transition-colors">
+                          {cat.shortName}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
               </div>
@@ -292,6 +304,14 @@ const genericMailto = `mailto:cieinstruments@gmail.com?subject=${encodeURICompon
             <Icon name="store" class="w-3.5 h-3.5 shrink-0" />
             All Vartech - Authorised Distributor
           </a>
+          <p class="px-2 pt-3 pb-0.5 text-[10px] font-mono text-emerald-500 uppercase tracking-widest border-t border-white/10 mt-1">Systems Tech - Authorised Distributor</p>
+          {systemsTechCategories.map(cat => (
+            <a href={u(`/products/${cat.id}/`)}
+               class="flex items-center gap-2.5 px-2 py-2 text-xs text-emerald-400/80 hover:text-emerald-300 hover:bg-white/5 rounded transition-colors">
+              <Icon name={categoryIcon(cat.id)} class="w-3.5 h-3.5 shrink-0 text-emerald-500/70" />
+              {cat.shortName}
+            </a>
+          ))}
         </div>
       </div>
 

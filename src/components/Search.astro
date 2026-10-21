@@ -468,9 +468,11 @@ async function askAI(q: string) {
       // Show exactly the products AI mentioned - not their whole category
       const cie = aiMentionedProducts.filter(p => p.brand === 'cie');
       const vt  = aiMentionedProducts.filter(p => p.brand === 'vartech');
+      const st  = aiMentionedProducts.filter(p => p.brand === 'systems-tech');
       let html = '';
       if (cie.length) html += section('CIE - Manufactured', 'text-red', cie, q, false);
       if (vt.length)  html += section('Vartech - Authorised Distributor', 'text-emerald-600', vt, q, !!cie.length);
+      if (st.length)  html += section('Systems Tech - Authorised Distributor', 'text-emerald-600', st, q, !!(cie.length || vt.length));
       if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; return; }
     }
 
@@ -480,9 +482,11 @@ async function askAI(q: string) {
       const items = aiSearchResults.map(r => r.item);
       const cie = items.filter(p => p.brand === 'cie');
       const vt  = items.filter(p => p.brand === 'vartech');
+      const st  = items.filter(p => p.brand === 'systems-tech');
       let html = '';
       if (cie.length) html += section('CIE - Manufactured', 'text-red', cie, q, false);
       if (vt.length)  html += section('Vartech - Authorised Distributor', 'text-emerald-600', vt, q, !!cie.length);
+      if (st.length)  html += section('Systems Tech - Authorised Distributor', 'text-emerald-600', st, q, !!(cie.length || vt.length));
       if (html) { catalogDiv.innerHTML = html; mobileCatalog.innerHTML = html; }
     }
   }
@@ -596,9 +600,11 @@ function renderCatalog(q: string) {
 
   const cie = items.filter(i => i.brand === 'cie');
   const vt  = items.filter(i => i.brand === 'vartech');
+  const st  = items.filter(i => i.brand === 'systems-tech');
   let html = '';
   if (cie.length) html += section('CIE - Manufactured', 'text-red', cie, q, false);
   if (vt.length)  html += section('Vartech - Authorised Distributor', 'text-emerald-600', vt, q, !!cie.length);
+  if (st.length)  html += section('Systems Tech - Authorised Distributor', 'text-emerald-600', st, q, !!(cie.length || vt.length));
 
   catalogDiv.innerHTML   = html;
   mobileCatalog.innerHTML = html;

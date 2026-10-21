@@ -33,6 +33,10 @@ import vartechReworkStations from '../../../data/vartech-rework-stations.json';
 import vartechSolderingIrons from '../../../data/vartech-soldering-irons.json';
 import vartechMagnifiers from '../../../data/vartech-magnifiers.json';
 import vartechSolderingAccessories from '../../../data/vartech-soldering-accessories.json';
+import systemsTechHandheldTachometers from '../../../data/systems-tech-handheld-tachometers.json';
+import systemsTechPanelTachometers from '../../../data/systems-tech-panel-tachometers.json';
+import systemsTechTachometerSensors from '../../../data/systems-tech-tachometer-sensors.json';
+import systemsTechTemperatureHumiditySensors from '../../../data/systems-tech-temperature-humidity-sensors.json';
 import site from '../../../data/site.json';
 
 const vartechDataMap: Record<string, any[]> = {
@@ -53,6 +57,10 @@ const vartechDataMap: Record<string, any[]> = {
   'vartech-soldering-irons': vartechSolderingIrons,
   'vartech-magnifiers': vartechMagnifiers,
   'vartech-soldering-accessories': vartechSolderingAccessories,
+  'systems-tech-handheld-tachometers': systemsTechHandheldTachometers,
+  'systems-tech-panel-tachometers': systemsTechPanelTachometers,
+  'systems-tech-tachometer-sensors': systemsTechTachometerSensors,
+  'systems-tech-temperature-humidity-sensors': systemsTechTemperatureHumiditySensors,
 };
 
 export async function getStaticPaths() {
@@ -77,8 +85,13 @@ const vartechSections = (vartechEquivalents ?? []).map(eq => ({
 
 // For pure Vartech brand pages (oscilloscopes, function-generators, etc.) - load products directly
 const finderFamily = familyForCategory(category.id);
-const isVartechBrand  = (category as any).brand === 'vartech';
-const brandSlug       = category.id.replace('vartech-', '');
+const BRAND_INFO: Record<string, { name: string; mark: string; logo: string; imgDir: string; prefix: string; logoW: number }> = {
+  'vartech':      { name: 'Vartech',      mark: 'Vartech®',     logo: '/images/vartech/vartech-logo.avif',          imgDir: 'vartech',      prefix: 'vartech-',      logoW: 90 },
+  'systems-tech': { name: 'Systems Tech', mark: 'Systems Tech', logo: '/images/systems-tech/systems-tech-logo.webp', imgDir: 'systems-tech', prefix: 'systems-tech-', logoW: 125 },
+};
+const brandInfo       = BRAND_INFO[(category as any).brand as string];
+const isVartechBrand  = !!brandInfo;   // true for any distributed-brand category page (Vartech or Systems Tech)
+const brandSlug       = brandInfo ? category.id.replace(brandInfo.prefix, '') : category.id;
 const vartechItems    = isVartechBrand ? (vartechDataMap[category.id] ?? []) : [];
 
 const pageTitle       = (category as any).metaTitle  ?? `${category.name} | CIE Instruments`;
@@ -118,7 +131,7 @@ const itemListSchema = {
             '@type': 'ListItem',
             position: i + 1,
             url: `https://www.cieinstruments.in/authorised-dealership/${brandSlug}/${p.id}/`,
-            name: `Vartech ${p.model} - ${p.name}`,
+            name: `${brandInfo.name} ${p.model} - ${p.name}`,
           }))
         : []),
   ],
@@ -149,13 +162,13 @@ const relatedArticles = (relatedArticleSlugs ?? [])
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   {faqSchema && <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <!-- Page header -->
-  <div class={(category as any).brand === 'vartech' ? 'bg-emerald-50 border-b border-emerald-200 py-10' : 'bg-cloud border-b border-border py-10'}>
+  <div class={isVartechBrand ? 'bg-emerald-50 border-b border-emerald-200 py-10' : 'bg-cloud border-b border-border py-10'}>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Breadcrumbs crumbs={[{ label: 'Products', href: '/products' }, { label: category.name }]} />
 
-      {(category as any).brand === 'vartech' ? (
+      {isVartechBrand ? (
         <div class="mt-4 mb-3 flex items-center gap-3">
-          <img src={u('/images/vartech/vartech-logo.avif')} alt="Vartech" width="90" class="object-contain" />
+          <img src={u(brandInfo.logo)} alt={brandInfo.name} width={brandInfo.logoW} class="object-contain" />
           <Badge variant="emerald">Authorised Distributor</Badge>
         </div>
       ) : (
@@ -283,7 +296,7 @@ const relatedArticles = (relatedArticleSlugs ?? [])
         {isVartechBrand ? (
           <div class="flex items-center justify-between mb-8 gap-4 flex-wrap">
             <div class="flex items-center gap-4">
-              <img src={u('/images/vartech/vartech-logo.avif')} alt="Vartech®" width="90" height="32" class="object-contain" />
+              <img src={u(brandInfo.logo)} alt={brandInfo.mark} width={brandInfo.logoW} height="32" class="object-contain" />
               <h2 class="text-lg font-bold text-ink">{vartechItems.length} models</h2>
             </div>
             <a href={u('/products/')} class="text-sm text-muted hover:text-ink transition-colors">← All products</a>
@@ -304,11 +317,11 @@ const relatedArticles = (relatedArticleSlugs ?? [])
                 <div class="shrink-0 snap-start w-[75vw] sm:w-auto">
                   <article class="card card-interactive group overflow-hidden flex flex-col">
                     <div class="bg-cloud border-b border-emerald-100 h-44 flex items-center justify-center relative">
-                      <img src={u(`/images/vartech/${brandSlug}/${imgFile}`)}
+                      <img src={u(`/images/${brandInfo.imgDir}/${brandSlug}/${imgFile}`)}
                         alt={`${p.model} - ${p.name}`} width="300" height="300"
                         class="object-contain h-40 w-auto transition-transform duration-300 [transition-timing-function:var(--ease-premium)] group-hover:scale-105" loading="lazy"
                         onerror="this.style.display='none'" />
-                      <Badge variant="emerald" class="absolute top-3 left-3">Vartech®</Badge>
+                      <Badge variant="emerald" class="absolute top-3 left-3">{brandInfo.mark}</Badge>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                       <p class="text-xs font-mono text-emerald-600 mb-1.5">{p.model}</p>
@@ -318,13 +331,13 @@ const relatedArticles = (relatedArticleSlugs ?? [])
                         <a href={u(`/authorised-dealership/${brandSlug}/${p.id}/`)} class="btn-primary btn-primary--sm">
                           View Specifications
                         </a>
-                        <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to enquire about the Vartech ${p.model} - ${p.name}`)}`}
+                        <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'd like to enquire about the ${brandInfo.name} ${p.model} - ${p.name}`)}`}
                           target="_blank" rel="noopener noreferrer"
                           class="btn-secondary btn-secondary--sm text-ink">
                           <Icon name="message-circle" class="w-4 h-4 shrink-0" />
                           Enquire on WhatsApp
                         </a>
-                        <CompareAddButton categoryId={`vartech-${brandSlug}`} id={p.id} />
+                        <CompareAddButton categoryId={category.id} id={p.id} />
                       </div>
                     </div>
                   </article>

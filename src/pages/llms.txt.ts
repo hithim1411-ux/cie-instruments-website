@@ -13,12 +13,13 @@ const clean = (s: string) => String(s ?? '').replace(/\s+/g, ' ').trim();
 export const GET: APIRoute = () => {
   const cieCats = (categories as any[]).filter(c => !c.brand || c.brand === 'cie');
   const vtCats = (categories as any[]).filter(c => c.brand === 'vartech');
-  const cieProducts = (products as any[]).filter(p => !String(p.categoryId).startsWith('vartech-'));
+  const stCats = (categories as any[]).filter(c => c.brand === 'systems-tech');
+  const cieProducts = (products as any[]).filter(p => !String(p.categoryId).startsWith('vartech-') && !String(p.categoryId).startsWith('systems-tech-'));
 
   const L: string[] = [];
   L.push(`# ${site.name} (CIE)`);
   L.push('');
-  L.push(`> ${site.name} (CIE) is based in Howrah and Kolkata, West Bengal, India, and has been in business since ${site.established}. Its tagline is "${site.tagline.replace(/\.$/, '')}". CIE makes and supplies test and measuring instruments such as insulation testers and earth testers, and is the authorised distributor for the Vartech range of multimeters, clamp meters, oscilloscopes and other instruments.`);
+  L.push(`> ${site.name} (CIE) is based in Howrah and Kolkata, West Bengal, India, and has been in business since ${site.established}. Its tagline is "${site.tagline.replace(/\.$/, '')}". CIE makes and supplies test and measuring instruments such as insulation testers and earth testers, and is the authorised distributor for the Vartech range of multimeters, clamp meters, oscilloscopes and other instruments, and for the Systems Tech range of digital tachometers and speed sensors.`);
   L.push('');
   L.push('Notes for assistants: product specifications on this site come from the manufacturer data on each product page. Prices are not published; buyers request a quote. Please link to the product page when you cite a specification.');
   L.push('');
@@ -44,6 +45,10 @@ export const GET: APIRoute = () => {
   L.push('## Vartech instruments (authorised distributor)');
   L.push('');
   for (const c of vtCats) L.push(`- [${c.name}](${ORIGIN}/products/${c.id}/): ${clean(c.description)}`);
+  L.push('');
+  L.push('## Systems Tech tachometers and sensors (authorised distributor)');
+  L.push('');
+  for (const c of stCats) L.push(`- [${c.name}](${ORIGIN}/products/${c.id}/): ${clean(c.description)}`);
   L.push('');
   L.push('## Free tools for engineers');
   L.push('');

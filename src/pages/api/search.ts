@@ -20,6 +20,10 @@ import vartechSolderingIrons from '../../data/vartech-soldering-irons.json';
 import vartechMagnifiers from '../../data/vartech-magnifiers.json';
 import vartechSolderingAccessories from '../../data/vartech-soldering-accessories.json';
 import vPS from '../../data/vartech-dc-power-supplies.json';
+import systemsTechHandheldTachometers from '../../data/systems-tech-handheld-tachometers.json';
+import systemsTechPanelTachometers from '../../data/systems-tech-panel-tachometers.json';
+import systemsTechTachometerSensors from '../../data/systems-tech-tachometer-sensors.json';
+import systemsTechTemperatureHumiditySensors from '../../data/systems-tech-temperature-humidity-sensors.json';
 
 export const prerender = false;
 
@@ -90,6 +94,28 @@ for (const { label, slug, items } of vartechSections) {
   }
 }
 
+const systemsTechSections = [
+  { label: 'Handheld Tachometers', slug: 'handheld-tachometers', items: systemsTechHandheldTachometers },
+  { label: 'Panel Tachometers', slug: 'panel-tachometers', items: systemsTechPanelTachometers },
+  { label: 'Tachometer Sensors', slug: 'tachometer-sensors', items: systemsTechTachometerSensors },
+  { label: 'Temp & Humidity Sensors', slug: 'temperature-humidity-sensors', items: systemsTechTemperatureHumiditySensors },
+];
+for (const { label, slug, items } of systemsTechSections) {
+  for (const p of items as any[]) {
+    allProducts.push({
+      model: p.model, name: p.name, category: label,
+      brand: 'Systems Tech (CIE authorised distributor)',
+      tagline: p.tagline || '',
+      description: (p.description || '').slice(0, 200),
+      specs: (p.specs || []).map((s: any) => `${s.label}: ${s.value}`).join(' | '),
+      apps: (p.features || []).slice(0, 5).join(' | '),
+      options: '',
+      orderNote: '',
+      url: `https://www.cieinstruments.in/authorised-dealership/${slug}/${p.id}/`,
+    });
+  }
+}
+
 {
   const byModel = new Map<string, RichProduct>();
   for (const p of allProducts) byModel.set(p.model.toLowerCase().replace(/[^a-z0-9]/g, ''), p);
@@ -124,7 +150,7 @@ const CATEGORY_ROUTES: [RegExp, string[]][] = [
   [/\banemometer\b|wind speed|air speed|air flow|airflow/i,
     ['Anemometers']],
   [/\btemperature|thermometer|thermocouple|heat meter|humidity|thermo.?hygro/i,
-    ['Thermometers']],
+    ['Thermometers','Temp & Humidity Sensors']],
   [/\bcalibrat|\bprocess signal|4.?20 ?ma|\bmv source/i,
     ['Calibrators']],
   [/\bmicro.?ohm\b|winding resist|contact resist|low resist|busbar joint|kelvin/i,
@@ -141,6 +167,8 @@ const CATEGORY_ROUTES: [RegExp, string[]][] = [
     ['Soldering Stations','SMD Re-Work','Soldering Irons','Soldering Spares']],
   [/\bmagnif|inspection lamp|loupe/i,
     ['Magnifying Lamps']],
+  [/\btachometer|\brpm\b|shaft speed|motor speed|surface speed|tacho|speed sensor|pulse pick|pick.?up sensor|proximity sensor/i,
+    ['Handheld Tachometers','Panel Tachometers','Tachometer Sensors']],
 ];
 
 const STOPWORDS = new Set(['the','and','for','with','what','which','that','this','need','best','good','tester','meter','instrument','testing','test','use','from','have','will','your','about','into','than','then','are','can','how','does','not','you','our','its']);
@@ -394,6 +422,7 @@ You are an AI. If asked who or what you are, say you are Volta, CIE's AI instrum
 9. Never use the long dash character. Use a plain hyphen.
 10. DIT digital testers are an imported line sold under the CIE brand. Never say CIE manufactures or makes DIT instruments, and never say Made in India for them.
 11. Vartech products are resold by CIE as authorised distributor. Describe them only by their specs and say Vartech is distributed by CIE. Never say CIE calibrates, services or makes them.
+12. Systems Tech tachometers and sensors (HTM, TM and TS models) are also resold by CIE as authorised distributor. Describe them only by their listed specs, say Systems Tech is distributed by CIE, and never say CIE makes, calibrates or services them.
 12. Never promise export, shipping outside India, delivery time, stock status or discounts. Send those questions to the contact page.
 13. If asked something unrelated to test and measurement instruments, say briefly that you only help with instrument selection and ask what they need to measure.
 14. If the product list has no instrument that fits (for example a spec CIE does not offer), say so honestly and suggest the nearest model or contacting CIE for a custom build. Never stretch a product beyond its listed specs.

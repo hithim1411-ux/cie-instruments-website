@@ -1,0 +1,236 @@
+[
+  {
+    "id": "htm-590",
+    "model": "HTM 590",
+    "name": "Contact Type Digital Tachometer",
+    "images": [
+      "htm-590.webp"
+    ],
+    "tagline": "Handheld contact tachometer, 60 to 50,000 RPM and 6 to 5000 m/min surface speed, 5-digit LED display.",
+    "description": "The Systems Tech HTM 590 is a handheld contact type digital tachometer. Pressed against the end of a rotating shaft with a rubber contact tip, it reads speed from 60 to 50,000 RPM, and with the peripheral tip it reads surface speed from 6 to 5000 m/min. A 5-digit red LED display, quartz crystal time base and automatic last, maximum and minimum memory make it a dependable service and maintenance tool for motors, fans, pumps and belts. It is supplied with male, female and peripheral rubber contact tips, reflective tape, a padded carrying case and a user manual.",
+    "features": [
+      "Full digital, micro-controller based design",
+      "Quartz crystal time base, 0.05% + 1 digit accuracy",
+      "Last, Max and Min readings stored and recalled automatically",
+      "Compact handheld body with padded carrying case",
+      "Contact RPM and surface speed (m/min) measurement"
+    ],
+    "specs": [
+      {
+        "label": "Range",
+        "value": "60 RPM to 50,000 RPM; 6 m/min to 5000 m/min (surface speed)"
+      },
+      {
+        "label": "Resolution",
+        "value": "0.1 RPM up to 1000 RPM, 1 RPM above; 0.01 m/min up to 100 m/min, 0.1 m/min above"
+      },
+      {
+        "label": "Display",
+        "value": "5 digits, 10 mm (0.38 in) red LED"
+      },
+      {
+        "label": "Accuracy",
+        "value": "+/- 0.05% + 1 digit"
+      },
+      {
+        "label": "Sampling rate",
+        "value": "1 second"
+      },
+      {
+        "label": "Time base",
+        "value": "Quartz crystal controlled"
+      },
+      {
+        "label": "Low battery",
+        "value": "Indicated by \"Lobat\" on the display"
+      },
+      {
+        "label": "Memory recall",
+        "value": "Last, Max and Min values stored automatically, recall up to 120 s"
+      },
+      {
+        "label": "Power source",
+        "value": "4 x 1.5 V AA batteries, auto shut-off"
+      },
+      {
+        "label": "Operating temperature",
+        "value": "0 °C to 60 °C (32 °F to 140 °F)"
+      },
+      {
+        "label": "Size",
+        "value": "70 x 200 x 40 mm (2.8 x 7.8 x 1.6 in)"
+      },
+      {
+        "label": "Battery life",
+        "value": "90 hrs alkaline | 30 hrs carbon-zinc"
+      },
+      {
+        "label": "Weight",
+        "value": "320 g including batteries"
+      },
+      {
+        "label": "Standard accessories",
+        "value": "Male rubber contact tip x 2, female rubber contact tip x 2, peripheral rubber contact tip, reflective tape, padded carrying case, user manual"
+      }
+    ]
+  },
+  {
+    "id": "htm-560",
+    "model": "HTM 560",
+    "name": "Non-Contact Type Digital Tachometer",
+    "images": [
+      "htm-560.webp"
+    ],
+    "tagline": "Handheld photo tachometer, 60 to 1,00,000 RPM from 75 to 300 mm away, 5-digit LED display.",
+    "description": "The Systems Tech HTM 560 is a handheld non-contact digital tachometer that reads speed with a light beam, so there is nothing to touch on the rotating part. A strip of reflective tape is fixed on the shaft, the unit is held 75 mm to 300 mm away, and it reads from 60 up to 1,00,000 RPM with 0.1 RPM resolution up to 1000 RPM. It has a 5-digit red LED display, quartz crystal time base, automatic last, maximum and minimum memory, and comes with reflective tape and a padded carrying case.",
+    "features": [
+      "Full digital, micro-controller based design",
+      "Quartz crystal time base, 0.05% + 1 digit accuracy",
+      "Last, Max and Min readings stored and recalled automatically",
+      "Compact handheld body with padded carrying case",
+      "Non-contact measurement from 75 mm to 300 mm using reflective tape"
+    ],
+    "specs": [
+      {
+        "label": "Range",
+        "value": "60 RPM to 1,00,000 RPM"
+      },
+      {
+        "label": "Resolution",
+        "value": "0.1 RPM up to 1000 RPM; 1 RPM above 1000 RPM"
+      },
+      {
+        "label": "Measuring distance",
+        "value": "75 mm (3 in) to 300 mm (12 in)"
+      },
+      {
+        "label": "Display",
+        "value": "5 digits, 10 mm (0.38 in) red LED"
+      },
+      {
+        "label": "Accuracy",
+        "value": "+/- 0.05% + 1 digit"
+      },
+      {
+        "label": "Sampling rate",
+        "value": "1 second"
+      },
+      {
+        "label": "Time base",
+        "value": "Quartz crystal controlled"
+      },
+      {
+        "label": "Low battery",
+        "value": "Indicated by \"Lobat\" on the display"
+      },
+      {
+        "label": "Memory recall",
+        "value": "Last, Max and Min values stored automatically, recall up to 120 s"
+      },
+      {
+        "label": "Power source",
+        "value": "4 x 1.5 V AA batteries, auto shut-off"
+      },
+      {
+        "label": "Operating temperature",
+        "value": "0 °C to 60 °C (32 °F to 140 °F)"
+      },
+      {
+        "label": "Size",
+        "value": "70 x 200 x 40 mm (2.8 x 7.8 x 1.6 in)"
+      },
+      {
+        "label": "Battery life",
+        "value": "90 hrs alkaline | 30 hrs carbon-zinc"
+      },
+      {
+        "label": "Weight",
+        "value": "270 g including batteries"
+      },
+      {
+        "label": "Standard accessories",
+        "value": "Reflective tape 1000 x 12 mm x 1, padded carrying case"
+      }
+    ]
+  },
+  {
+    "id": "htm-890",
+    "model": "HTM 890",
+    "name": "Photo Contact Digital Tachometer",
+    "images": [
+      "htm-890.webp"
+    ],
+    "tagline": "Two-in-one handheld tachometer: contact side to 50,000 RPM and surface speed, photo side to 1,00,000 RPM.",
+    "description": "The Systems Tech HTM 890 combines a contact tachometer and a photo (non-contact) tachometer in one handheld body. The contact side reads 60 to 50,000 RPM and surface speed from 6 to 5000 m/min using rubber contact tips; the photo side reads 60 to 1,00,000 RPM from 75 mm to 300 mm using reflective tape. It has a 5-digit red LED display, quartz crystal time base, automatic last, maximum and minimum memory, and is supplied with contact tips, reflective tape, a padded carrying case and a user manual - a single tool for motor and machine performance checks.",
+    "features": [
+      "Full digital, micro-controller based design",
+      "Quartz crystal time base, 0.05% + 1 digit accuracy",
+      "Last, Max and Min readings stored and recalled automatically",
+      "Compact handheld body with padded carrying case",
+      "Contact side and photo side in one instrument",
+      "Surface speed (m/min) on the contact side"
+    ],
+    "specs": [
+      {
+        "label": "Range",
+        "value": "60 RPM to 50,000 RPM (contact side); 6 m/min to 5000 m/min (surface speed); 60 RPM to 1,00,000 RPM (photo side)"
+      },
+      {
+        "label": "Resolution",
+        "value": "0.1 RPM up to 1000 RPM, 1 RPM above; 0.01 m/min up to 100 m/min, 0.1 m/min above"
+      },
+      {
+        "label": "Measuring distance",
+        "value": "75 mm (3 in) to 300 mm (12 in), photo side"
+      },
+      {
+        "label": "Display",
+        "value": "5 digits, 10 mm (0.38 in) red LED"
+      },
+      {
+        "label": "Accuracy",
+        "value": "+/- 0.05% + 1 digit"
+      },
+      {
+        "label": "Sampling rate",
+        "value": "1 second"
+      },
+      {
+        "label": "Time base",
+        "value": "Quartz crystal controlled"
+      },
+      {
+        "label": "Low battery",
+        "value": "Indicated by \"Lobat\" on the display"
+      },
+      {
+        "label": "Memory recall",
+        "value": "Last, Max and Min values stored automatically, recall up to 120 s"
+      },
+      {
+        "label": "Power source",
+        "value": "4 x 1.5 V AA batteries, auto shut-off"
+      },
+      {
+        "label": "Operating temperature",
+        "value": "0 °C to 60 °C (32 °F to 140 °F)"
+      },
+      {
+        "label": "Size",
+        "value": "70 x 200 x 40 mm (2.8 x 7.8 x 1.6 in)"
+      },
+      {
+        "label": "Battery life",
+        "value": "Contact side: 90 hrs alkaline, 30 hrs carbon-zinc. Photo side: 24 hrs alkaline, 12 hrs carbon-zinc"
+      },
+      {
+        "label": "Weight",
+        "value": "320 g including batteries"
+      },
+      {
+        "label": "Standard accessories",
+        "value": "Male rubber contact tip x 2, female rubber contact tip x 2, peripheral rubber contact tip, reflective tape 1000 x 12 mm, padded carrying case, user manual"
+      }
+    ]
+  }
+]

@@ -45,13 +45,23 @@ const vartechCounts: Record<string, number> = {
 // Vartech-only categories (oscilloscopes, function generators, LCR meters, DC loads) are kept.
 // Vartech multimeters/clamp-meters are excluded because CIE now has separate
 // "Clamp Meters" and "Digital Multimeters" categories that already cover those types.
+import stHandheld from '../data/systems-tech-handheld-tachometers.json';
+import stPanel from '../data/systems-tech-panel-tachometers.json';
+import stSensors from '../data/systems-tech-tachometer-sensors.json';
+import stTempHum from '../data/systems-tech-temperature-humidity-sensors.json';
+const systemsTechCounts: Record<string, number> = {
+  'systems-tech-handheld-tachometers': stHandheld.length,
+  'systems-tech-panel-tachometers': stPanel.length,
+  'systems-tech-tachometer-sensors': stSensors.length,
+  'systems-tech-temperature-humidity-sensors': stTempHum.length,
+};
 const SLIDER_EXCLUDE = new Set(['vartech-multimeters', 'vartech-clamp-meters']);
 
 const categoryCount = categories
   .filter((cat: any) => !SLIDER_EXCLUDE.has(cat.id))
   .map((cat: any) => ({
     ...cat,
-    count: products.filter((p: any) => p.categoryId === cat.id).length || vartechCounts[cat.id] || 0,
+    count: products.filter((p: any) => p.categoryId === cat.id).length || vartechCounts[cat.id] || systemsTechCounts[cat.id] || 0,
   }));
 
 const heroCategoryCount = categoryCount.length;
@@ -60,6 +70,7 @@ const heroCategoryCount = categoryCount.length;
 // a marketing round-up. Recalculates itself as products are added/removed.
 const heroProductCount =
   (products as any[]).length +
+  stHandheld.length + stPanel.length + stSensors.length + stTempHum.length +
   (vartechThermometers as any[]).length +
   (vartechLuxMeters as any[]).length +
   (vartechCalibrators as any[]).length +
@@ -284,7 +295,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
         class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-3 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
         style="scrollbar-width:none; -ms-overflow-style:none;">
         {categoryCount.map(cat => (
-          <a href={u((cat as any).brand === 'vartech' ? `/authorised-dealership/${cat.id.replace('vartech-', '')}/` : `/products/${cat.id}/`)}
+          <a href={u(((cat as any).brand === 'vartech' || (cat as any).brand === 'systems-tech') ? `/authorised-dealership/${cat.id.replace('vartech-', '').replace('systems-tech-', '')}/` : `/products/${cat.id}/`)}
             class="card card-interactive group snap-start shrink-0 w-[260px] sm:w-[280px] p-6 flex flex-col">
             <div class="flex items-start gap-3 mb-3">
               <div class="shrink-0 w-11 h-11 bg-cloud rounded-xl flex items-center justify-center transition-colors duration-200 group-hover:bg-red/8">

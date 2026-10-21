@@ -21,6 +21,10 @@ import vartechSolderingIrons from '../data/vartech-soldering-irons.json';
 import vartechMagnifiers from '../data/vartech-magnifiers.json';
 import vartechSolderingAccessories from '../data/vartech-soldering-accessories.json';
 import vartechDcPowerSupplies from '../data/vartech-dc-power-supplies.json';
+import systemsTechHandheldTachometers from '../data/systems-tech-handheld-tachometers.json';
+import systemsTechPanelTachometers from '../data/systems-tech-panel-tachometers.json';
+import systemsTechTachometerSensors from '../data/systems-tech-tachometer-sensors.json';
+import systemsTechTemperatureHumiditySensors from '../data/systems-tech-temperature-humidity-sensors.json';
 
 interface Props {
   productName?: string;
@@ -45,6 +49,10 @@ const vartechByCategory: Record<string, {id: string, model: string, name: string
   'vartech-magnifiers': vartechMagnifiers.map(p => ({ id: p.id, model: p.model, name: p.name })),
   'vartech-soldering-accessories': vartechSolderingAccessories.map(p => ({ id: p.id, model: p.model, name: p.name })),
   'vartech-dc-power-supplies':    vartechDcPowerSupplies.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'systems-tech-handheld-tachometers': systemsTechHandheldTachometers.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'systems-tech-panel-tachometers': systemsTechPanelTachometers.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'systems-tech-tachometer-sensors': systemsTechTachometerSensors.map(p => ({ id: p.id, model: p.model, name: p.name })),
+  'systems-tech-temperature-humidity-sensors': systemsTechTemperatureHumiditySensors.map(p => ({ id: p.id, model: p.model, name: p.name })),
 };
 
 const productsByCategory = categories.map(cat => ({

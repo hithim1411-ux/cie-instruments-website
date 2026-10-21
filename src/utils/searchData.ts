@@ -18,6 +18,10 @@ import vartechSolderingIrons from '../data/vartech-soldering-irons.json';
 import vartechMagnifiers from '../data/vartech-magnifiers.json';
 import vartechSolderingAccessories from '../data/vartech-soldering-accessories.json';
 import vPS   from '../data/vartech-dc-power-supplies.json';
+import systemsTechHandheldTachometers from '../data/systems-tech-handheld-tachometers.json';
+import systemsTechPanelTachometers from '../data/systems-tech-panel-tachometers.json';
+import systemsTechTachometerSensors from '../data/systems-tech-tachometer-sensors.json';
+import systemsTechTemperatureHumiditySensors from '../data/systems-tech-temperature-humidity-sensors.json';
 
 
 const catNameMap: Record<string,string> = Object.fromEntries(
@@ -26,7 +30,7 @@ const catNameMap: Record<string,string> = Object.fromEntries(
 
 type Entry = {
   id: string; model: string; name: string; tagline: string;
-  category: string; brand: 'cie'|'vartech'; href: string; image: string;
+  category: string; brand: 'cie'|'vartech'|'systems-tech'; href: string; image: string;
 };
 
 function vImg(slug: string, img: string) { return u(`/images/vartech/${slug}/${img}`); }
@@ -51,6 +55,13 @@ const vartechSections: { slug: string; label: string; items: any[] }[] = [
   { slug: 'dc-power-supplies',  label: 'DC Power Supplies',    items: vPS  },
 ];
 
+const systemsTechSections: { slug: string; label: string; items: any[] }[] = [
+  { slug: 'handheld-tachometers', label: 'Handheld Tachometers', items: systemsTechHandheldTachometers },
+  { slug: 'panel-tachometers', label: 'Panel Tachometers', items: systemsTechPanelTachometers },
+  { slug: 'tachometer-sensors', label: 'Tachometer Sensors', items: systemsTechTachometerSensors },
+  { slug: 'temperature-humidity-sensors', label: 'Temp & Humidity Sensors', items: systemsTechTemperatureHumiditySensors },
+];
+
 export const searchIndex: Entry[] = [
   ...(cieProducts as any[]).filter(p => !p.brand || p.brand === 'cie').map(p => ({
     id: p.id, model: p.model, name: p.name, tagline: p.tagline || '',
@@ -67,6 +78,14 @@ export const searchIndex: Entry[] = [
       category: label, brand: 'vartech' as const,
       href: u(`/authorised-dealership/${slug}/${p.id}/`),
       image: p.images?.[0] ? vImg(slug, p.images[0]) : '',
+    }))
+  ),
+  ...systemsTechSections.flatMap(({ slug, label, items }) =>
+    (items as any[]).map(p => ({
+      id: p.id, model: p.model, name: p.name, tagline: p.tagline || '',
+      category: label, brand: 'systems-tech' as const,
+      href: u(`/authorised-dealership/${slug}/${p.id}/`),
+      image: p.images?.[0] ? u(`/images/systems-tech/${slug}/${p.images[0]}`) : '',
     }))
   ),
 ];

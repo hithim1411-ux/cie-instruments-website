@@ -18,6 +18,10 @@ import calibrators from '../../data/vartech-calibrators.json';
 import luxMeters from '../../data/vartech-lux-meters.json';
 import thermometers from '../../data/vartech-thermometers.json';
 import dcPowerSupplies from '../../data/vartech-dc-power-supplies.json';
+import systemsTechHandheldTachometers from '../../data/systems-tech-handheld-tachometers.json';
+import systemsTechPanelTachometers from '../../data/systems-tech-panel-tachometers.json';
+import systemsTechTachometerSensors from '../../data/systems-tech-tachometer-sensors.json';
+import systemsTechTemperatureHumiditySensors from '../../data/systems-tech-temperature-humidity-sensors.json';
 import vartechSolderingStations from '../../data/vartech-soldering-stations.json';
 import vartechReworkStations from '../../data/vartech-rework-stations.json';
 import vartechSolderingIrons from '../../data/vartech-soldering-irons.json';
@@ -146,9 +150,40 @@ const categories = [
   },
 ];
 
-const pageTitle = 'Authorised Distributor - Vartech Instruments | CIE Instruments';
+const systemsTechCategories = [
+  {
+    label: "Handheld Tachometers",
+    href: u('/authorised-dealership/handheld-tachometers/'),
+    iconId: 'systems-tech-handheld-tachometers',
+    count: systemsTechHandheldTachometers.length,
+    description: "Contact, non-contact (photo) and combined contact + photo handheld digital tachometers with 5-digit LED display and min/max/last memory.",
+  },
+  {
+    label: "Panel Tachometers",
+    href: u('/authorised-dealership/panel-tachometers/'),
+    iconId: 'systems-tech-panel-tachometers',
+    count: systemsTechPanelTachometers.length,
+    description: "96 x 48 mm panel mount digital RPM indicators with a choice of tachogenerator, magnetic pick-up, proximity or photo-reflective sensor.",
+  },
+  {
+    label: "Tachometer Sensors",
+    href: u('/authorised-dealership/tachometer-sensors/'),
+    iconId: 'systems-tech-tachometer-sensors',
+    count: systemsTechTachometerSensors.length,
+    description: "Digital tachogenerator, magnetic pick-up, proximity switch and photo-reflective speed sensors, with the stainless steel TM-802 5/8 UNF pick-up.",
+  },
+  {
+    label: "Temp & Humidity Sensors",
+    href: u('/authorised-dealership/temperature-humidity-sensors/'),
+    iconId: 'systems-tech-temperature-humidity-sensors',
+    count: systemsTechTemperatureHumiditySensors.length,
+    description: "WiFi enabled temperature sensor and 2-in-1 temperature and humidity sensor for refrigeration, cold storage and monitoring use.",
+  },
+];
+
+const pageTitle = 'Authorised Distributor - Vartech and Systems Tech | CIE Instruments';
 const pageDesc =
-  'CIE Instruments is an authorised distributor and distributor of Vartech precision digital test instruments in India - multimeters, clamp meters, oscilloscopes, function generators, LCR meters, DC loads, lux meters, anemometers, calibrators, thermometers, sound level meters, soldering and de-soldering stations, SMD re-work systems, soldering irons, magnifying lamps and soldering spares. Expert support, pan-India supply from Howrah.';
+  'CIE Instruments is an authorised distributor and distributor of Vartech precision digital test instruments in India - multimeters, clamp meters, oscilloscopes, function generators, LCR meters, DC loads, lux meters, anemometers, calibrators, thermometers, sound level meters, soldering and de-soldering stations, SMD re-work systems, soldering irons, magnifying lamps and soldering spares - and of Systems Tech tachometers, speed sensors and wireless temperature and humidity sensors. Expert support, pan-India supply from Howrah.';
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -211,6 +246,51 @@ const breadcrumbSchema = {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {categories.map(cat => (
           <a href={cat.href} class="card card-interactive group p-6 flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 bg-cloud rounded-xl flex items-center justify-center transition-colors duration-200 group-hover:bg-emerald-50 shrink-0">
+                <Icon name={categoryIcon(cat.iconId)} class="w-5 h-5 text-emerald-600" />
+              </div>
+              <div>
+                <p class="font-bold text-ink text-base transition-colors duration-200 group-hover:text-emerald-700">{cat.label}</p>
+                <p class="text-xs text-muted font-mono">{cat.count} models</p>
+              </div>
+            </div>
+            <p class="text-sm text-muted leading-relaxed flex-1">{cat.description}</p>
+            <div class="link-arrow text-sm text-emerald-600">
+              Browse {cat.label} <Icon name="arrow" class="w-4 h-4" />
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Systems Tech brand section -->
+  <section class="bg-cloud section-pad-sm border-t border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-start gap-6 pb-8 border-b border-border mb-10">
+        <div class="shrink-0">
+          <img
+            src={u('/images/systems-tech/systems-tech-logo.webp')}
+            alt="Systems Tech - tachometers and speed sensors"
+            width="250" height="60"
+            class="h-12 w-auto object-contain"
+            loading="lazy"
+          />
+        </div>
+        <div>
+          <Badge variant="emerald" class="mb-2">Authorised Distributor</Badge>
+          <h2 class="text-xl font-bold text-ink mb-2">Digital Tachometers, Speed Sensors &amp; Wireless Monitoring Sensors</h2>
+          <p class="text-sm text-muted leading-relaxed max-w-2xl">
+            Systems Tech makes digital tachometers, speed sensors and temperature and humidity sensors for industrial use. CIE Instruments is an authorised distributor of the Systems Tech range across India, supplying handheld and panel mount tachometers, tachogenerators, magnetic pick-ups, proximity and photo-reflective sensors, with dedicated support and pan-India delivery.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="text-lg font-bold text-ink mb-5">Systems Tech Product Categories</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {systemsTechCategories.map(cat => (
+          <a href={cat.href} class="card card-interactive group p-6 flex flex-col gap-3 bg-white">
             <div class="flex items-center gap-3">
               <div class="w-11 h-11 bg-cloud rounded-xl flex items-center justify-center transition-colors duration-200 group-hover:bg-emerald-50 shrink-0">
                 <Icon name={categoryIcon(cat.iconId)} class="w-5 h-5 text-emerald-600" />

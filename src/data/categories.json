@@ -701,5 +701,69 @@
       "The 191 AD thermometer and the 192 multifunction soldering tester measure soldering tip temperature, leakage voltage and ground resistance to check that a station is working correctly."
     ],
     "relatedArticles": []
+  },
+  {
+    "id": "systems-tech-handheld-tachometers",
+    "brand": "systems-tech",
+    "name": "Handheld Digital Tachometers",
+    "shortName": "Handheld Tachometers",
+    "eyebrow": "Systems Tech · Handheld Digital Tachometers",
+    "description": "Contact, non-contact (photo) and combined contact + photo handheld digital tachometers with 5-digit LED display and min/max/last memory.",
+    "icon": "⏱️",
+    "metaTitle": "Systems Tech Handheld Digital Tachometers | CIE Instruments, India",
+    "metaDesc": "Buy Systems Tech HTM 590, HTM 560 and HTM 890 handheld digital tachometers in India - contact, non-contact and photo + contact RPM meters. CIE Instruments is an authorised distributor, Howrah and Kolkata.",
+    "seoContent": [
+      "All three handheld models share a micro-controller based design, a 5-digit red LED display, a quartz crystal time base and an accuracy of 0.05% + 1 digit. The last, maximum and minimum readings are stored automatically and can be recalled, and the unit runs on four AA cells with auto shut-off. Each comes in a padded carrying case.",
+      "The HTM 590 measures by contact from 60 to 50,000 RPM and also reads surface speed from 6 to 5000 m/min using rubber contact tips. The HTM 560 reads 60 to 1,00,000 RPM without touching the shaft, from 75 mm to 300 mm away, using reflective tape. The HTM 890 combines both in one body: contact side for RPM and surface speed, photo side for non-contact RPM."
+    ],
+    "relatedArticles": []
+  },
+  {
+    "id": "systems-tech-panel-tachometers",
+    "brand": "systems-tech",
+    "name": "Digital Panel Mount Tachometers",
+    "shortName": "Panel Tachometers",
+    "eyebrow": "Systems Tech · Digital Panel Mount Tachometers",
+    "description": "96 x 48 mm panel mount digital RPM indicators with a choice of tachogenerator, magnetic pick-up, proximity or photo-reflective sensor.",
+    "icon": "🎛️",
+    "metaTitle": "Systems Tech Digital Panel Mount Tachometers | CIE Instruments, India",
+    "metaDesc": "Buy Systems Tech digital panel mount tachometers in India - TM-801 (tachogenerator), TM-802 (magnetic pick-up), TM-803 (proximity switch) and TM-804 (photo-reflective). CIE Instruments, authorised distributor, Howrah.",
+    "seoContent": [
+      "The four panel meters are identical in the display and electronics: a 5-digit 12.5 mm red LED display, 60 to 50,000 RPM range, 0.1 RPM resolution up to 1000 RPM and 1 RPM above, 0.05% + 1 count accuracy, a quartz crystal time base and 220 V AC, 50 Hz operation in a 96 mm square panel case.",
+      "What differs is the sensor supplied with the meter: the TM-801 uses a digital tachogenerator (optical encoder) coupled to the shaft, the TM-802 a magnetic pick-up read against a 60-tooth pulsor wheel, the TM-803 an inductive proximity switch (PNP or NPN) and the TM-804 a photo-reflective probe working with reflective tape. The sensors are also listed separately under Tachometer Sensors."
+    ],
+    "relatedArticles": []
+  },
+  {
+    "id": "systems-tech-tachometer-sensors",
+    "brand": "systems-tech",
+    "name": "Tachometer Sensors",
+    "shortName": "Tachometer Sensors",
+    "eyebrow": "Systems Tech · Tachometer Sensors",
+    "description": "Digital tachogenerator, magnetic pick-up, proximity switch and photo-reflective speed sensors, with the stainless steel TM-802 5/8 UNF pick-up.",
+    "icon": "📡",
+    "metaTitle": "Systems Tech Tachometer Sensors | CIE Instruments, India",
+    "metaDesc": "Buy Systems Tech tachometer sensors in India - digital tachogenerator, magnetic pick-up, proximity switch, photo-reflective sensor and 5/8 UNF magnetic pick-up. CIE Instruments is an authorised distributor, Howrah.",
+    "seoContent": [
+      "These are the sensors used with the TM-800 series panel tachometers, available on their own as replacements or for use with other speed indicators and data systems. Each gives a digital pulse output over a 3-core cable: 60 pulses per revolution for the tachogenerator and magnetic pick-up, 1 pulse per revolution for the proximity and photo-reflective types.",
+      "The TM-802 5/8 UNF magnetic pick-up is a stainless steel (grade 304) epoxy-potted sensor that suits many existing machines as a replacement, with an operating temperature of -40 °C to +107 °C."
+    ],
+    "relatedArticles": []
+  },
+  {
+    "id": "systems-tech-temperature-humidity-sensors",
+    "brand": "systems-tech",
+    "name": "Wireless Temperature & Humidity Sensors",
+    "shortName": "Temp & Humidity Sensors",
+    "eyebrow": "Systems Tech · Wireless Temperature & Humidity Sensors",
+    "description": "WiFi enabled temperature sensor and 2-in-1 temperature and humidity sensor for refrigeration, cold storage and monitoring use.",
+    "icon": "🌡️",
+    "metaTitle": "Systems Tech Wireless Temperature & Humidity Sensors | CIE Instruments, India",
+    "metaDesc": "Buy Systems Tech TS-200 wireless temperature sensor and TS-201 temperature and humidity sensor in India. CIE Instruments is an authorised distributor, Howrah and Kolkata.",
+    "seoContent": [
+      "The TS-200 is a WiFi enabled temperature sensor with a flat ribbon probe and a double-sided sticker mount, covering -55 °C to +125 °C with 0.0625 °C resolution, an on-device audible and visual alarm, and a live feed that can be integrated through an API.",
+      "The TS-201 adds humidity (0 to 100 %RH) to the temperature reading with +/- 0.2 °C and +/- 2 %RH accuracy, an OLED display, 200 samples of on-device storage, WhatsApp and email alerts on breaches, and Android and iOS apps for the dashboard."
+    ],
+    "relatedArticles": []
   }
 ]

@@ -1,0 +1,324 @@
+[
+  {
+    "id": "tm-801-tachogenerator",
+    "model": "TM-801 TG",
+    "name": "Digital Tachogenerator",
+    "images": [
+      "tm-801-tachogenerator.webp"
+    ],
+    "tagline": "Optical encoder type digital tachogenerator, 60 pulses per revolution, 6 V DC, face or servo mounting.",
+    "description": "The Systems Tech digital tachogenerator is an optical encoder that uses a photo-interrupter and a rotating disc to give a digital pulse output of 60 pulses per revolution, LS-TTL compatible, proportional to speed. Housed in a machined aluminium body with a 10 mm stainless steel shaft on two ball bearings, it is coupled to the shaft of the drive and connected to a panel instrument such as the TM-801, or to any data processing system, through a 3-core cable.",
+    "features": [
+      "60 pulses per revolution, LS-TTL compatible",
+      "Machined aluminium housing, SS-304 shaft on two ball bearings",
+      "Servo or face mounting with 3 x M4 screws",
+      "10 kHz output at 10,000 RPM"
+    ],
+    "specs": [
+      {
+        "label": "Supply voltage",
+        "value": "6 V DC (regulated)"
+      },
+      {
+        "label": "Supply current",
+        "value": "50 to 70 mA"
+      },
+      {
+        "label": "Output type",
+        "value": "Digital pulse output"
+      },
+      {
+        "label": "Output pulse rate",
+        "value": "60 PPR"
+      },
+      {
+        "label": "Output pulse amplitude",
+        "value": "Same as supply voltage"
+      },
+      {
+        "label": "Output frequency",
+        "value": "10 kHz at 10,000 RPM"
+      },
+      {
+        "label": "Outlet cable",
+        "value": "2 to 3 m, three cores with connector"
+      },
+      {
+        "label": "Shaft",
+        "value": "10 mm dia, 23 mm extension, stainless steel SS-304"
+      },
+      {
+        "label": "Mounting",
+        "value": "Servo or face, 3 screws M4 on 48 mm PCD"
+      },
+      {
+        "label": "Overall size",
+        "value": "Body dia 62 mm, depth 80 mm (excluding shaft and connector gland)"
+      },
+      {
+        "label": "Weight (approx.)",
+        "value": "300 g"
+      }
+    ]
+  },
+  {
+    "id": "tm-802-magnetic-pickup",
+    "model": "TM-802 MPU",
+    "name": "Magnetic Pick-up Sensor",
+    "images": [
+      "tm-802-magnetic-pickup.webp"
+    ],
+    "tagline": "Threaded M16 magnetic pick-up, 60 pulses per revolution, 6 V DC, brass or stainless steel body.",
+    "description": "The Systems Tech magnetic pick-up generates a digital pulse output of 60 pulses per revolution (LS-TTL compatible) as ferrous or magnetic teeth pass the sensing face, and sends it over a 3-core cable to a panel tachometer such as the TM-802. Magnetic pick-ups of this type are widely used in tachometers, speedometers and engine control systems. The body is a machined brass or stainless steel threaded housing fixed with two M16 locknuts.",
+    "features": [
+      "60 pulses per revolution, LS-TTL compatible",
+      "Machined brass or stainless steel threaded body with two locknuts",
+      "M16 face mounting, 18 mm body dia x 80 mm",
+      "10 kHz output at 10,000 RPM"
+    ],
+    "specs": [
+      {
+        "label": "Supply voltage",
+        "value": "6 V DC (regulated)"
+      },
+      {
+        "label": "Supply current",
+        "value": "50 to 70 mA"
+      },
+      {
+        "label": "Output type",
+        "value": "Digital pulse output"
+      },
+      {
+        "label": "Output pulse rate",
+        "value": "60 PPR"
+      },
+      {
+        "label": "Output pulse amplitude",
+        "value": "Same as supply voltage"
+      },
+      {
+        "label": "Output frequency",
+        "value": "10 kHz at 10,000 RPM"
+      },
+      {
+        "label": "Outlet cable",
+        "value": "2 to 3 m, three cores"
+      },
+      {
+        "label": "Body",
+        "value": "Machined brass or stainless steel threaded housing with two locknuts"
+      },
+      {
+        "label": "Mounting",
+        "value": "Face, two M16 locknuts"
+      },
+      {
+        "label": "Overall size",
+        "value": "Body dia 18 mm, length 80 mm"
+      },
+      {
+        "label": "Weight (approx.)",
+        "value": "100 g"
+      }
+    ]
+  },
+  {
+    "id": "tm-803-proximity-switch",
+    "model": "TM-803 PS",
+    "name": "Proximity Switch Sensor",
+    "images": [
+      "tm-803-proximity-switch.webp"
+    ],
+    "tagline": "Inductive PNP or NPN proximity sensor, 1 pulse per revolution, 5 to 24 V DC, with LED indicator.",
+    "description": "The Systems Tech proximity switch sensor is an inductive type, either PNP or NPN, that switches an internal oscillator on and off as a metal target passes. It gives a digital output of one pulse per revolution (LS-TTL compatible) over a 3-wire cable, with a green LED at the back to show activity. The 18 mm threaded brass probe is mounted 3.0 to 5.0 mm from a bolt, tooth or pulsor disc fixed on the rotating shaft.",
+    "features": [
+      "Inductive type, PNP or NPN",
+      "1 pulse per revolution, LS-TTL compatible",
+      "Green LED indicator at the back",
+      "M18 threaded brass probe with two locknuts"
+    ],
+    "specs": [
+      {
+        "label": "Supply voltage",
+        "value": "5 V to 24 V DC (regulated)"
+      },
+      {
+        "label": "Supply current",
+        "value": "50 to 70 mA"
+      },
+      {
+        "label": "Output type",
+        "value": "Digital pulse output, 3-wire"
+      },
+      {
+        "label": "Output pulse rate",
+        "value": "1 PPR"
+      },
+      {
+        "label": "Output pulse amplitude",
+        "value": "Same as supply voltage"
+      },
+      {
+        "label": "Signal indicator",
+        "value": "Green LED at the back"
+      },
+      {
+        "label": "Outlet cable",
+        "value": "2 to 3 m, three cores"
+      },
+      {
+        "label": "Body",
+        "value": "Machined brass or stainless steel threaded housing with two locknuts"
+      },
+      {
+        "label": "Mounting",
+        "value": "Face, two M18 locknuts"
+      },
+      {
+        "label": "Sensing distance",
+        "value": "3.0 to 5.0 mm"
+      },
+      {
+        "label": "Overall size",
+        "value": "Body dia 18 mm, length 65 mm"
+      },
+      {
+        "label": "Weight (approx.)",
+        "value": "100 g"
+      }
+    ]
+  },
+  {
+    "id": "tm-804-photo-reflective",
+    "model": "TM-804 PR",
+    "name": "Photo-Reflective Sensor",
+    "images": [
+      "tm-804-photo-reflective.webp"
+    ],
+    "tagline": "Photo-reflective speed probe, 1 pulse per revolution, 5 V DC, works at 4 to 12 inches with reflective tape.",
+    "description": "The Systems Tech photo-reflective sensor uses a bright light source, a lens and a photo receiver in a threaded chrome plated brass probe. The beam is aligned with a reflector applied to the rotating shaft or disc at a distance of 4 to 12 inches, and each pass of the reflector gives one pulse per revolution over a 3-wire cable. It is used with panel tachometers such as the TM-804 or any speed measuring system that accepts a digital pulse.",
+    "features": [
+      "Photo-reflective, 4 in to 12 in working distance",
+      "1 pulse per revolution",
+      "Threaded M22 chrome plated brass probe",
+      "Optical lens focuses the beam on the reflector"
+    ],
+    "specs": [
+      {
+        "label": "Supply voltage",
+        "value": "5 V DC (regulated)"
+      },
+      {
+        "label": "Supply current",
+        "value": "125 mA"
+      },
+      {
+        "label": "Output type",
+        "value": "Digital pulse output, 3-wire"
+      },
+      {
+        "label": "Output pulse rate",
+        "value": "1 PPR"
+      },
+      {
+        "label": "Output pulse amplitude",
+        "value": "+50 mV to 5 V"
+      },
+      {
+        "label": "Output frequency",
+        "value": "20 kHz at 10,000 RPM"
+      },
+      {
+        "label": "Outlet cable",
+        "value": "2 to 3 m, three cores with connector"
+      },
+      {
+        "label": "Sensing distance",
+        "value": "4 in to 12 in from the reflector"
+      },
+      {
+        "label": "Mounting",
+        "value": "Face, two M22 locknuts"
+      },
+      {
+        "label": "Overall size",
+        "value": "Body dia 22 mm, length 75 mm"
+      },
+      {
+        "label": "Weight (approx.)",
+        "value": "150 g"
+      }
+    ]
+  },
+  {
+    "id": "tm-802-unf-magnetic-pickup",
+    "model": "TM-802 UNF",
+    "name": "5/8 UNF Magnetic Pick-up Sensor",
+    "images": [
+      "tm-802-unf-magnetic-pickup.webp"
+    ],
+    "tagline": "Stainless steel 5/8 - 18 UNF magnetic pick-up, -40 °C to +107 °C, replacement for many makes.",
+    "description": "The Systems Tech TM-802 5/8 UNF magnetic pick-up is a 5/8 - 18 UNF - 2A sensor in a grade 304 stainless steel case, compatible as a replacement with many other makes of pick-up. It is potted in insulating epoxy, operates from -40 °C to +107 °C and resists moisture, gases, petroleum lubricants, fuels, salts, mild acids and alkalis. Output is a digital pulse signal over a 3 m, 3-core sheathed cable, and it mounts on the face with locknuts.",
+    "features": [
+      "5/8 - 18 UNF - 2A configuration, compatible replacement for many brands",
+      "Stainless steel (Grade 304) case, epoxy potted",
+      "Operating temperature -40 °C to +107 °C",
+      "Resists moisture, gases, petroleum lubricants, fuels, salts, mild acids and alkalis"
+    ],
+    "specs": [
+      {
+        "label": "Configuration",
+        "value": "5/8 - 18 UNF - 2A MPU"
+      },
+      {
+        "label": "Case material",
+        "value": "Stainless steel (Grade 304)"
+      },
+      {
+        "label": "Potting material",
+        "value": "Elantas insulating epoxy Debofil 60 + Hardener 758"
+      },
+      {
+        "label": "Operating temperature",
+        "value": "-40 °C to +107 °C"
+      },
+      {
+        "label": "Inductance",
+        "value": "520 mH +/- 50 mH (nominal)"
+      },
+      {
+        "label": "High pot test",
+        "value": "500 V RMS (lead wires to case)"
+      },
+      {
+        "label": "Signal",
+        "value": "18 V P-P max (tested with 60-tooth gear, 1 mm air gap, 1000 RPM)"
+      },
+      {
+        "label": "Supply voltage",
+        "value": "6 V DC (regulated)"
+      },
+      {
+        "label": "Supply current",
+        "value": "50 to 70 mA"
+      },
+      {
+        "label": "Output type",
+        "value": "Digital pulse output"
+      },
+      {
+        "label": "Mounting",
+        "value": "Face mount using locknuts"
+      },
+      {
+        "label": "Weight",
+        "value": "150 g"
+      },
+      {
+        "label": "Cable",
+        "value": "3 m insulated, 3-core sheathed"
+      }
+    ]
+  }
+]

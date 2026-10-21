@@ -18,7 +18,7 @@ import CompareAddButton from './CompareAddButton.astro';
 const waMsg = encodeURIComponent(`Hi, I'd like to enquire about the ${model} - ${name}`);
 // Vartech images live at /images/vartech/... not /images/products/vartech/...
 const imgSrc = image
-  ? (image.startsWith('vartech/') ? u(`/images/${image}`) : u(`/images/products/${image}`))
+  ? ((image.startsWith('vartech/') || image.startsWith('systems-tech/')) ? u(`/images/${image}`) : u(`/images/products/${image}`))
   : u(`/images/products/${id}.webp`);
 // Vartech products live under /authorised-dealership/{slug}/, not /products/{categoryId}/
 // categoryId pattern: "vartech-oscilloscopes" → distributor slug: "oscilloscopes"
@@ -28,10 +28,13 @@ const dealerIdOverrides: Record<string, string> = {
   'v-8222h-lcr': 'v-8222h',
   'ss-5150ds1bfg': 'ss-5150ds1b-fg',
 };
-const detailHref = categoryId.startsWith('vartech-')
+const detailHref = categoryId.startsWith('systems-tech-')
+  ? u(`/authorised-dealership/${categoryId.replace('systems-tech-', '')}/${id}/`)
+  : categoryId.startsWith('vartech-')
   ? u(`/authorised-dealership/${categoryId.replace('vartech-', '')}/${dealerIdOverrides[id] ?? id}/`)
   : u(`/products/${categoryId}/${id}/`);
 const isVartech = categoryId.startsWith('vartech-');
+const isSystemsTech = categoryId.startsWith('systems-tech-');
 ---
 
 <article class="card card-interactive group overflow-hidden flex flex-col">
@@ -55,7 +58,9 @@ const isVartech = categoryId.startsWith('vartech-');
         </svg>
         <span class="text-xs font-mono uppercase tracking-wider opacity-50">Image coming soon</span>
       </div>
-      {isVartech ? (
+      {isSystemsTech ? (
+        <Badge variant="emerald" class="absolute top-3 left-3">Systems Tech</Badge>
+      ) : isVartech ? (
         <Badge variant="emerald" class="absolute top-3 left-3">Vartech®</Badge>
       ) : featured && (
         <Badge variant="red" class="absolute top-3 right-3">Featured</Badge>
