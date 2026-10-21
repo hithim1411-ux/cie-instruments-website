@@ -1,0 +1,77 @@
+---
+import ToolShell from '../../components/ToolShell.astro';
+import { u } from '../../utils/url';
+---
+
+<ToolShell
+  slug="rpm-surface-speed-pulley-calculator"
+  title="RPM, Pulley Ratio and Belt Speed Calculator"
+  description="Free calculator: driven pulley rpm from pulley diameters, plus belt or surface speed in m/min, with a check against handheld tachometer ranges."
+  h1="RPM, Pulley and Belt Speed Calculator"
+  intro="Enter the driver rpm and the two pulley diameters. Get the driven rpm, the speed ratio and the belt (surface) speed in m/min."
+>
+  <Fragment slot="inputs">
+    <div class="tool-field"><label for="n1">Driver speed (motor shaft)</label>
+      <div class="input-wrap"><input id="n1" type="number" min="0" step="any" value="1440" inputmode="decimal" data-slider data-min="60" data-max="3600" data-step="10" /><span class="unit">rpm</span></div></div>
+    <div class="tool-field"><label for="d1">Driver pulley diameter</label>
+      <div class="input-wrap"><input id="d1" type="number" min="0" step="any" value="100" inputmode="decimal" /><span class="unit">mm</span></div></div>
+    <div class="tool-field"><label for="d2">Driven pulley diameter</label>
+      <div class="input-wrap"><input id="d2" type="number" min="0" step="any" value="250" inputmode="decimal" /><span class="unit">mm</span></div>
+      <p class="hint">Use the same units for both pulleys. Pitch diameter is more exact than outside diameter for V-belts.</p></div>
+  </Fragment>
+
+  <Fragment slot="readout">
+    <div class="readout-block">
+      <div class="lcd"><small>DRIVEN</small><span id="n2">-</span><span class="u">rpm</span></div>
+      <div class="stat-grid">
+        <div class="stat"><div class="stat-k">Speed ratio</div><div class="stat-v"><span id="ratio">-</span><i>: 1</i></div></div>
+        <div class="stat"><div class="stat-k">Belt speed</div><div class="stat-v"><span id="vm">-</span><i>m/min</i></div></div>
+        <div class="stat"><div class="stat-k">Belt speed</div><div class="stat-v"><span id="vs">-</span><i>m/s</i></div></div>
+      </div>
+    </div>
+    <div class="readout-block">
+      <div id="verdict"></div>
+      <div class="tool-callout" id="note"></div>
+    </div>
+  </Fragment>
+
+  <h2>Formulas</h2>
+  <p class="formula">N<sub>2</sub> = N<sub>1</sub> × D<sub>1</sub> / D<sub>2</sub>  ·  v (m/min) = π × D<sub>1</sub> (mm) × N<sub>1</sub> / 1000</p>
+  <p>The driven speed is lower than the driver speed when the driven pulley is larger. Belt slip and creep usually make the real driven speed 1% to 3% lower, so measure it rather than trust the calculation.</p>
+
+  <h2>Measuring the real speed</h2>
+  <ul>
+    <li>A <strong>contact tachometer</strong> with a rubber tip reads shaft rpm directly, and with a wheel attachment reads surface speed in m/min at the belt or the conveyor.</li>
+    <li>A <strong>non-contact (photo) tachometer</strong> reads a small strip of reflective tape on the pulley or shaft from 75 mm to 300 mm away, which suits fast, small or hard-to-reach parts.</li>
+    <li>Comparing the measured driven rpm with the calculated one is a quick way to spot a worn belt, a loose belt or the wrong pulley fitted.</li>
+  </ul>
+  <p>To pair this with the motor side, see the <a href={u('/tools/motor-speed-slip-calculator/')}>motor speed and slip calculator</a>. CIE Instruments supplies the <a href={u('/products/systems-tech-handheld-tachometers/')}>Systems Tech HTM 590, HTM 560 and HTM 890 handheld tachometers</a>; the <a href={u('/blog/how-to-measure-motor-rpm-with-a-tachometer/')}>guide to measuring motor rpm</a> covers the method.</p>
+
+  <script is:inline>
+    (function () {
+      var $ = function (id) { return document.getElementById(id); }, C = window.CIE;
+      function calc() {
+        var n1 = C.val('n1'), d1 = C.val('d1'), d2 = C.val('d2');
+        $('note').textContent = '';
+        if (!(n1 > 0) || !(d1 > 0) || !(d2 > 0)) {
+          ['n2', 'ratio', 'vm', 'vs'].forEach(function (id) { C.num($(id), null); });
+          $('verdict').innerHTML = ''; return;
+        }
+        var n2 = n1 * d1 / d2, vm = Math.PI * d1 * n1 / 1000;
+        C.num($('n2'), n2, function (v) { return C.fmt(v, 1); });
+        C.num($('ratio'), d2 / d1, function (v) { return C.fmt(v, 2); });
+        C.num($('vm'), vm, function (v) { return C.fmt(v, 1); });
+        C.num($('vs'), vm / 60, function (v) { return C.fmt(v, 2); });
+        var top = Math.max(n1, n2), low = Math.min(n1, n2), msg = [];
+        if (low < 60) msg.push('One shaft is below 60 rpm, under the lowest reading of the Systems Tech handheld range.');
+        if (top > 100000) msg.push('Above 1,00,000 rpm: beyond the handheld tachometer range.');
+        else if (top > 50000) msg.push('Above 50,000 rpm: use a non-contact (photo) tachometer, as contact tips stop at 50,000 rpm.');
+        if (vm > 5000) msg.push('Belt speed is above 5000 m/min, the top of the contact surface-speed range.');
+        $('verdict').innerHTML = msg.length ? C.badge('v-warn', 'Check the tachometer range') : C.badge('v-great', 'Within handheld tachometer range');
+        $('note').textContent = msg.length ? msg.join(' ') : 'Both shafts and the belt speed fall inside the range of the Systems Tech HTM 890 (contact and photo in one body).';
+      }
+      ['n1', 'd1', 'd2'].forEach(function (id) { $(id).addEventListener('input', calc); });
+      calc();
+    })();
+  </script>
+</ToolShell>

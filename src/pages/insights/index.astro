@@ -27,6 +27,7 @@ const SHELVES = [
   { id: 'environmental', label: 'Environmental', blurb: 'Light, sound, airflow, temperature.', icon: 'wind' },
   { id: 'power-quality', label: 'Power quality', blurb: 'Phase sequence, harmonics, PF.', icon: 'waves' },
   { id: 'relay-hv', label: 'Relay and HV testing', blurb: 'Protection relays, dielectric tests.', icon: 'flask' },
+  { id: 'speed-rpm', label: 'Speed and RPM', blurb: 'Tachometers, motors, belts.', icon: 'rotate-cw' },
   { id: 'bench-tools', label: 'Bench and repair', blurb: 'Soldering, fuses, batteries.', icon: 'wrench' },
 ] as const;
 const shelfCounts = Object.fromEntries(SHELVES.map((s) => [s.id, posts.filter((p: any) => p.shelf === s.id).length]));

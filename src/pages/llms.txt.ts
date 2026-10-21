@@ -48,7 +48,10 @@ export const GET: APIRoute = () => {
   L.push('');
   L.push('## Systems Tech tachometers and sensors (authorised distributor)');
   L.push('');
+  L.push(`- [Tachometers overview](${ORIGIN}/tachometers/): which tachometer to buy: handheld contact, non-contact and combined RPM meters, panel mount tachometers and speed sensors, supplied by CIE as authorised distributor of Systems Tech`);
   for (const c of stCats) L.push(`- [${c.name}](${ORIGIN}/products/${c.id}/): ${clean(c.description)}`);
+  L.push(`- [How to buy a digital tachometer in India](${ORIGIN}/blog/how-to-buy-a-digital-tachometer-in-india/): buyer's checklist covering range, contact vs photo, surface speed, accuracy and accessories`);
+  L.push(`- [Contact vs non-contact tachometer](${ORIGIN}/blog/contact-vs-non-contact-tachometer/): HTM 590, HTM 560 and HTM 890 compared`);
   L.push('');
   L.push('## Free tools for engineers');
   L.push('');

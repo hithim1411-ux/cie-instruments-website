@@ -710,13 +710,43 @@
     "eyebrow": "Systems Tech · Handheld Digital Tachometers",
     "description": "Contact, non-contact (photo) and combined contact + photo handheld digital tachometers with 5-digit LED display and min/max/last memory.",
     "icon": "⏱️",
-    "metaTitle": "Systems Tech Handheld Digital Tachometers | CIE Instruments, India",
-    "metaDesc": "Buy Systems Tech HTM 590, HTM 560 and HTM 890 handheld digital tachometers in India - contact, non-contact and photo + contact RPM meters. CIE Instruments is an authorised distributor, Howrah and Kolkata.",
+    "metaTitle": "Handheld Tachometer India: HTM 590, 560, 890 | CIE",
+    "metaDesc": "Buy Systems Tech HTM 590, HTM 560 and HTM 890 handheld digital tachometers in India. Contact, non-contact and combined RPM meters, 0.05% accuracy. Buy from CIE, authorised distributor.",
     "seoContent": [
       "All three handheld models share a micro-controller based design, a 5-digit red LED display, a quartz crystal time base and an accuracy of 0.05% + 1 digit. The last, maximum and minimum readings are stored automatically and can be recalled, and the unit runs on four AA cells with auto shut-off. Each comes in a padded carrying case.",
       "The HTM 590 measures by contact from 60 to 50,000 RPM and also reads surface speed from 6 to 5000 m/min using rubber contact tips. The HTM 560 reads 60 to 1,00,000 RPM without touching the shaft, from 75 mm to 300 mm away, using reflective tape. The HTM 890 combines both in one body: contact side for RPM and surface speed, photo side for non-contact RPM."
     ],
-    "relatedArticles": []
+    "relatedArticles": [
+      "how-to-buy-a-digital-tachometer-in-india",
+      "contact-vs-non-contact-tachometer",
+      "how-to-measure-motor-rpm-with-a-tachometer"
+    ],
+    "faq": [
+      {
+        "q": "What is the difference between a contact and a non-contact tachometer?",
+        "a": "A contact tachometer such as the HTM 590 touches the shaft end with a rubber tip and also reads surface speed in m/min with a wheel tip. A non-contact (photo) tachometer such as the HTM 560 reads a strip of reflective tape from 75 mm to 300 mm away, so nothing touches the rotating part. The HTM 890 combines both in one body."
+      },
+      {
+        "q": "What RPM range do the Systems Tech handheld tachometers cover?",
+        "a": "Contact readings run from 60 to 50,000 RPM (HTM 590 and the contact side of the HTM 890). Non-contact readings run from 60 to 1,00,000 RPM (HTM 560 and the photo side of the HTM 890)."
+      },
+      {
+        "q": "Which handheld tachometer measures surface speed?",
+        "a": "The HTM 590 and the HTM 890 read surface speed from 6 to 5000 m/min using the peripheral (wheel) rubber tip. This suits conveyors, rollers, belts and winders. The HTM 560 reads RPM only."
+      },
+      {
+        "q": "How accurate are these digital tachometers?",
+        "a": "All three models use a quartz crystal time base with an accuracy of 0.05% + 1 digit, a 5-digit red LED display and automatic last, maximum and minimum memory."
+      },
+      {
+        "q": "What is supplied with the tachometer?",
+        "a": "The HTM 590 and HTM 890 come with male and female rubber contact tips, a peripheral tip, reflective tape, a padded carrying case and a user manual. The HTM 560 comes with a reflective tape strip and a padded carrying case. Each runs on four AA batteries."
+      },
+      {
+        "q": "Where can I buy a Systems Tech tachometer in India?",
+        "a": "CIE Instruments (Cambridge Instruments & Engg. Co., Howrah and Kolkata) is an authorised distributor of Systems Tech tachometers and sensors. Contact our team for price and availability, or order online on the OhmKart store at ohmkart.cieinstruments.in."
+      }
+    ]
   },
   {
     "id": "systems-tech-panel-tachometers",
@@ -732,7 +762,10 @@
       "The four panel meters are identical in the display and electronics: a 5-digit 12.5 mm red LED display, 60 to 50,000 RPM range, 0.1 RPM resolution up to 1000 RPM and 1 RPM above, 0.05% + 1 count accuracy, a quartz crystal time base and 220 V AC, 50 Hz operation in a 96 mm square panel case.",
       "What differs is the sensor supplied with the meter: the TM-801 uses a digital tachogenerator (optical encoder) coupled to the shaft, the TM-802 a magnetic pick-up read against a 60-tooth pulsor wheel, the TM-803 an inductive proximity switch (PNP or NPN) and the TM-804 a photo-reflective probe working with reflective tape. The sensors are also listed separately under Tachometer Sensors."
     ],
-    "relatedArticles": []
+    "relatedArticles": [
+      "how-to-buy-a-digital-tachometer-in-india",
+      "how-to-measure-motor-rpm-with-a-tachometer"
+    ]
   },
   {
     "id": "systems-tech-tachometer-sensors",
@@ -748,7 +781,9 @@
       "These are the sensors used with the TM-800 series panel tachometers, available on their own as replacements or for use with other speed indicators and data systems. Each gives a digital pulse output over a 3-core cable: 60 pulses per revolution for the tachogenerator and magnetic pick-up, 1 pulse per revolution for the proximity and photo-reflective types.",
       "The TM-802 5/8 UNF magnetic pick-up is a stainless steel (grade 304) epoxy-potted sensor that suits many existing machines as a replacement, with an operating temperature of -40 °C to +107 °C."
     ],
-    "relatedArticles": []
+    "relatedArticles": [
+      "how-to-buy-a-digital-tachometer-in-india"
+    ]
   },
   {
     "id": "systems-tech-temperature-humidity-sensors",

@@ -38,7 +38,10 @@ export const tools: Tool[] = [
     productHref: '/products/clamp-meters', productLabel: 'View Clamp Meters' },
   { slug: 'motor-speed-slip-calculator', name: 'Motor Speed and Slip', short: 'Speed and Slip', icon: 'rotate-cw', category: 'Power and motors', isNew: true,
     body: 'Synchronous speed from poles and frequency, plus slip and rotor frequency from a measured speed.',
-    productHref: '/products/phase-sequence-indicators', productLabel: 'View Phase Sequence Indicators' },
+    productHref: '/products/systems-tech-handheld-tachometers', productLabel: 'Buy Handheld Tachometers' },
+  { slug: 'rpm-surface-speed-pulley-calculator', name: 'RPM, Pulley and Belt Speed', short: 'Pulley and Belt', icon: 'rotate-cw', category: 'Power and motors', isNew: true,
+    body: 'Driven pulley rpm and belt or surface speed in m/min from pulley diameters and motor rpm, checked against tachometer ranges.',
+    productHref: '/products/systems-tech-handheld-tachometers', productLabel: 'Buy Handheld Tachometers' },
 
   { slug: 'voltage-drop-calculator', name: 'Cable Voltage Drop', short: 'Voltage Drop', icon: 'waves', category: 'Cables and circuits', isNew: true,
     body: 'Estimate the voltage drop of a copper or aluminium cable run, corrected for conductor temperature.',

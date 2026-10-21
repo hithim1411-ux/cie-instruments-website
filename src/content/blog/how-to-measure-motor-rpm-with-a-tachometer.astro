@@ -1,0 +1,59 @@
+---
+import { u } from '../../utils/url';
+import Callout from '../../components/blog/Callout.astro';
+import StepCards from '../../components/blog/StepCards.astro';
+---
+
+<p>
+  A motor nameplate tells you the speed it should run at. Only a tachometer tells you the speed it is running at. The gap between the two is one of the quickest health checks in a plant: a pump that is slow, a fan that is fast, a belt that is slipping or a motor that is overloaded all show up as a speed that does not match what it should be. This guide covers how to take a clean RPM reading with a handheld digital tachometer, using either a contact tip or reflective tape.
+</p>
+
+<h2 id="choose-method">Contact or Non-Contact?</h2>
+
+<p>
+  Handheld tachometers read speed in one of two ways. A <strong>contact</strong> tachometer presses a rubber tip against the end of the shaft, and the tip spins with it. A <strong>non-contact (photo)</strong> tachometer shines a light at a strip of reflective tape stuck on the shaft and counts the flashes it sees. Use contact where you can safely reach a centre hole or shaft end, and photo where the part is small, very fast, hot, or simply not safe to touch. The <a href={u('/blog/contact-vs-non-contact-tachometer/')}>contact vs non-contact guide</a> compares them in more detail.
+</p>
+
+<h2 id="contact">Reading RPM With a Contact Tip</h2>
+
+<StepCards steps={[
+  { title: 'Fit the right tip', body: 'Use the cone (male) tip for a shaft with a centre hole, the cup (female) tip for a shaft end that protrudes, and the wheel (peripheral) tip for surface speed.' },
+  { title: 'Make sure the machine is safe to approach', body: 'Stay clear of belts, couplings and keyways. If the shaft end is not guarded or reachable, use the non-contact method instead.' },
+  { title: 'Touch lightly, in line with the shaft', body: 'Hold the tip square to the shaft axis and press just hard enough to stop it slipping. Heavy pressure slows the shaft and gives a low reading.' },
+  { title: 'Wait for the reading to settle', body: 'The display updates about once a second. Hold steady until the number stops moving, then lift away.' },
+  { title: 'Recall min and max if you need them', body: 'Last, maximum and minimum values are stored, so you can pull the machine clear before reading them off.' },
+]} />
+
+<h2 id="photo">Reading RPM With Reflective Tape</h2>
+
+<StepCards steps={[
+  { title: 'Stick a small strip of reflective tape on the shaft', body: 'Clean the surface first. One strip, about 10 to 12 mm wide, gives one pulse per revolution.' },
+  { title: 'Hold the tachometer 75 mm to 300 mm away', body: 'Point the beam at the tape. Keep the beam on the tape as it passes and avoid bright direct sunlight on the sensor.' },
+  { title: 'Start the machine and read', body: 'The tachometer counts the flashes and shows RPM. Wait a second or two for a stable number.' },
+  { title: 'Use only one strip', body: 'A second strip or a shiny keyway can double the count and give a reading twice the real speed.' },
+]} />
+
+<Callout type="warning" title="Safety first">
+  Never put a hand, a loose cuff or a long sleeve near a rotating shaft. Do not measure on a machine whose guard has been removed. If you cannot reach the shaft end safely, use the non-contact method from a distance.
+</Callout>
+
+<h2 id="interpret">What the Number Tells You</h2>
+
+<ul>
+  <li><strong>Induction motors:</strong> compare the measured speed with the nameplate speed. A reading far below nameplate at the same load points to low supply voltage, overload or a rotor problem. The <a href={u('/tools/motor-speed-slip-calculator/')}>motor speed and slip calculator</a> turns your reading into slip.</li>
+  <li><strong>Belt drives:</strong> measure both pulleys. The driven speed should match motor speed multiplied by the diameter ratio, less a small amount of creep. A larger gap means a slipping belt. Try the <a href={u('/tools/rpm-surface-speed-pulley-calculator/')}>pulley and belt speed calculator</a>.</li>
+  <li><strong>Fans and pumps:</strong> airflow and flow both depend heavily on speed, so a few percent of lost RPM matters more than it looks.</li>
+  <li><strong>Conveyors, rollers and winders:</strong> the surface-speed (m/min) mode with a wheel tip reads line speed directly.</li>
+</ul>
+
+<h2 id="accuracy">Getting an Accurate Reading</h2>
+
+<p>
+  Accuracy depends on the instrument and on how it is used. A quartz crystal time base, as used in the Systems Tech handheld range, gives an accuracy of 0.05% + 1 digit, which is far tighter than the error you introduce by pressing too hard or reading too early. Take two or three readings and look for agreement, keep the tip square, and write down the load condition with the speed so readings from different days can be compared.
+</p>
+
+<h2 id="which">Which Tachometer to Use</h2>
+
+<p>
+  CIE Instruments supplies three Systems Tech handheld models: the <a href={u('/authorised-dealership/handheld-tachometers/htm-590/')}>HTM 590</a> (contact, 60 to 50,000 RPM and surface speed), the <a href={u('/authorised-dealership/handheld-tachometers/htm-560/')}>HTM 560</a> (non-contact, 60 to 1,00,000 RPM) and the <a href={u('/authorised-dealership/handheld-tachometers/htm-890/')}>HTM 890</a> (both in one body). See all of them on the <a href={u('/products/systems-tech-handheld-tachometers/')}>handheld tachometers page</a>, or ask our team for a quote.
+</p>

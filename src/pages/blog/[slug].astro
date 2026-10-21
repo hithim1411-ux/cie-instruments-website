@@ -123,6 +123,9 @@ import GhostVoltageLowZNcvExplainedGuide from '../../content/blog/ghost-voltage-
 import Dcm2250TrVsDcm5410TrGuide from '../../content/blog/dcm-2250-tr-vs-dcm-5410-tr.astro';
 import ManualRangingTrueRmsMultimeterDm321tGuide from '../../content/blog/manual-ranging-true-rms-multimeter-dm-321t.astro';
 import Dit2500DigitalInsulationTesterMultimeterGuideGuide from '../../content/blog/dit-2500-digital-insulation-tester-multimeter-guide.astro';
+import HowToMeasureMotorRpmWithATachometerGuide from '../../content/blog/how-to-measure-motor-rpm-with-a-tachometer.astro';
+import ContactVsNonContactTachometerGuide from '../../content/blog/contact-vs-non-contact-tachometer.astro';
+import HowToBuyADigitalTachometerInIndiaGuide from '../../content/blog/how-to-buy-a-digital-tachometer-in-india.astro';
 
 export function getStaticPaths() {
   return posts.map(post => ({ params: { slug: post.slug } }));
@@ -253,6 +256,9 @@ const contentMap: Record<string, any> = {
   'dcm-2250-tr-vs-dcm-5410-tr': Dcm2250TrVsDcm5410TrGuide,
   'manual-ranging-true-rms-multimeter-dm-321t': ManualRangingTrueRmsMultimeterDm321tGuide,
   'dit-2500-digital-insulation-tester-multimeter-guide': Dit2500DigitalInsulationTesterMultimeterGuideGuide,
+  'how-to-measure-motor-rpm-with-a-tachometer': HowToMeasureMotorRpmWithATachometerGuide,
+  'contact-vs-non-contact-tachometer': ContactVsNonContactTachometerGuide,
+  'how-to-buy-a-digital-tachometer-in-india': HowToBuyADigitalTachometerInIndiaGuide,
 };
 
 const tocMap: Record<string, { id: string; label: string }[]> = {
@@ -1124,6 +1130,28 @@ const tocMap: Record<string, { id: string; label: string }[]> = {
     { id: 'dar-pi', label: 'DAR and PI With the Timer' },
     { id: 'guard', label: 'The Guard Terminal' },
     { id: 'who-for', label: 'Who Uses It' },
+  ],
+  'how-to-measure-motor-rpm-with-a-tachometer': [
+    { id: 'contact', label: 'Reading RPM With a Contact Tip' },
+    { id: 'photo', label: 'Reading RPM With Reflective Tape' },
+    { id: 'interpret', label: 'What the Number Tells You' },
+    { id: 'accuracy', label: 'Getting an Accurate Reading' },
+    { id: 'which', label: 'Which Tachometer to Use' },
+  ],
+  'contact-vs-non-contact-tachometer': [
+    { id: 'contact', label: 'Contact Tachometers' },
+    { id: 'photo', label: 'Non-Contact (Photo) Tachometers' },
+    { id: 'compare', label: 'The Three Models Side by Side' },
+    { id: 'choose', label: 'How to Choose' },
+  ],
+  'how-to-buy-a-digital-tachometer-in-india': [
+    { id: 'range', label: 'Range' },
+    { id: 'method', label: 'Contact, Non-Contact or Both' },
+    { id: 'surface', label: 'Surface Speed' },
+    { id: 'accuracy', label: 'Accuracy and Time Base' },
+    { id: 'features', label: 'Memory, Display and Power' },
+    { id: 'kit', label: 'What Comes in the Box' },
+    { id: 'source', label: 'Authorised Distributor' },
   ],
 };
 
