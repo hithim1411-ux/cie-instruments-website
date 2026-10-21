@@ -1,6 +1,5 @@
 """Builds the Systems Tech datasheet PDFs from the manufacturer's 16-page all-products brochure (rasterised pages).
-Per page: removes the '1 YEAR WARRANTY' seal, the page number, and the footer bar's phone / email / website (replaced with a CIE
-distributor line); drops the NIST-traceable row of the TS-201 page (claim not on our site). Writes
+Per page: removes the '1 YEAR WARRANTY' seal, the page number, and the footer bar's phone / email / website (replaced with the CIE logo and website); drops the NIST-traceable row of the TS-201 page (claim not on our site). Writes
   <out>/systems-tech/<slug>/<id>.pdf        one page per model (linked as `catalogue` from the product json)
   <out>/systems-tech/systems-tech-product-range.pdf   cover + at-a-glance table + all 13 model pages (page numbers re-set)
 Brochure pages 1 (cover, certification badges, social icons), 15 (services) and 16 (their contact details) are not used.
@@ -44,16 +43,20 @@ def clean(n):
     if n == 14:   # drop the 'NIST traceable' row (3 text lines, y 2220-2337) and close the gap
         im[2220:2220 + (3170 - 2369)] = im[2369:3170].copy(); im[2220 + (3170 - 2369):3170] = 255
     im[60:175, 2330:2550] = 255          # brochure page number
-    im[3170:] = RED                      # footer bar (their phone / email / website)
+    im[3170:] = 255                      # footer bar (their phone / email / website) removed
     return im
 
-FOOT = 'CIE Instruments  |  Authorised Distributor of Systems Tech in India  |  www.cieinstruments.in'
+CIE_LOGO_PNG = os.path.join(ROOT, 'public/logo/cie-logo-transparent.webp')
+_cl = Image.open(CIE_LOGO_PNG).convert('RGBA'); _bb = _cl.getbbox(); _cl = _cl.crop(_bb); _b = io.BytesIO(); _cl.save(_b, 'PNG'); CIE_LOGO_BYTES = _b.getvalue()
 def draw_page(doc, im, number=None):
     pg = doc.new_page(width=595, height=842)
     buf = io.BytesIO(); Image.fromarray(im).resize((1700, 2200), Image.LANCZOS).save(buf, 'JPEG', quality=84, optimize=True)
     pg.insert_image(IMG_RECT, stream=buf.getvalue())
-    f = fitz.Font('hebo'); w = f.text_length(FOOT, 8.6)
-    pg.insert_text(((595 - w) / 2, 776), FOOT, fontsize=8.6, fontname='hebo', color=(1, 1, 1))
+    h = 30; w = h * _cl.width / _cl.height
+    pg.insert_image(fitz.Rect(30, 770 - h / 2 + 3, 30 + w, 770 + h / 2 + 3), stream=CIE_LOGO_BYTES)
+    f = fitz.Font('hebo'); txt = 'www.cieinstruments.in'; tw = f.text_length(txt, 10)
+    pg.insert_text((565 - tw, 774), txt, fontsize=10, fontname='hebo', color=(0.1, 0.1, 0.12))
+    pg.draw_line((30, 751), (565, 751), color=(0.85, 0.85, 0.87), width=0.6)
     if number: pg.insert_text((580 - fitz.Font('hebo').text_length(str(number), 15), 84), str(number), fontsize=15, fontname='hebo', color=(0.1, 0.1, 0.12))
     return pg
 

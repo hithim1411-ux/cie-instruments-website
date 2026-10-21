@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { u, downloadUrl } from '../../utils/url';
+import { u, downloadUrl, DATASHEET_V } from '../../utils/url';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CTABand from '../../components/CTABand.astro';
 import Icon from '../../components/Icon.astro';
@@ -284,7 +284,7 @@ const breadcrumbSchema = {
           <p class="text-sm text-muted leading-relaxed max-w-2xl">
             Systems Tech makes digital tachometers, speed sensors and temperature and humidity sensors for industrial use. CIE Instruments is an authorised distributor of the Systems Tech range across India, supplying handheld and panel mount tachometers, tachogenerators, magnetic pick-ups, proximity and photo-reflective sensors, with dedicated support and pan-India delivery.
           </p>
-          <a href={downloadUrl('/downloads/systems-tech/systems-tech-product-range.pdf')} target="_blank" rel="noopener noreferrer" class="btn-secondary btn-secondary--sm text-ink mt-4 !inline-flex">Download Systems Tech range catalogue (PDF)</a>
+          <a href={`${downloadUrl('/downloads/systems-tech/systems-tech-product-range.pdf')}?v=${DATASHEET_V}`} target="_blank" rel="noopener noreferrer" class="btn-secondary btn-secondary--sm text-ink mt-4 !inline-flex">Download Systems Tech range catalogue (PDF)</a>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import { u, downloadUrl } from '../../../utils/url';
+import { u, downloadUrl, DATASHEET_V } from '../../../utils/url';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CompareAddButton from '../../../components/CompareAddButton.astro';
 import Icon from '../../../components/Icon.astro';
@@ -99,7 +99,7 @@ const productSchema = {
         )}
 
         <div class="space-y-3">
-          {product.catalogue && (<a href={downloadUrl(`/downloads/systems-tech/tachometer-sensors/${product.catalogue}`)} target="_blank" rel="noopener noreferrer"
+          {product.catalogue && (<a href={`${downloadUrl(`/downloads/systems-tech/tachometer-sensors/${product.catalogue}`)}?v=${DATASHEET_V}`} target="_blank" rel="noopener noreferrer"
             class="btn-secondary w-full text-ink">
             <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a1 1 0 001 1h16a1 1 0 001-1v-3"/>
