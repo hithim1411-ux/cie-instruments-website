@@ -110,7 +110,7 @@
     } else if (f === 'ohm') {
       var fn = S.ohmFn, open = !lead();
       if (fn === 'R') { v = open ? Infinity : S.rOhm; set(v, fmtRes); m.spec = 'Resistance 600 Ω to 60 MΩ.'; }
-      else if (fn === 'cont') { m.a.cont = true; v = open ? Infinity : CONTS[S.contObj][1]; set(v, fmtCont); m.beep = isFinite(v) && v < 30; m.spec = 'Continuity: the buzzer sounds at low resistance (approx. 30 Ω or less).'; }
+      else if (fn === 'cont') { m.a.cont = true; v = open ? Infinity : CONTS[S.contObj][1]; set(v, fmtCont); m.beep = isFinite(v) && v <= 50; m.spec = 'Continuity: the buzzer sounds at low resistance (50 Ω or less).'; }
       else if (fn === 'diode') { m.a.diode = true; v = open ? Infinity : DIODES[S.dioObj][1]; set(v, fmtDio); m.spec = 'Diode test.'; }
       else { v = open ? 0 : S.cap; set(v, fmtCap); m.spec = 'Capacitance 1 nF to 10 mF.'; }
     } else if (f === 'hz') {
@@ -118,7 +118,7 @@
       else { v = lead() ? S.duty : 0; set(v, fmtDuty); m.spec = 'Duty cycle, per cent.'; }
     } else if (f === 'temp') {
       v = S.leads === 'probe' ? S.temp : Infinity; if (!isFinite(v)) { set(1e9, fmtTemp); m.main = '  OL'; m.dp = -1; m.unit = ''; } else set(v, fmtTemp);
-      m.spec = 'K-type thermocouple, -20 °C to 1000 °C (-4 °F to 1832 °F).';
+      m.spec = 'K-type thermocouple, display range -20 °C to 1000 °C (-4 °F to 1832 °F). The supplied probe is rated to 250 °C.';
     }
     // MAX/MIN (2250) tracking
     if (!is5410 && S.mm && m.raw !== null && isFinite(m.raw) && m.fmt) {
@@ -282,7 +282,7 @@
   function pressSelect() {
     VI.tick(700, .05); var f = POS[S.dial];
     if (is5410) {
-      if (f === 'a600' || f === 'a60') { S.acdc = S.acdc === 'ac' ? 'dc' : 'ac'; S.zeroed = false; }
+      if (f === 'a600' || f === 'a60') { S.acdc = S.acdc === 'ac' ? 'dc' : 'ac'; S.zeroed = false; S.inr = false; S.inrPeak = null; }
       else if (f === 'v') S.vmode = S.vmode === 'ac' ? 'dc' : 'ac';
       else if (f === 'ohm') { var o = ['R', 'cont', 'diode', 'cap']; S.ohmFn = o[(o.indexOf(S.ohmFn) + 1) % 4]; }
       else if (f === 'hz') S.hzFn = S.hzFn === 'Hz' ? 'duty' : 'Hz';
@@ -299,7 +299,7 @@
     if (!is5410) { if (POS[S.dial] === 'off') return; S.mm = (S.mm + 1) % 3; S.mmMax = S.mmMin = null; render(); return; }
     if ((POS[S.dial] === 'a600' || POS[S.dial] === 'a60') && S.acdc === 'dc') { S.zeroed = true; render(); }
   }
-  function btnC_long() { if (!is5410) return; if (POS[S.dial] !== 'a600' && POS[S.dial] !== 'a60') return; S.inr = !S.inr; S.inrPeak = null; VI.tick(1100, .05); lastSig = ''; render(); }
+  function btnC_long() { if (!is5410) return; if (POS[S.dial] !== 'a600' && POS[S.dial] !== 'a60') return; if (S.acdc !== 'ac') return; S.inr = !S.inr; S.inrPeak = null; VI.tick(1100, .05); lastSig = ''; render(); }
   VI.wireButton($('btn-sel'), pressSelect);
   VI.wireButton($('btn-a'), btnA_short, is5410 ? btnA_long : null);
   VI.wireButton($('btn-b'), btnB_short, btnB_long);

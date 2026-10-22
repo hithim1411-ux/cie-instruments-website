@@ -1688,7 +1688,7 @@
     "model": "DCM 5410 TR",
     "name": "Digital Clamp Multimeter - True-RMS AC/DC, 1000 A",
     "tagline": "True-RMS AC/DC clamp multimeter - 1000 A AC and DC, plus capacitance, frequency, and temperature. CAT III 600 V.",
-    "description": "The DCM 5410 TR is a True-RMS digital clamp multimeter measuring both AC and DC current up to 1000 A, along with AC/DC voltage, resistance, capacitance, frequency (10 Hz\u201310 MHz), and temperature (\u221220\u00b0C to 1000\u00b0C). The DC current clamp capability is the key differentiator from the AC-only DCM 2250 TR, making the DCM 5410 TR suitable for solar, battery, and DC distribution work. Features: 6000-count auto-ranging display, NCV and live-wire test, Low-Z ACV mode, data hold, MIN/MAX, backlight, torch, and auto power-off. 40 mm jaw opening. Safety rated CAT III 600 V. Powered by 2 \u00d7 AAA batteries. Weight: approx. 315 g.",
+    "description": "The DCM 5410 TR is a True-RMS digital clamp multimeter measuring both AC and DC current up to 1000 A, along with AC/DC voltage, resistance, capacitance, frequency (10 Hz\u201310 MHz), and temperature (\u221220\u00b0C to 1000\u00b0C). The DC current clamp capability is the key differentiator from the AC-only DCM 2250 TR, making the DCM 5410 TR suitable for solar, battery, and DC distribution work. Features: 6000-count auto-ranging display, NCV and live-wire test, Low-Z ACV mode, data hold, relative (REL) measurement, inrush (surge) current capture, low-pass filter ACV for variable-frequency drive outputs, backlight, torch, and auto power-off. 40 mm jaw opening. Safety rated CAT III 600 V. Powered by 2 \u00d7 AAA batteries. Weight: approx. 313 g.",
     "specs": [
       {
         "label": "AC Current Ranges (True-RMS)",
@@ -1716,7 +1716,7 @@
       },
       {
         "label": "Temperature",
-        "value": "\u221220\u00b0C to 1000\u00b0C / \u22124\u00b0F to 1832\u00b0F"
+        "value": "\u221220\u00b0C to 1000\u00b0C / \u22124\u00b0F to 1832\u00b0F (supplied K-type probe: \u221220\u00b0C to 250\u00b0C)"
       },
       {
         "label": "Low Impedance ACV",
@@ -1752,7 +1752,7 @@
       },
       {
         "label": "Weight (incl. battery)",
-        "value": "Approx. 315 g"
+        "value": "Approx. 313 g"
       },
       {
         "label": "Warranty",
@@ -1772,6 +1772,7 @@
     "image": "dcm-5410-tr.webp",
     "includedWith": [
       "Test Leads",
+      "K-type Temperature Probe (\u221220\u00b0C to 250\u00b0C)",
       "Carrying Pouch",
       "User Manual",
       "2 \u00d7 AAA Batteries"

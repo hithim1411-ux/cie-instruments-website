@@ -22,7 +22,7 @@ import CompareTable from '../../components/blog/CompareTable.astro';
     { feature: 'NCV / live-wire test', a: 'Yes', b: 'Yes', winner: 'both' },
     { feature: 'Capacitance', a: 'Not listed', b: '1 nF to 10 mF', winner: 'b' },
     { feature: 'Frequency', a: 'Not listed', b: '10 Hz to 10 MHz', winner: 'b' },
-    { feature: 'Temperature', a: 'Not listed', b: '-20 °C to 1000 °C', winner: 'b' },
+    { feature: 'Temperature', a: 'Not listed', b: '-20 °C to 1000 °C (supplied probe: -20 °C to 250 °C)', winner: 'b' },
     { feature: 'Jaw opening', a: '40 mm', b: '40 mm', winner: 'both' },
     { feature: 'Safety rating', a: 'CAT III 600 V', b: 'CAT III 600 V', winner: 'both' },
   ]}
@@ -51,7 +51,7 @@ import CompareTable from '../../components/blog/CompareTable.astro';
 <h2 id="shared">What They Share</h2>
 
 <p>
-  Both measure True-RMS AC current, which matters on loads fed by drives and switching supplies where an average-responding meter would read wrong (see <a href={u('/blog/true-rms-vs-average-rms/')}>True-RMS vs average-responding</a>). Both include Low-Z ACV for separating ghost voltage from real supply (see <a href={u('/blog/ghost-voltage-low-z-ncv-explained/')}>ghost voltage explained</a>), both have data hold, MIN/MAX, a backlight and a torch, and both come with test leads, a carrying pouch and a manual.
+  Both measure True-RMS AC current, which matters on loads fed by drives and switching supplies where an average-responding meter would read wrong (see <a href={u('/blog/true-rms-vs-average-rms/')}>True-RMS vs average-responding</a>). Both include Low-Z ACV for separating ghost voltage from real supply (see <a href={u('/blog/ghost-voltage-low-z-ncv-explained/')}>ghost voltage explained</a>), both have data hold, a backlight and a torch (the DCM 2250 TR adds MIN/MAX, and the DCM 5410 TR adds relative-value and inrush-current modes), and both come with test leads, a carrying pouch and a manual. The DCM 5410 TR also comes with a K-type temperature probe.
 </p>
 
 <p>
