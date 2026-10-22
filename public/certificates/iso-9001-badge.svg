@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 48" role="img" aria-label="ISO 9001:2015 certified quality management system">
+  <rect x="0.75" y="0.75" width="166.5" height="46.5" rx="8" fill="#fff" stroke="#0A0E14" stroke-opacity=".18" stroke-width="1.5"/>
+  <circle cx="24" cy="24" r="14" fill="#E0252E"/>
+  <path d="M17.5 24.5l4.8 4.8 9-10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="46" y="21" font-family="Inter,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="800" fill="#0A0E14" letter-spacing=".2">ISO 9001:2015</text>
+  <text x="46" y="35" font-family="Inter,Helvetica,Arial,sans-serif" font-size="8.4" font-weight="600" fill="#64748B" letter-spacing="1.1">QMS CERTIFIED</text>
+</svg>

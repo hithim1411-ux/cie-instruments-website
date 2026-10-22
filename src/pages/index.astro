@@ -6,6 +6,7 @@ import CTABand from '../components/CTABand.astro';
 import ProductCard from '../components/ProductCard.astro';
 import Badge from '../components/Badge.astro';
 import ArrowLink from '../components/ArrowLink.astro';
+import ISOBadge from '../components/ISOBadge.astro';
 import Icon from '../components/Icon.astro';
 import CompareAddButton from '../components/CompareAddButton.astro';
 import { categoryIcon } from '../utils/categoryIcons';
@@ -173,7 +174,7 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           </a>
         </div>
         <ul data-hero-anim style="--d: 400ms" class="order-6 lg:order-none flex flex-wrap gap-y-2 text-[11px] font-mono uppercase tracking-wide text-muted-dark">
-          {['60+ Years', 'Made in India', '12-Month Warranty', 'In-House Calibration'].map(t => (
+          {['ISO 9001:2015 Certified', '60+ Years', 'Made in India', '12-Month Warranty', 'In-House Calibration'].map(t => (
             <li class="pr-4 mr-4 border-r border-white/15 last:border-0 last:mr-0 last:pr-0">{t}</li>
           ))}
         </ul>
@@ -498,6 +499,13 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
             <p class="text-sm text-muted leading-relaxed">{tp.body}</p>
           </div>
         ))}
+      </div>
+      <div class="mt-12 lg:mt-16 flex flex-col sm:flex-row items-center gap-5 sm:gap-8 rounded-2xl border border-ink/10 bg-cloud px-6 py-5">
+        <ISOBadge class="shrink-0" />
+        <p class="text-sm text-muted leading-relaxed text-center sm:text-left">
+          <strong class="text-ink">ISO 9001:2015 certified.</strong> Our quality management system is independently certified for the manufacture and supply of electrical and electronic test and measuring instruments.
+          <a href={u('/about/#iso-9001')} class="text-red hover:text-red-dark font-medium whitespace-nowrap">View certificate →</a>
+        </p>
       </div>
     </div>
   </section>

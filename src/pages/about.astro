@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import ISOBadge from '../components/ISOBadge.astro';
 import { u } from '../utils/url';
 import EyebrowLabel from '../components/EyebrowLabel.astro';
 import CTABand from '../components/CTABand.astro';
@@ -230,6 +231,36 @@ import type { IconName } from '../utils/iconNames';
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ISO 9001:2015 ══ -->
+  <section id="iso-9001" class="section-pad pt-0 lg:pt-0 scroll-mt-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="card p-8 lg:p-12 grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-14 items-center">
+        <div>
+          <ISOBadge link={false} class="mb-6" />
+          <h2 class="text-2xl lg:text-3xl font-black text-ink mb-4 leading-tight">Certified to ISO 9001:2015.</h2>
+          <p class="text-muted leading-relaxed mb-6">
+            Cambridge Instruments &amp; Engineering Co. has been assessed by Royal Assessments Pvt. Ltd. (RAPL)
+            and found to comply with ISO 9001:2015 Quality Management Systems, for the activities of
+            manufacturer and dealers of electrical and electronic test and measuring instruments.
+          </p>
+          <dl class="grid sm:grid-cols-2 gap-x-8 gap-y-4 text-sm mb-8">
+            <div><dt class="font-mono text-xs uppercase tracking-wider text-red mb-1">Certificate No.</dt><dd class="text-ink font-semibold">E20250523935</dd></div>
+            <div><dt class="font-mono text-xs uppercase tracking-wider text-red mb-1">Certified On</dt><dd class="text-ink font-semibold">26 May 2025</dd></div>
+            <div><dt class="font-mono text-xs uppercase tracking-wider text-red mb-1">Valid Until</dt><dd class="text-ink font-semibold">25 May 2028</dd></div>
+            <div><dt class="font-mono text-xs uppercase tracking-wider text-red mb-1">Certification Body</dt><dd class="text-ink font-semibold">Royal Assessments Pvt. Ltd.</dd></div>
+          </dl>
+          <div class="flex flex-wrap gap-3">
+            <a href={u('/certificates/CIE-ISO-9001-2015-Certificate.pdf')} target="_blank" rel="noopener noreferrer" class="btn-secondary text-ink">Download certificate (PDF)</a>
+            <a href="https://www.iafcertsearch.org" target="_blank" rel="noopener noreferrer" class="btn-secondary text-ink">Verify on IAF CertSearch</a>
+          </div>
+        </div>
+        <a href={u('/certificates/CIE-ISO-9001-2015-Certificate.pdf')} target="_blank" rel="noopener noreferrer" class="block rounded-lg border border-ink/10 shadow-sm overflow-hidden hover:shadow-md transition-shadow" aria-label="Open the ISO 9001:2015 certificate">
+          <img src={u('/certificates/iso-9001-2015-certificate.webp')} alt="ISO 9001:2015 certificate issued to Cambridge Instruments & Engineering Co., number E20250523935" width="1077" height="1521" loading="lazy" class="w-full h-auto" />
+        </a>
       </div>
     </div>
   </section>
