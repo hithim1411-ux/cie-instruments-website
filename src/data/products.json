@@ -222,7 +222,7 @@
     "featured": false,
     "datasheet": "cie-444-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Any configuration apart from the standard MR-1 to MR-4 series (metal body) shown above can be built to order.",
+    "orderNote": "Any configuration apart from the standard MR-1 to MR-4 series (metal body) shown above is available on request.",
     "specTables": [
       {
         "heading": "Available Series - Voltage, Range & Continuity",
@@ -309,7 +309,7 @@
     "featured": false,
     "datasheet": "cie-666-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Any configuration apart from the standard MR-1 to MR-8 series (wooden body) shown above can be built to order.",
+    "orderNote": "Any configuration apart from the standard MR-1 to MR-8 series (wooden body) shown above is available on request.",
     "specTables": [
       {
         "heading": "Available Series - Voltage, Range & Continuity",
@@ -579,7 +579,7 @@
     "featured": false,
     "datasheet": "cie-777-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Any configuration apart from the standard MR series shown above can be built to order.",
+    "orderNote": "Any configuration apart from the standard MR series shown above is available on request.",
     "specTables": [
       {
         "heading": "Available Series - Voltage, Inner Scale & Outer Scale",
@@ -718,7 +718,7 @@
     "featured": false,
     "datasheet": "cie-777-hm-mr.pdf",
     "buildToOrder": true,
-    "orderNote": "Any configuration apart from the standard MR series shown above can be built to order.",
+    "orderNote": "Any configuration apart from the standard MR series shown above is available on request.",
     "specTables": [
       {
         "heading": "Available Series - Voltage, Inner Scale & Outer Scale",
@@ -2104,7 +2104,7 @@
       }
     ],
     "buildToOrder": true,
-    "orderNote": "Any tripping current setting apart from the standard 25 mA / 50 mA shown above can be built to order.",
+    "orderNote": "Any tripping current setting apart from the standard 25 mA / 50 mA shown above is available on request.",
     "includedWith": [
       "One pair of H.V. probe with cable"
     ],
@@ -2286,7 +2286,7 @@
     "featured": false,
     "datasheet": "cie-7050.pdf",
     "buildToOrder": true,
-    "orderNote": "Any requirement apart from the standard output-voltage tiers (CIE/7050 to CIE/7120) and manual or motorised drive shown above can be built to order.",
+    "orderNote": "Any requirement apart from the standard output-voltage tiers (CIE/7050 to CIE/7120) and manual or motorised drive shown above is available on request.",
     "specTables": [
       {
         "heading": "CIE/7000 Series - Output Voltage & Capacity",

@@ -144,7 +144,7 @@ const waMsg = productName
         <label for="qf-cfg-b" id="qf-cfg-b-label" class="block text-sm font-medium text-ink mb-1">Range</label>
         <select id="qf-cfg-b" class="w-full px-3 py-2.5 border border-border rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink transition-colors text-ink disabled:bg-cloud disabled:text-muted"></select>
       </div>
-      <p class="sm:col-span-2 text-xs text-muted -mt-1">Pick a standard configuration, or choose Other and describe what you need below. Non-standard ranges can be built to order.</p>
+      <p class="sm:col-span-2 text-xs text-muted -mt-1">Pick a standard configuration, or choose Other and describe what you need below. Non-standard ranges are available on request.</p>
     </div>
 
     <!-- ── Rated voltage / range (context-sensitive hint) ── -->
@@ -349,7 +349,7 @@ function buildConfig(model) {
 function fillGroups(groups) {
   Object.entries(groups).forEach(([g, rs]) => {
     const og = document.createElement('optgroup'); og.label = g;
-    rs.forEach(r => og.appendChild(opt(r.range, r.range + (r.bto ? ' (built to order)' : ''))));
+    rs.forEach(r => og.appendChild(opt(r.range, r.range + (r.bto ? ' (on request)' : ''))));
     cfgB.appendChild(og);
   });
   cfgB.appendChild(opt(OTHER, 'Other / custom range'));
