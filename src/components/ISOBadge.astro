@@ -7,8 +7,8 @@ const src = u(dark ? '/certificates/iso-9001-badge-dark.svg' : '/certificates/is
 ---
 {link ? (
   <a href={u('/about/#iso-9001')} class:list={['inline-block', cls]} aria-label="ISO 9001:2015 certified - view certificate">
-    <img src={src} alt="ISO 9001:2015 certified quality management system" width="96" height="96" class="h-16 w-16" loading="lazy" />
+    <img src={src} alt="ISO 9001:2015 certified quality management system" width="150" height="50" class="h-12 w-auto" loading="lazy" />
   </a>
 ) : (
-  <img src={src} alt="ISO 9001:2015 certified quality management system" width="96" height="96" class:list={['h-16 w-16', cls]} loading="lazy" />
+  <img src={src} alt="ISO 9001:2015 certified quality management system" width="150" height="50" class:list={['h-12 w-auto', cls]} loading="lazy" />
 )}
