@@ -1727,6 +1727,42 @@
         "value": "600 \u03a9 / 6 K\u03a9 / 60 K\u03a9 / 600 K\u03a9 / 6 M\u03a9 / 20 M\u03a9 / 60 M\u03a9"
       },
       {
+        "label": "Current Accuracy",
+        "value": "\u00b1(4.0% + 10 digits) AC and DC, 5% to 100% of range. AC frequency response 50 Hz to 60 Hz"
+      },
+      {
+        "label": "Inrush (Surge) Current",
+        "value": "AC current ranges. Shows the True-RMS value of the maximum current within 200 ms of starting a load"
+      },
+      {
+        "label": "Voltage Accuracy",
+        "value": "DC: \u00b1(0.5% + 7) on 600 mV, 6 V and 60 V; \u00b1(1.0% + 10) on 600 V and 1000 V. AC: \u00b1(1.0% + 10) on 6 V and 60 V; \u00b1(1.0% + 12) on 600 V and 750 V"
+      },
+      {
+        "label": "Low-Pass Filter ACV (V.F.C)",
+        "value": "For inverter and variable-frequency drive outputs. 40 Hz to 200 Hz, \u00b1(5.0% + 10)"
+      },
+      {
+        "label": "Resistance Accuracy",
+        "value": "\u00b1(1.0% + 5) up to 6 M\u03a9; \u00b1(1.5% + 15) on 20 M\u03a9; \u00b1(2.5% + 20) on 60 M\u03a9"
+      },
+      {
+        "label": "Diode / Continuity",
+        "value": "Diode test (open-circuit approx. 3.9 V); continuity buzzer at 50 \u03a9 or less"
+      },
+      {
+        "label": "Capacitance Accuracy",
+        "value": "\u00b1(5.0% + 40) on 1 nF; \u00b1(5.0% + 10) on all other ranges"
+      },
+      {
+        "label": "Frequency Accuracy / Duty Cycle",
+        "value": "\u00b1(0.3% + 3); duty cycle 10% to 90%"
+      },
+      {
+        "label": "Other Functions",
+        "value": "Data hold, relative (REL) mode, backlight, torch, auto power-off (beeps at 14 minutes, switches off at 15)"
+      },
+      {
         "label": "Display",
         "value": "6000 Counts LCD, auto-ranging"
       },
