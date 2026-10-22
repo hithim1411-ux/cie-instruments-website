@@ -1,14 +1,7 @@
 ---
 import { u } from '../utils/url';
 
-interface Props { dark?: boolean; class?: string; link?: boolean; }
-const { dark = false, class: cls = '', link = true } = Astro.props;
-const src = u(dark ? '/certificates/iso-9001-badge-dark.svg' : '/certificates/iso-9001-badge.svg');
+interface Props { class?: string; }
+const { class: cls = '' } = Astro.props;
 ---
-{link ? (
-  <a href={u('/about/#iso-9001')} class:list={['inline-block', cls]} aria-label="ISO 9001:2015 certified - view certificate">
-    <img src={src} alt="ISO 9001:2015 certified quality management system" width="150" height="50" class="h-12 w-auto" loading="lazy" />
-  </a>
-) : (
-  <img src={src} alt="ISO 9001:2015 certified quality management system" width="150" height="50" class:list={['h-12 w-auto', cls]} loading="lazy" />
-)}
+<a href={u('/about/#iso-certificate')} class:list={['font-mono text-xs uppercase tracking-wider font-semibold text-ink hover:text-red transition-colors', cls]} aria-label="ISO 9001:2015 certified - view certificate">ISO 9001:2015 Certified →</a>

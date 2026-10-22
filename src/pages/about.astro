@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import ISOBadge from '../components/ISOBadge.astro';
 import { u } from '../utils/url';
 import EyebrowLabel from '../components/EyebrowLabel.astro';
 import CTABand from '../components/CTABand.astro';
@@ -240,7 +239,6 @@ import type { IconName } from '../utils/iconNames';
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="card p-8 lg:p-12 grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-14 items-center">
         <div>
-          <ISOBadge link={false} class="mb-6" />
           <h2 class="text-2xl lg:text-3xl font-black text-ink mb-4 leading-tight">Certified to ISO 9001:2015.</h2>
           <p class="text-muted leading-relaxed mb-6">
             Cambridge Instruments &amp; Engineering Co. has been assessed by Royal Assessments Pvt. Ltd. (RAPL)
@@ -258,7 +256,7 @@ import type { IconName } from '../utils/iconNames';
             <a href="https://www.iafcertsearch.org" target="_blank" rel="noopener noreferrer" class="btn-secondary text-ink">Verify on IAF CertSearch</a>
           </div>
         </div>
-        <a href={u('/certificates/CIE-ISO-9001-2015-Certificate.pdf')} target="_blank" rel="noopener noreferrer" class="block rounded-lg border border-ink/10 shadow-sm overflow-hidden hover:shadow-md transition-shadow" aria-label="Open the ISO 9001:2015 certificate">
+        <a id="iso-certificate" href={u('/certificates/CIE-ISO-9001-2015-Certificate.pdf')} target="_blank" rel="noopener noreferrer" class="block scroll-mt-28 rounded-lg border border-ink/10 shadow-sm overflow-hidden hover:shadow-md transition-shadow" aria-label="Open the ISO 9001:2015 certificate">
           <img src={u('/certificates/iso-9001-2015-certificate.webp')} alt="ISO 9001:2015 certificate issued to Cambridge Instruments & Engineering Co., number E20250523935" width="1077" height="1521" loading="lazy" class="w-full h-auto" />
         </a>
       </div>
