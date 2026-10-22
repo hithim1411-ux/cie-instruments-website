@@ -99,7 +99,7 @@
       v = currentVal();
       if (is5410 && S.inr && S.inrPeak !== null) { set(S.inrPeak, fmtCur); }
       else set(v, fmtCur);
-      m.spec = p === 'a60' ? (is5410 ? '60 A range, AC or DC (True-RMS).' : '6 A and 60 A ranges, AC True-RMS.') : '600 A and 1000 A ranges' + (is5410 ? ', AC or DC.' : ', AC True-RMS.');
+      m.spec = p === 'a60' ? (is5410 ? '60 A range, AC or DC, True-RMS (AC).' : '6 A and 60 A ranges, AC True-RMS.') : '600 A and 1000 A ranges' + (is5410 ? ', AC or DC.' : ', AC True-RMS.');
     } else if (f === 'vac') {
       m.a.ac = true; v = lead() ? S.acv : 0; if (lead() && S.ghost) v = 90;
       set(v, fmtVac); m.spec = 'AC voltage 6 / 60 / 600 / 750 V, True-RMS. High input impedance, so it can pick up ghost voltages.';
