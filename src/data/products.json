@@ -1930,7 +1930,7 @@
     "model": "DM 321T",
     "name": "True-RMS Digital Multimeter - Manual Ranging, 3\u00bd-digit",
     "tagline": "True-RMS, manual-ranging 3\u00bd-digit DMM with transistor hFE test, capacitance, backlight, and protective holster.",
-    "description": "The DM 321T is a 3\u00bd-digit True-RMS digital multimeter for general electrical and electronic test work. It is a manual-ranging instrument, measuring AC/DC voltage, AC/DC current, resistance, and capacitance, alongside continuity test, diode test, and transistor (hFE) test. Supplied with a protective holster. True-RMS measurement gives accurate readings on non-sinusoidal AC waveforms - useful when working on circuits with switching loads or harmonics. DC voltage up to 1000 V; DC current up to 20 A. Auto power-off and data hold standard. Dimensions: 178 \u00d7 86 \u00d7 52 mm. Weight: approx. 360 g (incl. battery and holster).",
+    "description": "The DM 321T is a 3\u00bd-digit True-RMS digital multimeter for general electrical and electronic test work. It is a manual-ranging instrument, measuring AC/DC voltage, AC/DC current, resistance, and capacitance, alongside continuity test, diode test, and transistor (hFE) test. Supplied with a protective holster. True-RMS measurement gives accurate readings on non-sinusoidal AC waveforms - useful when working on circuits with switching loads or harmonics. DC voltage up to 1000 V; DC current up to 20 A. Auto power-off and data hold standard. Also includes non-contact voltage (NCV) detection and a built-in torch. Dimensions: 178 \u00d7 86 \u00d7 52 mm. Weight: approx. 335 g (incl. battery).",
     "specs": [
       {
         "label": "Measurement Type",
@@ -1942,43 +1942,55 @@
       },
       {
         "label": "Display",
-        "value": "3\u00bd-digit with backlight"
+        "value": "3\u00bd-digit LCD (28 mm) with backlight, maximum reading 1999"
       },
       {
         "label": "DC Voltage",
-        "value": "200 mV / 2 V / 20 V / 200 V / 1000 V  |  \u00b1(0.5% rdg + 3 digits)"
+        "value": "200 mV / 2 V / 20 V / 200 V / 1000 V  |  \u00b1(0.5% rdg + 3 digits) on 200 mV-200 V, \u00b1(0.8% rdg + 10 digits) on 1000 V"
       },
       {
         "label": "AC Voltage (True-RMS)",
-        "value": "2 V / 20 V / 200 V / 750 V  |  \u00b1(0.8% rdg + 5 digits) @ 40 Hz\u20131 kHz"
+        "value": "2 V / 20 V / 200 V / 750 V  |  \u00b1(0.8% rdg + 5 digits) on 2-200 V, \u00b1(1.2% rdg + 10 digits) on 750 V  |  40 Hz\u20131 kHz"
       },
       {
         "label": "DC Current",
-        "value": "200 \u00b5A / 2 mA / 20 mA / 200 mA / 20 A  |  \u00b1(0.8% rdg + 10 digits)"
+        "value": "200 \u00b5A / 2 mA / 20 mA / 200 mA / 20 A  |  \u00b1(0.8% rdg + 10 digits) on 200 \u00b5A-20 mA, \u00b1(1.2% rdg + 8 digits) on 200 mA, \u00b1(2.0% rdg + 5 digits) on 20 A"
       },
       {
         "label": "AC Current (True-RMS)",
-        "value": "20 mA / 200 mA / 20 A  |  \u00b1(1.0% rdg + 15 digits) @ 40 Hz\u2013400 Hz"
+        "value": "20 mA / 200 mA / 20 A  |  \u00b1(1.0% rdg + 15 digits) on 20 mA, \u00b1(2.0% rdg + 5 digits) on 200 mA, \u00b1(3.0% rdg + 10 digits) on 20 A  |  40 Hz\u2013400 Hz"
       },
       {
         "label": "Resistance",
-        "value": "200 \u03a9 / 2 K\u03a9 / 20 K\u03a9 / 200 K\u03a9 / 2 M\u03a9 / 20 M\u03a9  |  \u00b1(0.8% rdg + 3 digits)"
+        "value": "200 \u03a9 / 2 K\u03a9 / 20 K\u03a9 / 200 K\u03a9 / 2 M\u03a9 / 20 M\u03a9  |  \u00b1(0.8% rdg + 5 digits) on 200 \u03a9, \u00b1(0.8% rdg + 3 digits) on 2 K\u03a9-2 M\u03a9, \u00b1(1.0% rdg + 25 digits) on 20 M\u03a9"
       },
       {
         "label": "Capacitance (Auto Ranging)",
-        "value": "6 nF \u2013 20 mF  |  \u00b1(3.5% rdg + 20 digits)"
+        "value": "6 nF \u2013 20 mF  |  \u00b1(5.0% rdg + 40 digits) on 6 nF, \u00b1(3.5% rdg + 20 digits) on 60 nF-60 \u00b5F, \u00b1(5.0% rdg + 10 digits) on 600 \u00b5F-20 mF"
       },
       {
         "label": "Transistor Test",
-        "value": "hFE"
+        "value": "hFE, NPN and PNP, 0-1000 (base current approx. 10 \u00b5A, Vce approx. 1.5 V)"
       },
       {
         "label": "Additional Functions",
-        "value": "Continuity test, diode test, REL measurement, AC mains frequency test (750 V range), data hold, backlight, auto power-off, low battery indication"
+        "value": "Continuity buzzer (below approx. 50 \u00b1 20 \u03a9), diode test, REL measurement, AC mains frequency test (750 V range), non-contact voltage (NCV) detection for 48-220 V AC, torch, data hold, backlight, auto power-off, low battery indication"
       },
       {
         "label": "Power Supply",
-        "value": "2 \u00d7 AA battery"
+        "value": "2 \u00d7 1.5 V AA battery"
+      },
+      {
+        "label": "Fuses",
+        "value": "mA input: 200 mA / 250 V (\u00d85 \u00d7 20 mm); 20 A input: 20 A / 250 V (\u00d85 \u00d7 20 mm). 20 A for max 10 seconds, then 15 minutes rest"
+      },
+      {
+        "label": "Overload Protection",
+        "value": "1000 V DC/AC rms (voltage), 250 V DC/AC rms (resistance, capacitance, diode, continuity)"
+      },
+      {
+        "label": "Operating Temperature",
+        "value": "0 \u00b0C to 40 \u00b0C, below 75% RH"
       },
       {
         "label": "Dimensions (L\u00d7W\u00d7H)",
@@ -1986,7 +1998,7 @@
       },
       {
         "label": "Weight",
-        "value": "Approx. 360 g (incl. battery and holster)"
+        "value": "Approx. 335 g (incl. battery)"
       },
       {
         "label": "Warranty",
