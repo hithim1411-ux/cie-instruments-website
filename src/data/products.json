@@ -1824,11 +1824,11 @@
     "model": "DM 235",
     "name": "Digital Multimeter - 3\u00bd-digit",
     "tagline": "3\u00bd-digit manual-ranging DMM - DC/AC voltage, DC/AC current, resistance, capacitance, continuity, diode, hFE. 9 V battery.",
-    "description": "The DM 235 is a 3\u00bd-digit manual-ranging digital multimeter for general electrical and electronic measurement. It measures DC voltage up to 1000 V, AC voltage up to 750 V, DC and AC current up to 20 A, resistance up to 200 M\u03a9, and capacitance. Additional functions include continuity test, diode test, transistor (hFE) test, auto power-off, and low battery indication. Powered by a 9 V battery. Supplied with test leads, user manual, battery, and holster. Cambridge Instruments & Engg. Co., Howrah.",
+    "description": "The DM 235 is a 3\u00bd-digit manual-ranging digital multimeter for general electrical and electronic measurement. It measures DC voltage up to 1000 V, AC voltage up to 750 V, DC and AC current up to 20 A, resistance up to 200 M\u03a9, and capacitance. Additional functions include continuity test, diode test, transistor (hFE) test, auto power-off after about 15 minutes, and low battery indication. Basic DC voltage accuracy is \u00b1(0.5% of reading + 3 digits). Powered by a 9 V battery. Supplied with test leads, user manual, battery, and holster. Cambridge Instruments & Engg. Co., Howrah.",
     "specs": [
       {
         "label": "Display",
-        "value": "3\u00bd-digit"
+        "value": "3\u00bd-digit LCD, maximum reading 1999"
       },
       {
         "label": "Ranging",
@@ -1836,35 +1836,63 @@
       },
       {
         "label": "DC Voltage",
-        "value": "200 mV / 2 V / 20 V / 200 V / 1000 V"
+        "value": "200 mV / 2 V / 20 V / 200 V / 1000 V, \u00b1(0.5% rdg + 3 dgt) on 200 mV, \u00b1(0.8% + 5) on 2-200 V, \u00b1(1.0% + 5) on 1000 V"
       },
       {
         "label": "AC Voltage",
-        "value": "2 V / 20 V / 200 V / 750 V"
+        "value": "2 V / 20 V / 200 V / 750 V, \u00b1(1.0% rdg + 5 dgt) on 2-20 V, \u00b1(1.2% + 5) on 200-750 V, 40-400 Hz, average-responding (rms-calibrated for sine wave)"
       },
       {
         "label": "DC Current",
-        "value": "2 mA / 20 mA / 200 mA / 20 A"
+        "value": "2 mA / 20 mA / 200 mA / 20 A, \u00b1(1.8% rdg + 2 dgt) on 2 mA, \u00b1(2.0% + 2) on 20-200 mA, \u00b1(2.0% + 10) on 20 A"
       },
       {
         "label": "AC Current",
-        "value": "20 mA / 200 mA / 20 A"
+        "value": "20 mA / 200 mA / 20 A, \u00b1(2.0% rdg + 3 dgt) on 20 mA, \u00b1(2.0% + 5) on 200 mA, \u00b1(2.5% + 10) on 20 A, 40-400 Hz"
       },
       {
         "label": "Resistance",
-        "value": "200 \u03a9 / 2 K\u03a9 / 20 K\u03a9 / 200 K\u03a9 / 2 M\u03a9 / 20 M\u03a9 / 200 M\u03a9"
+        "value": "200 \u03a9 / 2 K\u03a9 / 20 K\u03a9 / 200 K\u03a9 / 2 M\u03a9 / 20 M\u03a9 / 200 M\u03a9, \u00b1(1.0% rdg + 10 dgt) on 200 \u03a9, \u00b1(1.0% + 4) on 2 K\u03a9-2 M\u03a9, \u00b1(1.0% + 10) on 20 M\u03a9"
       },
       {
         "label": "Capacitance",
-        "value": "2000 pF / 20 nF / 200 nF / 2 \u00b5F / 20 \u00b5F"
+        "value": "2000 pF / 20 nF / 200 nF / 2 \u00b5F / 20 \u00b5F, \u00b1(4% rdg + 5 dgt), via Cx socket"
+      },
+      {
+        "label": "Transistor (hFE) Test",
+        "value": "PNP and NPN, 0-1000, base current approx. 10 \u00b5A, Vce approx. 2.8 V"
+      },
+      {
+        "label": "Continuity and Diode",
+        "value": "Buzzer sounds below approx. 30 \u00b1 20 \u03a9; diode test open-circuit voltage approx. 2.8 V"
+      },
+      {
+        "label": "Input Impedance",
+        "value": "10 M\u03a9 (voltage ranges)"
+      },
+      {
+        "label": "Overload Protection",
+        "value": "1000 V DC / 750 V AC rms (voltage), 250 V DC/AC rms (resistance, diode, continuity)"
+      },
+      {
+        "label": "Current Protection",
+        "value": "mA input: F0.5 A / 250 V fast fuse (\u00d85 \u00d7 20 mm); 20 A input: unfused"
       },
       {
         "label": "Additional Functions",
-        "value": "Continuity test, diode test, transistor (hFE) test, auto power-off, low battery indication"
+        "value": "Continuity test, diode test, transistor (hFE) test, auto power-off after approx. 15 minutes, low battery indication"
       },
       {
         "label": "Power Supply",
-        "value": "9 V battery"
+        "value": "9 V battery (6F22 / NEDA 1604 or equivalent)"
+      },
+      {
+        "label": "Operating Temperature",
+        "value": "0 \u00b0C to 40 \u00b0C, below 80% RH (indoor use)"
+      },
+      {
+        "label": "Storage Temperature",
+        "value": "-10 \u00b0C to 50 \u00b0C, below 85% RH"
       },
       {
         "label": "Dimensions (L\u00d7W\u00d7H)",
@@ -1872,7 +1900,7 @@
       },
       {
         "label": "Weight",
-        "value": "Approx. 210 g (incl. battery)"
+        "value": "Approx. 211 g"
       },
       {
         "label": "Warranty",
