@@ -6,6 +6,7 @@ import CTABand from '../components/CTABand.astro';
 import ProductCard from '../components/ProductCard.astro';
 import Badge from '../components/Badge.astro';
 import ArrowLink from '../components/ArrowLink.astro';
+import ISOBadge from '../components/ISOBadge.astro';
 import Icon from '../components/Icon.astro';
 import CompareAddButton from '../components/CompareAddButton.astro';
 import { categoryIcon } from '../utils/categoryIcons';
@@ -499,10 +500,11 @@ const industries: { name: string; desc: string; icon: IconName }[] = [
           </div>
         ))}
       </div>
-      <div class="mt-12 lg:mt-16 flex items-center rounded-2xl border border-ink/10 bg-cloud px-6 py-5">
+      <div class="mt-12 lg:mt-16 flex flex-col sm:flex-row items-center gap-5 sm:gap-8 rounded-2xl border border-ink/10 bg-cloud px-6 py-5">
+        <ISOBadge class="shrink-0" />
         <p class="text-sm text-muted leading-relaxed">
           <strong class="text-ink">ISO 9001:2015 certified.</strong> Our quality management system is independently certified for the manufacture and supply of electrical and electronic test and measuring instruments.
-          <a href={u('/about/#iso-certificate')} class="text-red hover:text-red-dark font-medium whitespace-nowrap">View certificate →</a>
+          <a href={`${u('/about/')}#iso-certificate`} class="text-red hover:text-red-dark font-medium whitespace-nowrap">View certificate →</a>
         </p>
       </div>
     </div>
