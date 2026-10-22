@@ -91,7 +91,7 @@
     function set(raw, fn) { m.raw = raw; m.fmt = fn; var d = fn(raw); m.main = d.main; m.dp = d.dp; m.unit = d.unit; }
     if (f === 'ncv') {
       var live = S.ncvSrc === 'live', L = live ? Math.max(0, Math.min(4, Math.ceil(4 * (1 - S.ncvDist / 14)))) : 0;
-      if (S.ncvDist > 14) L = 0; ncvLevel = L; m.main = 'EF  '; m.bars = L; m.beep = false; m.spec = 'Non-contact voltage detection: the display, buzzer and LED respond to the electric field around a live conductor.'; return m;
+      if (S.ncvDist > 14) L = 0; ncvLevel = L; m.main = is5410 ? '----' : 'EF  '; m.bars = L; m.beep = false; m.spec = 'Non-contact voltage detection: the display, buzzer and LED respond to the electric field around a live conductor.'; return m;
     }
     if (f === 'a') {
       m.a[is5410 ? S.acdc : 'ac'] = true;
