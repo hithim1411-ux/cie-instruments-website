@@ -112,7 +112,7 @@
       if (fn === 'R') { v = open ? Infinity : S.rOhm; set(v, fmtRes); m.spec = 'Resistance 600 Ω to 60 MΩ.'; }
       else if (fn === 'cont') { m.a.cont = true; v = open ? Infinity : CONTS[S.contObj][1]; set(v, fmtCont); m.beep = isFinite(v) && v <= 50; m.spec = 'Continuity: the buzzer sounds at low resistance (50 Ω or less).'; }
       else if (fn === 'diode') { m.a.diode = true; v = open ? Infinity : DIODES[S.dioObj][1]; set(v, fmtDio); m.spec = 'Diode test.'; }
-      else { v = open ? 0 : S.cap; set(v, fmtCap); m.spec = 'Capacitance 1 nF to 10 mF.'; }
+      else { v = open ? 0 : S.cap; set(v, fmtCap); m.spec = 'Capacitance ranges: 1 nF, 10 nF, 100 nF, 1 µF, 10 µF, 100 µF, 1 mF and 10 mF.'; }
     } else if (f === 'hz') {
       if (S.hzFn === 'Hz') { v = lead() ? S.freq : 0; set(v, fmtHz); m.spec = 'Frequency 10 Hz to 10 MHz.'; }
       else { v = lead() ? S.duty : 0; set(v, fmtDuty); m.spec = 'Duty cycle, per cent.'; }

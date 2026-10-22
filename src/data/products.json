@@ -1708,7 +1708,7 @@
       },
       {
         "label": "Capacitance",
-        "value": "1 nF to 10 mF (8 ranges)"
+        "value": "1 nF / 10 nF / 100 nF / 1 \u00b5F / 10 \u00b5F / 100 \u00b5F / 1 mF / 10 mF"
       },
       {
         "label": "Frequency",
@@ -1736,7 +1736,7 @@
       },
       {
         "label": "Voltage Accuracy",
-        "value": "DC: \u00b1(0.5% + 7) on 600 mV, 6 V and 60 V; \u00b1(1.0% + 10) on 600 V and 1000 V. AC: \u00b1(1.0% + 10) on 6 V and 60 V; \u00b1(1.0% + 12) on 600 V and 750 V"
+        "value": "DC: 600 mV / 6 V / 60 V \u00b1(0.5% + 7); 600 V / 1000 V \u00b1(1.0% + 10). AC: 6 V / 60 V \u00b1(1.0% + 10); 600 V / 750 V \u00b1(1.0% + 12)"
       },
       {
         "label": "Low-Pass Filter ACV (V.F.C)",
@@ -1744,7 +1744,7 @@
       },
       {
         "label": "Resistance Accuracy",
-        "value": "\u00b1(1.0% + 5) up to 6 M\u03a9; \u00b1(1.5% + 15) on 20 M\u03a9; \u00b1(2.5% + 20) on 60 M\u03a9"
+        "value": "600 \u03a9 / 6 K\u03a9 / 60 K\u03a9 / 600 K\u03a9 / 6 M\u03a9: \u00b1(1.0% + 5); 20 M\u03a9: \u00b1(1.5% + 15); 60 M\u03a9: \u00b1(2.5% + 20)"
       },
       {
         "label": "Diode / Continuity",
@@ -1752,7 +1752,7 @@
       },
       {
         "label": "Capacitance Accuracy",
-        "value": "\u00b1(5.0% + 40) on 1 nF; \u00b1(5.0% + 10) on all other ranges"
+        "value": "1 nF: \u00b1(5.0% + 40); 10 nF / 100 nF / 1 \u00b5F / 10 \u00b5F / 100 \u00b5F / 1 mF / 10 mF: \u00b1(5.0% + 10)"
       },
       {
         "label": "Frequency Accuracy / Duty Cycle",
